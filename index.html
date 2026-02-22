@@ -2,1525 +2,758 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>VitaCoreX LLC — Executive Consulting & Document Support</title>
-  <meta name="description" content="VitaCoreX LLC — executive consulting & structured document support. Scope-first, prepaid engagement, Stripe invoices after confirmation." />
 
-  <!-- Optional: premium-ish font (safe fallback included). If you don't want external fonts, delete these 2 lines -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- iPhone/Safari / PWA-ish -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0c10" />
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>VitaCoreX LLC — Executive Consulting & Document Support</title>
+  <meta name="description" content="VitaCoreX LLC — executive consulting & structured document support. Contracts, business setup, business plans, and civil-court document preparation." />
+
+  <!-- Optional icons (safe if missing) -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Optional: if you later add these files, the page will use them automatically -->
+  <link rel="manifest" href="/manifest.json" />
 
   <style>
     :root{
-      --bg:#ffffff;
-      --ink:#111114;
-      --muted:#5b5e66;
-
+      --bg:#0b0c10;
+      --panel:rgba(255,255,255,.07);
+      --panel2:rgba(255,255,255,.10);
+      --text:#f7f8fb;
+      --muted:rgba(247,248,251,.72);
+      --line:rgba(255,255,255,.12);
       --gold:#c7a24a;
-      --gold2:#e3cf8c;
-      --goldSoft: rgba(199,162,74,.12);
-      --goldSoft2: rgba(227,207,140,.16);
-
-      --border: rgba(199,162,74,.34);
-      --border2: rgba(17,17,20,.10);
-
-      --shadow: 0 18px 50px rgba(17,17,20,.10);
-      --shadow2: 0 10px 30px rgba(17,17,20,.08);
-
-      --radius: 18px;
-      --radius2: 14px;
-
-      --max: 1120px;
+      --gold2:rgba(199,162,74,.22);
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:14px;
+      --max:1120px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--ink);
+      color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 10%, var(--goldSoft2), transparent 55%),
-        radial-gradient(900px 500px at 85% 20%, var(--goldSoft), transparent 55%),
-        radial-gradient(900px 500px at 40% 95%, rgba(199,162,74,.08), transparent 55%),
+        radial-gradient(900px 520px at 15% 12%, rgba(199,162,74,.16), transparent 60%),
+        radial-gradient(900px 520px at 85% 18%, rgba(78,161,255,.12), transparent 55%),
+        radial-gradient(1200px 700px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
         var(--bg);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.35;
-      overflow-x:hidden;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+      padding-bottom: env(safe-area-inset-bottom);
     }
 
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .topbar{
-      position:sticky; top:0; z-index:40;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.78);
-      border-bottom: 1px solid rgba(199,162,74,.22);
+    a{color:inherit}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: calc(22px + env(safe-area-inset-top)) 18px 26px;
     }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0;
-      gap:14px;
+
+    /* Top bar */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
     }
 
     .brand{
-      display:flex; align-items:center; gap:12px; min-width: 240px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
     }
-    .brand small{
-      display:block;
-      color:var(--muted);
-      font-size:12px;
-      margin-top:2px;
-    }
-
-    /* Gold logo (SVG) */
     .logo{
-      width:44px; height:44px; flex:0 0 auto;
-      display:grid; place-items:center;
-      border-radius: 12px;
-      background: #fff;
-      border: 1px solid rgba(17,17,20,.10);
-      box-shadow: 0 6px 18px rgba(17,17,20,.06);
+      width:38px;height:38px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.20));
+      box-shadow: 0 10px 28px rgba(199,162,74,.18);
+      border:1px solid rgba(255,255,255,.18);
+      flex:0 0 auto;
     }
-    .logo svg{display:block}
-
-    .nav{
-      display:flex; align-items:center; gap:16px;
-      flex: 1 1 auto;
-      justify-content:center;
-    }
-    .nav a{
-      font-size:13px;
-      color: rgba(17,17,20,.82);
-      padding:8px 10px;
-      border-radius: 10px;
-    }
-    .nav a:hover{
-      background: rgba(199,162,74,.10);
-      outline:1px solid rgba(199,162,74,.18);
-    }
-
-    .actions{
-      display:flex; align-items:center; gap:10px;
-      min-width: 240px;
-      justify-content:flex-end;
-    }    .btn{
-      border:1px solid rgba(199,162,74,.55);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.76));
-      color: rgba(17,17,20,.92);
-      padding:10px 12px;
-      border-radius: 999px;
-      font-weight:600;
-      font-size:13px;
-      display:inline-flex; align-items:center; gap:8px;
-      box-shadow: 0 10px 30px rgba(17,17,20,.08);
-      cursor:pointer;
-      transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
-      user-select:none;
+    .brand h1{
+      font-size:14px;
+      margin:0;
+      letter-spacing:.3px;
       white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2)}
-    .btn:active{transform: translateY(0px); box-shadow: 0 6px 16px rgba(17,17,20,.10)}
-
-    .btn-primary{
-      border:1px solid rgba(17,17,20,.18);
-      background: linear-gradient(180deg, rgba(227,207,140,.92), rgba(199,162,74,.92));
-      color:#111114;
-    }
-    .btn-ghost{
-      background: transparent;
-      border: 1px solid rgba(17,17,20,.12);
-      box-shadow:none;
-    }
-
-    .lang{
-      display:flex; align-items:center; gap:6px;
-      padding:6px;
-      border-radius: 999px;
-      border: 1px solid rgba(199,162,74,.30);
-      background: rgba(255,255,255,.70);
-    }
-    .lang button{
-      border:0;
-      background: transparent;
-      padding:8px 10px;
-      border-radius: 999px;
-      font-weight:700;
+    .brand p{
+      margin:0;
       font-size:12px;
-      cursor:pointer;
-      color: rgba(17,17,20,.75);
-    }
-    .lang button.active{
-      background: rgba(199,162,74,.18);
-      outline: 1px solid rgba(199,162,74,.22);
-      color: rgba(17,17,20,.92);
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    header.hero{
-      padding:34px 0 12px;
+    /* Premium language toggle */
+    .lang{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex:0 0 auto;
+      user-select:none;
     }
-    .hero-grid{
+    .toggle{
+      position:relative;
+      width:92px;
+      height:38px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 24px rgba(0,0,0,.20);
+      padding:4px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+      transition: transform .15s ease;
+    }
+    .toggle:active{transform:scale(.99)}
+    .pill{
+      position:absolute;
+      top:4px;
+      left:4px;
+      width:44px;
+      height:30px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.20));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 28px rgba(199,162,74,.14);
+      transition: transform .22s ease;
+    }
+    .toggle[data-lang="en"] .pill{transform: translateX(40px)}
+    .lang-label{
+      font-size:12px;
+      letter-spacing:.2px;
+      width:44px;
+      text-align:center;
+      color: rgba(247,248,251,.82);
+      position:relative;
+      z-index:1;
+      font-weight:650;
+    }
+    .toggle[data-lang="ru"] .lang-label.ru,
+    .toggle[data-lang="en"] .lang-label.en{color:#0b0c10}
+
+    /* Layout */
+    .hero{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
       align-items:stretch;
     }
 
     .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.14);
       border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.86);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow:hidden;
     }
-    .card-inner{padding:22px}
+    .card-inner{padding:20px}
 
-    .chip{
+    .badge{
       display:inline-flex;
       align-items:center;
       gap:10px;
       padding:8px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(199,162,74,.35);
-      background: rgba(255,255,255,.72);
-      color: rgba(17,17,20,.82);
+      border-radius:999px;
+      border:1px solid rgba(199,162,74,.32);
+      background: rgba(199,162,74,.10);
+      color: rgba(247,248,251,.94);
       font-size:12px;
-      font-weight:600;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:99px;
-      background: linear-gradient(180deg, var(--gold2), var(--gold));
-      border:1px solid rgba(17,17,20,.35);
+      letter-spacing:.25px;
+      font-weight:700;
     }
 
-    h1{
+    .title{
+      font-size:40px;
+      line-height:1.05;
       margin:14px 0 10px;
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      letter-spacing: -.3px;
-      font-size: 44px;
-      line-height: 1.03;
+      letter-spacing:-.4px;
     }
-    .lead{
+    .sub{
+      font-size:16px;
+      line-height:1.55;
       margin:0 0 14px;
-      color: rgba(17,17,20,.78);
-      font-size: 14.5px;
-      max-width: 70ch;
-    }
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .subnote{
-      margin-top:10px;
-      color: rgba(17,17,20,.62);
-      font-size: 12px;
+      color: rgba(247,248,251,.78);
     }
 
-    .logo-panel{
+    .cta{
       display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height: 280px;
-      position:relative;
-      overflow:hidden;
-    }
-    .logo-panel::before{
-      content:"";
-      position:absolute; inset:-60px;
-      background:
-        radial-gradient(260px 220px at 30% 30%, rgba(227,207,140,.40), transparent 60%),
-        radial-gradient(260px 220px at 70% 65%, rgba(199,162,74,.26), transparent 62%);
-      opacity:.75;
-      transform: rotate(8deg);
-    }
-    .logo-mark{
-      position:relative;
-      width: 240px;
-      height: 240px;
-      border-radius: 28px;
-      border:1px solid rgba(199,162,74,.45);
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 24px 60px rgba(17,17,20,.12);
-      display:grid;
-      place-items:center;
-    }    section{padding:18px 0}
-    .section-title{
-      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-      margin: 10px 0 12px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: 16px;
-      letter-spacing: .2px;
-    }
-    .section-title p{
-      margin:0;
-      color: var(--muted);
-      font-size: 12.5px;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
     }
 
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    .mini{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(199,162,74,.30);
-      background: rgba(255,255,255,.88);
-      padding:14px;
-      box-shadow: 0 12px 36px rgba(17,17,20,.06);
-      min-height: 108px;
-    }
-    .mini h3{
-      margin:0 0 6px;
-      font-size: 13px;
-    }
-    .mini p{
-      margin:0;
-      color: rgba(17,17,20,.68);
-      font-size: 12.5px;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:12px;
-    }
-    .step{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(17,17,20,.10);
-      background: rgba(255,255,255,.86);
-      padding:14px;
-    }
-    .step b{
+    .btn{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      margin-bottom:6px;
-    }
-    .step b span{
-      display:inline-grid;
-      place-items:center;
-      width:22px; height:22px;
-      border-radius: 7px;
-      border:1px solid rgba(17,17,20,.18);
-      background: linear-gradient(180deg, rgba(227,207,140,.85), rgba(199,162,74,.85));
-      font-size:12px;
-    }
-    .step p{margin:0; color: rgba(17,17,20,.70); font-size: 12.5px}
-
-    .policy{
-      border-radius: var(--radius);
-      border: 1px solid rgba(199,162,74,.32);
-      background: rgba(255,255,255,.90);
-      padding:16px;
-      box-shadow: 0 18px 46px rgba(17,17,20,.06);
-    }
-    .policy ul{margin:10px 0 0; padding-left:18px}
-    .policy li{margin:6px 0; color: rgba(17,17,20,.76); font-size: 12.5px}
-
-    footer{
-      padding: 26px 0 42px;
-      color: rgba(17,17,20,.60);
-      font-size: 12px;
-    }
-    .footgrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 12px;
-      align-items:start;
-    }
-    .contactbox{
-      border-radius: var(--radius);
-      border: 1px solid rgba(199,162,74,.30);
-      background: rgba(255,255,255,.88);
-      padding:16px;
-      box-shadow: 0 16px 40px rgba(17,17,20,.06);
-    }
-    .contactbox .row{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
-    }
-    .kvs{
-      margin-top:10px;
-      display:grid;
-      gap:6px;
-      font-size: 12.5px;
-    }
-    .kvs div{color: rgba(17,17,20,.78)}
-    .kvs b{color: rgba(17,17,20,.92)}
-
-    /* Modal */
-    .modal-backdrop{
-      position:fixed; inset:0; z-index:80;
-      background: rgba(17,17,20,.44);
-      display:none;
-      align-items:center;
       justify-content:center;
-      padding: 16px;
-    }
-    .modal{
-      width:min(780px, 100%);
-      border-radius: 18px;
-      border: 1px solid rgba(199,162,74,.45);
-      background: rgba(255,255,255,.95);
-      box-shadow: 0 30px 90px rgba(0,0,0,.22);
-      overflow:hidden;
-    }
-    .modal-head{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(17,17,20,.10);
-      background: linear-gradient(180deg, rgba(227,207,140,.22), rgba(255,255,255,.92));
-    }
-    .modal-head h3{margin:0; font-size: 13px}
-    .xbtn{
-      width:36px; height:36px; border-radius: 999px;
-      border: 1px solid rgba(17,17,20,.14);
-      background: rgba(255,255,255,.92);
-      cursor:pointer;
-      display:grid; place-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      text-decoration:none;
       font-weight:800;
+      letter-spacing:.2px;
+      transition: transform .12s ease, background .18s ease, border-color .18s ease;
+      min-height:44px;
     }
-    .modal-body{padding: 14px 16px}
+    .btn:hover{background: rgba(255,255,255,.10)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.18));
+      border-color: rgba(255,255,255,.18);
+      color:#0b0c10;
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.18);
+    }
 
-    form .fgrid{
+    .kpis{
       display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-top:14px;
     }
-    form .fgrid2{
+    .kpi{
+      background: rgba(0,0,0,.16);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius2);
+      padding:12px;
+    }
+    .kpi b{display:block;font-size:14px;margin-bottom:2px}
+    .kpi span{display:block;font-size:12px;color: rgba(247,248,251,.72);line-height:1.35}
+
+    .h3{margin:0 0 10px;font-size:16px;letter-spacing:.2px}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      color: rgba(247,248,251,.86);
+      line-height:1.45;
+      font-size:14px;
+    }
+    .list li:last-child{border-bottom:0}
+    .list b{color: rgba(247,248,251,.98)}
+    .mini{
+      margin-top:10px;
+      font-size:12px;
+      line-height:1.45;
+      color: rgba(247,248,251,.68);
+    }
+
+    /* Inquiry (autosave) */
+    .inquiry{
+      margin-top:16px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
       gap:10px;
     }
-    label{
-      display:block;
-      font-size: 12px;
-      color: rgba(17,17,20,.78);
-      margin: 0 0 6px;
-      font-weight: 600;
-    }
-    input, select, textarea{
+    .field{
       width:100%;
-      padding: 10px 11px;
-      border-radius: 12px;
-      border: 1px solid rgba(17,17,20,.14);
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
       outline:none;
-      background: rgba(255,255,255,.96);
-      font: inherit;
-      font-size: 13px;
+      font-size:14px;
+      min-height:44px;
     }
-    textarea{min-height: 110px; resize: vertical}
-    .form-actions{
-      display:flex; justify-content:flex-end; gap:10px; margin-top:12px; flex-wrap:wrap;
+    textarea.field{min-height:110px;resize:vertical}
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
     }
-    .fineprint{
-      margin-top:10px;
-      color: rgba(17,17,20,.62);
-      font-size: 12px;
+    .row .btn{flex:1}
+    .hint{
+      font-size:12px;
+      color: rgba(247,248,251,.64);
+      line-height:1.35;
+      margin:0;
     }
 
-    /* Responsive */
-    @media (max-width: 940px){
-      .hero-grid{grid-template-columns: 1fr}
-      .actions{min-width:auto}
-      .brand{min-width:auto}
-      .grid3{grid-template-columns: 1fr}
-      .steps{grid-template-columns: 1fr}
-      form .fgrid{grid-template-columns: 1fr}
-      .footgrid{grid-template-columns: 1fr}
-      h1{font-size: 38px}
-      .nav{display:none} /* keep buttons & language on top for mobile */
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      background: rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.14);
+      color: rgba(247,248,251,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:12px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease;
+      max-width:min(560px, calc(100% - 24px));
+      z-index:9999;
+    }
+    .toast.show{opacity:1}
+
+    footer{
+      margin-top:16px;
+      color: rgba(247,248,251,.55);
+      font-size:12px;
+      line-height:1.45;
+      text-align:center;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .title{font-size:34px}
+      .kpis{grid-template-columns:1fr}
     }
   </style>
-</head><body>
-  <div class="topbar">
-    <div class="wrap">
-      <div class="topbar-inner">
+</head>
 
-        <div class="brand" aria-label="VitaCoreX LLC">
-          <div class="logo" aria-hidden="true">
-            <!-- GOLD with BLACK outline on WHITE, looks like transparent background -->
-            <svg width="28" height="28" viewBox="0 0 64 64" role="img" aria-label="VitaCoreX logo">
-              <defs>
-                <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#e3cf8c"/>
-                  <stop offset="1" stop-color="#c7a24a"/>
-                </linearGradient>
-              </defs>
-              <rect x="8" y="8" width="48" height="48" rx="14" fill="white" />
-              <path d="M18 40 L32 16 L46 40 L38 40 L32 29 L26 40 Z"
-                    fill="url(#g)" stroke="#0b0b0d" stroke-width="2.4" stroke-linejoin="round"/>
-              <path d="M22 46 C28 50, 36 50, 42 46"
-                    fill="none" stroke="#0b0b0d" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <div style="font-weight:800; letter-spacing:.2px">VitaCoreX LLC</div>
-            <small data-i18n="tagline">Executive Consulting & Document Support</small>
-          </div>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand" aria-label="VitaCoreX header">
+        <div class="logo" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <h1>VitaCoreX LLC</h1>
+          <p id="tagline">Executive Consulting • Document Support</p>
         </div>
-
-        <nav class="nav" aria-label="Primary">
-          <a href="#services" data-i18n="nav_services">Services</a>
-          <a href="#process" data-i18n="nav_process">Process</a>
-          <a href="#policy" data-i18n="nav_policy">Policy</a>
-          <a href="#about" data-i18n="nav_about">About</a>
-          <a href="#contact" data-i18n="nav_contact">Contact</a>
-        </nav>
-
-        <div class="actions">
-          <div class="lang" aria-label="Language">
-            <button type="button" class="active" data-lang="en">EN</button>
-            <button type="button" data-lang="ru">RU</button>
-            <button type="button" data-lang="es">ES</button>
-          </div>
-          <button class="btn btn-primary" type="button" id="openConsultTop" data-i18n="btn_request_consult">
-            Request Consultation
-          </button>
-        </div>
-
       </div>
-    </div>
-  </div>
 
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
+      <div class="lang" aria-label="Language toggle">
+        <div id="langToggle" class="toggle" data-lang="en" role="switch" aria-checked="false" tabindex="0" title="Switch language">
+          <div class="pill" aria-hidden="true"></div>
+          <div class="lang-label ru">RU</div>
+          <div class="lang-label en">EN</div>
+        </div>
+      </div>
+    </header>
 
-        <div class="card">
-          <div class="card-inner">
-            <div class="chip">
-              <span class="dot"></span>
-              <span data-i18n="chip_scope">Scope first • Prepaid engagement • Stripe invoices</span>
+    <main class="hero">
+      <!-- Left / Hero -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="badge" id="badge">Scope-first • prepaid • structured deliverables</div>
+
+          <h2 class="title" id="headline">
+            Contracts, business setup, and court-ready documents — premium structure, fast delivery.
+          </h2>
+
+          <p class="sub" id="subline">
+            We define scope, confirm deliverables, then execute. Clean formatting, clear communication, and deadlines you can rely on.
+          </p>
+
+          <div class="cta" aria-label="Primary actions">
+            <a class="btn primary" id="btnCall" href="tel:+18139194242">Call: 813-919-4242</a>
+            <a class="btn" id="btnSms" href="sms:+18139194242">Text / SMS</a>
+            <a class="btn ghost" id="btnEmail" href="mailto:vitacorexllc@gmail.com">Email</a>
+            <a class="btn ghost" id="btnSite" href="https://vitacorexllc.netlify.app/" target="_blank" rel="noopener">Open Website</a>
+          </div>
+
+          <div class="kpis" aria-label="Key service notes">
+            <div class="kpi">
+              <b id="kpi1t">3–5 business days</b>
+              <span id="kpi1s">standard turnaround after full payment + complete info</span>
             </div>
-
-            <h1 data-i18n="hero_h1">Structured consulting — delivered<br/>like a firm, not a freelancing page.</h1>
-
-            <p class="lead" data-i18n="hero_lead">
-              Consultation request → scope review → quote/invoice → prepaid engagement → delivery.
-              Clean communication, documented decisions, predictable output.
-            </p>
-
-            <div class="cta-row">
-              <button class="btn btn-primary" type="button" id="openConsultHero" data-i18n="btn_request_consult">
-                Request Consultation
-              </button>
-              <button class="btn" type="button" id="openProjectHero" data-i18n="btn_submit_details">
-                Submit Project Details
-              </button>
-              <button class="btn btn-ghost" type="button" id="contactDirectorHero" data-i18n="btn_contact_director">
-                Contact Director
-              </button>
+            <div class="kpi">
+              <b id="kpi2t">Expedite available</b>
+              <span id="kpi2s">48h / 24h / same-day (surcharge applies)</span>
             </div>
-
-            <div class="subnote" data-i18n="hero_note">
-              Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.
+            <div class="kpi">
+              <b id="kpi3t">Clean deliverables</b>
+              <span id="kpi3s">PDF/DOCX, structured, ready to file or send</span>
             </div>
           </div>
+
+          <p class="mini" id="disclaimer">
+            ⚖️ Not a law firm. No legal representation in court. Document preparation and consulting support only.
+          </p>
         </div>
+      </section>
 
-        <div class="card logo-panel" aria-label="Brand panel">
-          <div class="logo-mark" aria-hidden="true">
-            <svg width="190" height="190" viewBox="0 0 520 520" role="img" aria-label="VitaCoreX Logo Large">
-              <defs>
-                <linearGradient id="goldGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#e3cf8c"/>
-                  <stop offset="1" stop-color="#c7a24a"/>
-                </linearGradient>
-                <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity=".12"/>
-                </filter>
-              </defs>
-
-              <rect x="60" y="60" width="400" height="400" rx="56" fill="#ffffff" stroke="rgba(17,17,20,.14)" stroke-width="6" filter="url(#softShadow)"/>
-              <path d="M150 350 L260 140 L370 350 L320 350 L260 258 L200 350 Z"
-                    fill="url(#goldGrad)" stroke="#0b0b0d" stroke-width="16" stroke-linejoin="round"/>
-              <path d="M185 385 C220 415, 300 415, 335 385"
-                    fill="none" stroke="#0b0b0d" stroke-width="14" stroke-linecap="round"/>
-              <text x="260" y="455" text-anchor="middle"
-                    font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto"
-                    font-size="34" font-weight="800" fill="#111114">VitaCoreX</text>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </header>  <main>
-    <section id="services">
-      <div class="wrap">
-        <div class="section-title">
-          <h2 data-i18n="services_title">Services</h2>
-          <p data-i18n="services_sub">Wide coverage. Scope is confirmed in writing prior to invoicing.</p>
-        </div>
-
-        <div class="grid3">
-          <div class="mini">
-            <h3 data-i18n="svc1_h">Business setup & compliance</h3>
-            <p data-i18n="svc1_p">Company formation support, registrations, structured setup, documentation packaging.</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc2_h">Contracts</h3>
-            <p data-i18n="svc2_p">Drafting, review, negotiation support, risk notes, clean deliverables.</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc3_h">Business plans</h3>
-            <p data-i18n="svc3_p">Plan structure, pricing logic, ROI calculations, executive-style documentation.</p>
-          </div>
-
-          <div class="mini">
-            <h3 data-i18n="svc4_h">Civil court documents support</h3>
-            <p data-i18n="svc4_p">Preparation support for civil filings (no representation; no court appearance).</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc5_h">Forms & document preparation</h3>
-            <p data-i18n="svc5_p">Structured forms, applications, checklists, administrative documentation.</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc6_h">Translations RU/EN + support</h3>
-            <p data-i18n="svc6_p">Accurate bilingual translations for business and formal documents.</p>
-          </div>
-
-          <div class="mini">
-            <h3 data-i18n="svc7_h">Dealer vehicle purchase support</h3>
-            <p data-i18n="svc7_p">Deal review, negotiation support, contract checks, avoiding hidden terms.</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc8_h">Lease / landlord paperwork support</h3>
-            <p data-i18n="svc8_p">Lease review support, terms analysis, structured communications.</p>
-          </div>
-          <div class="mini">
-            <h3 data-i18n="svc9_h">Other projects</h3>
-            <p data-i18n="svc9_p">If it’s documents + structure + clarity — it’s within scope (case-by-case).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="wrap">
-        <div class="section-title">
-          <h2 data-i18n="process_title">Engagement process (clean & safe)</h2>
-          <p data-i18n="process_sub">Exactly how a consulting firm operates — filter → quote → prepaid engagement → delivery.</p>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <b><span>1</span> <span data-i18n="step1_h">Consultation Request</span></b>
-            <p data-i18n="step1_p">Client submits request form with service type, short description, and budget range. This filters out non-serious inquiries.</p>
-          </div>
-          <div class="step">
-            <b><span>2</span> <span data-i18n="step2_h">Quote issued</span></b>
-            <p data-i18n="step2_p">After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount.</p>
-          </div>
-          <div class="step">
-            <b><span>3</span> <span data-i18n="step3_h">Prepayment required</span></b>
-            <p data-i18n="step3_p">Services are provided on a prepaid basis. Work begins only after confirmed payment.</p>
-          </div>
-        </div>
-      </div>
-    </section>    <section id="policy">
-      <div class="wrap">
-        <div class="section-title">
-          <h2 data-i18n="policy_title">Payment & engagement policy</h2>
-          <p data-i18n="policy_sub">Short, strict, and compliance-safe wording (no “law firm” positioning).</p>
-        </div>
-
-        <div class="policy">
-          <div style="font-weight:800; margin-bottom:6px" data-i18n="policy_public">Policy (public)</div>
-          <div style="color:rgba(17,17,20,.78); font-size:12.5px" data-i18n="policy_text">
-            VitaCoreX LLC provides consulting, administrative support, and document preparation assistance for individuals and small businesses.
-            Scope, timeline, and price are confirmed in writing prior to invoicing. Payments are collected via Stripe invoice after scope confirmation.
-          </div>
-
-          <ul>
-            <li data-i18n="policy_li1">All services are provided on a prepaid basis. Work begins only after confirmed payment.</li>
-            <li data-i18n="policy_li2">VitaCoreX LLC is not a law firm and does not provide legal representation. For legal advice, consult a licensed attorney.</li>
-            <li data-i18n="policy_li3">Zelle/Bank transfer may be available upon request and confirmation (case-by-case).</li>
+      <!-- Right / Services + Autosave Inquiry -->
+      <aside class="card">
+        <div class="card-inner">
+          <h3 class="h3" id="servicesTitle">Services</h3>
+          <ul class="list" id="servicesList">
+            <li><b>Business setup</b> — company opening, tax/registration guidance, compliance checklists</li>
+            <li><b>Contracts</b> — drafting, review, risk notes, negotiation-ready edits</li>
+            <li><b>Business plans</b> — investor-ready structure, ROI logic, assumptions disclosed</li>
+            <li><b>Civil court documents</b> — complaints, motions, exhibits organization, hearing packets</li>
+            <li><b>Forms & filings</b> — structured completion for common processes (non-legal)</li>
+            <li><b>Auto deal support</b> — dealer paperwork review, deal-risk review, negotiation assistance</li>
+            <li><b>Translations</b> — RU/EN business and formal documents (clear, consistent terms)</li>
           </ul>
-        </div>
-      </div>
-    </section>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="section-title">
-          <h2 data-i18n="about_title">About</h2>
-          <p data-i18n="about_sub">Premium profile text with consistent tone.</p>
-        </div>
+          <div style="height:14px"></div>
 
-        <div class="grid3">
-          <div class="mini">
-            <h3 data-i18n="about1_h">Profile — VitaCoreX Consulting</h3>
-            <p data-i18n="about1_p">
-              Focus: business setup, contracts, structured document work, and negotiation support.
-              Approach: scope confirmed in writing, predictable deliverables, professional communication.
+          <h3 class="h3" id="pricingTitle">Pricing model</h3>
+          <ul class="list" id="pricingList">
+            <li><b>Fixed fee</b> per document / package</li>
+            <li><b>Hourly</b> for analysis & negotiation support</li>
+            <li><b>% of net sales</b> (optional) for complex launches (bars/restaurants/operations)</li>
+          </ul>
+          <p class="mini" id="pricingNote">Final quote depends on scope, urgency, and volume. Prepaid for expedited work.</p>
+
+          <div style="height:14px"></div>
+
+          <h3 class="h3" id="inquiryTitle">Quick inquiry (autosaves)</h3>
+
+          <form class="inquiry" id="inquiryForm" autocomplete="on">
+            <input class="field" id="qName" name="name" placeholder="Your name" inputmode="text" />
+            <input class="field" id="qContact" name="contact" placeholder="Phone or Email" inputmode="email" />
+            <textarea class="field" id="qMsg" name="message" placeholder="What do you need? (the text is autosaved)"></textarea>
+
+            <p class="hint" id="autosaveHint">
+              Autosave is ON. If the page/app closes or crashes, your text will restore automatically.
             </p>
-          </div>
-
-          <div class="mini">
-            <h3 data-i18n="about2_h">Payments</h3>
-            <p data-i18n="about2_p">
-              Stripe invoice after scope confirmation. Prepayment required before work begins.
-              No “pay now” impulse checkout — only confirmed scope and clean invoicing.
-            </p>
-          </div>
-
-          <div class="mini">
-            <h3 data-i18n="about3_h">Positioning</h3>
-            <p data-i18n="about3_p">
-              Consulting & document support — not a law firm; no court representation.
-              High-clarity, compliance-safe deliverables with executive-level structure.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-title">
-          <h2 data-i18n="contact_title">Contact</h2>
-          <p data-i18n="contact_sub">Three premium actions: request consultation, submit project, contact director.</p>
-        </div>
-
-        <div class="footgrid">
-          <div class="contactbox">
-            <div style="font-weight:900" data-i18n="director_contact">Director contact</div>
-
-            <div class="kvs">
-              <div><b data-i18n="phone_label">Phone:</b> <span id="phoneText">+1 (813) 919-4242</span></div>
-              <div><b data-i18n="email_label">Email:</b> <span id="emailText">vitacorexllc@gmail.com</span></div>
-              <div><b data-i18n="site_label">Website:</b> <span id="siteText">vitacorexllc.netlify.app</span></div>
-            </div>
 
             <div class="row">
-              <button class="btn btn-primary" type="button" id="openConsultFooter" data-i18n="btn_request_consult">Request Consultation</button>
-              <button class="btn" type="button" id="openProjectFooter" data-i18n="btn_submit_details">Submit Project Details</button>
-              <button class="btn btn-ghost" type="button" id="contactDirectorFooter" data-i18n="btn_contact_director">Contact Director</button>
+              <button class="btn primary" type="button" id="sendBtn">Create email draft</button>
+              <button class="btn" type="button" id="clearBtn">Clear saved text</button>
             </div>
 
-            <div class="fineprint" data-i18n="contact_note">
-              Scope → quote/invoice → prepayment → delivery. No “Pay Now” button.
-            </div>
-          </div>
-
-          <div class="contactbox">
-            <div style="font-weight:900" data-i18n="invoice_model_title">Stripe invoice model</div>
-            <div style="margin-top:8px; color:rgba(17,17,20,.76); font-size:12.5px" data-i18n="invoice_model_text">
-              After you submit a request, you receive either: a PDF proposal, and/or a Stripe invoice containing scope, timeline, total, and “Prepayment required before work begins”.
-              Client pays → funds appear in Stripe balance → Stripe payouts transfer to your bank (standard payout cycle).
-            </div>
-          </div>
+            <p class="hint" id="sendHint">
+              “Create email draft” opens your email app with the saved message.
+            </p>
+          </form>
         </div>
-      </div>
-    </section>
-  </main>  <footer>
-    <div class="wrap">
-      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-        <div>
-          <b>© <span id="year"></span> VitaCoreX LLC</b>. <span data-i18n="rights">All rights reserved.</span>
-          <div style="margin-top:6px" data-i18n="footer_line">
-            Services provided under applicable U.S. federal and state regulations governing consulting and administrative support services.
-          </div>
-        </div>
-        <div style="text-align:right">
-          <div><b data-i18n="mgr">Managing Member:</b> Steven Miller</div>
-          <div style="margin-top:6px; color:rgba(17,17,20,.62)" data-i18n="footer_small">
-            VitaCoreX LLC is not a law firm and does not provide legal representation.
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+      </aside>
+    </main>
 
-  <!-- MODAL #1: Consultation Request -->
-  <div class="modal-backdrop" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="consultTitle">
-    <div class="modal">
-      <div class="modal-head">
-        <h3 id="consultTitle" data-i18n="consult_title">Consultation Request (filter)</h3>
-        <button class="xbtn" type="button" data-close="consultModal" aria-label="Close">✕</button>
-      </div>
-      <div class="modal-body">
-        <!-- Netlify form -->
-        <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="consultForm">
-          <input type="hidden" name="form-name" value="consultation-request" />
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
+    <footer id="footerText">
+      © <span id="year"></span> VitaCoreX LLC. Structured document support. Fast, clear, premium communication.
+    </footer>
+  </div>
 
-          <!-- Hidden meta -->
-          <input type="hidden" name="client_language" id="consult_client_language" value="en">
-          <input type="hidden" name="email_body" id="consult_email_body" value="">
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-          <div class="fgrid">
-            <div>
-              <label data-i18n="lbl_lang">Preferred language</label>
-              <select name="preferred_language" id="consult_langSelect" required>
-                <option value="" data-i18n="opt_select">Select…</option>
-                <option value="English">English</option>
-                <option value="Russian">Russian</option>
-                <option value="Spanish">Spanish</option>
-              </select>
-            </div>
+  <script>
+    // ========= Settings (edit these if needed) =========
+    const CONTACT = {
+      phoneDisplay: "813-919-4242",
+      phoneE164: "+18139194242",
+      email: "vitacorexllc@gmail.com",
+      website: "https://vitacorexllc.netlify.app/"
+    };
 
-            <div>
-              <label data-i18n="lbl_service">Type of service</label>
-              <select name="service_type" id="consult_service" required>
-                <option value="" data-i18n="opt_select">Select…</option>
-                <option value="Business setup & compliance" data-i18n="svc_opt_1">Business setup & compliance</option>
-                <option value="Contracts" data-i18n="svc_opt_2">Contracts</option>
-                <option value="Business plans" data-i18n="svc_opt_3">Business plans</option>
-                <option value="Civil court documents support" data-i18n="svc_opt_4">Civil court documents support</option>
-                <option value="Forms & document preparation" data-i18n="svc_opt_5">Forms & document preparation</option>
-                <option value="Translations RU/EN" data-i18n="svc_opt_6">Translations RU/EN</option>
-                <option value="Dealer vehicle purchase support" data-i18n="svc_opt_7">Dealer vehicle purchase support</option>
-                <option value="Lease / landlord paperwork support" data-i18n="svc_opt_8">Lease / landlord paperwork support</option>
-                <option value="Other" data-i18n="svc_opt_9">Other</option>
-              </select>
-            </div>
+    // ========= iPhone safe updates for buttons =========
+    const btnCall = document.getElementById("btnCall");
+    const btnSms  = document.getElementById("btnSms");
+    const btnEmail= document.getElementById("btnEmail");
+    const btnSite = document.getElementById("btnSite");
+    btnCall.href = `tel:${CONTACT.phoneE164}`;
+    btnCall.textContent = `Call: ${CONTACT.phoneDisplay}`;
+    btnSms.href  = `sms:${CONTACT.phoneE164}`;
+    btnEmail.href= `mailto:${CONTACT.email}`;
+    btnSite.href = CONTACT.website;
 
-            <div>
-              <label data-i18n="lbl_budget">Estimated budget range</label>
-              <select name="budget_range" id="consult_budget" required>
-                <option value="" data-i18n="opt_select">Select…</option>
-                <option value="$100–$250">$100–$250</option>
-                <option value="$250–$500">$250–$500</option>
-                <option value="$500–$1,000">$500–$1,000</option>
-                <option value="$1,000+">$1,000+</option>
-              </select>
-            </div>
-          </div>
+    // ========= Toast helper =========
+    const toast = document.getElementById("toast");
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toast.classList.remove("show"), 1800);
+    }
 
-          <div class="fgrid2" style="margin-top:10px">
-            <div>
-              <label data-i18n="lbl_name">Full name</label>
-              <input name="full_name" id="consult_name" placeholder="" required />
-            </div>
-            <div>
-              <label data-i18n="lbl_email">Email</label>
-              <input type="email" name="email" id="consult_email" placeholder="name@email.com" required />
-            </div>
-          </div>
-
-          <div class="fgrid2" style="margin-top:10px">
-            <div>
-              <label data-i18n="lbl_phone">Phone</label>
-              <input name="phone" id="consult_phone" placeholder="+1 (___) ___-____" />
-            </div>
-            <div>
-              <label data-i18n="lbl_timeline">Desired timeline</label>
-              <select name="timeline" id="consult_timeline" required>
-                <option value="" data-i18n="opt_select">Select…</option>
-                <option value="Same day">Same day</option>
-                <option value="24–48 hours">24–48 hours</option>
-                <option value="3–5 business days">3–5 business days</option>
-                <option value="1–2 weeks">1–2 weeks</option>
-              </select>
-            </div>
-          </div>
-
-          <div style="margin-top:10px">
-            <label data-i18n="lbl_desc">Short project description</label>
-            <textarea name="project_description" id="consult_desc" required
-              data-i18n-placeholder="ph_desc"
-              placeholder="Briefly describe what you need, the context, and the outcome you want."></textarea>
-          </div>
-
-          <div class="fineprint" data-i18n="consult_fine">
-            Note: This is consulting/document support. No court representation. Scope is confirmed before invoicing.
-          </div>
-
-          <div class="form-actions">
-            <button class="btn btn-ghost" type="button" data-close="consultModal" data-i18n="btn_cancel">Cancel</button>
-            <button class="btn btn-primary" type="submit" data-i18n="btn_submit_request">Submit request</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>  <!-- MODAL #2: Project Details -->
-  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectTitle">
-    <div class="modal">
-      <div class="modal-head">
-        <h3 id="projectTitle" data-i18n="project_title">Submit Project Details (optional)</h3>
-        <button class="xbtn" type="button" data-close="projectModal" aria-label="Close">✕</button>
-      </div>
-
-      <div class="modal-body">
-        <!-- Netlify form -->
-        <form name="project-details" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="projectForm">
-          <input type="hidden" name="form-name" value="project-details" />
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
-
-          <input type="hidden" name="client_language" id="project_client_language" value="en">
-          <input type="hidden" name="email_body" id="project_email_body" value="">
-
-          <div class="fgrid2">
-            <div>
-              <label data-i18n="lbl_name">Full name</label>
-              <input name="full_name" id="project_name" required />
-            </div>
-            <div>
-              <label data-i18n="lbl_email">Email</label>
-              <input type="email" name="email" id="project_email" placeholder="name@email.com" required />
-            </div>
-          </div>
-
-          <div class="fgrid2" style="margin-top:10px">
-            <div>
-              <label data-i18n="lbl_company">Company (if any)</label>
-              <input name="company" id="project_company" data-i18n-placeholder="ph_optional" placeholder="Optional" />
-            </div>
-            <div>
-              <label data-i18n="lbl_links">Links to documents (optional)</label>
-              <input name="links" id="project_links" data-i18n-placeholder="ph_links" placeholder="Google Drive / Dropbox links etc." />
-            </div>
-          </div>
-
-          <div style="margin-top:10px">
-            <label data-i18n="lbl_details">Project details</label>
-            <textarea name="project_details" id="project_details" required
-              data-i18n-placeholder="ph_details"
-              placeholder="Describe details, constraints, deadlines, and what you already have."></textarea>
-          </div>
-
-          <div class="fineprint" data-i18n="project_fine">
-            Tip: If you have deadlines, include date/time and your time zone.
-          </div>
-
-          <div class="form-actions">
-            <button class="btn btn-ghost" type="button" data-close="projectModal" data-i18n="btn_cancel">Cancel</button>
-            <button class="btn btn-primary" type="submit" data-i18n="btn_submit_details_btn">Submit details</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>  <script>
-    const $ = (s, root=document) => root.querySelector(s);
-    const $$ = (s, root=document) => Array.from(root.querySelectorAll(s));
-
-    const EMAIL_TO = "vitacorexllc@gmail.com";
-    const PHONE = "+1 (813) 919-4242";
-    const SITE = "vitacorexllc.netlify.app";
-
-    // Translation dictionary (solid but not bloated)
+    // ========= Language data =========
     const I18N = {
       en: {
-        tagline: "Executive Consulting & Document Support",
-        nav_services: "Services",
-        nav_process: "Process",
-        nav_policy: "Policy",
-        nav_about: "About",
-        nav_contact: "Contact",
-        btn_request_consult: "Request Consultation",
-        btn_submit_details: "Submit Project Details",
-        btn_contact_director: "Contact Director",
-
-        chip_scope: "Scope first • Prepaid engagement • Stripe invoices",
-        hero_h1: "Structured consulting — delivered<br/>like a firm, not a freelancing page.",
-        hero_lead: "Consultation request → scope review → quote/invoice → prepaid engagement → delivery. Clean communication, documented decisions, predictable output.",
-        hero_note: "Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.",
-
-        services_title: "Services",
-        services_sub: "Wide coverage. Scope is confirmed in writing prior to invoicing.",
-        svc1_h: "Business setup & compliance",
-        svc1_p: "Company formation support, registrations, structured setup, documentation packaging.",
-        svc2_h: "Contracts",
-        svc2_p: "Drafting, review, negotiation support, risk notes, clean deliverables.",
-        svc3_h: "Business plans",
-        svc3_p: "Plan structure, pricing logic, ROI calculations, executive-style documentation.",
-        svc4_h: "Civil court documents support",
-        svc4_p: "Preparation support for civil filings (no representation; no court appearance).",
-        svc5_h: "Forms & document preparation",
-        svc5_p: "Structured forms, applications, checklists, administrative documentation.",
-        svc6_h: "Translations RU/EN + support",
-        svc6_p: "Accurate bilingual translations for business and formal documents.",
-        svc7_h: "Dealer vehicle purchase support",
-        svc7_p: "Deal review, negotiation support, contract checks, avoiding hidden terms.",
-        svc8_h: "Lease / landlord paperwork support",
-        svc8_p: "Lease review support, terms analysis, structured communications.",
-        svc9_h: "Other projects",
-        svc9_p: "If it’s documents + structure + clarity — it’s within scope (case-by-case).",
-
-        process_title: "Engagement process (clean & safe)",
-        process_sub: "Exactly how a consulting firm operates — filter → quote → prepaid engagement → delivery.",
-        step1_h: "Consultation Request",
-        step1_p: "Client submits request form with service type, short description, and budget range. This filters out non-serious inquiries.",
-        step2_h: "Quote issued",
-        step2_p: "After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount.",
-        step3_h: "Prepayment required",
-        step3_p: "Services are provided on a prepaid basis. Work begins only after confirmed payment.",
-
-        policy_title: "Payment & engagement policy",
-        policy_sub: "Short, strict, and compliance-safe wording (no “law firm” positioning).",
-        policy_public: "Policy (public)",
-        policy_text: "VitaCoreX LLC provides consulting, administrative support, and document preparation assistance for individuals and small businesses. Scope, timeline, and price are confirmed in writing prior to invoicing. Payments are collected via Stripe invoice after scope confirmation.",
-        policy_li1: "All services are provided on a prepaid basis. Work begins only after confirmed payment.",
-        policy_li2: "VitaCoreX LLC is not a law firm and does not provide legal representation. For legal advice, consult a licensed attorney.",
-        policy_li3: "Zelle/Bank transfer may be available upon request and confirmation (case-by-case).",
-
-        about_title: "About",
-        about_sub: "Premium profile text with consistent tone.",
-        about1_h: "Profile — VitaCoreX Consulting",
-        about1_p: "Focus: business setup, contracts, structured document work, and negotiation support. Approach: scope confirmed in writing, predictable deliverables, professional communication.",
-        about2_h: "Payments",
-        about2_p: "Stripe invoice after scope confirmation. Prepayment required before work begins. No “pay now” impulse checkout — only confirmed scope and clean invoicing.",
-        about3_h: "Positioning",
-        about3_p: "Consulting & document support — not a law firm; no court representation. High-clarity, compliance-safe deliverables with executive-level structure.",
-
-        contact_title: "Contact",
-        contact_sub: "Three premium actions: request consultation, submit project, contact director.",
-        director_contact: "Director contact",
-        phone_label: "Phone:",
-        email_label: "Email:",
-        site_label: "Website:",
-        contact_note: "Scope → quote/invoice → prepayment → delivery. No “Pay Now” button.",
-
-        invoice_model_title: "Stripe invoice model",
-        invoice_model_text: "After you submit a request, you receive either: a PDF proposal, and/or a Stripe invoice containing scope, timeline, total, and “Prepayment required before work begins”. Client pays → funds appear in Stripe balance → Stripe payouts transfer to your bank (standard payout cycle).",
-
-        rights: "All rights reserved.",
-        footer_line: "Services provided under applicable U.S. federal and state regulations governing consulting and administrative support services.",
-        mgr: "Managing Member:",
-        footer_small: "VitaCoreX LLC is not a law firm and does not provide legal representation.",
-
-        consult_title: "Consultation Request (filter)",
-        project_title: "Submit Project Details (optional)",
-        lbl_lang: "Preferred language",
-        lbl_service: "Type of service",
-        lbl_budget: "Estimated budget range",
-        lbl_name: "Full name",
-        lbl_email: "Email",
-        lbl_phone: "Phone",
-        lbl_timeline: "Desired timeline",
-        lbl_desc: "Short project description",
-        lbl_company: "Company (if any)",
-        lbl_links: "Links to documents (optional)",
-        lbl_details: "Project details",
-
-        opt_select: "Select…",
-        ph_desc: "Briefly describe what you need, the context, and the outcome you want.",
-        ph_optional: "Optional",
-        ph_links: "Google Drive / Dropbox links etc.",
-        ph_details: "Describe details, constraints, deadlines, and what you already have.",
-        consult_fine: "Note: This is consulting/document support. No court representation. Scope is confirmed before invoicing.",
-        project_fine: "Tip: If you have deadlines, include date/time and your time zone.",
-
-        btn_cancel: "Cancel",
-        btn_submit_request: "Submit request",
-        btn_submit_details_btn: "Submit details",
-
-        svc_opt_1:"Business setup & compliance",
-        svc_opt_2:"Contracts",
-        svc_opt_3:"Business plans",
-        svc_opt_4:"Civil court documents support",
-        svc_opt_5:"Forms & document preparation",
-        svc_opt_6:"Translations RU/EN",
-        svc_opt_7:"Dealer vehicle purchase support",
-        svc_opt_8:"Lease / landlord paperwork support",
-        svc_opt_9:"Other"
+        tagline: "Executive Consulting • Document Support",
+        badge: "Scope-first • prepaid • structured deliverables",
+        headline: "Contracts, business setup, and court-ready documents — premium structure, fast delivery.",
+        subline: "We define scope, confirm deliverables, then execute. Clean formatting, clear communication, and deadlines you can rely on.",
+        kpi1t: "3–5 business days",
+        kpi1s: "standard turnaround after full payment + complete info",
+        kpi2t: "Expedite available",
+        kpi2s: "48h / 24h / same-day (surcharge applies)",
+        kpi3t: "Clean deliverables",
+        kpi3s: "PDF/DOCX, structured, ready to file or send",
+        disclaimer: "⚖️ Not a law firm. No legal representation in court. Document preparation and consulting support only.",
+        servicesTitle: "Services",
+        servicesHTML: `
+          <li><b>Business setup</b> — company opening, tax/registration guidance, compliance checklists</li>
+          <li><b>Contracts</b> — drafting, review, risk notes, negotiation-ready edits</li>
+          <li><b>Business plans</b> — investor-ready structure, ROI logic, assumptions disclosed</li>
+          <li><b>Civil court documents</b> — complaints, motions, exhibits organization, hearing packets</li>
+          <li><b>Forms & filings</b> — structured completion for common processes (non-legal)</li>
+          <li><b>Auto deal support</b> — dealer paperwork review, deal-risk review, negotiation assistance</li>
+          <li><b>Translations</b> — RU/EN business and formal documents (clear, consistent terms)</li>
+        `,
+        pricingTitle: "Pricing model",
+        pricingHTML: `
+          <li><b>Fixed fee</b> per document / package</li>
+          <li><b>Hourly</b> for analysis & negotiation support</li>
+          <li><b>% of net sales</b> (optional) for complex launches (bars/restaurants/operations)</li>
+        `,
+        pricingNote: "Final quote depends on scope, urgency, and volume. Prepaid for expedited work.",
+        inquiryTitle: "Quick inquiry (autosaves)",
+        qNamePH: "Your name",
+        qContactPH: "Phone or Email",
+        qMsgPH: "What do you need? (the text is autosaved)",
+        autosaveHint: "Autosave is ON. If the page/app closes or crashes, your text will restore automatically.",
+        sendBtn: "Create email draft",
+        clearBtn: "Clear saved text",
+        sendHint: "“Create email draft” opens your email app with the saved message.",
+        footer: "Structured document support. Fast, clear, premium communication.",
+        toastSaved: "Saved.",
+        toastRestored: "Restored saved text.",
+        toastCleared: "Saved text cleared.",
+        toastNeedText: "Add a message first."
       },
-
       ru: {
-        tagline: "Executive консалтинг и подготовка документов",
-        nav_services: "Услуги",
-        nav_process: "Процесс",
-        nav_policy: "Политика",
-        nav_about: "О нас",
-        nav_contact: "Контакты",
-        btn_request_consult: "Запросить консультацию",
-        btn_submit_details: "Отправить детали проекта",
-        btn_contact_director: "Связаться с директором",
-
-        chip_scope: "Сначала объём работ • Предоплата • Инвойсы Stripe",
-        hero_h1: "Структурный консалтинг — как в фирме,<br/>а не «фриланс-страница».",
-        hero_lead: "Запрос → уточнение объёма → предложение/инвойс → предоплата → результат. Чёткая коммуникация, фиксирование решений, прогнозируемый выход.",
-        hero_note: "Оплата не собирается через «Pay Now». Инвойсы Stripe выставляются после подтверждения объёма.",
-
-        services_title: "Услуги",
-        services_sub: "Широкий охват. Объём работ подтверждается письменно до выставления инвойса.",
-        svc1_h: "Открытие бизнеса и комплаенс",
-        svc1_p: "Регистрация компании, постановка на учёт, структурирование, пакет документов.",
-        svc2_h: "Договоры",
-        svc2_p: "Подготовка, ревью, поддержка переговоров, заметки по рискам, чистый результат.",
-        svc3_h: "Бизнес-планы",
-        svc3_p: "Структура, логика цены, ROI-расчёты, документ «executive style».",
-        svc4_h: "Документы для гражданских судов",
-        svc4_p: "Подготовка пакетов для civil filings (без представительства, без явки в суд).",
-        svc5_h: "Формы и подготовка документов",
-        svc5_p: "Заявления, анкеты, чек-листы, административные документы.",
-        svc6_h: "Переводы RU/EN + сопровождение",
-        svc6_p: "Точный двуязычный перевод для бизнеса и формальных документов.",
-        svc7_h: "Сопровождение покупки авто у дилеров",
-        svc7_p: "Проверка сделки, переговоры, ревью контракта, защита от скрытых условий.",
-        svc8_h: "Аренда / документы лендлорда",
-        svc8_p: "Ревью аренды, анализ условий, структурная коммуникация.",
-        svc9_h: "Другие проекты",
-        svc9_p: "Если это документы + структура + ясность — берём (case-by-case).",
-
-        process_title: "Процесс работы (чисто и безопасно)",
-        process_sub: "Формат как у консалтинга: фильтр → предложение → предоплата → результат.",
-        step1_h: "Запрос консультации",
-        step1_p: "Клиент отправляет форму: тип услуги, описание, бюджет. Это отсекает несерьёзные запросы.",
-        step2_h: "Предложение / инвойс",
-        step2_p: "После оценки отправляем предложение (PDF) и/или Stripe invoice: объём, сроки, сумма.",
-        step3_h: "Предоплата",
-        step3_p: "Работа выполняется по предоплате. Старт — только после подтверждённой оплаты.",
-
-        policy_title: "Политика оплаты и взаимодействия",
-        policy_sub: "Коротко, строго, комплаенс-безопасно (без позиционирования как «law firm»).",
-        policy_public: "Политика (публичная)",
-        policy_text: "VitaCoreX LLC оказывает консалтинг, административную поддержку и помощь в подготовке документов для физических лиц и малого бизнеса. Объём, сроки и цена подтверждаются письменно до выставления инвойса. Оплата — через Stripe invoice после подтверждения объёма.",
-        policy_li1: "Все услуги — по предоплате. Старт работ только после подтверждённой оплаты.",
-        policy_li2: "VitaCoreX LLC не является юридической фирмой и не оказывает представительство в суде. За юридической консультацией обращайтесь к адвокату.",
-        policy_li3: "Zelle/Bank transfer возможны по запросу и подтверждению (case-by-case).",
-
-        about_title: "О нас",
-        about_sub: "Премиальный текст с единым тоном.",
-        about1_h: "Профиль — VitaCoreX Consulting",
-        about1_p: "Фокус: открытие бизнеса, договоры, структурная работа с документами, поддержка переговоров. Подход: объём фиксируется письменно, результат предсказуем, коммуникация профессиональная.",
-        about2_h: "Оплата",
-        about2_p: "Stripe invoice после согласования объёма. Предоплата обязательна до начала. Никаких «быстрых оплат» — только чистый scope и корректный инвойс.",
-        about3_h: "Позиционирование",
-        about3_p: "Консалтинг и подготовка документов — не law firm; без представительства в суде. Максимум ясности, аккуратная комплаенс-подача.",
-
-        contact_title: "Контакты",
-        contact_sub: "Три действия: консультация, детали проекта, связь с директором.",
-        director_contact: "Контакт директора",
-        phone_label: "Телефон:",
-        email_label: "Email:",
-        site_label: "Сайт:",
-        contact_note: "Scope → инвойс → предоплата → результат. Без «Pay Now».",
-
-        invoice_model_title: "Модель Stripe-инвойса",
-        invoice_model_text: "После заявки вы получаете: предложение (PDF) и/или Stripe invoice с объёмом, сроками, суммой и отметкой «Prepayment required before work begins». Клиент оплачивает → средства в Stripe balance → payout на банк (стандартный цикл).",
-
-        rights: "Все права защищены.",
-        footer_line: "Услуги оказываются в рамках применимых норм США для консалтинга и административной поддержки.",
-        mgr: "Managing Member:",
-        footer_small: "VitaCoreX LLC не является юридической фирмой и не оказывает представительство в суде.",
-
-        consult_title: "Запрос консультации (фильтр)",
-        project_title: "Детали проекта (опционально)",
-        lbl_lang: "Язык",
-        lbl_service: "Тип услуги",
-        lbl_budget: "Бюджет",
-        lbl_name: "Имя и фамилия",
-        lbl_email: "Email",
-        lbl_phone: "Телефон",
-        lbl_timeline: "Срок",
-        lbl_desc: "Краткое описание",
-        lbl_company: "Компания (если есть)",
-        lbl_links: "Ссылки на документы (опционально)",
-        lbl_details: "Детали проекта",
-
-        opt_select: "Выбрать…",
-        ph_desc: "Коротко: что нужно, контекст и желаемый результат.",
-        ph_optional: "Опционально",
-        ph_links: "Ссылки Google Drive / Dropbox и т.п.",
-        ph_details: "Опишите детали, ограничения, дедлайны и что уже есть.",
-        consult_fine: "Важно: это консалтинг/подготовка документов. Без представительства в суде. Scope подтверждается до инвойса.",
-        project_fine: "Подсказка: укажите дедлайн (дата/время) и ваш часовой пояс.",
-
-        btn_cancel: "Отмена",
-        btn_submit_request: "Отправить запрос",
-        btn_submit_details_btn: "Отправить детали",
-
-        svc_opt_1:"Открытие бизнеса и комплаенс",
-        svc_opt_2:"Договоры",
-        svc_opt_3:"Бизнес-планы",
-        svc_opt_4:"Документы для гражданских судов",
-        svc_opt_5:"Формы и подготовка документов",
-        svc_opt_6:"Переводы RU/EN",
-        svc_opt_7:"Сопровождение покупки авто у дилеров",
-        svc_opt_8:"Аренда / документы лендлорда",
-        svc_opt_9:"Другое"
-      },
-
-      es: {
-        tagline: "Consultoría ejecutiva y soporte documental",
-        nav_services: "Servicios",
-        nav_process: "Proceso",
-        nav_policy: "Política",
-        nav_about: "Acerca de",
-        nav_contact: "Contacto",
-        btn_request_consult: "Solicitar consulta",
-        btn_submit_details: "Enviar detalles del proyecto",
-        btn_contact_director: "Contactar al director",
-
-        chip_scope: "Primero alcance • Prepago • Facturas Stripe",
-        hero_h1: "Consultoría estructurada — entregada<br/>como una firma, no como freelance.",
-        hero_lead: "Solicitud → revisión del alcance → propuesta/factura → prepago → entrega. Comunicación clara y resultados previsibles.",
-        hero_note: "No cobramos con botones “Pay Now”. Facturas Stripe después de confirmar el alcance.",
-
-        services_title: "Servicios",
-        services_sub: "Cobertura amplia. El alcance se confirma por escrito antes de facturar.",
-        svc1_h: "Creación de empresa y cumplimiento",
-        svc1_p: "Formación de compañía, registros, configuración estructurada, paquete documental.",
-        svc2_h: "Contratos",
-        svc2_p: "Redacción, revisión, soporte de negociación, notas de riesgo, entregables limpios.",
-        svc3_h: "Planes de negocio",
-        svc3_p: "Estructura, lógica de precios, cálculos ROI, documentación estilo ejecutivo.",
-        svc4_h: "Soporte de documentos civiles",
-        svc4_p: "Preparación de documentos (sin representación; sin comparecencia).",
-        svc5_h: "Formularios y preparación",
-        svc5_p: "Formularios, solicitudes, listas de verificación, documentación administrativa.",
-        svc6_h: "Traducciones RU/EN + soporte",
-        svc6_p: "Traducciones bilingües precisas para documentos formales y de negocio.",
-        svc7_h: "Soporte compra de vehículo (dealer)",
-        svc7_p: "Revisión del trato, negociación, revisión de contrato, evitar términos ocultos.",
-        svc8_h: "Soporte arrendamiento/propietario",
-        svc8_p: "Revisión de lease, análisis de términos, comunicaciones estructuradas.",
-        svc9_h: "Otros proyectos",
-        svc9_p: "Si es documentos + estructura + claridad — dentro del alcance (caso por caso).",
-
-        process_title: "Proceso de trabajo (limpio y seguro)",
-        process_sub: "Como una firma: filtro → propuesta → prepago → entrega.",
-        step1_h: "Solicitud de consulta",
-        step1_p: "Formulario con tipo de servicio, descripción y rango de presupuesto para filtrar solicitudes no serias.",
-        step2_h: "Propuesta / factura",
-        step2_p: "Enviamos propuesta (PDF) y/o factura Stripe con alcance, plazo y total.",
-        step3_h: "Prepago",
-        step3_p: "Servicios con prepago. Comenzamos solo con pago confirmado.",
-
-        policy_title: "Política de pago y trabajo",
-        policy_sub: "Breve, estricta y segura (sin posicionamiento de “bufete”).",
-        policy_public: "Política (pública)",
-        policy_text: "VitaCoreX LLC ofrece consultoría, soporte administrativo y preparación de documentos. Alcance, plazo y precio se confirman por escrito antes de facturar. Cobro mediante factura Stripe después de confirmar el alcance.",
-        policy_li1: "Todos los servicios son con prepago. Se inicia solo con pago confirmado.",
-        policy_li2: "VitaCoreX LLC no es un bufete y no ofrece representación legal. Para asesoría legal, consulte a un abogado.",
-        policy_li3: "Zelle/transferencia bancaria disponible bajo solicitud y confirmación (caso por caso).",
-
-        about_title: "Acerca de",
-        about_sub: "Texto premium con tono consistente.",
-        about1_h: "Perfil — VitaCoreX Consulting",
-        about1_p: "Enfoque: creación de empresas, contratos, trabajo documental estructurado y soporte en negociación.",
-        about2_h: "Pagos",
-        about2_p: "Factura Stripe tras confirmar el alcance. Prepago requerido antes de iniciar.",
-        about3_h: "Posicionamiento",
-        about3_p: "Consultoría y soporte documental — no bufete; sin representación en corte.",
-
-        contact_title: "Contacto",
-        contact_sub: "Tres acciones: solicitar consulta, enviar proyecto, contactar director.",
-        director_contact: "Contacto del director",
-        phone_label: "Teléfono:",
-        email_label: "Email:",
-        site_label: "Sitio:",
-        contact_note: "Alcance → factura → prepago → entrega. Sin “Pay Now”.",
-
-        invoice_model_title: "Modelo de factura Stripe",
-        invoice_model_text: "Tras enviar solicitud, recibe propuesta (PDF) y/o factura Stripe con alcance, plazo, total y ‘Prepago requerido antes de iniciar’. Pago → balance Stripe → payout al banco.",
-
-        rights: "Todos los derechos reservados.",
-        footer_line: "Servicios bajo normativas aplicables de EE. UU. para consultoría y soporte administrativo.",
-        mgr: "Managing Member:",
-        footer_small: "VitaCoreX LLC no es un bufete y no ofrece representación legal.",
-
-        consult_title: "Solicitud de consulta (filtro)",
-        project_title: "Enviar detalles del proyecto (opcional)",
-        lbl_lang: "Idioma preferido",
-        lbl_service: "Tipo de servicio",
-        lbl_budget: "Rango de presupuesto",
-        lbl_name: "Nombre completo",
-        lbl_email: "Email",
-        lbl_phone: "Teléfono",
-        lbl_timeline: "Plazo deseado",
-        lbl_desc: "Descripción corta",
-        lbl_company: "Empresa (si aplica)",
-        lbl_links: "Enlaces a documentos (opcional)",
-        lbl_details: "Detalles del proyecto",
-
-        opt_select: "Seleccionar…",
-        ph_desc: "Describa brevemente lo que necesita, el contexto y el resultado esperado.",
-        ph_optional: "Opcional",
-        ph_links: "Enlaces Google Drive / Dropbox etc.",
-        ph_details: "Describa detalles, restricciones, plazos y lo que ya tiene.",
-        consult_fine: "Nota: consultoría/soporte documental. Sin representación en corte. Alcance confirmado antes de facturar.",
-        project_fine: "Tip: incluya fecha/hora límite y su zona horaria.",
-
-        btn_cancel: "Cancelar",
-        btn_submit_request: "Enviar solicitud",
-        btn_submit_details_btn: "Enviar detalles",
-
-        svc_opt_1:"Creación de empresa y cumplimiento",
-        svc_opt_2:"Contratos",
-        svc_opt_3:"Planes de negocio",
-        svc_opt_4:"Soporte de documentos civiles",
-        svc_opt_5:"Formularios y preparación",
-        svc_opt_6:"Traducciones RU/EN",
-        svc_opt_7:"Soporte compra de vehículo (dealer)",
-        svc_opt_8:"Soporte arrendamiento/propietario",
-        svc_opt_9:"Otro"
+        tagline: "Executive Consulting • Документальная поддержка",
+        badge: "Сначала объём • предоплата • структурный результат",
+        headline: "Договоры, открытие бизнеса и документы для гражданских судов — премиальный формат, быстрые сроки.",
+        subline: "Сначала фиксируем задачу и результат, затем делаем. Чистое оформление, понятная коммуникация, соблюдение сроков.",
+        kpi1t: "3–5 рабочих дней",
+        kpi1s: "стандартный срок после предоплаты и получения всей информации",
+        kpi2t: "Срочно — возможно",
+        kpi2s: "48ч / 24ч / в тот же день (с доплатой)",
+        kpi3t: "Чёткие файлы",
+        kpi3s: "PDF/DOCX, структурировано, готово для подачи или отправки",
+        disclaimer: "⚖️ Не юридическая фирма. Представительство в суде не осуществляется. Только подготовка документов и консалтинг.",
+        servicesTitle: "Услуги",
+        servicesHTML: `
+          <li><b>Открытие компаний</b> — структура, чек-листы, налоговая/регистрация (консалтинг)</li>
+          <li><b>Договора</b> — подготовка, ревью, правки под переговоры, анализ рисков</li>
+          <li><b>Бизнес планы</b> — структура, расчёты, логика ROI, допущения</li>
+          <li><b>Судебные документы</b> — иски, ходатайства, приложения, hearing-пакеты (гражданские дела)</li>
+          <li><b>Заполнение документов</b> — системно и аккуратно (не юридическое представительство)</li>
+          <li><b>Сделки по авто</b> — проверка документов дилера, риски, помощь в переговорах</li>
+          <li><b>Переводы RU/EN</b> — бизнес и формальные документы (единая терминология)</li>
+        `,
+        pricingTitle: "Оплата",
+        pricingHTML: `
+          <li><b>Фикс</b> за документ / пакет</li>
+          <li><b>Почасовая</b> за анализ и переговоры</li>
+          <li><b>% от net sales</b> (опционально) для сложных запусков (бар/ресторан/операционка)</li>
+        `,
+        pricingNote: "Итоговая стоимость зависит от объёма, срочности и количества материалов. Срочные задачи — по предоплате.",
+        inquiryTitle: "Быстрый запрос (автосохранение)",
+        qNamePH: "Ваше имя",
+        qContactPH: "Телефон или Email",
+        qMsgPH: "Что нужно? (текст автосохраняется)",
+        autosaveHint: "Автосохранение ВКЛ. Если страница/приложение закроется — текст восстановится автоматически.",
+        sendBtn: "Сформировать черновик письма",
+        clearBtn: "Очистить сохранённое",
+        sendHint: "Кнопка откроет почту с подставленным текстом.",
+        footer: "Структурная поддержка по документам. Быстро, чётко, официально.",
+        toastSaved: "Сохранено.",
+        toastRestored: "Восстановил сохранённый текст.",
+        toastCleared: "Сохранённый текст очищен.",
+        toastNeedText: "Сначала добавь текст сообщения."
       }
     };
 
-    function applyI18n(lang){
-      const dict = I18N[lang] || I18N.en;
-      document.documentElement.lang = lang;
+    // ========= Apply language =========
+    const el = (id)=>document.getElementById(id);
+    const servicesList = el("servicesList");
+    const pricingList  = el("pricingList");
 
-      // text nodes
-      $$("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if(dict[key] !== undefined){
-          // allow <br/> in hero title only
-          if(key === "hero_h1") el.innerHTML = dict[key];
-          else el.textContent = dict[key];
-        }
-      });
+    function setLang(lang){
+      const t = I18N[lang] || I18N.en;
 
-      // placeholders
-      $$("[data-i18n-placeholder]").forEach(el=>{
-        const key = el.getAttribute("data-i18n-placeholder");
-        if(dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
-      });
+      el("tagline").textContent = t.tagline;
+      el("badge").textContent = t.badge;
+      el("headline").textContent = t.headline;
+      el("subline").textContent = t.subline;
 
-      // Select "Select…" option text (kept via data-i18n already)
-      // Service select option labels
-      const svcMap = {
-        "svc_opt_1":"Business setup & compliance",
-        "svc_opt_2":"Contracts",
-        "svc_opt_3":"Business plans",
-        "svc_opt_4":"Civil court documents support",
-        "svc_opt_5":"Forms & document preparation",
-        "svc_opt_6":"Translations RU/EN",
-        "svc_opt_7":"Dealer vehicle purchase support",
-        "svc_opt_8":"Lease / landlord paperwork support",
-        "svc_opt_9":"Other"
+      el("kpi1t").textContent = t.kpi1t;
+      el("kpi1s").textContent = t.kpi1s;
+      el("kpi2t").textContent = t.kpi2t;
+      el("kpi2s").textContent = t.kpi2s;
+      el("kpi3t").textContent = t.kpi3t;
+      el("kpi3s").textContent = t.kpi3s;
+
+      el("disclaimer").textContent = t.disclaimer;
+
+      el("servicesTitle").textContent = t.servicesTitle;
+      servicesList.innerHTML = t.servicesHTML;
+
+      el("pricingTitle").textContent = t.pricingTitle;
+      pricingList.innerHTML = t.pricingHTML;
+      el("pricingNote").textContent = t.pricingNote;
+
+      el("inquiryTitle").textContent = t.inquiryTitle;
+      el("qName").placeholder = t.qNamePH;
+      el("qContact").placeholder = t.qContactPH;
+      el("qMsg").placeholder = t.qMsgPH;
+
+      el("autosaveHint").textContent = t.autosaveHint;
+      el("sendBtn").textContent = t.sendBtn;
+      el("clearBtn").textContent = t.clearBtn;
+      el("sendHint").textContent = t.sendHint;
+
+      el("footerText").innerHTML = `© <span id="year"></span> VitaCoreX LLC. ${t.footer}`;
+      el("year").textContent = new Date().getFullYear();
+
+      // store
+      localStorage.setItem("vcx_lang", lang);
+
+      // toggle UI
+      const toggle = el("langToggle");
+      toggle.dataset.lang = lang;
+      toggle.setAttribute("aria-checked", lang === "ru" ? "true" : "false");
+      document.documentElement.lang = (lang === "ru" ? "ru" : "en");
+    }
+
+    // ========= Language toggle behavior =========
+    const toggle = el("langToggle");
+    function flipLang(){
+      const cur = toggle.dataset.lang || "en";
+      const next = (cur === "en") ? "ru" : "en";
+      setLang(next);
+      showToast(next === "ru" ? "RU" : "EN");
+    }
+    toggle.addEventListener("click", flipLang);
+    toggle.addEventListener("keydown", (e)=>{
+      if(e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        flipLang();
+      }
+    });
+
+    // ========= Autosave (localStorage) =========
+    const KEY = "vcx_inquiry_v1";
+    const qName = el("qName");
+    const qContact = el("qContact");
+    const qMsg = el("qMsg");
+
+    function saveDraft(silent=false){
+      const payload = {
+        name: qName.value || "",
+        contact: qContact.value || "",
+        msg: qMsg.value || "",
+        ts: Date.now()
       };
-      Object.keys(svcMap).forEach(k=>{
-        $$(`[data-i18n="${k}"]`).forEach(opt=>{
-          opt.textContent = dict[k] ?? opt.textContent;
-        });
-      });
-
-      // Update hidden language fields
-      $("#consult_client_language").value = lang;
-      $("#project_client_language").value = lang;
-
-      // language buttons state
-      $$(".lang button").forEach(b=>{
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-
-      // Keep contact info stable
-      $("#phoneText").textContent = PHONE;
-      $("#emailText").textContent = EMAIL_TO;
-      $("#siteText").textContent = SITE;
+      localStorage.setItem(KEY, JSON.stringify(payload));
+      if(!silent) showToast(I18N[(localStorage.getItem("vcx_lang")||"en")].toastSaved);
     }
 
-    // IMPORTANT: Spanish submissions must arrive to you in ENGLISH
-    function buildEmailBodyFromConsult(lang){
-      const preferred = $("#consult_langSelect").value || (lang==="ru" ? "Russian" : lang==="es" ? "Spanish" : "English");
-      const service = $("#consult_service").value;
-      const budget = $("#consult_budget").value;
-      const name = $("#consult_name").value;
-      const email = $("#consult_email").value;
-      const phone = $("#consult_phone").value;
-      const timeline = $("#consult_timeline").value;
-      const desc = $("#consult_desc").value;
+    function loadDraft(){
+      try{
+        const raw = localStorage.getItem(KEY);
+        if(!raw) return false;
+        const data = JSON.parse(raw);
+        if(!data) return false;
+        const hadAny = (data.name || data.contact || data.msg);
+        if(!hadAny) return false;
 
-      if(lang === "es"){
-        // Force English message body for Spanish clients (per your requirement)
-        return [
-          "NEW CONSULTATION REQUEST (client site language: Spanish)",
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Phone: ${phone || "-"}`,
-          `Preferred language: ${preferred}`,
-          `Service type: ${service}`,
-          `Budget range: ${budget}`,
-          `Timeline: ${timeline}`,
-          "",
-          "Client description (as provided):",
-          desc
-        ].join("\n");
+        qName.value = data.name || "";
+        qContact.value = data.contact || "";
+        qMsg.value = data.msg || "";
+        return true;
+      }catch(_){
+        return false;
+      }
+    }
+
+    // autosave on input (debounced)
+    let tmr = null;
+    function scheduleSave(){
+      clearTimeout(tmr);
+      tmr = setTimeout(()=>saveDraft(true), 250);
+    }
+    [qName, qContact, qMsg].forEach(x=>x.addEventListener("input", scheduleSave));
+
+    // also save on page hide (iOS switch apps)
+    document.addEventListener("visibilitychange", ()=>{
+      if(document.visibilityState === "hidden") saveDraft(true);
+    });
+    window.addEventListener("pagehide", ()=>saveDraft(true));
+
+    // restore on load
+    const savedLang = localStorage.getItem("vcx_lang") || "en";
+    setLang(savedLang);
+
+    const restored = loadDraft();
+    if(restored){
+      const lang = localStorage.getItem("vcx_lang") || "en";
+      showToast(I18N[lang].toastRestored);
+    }
+
+    // buttons
+    el("clearBtn").addEventListener("click", ()=>{
+      localStorage.removeItem(KEY);
+      qName.value = "";
+      qContact.value = "";
+      qMsg.value = "";
+      const lang = localStorage.getItem("vcx_lang") || "en";
+      showToast(I18N[lang].toastCleared);
+    });
+
+    el("sendBtn").addEventListener("click", ()=>{
+      const lang = localStorage.getItem("vcx_lang") || "en";
+      const t = I18N[lang];
+
+      const msg = (qMsg.value || "").trim();
+      if(!msg){
+        showToast(t.toastNeedText);
+        qMsg.focus();
+        return;
       }
 
-      if(lang === "ru"){
-        return [
-          "НОВЫЙ ЗАПРОС КОНСУЛЬТАЦИИ",
-          `Имя: ${name}`,
-          `Email: ${email}`,
-          `Телефон: ${phone || "-"}`,
-          `Язык: ${preferred}`,
-          `Тип услуги: ${service}`,
-          `Бюджет: ${budget}`,
-          `Срок: ${timeline}`,
-          "",
-          "Описание клиента:",
-          desc
-        ].join("\n");
-      }
+      const name = (qName.value || "").trim();
+      const contact = (qContact.value || "").trim();
 
-      // English default
-      return [
-        "NEW CONSULTATION REQUEST",
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || "-"}`,
-        `Preferred language: ${preferred}`,
-        `Service type: ${service}`,
-        `Budget range: ${budget}`,
-        `Timeline: ${timeline}`,
-        "",
-        "Client description:",
-        desc
-      ].join("\n");
+      const subject = (lang === "ru")
+        ? "Запрос — VitaCoreX LLC"
+        : "Inquiry — VitaCoreX LLC";
+
+      const bodyLines = [];
+      if(name) bodyLines.push((lang === "ru" ? "Имя: " : "Name: ") + name);
+      if(contact) bodyLines.push((lang === "ru" ? "Контакт: " : "Contact: ") + contact);
+      bodyLines.push("");
+      bodyLines.push(msg);
+      bodyLines.push("");
+      bodyLines.push(lang === "ru"
+        ? "— Отправлено с сайта VitaCoreX"
+        : "— Sent from VitaCoreX site"
+      );
+
+      const mailto = `mailto:${encodeURIComponent(CONTACT.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+      // Save before opening mail app (iOS can switch context)
+      saveDraft(true);
+      window.location.href = mailto;
+    });
+
+    // year
+    el("year").textContent = new Date().getFullYear();
+
+    // ========= Optional: service worker (safe if missing) =========
+    // If you later add /sw.js, it will register. If not, nothing breaks.
+    if("serviceWorker" in navigator){
+      window.addEventListener("load", ()=>{
+        navigator.serviceWorker.register("/sw.js").catch(()=>{});
+      });
     }
-
-    function buildEmailBodyFromProject(lang){
-      const name = $("#project_name").value;
-      const email = $("#project_email").value;
-      const company = $("#project_company").value;
-      const links = $("#project_links").value;
-      const details = $("#project_details").value;
-
-      if(lang === "es"){
-        return [
-          "NEW PROJECT DETAILS (client site language: Spanish) — ENGLISH SUMMARY REQUIRED",
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Company: ${company || "-"}`,
-          `Links: ${links || "-"}`,
-          "",
-          "Client details (as provided):",
-          details
-        ].join("\n");
-      }
-
-      if(lang === "ru"){
-        return [
-          "ДЕТАЛИ ПРОЕКТА",
-          `Имя: ${name}`,
-          `Email: ${email}`,
-          `Компания: ${company || "-"}`,
-          `Ссылки: ${links || "-"}`,
-          "",
-          "Детали от клиента:",
-          details
-        ].join("\n");
-      }
-
-      return [
-        "PROJECT DETAILS",
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Company: ${company || "-"}`,
-        `Links: ${links || "-"}`,
-        "",
-        "Details:",
-        details
-      ].join("\n");
-    }    function openModal(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-    function closeModal(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    function mailtoDirector(currentLang){
-      const subject = currentLang === "ru"
-        ? "VitaCoreX — Запрос / вопрос"
-        : currentLang === "es"
-          ? "VitaCoreX — Consulta"
-          : "VitaCoreX — Request";
-
-      const body = currentLang === "ru"
-        ? "Здравствуйте. Коротко опишите запрос и сроки.\n\nИмя:\nТелефон:\nEmail:\n"
-        : currentLang === "es"
-          ? "Hola. Describa brevemente su solicitud y su plazo.\n\nNombre:\nTeléfono:\nEmail:\n"
-          : "Hi. Briefly describe your request and timeline.\n\nName:\nPhone:\nEmail:\n";
-
-      const url = `mailto:${encodeURIComponent(EMAIL_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
-    }
-
-    // INIT
-    (function init(){
-      $("#year").textContent = new Date().getFullYear();
-
-      // choose language (remember)
-      const saved = localStorage.getItem("vitacorex_lang") || "en";
-      applyI18n(saved);
-
-      // language toggle
-      $$(".lang button").forEach(btn=>{
-        btn.addEventListener("click", ()=>{
-          const lang = btn.dataset.lang || "en";
-          localStorage.setItem("vitacorex_lang", lang);
-          applyI18n(lang);
-        });
-      });
-
-      // top buttons
-      $("#openConsultTop").addEventListener("click", ()=> openModal("consultModal"));
-      $("#openConsultHero").addEventListener("click", ()=> openModal("consultModal"));
-      $("#openConsultFooter").addEventListener("click", ()=> openModal("consultModal"));
-
-      $("#openProjectHero").addEventListener("click", ()=> openModal("projectModal"));
-      $("#openProjectFooter").addEventListener("click", ()=> openModal("projectModal"));
-
-      $("#contactDirectorHero").addEventListener("click", ()=>{
-        const lang = localStorage.getItem("vitacorex_lang") || "en";
-        mailtoDirector(lang);
-      });
-      $("#contactDirectorFooter").addEventListener("click", ()=>{
-        const lang = localStorage.getItem("vitacorex_lang") || "en";
-        mailtoDirector(lang);
-      });
-
-      // close buttons
-      $$("[data-close]").forEach(btn=>{
-        btn.addEventListener("click", ()=>{
-          closeModal(btn.getAttribute("data-close"));
-        });
-      });
-
-      // click backdrop to close
-      ["consultModal","projectModal"].forEach(id=>{
-        const backdrop = document.getElementById(id);
-        backdrop.addEventListener("click", (e)=>{
-          if(e.target === backdrop) closeModal(id);
-        });
-      });
-
-      // ESC close
-      document.addEventListener("keydown", (e)=>{
-        if(e.key === "Escape"){
-          closeModal("consultModal");
-          closeModal("projectModal");
-        }
-      });
-
-      // Preselect language in consultation dropdown (nice UX)
-      $("#consultModal").addEventListener("click", ()=>{
-        const lang = localStorage.getItem("vitacorex_lang") || "en";
-        const sel = $("#consult_langSelect");
-        if(!sel.value){
-          sel.value = (lang==="ru") ? "Russian" : (lang==="es") ? "Spanish" : "English";
-        }
-      });
-
-      // On submit: inject email_body (Spanish => EN body)
-      $("#consultForm").addEventListener("submit", ()=>{
-        const lang = localStorage.getItem("vitacorex_lang") || "en";
-        $("#consult_client_language").value = lang;
-        $("#consult_email_body").value = buildEmailBodyFromConsult(lang);
-      });
-
-      $("#projectForm").addEventListener("submit", ()=>{
-        const lang = localStorage.getItem("vitacorex_lang") || "en";
-        $("#project_client_language").value = lang;
-        $("#project_email_body").value = buildEmailBodyFromProject(lang);
-      });
-    })();
   </script>
 </body>
 </html>
