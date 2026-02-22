@@ -2,204 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-
-  <!-- iPhone/Safari / PWA-ish -->
+  <!-- iPhone/Safari safe -->
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0c10" />
+  <meta name="theme-color" content="#f6f1e5" />
   <meta name="format-detection" content="telephone=no,date=no,address=no,email=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <title>VitaCoreX LLC — Executive Consulting & Document Support</title>
-  <meta name="description" content="VitaCoreX LLC — executive consulting & structured document support. Contracts, business setup, business plans, and civil-court document preparation." />
-
-  <!-- Optional icons (safe if missing) -->
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Optional: if you later add these files, the page will use them automatically -->
-  <link rel="manifest" href="/manifest.json" />
+  <meta name="description" content="VitaCoreX LLC — structured consulting & document support. Scope-first. Prepaid engagement. Stripe invoices." />
 
   <style>
     :root{
-      --bg:#0b0c10;
-      --panel:rgba(255,255,255,.07);
-      --panel2:rgba(255,255,255,.10);
-      --text:#f7f8fb;
-      --muted:rgba(247,248,251,.72);
-      --line:rgba(255,255,255,.12);
+      --cream:#f6f1e5;
+      --paper:#fbf7ee;
+      --ink:#1a1a1a;
+      --muted:#5a5a5a;
+      --line:rgba(30,30,30,.18);
+
       --gold:#c7a24a;
-      --gold2:rgba(199,162,74,.22);
-      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --gold2:#e1cf97;
+      --gold3:#b48d33;
+
+      --shadow:0 18px 45px rgba(0,0,0,.10);
+      --shadow2:0 10px 25px rgba(0,0,0,.08);
       --radius:18px;
       --radius2:14px;
-      --max:1120px;
+
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 15% 12%, rgba(199,162,74,.16), transparent 60%),
-        radial-gradient(900px 520px at 85% 18%, rgba(78,161,255,.12), transparent 55%),
-        radial-gradient(1200px 700px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
-        var(--bg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background: var(--cream);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: transparent;
       padding-bottom: env(safe-area-inset-bottom);
     }
 
+    /* Khokhloma background */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        /* top-left ornament */
+        radial-gradient(700px 460px at 12% 12%, rgba(199,162,74,.18), transparent 62%),
+        radial-gradient(680px 440px at 86% 16%, rgba(199,162,74,.12), transparent 64%),
+        /* khokhloma image layer (put file in repo: assets/khokhloma.png) */
+        url("assets/khokhloma.png");
+      background-size:
+        auto,
+        auto,
+        760px auto;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        repeat;
+      background-position:
+        0 0,
+        100% 0,
+        0 0;
+      opacity:.26;
+      filter:saturate(1.1);
+    }
+    /* fallback overlay (keeps premium if image missing) */
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(1200px 720px at 50% 0%, rgba(255,255,255,.75), rgba(255,255,255,.90) 55%, rgba(255,255,255,.96));
+      z-index:-1;
+    }
+
     a{color:inherit}
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding: calc(22px + env(safe-area-inset-top)) 18px 26px;
+      padding: calc(14px + env(safe-area-inset-top)) 16px 24px;
     }
 
     /* Top bar */
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    .topbar{
+      display:grid;
+      grid-template-columns: 1fr auto auto;
       gap:12px;
-      margin-bottom:18px;
+      align-items:center;
+      padding:12px 12px;
+      border:1px solid rgba(180,141,51,.35);
+      border-radius: var(--radius);
+      background: rgba(251,247,238,.74);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      min-width: 0;
+      min-width:0;
     }
-    .logo{
-      width:38px;height:38px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.20));
-      box-shadow: 0 10px 28px rgba(199,162,74,.18);
-      border:1px solid rgba(255,255,255,.18);
+
+    .mark{
+      width:38px;height:38px;
+      border-radius:12px;
+      background: linear-gradient(135deg, #1f1f26, #0f1013);
+      border:1px solid rgba(180,141,51,.55);
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
       flex:0 0 auto;
     }
-    .brand h1{
-      font-size:14px;
-      margin:0;
-      letter-spacing:.3px;
+    .mark span{
+      width:22px;height:22px;
+      border-radius:9px;
+      border:2px solid rgba(199,162,74,.95);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(199,162,74,.95);
+      font-weight:900;
+      font-size:12px;
+      line-height:1;
+    }
+
+    .brand-title{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand-title b{
+      font-size:16px;
+      letter-spacing:.2px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .brand p{
-      margin:0;
+    .brand-title small{
+      color:rgba(26,26,26,.70);
       font-size:12px;
-      color:var(--muted);
+      line-height:1.2;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    /* Premium language toggle */
+    /* Lang switch (EN RU ES) */
     .lang{
       display:flex;
       align-items:center;
-      gap:10px;
-      flex:0 0 auto;
+      gap:8px;
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(180,141,51,.38);
+      background: rgba(255,255,255,.60);
+      box-shadow: 0 10px 22px rgba(0,0,0,.06);
       user-select:none;
     }
-    .toggle{
-      position:relative;
-      width:92px;
-      height:38px;
-      border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 10px 24px rgba(0,0,0,.20);
-      padding:4px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      cursor:pointer;
-      transition: transform .15s ease;
-    }
-    .toggle:active{transform:scale(.99)}
-    .pill{
-      position:absolute;
-      top:4px;
-      left:4px;
-      width:44px;
-      height:30px;
-      border-radius:999px;
-      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.20));
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow: 0 10px 28px rgba(199,162,74,.14);
-      transition: transform .22s ease;
-    }
-    .toggle[data-lang="en"] .pill{transform: translateX(40px)}
-    .lang-label{
-      font-size:12px;
-      letter-spacing:.2px;
-      width:44px;
-      text-align:center;
-      color: rgba(247,248,251,.82);
-      position:relative;
-      z-index:1;
-      font-weight:650;
-    }
-    .toggle[data-lang="ru"] .lang-label.ru,
-    .toggle[data-lang="en"] .lang-label.en{color:#0b0c10}
 
-    /* Layout */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:stretch;
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      overflow:hidden;
-    }
-    .card-inner{padding:20px}
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+    .lang button{
+      appearance:none;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.65);
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(199,162,74,.32);
-      background: rgba(199,162,74,.10);
-      color: rgba(247,248,251,.94);
+      font-weight:800;
       font-size:12px;
-      letter-spacing:.25px;
-      font-weight:700;
+      letter-spacing:.3px;
+      cursor:pointer;
+      min-width:48px;
+      transition: transform .12s ease, background .18s ease;
+    }
+    .lang button:active{transform: translateY(1px)}
+    .lang button.active{
+      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.20));
+      border-color: rgba(180,141,51,.55);
     }
 
-    .title{
-      font-size:40px;
-      line-height:1.05;
-      margin:14px 0 10px;
-      letter-spacing:-.4px;
-    }
-    .sub{
-      font-size:16px;
-      line-height:1.55;
-      margin:0 0 14px;
-      color: rgba(247,248,251,.78);
-    }
-
-    .cta{
+    /* Top CTA */
+    .top-cta{
       display:flex;
-      flex-wrap:wrap;
       gap:10px;
-      margin-top:14px;
+      justify-content:flex-end;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
     .btn{
@@ -207,272 +201,527 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.16);
+      background: rgba(255,255,255,.65);
       text-decoration:none;
-      font-weight:800;
-      letter-spacing:.2px;
-      transition: transform .12s ease, background .18s ease, border-color .18s ease;
-      min-height:44px;
+      font-weight:850;
+      font-size:13px;
+      line-height:1;
+      box-shadow: 0 10px 22px rgba(0,0,0,.05);
+      min-height:40px;
+      white-space:nowrap;
+      cursor:pointer;
     }
-    .btn:hover{background: rgba(255,255,255,.10)}
-    .btn:active{transform: translateY(1px)}
+
     .btn.primary{
-      background: linear-gradient(135deg, rgba(199,162,74,.95), rgba(199,162,74,.18));
-      border-color: rgba(255,255,255,.18);
-      color:#0b0c10;
+      background: linear-gradient(180deg, rgba(199,162,74,.95), rgba(199,162,74,.55));
+      border-color: rgba(180,141,51,.65);
     }
     .btn.ghost{
-      background: transparent;
-      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.52);
     }
 
-    .kpis{
+    /* Main layout */
+    .grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:10px;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
       margin-top:14px;
     }
-    .kpi{
-      background: rgba(0,0,0,.16);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius2);
-      padding:12px;
-    }
-    .kpi b{display:block;font-size:14px;margin-bottom:2px}
-    .kpi span{display:block;font-size:12px;color: rgba(247,248,251,.72);line-height:1.35}
 
-    .h3{margin:0 0 10px;font-size:16px;letter-spacing:.2px}
-    .list{margin:0;padding:0;list-style:none}
-    .list li{
-      padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      color: rgba(247,248,251,.86);
-      line-height:1.45;
-      font-size:14px;
+    .card{
+      border-radius: var(--radius);
+      border:1px solid rgba(180,141,51,.30);
+      background: rgba(251,247,238,.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
-    .list li:last-child{border-bottom:0}
-    .list b{color: rgba(247,248,251,.98)}
-    .mini{
-      margin-top:10px;
-      font-size:12px;
-      line-height:1.45;
-      color: rgba(247,248,251,.68);
-    }
+    .card .inner{padding:16px}
 
-    /* Inquiry (autosave) */
-    .inquiry{
-      margin-top:16px;
-      display:grid;
+    .pill{
+      display:inline-flex;
+      align-items:center;
       gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(180,141,51,.35);
+      background: rgba(255,255,255,.60);
+      font-weight:800;
+      font-size:13px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.05);
     }
-    .field{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
-      color: var(--text);
-      outline:none;
-      font-size:14px;
-      min-height:44px;
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(180deg, rgba(199,162,74,.95), rgba(199,162,74,.55));
+      border:1px solid rgba(180,141,51,.60);
     }
-    textarea.field{min-height:110px;resize:vertical}
-    .row{
+
+    h1{
+      margin:12px 0 10px;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-weight:900;
+      letter-spacing:-.5px;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: .98;
+    }
+
+    .lead{
+      margin:0 0 14px;
+      color: rgba(26,26,26,.72);
+      font-size:16px;
+      line-height:1.45;
+      max-width: 62ch;
+    }
+
+    .actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+      margin:14px 0 8px;
+    }
+
+    .note{
+      margin:8px 0 0;
+      color: rgba(26,26,26,.55);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    /* Services list */
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      margin: 18px 0 10px;
+    }
+    .section-title b{
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section-title span{
+      color: rgba(26,26,26,.55);
+      font-size:13px;
+    }
+
+    .svc{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .svc-item{
+      padding:12px 12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(180,141,51,.28);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.04);
+    }
+    .svc-item b{display:block;margin-bottom:4px}
+    .svc-item p{margin:0;color: rgba(26,26,26,.62);line-height:1.35;font-size:13px}
+
+    /* Process steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+    .step{
+      padding:12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(180,141,51,.28);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.04);
+      position:relative;
+    }
+    .step .n{
+      width:26px;height:26px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(180deg, rgba(199,162,74,.95), rgba(199,162,74,.55));
+      border:1px solid rgba(180,141,51,.60);
+      font-weight:900;
+      font-size:13px;
+      position:absolute;
+      top:10px;left:10px;
+    }
+    .step h4{margin:0 0 6px 36px;font-size:14px}
+    .step p{margin:0 0 0 36px;color: rgba(26,26,26,.62);font-size:13px;line-height:1.35}
+
+    /* Policy */
+    .policy{
+      margin-top:12px;
+      padding:12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(180,141,51,.28);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.04);
+    }
+    .policy ul{margin:8px 0 0;padding-left:18px;color: rgba(26,26,26,.70)}
+    .policy li{margin:6px 0;font-size:13px;line-height:1.35}
+
+    /* Contact card */
+    .contact{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    .contact-row{
+      display:grid;
+      grid-template-columns: 90px 1fr;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(180,141,51,.28);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.04);
+      font-size:13px;
+    }
+    .contact-row b{color: rgba(26,26,26,.65)}
+    .contact-row a{color: rgba(26,26,26,.86);text-decoration:none}
+    .contact-row a:hover{text-decoration:underline}
+
+    /* Footer */
+    footer{
+      margin-top:14px;
+      padding:10px 6px;
+      text-align:left;
+      color: rgba(26,26,26,.55);
+      font-size:12px;
+      line-height:1.35;
+    }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .modal.show{display:flex}
+    .overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(2px);
+    }
+
+    .dialog{
+      position:relative;
+      width:min(860px, 100%);
+      border-radius: 16px;
+      border:1px solid rgba(180,141,51,.40);
+      background: rgba(251,247,238,.92);
+      box-shadow: 0 24px 70px rgba(0,0,0,.20);
+      overflow:hidden;
+    }
+    .dialog-h{
+      display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(180,141,51,.26);
+      background: rgba(255,255,255,.65);
     }
-    .row .btn{flex:1}
-    .hint{
+    .dialog-h b{font-size:14px}
+    .x{
+      width:34px;height:34px;border-radius:999px;
+      border:1px solid rgba(0,0,0,.18);
+      background: rgba(255,255,255,.80);
+      cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
+    }
+    .dialog-b{padding:14px}
+
+    .form{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+    }
+    .form .full{grid-column:1 / -1}
+    .field{
+      display:grid;
+      gap:6px;
+    }
+    label{
       font-size:12px;
-      color: rgba(247,248,251,.64);
+      color: rgba(26,26,26,.62);
+    }
+    input, select, textarea{
+      width:100%;
+      padding:11px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(0,0,0,.16);
+      background: rgba(255,255,255,.86);
+      font-size:14px;
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+
+    .dialog-f{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      padding:12px 14px;
+      border-top:1px solid rgba(180,141,51,.26);
+      background: rgba(255,255,255,.65);
+    }
+
+    .mini{
+      margin-top:10px;
+      color: rgba(26,26,26,.60);
+      font-size:12px;
       line-height:1.35;
-      margin:0;
     }
 
     .toast{
-      position:fixed;
+      position: fixed;
       left:50%;
-      transform:translateX(-50%);
-      bottom: calc(16px + env(safe-area-inset-bottom));
-      background: rgba(0,0,0,.72);
-      border:1px solid rgba(255,255,255,.14);
-      color: rgba(247,248,251,.92);
+      transform: translateX(-50%);
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      background: rgba(0,0,0,.78);
+      color: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.18);
       padding:10px 12px;
-      border-radius:14px;
+      border-radius: 12px;
       font-size:12px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.35);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       opacity:0;
       pointer-events:none;
       transition: opacity .18s ease;
-      max-width:min(560px, calc(100% - 24px));
-      z-index:9999;
+      z-index: 99;
+      max-width: min(560px, calc(100% - 24px));
+      text-align:center;
     }
     .toast.show{opacity:1}
 
-    footer{
-      margin-top:16px;
-      color: rgba(247,248,251,.55);
-      font-size:12px;
-      line-height:1.45;
-      text-align:center;
-    }
-
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .title{font-size:34px}
-      .kpis{grid-template-columns:1fr}
+    /* Mobile */
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .topbar{
+        grid-template-columns: 1fr;
+        gap:10px;
+      }
+      .top-cta{justify-content:flex-start}
+      .brand-title small{white-space:normal}
+      .form{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
+  <div class="bg" aria-hidden="true"></div>
+
   <div class="wrap">
-    <header class="top">
-      <div class="brand" aria-label="VitaCoreX header">
-        <div class="logo" aria-hidden="true"></div>
-        <div style="min-width:0">
-          <h1>VitaCoreX LLC</h1>
-          <p id="tagline">Executive Consulting • Document Support</p>
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"><span>V</span></div>
+        <div class="brand-title">
+          <b id="brandName">VitaCoreX Consulting</b>
+          <small id="brandSub">Nationwide — executive consulting & document support across the U.S.</small>
         </div>
       </div>
 
-      <div class="lang" aria-label="Language toggle">
-        <div id="langToggle" class="toggle" data-lang="en" role="switch" aria-checked="false" tabindex="0" title="Switch language">
-          <div class="pill" aria-hidden="true"></div>
-          <div class="lang-label ru">RU</div>
-          <div class="lang-label en">EN</div>
-        </div>
+      <div class="lang" aria-label="Language switch">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+
+      <div class="top-cta">
+        <button class="btn primary" id="btnOpenModal" type="button">Request Consultation</button>
       </div>
     </header>
 
-    <main class="hero">
-      <!-- Left / Hero -->
+    <main class="grid">
+      <!-- HERO -->
       <section class="card">
-        <div class="card-inner">
-          <div class="badge" id="badge">Scope-first • prepaid • structured deliverables</div>
+        <div class="inner">
+          <div class="pill"><span class="dot"></span><span id="pillText">Scope first • Prepaid engagement • Stripe invoices</span></div>
 
-          <h2 class="title" id="headline">
-            Contracts, business setup, and court-ready documents — premium structure, fast delivery.
-          </h2>
+          <h1 id="headline">Structured consulting — delivered like a firm, not a freelancing page.</h1>
 
-          <p class="sub" id="subline">
-            We define scope, confirm deliverables, then execute. Clean formatting, clear communication, and deadlines you can rely on.
+          <p class="lead" id="lead">
+            Consultation request → scope review → quote/invoice → prepaid engagement → delivery.
+            Clean communication, documented decisions, predictable output.
           </p>
 
-          <div class="cta" aria-label="Primary actions">
-            <a class="btn primary" id="btnCall" href="tel:+18139194242">Call: 813-919-4242</a>
-            <a class="btn" id="btnSms" href="sms:+18139194242">Text / SMS</a>
-            <a class="btn ghost" id="btnEmail" href="mailto:vitacorexllc@gmail.com">Email</a>
-            <a class="btn ghost" id="btnSite" href="https://vitacorexllc.netlify.app/" target="_blank" rel="noopener">Open Website</a>
+          <div class="actions">
+            <button class="btn primary" id="btnOpenModal2" type="button">Request Consultation</button>
+            <button class="btn" id="btnDetails" type="button">Submit Project Details</button>
+            <button class="btn ghost" id="btnDirector" type="button">Contact Director</button>
           </div>
 
-          <div class="kpis" aria-label="Key service notes">
-            <div class="kpi">
-              <b id="kpi1t">3–5 business days</b>
-              <span id="kpi1s">standard turnaround after full payment + complete info</span>
-            </div>
-            <div class="kpi">
-              <b id="kpi2t">Expedite available</b>
-              <span id="kpi2s">48h / 24h / same-day (surcharge applies)</span>
-            </div>
-            <div class="kpi">
-              <b id="kpi3t">Clean deliverables</b>
-              <span id="kpi3s">PDF/DOCX, structured, ready to file or send</span>
-            </div>
-          </div>
-
-          <p class="mini" id="disclaimer">
-            ⚖️ Not a law firm. No legal representation in court. Document preparation and consulting support only.
+          <p class="note" id="note">
+            Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.
           </p>
         </div>
       </section>
 
-      <!-- Right / Services + Autosave Inquiry -->
+      <!-- RIGHT PANEL -->
       <aside class="card">
-        <div class="card-inner">
-          <h3 class="h3" id="servicesTitle">Services</h3>
-          <ul class="list" id="servicesList">
-            <li><b>Business setup</b> — company opening, tax/registration guidance, compliance checklists</li>
-            <li><b>Contracts</b> — drafting, review, risk notes, negotiation-ready edits</li>
-            <li><b>Business plans</b> — investor-ready structure, ROI logic, assumptions disclosed</li>
-            <li><b>Civil court documents</b> — complaints, motions, exhibits organization, hearing packets</li>
-            <li><b>Forms & filings</b> — structured completion for common processes (non-legal)</li>
-            <li><b>Auto deal support</b> — dealer paperwork review, deal-risk review, negotiation assistance</li>
-            <li><b>Translations</b> — RU/EN business and formal documents (clear, consistent terms)</li>
-          </ul>
+        <div class="inner">
+          <div class="section-title">
+            <b id="servicesTitle">Services</b>
+            <span id="servicesSub">Wide coverage. Scope is confirmed in writing prior to invoicing.</span>
+          </div>
 
-          <div style="height:14px"></div>
+          <div class="svc" id="servicesList"></div>
 
-          <h3 class="h3" id="pricingTitle">Pricing model</h3>
-          <ul class="list" id="pricingList">
-            <li><b>Fixed fee</b> per document / package</li>
-            <li><b>Hourly</b> for analysis & negotiation support</li>
-            <li><b>% of net sales</b> (optional) for complex launches (bars/restaurants/operations)</li>
-          </ul>
-          <p class="mini" id="pricingNote">Final quote depends on scope, urgency, and volume. Prepaid for expedited work.</p>
+          <div class="section-title" style="margin-top:16px">
+            <b id="processTitle">Engagement process (clean & safe)</b>
+            <span id="processSub">Exactly how a consulting firm operates — filter → quote → prepaid → delivery.</span>
+          </div>
 
-          <div style="height:14px"></div>
+          <div class="steps" id="steps"></div>
 
-          <h3 class="h3" id="inquiryTitle">Quick inquiry (autosaves)</h3>
+          <div class="section-title" style="margin-top:16px">
+            <b id="policyTitle">Payment & engagement policy</b>
+            <span id="policySub">Short, strict, and compliance-safe wording.</span>
+          </div>
 
-          <form class="inquiry" id="inquiryForm" autocomplete="on">
-            <input class="field" id="qName" name="name" placeholder="Your name" inputmode="text" />
-            <input class="field" id="qContact" name="contact" placeholder="Phone or Email" inputmode="email" />
-            <textarea class="field" id="qMsg" name="message" placeholder="What do you need? (the text is autosaved)"></textarea>
+          <div class="policy">
+            <b id="policyPublic">Policy (public)</b>
+            <ul id="policyList"></ul>
+          </div>
 
-            <p class="hint" id="autosaveHint">
-              Autosave is ON. If the page/app closes or crashes, your text will restore automatically.
-            </p>
+          <div class="section-title" style="margin-top:16px">
+            <b id="contactTitle">Contact</b>
+            <span id="contactSub">Fast routing: request → scope review → invoice → delivery.</span>
+          </div>
 
-            <div class="row">
-              <button class="btn primary" type="button" id="sendBtn">Create email draft</button>
-              <button class="btn" type="button" id="clearBtn">Clear saved text</button>
+          <div class="contact">
+            <div class="contact-row">
+              <b id="cPhoneLbl">Phone:</b>
+              <div><a id="cPhone" href="tel:+18139194242">+1 (813) 919-4242</a></div>
             </div>
+            <div class="contact-row">
+              <b id="cEmailLbl">Email:</b>
+              <div><a id="cEmail" href="mailto:vitacorexllc@gmail.com">vitacorexllc@gmail.com</a></div>
+            </div>
+            <div class="contact-row">
+              <b id="cWebLbl">Website:</b>
+              <div><a id="cWeb" href="https://vitacorexllc.netlify.app/" target="_blank" rel="noopener">vitacorexllc.netlify.app</a></div>
+            </div>
+          </div>
 
-            <p class="hint" id="sendHint">
-              “Create email draft” opens your email app with the saved message.
-            </p>
-          </form>
+          <footer id="footer">
+            © <span id="year"></span> VitaCoreX LLC. All rights reserved.<br/>
+            <span id="mmLine">Managing Member: Steven Miller</span><br/>
+            <span id="legalLine">Services provided under applicable U.S. federal and state regulations governing consulting and administrative support.</span>
+          </footer>
         </div>
       </aside>
     </main>
-
-    <footer id="footerText">
-      © <span id="year"></span> VitaCoreX LLC. Structured document support. Fast, clear, premium communication.
-    </footer>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="dialog-h">
+        <b id="modalTitle">Consultation Request (filter)</b>
+        <button class="x" id="xBtn" type="button" aria-label="Close">×</button>
+      </div>
+
+      <div class="dialog-b">
+        <form id="reqForm">
+          <div class="form">
+            <div class="field">
+              <label id="fLangLbl">Preferred language</label>
+              <select id="fLang">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+                <option value="es">Español</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label id="fServiceLbl">Type of service</label>
+              <select id="fService">
+                <option value="">Select…</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label id="fBudgetLbl">Estimated budget range</label>
+              <select id="fBudget">
+                <option value="">Select…</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label id="fNameLbl">Full name</label>
+              <input id="fName" type="text" autocomplete="name" placeholder="Full name" />
+            </div>
+
+            <div class="field">
+              <label id="fEmailLbl">Email</label>
+              <input id="fEmail" type="email" autocomplete="email" placeholder="name@email.com" />
+            </div>
+
+            <div class="field">
+              <label id="fPhoneLbl">Phone</label>
+              <input id="fPhone" type="tel" autocomplete="tel" placeholder="+1 (___) ___-____" inputmode="tel" />
+            </div>
+
+            <div class="field">
+              <label id="fDueLbl">Timeline</label>
+              <select id="fDue">
+                <option value="">Select…</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label id="fDescLbl">Short project description</label>
+              <textarea id="fDesc" placeholder="Briefly describe what you need, context, and desired outcome."></textarea>
+            </div>
+          </div>
+
+          <p class="mini" id="modalMini">
+            Important: this is consulting/document preparation support. No court representation. Scope is confirmed in writing prior to invoicing.
+          </p>
+        </form>
+      </div>
+
+      <div class="dialog-f">
+        <button class="btn ghost" id="btnCancel" type="button">Cancel</button>
+        <button class="btn primary" id="btnSubmit" type="button">Submit request</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
 
   <script>
-    // ========= Settings (edit these if needed) =========
+    // ====== CONTACT (edit if needed) ======
     const CONTACT = {
-      phoneDisplay: "813-919-4242",
+      phoneDisplay: "+1 (813) 919-4242",
       phoneE164: "+18139194242",
       email: "vitacorexllc@gmail.com",
       website: "https://vitacorexllc.netlify.app/"
     };
 
-    // ========= iPhone safe updates for buttons =========
-    const btnCall = document.getElementById("btnCall");
-    const btnSms  = document.getElementById("btnSms");
-    const btnEmail= document.getElementById("btnEmail");
-    const btnSite = document.getElementById("btnSite");
-    btnCall.href = `tel:${CONTACT.phoneE164}`;
-    btnCall.textContent = `Call: ${CONTACT.phoneDisplay}`;
-    btnSms.href  = `sms:${CONTACT.phoneE164}`;
-    btnEmail.href= `mailto:${CONTACT.email}`;
-    btnSite.href = CONTACT.website;
+    // Apply contact links
+    document.getElementById("cPhone").href = `tel:${CONTACT.phoneE164}`;
+    document.getElementById("cPhone").textContent = CONTACT.phoneDisplay;
+    document.getElementById("cEmail").href = `mailto:${CONTACT.email}`;
+    document.getElementById("cEmail").textContent = CONTACT.email;
+    document.getElementById("cWeb").href = CONTACT.website;
+    document.getElementById("cWeb").textContent = CONTACT.website.replace(/^https?:\/\//,"").replace(/\/$/,"");
 
-    // ========= Toast helper =========
+    // ====== Toast ======
     const toast = document.getElementById("toast");
     let toastTimer = null;
     function showToast(msg){
@@ -482,277 +731,546 @@
       toastTimer = setTimeout(()=>toast.classList.remove("show"), 1800);
     }
 
-    // ========= Language data =========
+    // ====== i18n content ======
     const I18N = {
       en: {
-        tagline: "Executive Consulting • Document Support",
-        badge: "Scope-first • prepaid • structured deliverables",
-        headline: "Contracts, business setup, and court-ready documents — premium structure, fast delivery.",
-        subline: "We define scope, confirm deliverables, then execute. Clean formatting, clear communication, and deadlines you can rely on.",
-        kpi1t: "3–5 business days",
-        kpi1s: "standard turnaround after full payment + complete info",
-        kpi2t: "Expedite available",
-        kpi2s: "48h / 24h / same-day (surcharge applies)",
-        kpi3t: "Clean deliverables",
-        kpi3s: "PDF/DOCX, structured, ready to file or send",
-        disclaimer: "⚖️ Not a law firm. No legal representation in court. Document preparation and consulting support only.",
+        brandName: "VitaCoreX Consulting",
+        brandSub: "Nationwide — executive consulting & document support across the U.S.",
+        pillText: "Scope first • Prepaid engagement • Stripe invoices",
+        headline: "Structured consulting — delivered like a firm, not a freelancing page.",
+        lead: "Consultation request → scope review → quote/invoice → prepaid engagement → delivery. Clean communication, documented decisions, predictable output.",
+        note: "Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.",
+        topBtn: "Request Consultation",
+        btnDetails: "Submit Project Details",
+        btnDirector: "Contact Director",
+
         servicesTitle: "Services",
-        servicesHTML: `
-          <li><b>Business setup</b> — company opening, tax/registration guidance, compliance checklists</li>
-          <li><b>Contracts</b> — drafting, review, risk notes, negotiation-ready edits</li>
-          <li><b>Business plans</b> — investor-ready structure, ROI logic, assumptions disclosed</li>
-          <li><b>Civil court documents</b> — complaints, motions, exhibits organization, hearing packets</li>
-          <li><b>Forms & filings</b> — structured completion for common processes (non-legal)</li>
-          <li><b>Auto deal support</b> — dealer paperwork review, deal-risk review, negotiation assistance</li>
-          <li><b>Translations</b> — RU/EN business and formal documents (clear, consistent terms)</li>
-        `,
-        pricingTitle: "Pricing model",
-        pricingHTML: `
-          <li><b>Fixed fee</b> per document / package</li>
-          <li><b>Hourly</b> for analysis & negotiation support</li>
-          <li><b>% of net sales</b> (optional) for complex launches (bars/restaurants/operations)</li>
-        `,
-        pricingNote: "Final quote depends on scope, urgency, and volume. Prepaid for expedited work.",
-        inquiryTitle: "Quick inquiry (autosaves)",
-        qNamePH: "Your name",
-        qContactPH: "Phone or Email",
-        qMsgPH: "What do you need? (the text is autosaved)",
-        autosaveHint: "Autosave is ON. If the page/app closes or crashes, your text will restore automatically.",
-        sendBtn: "Create email draft",
-        clearBtn: "Clear saved text",
-        sendHint: "“Create email draft” opens your email app with the saved message.",
-        footer: "Structured document support. Fast, clear, premium communication.",
-        toastSaved: "Saved.",
-        toastRestored: "Restored saved text.",
-        toastCleared: "Saved text cleared.",
-        toastNeedText: "Add a message first."
+        servicesSub: "Wide coverage. Scope is confirmed in writing prior to invoicing.",
+
+        services: [
+          {t:"Business setup & compliance", d:"Company formation, tax registrations, structured setup, documentation packaging."},
+          {t:"Contracts", d:"Drafting, review, risk notes, negotiation-ready edits."},
+          {t:"Business plans", d:"Structured plan, assumptions disclosed, ROI logic and deliverables."},
+          {t:"Civil court documents (prep only)", d:"Document preparation support for civil matters. No court representation."},
+          {t:"Translations (RU/EN/ES)", d:"Business and formal documents with consistent terminology."},
+          {t:"Dealer vehicle purchase support", d:"Deal review, negotiation support, avoiding hidden terms."},
+          {t:"Lease / landlord paperwork support", d:"Lease review support, terms analysis, structured communications."},
+          {t:"Other projects", d:"If it’s documents + structure + clarity — it’s within scope (case-by-case)."}
+        ],
+
+        processTitle: "Engagement process (clean & safe)",
+        processSub: "Exactly how a consulting firm operates — filter → quote → prepaid → delivery.",
+        steps: [
+          {t:"Consultation request", d:"Client submits a short form: service type, description, and budget range. This filters out non-serious inquiries."},
+          {t:"Quote", d:"After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount."},
+          {t:"Prepayment required", d:"Services are provided on a prepaid basis. Work begins only after confirmed payment."}
+        ],
+
+        policyTitle: "Payment & engagement policy",
+        policySub: "Short, strict, and compliance-safe wording.",
+        policyPublic: "Policy (public)",
+        policyList: [
+          "Scope, timeline, and price are confirmed in writing prior to invoicing.",
+          "Payments are collected via Stripe invoice after scope confirmation (no “Pay Now” checkout buttons on the website).",
+          "Work starts only after confirmed payment.",
+          "VitaCoreX LLC is not a law firm and does not provide legal representation in court.",
+          "Zelle/Bank transfer may be available upon request and confirmation (case-by-case)."
+        ],
+
+        contactTitle: "Contact",
+        contactSub: "Fast routing: request → scope review → invoice → delivery.",
+        cPhoneLbl:"Phone:",
+        cEmailLbl:"Email:",
+        cWebLbl:"Website:",
+
+        footerMM: "Managing Member: Steven Miller",
+        footerLegal: "Services provided under applicable U.S. federal and state regulations governing consulting and administrative support.",
+
+        modalTitle:"Consultation Request (filter)",
+        fLangLbl:"Preferred language",
+        fServiceLbl:"Type of service",
+        fBudgetLbl:"Estimated budget range",
+        fNameLbl:"Full name",
+        fEmailLbl:"Email",
+        fPhoneLbl:"Phone",
+        fDueLbl:"Timeline",
+        fDescLbl:"Short project description",
+        modalMini:"Important: this is consulting/document preparation support. No court representation. Scope is confirmed in writing prior to invoicing.",
+        cancel:"Cancel",
+        submit:"Submit request",
+
+        budgets:["Under $100","$100–$300","$300–$800","$800–$2,000","$2,000+"],
+        due:["Same day","24–48 hours","3–5 business days","1–2 weeks","Flexible"],
+        serviceOptions:[
+          "Business setup & compliance",
+          "Contracts",
+          "Business plan",
+          "Civil court documents (prep only)",
+          "Translations",
+          "Dealer vehicle purchase support",
+          "Lease / landlord paperwork support",
+          "Other"
+        ],
+
+        toastSaved:"Saved.",
+        toastRestored:"Restored saved form.",
+        toastSent:"Opening email draft…",
+        toastNeed:"Add at least description."
       },
+
       ru: {
-        tagline: "Executive Consulting • Документальная поддержка",
-        badge: "Сначала объём • предоплата • структурный результат",
-        headline: "Договоры, открытие бизнеса и документы для гражданских судов — премиальный формат, быстрые сроки.",
-        subline: "Сначала фиксируем задачу и результат, затем делаем. Чистое оформление, понятная коммуникация, соблюдение сроков.",
-        kpi1t: "3–5 рабочих дней",
-        kpi1s: "стандартный срок после предоплаты и получения всей информации",
-        kpi2t: "Срочно — возможно",
-        kpi2s: "48ч / 24ч / в тот же день (с доплатой)",
-        kpi3t: "Чёткие файлы",
-        kpi3s: "PDF/DOCX, структурировано, готово для подачи или отправки",
-        disclaimer: "⚖️ Не юридическая фирма. Представительство в суде не осуществляется. Только подготовка документов и консалтинг.",
+        brandName: "VitaCoreX Consulting",
+        brandSub: "По США — консалтинг и поддержка по документам в премиальном формате.",
+        pillText: "Сначала объём • Предоплата • Инвойсы Stripe",
+        headline: "Структурный консалтинг — как у фирмы, а не «фриланс-страничка».",
+        lead: "Запрос → ревью объёма → предложение/инвойс → предоплата → результат. Чёткая коммуникация, фиксация решений, прогнозируемый выход.",
+        note: "Оплата не собирается через кнопки “Pay Now”. Инвойс Stripe выставляется после подтверждения объёма.",
+        topBtn: "Запрос консультации",
+        btnDetails: "Детали проекта",
+        btnDirector: "Связаться с директором",
+
         servicesTitle: "Услуги",
-        servicesHTML: `
-          <li><b>Открытие компаний</b> — структура, чек-листы, налоговая/регистрация (консалтинг)</li>
-          <li><b>Договора</b> — подготовка, ревью, правки под переговоры, анализ рисков</li>
-          <li><b>Бизнес планы</b> — структура, расчёты, логика ROI, допущения</li>
-          <li><b>Судебные документы</b> — иски, ходатайства, приложения, hearing-пакеты (гражданские дела)</li>
-          <li><b>Заполнение документов</b> — системно и аккуратно (не юридическое представительство)</li>
-          <li><b>Сделки по авто</b> — проверка документов дилера, риски, помощь в переговорах</li>
-          <li><b>Переводы RU/EN</b> — бизнес и формальные документы (единая терминология)</li>
-        `,
-        pricingTitle: "Оплата",
-        pricingHTML: `
-          <li><b>Фикс</b> за документ / пакет</li>
-          <li><b>Почасовая</b> за анализ и переговоры</li>
-          <li><b>% от net sales</b> (опционально) для сложных запусков (бар/ресторан/операционка)</li>
-        `,
-        pricingNote: "Итоговая стоимость зависит от объёма, срочности и количества материалов. Срочные задачи — по предоплате.",
-        inquiryTitle: "Быстрый запрос (автосохранение)",
-        qNamePH: "Ваше имя",
-        qContactPH: "Телефон или Email",
-        qMsgPH: "Что нужно? (текст автосохраняется)",
-        autosaveHint: "Автосохранение ВКЛ. Если страница/приложение закроется — текст восстановится автоматически.",
-        sendBtn: "Сформировать черновик письма",
-        clearBtn: "Очистить сохранённое",
-        sendHint: "Кнопка откроет почту с подставленным текстом.",
-        footer: "Структурная поддержка по документам. Быстро, чётко, официально.",
-        toastSaved: "Сохранено.",
-        toastRestored: "Восстановил сохранённый текст.",
-        toastCleared: "Сохранённый текст очищен.",
-        toastNeedText: "Сначала добавь текст сообщения."
+        servicesSub: "Широкий охват. Объём подтверждается письменно до выставления инвойса.",
+
+        services: [
+          {t:"Открытие бизнеса и комплаенс", d:"Структура, чек-листы, регистрационные шаги, упаковка документов."},
+          {t:"Договора", d:"Подготовка, ревью, правки под переговоры, анализ рисков."},
+          {t:"Бизнес-планы", d:"Структура, допущения, логика ROI, формат под инвестора/банк."},
+          {t:"Судебные документы (подготовка)", d:"Подготовка документов по гражданским делам. Без представительства в суде."},
+          {t:"Переводы (RU/EN/ES)", d:"Бизнес и формальные документы с единой терминологией."},
+          {t:"Сделки по авто (дилер)", d:"Проверка сделки, помощь в переговорах, выявление скрытых условий."},
+          {t:"Аренда / документы лендлорда", d:"Ревью условий, анализ, структурные коммуникации."},
+          {t:"Прочие проекты", d:"Если это документы + структура + ясность — в работе (case-by-case)."}
+        ],
+
+        processTitle: "Процесс работы (чисто и безопасно)",
+        processSub: "Как у консалтинга: фильтр → предложение → предоплата → результат.",
+        steps: [
+          {t:"Запрос (фильтр)", d:"Клиент заполняет форму: тип услуги, описание и бюджет. Отсекает несерьёзные запросы."},
+          {t:"Предложение / инвойс", d:"После оценки отправляем PDF-предложение и/или Stripe-инвойс: объём, сроки, сумма."},
+          {t:"Предоплата", d:"Работа по предоплате. Старт только после подтверждённой оплаты."}
+        ],
+
+        policyTitle: "Политика оплаты и взаимодействия",
+        policySub: "Коротко, строго, комплаенс-безопасно.",
+        policyPublic: "Политика (публичная)",
+        policyList: [
+          "Объём, сроки и стоимость подтверждаются письменно до выставления инвойса.",
+          "Оплата — через Stripe invoice после подтверждения объёма (без “Pay Now” кнопок на сайте).",
+          "Старт работ — только после подтверждённой оплаты.",
+          "VitaCoreX LLC — не юридическая фирма и не осуществляет представительство в суде.",
+          "Zelle/Bank transfer возможно по запросу и подтверждению (case-by-case)."
+        ],
+
+        contactTitle: "Контакты",
+        contactSub: "Быстрый маршрут: запрос → ревью объёма → инвойс → результат.",
+        cPhoneLbl:"Телефон:",
+        cEmailLbl:"Email:",
+        cWebLbl:"Сайт:",
+
+        footerMM: "Managing Member: Steven Miller",
+        footerLegal: "Услуги оказываются в рамках применимого регулирования США (консалтинг и административная поддержка).",
+
+        modalTitle:"Запрос консультации (фильтр)",
+        fLangLbl:"Язык",
+        fServiceLbl:"Тип услуги",
+        fBudgetLbl:"Бюджет",
+        fNameLbl:"Имя и фамилия",
+        fEmailLbl:"Email",
+        fPhoneLbl:"Телефон",
+        fDueLbl:"Срок",
+        fDescLbl:"Краткое описание",
+        modalMini:"Важно: это консалтинг/подготовка документов. Без представительства в суде. Объём подтверждается до инвойса.",
+        cancel:"Отмена",
+        submit:"Отправить запрос",
+
+        budgets:["До $100","$100–$300","$300–$800","$800–$2,000","$2,000+"],
+        due:["Сегодня","24–48 часов","3–5 рабочих дней","1–2 недели","Гибко"],
+        serviceOptions:[
+          "Открытие бизнеса и комплаенс",
+          "Договора",
+          "Бизнес-план",
+          "Судебные документы (подготовка)",
+          "Переводы",
+          "Сделка по авто (дилер)",
+          "Аренда / лендлорд",
+          "Другое"
+        ],
+
+        toastSaved:"Сохранено.",
+        toastRestored:"Восстановил сохранённую форму.",
+        toastSent:"Открываю черновик письма…",
+        toastNeed:"Заполни хотя бы описание."
+      },
+
+      es: {
+        brandName: "VitaCoreX Consulting",
+        brandSub: "En todo EE. UU. — consultoría ejecutiva y soporte documental con estructura premium.",
+        pillText: "Alcance primero • Prepago • Facturas Stripe",
+        headline: "Consultoría estructurada — entregada como una firma, no como una página freelance.",
+        lead: "Solicitud → revisión del alcance → cotización/factura → prepago → entrega. Comunicación clara, decisiones documentadas, resultado predecible.",
+        note: "Los pagos no se realizan con botones “Pay Now”. Las facturas Stripe se emiten después de confirmar el alcance.",
+        topBtn: "Solicitar consulta",
+        btnDetails: "Enviar detalles del proyecto",
+        btnDirector: "Contactar director",
+
+        servicesTitle: "Servicios",
+        servicesSub: "Cobertura amplia. El alcance se confirma por escrito antes de facturar.",
+
+        services: [
+          {t:"Constitución de negocio y cumplimiento", d:"Formación, registros fiscales, estructura y empaquetado documental."},
+          {t:"Contratos", d:"Redacción, revisión, notas de riesgo, ajustes para negociación."},
+          {t:"Planes de negocio", d:"Estructura, supuestos, lógica ROI, entregables claros."},
+          {t:"Documentos civiles (solo preparación)", d:"Soporte de preparación documental. Sin representación en corte."},
+          {t:"Traducciones (RU/EN/ES)", d:"Documentos formales y de negocio con terminología consistente."},
+          {t:"Soporte compra de vehículo (dealer)", d:"Revisión de la oferta, negociación, evitar condiciones ocultas."},
+          {t:"Arrendamiento / soporte con landlord", d:"Revisión de términos, análisis, comunicaciones estructuradas."},
+          {t:"Otros proyectos", d:"Si es documentos + estructura + claridad — entra en alcance (caso por caso)."}
+        ],
+
+        processTitle: "Proceso de trabajo (limpio y seguro)",
+        processSub: "Como una firma: filtro → cotización → prepago → entrega.",
+        steps: [
+          {t:"Solicitud (filtro)", d:"Formulario corto: tipo de servicio, descripción y rango de presupuesto. Filtra consultas no serias."},
+          {t:"Cotización / factura", d:"Tras revisión, enviamos propuesta (PDF) y/o factura Stripe con alcance, plazos y total."},
+          {t:"Prepago requerido", d:"Trabajo en modalidad prepago. Iniciamos solo después de confirmar el pago."}
+        ],
+
+        policyTitle: "Política de pago y engagement",
+        policySub: "Redacción corta, estricta y segura.",
+        policyPublic: "Política (pública)",
+        policyList: [
+          "Alcance, plazos y precio se confirman por escrito antes de facturar.",
+          "Pago mediante factura Stripe tras confirmar el alcance (sin botones “Pay Now”).",
+          "El trabajo inicia solo con pago confirmado.",
+          "VitaCoreX LLC no es un bufete y no ofrece representación legal en corte.",
+          "Zelle/transferencia bancaria disponible bajo solicitud (caso por caso)."
+        ],
+
+        contactTitle: "Contacto",
+        contactSub: "Ruta rápida: solicitud → alcance → factura → entrega.",
+        cPhoneLbl:"Teléfono:",
+        cEmailLbl:"Email:",
+        cWebLbl:"Sitio:",
+
+        footerMM: "Managing Member: Steven Miller",
+        footerLegal: "Servicios bajo normativa aplicable de EE. UU. para consultoría y soporte administrativo.",
+
+        modalTitle:"Solicitud de consulta (filtro)",
+        fLangLbl:"Idioma preferido",
+        fServiceLbl:"Tipo de servicio",
+        fBudgetLbl:"Rango de presupuesto",
+        fNameLbl:"Nombre completo",
+        fEmailLbl:"Email",
+        fPhoneLbl:"Teléfono",
+        fDueLbl:"Plazo",
+        fDescLbl:"Descripción breve",
+        modalMini:"Importante: consultoría/soporte documental. Sin representación en corte. El alcance se confirma antes de facturar.",
+        cancel:"Cancelar",
+        submit:"Enviar solicitud",
+
+        budgets:["Menos de $100","$100–$300","$300–$800","$800–$2,000","$2,000+"],
+        due:["Mismo día","24–48 horas","3–5 días hábiles","1–2 semanas","Flexible"],
+        serviceOptions:[
+          "Constitución y cumplimiento",
+          "Contratos",
+          "Plan de negocio",
+          "Documentos civiles (solo preparación)",
+          "Traducciones",
+          "Soporte compra vehículo (dealer)",
+          "Arrendamiento/landlord",
+          "Otro"
+        ],
+
+        toastSaved:"Guardado.",
+        toastRestored:"Formulario restaurado.",
+        toastSent:"Abriendo borrador de email…",
+        toastNeed:"Agrega al menos la descripción."
       }
     };
 
-    // ========= Apply language =========
-    const el = (id)=>document.getElementById(id);
-    const servicesList = el("servicesList");
-    const pricingList  = el("pricingList");
+    // ====== DOM refs ======
+    const $$ = (id)=>document.getElementById(id);
+    const langButtons = Array.from(document.querySelectorAll(".lang button"));
 
+    // Services / steps containers
+    const servicesList = $$("servicesList");
+    const stepsEl = $$("steps");
+
+    // Modal
+    const modal = $$("modal");
+    const overlay = $$("overlay");
+    const xBtn = $$("xBtn");
+    const btnCancel = $$("btnCancel");
+    const btnSubmit = $$("btnSubmit");
+    const btnOpenModal = $$("btnOpenModal");
+    const btnOpenModal2 = $$("btnOpenModal2");
+    const btnDetails = $$("btnDetails");
+    const btnDirector = $$("btnDirector");
+
+    // Form fields
+    const fLang = $$("fLang");
+    const fService = $$("fService");
+    const fBudget = $$("fBudget");
+    const fName = $$("fName");
+    const fEmail = $$("fEmail");
+    const fPhone = $$("fPhone");
+    const fDue = $$("fDue");
+    const fDesc = $$("fDesc");
+
+    // ====== Persist keys ======
+    const LANG_KEY = "vcx_lang_v3";
+    const FORM_KEY = "vcx_consult_form_v3";
+
+    // ====== Render helpers ======
+    function renderServices(items){
+      servicesList.innerHTML = items.map(x => `
+        <div class="svc-item">
+          <b>${escapeHtml(x.t)}</b>
+          <p>${escapeHtml(x.d)}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderSteps(steps){
+      stepsEl.innerHTML = steps.map((s,i)=>`
+        <div class="step">
+          <div class="n">${i+1}</div>
+          <h4>${escapeHtml(s.t)}</h4>
+          <p>${escapeHtml(s.d)}</p>
+        </div>
+      `).join("");
+    }
+
+    function fillSelect(selectEl, values, placeholder){
+      selectEl.innerHTML = `<option value="">${placeholder}</option>` + values.map(v=>`<option value="${escapeAttr(v)}">${escapeHtml(v)}</option>`).join("");
+    }
+
+    function escapeHtml(str){
+      return String(str||"")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+    function escapeAttr(str){ return escapeHtml(str); }
+
+    // ====== Apply language ======
     function setLang(lang){
       const t = I18N[lang] || I18N.en;
 
-      el("tagline").textContent = t.tagline;
-      el("badge").textContent = t.badge;
-      el("headline").textContent = t.headline;
-      el("subline").textContent = t.subline;
+      document.documentElement.lang = lang;
 
-      el("kpi1t").textContent = t.kpi1t;
-      el("kpi1s").textContent = t.kpi1s;
-      el("kpi2t").textContent = t.kpi2t;
-      el("kpi2s").textContent = t.kpi2s;
-      el("kpi3t").textContent = t.kpi3t;
-      el("kpi3s").textContent = t.kpi3s;
+      $$("brandName").textContent = t.brandName;
+      $$("brandSub").textContent = t.brandSub;
 
-      el("disclaimer").textContent = t.disclaimer;
+      $$("pillText").textContent = t.pillText;
+      $$("headline").textContent = t.headline;
+      $$("lead").textContent = t.lead;
+      $$("note").textContent = t.note;
 
-      el("servicesTitle").textContent = t.servicesTitle;
-      servicesList.innerHTML = t.servicesHTML;
+      btnOpenModal.textContent = t.topBtn;
+      btnOpenModal2.textContent = t.topBtn;
+      btnDetails.textContent = t.btnDetails;
+      btnDirector.textContent = t.btnDirector;
 
-      el("pricingTitle").textContent = t.pricingTitle;
-      pricingList.innerHTML = t.pricingHTML;
-      el("pricingNote").textContent = t.pricingNote;
+      $$("servicesTitle").textContent = t.servicesTitle;
+      $$("servicesSub").textContent = t.servicesSub;
 
-      el("inquiryTitle").textContent = t.inquiryTitle;
-      el("qName").placeholder = t.qNamePH;
-      el("qContact").placeholder = t.qContactPH;
-      el("qMsg").placeholder = t.qMsgPH;
+      renderServices(t.services);
 
-      el("autosaveHint").textContent = t.autosaveHint;
-      el("sendBtn").textContent = t.sendBtn;
-      el("clearBtn").textContent = t.clearBtn;
-      el("sendHint").textContent = t.sendHint;
+      $$("processTitle").textContent = t.processTitle;
+      $$("processSub").textContent = t.processSub;
 
-      el("footerText").innerHTML = `© <span id="year"></span> VitaCoreX LLC. ${t.footer}`;
-      el("year").textContent = new Date().getFullYear();
+      renderSteps(t.steps);
 
-      // store
-      localStorage.setItem("vcx_lang", lang);
+      $$("policyTitle").textContent = t.policyTitle;
+      $$("policySub").textContent = t.policySub;
+      $$("policyPublic").textContent = t.policyPublic;
+      $$("policyList").innerHTML = t.policyList.map(x=>`<li>${escapeHtml(x)}</li>`).join("");
 
-      // toggle UI
-      const toggle = el("langToggle");
-      toggle.dataset.lang = lang;
-      toggle.setAttribute("aria-checked", lang === "ru" ? "true" : "false");
-      document.documentElement.lang = (lang === "ru" ? "ru" : "en");
+      $$("contactTitle").textContent = t.contactTitle;
+      $$("contactSub").textContent = t.contactSub;
+      $$("cPhoneLbl").textContent = t.cPhoneLbl;
+      $$("cEmailLbl").textContent = t.cEmailLbl;
+      $$("cWebLbl").textContent = t.cWebLbl;
+
+      $$("mmLine").textContent = t.footerMM;
+      $$("legalLine").textContent = t.footerLegal;
+
+      // Modal strings
+      $$("modalTitle").textContent = t.modalTitle;
+      $$("fLangLbl").textContent = t.fLangLbl;
+      $$("fServiceLbl").textContent = t.fServiceLbl;
+      $$("fBudgetLbl").textContent = t.fBudgetLbl;
+      $$("fNameLbl").textContent = t.fNameLbl;
+      $$("fEmailLbl").textContent = t.fEmailLbl;
+      $$("fPhoneLbl").textContent = t.fPhoneLbl;
+      $$("fDueLbl").textContent = t.fDueLbl;
+      $$("fDescLbl").textContent = t.fDescLbl;
+      $$("modalMini").textContent = t.modalMini;
+
+      btnCancel.textContent = t.cancel;
+      btnSubmit.textContent = t.submit;
+
+      // Selects
+      fillSelect(fService, t.serviceOptions, (lang==="ru")?"Выбрать…":"Select…");
+      fillSelect(fBudget, t.budgets, (lang==="ru")?"Выбрать…":"Select…");
+      fillSelect(fDue, t.due, (lang==="ru")?"Выбрать…":"Select…");
+
+      // Form language default follows site language
+      fLang.value = lang;
+
+      // Active button styling
+      langButtons.forEach(b=>{
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+
+      localStorage.setItem(LANG_KEY, lang);
     }
 
-    // ========= Language toggle behavior =========
-    const toggle = el("langToggle");
-    function flipLang(){
-      const cur = toggle.dataset.lang || "en";
-      const next = (cur === "en") ? "ru" : "en";
-      setLang(next);
-      showToast(next === "ru" ? "RU" : "EN");
+    // ====== Modal control ======
+    function openModal(){
+      modal.classList.add("show");
+      // focus description for fast input
+      setTimeout(()=>fDesc.focus(), 80);
     }
-    toggle.addEventListener("click", flipLang);
-    toggle.addEventListener("keydown", (e)=>{
-      if(e.key === "Enter" || e.key === " "){
-        e.preventDefault();
-        flipLang();
-      }
+    function closeModal(){
+      modal.classList.remove("show");
+    }
+
+    overlay.addEventListener("click", closeModal);
+    xBtn.addEventListener("click", closeModal);
+    btnCancel.addEventListener("click", closeModal);
+    btnOpenModal.addEventListener("click", openModal);
+    btnOpenModal2.addEventListener("click", openModal);
+
+    // ====== Submit actions ======
+    btnDetails.addEventListener("click", openModal);
+
+    btnDirector.addEventListener("click", ()=>{
+      // Opens email directly (director contact)
+      const lang = localStorage.getItem(LANG_KEY) || "en";
+      const subject = (lang==="ru") ? "Запрос — VitaCoreX" : (lang==="es" ? "Solicitud — VitaCoreX" : "Inquiry — VitaCoreX");
+      window.location.href = `mailto:${encodeURIComponent(CONTACT.email)}?subject=${encodeURIComponent(subject)}`;
     });
 
-    // ========= Autosave (localStorage) =========
-    const KEY = "vcx_inquiry_v1";
-    const qName = el("qName");
-    const qContact = el("qContact");
-    const qMsg = el("qMsg");
-
-    function saveDraft(silent=false){
-      const payload = {
-        name: qName.value || "",
-        contact: qContact.value || "",
-        msg: qMsg.value || "",
+    // ====== Autosave form (CRASH-SAFE) ======
+    function saveForm(silent=true){
+      const data = {
+        lang: fLang.value || "",
+        service: fService.value || "",
+        budget: fBudget.value || "",
+        name: fName.value || "",
+        email: fEmail.value || "",
+        phone: fPhone.value || "",
+        due: fDue.value || "",
+        desc: fDesc.value || "",
         ts: Date.now()
       };
-      localStorage.setItem(KEY, JSON.stringify(payload));
-      if(!silent) showToast(I18N[(localStorage.getItem("vcx_lang")||"en")].toastSaved);
+      localStorage.setItem(FORM_KEY, JSON.stringify(data));
+      if(!silent){
+        const t = I18N[localStorage.getItem(LANG_KEY) || "en"];
+        showToast(t.toastSaved);
+      }
     }
 
-    function loadDraft(){
+    function restoreForm(){
       try{
-        const raw = localStorage.getItem(KEY);
+        const raw = localStorage.getItem(FORM_KEY);
         if(!raw) return false;
         const data = JSON.parse(raw);
         if(!data) return false;
-        const hadAny = (data.name || data.contact || data.msg);
-        if(!hadAny) return false;
 
-        qName.value = data.name || "";
-        qContact.value = data.contact || "";
-        qMsg.value = data.msg || "";
-        return true;
+        fLang.value = data.lang || fLang.value;
+        fService.value = data.service || "";
+        fBudget.value = data.budget || "";
+        fName.value = data.name || "";
+        fEmail.value = data.email || "";
+        fPhone.value = data.phone || "";
+        fDue.value = data.due || "";
+        fDesc.value = data.desc || "";
+        return Boolean((data.name||data.email||data.phone||data.desc||data.service||data.budget||data.due));
       }catch(_){
         return false;
       }
     }
 
-    // autosave on input (debounced)
-    let tmr = null;
+    // Debounced input save
+    let svT = null;
     function scheduleSave(){
-      clearTimeout(tmr);
-      tmr = setTimeout(()=>saveDraft(true), 250);
+      clearTimeout(svT);
+      svT = setTimeout(()=>saveForm(true), 220);
     }
-    [qName, qContact, qMsg].forEach(x=>x.addEventListener("input", scheduleSave));
+    [fLang,fService,fBudget,fName,fEmail,fPhone,fDue,fDesc].forEach(el=>{
+      el.addEventListener("input", scheduleSave);
+      el.addEventListener("change", scheduleSave);
+    });
 
-    // also save on page hide (iOS switch apps)
+    // Also save on iOS background/close
     document.addEventListener("visibilitychange", ()=>{
-      if(document.visibilityState === "hidden") saveDraft(true);
+      if(document.visibilityState === "hidden") saveForm(true);
     });
-    window.addEventListener("pagehide", ()=>saveDraft(true));
+    window.addEventListener("pagehide", ()=>saveForm(true));
 
-    // restore on load
-    const savedLang = localStorage.getItem("vcx_lang") || "en";
-    setLang(savedLang);
+    // Submit request -> opens email draft with collected info
+    btnSubmit.addEventListener("click", ()=>{
+      const lang = localStorage.getItem(LANG_KEY) || "en";
+      const t = I18N[lang] || I18N.en;
 
-    const restored = loadDraft();
-    if(restored){
-      const lang = localStorage.getItem("vcx_lang") || "en";
-      showToast(I18N[lang].toastRestored);
-    }
-
-    // buttons
-    el("clearBtn").addEventListener("click", ()=>{
-      localStorage.removeItem(KEY);
-      qName.value = "";
-      qContact.value = "";
-      qMsg.value = "";
-      const lang = localStorage.getItem("vcx_lang") || "en";
-      showToast(I18N[lang].toastCleared);
-    });
-
-    el("sendBtn").addEventListener("click", ()=>{
-      const lang = localStorage.getItem("vcx_lang") || "en";
-      const t = I18N[lang];
-
-      const msg = (qMsg.value || "").trim();
-      if(!msg){
-        showToast(t.toastNeedText);
-        qMsg.focus();
+      const desc = (fDesc.value || "").trim();
+      if(!desc){
+        showToast(t.toastNeed);
+        fDesc.focus();
         return;
       }
 
-      const name = (qName.value || "").trim();
-      const contact = (qContact.value || "").trim();
+      saveForm(true);
 
-      const subject = (lang === "ru")
-        ? "Запрос — VitaCoreX LLC"
-        : "Inquiry — VitaCoreX LLC";
+      const subject = (lang==="ru")
+        ? "Consultation Request — VitaCoreX"
+        : (lang==="es" ? "Solicitud de consulta — VitaCoreX" : "Consultation Request — VitaCoreX");
 
-      const bodyLines = [];
-      if(name) bodyLines.push((lang === "ru" ? "Имя: " : "Name: ") + name);
-      if(contact) bodyLines.push((lang === "ru" ? "Контакт: " : "Contact: ") + contact);
-      bodyLines.push("");
-      bodyLines.push(msg);
-      bodyLines.push("");
-      bodyLines.push(lang === "ru"
-        ? "— Отправлено с сайта VitaCoreX"
-        : "— Sent from VitaCoreX site"
-      );
+      const lines = [];
+      lines.push(`Language: ${fLang.value || lang}`);
+      lines.push(`Service: ${fService.value || ""}`);
+      lines.push(`Budget: ${fBudget.value || ""}`);
+      lines.push(`Timeline: ${fDue.value || ""}`);
+      lines.push("");
+      lines.push(`Name: ${fName.value || ""}`);
+      lines.push(`Email: ${fEmail.value || ""}`);
+      lines.push(`Phone: ${fPhone.value || ""}`);
+      lines.push("");
+      lines.push("Description:");
+      lines.push(desc);
 
-      const mailto = `mailto:${encodeURIComponent(CONTACT.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-      // Save before opening mail app (iOS can switch context)
-      saveDraft(true);
+      const body = lines.join("\n");
+
+      showToast(t.toastSent);
+
+      const mailto = `mailto:${encodeURIComponent(CONTACT.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
+      closeModal();
     });
 
-    // year
-    el("year").textContent = new Date().getFullYear();
-
-    // ========= Optional: service worker (safe if missing) =========
-    // If you later add /sw.js, it will register. If not, nothing breaks.
-    if("serviceWorker" in navigator){
-      window.addEventListener("load", ()=>{
-        navigator.serviceWorker.register("/sw.js").catch(()=>{});
+    // ====== Language buttons ======
+    langButtons.forEach(b=>{
+      b.addEventListener("click", ()=>{
+        setLang(b.dataset.lang);
       });
+    });
+
+    // ====== Init ======
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const savedLang = localStorage.getItem(LANG_KEY) || "en";
+    setLang(savedLang);
+
+    const restored = restoreForm();
+    if(restored){
+      const t = I18N[localStorage.getItem(LANG_KEY) || "en"];
+      showToast(t.toastRestored);
     }
   </script>
 </body>
