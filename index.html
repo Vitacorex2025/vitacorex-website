@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VitaCoreX LLC — Executive Advisory & Document Support</title>
+  <meta name="description" content="Professional non-legal document preparation support and executive business advisory. English / Russian. VitaCoreX LLC." />
+  <style>
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --text:#0f172a; --muted:#475569;
+      --line:#e6eaf2; --accent:#1d4ed8; --accent2:#0ea5e9;
+      --ok:#16a34a; --warn:#b45309;
+      --shadow:0 18px 55px rgba(15,23,42,.10);
+      --r:18px; --r2:14px; --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+      background:
+        radial-gradient(1100px 520px at 15% 5%, rgba(29,78,216,.18), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(14,165,233,.16), transparent 55%),
+        var(--bg);
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 72px}
+    .topbar{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:16px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:46px; height:46px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(29,78,216,.25);
+      position:relative; overflow:hidden;
+    }
+    .logo:after{
+      content:""; position:absolute; inset:-25%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,.40), transparent 50%);
+      transform: rotate(18deg);
+    }
+    .brand h1{margin:0; font-size:15px; letter-spacing:.2px}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    .controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 6px 18px rgba(15,23,42,.06);
+      backdrop-filter: blur(10px);
+      font-size:12px; color:var(--muted)
+    }
+    .kdot{width:8px; height:8px; border-radius:999px; background:var(--ok)}
+    .btn{
+      border:none; cursor:pointer;
+      padding:10px 14px; border-radius:999px;
+      font-weight:750; font-size:13px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#fff;
+      box-shadow: 0 12px 26px rgba(29,78,216,.22);
+      transition:transform .08s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{
+      background:#fff; color:var(--text);
+      border:1px solid var(--line);
+      box-shadow: 0 10px 22px rgba(15,23,42,.07);
+    }
+
+    .hero{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroGrid{display:grid; grid-template-columns: 1.25fr .75fr}
+    .heroMain{padding:28px 26px 22px}
+    .heroAside{
+      padding:22px; border-left:1px solid var(--line);
+      background:
+        radial-gradient(620px 300px at 30% 10%, rgba(29,78,216,.10), transparent 55%),
+        radial-gradient(520px 280px at 80% 40%, rgba(14,165,233,.12), transparent 60%),
+        rgba(255,255,255,.75);
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.78);
+      padding:7px 10px; border-radius:999px;
+    }
+    .hero h2{margin:14px 0 10px; font-size:34px; line-height:1.08; letter-spacing:-.6px}
+    .hero p{margin:0 0 14px; color:var(--muted); font-size:14px; max-width:60ch}
+    .disclaimer{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px dashed rgba(180,83,9,.35);
+      background: rgba(245, 158, 11, .08);
+      color:#7c2d12;
+      font-size:12.5px;
+    }
+    .contactCard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--r2);
+      padding:14px;
+      box-shadow: 0 12px 26px rgba(15,23,42,.08);
+    }
+    .contactCard h3{margin:0 0 10px; font-size:13px; color:var(--muted)}
+    .contactLine{display:flex; gap:10px; align-items:flex-start; margin:9px 0}
+    .ico{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid var(--line); background:#fff;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 20px rgba(15,23,42,.06);
+      flex:0 0 auto;
+    }
+    .contactLine b{display:block; font-size:13px}
+    .contactLine span{display:block; font-size:12px; color:var(--muted)}
+    .miniNote{margin-top:10px; font-size:12px; color:var(--muted); line-height:1.35}
+
+    .section{
+      margin-top:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.84);
+      border-radius: var(--r);
+      box-shadow: 0 14px 40px rgba(15,23,42,.08);
+      overflow:hidden;
+    }
+    .sectionHead{
+      padding:18px 20px;
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.82));
+      border-bottom:1px solid var(--line);
+    }
+    .sectionHead h3{margin:0; font-size:16px; letter-spacing:.2px}
+    .sectionHead p{margin:4px 0 0; font-size:12.5px; color:var(--muted)}
+    .tag{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.78);
+      color: var(--muted); white-space:nowrap;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      padding:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: var(--r2);
+      padding:14px;
+      box-shadow: 0 12px 26px rgba(15,23,42,.06);
+      position:relative;
+      overflow:hidden;
+      min-height: 140px;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-40% -40% auto auto;
+      width:240px; height:240px;
+      background: radial-gradient(circle at 30% 30%, rgba(29,78,216,.10), transparent 55%);
+      transform: rotate(22deg);
+      pointer-events:none;
+    }
+    .card h4{margin:0 0 6px; font-size:14px}
+    .card p{margin:0 0 10px; font-size:12.5px; color:var(--muted)}
+    .priceRow{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .price{font-weight:850; letter-spacing:.2px; white-space:nowrap}
+
+    .footer{
+      margin-top:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--r);
+      box-shadow: 0 14px 40px rgba(15,23,42,.08);
+      overflow:hidden;
+    }
+    .footerGrid{display:grid; grid-template-columns: 1fr 1fr}
+    .footerLeft{padding:18px 20px; border-right:1px solid var(--line)}
+    .footerLeft h3{margin:0 0 8px; font-size:15px}
+    .footerLeft p{margin:0; color:var(--muted); font-size:12.5px; max-width:65ch}
+    .divider{height:1px; background:var(--line); margin:12px 0}
+    .formWrap{padding:18px 20px}
+    .formRow{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px}
+    .field{display:flex; flex-direction:column; gap:6px; font-size:12px; color:var(--muted)}
+    input, textarea{
+      font:inherit;
+      padding:10px 11px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      outline:none;
+      background:#fff;
+      box-shadow: 0 10px 20px rgba(15,23,42,.05);
+    }
+    textarea{min-height:92px; resize:vertical}
+    .formActions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px}
+    .noteSmall{font-size:11.5px; color:var(--muted); line-height:1.35}
+
+    .floating{
+      position: fixed; right:16px; bottom:16px;
+      display:flex; gap:10px; z-index:50;
+    }
+    .fab{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 14px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 18px 45px rgba(15,23,42,.16);
+      cursor:pointer; font-weight:800; font-size:13px;
+    }
+    .fab.primary{background: linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border:none}
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .heroAside{border-left:none; border-top:1px solid var(--line)}
+      .grid{grid-template-columns:1fr}
+      .footerGrid{grid-template-columns:1fr}
+      .footerLeft{border-right:none; border-bottom:1px solid var(--line)}
+      .formRow{grid-template-columns:1fr}
+      .hero h2{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="t_brand">VitaCoreX LLC</h1>
+          <p id="t_subbrand">Executive Advisory • Document Support • English / Russian</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="pill" title="Service boundary">
+          <span class="kdot" aria-hidden="true"></span>
+          <span id="t_boundary">Non-legal support. No court representation.</span>
+        </div>
+        <button class="btn secondary" id="langBtn" type="button">RU</button>
+        <button class="btn" id="scrollPricing" type="button">Pricing</button>
+      </div>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="heroGrid">
+        <div class="heroMain">
+          <div class="kicker">
+            <span class="kdot" aria-hidden="true"></span>
+            <span id="t_kicker">Structured, professional support for individuals and entrepreneurs</span>
+          </div>
+
+          <h2 id="t_headline">Documents. Court prep. Contracts. Business advisory.</h2>
+          <p id="t_lead">
+            Executive-level structure: form completion, court-ready organization, professional writing,
+            contract drafting & review support, and practical guidance for complex matters.
+          </p>
+
+          <div class="disclaimer" id="t_disclaimer">
+            <b>Important:</b> I am not an attorney and do not provide legal representation or appear in court.
+            Services are limited to administrative preparation, formatting, organization, and business advisory support.
+          </div>
+        </div>
+
+        <aside class="heroAside">
+          <div class="contactCard">
+            <h3 id="t_contactTitle">Contact</h3>
+
+            <div class="contactLine">
+              <div class="ico" aria-hidden="true">📞</div>
+              <div>
+                <b id="t_phoneVal">+1 (813) 919-4242</b>
+                <span id="t_phoneNote">Call / text to discuss your request</span>
+              </div>
+            </div>
+
+            <div class="contactLine">
+              <div class="ico" aria-hidden="true">✉️</div>
+              <div>
+                <b id="t_emailVal">vitacorexllc@gmail.com</b>
+                <span id="t_emailNote">Email for files and project details</span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="miniNote" id="t_contactMini">
+              Fast turnaround is available for urgent deadlines. Clear scope, fixed pricing when possible, and defined boundaries.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 1) Documents + Court -->
+    <section class="section" id="pricing">
+      <div class="sectionHead">
+        <div>
+          <h3 id="t_s1">Document Preparation & Court Readiness</h3>
+          <p id="t_s1p">Administrative preparation, formatting, organization, and structured support.</p>
+        </div>
+        <div class="tag" id="t_s1tag">Most requested</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4 id="t_c1h">Form Completion (Civil / Commercial / Administrative)</h4>
+          <p id="t_c1p">Accurate completion, clean formatting, submission-ready structure.</p>
+          <div class="priceRow"><span class="tag" id="t_c1t">Per form</span><span class="price" id="t_c1pr">$75–$150</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c2h">Court Package Assembly (Hearing/Trial Binder Style)</h4>
+          <p id="t_c2p">Exhibits, indexing, pagination, attachment structure.</p>
+          <div class="priceRow"><span class="tag" id="t_c2t">Per package</span><span class="price" id="t_c2pr">$250–$650</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c3h">Evidence Organization & Exhibit Index</h4>
+          <p id="t_c3p">Folder structure + exhibit list + timeline-ready labels.</p>
+          <div class="priceRow"><span class="tag" id="t_c3t">Per matter</span><span class="price" id="t_c3pr">$180–$450</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c4h">Chronology & Fact Position Summary</h4>
+          <p id="t_c4p">Clear timeline, key facts, structured narrative.</p>
+          <div class="priceRow"><span class="tag" id="t_c4t">2–6 pages</span><span class="price" id="t_c4pr">$150–$350</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c5h">Business Letters & Demand-Style Correspondence</h4>
+          <p id="t_c5p">Professional tone, structure, and evidence-driven presentation (non-legal).</p>
+          <div class="priceRow"><span class="tag" id="t_c5t">Per letter</span><span class="price" id="t_c5pr">$95–$220</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c6h">Mediation / Pre-Dispute Preparation</h4>
+          <p id="t_c6p">Negotiation-ready packet: issues list, leverage map, structured position.</p>
+          <div class="priceRow"><span class="tag" id="t_c6t">Per session prep</span><span class="price" id="t_c6pr">$250–$600</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Contracts & Business Plans -->
+    <section class="section">
+      <div class="sectionHead">
+        <div>
+          <h3 id="t_s2">Contracts & Business Planning Support</h3>
+          <p id="t_s2p">Structure, clarity, and commercial risk awareness (non-legal support).</p>
+        </div>
+        <div class="tag" id="t_s2tag">High value</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4 id="t_c7h">Contract Drafting Support</h4>
+          <p id="t_c7p">Terms, scope, deliverables, payment, timelines, and clean structure.</p>
+          <div class="priceRow"><span class="tag" id="t_c7t">Per contract</span><span class="price" id="t_c7pr">$250–$900</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c8h">Contract Review & Risk Notes</h4>
+          <p id="t_c8p">Red-flag list, operational risk notes, negotiation talking points.</p>
+          <div class="priceRow"><span class="tag" id="t_c8t">Per review</span><span class="price" id="t_c8pr">$150–$450</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c9h">Business Plan Creation</h4>
+          <p id="t_c9p">Executive summary, model, costs, revenue plan, milestones, risk controls.</p>
+          <div class="priceRow"><span class="tag" id="t_c9t">10–20 pages</span><span class="price" id="t_c9pr">$450–$1,500</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Complex Consulting -->
+    <section class="section">
+      <div class="sectionHead">
+        <div>
+          <h3 id="t_s3">Complex Matter Consulting</h3>
+          <p id="t_s3p">Structured guidance, risk evaluation, and practical next-step planning.</p>
+        </div>
+        <div class="tag" id="t_s3tag">Executive</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4 id="t_c10h">Dispute / Case Structure & Strategy Mapping</h4>
+          <p id="t_c10p">Decision tree, document plan, leverage points, realistic scenarios.</p>
+          <div class="priceRow"><span class="tag" id="t_c10t">60–90 min</span><span class="price" id="t_c10pr">$150–$250</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c11h">Business Model & Operational Architecture</h4>
+          <p id="t_c11p">Margin structure, workflow, roles, scalability planning.</p>
+          <div class="priceRow"><span class="tag" id="t_c11t">Per project</span><span class="price" id="t_c11pr">$450–$2,500</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c12h">Crisis Positioning & Restructuring</h4>
+          <p id="t_c12p">Stabilization plan, action priorities, communication structure.</p>
+          <div class="priceRow"><span class="tag" id="t_c12t">Retainer</span><span class="price" id="t_c12pr">$750–$3,000</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Debt & Creditors (before auto) -->
+    <section class="section">
+      <div class="sectionHead">
+        <div>
+          <h3 id="t_s4">Debt & Creditor Communication Support</h3>
+          <p id="t_s4p">Organized documentation and structured communication for difficult situations.</p>
+        </div>
+        <div class="tag" id="t_s4tag">Practical</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4 id="t_c13h">Creditor Letters & Negotiation Prep</h4>
+          <p id="t_c13p">Financial packet, hardship narrative, structured proposal.</p>
+          <div class="priceRow"><span class="tag" id="t_c13t">Per case</span><span class="price" id="t_c13pr">$120–$350</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c14h">Dispute Letters & Documentation Package</h4>
+          <p id="t_c14p">Evidence organization and submission-ready dispute structure.</p>
+          <div class="priceRow"><span class="tag" id="t_c14t">Per dispute</span><span class="price" id="t_c14pr">$95–$250</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c15h">Financial Document Organization</h4>
+          <p id="t_c15p">Statements, invoices, proof, clean timeline for third-party review.</p>
+          <div class="priceRow"><span class="tag" id="t_c15t">Per set</span><span class="price" id="t_c15pr">$120–$300</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Auto last -->
+    <section class="section">
+      <div class="sectionHead">
+        <div>
+          <h3 id="t_s5">Vehicle Purchase Support (Last Step)</h3>
+          <p id="t_s5p">Budget-based selection, dealer offer review, and complex credit scenarios.</p>
+        </div>
+        <div class="tag" id="t_s5tag">Auto</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4 id="t_c16h">Vehicle Search by Criteria</h4>
+          <p id="t_c16p">Budget, mileage, clean title focus, shortlist with pros/cons.</p>
+          <div class="priceRow"><span class="tag" id="t_c16t">Per shortlist</span><span class="price" id="t_c16pr">$75–$180</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c17h">Dealer Offer Review (Fees, Add-ons, Hidden Costs)</h4>
+          <p id="t_c17p">Numbers breakdown, what matters, negotiation notes.</p>
+          <div class="priceRow"><span class="tag" id="t_c17t">Per deal</span><span class="price" id="t_c17pr">$95–$220</span></div>
+        </div>
+        <div class="card">
+          <h4 id="t_c18h">Complex Credit Assistance (Poor / Thin Credit)</h4>
+          <p id="t_c18p">Preparation steps, documentation strategy, lender-ready planning.</p>
+          <div class="priceRow"><span class="tag" id="t_c18t">Per case</span><span class="price" id="t_c18pr">$250–$800</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <section class="footer" id="contact">
+      <div class="footerGrid">
+        <div class="footerLeft">
+          <h3 id="t_fh">Ask a question</h3>
+          <p id="t_fp">
+            Send your request with key details. The button opens your email app with a pre-filled message to VitaCoreX LLC.
+            No accounts, no logins, no tracking.
+          </p>
+          <div class="divider"></div>
+          <p class="noteSmall" id="t_fnote">
+            Tip: include deadlines, case type, and what documents you already have.
+          </p>
+        </div>
+
+        <div class="formWrap">
+          <div class="formRow">
+            <label class="field">
+              <span id="t_nameLbl">Your name</span>
+              <input id="name" placeholder="Name" />
+            </label>
+            <label class="field">
+              <span id="t_phoneLbl">Phone (optional)</span>
+              <input id="phone" placeholder="+1 ..." />
+            </label>
+          </div>
+
+          <div class="formRow">
+            <label class="field">
+              <span id="t_topicLbl">Topic</span>
+              <input id="topic" placeholder="Forms / Court prep / Contract / Business plan..." />
+            </label>
+            <label class="field">
+              <span id="t_deadlineLbl">Deadline (optional)</span>
+              <input id="deadline" placeholder="MM/DD or ASAP" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span id="t_msgLbl">Message</span>
+            <textarea id="message" placeholder="Describe what you need, what documents you have, and your goal."></textarea>
+          </label>
+
+          <div class="formActions">
+            <button class="btn" type="button" id="sendBtn">Send to Email</button>
+            <button class="btn secondary" type="button" id="copyBtn">Copy message</button>
+            <span class="noteSmall" id="t_privacy">No data is stored on this page.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="floating">
+      <button class="fab primary" id="fabEmail" type="button">✉️ Email</button>
+      <button class="fab" id="fabCall" type="button">📞 Call</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== Config =====
+    const CONTACT_EMAIL = "vitacorexllc@gmail.com";
+    const CONTACT_PHONE_DISPLAY = "+1 (813) 919-4242";
+    const CONTACT_PHONE_TEL = "+18139194242";
+
+    // ===== i18n =====
+    const i18n = {
+      en: {
+        langBtn:"RU",
+        pricingBtn:"Pricing",
+        brand:"VitaCoreX LLC",
+        subbrand:"Executive Advisory • Document Support • English / Russian",
+        boundary:"Non-legal support. No court representation.",
+        kicker:"Structured, professional support for individuals and entrepreneurs",
+        headline:"Documents. Court prep. Contracts. Business advisory.",
+        lead:"Executive-level structure: form completion, court-ready organization, professional writing, contract drafting & review support, and practical guidance for complex matters.",
+        disclaimer:"<b>Important:</b> I am not an attorney and do not provide legal representation or appear in court. Services are limited to administrative preparation, formatting, organization, and business advisory support.",
+        contactTitle:"Contact",
+        phoneNote:"Call / text to discuss your request",
+        emailNote:"Email for files and project details",
+        contactMini:"Fast turnaround is available for urgent deadlines. Clear scope, fixed pricing when possible, and defined boundaries.",
+
+        s1:"Document Preparation & Court Readiness",
+        s1p:"Administrative preparation, formatting, organization, and structured support.",
+        s1tag:"Most requested",
+        c1h:"Form Completion (Civil / Commercial / Administrative)",
+        c1p:"Accurate completion, clean formatting, submission-ready structure.",
+        c1t:"Per form", c1pr:"$75–$150",
+        c2h:"Court Package Assembly (Hearing/Trial Binder Style)",
+        c2p:"Exhibits, indexing, pagination, attachment structure.",
+        c2t:"Per package", c2pr:"$250–$650",
+        c3h:"Evidence Organization & Exhibit Index",
+        c3p:"Folder structure + exhibit list + timeline-ready labels.",
+        c3t:"Per matter", c3pr:"$180–$450",
+        c4h:"Chronology & Fact Position Summary",
+        c4p:"Clear timeline, key facts, structured narrative.",
+        c4t:"2–6 pages", c4pr:"$150–$350",
+        c5h:"Business Letters & Demand-Style Correspondence",
+        c5p:"Professional tone, structure, and evidence-driven presentation (non-legal).",
+        c5t:"Per letter", c5pr:"$95–$220",
+        c6h:"Mediation / Pre-Dispute Preparation",
+        c6p:"Negotiation-ready packet: issues list, leverage map, structured position.",
+        c6t:"Per session prep", c6pr:"$250–$600",
+
+        s2:"Contracts & Business Planning Support",
+        s2p:"Structure, clarity, and commercial risk awareness (non-legal support).",
+        s2tag:"High value",
+        c7h:"Contract Drafting Support",
+        c7p:"Terms, scope, deliverables, payment, timelines, clean structure.",
+        c7t:"Per contract", c7pr:"$250–$900",
+        c8h:"Contract Review & Risk Notes",
+        c8p:"Red-flag list, operational risk notes, negotiation talking points.",
+        c8t:"Per review", c8pr:"$150–$450",
+        c9h:"Business Plan Creation",
+        c9p:"Executive summary, model, costs, revenue plan, milestones, risk controls.",
+        c9t:"10–20 pages", c9pr:"$450–$1,500",
+
+        s3:"Complex Matter Consulting",
+        s3p:"Structured guidance, risk evaluation, and practical next-step planning.",
+        s3tag:"Executive",
+        c10h:"Dispute / Case Structure & Strategy Mapping",
+        c10p:"Decision tree, document plan, leverage points, realistic scenarios.",
+        c10t:"60–90 min", c10pr:"$150–$250",
+        c11h:"Business Model & Operational Architecture",
+        c11p:"Margin structure, workflow, roles, scalability planning.",
+        c11t:"Per project", c11pr:"$450–$2,500",
+        c12h:"Crisis Positioning & Restructuring",
+        c12p:"Stabilization plan, action priorities, communication structure.",
+        c12t:"Retainer", c12pr:"$750–$3,000",
+
+        s4:"Debt & Creditor Communication Support",
+        s4p:"Organized documentation and structured communication for difficult situations.",
+        s4tag:"Practical",
+        c13h:"Creditor Letters & Negotiation Prep",
+        c13p:"Financial packet, hardship narrative, structured proposal.",
+        c13t:"Per case", c13pr:"$120–$350",
+        c14h:"Dispute Letters & Documentation Package",
+        c14p:"Evidence organization and submission-ready dispute structure.",
+        c14t:"Per dispute", c14pr:"$95–$250",
+        c15h:"Financial Document Organization",
+        c15p:"Statements, invoices, proof, clean timeline for third-party review.",
+        c15t:"Per set", c15pr:"$120–$300",
+
+        s5:"Vehicle Purchase Support (Last Step)",
+        s5p:"Budget-based selection, dealer offer review, and complex credit scenarios.",
+        s5tag:"Auto",
+        c16h:"Vehicle Search by Criteria",
+        c16p:"Budget, mileage, clean title focus, shortlist with pros/cons.",
+        c16t:"Per shortlist", c16pr:"$75–$180",
+        c17h:"Dealer Offer Review (Fees, Add-ons, Hidden Costs)",
+        c17p:"Numbers breakdown, what matters, negotiation notes.",
+        c17t:"Per deal", c17pr:"$95–$220",
+        c18h:"Complex Credit Assistance (Poor / Thin Credit)",
+        c18p:"Preparation steps, documentation strategy, lender-ready planning.",
+        c18t:"Per case", c18pr:"$250–$800",
+
+        fh:"Ask a question",
+        fp:"Send your request with key details. The button opens your email app with a pre-filled message to VitaCoreX LLC. No accounts, no logins, no tracking.",
+        fnote:"Tip: include deadlines, case type, and what documents you already have.",
+        nameLbl:"Your name",
+        phoneLbl:"Phone (optional)",
+        topicLbl:"Topic",
+        deadlineLbl:"Deadline (optional)",
+        msgLbl:"Message",
+        sendBtn:"Send to Email",
+        copyBtn:"Copy message",
+        privacy:"No data is stored on this page.",
+        fabEmail:"✉️ Email",
+        fabCall:"📞 Call"
+      },
+      ru: {
+        langBtn:"EN",
+        pricingBtn:"Цены",
+        brand:"VitaCoreX LLC",
+        subbrand:"Executive консалтинг • Подготовка документов • EN / RU",
+        boundary:"Не юридические услуги. Не представляю в суде.",
+        kicker:"Структурированная профессиональная поддержка для частных лиц и бизнеса",
+        headline:"Документы. Подготовка к суду. Контракты. Бизнес-консалтинг.",
+        lead:"Executive-уровень структуры: заполнение форм, подготовка court-ready пакетов, деловая переписка, поддержка по контрактам и практические консультации по сложным вопросам.",
+        disclaimer:"<b>Важно:</b> я не являюсь адвокатом и не представляю в суде. Услуги ограничены административной подготовкой, форматированием, организацией материалов и бизнес-консалтингом.",
+        contactTitle:"Контакты",
+        phoneNote:"Звонок / смс для обсуждения запроса",
+        emailNote:"Email для файлов и деталей проекта",
+        contactMini:"Быстрые сроки возможны при срочных дедлайнах. Чёткий объём, фикс-цены где возможно, и понятные границы услуг.",
+
+        s1:"Заполнение документов и подготовка к суду",
+        s1p:"Административная подготовка, форматирование, организация, структурирование.",
+        s1tag:"Чаще всего",
+        c1h:"Заполнение форм (civil / commercial / administrative)",
+        c1p:"Точное заполнение, чистый формат, готовность к подаче.",
+        c1t:"За форму", c1pr:"$75–$150",
+        c2h:"Сборка court-пакета (как hearing/trial binder)",
+        c2p:"Экзибиты, оглавление, нумерация, структура приложений.",
+        c2t:"За пакет", c2pr:"$250–$650",
+        c3h:"Организация доказательств и список приложений",
+        c3p:"Структура папок + exhibit list + понятная маркировка.",
+        c3t:"По делу", c3pr:"$180–$450",
+        c4h:"Хронология и фактическая позиция",
+        c4p:"Таймлайн, ключевые факты, структурированное изложение.",
+        c4t:"2–6 стр.", c4pr:"$150–$350",
+        c5h:"Деловые письма и претензионная переписка",
+        c5p:"Профессиональный стиль и доказательная структура (не юридическое).",
+        c5t:"За письмо", c5pr:"$95–$220",
+        c6h:"Подготовка к mediation / досудебным переговорам",
+        c6p:"Пакет: список вопросов, leverage-карта, структура позиции.",
+        c6t:"Сессия prep", c6pr:"$250–$600",
+
+        s2:"Контракты и бизнес-планирование",
+        s2p:"Структура, ясность, коммерческие риски (не юридическое).",
+        s2tag:"Высокая ценность",
+        c7h:"Поддержка при составлении контрактов",
+        c7p:"Условия, scope, deliverables, оплата, сроки, структура документа.",
+        c7t:"За контракт", c7pr:"$250–$900",
+        c8h:"Проверка контракта и риск-заметки",
+        c8p:"Red flags, операционные риски, notes для переговоров.",
+        c8t:"За review", c8pr:"$150–$450",
+        c9h:"Создание бизнес-плана",
+        c9p:"Executive summary, модель, расходы, выручка, этапы, риски.",
+        c9t:"10–20 стр.", c9pr:"$450–$1,500",
+
+        s3:"Консалтинг по сложным вопросам",
+        s3p:"Структура решения, оценка рисков, план действий.",
+        s3tag:"Executive",
+        c10h:"Карта стратегии по спору / делу",
+        c10p:"Decision tree, план документов, точки давления, сценарии.",
+        c10t:"60–90 мин", c10pr:"$150–$250",
+        c11h:"Архитектура бизнеса и операционная модель",
+        c11p:"Маржинальность, workflow, роли, масштабирование.",
+        c11t:"Проект", c11pr:"$450–$2,500",
+        c12h:"Антикризис и реструктуризация",
+        c12p:"План стабилизации, приоритеты, структура коммуникаций.",
+        c12t:"Ретейнер", c12pr:"$750–$3,000",
+
+        s4:"Долги и коммуникация с кредиторами",
+        s4p:"Организация документов и структурированная переписка.",
+        s4tag:"Практично",
+        c13h:"Письма кредиторам и подготовка к переговорам",
+        c13p:"Финансовый пакет, hardship-позиция, структурированное предложение.",
+        c13t:"По кейсу", c13pr:"$120–$350",
+        c14h:"Dispute letters и пакет документов",
+        c14p:"Доказательства + структура подачи dispute.",
+        c14t:"За dispute", c14pr:"$95–$250",
+        c15h:"Организация финансовых документов",
+        c15p:"Выписки, инвойсы, proof, таймлайн для проверки третьими лицами.",
+        c15t:"Пакет", c15pr:"$120–$300",
+
+        s5:"Помощь при покупке автомобиля (последним пунктом)",
+        s5p:"Подбор по бюджету, проверка дилерских предложений, сложный кредит.",
+        s5tag:"Авто",
+        c16h:"Подбор авто по критериям",
+        c16p:"Бюджет, пробег, clean title, shortlist с плюсами/минусами.",
+        c16t:"Shortlist", c16pr:"$75–$180",
+        c17h:"Проверка дилерского предложения (fees, add-ons, скрытые платежи)",
+        c17p:"Разбор цифр и notes для переговоров.",
+        c17t:"Deal", c17pr:"$95–$220",
+        c18h:"Сложный кредит (плохая/тонкая кредитная история)",
+        c18p:"Шаги подготовки, документы, план под lender-пакет.",
+        c18t:"Кейс", c18pr:"$250–$800",
+
+        fh:"Задать вопрос",
+        fp:"Опиши запрос и детали. Кнопка откроет почту с готовым письмом на VitaCoreX LLC. Без аккаунтов, без логинов, без трекинга.",
+        fnote:"Подсказка: укажи дедлайны, тип дела и какие документы уже есть.",
+        nameLbl:"Имя",
+        phoneLbl:"Телефон (необязательно)",
+        topicLbl:"Тема",
+        deadlineLbl:"Дедлайн (необязательно)",
+        msgLbl:"Сообщение",
+        sendBtn:"Отправить на Email",
+        copyBtn:"Скопировать текст",
+        privacy:"Данные на странице не сохраняются.",
+        fabEmail:"✉️ Email",
+        fabCall:"📞 Позвонить"
+      }
+    };
+
+    // ===== Helpers =====
+    const el = (id) => document.getElementById(id);
+
+    const mapIds = [
+      ["t_brand","brand"],["t_subbrand","subbrand"],["t_boundary","boundary"],
+      ["t_kicker","kicker"],["t_headline","headline"],["t_lead","lead"],
+      ["t_disclaimer","disclaimer"],["t_contactTitle","contactTitle"],
+      ["t_phoneNote","phoneNote"],["t_emailNote","emailNote"],["t_contactMini","contactMini"],
+
+      ["t_s1","s1"],["t_s1p","s1p"],["t_s1tag","s1tag"],
+      ["t_c1h","c1h"],["t_c1p","c1p"],["t_c1t","c1t"],["t_c1pr","c1pr"],
+      ["t_c2h","c2h"],["t_c2p","c2p"],["t_c2t","c2t"],["t_c2pr","c2pr"],
+      ["t_c3h","c3h"],["t_c3p","c3p"],["t_c3t","c3t"],["t_c3pr","c3pr"],
+      ["t_c4h","c4h"],["t_c4p","c4p"],["t_c4t","c4t"],["t_c4pr","c4pr"],
+      ["t_c5h","c5h"],["t_c5p","c5p"],["t_c5t","c5t"],["t_c5pr","c5pr"],
+      ["t_c6h","c6h"],["t_c6p","c6p"],["t_c6t","c6t"],["t_c6pr","c6pr"],
+
+      ["t_s2","s2"],["t_s2p","s2p"],["t_s2tag","s2tag"],
+      ["t_c7h","c7h"],["t_c7p","c7p"],["t_c7t","c7t"],["t_c7pr","c7pr"],
+      ["t_c8h","c8h"],["t_c8p","c8p"],["t_c8t","c8t"],["t_c8pr","c8pr"],
+      ["t_c9h","c9h"],["t_c9p","c9p"],["t_c9t","c9t"],["t_c9pr","c9pr"],
+
+      ["t_s3","s3"],["t_s3p","s3p"],["t_s3tag","s3tag"],
+      ["t_c10h","c10h"],["t_c10p","c10p"],["t_c10t","c10t"],["t_c10pr","c10pr"],
+      ["t_c11h","c11h"],["t_c11p","c11p"],["t_c11t","c11t"],["t_c11pr","c11pr"],
+      ["t_c12h","c12h"],["t_c12p","c12p"],["t_c12t","c12t"],["t_c12pr","c12pr"],
+
+      ["t_s4","s4"],["t_s4p","s4p"],["t_s4tag","s4tag"],
+      ["t_c13h","c13h"],["t_c13p","c13p"],["t_c13t","c13t"],["t_c13pr","c13pr"],
+      ["t_c14h","c14h"],["t_c14p","c14p"],["t_c14t","c14t"],["t_c14pr","c14pr"],
+      ["t_c15h","c15h"],["t_c15p","c15p"],["t_c15t","c15t"],["t_c15pr","c15pr"],
+
+      ["t_s5","s5"],["t_s5p","s5p"],["t_s5tag","s5tag"],
+      ["t_c16h","c16h"],["t_c16p","c16p"],["t_c16t","c16t"],["t_c16pr","c16pr"],
+      ["t_c17h","c17h"],["t_c17p","c17p"],["t_c17t","c17t"],["t_c17pr","c17pr"],
+      ["t_c18h","c18h"],["t_c18p","c18p"],["t_c18t","c18t"],["t_c18pr","c18pr"],
+
+      ["t_fh","fh"],["t_fp","fp"],["t_fnote","fnote"],
+      ["t_nameLbl","nameLbl"],["t_phoneLbl","phoneLbl"],["t_topicLbl","topicLbl"],
+      ["t_deadlineLbl","deadlineLbl"],["t_msgLbl","msgLbl"],
+      ["t_privacy","privacy"]
+    ];
+
+    function applyLang(lang){
+      const d = i18n[lang];
+      // buttons / fixed
+      el("langBtn").textContent = d.langBtn;
+      el("scrollPricing").textContent = d.pricingBtn;
+      el("sendBtn").textContent = d.sendBtn;
+      el("copyBtn").textContent = d.copyBtn;
+      el("fabEmail").textContent = d.fabEmail;
+      el("fabCall").textContent = d.fabCall;
+
+      // contact values fixed
+      el("t_phoneVal").textContent = CONTACT_PHONE_DISPLAY;
+      el("t_emailVal").textContent = CONTACT_EMAIL;
+
+      // mapped ids
+      for (const [id,key] of mapIds){
+        const node = el(id);
+        if (!node) continue;
+        if (id === "t_disclaimer") node.innerHTML = d[key];
+        else node.textContent = d[key];
+      }
+
+      // placeholders
+      el("name").placeholder = (lang==="ru") ? "Имя" : "Name";
+      el("phone").placeholder = (lang==="ru") ? "+1 ..." : "+1 ...";
+      el("topic").placeholder = (lang==="ru") ? "Формы / суд / контракт / бизнес-план..." : "Forms / Court prep / Contract / Business plan...";
+      el("deadline").placeholder = (lang==="ru") ? "MM/DD или ASAP" : "MM/DD or ASAP";
+      el("message").placeholder = (lang==="ru")
+        ? "Опиши что нужно, какие документы есть, и цель."
+        : "Describe what you need, what documents you have, and your goal.";
+      document.documentElement.lang = lang;
+      localStorage.setItem("vitacorex_lang", lang);
+    }
+
+    function buildEmailBody(){
+      const name = el("name").value.trim();
+      const phone = el("phone").value.trim();
+      const topic = el("topic").value.trim();
+      const deadline = el("deadline").value.trim();
+      const msg = el("message").value.trim();
+
+      const lang = document.documentElement.lang || "en";
+      const header = (lang==="ru") ? "Запрос с сайта VitaCoreX LLC" : "Request from VitaCoreX LLC site";
+
+      let lines = [];
+      lines.push(header);
+      lines.push("—");
+      if (name) lines.push((lang==="ru"?"Имя":"Name")+": "+name);
+      if (phone) lines.push((lang==="ru"?"Телефон":"Phone")+": "+phone);
+      if (topic) lines.push((lang==="ru"?"Тема":"Topic")+": "+topic);
+      if (deadline) lines.push((lang==="ru"?"Дедлайн":"Deadline")+": "+deadline);
+      lines.push("—");
+      lines.push(msg || (lang==="ru" ? "Описание запроса:" : "Request details:"));
+      return lines.join("\n");
+    }
+
+    function openMail(){
+      const lang = document.documentElement.lang || "en";
+      const subject = encodeURIComponent(lang==="ru" ? "Запрос — VitaCoreX LLC" : "Inquiry — VitaCoreX LLC");
+      const body = encodeURIComponent(buildEmailBody());
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    async function copyMessage(){
+      const text = buildEmailBody();
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+    }
+
+    // init
+    const saved = localStorage.getItem("vitacorex_lang");
+    applyLang(saved === "ru" ? "ru" : "en");
+
+    // handlers
+    el("langBtn").addEventListener("click", () => {
+      const now = document.documentElement.lang || "en";
+      applyLang(now === "en" ? "ru" : "en");
+    });
+
+    el("scrollPricing").addEventListener("click", () => {
+      document.getElementById("pricing").scrollIntoView({behavior:"smooth", block:"start"});
+    });
+
+    el("sendBtn").addEventListener("click", openMail);
+    el("fabEmail").addEventListener("click", openMail);
+    el("fabCall").addEventListener("click", () => window.location.href = `tel:${CONTACT_PHONE_TEL}`);
+    el("copyBtn").addEventListener("click", async () => {
+      await copyMessage();
+      const btn = el("copyBtn");
+      const lang = document.documentElement.lang || "en";
+      const old = btn.textContent;
+      btn.textContent = (lang==="ru") ? "Скопировано ✓" : "Copied ✓";
+      setTimeout(()=>btn.textContent=old, 1200);
+    });
+  </script>
+</body>
+</html>
