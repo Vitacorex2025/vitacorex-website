@@ -1,527 +1,905 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VitaCoreX — Documents • Contracts • Business</title>
-  <meta name="description" content="Documents, contracts, business setup, court filings support, translations, and more." />
+  <meta name="theme-color" content="#070A16" />
+  <title>VitaCoreX — Executive Consulting & Document Support</title>
+  <meta name="description" content="VitaCoreX LLC — executive consulting & document support. Request consultation. Stripe invoices only after scope confirmation." />
 
   <style>
     :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:rgba(15,23,42,.10);
-      --shadow:0 12px 30px rgba(15,23,42,.08);
-      --gold1:#d4af37;
-      --gold2:#b8860b;
-      --radius:18px;
-      --max:1100px;
+      --bg0:#050716;
+      --bg1:#070A16;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.12);
+      --text:#F4F6FF;
+      --muted:rgba(244,246,255,.74);
+      --muted2:rgba(244,246,255,.62);
+      --gold1:#F6E39B;
+      --gold2:#C9A24A;
+      --gold3:#8B6B1E;
+      --accent:#6A5BFF;
+      --radius:20px;
+      --radius2:14px;
+      --shadow: 0 26px 70px rgba(0,0,0,.45);
+      --max: 1120px;
     }
 
     *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 18% 10%, rgba(201,162,74,.16), transparent 52%),
+        radial-gradient(900px 480px at 82% 8%, rgba(246,227,155,.12), transparent 55%),
+        radial-gradient(1200px 700px at 50% 95%, rgba(106,91,255,.10), transparent 58%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width: var(--max); margin:0 auto; padding: 18px 18px 60px; }
 
-    /* Header */
-    .vx-header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .vx-header-inner{
-      max-width: var(--max);
-      margin:0 auto;
-      padding: 16px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .brand-mark{
-      width:14px; height:14px;
-      border-radius:4px;
-      background: linear-gradient(135deg,var(--gold1),var(--gold2));
-      box-shadow: 0 0 0 1px rgba(184,134,11,.25);
-      flex:0 0 auto;
-    }
-    .brand-word{
-      font-weight:800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 16px;
-    }
-    .brand-sub{
-      font-weight:700;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: var(--muted);
-      transform: translateY(-2px);
-    }
-    .goldline{
-      height:2px;
-      background: linear-gradient(90deg, transparent, var(--gold1), var(--gold2), transparent);
+    /* Subtle gold sparkles/glints */
+    .glints{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(2px 2px at 12% 28%, rgba(246,227,155,.45), transparent 60%),
+        radial-gradient(2px 2px at 66% 18%, rgba(201,162,74,.40), transparent 60%),
+        radial-gradient(2px 2px at 82% 36%, rgba(246,227,155,.32), transparent 60%),
+        radial-gradient(2px 2px at 24% 62%, rgba(201,162,74,.28), transparent 60%),
+        radial-gradient(2px 2px at 72% 74%, rgba(246,227,155,.26), transparent 60%),
+        radial-gradient(1px 1px at 44% 44%, rgba(246,227,155,.22), transparent 60%),
+        radial-gradient(1px 1px at 58% 58%, rgba(201,162,74,.18), transparent 60%);
       opacity:.9;
+      mix-blend-mode: screen;
+      animation: float 10s ease-in-out infinite;
+      filter: blur(.2px);
+    }
+    @keyframes float{
+      0%,100%{ transform: translateY(0px); opacity:.85; }
+      50%{ transform: translateY(-10px); opacity:1; }
     }
 
-    /* Language switch */
-    .lang{
-      display:flex; gap:8px; align-items:center;
+    a{ color:inherit; text-decoration:none; }
+
+    .container{
+      position:relative; z-index:1;
+      width:100%; max-width:var(--max);
+      margin:0 auto; padding:24px 18px 44px;
     }
-    .lang button{
-      border: 1px solid rgba(184,134,11,.35);
-      background: transparent;
-      color: var(--muted);
-      padding: 7px 10px;
-      border-radius: 10px;
-      font-weight: 700;
-      letter-spacing: .6px;
-      cursor:pointer;
-      transition: all .15s ease;
+
+    /* Top bar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
     }
-    .lang button:hover{
-      border-color: rgba(184,134,11,.65);
-      color: var(--text);
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .brandTitle{ line-height:1.12; }
+    .brandTitle b{ display:block; font-size:13px; letter-spacing:.3px; }
+    .brandTitle span{ display:block; font-size:12px; color:var(--muted); }
+
+    .nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
-    .lang button.active{
-      background: linear-gradient(135deg, rgba(212,175,55,.18), rgba(184,134,11,.10));
-      color: var(--text);
-      border-color: rgba(184,134,11,.70);
+    .nav a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:.18s ease;
     }
+    .nav a:hover{
+      color:var(--text);
+      border-color: rgba(246,227,155,.22);
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn{
+      border:0; cursor:pointer;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:800;
+      font-size:13px;
+      transition:.18s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      white-space:nowrap;
+      letter-spacing: .2px;
+    }
+    .btn.primary{
+      color:#0B0D18;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2));
+      box-shadow: 0 16px 44px rgba(201,162,74,.22);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); box-shadow: 0 18px 52px rgba(201,162,74,.30); }
+    .btn.ghost{
+      color:var(--text);
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+    .btn.ghost:hover{ transform: translateY(-1px); border-color: rgba(246,227,155,.22); }
+    .btn.small{ padding:8px 12px; font-size:12px; font-weight:800; }
 
     /* Hero */
     .hero{
-      padding: 26px 0 14px;
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items: stretch;
     }
-    .hero-card{
-      background: var(--card);
-      border: 1px solid var(--border);
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 26px;
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 18px;
+      padding: 20px;
+      position:relative;
+      overflow:hidden;
     }
+    .card::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(246,227,155,.12), transparent 40%),
+        radial-gradient(circle at 70% 40%, rgba(201,162,74,.10), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(106,91,255,.10), transparent 50%);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+    .card > *{ position:relative; z-index:1; }
+
     .kicker{
-      color: var(--muted);
-      font-weight:700;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 10px;
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(246,227,155,.18);
+      background: rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:999px;
     }
-    h1{
-      margin: 0 0 10px;
-      font-size: 26px;
-      line-height: 1.15;
-      letter-spacing: .2px;
-    }
-    .lead{
-      margin: 0 0 14px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 15px;
-    }
-    .cta-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap:10px;
-      margin-top: 10px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-weight: 800;
-      letter-spacing: .3px;
-    }
-    .btn.primary{
-      border-color: rgba(184,134,11,.45);
-      background: linear-gradient(135deg, rgba(212,175,55,.18), rgba(184,134,11,.10));
-    }
-    .btn small{
-      font-weight: 800;
-      color: var(--muted);
-      letter-spacing: .4px;
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2));
+      box-shadow: 0 0 0 6px rgba(201,162,74,.12);
     }
 
-    .contact-box{
-      border-left: 1px solid var(--border);
-      padding-left: 18px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:10px;
+    h1{
+      margin: 14px 0 10px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -.6px;
     }
-    .contact-item{
-      display:flex; flex-direction:column; gap:4px;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fff;
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size: 14.5px;
+      line-height: 1.62;
+      max-width: 70ch;
     }
-    .contact-item span{
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      color: var(--muted);
-      font-weight: 800;
+    .heroActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px; }
+
+    .logoWrap{ display:flex; align-items:center; justify-content:center; min-height: 270px; }
+    .logoFrame{
+      width: min(360px, 92%);
+      aspect-ratio: 1/1;
+      border-radius: 26px;
+      border: 1px solid rgba(246,227,155,.18);
+      background:
+        radial-gradient(120px 120px at 30% 25%, rgba(246,227,155,.18), transparent 60%),
+        radial-gradient(220px 160px at 70% 70%, rgba(201,162,74,.14), transparent 60%),
+        rgba(255,255,255,.02);
+      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+      overflow:hidden;
     }
-    .contact-item strong{
-      font-size: 14px;
-      letter-spacing: .2px;
+    .logoFrame::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 20%, rgba(246,227,155,.26), transparent 45%);
+      transform: rotate(12deg);
+      opacity:.8;
+      pointer-events:none;
+    }
+    .logoImg{
+      width: 84%;
+      height: auto;
+      display:block;
+      filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
     }
 
     /* Sections */
-    .section{
-      padding: 18px 0 0;
-    }
-    .section-title{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap: 12px;
+    section{ margin-top: 16px; }
+    .sectionHeader{
+      display:flex; justify-content:space-between; gap:14px; align-items:flex-end;
       margin: 18px 0 10px;
     }
-    .section-title h2{
+    .sectionHeader h2{
       margin:0;
-      font-size: 16px;
-      letter-spacing: .6px;
-      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: -.2px;
     }
-    .section-title p{
+    .sectionHeader p{
       margin:0;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: .3px;
+      color:var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      max-width: 78ch;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
+    .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    .tile{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
       border-radius: var(--radius);
       padding: 16px;
-      box-shadow: 0 10px 22px rgba(15,23,42,.06);
-      min-height: 112px;
+      box-shadow: 0 12px 44px rgba(0,0,0,.28);
+      min-height: 118px;
     }
-    .card h3{
-      margin:0 0 8px;
-      font-size: 14px;
-      letter-spacing: .2px;
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      line-height: 1.45;
-      font-size: 13px;
-    }
+    .tile h3{ margin:0 0 8px; font-size: 14px; letter-spacing:.2px; }
+    .tile p{ margin:0; color:var(--muted); font-size: 13px; line-height: 1.55; }
 
-    .note{
-      margin-top: 14px;
-      padding: 14px 16px;
+    .langStack{ display:grid; grid-template-columns: 1fr; gap: 12px; }
+    .langCard{
+      border:1px solid rgba(246,227,155,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
       border-radius: var(--radius);
-      border: 1px solid rgba(184,134,11,.30);
-      background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(184,134,11,.07));
+      padding: 16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.33);
+    }
+    .langHead{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 10px; }
+    .pill{
+      font-size: 12px;
+      color: rgba(11,13,24,.92);
+      font-weight: 900;
+      letter-spacing:.4px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2));
+      box-shadow: 0 10px 30px rgba(201,162,74,.20);
+      white-space:nowrap;
+    }
+    .langCard h4{ margin:0; font-size: 16px; letter-spacing: -.2px; }
+    .langCard ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.5;
-      font-weight: 650;
+      line-height: 1.65;
     }
 
-    footer{
-      margin-top: 24px;
-      color: var(--muted);
+    .policy{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 14px 50px rgba(0,0,0,.30);
+    }
+    .policy h3{ margin:0 0 8px; font-size: 14px; letter-spacing:.2px; }
+    .policy p{ margin:0; color:var(--muted); font-size: 13px; line-height: 1.7; }
+    .policy .small{ margin-top:10px; color:var(--muted2); font-size:12px; line-height:1.6; }
+    .policy .strict{
+      margin-top:10px;
+      color: rgba(246,227,155,.92);
       font-size: 12px;
-      text-align:center;
-      padding: 18px 0 0;
+      line-height: 1.6;
+      border-left: 3px solid rgba(246,227,155,.45);
+      padding-left: 10px;
+    }
+
+    .contactRow{ display:grid; grid-template-columns: 1.2fr .8fr; gap: 12px; }
+    .mutedSmall{ margin-top: 10px; color: rgba(244,246,255,.62); font-size: 12px; line-height: 1.55; }
+
+    /* Footer */
+    .footer{
+      margin-top: 26px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 16px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color: rgba(244,246,255,.66);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .footer b{ color: rgba(244,246,255,.86); }
+    .footer a{ text-decoration: underline; text-decoration-color: rgba(246,227,155,.35); }
+
+    /* Modal */
+    .modalBackdrop{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      display:none;
+      align-items:center; justify-content:center;
+      padding: 18px;
+      z-index: 999;
+    }
+    .modal{
+      width: min(760px, 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(246,227,155,.18);
+      background: rgba(12,14,28,.86);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      overflow:hidden;
+    }
+    .modalHeader{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modalHeader b{ font-size: 14px; letter-spacing:.2px; }
+    .xbtn{
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor:pointer;
+      font-size: 16px;
+    }
+    .modalBody{ padding: 14px; }
+
+    label{
+      display:block;
+      font-size: 12px;
+      color: rgba(244,246,255,.76);
+      margin-bottom: 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 11px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 14px;
+      outline:none;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(246,227,155,.35);
+      box-shadow: 0 0 0 4px rgba(201,162,74,.12);
+    }
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .row3{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+    .modalFooter{
+      padding: 10px 14px 14px;
+      display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .success{
+      display:none;
+      margin-top: 10px;
+      border: 1px solid rgba(90,220,150,.22);
+      background: rgba(90,220,150,.08);
+      color: rgba(198,255,222,.92);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.55;
     }
 
     @media (max-width: 980px){
-      .hero-card{ grid-template-columns: 1fr; }
-      .contact-box{ border-left: none; padding-left: 0; }
-      .grid{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 560px){
+      .hero{ grid-template-columns: 1fr; }
       .grid{ grid-template-columns: 1fr; }
-      h1{ font-size: 22px; }
-      .brand-word{ font-size: 15px; letter-spacing: 1.6px; }
+      .contactRow{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <header class="vx-header">
-    <div class="vx-header-inner">
-      <a class="brand" href="#">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-word">VitaCoreX</span>
-        <span class="brand-sub">LLC</span>
+  <div class="glints" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="VitaCoreX home">
+        <div class="brandTitle">
+          <b>VitaCoreX LLC</b>
+          <span>Executive Consulting & Document Support</span>
+        </div>
       </a>
 
-      <div class="lang" aria-label="Language">
-        <button class="active" data-lang="ru" type="button">RU</button>
-        <button data-lang="en" type="button">EN</button>
-        <button data-lang="es" type="button">ES</button>
-      </div>
-    </div>
-    <div class="goldline" aria-hidden="true"></div>
-  </header>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#policy">Policy</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-card">
-        <div>
-          <div class="kicker" data-i18n="kicker">Документы • Контракты • Бизнес</div>
-          <h1 data-i18n="title">Структурированная помощь по документам и бизнес-вопросам</h1>
-          <p class="lead" data-i18n="lead">
-            Подготовка документов, договорная работа, бизнес-планы, сопровождение гражданских дел, переводы,
-            помощь с покупкой авто у дилеров — и другое.
-          </p>
+      <button class="btn primary" type="button" data-open="consultation">Request Consultation</button>
+    </header>
 
-          <div class="cta-row">
-            <a class="btn primary" href="tel:+18139194242">
-              <span>📞</span> <span data-i18n="call">Позвонить</span> <small>813-919-4242</small>
-            </a>
-            <a class="btn" href="mailto:vitacorexllc@gmail.com">
-              <span>✉️</span> <span data-i18n="email">Email</span> <small>vitacorexllc@gmail.com</small>
-            </a>
-          </div>
+    <!-- HERO -->
+    <div id="top" class="hero">
+      <div class="card">
+        <div class="kicker">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Scope first • Prepaid engagement • Stripe invoices</span>
         </div>
 
-        <aside class="contact-box" aria-label="Contacts">
-          <div class="contact-item">
-            <span data-i18n="contact_phone">Телефон</span>
-            <strong>813-919-4242</strong>
-          </div>
-          <div class="contact-item">
-            <span data-i18n="contact_email">Почта</span>
-            <strong>vitacorexllc@gmail.com</strong>
-          </div>
-          <div class="contact-item">
-            <span data-i18n="contact_site">Сайт</span>
-            <strong id="siteUrl">vitacorexllc.com</strong>
-          </div>
-        </aside>
-      </div>
-    </section>
+        <h1>Structured consulting — delivered like a firm, not a freelancing page.</h1>
 
-    <section class="section">
-      <div class="section-title">
-        <h2 data-i18n="services">Услуги</h2>
-        <p data-i18n="services_note">Чётко • Быстро • По делу</p>
+        <p class="lead">
+          Consultation request → scope review → quote/invoice → prepaid engagement → delivery.
+          We keep it clean, documented, and compliant.
+        </p>
+
+        <div class="heroActions">
+          <button class="btn primary" type="button" data-open="consultation">Request Consultation</button>
+          <button class="btn ghost" type="button" data-open="project">Submit Project Details</button>
+          <a class="btn ghost" href="#contact">Contact Director</a>
+        </div>
+
+        <p class="mutedSmall">
+          Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="logoWrap">
+          <div class="logoFrame">
+            <img class="logoImg" src="assets/logo.png" alt="VitaCoreX logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="sectionHeader">
+        <div>
+          <h2>Services</h2>
+          <p>Wide coverage. Scope is confirmed in writing prior to invoicing.</p>
+        </div>
       </div>
 
       <div class="grid">
-        <div class="card">
-          <h3 data-i18n="s1_t">Открытие компаний</h3>
-          <p data-i18n="s1_d">LLC / базовая структура, регистрационные формы, подготовка пакета документов.</p>
+        <div class="tile">
+          <h3>Business setup & compliance</h3>
+          <p>Company formation support, registrations, structured setup, documentation packaging.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s2_t">Договорная работа</h3>
-          <p data-i18n="s2_d">Подготовка и ревью контрактов, понятная структура условий, риски и правки.</p>
+        <div class="tile">
+          <h3>Contracts</h3>
+          <p>Drafting, review, negotiation support, risk notes, clean deliverables.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s3_t">Бизнес-планы</h3>
-          <p data-i18n="s3_d">Структура, финмодель, логика, “чтобы работало” — без воды.</p>
+        <div class="tile">
+          <h3>Business plans</h3>
+          <p>Plan structure, pricing logic, ROI calculations, executive-style documentation.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s4_t">Документы для гражданских судов</h3>
-          <p data-i18n="s4_d">Черновики/пакеты, приложения, форматирование, выставление логики и таймлайна.</p>
+        <div class="tile">
+          <h3>Civil court documents support</h3>
+          <p>Preparation support for civil filings (no representation; no court appearance).</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s5_t">Заполнение документов</h3>
-          <p data-i18n="s5_d">Формы, заявления, сопроводительные письма, подготовка к подаче.</p>
+        <div class="tile">
+          <h3>Forms & document preparation</h3>
+          <p>Structured forms, applications, checklists, administrative documentation.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s6_t">Сделки с дилерами</h3>
-          <p data-i18n="s6_d">Проверка условий покупки авто, финальные цифры, защита от “скрытых” сюрпризов.</p>
+        <div class="tile">
+          <h3>Translations RU/EN + support</h3>
+          <p>Accurate bilingual translations for business and formal documents.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s7_t">Переводы</h3>
-          <p data-i18n="s7_d">RU ↔ EN: документы, деловая переписка, юридический стиль.</p>
+        <div class="tile">
+          <h3>Dealer vehicle purchase support</h3>
+          <p>Deal review, negotiation support, contract checks, avoiding hidden terms.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s8_t">И многое другое</h3>
-          <p data-i18n="s8_d">Если вопрос нестандартный — разберём и предложим понятный план действий.</p>
+        <div class="tile">
+          <h3>Lease / landlord paperwork support</h3>
+          <p>Lease review support, terms analysis, structured communications.</p>
         </div>
-
-        <div class="card">
-          <h3 data-i18n="s9_t">Доступные цены</h3>
-          <p data-i18n="s9_d">Стоимость зависит от объёма и сложности. Есть фикс за документ и пакеты.</p>
+        <div class="tile">
+          <h3>Other projects</h3>
+          <p>If it’s documents + structure + clarity — it’s within scope (case-by-case).</p>
         </div>
-      </div>
-
-      <div class="note" data-i18n="disclaimer">
-        ⚖️ Не юридическая фирма. Представительство в суде не осуществляется. Помогаем со структурой, документами и подготовкой материалов.
       </div>
     </section>
 
-    <footer>
-      <span>© <span id="year"></span> VitaCoreX LLC</span>
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="sectionHeader">
+        <div>
+          <h2>Engagement process (clean & safe)</h2>
+          <p>Exactly how a consulting firm operates — filter → quote → prepaid engagement → delivery.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="tile">
+          <h3>1) Consultation Request</h3>
+          <p>
+            Client submits request form with service type, short description, and budget range.
+            This filters out non-serious inquiries.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>2) Quote issued</h3>
+          <p>
+            After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>3) Prepayment required</h3>
+          <p>
+            Services are provided on a prepaid basis. Work begins only after confirmed payment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY -->
+    <section id="policy">
+      <div class="sectionHeader">
+        <div>
+          <h2>Payment & engagement policy</h2>
+          <p>Short, strict, and compliance-safe wording (no “law firm” positioning).</p>
+        </div>
+      </div>
+
+      <div class="policy">
+        <h3>Policy (public)</h3>
+        <p>
+          VitaCoreX LLC provides consulting, administrative support, and document preparation assistance for individuals and small businesses.
+          Scope, timeline, and price are confirmed in writing prior to invoicing.
+          Payments are collected via Stripe invoice after scope confirmation.
+        </p>
+        <p class="strict">
+          All services are provided on a prepaid basis. Work begins only after confirmed payment.
+        </p>
+        <p class="small">
+          VitaCoreX LLC is not a law firm and does not provide legal representation. For legal advice, consult a licensed attorney.
+          Zelle/Bank transfer may be available upon request and confirmation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT (EN -> RU -> ES) -->
+    <section id="about">
+      <div class="sectionHeader">
+        <div>
+          <h2>About (EN → RU → ES)</h2>
+          <p>Premium profile text with consistent tone.</p>
+        </div>
+      </div>
+
+      <div class="langStack">
+
+        <!-- EN -->
+        <div class="langCard">
+          <div class="langHead">
+            <h4>Profile — VitaCoreX Consulting</h4>
+            <span class="pill">ENGLISH</span>
+          </div>
+          <ul>
+            <li><b>Focus:</b> business setup, contracts, structured document work, and negotiation support.</li>
+            <li><b>Approach:</b> scope confirmed in writing, predictable deliverables, professional communication.</li>
+            <li><b>Payments:</b> Stripe invoice after scope confirmation. Prepayment required before work begins.</li>
+            <li><b>Positioning:</b> consulting & document support — not a law firm; no court representation.</li>
+          </ul>
+        </div>
+
+        <!-- RU -->
+        <div class="langCard">
+          <div class="langHead">
+            <h4>Профиль — VitaCoreX Consulting</h4>
+            <span class="pill">РУССКИЙ</span>
+          </div>
+          <ul>
+            <li><b>Фокус:</b> открытие бизнеса, договорная работа, подготовка документов, поддержка переговоров.</li>
+            <li><b>Подход:</b> объём фиксируем письменно, результат — структурный и предсказуемый, коммуникация деловая.</li>
+            <li><b>Оплата:</b> Stripe-инвойс после согласования объёма. Предоплата обязательна до начала работ.</li>
+            <li><b>Позиционирование:</b> консалтинг и подготовка документов — не юрфирма; без представительства в суде.</li>
+          </ul>
+        </div>
+
+        <!-- ES -->
+        <div class="langCard">
+          <div class="langHead">
+            <h4>Perfil — VitaCoreX Consulting</h4>
+            <span class="pill">ESPAÑOL</span>
+          </div>
+          <ul>
+            <li><b>Enfoque:</b> creación de empresas, contratos, documentación estructurada y apoyo en negociaciones.</li>
+            <li><b>Método:</b> alcance por escrito, entregables definidos y comunicación profesional.</li>
+            <li><b>Pagos:</b> factura de Stripe después de confirmar el alcance. Pago por adelantado antes de iniciar.</li>
+            <li><b>Posicionamiento:</b> consultoría y preparación de documentos — no somos firma legal; sin representación.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sectionHeader">
+        <div>
+          <h2>Contact</h2>
+          <p>Three premium actions: request consultation, submit project, contact director.</p>
+        </div>
+      </div>
+
+      <div class="contactRow">
+        <div class="tile">
+          <h3>Director contact</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.8">
+            Phone: <a href="tel:+18139194242"><b>+1 (813) 919-4242</b></a><br/>
+            Email: <a href="mailto:vitacorexllc@gmail.com"><b>vitacorexllc@gmail.com</b></a><br/>
+            Website: <a href="https://vitacorexllc.netlify.app/" target="_blank" rel="noopener"><b>vitacorexllc.netlify.app</b></a>
+          </p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="button" data-open="consultation">Request Consultation</button>
+            <button class="btn ghost" type="button" data-open="project">Submit Project Details</button>
+            <a class="btn ghost" href="mailto:vitacorexllc@gmail.com?subject=VitaCoreX%20Inquiry">Contact Director</a>
+          </div>
+
+          <p class="mutedSmall">
+            Scope → Quote/Invoice → Prepayment → Delivery. No “Pay Now” button.
+          </p>
+        </div>
+
+        <div class="tile">
+          <h3>Stripe invoice model</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.75">
+            After you submit a request, you receive either:
+            <br/>• PDF proposal, and/or
+            <br/>• Stripe invoice containing: scope, timeline, total, and “Prepayment required before work begins”.
+          </p>
+          <p class="mutedSmall">
+            Client pays → funds appear in Stripe balance → Stripe payouts transfer to your bank (standard payout cycle).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <b>© 2025 VitaCoreX LLC</b>. All rights reserved.<br/>
+        Steven Miller — Managing Member.<br/>
+        For partnership inquiries: <a href="mailto:vitacorex2025@gmail.com">vitacorex2025@gmail.com</a>
+      </div>
+      <div>
+        Services provided under applicable U.S. federal and state regulations governing consulting and administrative support services.<br/>
+        <b>Prepayment required prior to service commencement.</b><br/>
+        VitaCoreX LLC is not a law firm and does not provide legal representation.
+      </div>
     </footer>
-  </main>
+  </div>
+
+  <!-- MODAL: Consultation Request Form -->
+  <div class="modalBackdrop" id="modalConsultation" role="dialog" aria-modal="true" aria-labelledby="cTitle">
+    <div class="modal">
+      <div class="modalHeader">
+        <b id="cTitle">Consultation Request (filter)</b>
+        <button class="xbtn" type="button" data-close="consultation" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <!-- Netlify Forms (works on Netlify deploy) -->
+        <form id="consultationForm" name="consultation-request" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="consultation-request" />
+
+          <div class="row3">
+            <div>
+              <label for="cLang">Preferred language</label>
+              <select id="cLang" name="preferredLanguage" required>
+                <option value="English" selected>English</option>
+                <option value="Russian">Russian</option>
+                <option value="Spanish">Spanish</option>
+              </select>
+            </div>
+            <div>
+              <label for="cService">Type of service</label>
+              <select id="cService" name="typeOfService" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Business setup & compliance</option>
+                <option>Contracts (draft/review)</option>
+                <option>Business plan</option>
+                <option>Civil court documents support</option>
+                <option>Forms & document preparation</option>
+                <option>Translation RU/EN</option>
+                <option>Dealer vehicle purchase support</option>
+                <option>Lease / landlord paperwork support</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="cBudget">Estimated budget range</label>
+              <select id="cBudget" name="budgetRange" required>
+                <option value="" disabled selected>Select…</option>
+                <option>$150–$300</option>
+                <option>$300–$750</option>
+                <option>$750–$1,500</option>
+                <option>$1,500–$3,000</option>
+                <option>$3,000–$7,500</option>
+                <option>$7,500+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="cName">Full name</label>
+              <input id="cName" name="fullName" type="text" placeholder="Full name" required />
+            </div>
+            <div>
+              <label for="cEmail">Email</label>
+              <input id="cEmail" name="email" type="email" placeholder="name@email.com" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="cPhone">Phone</label>
+              <input id="cPhone" name="phone" type="tel" placeholder="+1 (___) ___-____" required />
+            </div>
+            <div>
+              <label for="cTimeline">Desired timeline</label>
+              <select id="cTimeline" name="desiredTimeline" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Same day / urgent</option>
+                <option>24–48 hours</option>
+                <option>3–5 business days</option>
+                <option>1–2 weeks</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="cDesc">Short project description</label>
+            <textarea id="cDesc" name="projectDescription" placeholder="Briefly describe what you need, the context, and the outcome you want." required></textarea>
+          </div>
+
+          <div class="success" id="cSuccess">
+            Submitted. You will receive a confirmation and next steps.  
+            After scope review, a quote and/or Stripe invoice will be issued.
+          </div>
+
+          <div class="modalFooter">
+            <button class="btn ghost" type="button" data-close="consultation">Cancel</button>
+            <button class="btn primary" type="submit">Submit request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Submit Project Details (optional second intake) -->
+  <div class="modalBackdrop" id="modalProject" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+    <div class="modal">
+      <div class="modalHeader">
+        <b id="pTitle">Submit Project Details (optional)</b>
+        <button class="xbtn" type="button" data-close="project" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <form id="projectForm" name="project-details" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="project-details" />
+
+          <div class="row">
+            <div>
+              <label for="pName">Full name</label>
+              <input id="pName" name="fullName" type="text" required />
+            </div>
+            <div>
+              <label for="pEmail">Email</label>
+              <input id="pEmail" name="email" type="email" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="pCompany">Company (if any)</label>
+              <input id="pCompany" name="company" type="text" placeholder="Optional" />
+            </div>
+            <div>
+              <label for="pFiles">Links to documents (optional)</label>
+              <input id="pFiles" name="documentLinks" type="text" placeholder="Google Drive / Dropbox links etc." />
+            </div>
+          </div>
+
+          <div>
+            <label for="pDetails">Project details</label>
+            <textarea id="pDetails" name="projectDetails" placeholder="Describe details, constraints, deadlines, and what you already have." required></textarea>
+          </div>
+
+          <div class="success" id="pSuccess">
+            Submitted. Your details are received. Next: scope review → quote/invoice.
+          </div>
+
+          <div class="modalFooter">
+            <button class="btn ghost" type="button" data-close="project">Cancel</button>
+            <button class="btn primary" type="submit">Submit details</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // --- settings ---
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Open/close modals
+    const modalConsultation = document.getElementById('modalConsultation');
+    const modalProject = document.getElementById('modalProject');
 
-    // show domain dynamically (nice touch)
-    const host = (location.hostname || "vitacorexllc.com").replace(/^www\./,"");
-    document.getElementById('siteUrl').textContent = host;
+    function openModal(which){
+      if(which === 'consultation') modalConsultation.style.display = 'flex';
+      if(which === 'project') modalProject.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(which){
+      if(which === 'consultation') modalConsultation.style.display = 'none';
+      if(which === 'project') modalProject.style.display = 'none';
+      document.body.style.overflow = '';
+    }
 
-    // --- i18n ---
-    const dict = {
-      ru: {
-        kicker: "Документы • Контракты • Бизнес",
-        title: "Структурированная помощь по документам и бизнес-вопросам",
-        lead: "Подготовка документов, договорная работа, бизнес-планы, сопровождение гражданских дел, переводы, помощь с покупкой авто у дилеров — и другое.",
-        call: "Позвонить",
-        email: "Email",
-        contact_phone: "Телефон",
-        contact_email: "Почта",
-        contact_site: "Сайт",
-        services: "Услуги",
-        services_note: "Чётко • Быстро • По делу",
-        s1_t: "Открытие компаний",
-        s1_d: "LLC / базовая структура, регистрационные формы, подготовка пакета документов.",
-        s2_t: "Договорная работа",
-        s2_d: "Подготовка и ревью контрактов, понятная структура условий, риски и правки.",
-        s3_t: "Бизнес-планы",
-        s3_d: "Структура, финмодель, логика, “чтобы работало” — без воды.",
-        s4_t: "Документы для гражданских судов",
-        s4_d: "Черновики/пакеты, приложения, форматирование, выставление логики и таймлайна.",
-        s5_t: "Заполнение документов",
-        s5_d: "Формы, заявления, сопроводительные письма, подготовка к подаче.",
-        s6_t: "Сделки с дилерами",
-        s6_d: "Проверка условий покупки авто, финальные цифры, защита от “скрытых” сюрпризов.",
-        s7_t: "Переводы",
-        s7_d: "RU ↔ EN: документы, деловая переписка, юридический стиль.",
-        s8_t: "И многое другое",
-        s8_d: "Если вопрос нестандартный — разберём и предложим понятный план действий.",
-        s9_t: "Доступные цены",
-        s9_d: "Стоимость зависит от объёма и сложности. Есть фикс за документ и пакеты.",
-        disclaimer: "⚖️ Не юридическая фирма. Представительство в суде не осуществляется. Помогаем со структурой, документами и подготовкой материалов."
-      },
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click', ()=> openModal(btn.getAttribute('data-open')));
+    });
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', ()=> closeModal(btn.getAttribute('data-close')));
+    });
 
-      en: {
-        kicker: "Documents • Contracts • Business",
-        title: "Structured support for documents and business matters",
-        lead: "Document preparation, contract work, business plans, civil court filing support, translations, and help with dealer car purchases — and more.",
-        call: "Call",
-        email: "Email",
-        contact_phone: "Phone",
-        contact_email: "Email",
-        contact_site: "Website",
-        services: "Services",
-        services_note: "Clear • Fast • To the point",
-        s1_t: "Company formation",
-        s1_d: "LLC basics, registration forms, and a clean document package.",
-        s2_t: "Contract work",
-        s2_d: "Drafting and review, structured terms, risk notes, and edits.",
-        s3_t: "Business plans",
-        s3_d: "Structure, simple financial logic, and practical execution.",
-        s4_t: "Civil court documents support",
-        s4_d: "Drafts/packages, exhibits, formatting, logic and timeline setup.",
-        s5_t: "Form filling",
-        s5_d: "Applications, statements, cover letters, prep for submission.",
-        s6_t: "Dealer purchase support",
-        s6_d: "Review terms, final numbers, protect from hidden surprises.",
-        s7_t: "Translations",
-        s7_d: "RU ↔ EN: documents, business writing, legal style.",
-        s8_t: "And more",
-        s8_d: "If it’s unusual — we’ll break it down and provide a clear plan.",
-        s9_t: "Affordable pricing",
-        s9_d: "Pricing depends on scope and complexity. Fixed per document and packages available.",
-        disclaimer: "⚖️ Not a law firm. No court representation. We provide document structure, preparation, and filing support."
-      },
+    // Close if clicking outside modal
+    [modalConsultation, modalProject].forEach(backdrop=>{
+      backdrop.addEventListener('click', (e)=>{
+        if(e.target === backdrop){
+          backdrop.style.display='none';
+          document.body.style.overflow='';
+        }
+      });
+    });
 
-      es: {
-        kicker: "Documentos • Contratos • Negocios",
-        title: "Apoyo estructurado para documentos y temas de negocio",
-        lead: "Preparación de documentos, contratos, planes de negocio, apoyo para trámites civiles, traducciones y ayuda con compras de autos en concesionarios — y más.",
-        call: "Llamar",
-        email: "Email",
-        contact_phone: "Teléfono",
-        contact_email: "Email",
-        contact_site: "Sitio web",
-        services: "Servicios",
-        services_note: "Claro • Rápido • Directo",
-        s1_t: "Apertura de empresas",
-        s1_d: "Base de LLC, formularios de registro y paquete de documentos.",
-        s2_t: "Trabajo contractual",
-        s2_d: "Redacción y revisión, términos claros, riesgos y correcciones.",
-        s3_t: "Planes de negocio",
-        s3_d: "Estructura, lógica financiera simple y enfoque práctico.",
-        s4_t: "Apoyo para documentos civiles",
-        s4_d: "Borradores/paquetes, anexos, formato, lógica y cronograma.",
-        s5_t: "Relleno de formularios",
-        s5_d: "Solicitudes, declaraciones, cartas y preparación para presentar.",
-        s6_t: "Apoyo con concesionarios",
-        s6_d: "Revisión de términos, cifras finales, protección ante sorpresas.",
-        s7_t: "Traducciones",
-        s7_d: "RU ↔ EN: documentos, comunicación empresarial, estilo legal.",
-        s8_t: "Y más",
-        s8_d: "Si es algo inusual — lo analizamos y damos un plan claro.",
-        s9_t: "Precios accesibles",
-        s9_d: "El precio depende del alcance y complejidad. Tarifas fijas por documento y paquetes.",
-        disclaimer: "⚖️ No somos un bufete de abogados. Sin representación en tribunales. Ayudamos con estructura y preparación de documentos."
-      }
-    };
+    // Netlify forms: show success message without redirect (best UX)
+    async function handleNetlifyForm(formEl, successEl){
+      formEl.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const formData = new FormData(formEl);
 
-    const buttons = document.querySelectorAll('.lang button');
-    function applyLang(lang){
-      document.documentElement.lang = lang;
-      localStorage.setItem('vx_lang', lang);
+        try{
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+          });
 
-      buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        const val = dict[lang]?.[key];
-        if (val) el.textContent = val;
+          if(res.ok){
+            successEl.style.display = 'block';
+            formEl.reset();
+          }else{
+            alert('Submission failed. Please try again or email us directly.');
+          }
+        }catch(err){
+          alert('Submission failed. Please try again or email us directly.');
+        }
       });
     }
 
-    buttons.forEach(btn => btn.addEventListener('click', ()=> applyLang(btn.dataset.lang)));
-    applyLang(localStorage.getItem('vx_lang') || 'ru');
+    handleNetlifyForm(
+      document.getElementById('consultationForm'),
+      document.getElementById('cSuccess')
+    );
+    handleNetlifyForm(
+      document.getElementById('projectForm'),
+      document.getElementById('pSuccess')
+    );
   </script>
 </body>
 </html>
-
-
