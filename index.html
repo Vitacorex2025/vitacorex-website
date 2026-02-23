@@ -367,7 +367,42 @@ body{ padding-bottom: max(16px, var(--safe-bottom)); }
 @media (max-width:520px){
   .brandLogo{ width:56px; height:56px; border-radius:14px; }
 }
-</style>
+/* ===== GLOBAL OVERFLOW FIX ===== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Убираем 100vw если где-то есть */
+* {
+  box-sizing: border-box;
+}
+
+/* Контейнер не может быть шире экрана */
+.wrapper,
+.container,
+.hero,
+.topbar {
+  max-width: 100%;
+}
+
+/* Языковой блок фикс */
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+/* На мобильном — перенос в строку */
+@media (max-width: 768px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .language-switcher {
+    margin-top: 8px;
+  }
+}</style>
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
