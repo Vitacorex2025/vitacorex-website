@@ -1408,6 +1408,36 @@ html, body {
 
     // Year
     document.getElementById("year").textContent = "2025";
-  </script>
+  // ===== Contact Director (Simple Mailto) =====
+document.getElementById("contactDirector")?.addEventListener("click", () => {
+
+  const name = prompt("Your name (required):");
+  if (!name) return;
+
+  const phone = prompt("Phone (required):");
+  if (!phone) return;
+
+  const email = prompt("Email (required):");
+  if (!email) return;
+
+  const msg = prompt("Message (required):");
+  if (!msg) return;
+
+  const subject = "VitaCoreX – Contact Director";
+
+  const body =
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n\n" +
+    "Message:\n" + msg + "\n\n" +
+    "Website: www.VitaCoreXLLC.com";
+
+  window.location.href =
+    "mailto:vitacorex2025@gmail.com?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
+
+});
 </body>
 </html>
