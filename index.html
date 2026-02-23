@@ -1302,18 +1302,10 @@ html, body {
     projectModal.addEventListener("click", (e)=>{ if(e.target === projectModal) closeModal(projectModal); });
 
     // ========= Contact =========
-    document.getElementById("contactBtn").addEventListener("click", ()=>{
-      const phone = document.getElementById("phoneText").textContent.trim();
-      const email = document.getElementById("emailText").textContent.trim();
-      const web = document.getElementById("webText").textContent.trim();
-
-      const msg = `Phone: ${phone}\nEmail: ${email}\nWebsite: ${web}`;
-      if(navigator.clipboard){
-        navigator.clipboard.writeText(msg).then(()=>alert("Contact copied to clipboard."));
-      }else{
-        alert(msg);
-      }
-    });
+   // ===== Contact Director Modal =====
+document.getElementById("contactBtn").addEventListener("click", () => {
+    document.getElementById("directorModal").style.display = "block";
+});
 
     // ========= Autosave (local drafts) =========
     function setupAutosave(formId, storageKey){
@@ -1366,78 +1358,101 @@ html, body {
       alert("Saved draft cleared.");
     });
 
-    // ========= Submit handlers (mailto demo) =========
-    function safeMailto(subject, body){
-      const to = "vitacorexllc@gmail.com";
-      const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
-    }
-
-    document.getElementById("submitConsult").addEventListener("click", ()=>{
-      const body =
-        `Service: ${document.getElementById("c_service").value}\n`+
-        `Budget: ${document.getElementById("c_budget").value}\n`+
-        `Name: ${document.getElementById("c_name").value}\n`+
-        `Email: ${document.getElementById("c_email").value}\n`+
-        `Phone: ${document.getElementById("c_phone").value}\n`+
-        `Timeline: ${document.getElementById("c_deadline").value}\n`+
-        `Referral: ${document.getElementById("c_ref").value}\n`+
-        `Referral phone: ${document.getElementById("c_ref_phone").value}\n\n`+
-        `Description:\n${document.getElementById("c_desc").value}\n\n`+
-        `Website: www.VitaCoreXLLC.com`;
-
-      safeMailto("VitaCoreX — Consultation request", body);
-      closeModal(consultModal);
-    });
-
-    document.getElementById("submitProject").addEventListener("click", ()=>{
-      const body =
-        `Service: ${document.getElementById("p_service").value}\n`+
-        `Timeline: ${document.getElementById("p_deadline").value}\n`+
-        `Name: ${document.getElementById("p_name").value}\n`+
-        `Email: ${document.getElementById("p_email").value}\n`+
-        `Phone: ${document.getElementById("p_phone").value}\n`+
-        `Referral: ${document.getElementById("p_ref").value}\n`+
-        `Referral phone: ${document.getElementById("p_ref_phone").value}\n\n`+
-        `Description:\n${document.getElementById("p_desc").value}\n\n`+
-        `Website: www.VitaCoreXLLC.com`;
-
-      safeMailto("VitaCoreX — Project details", body);
-      closeModal(projectModal);
-    });
+   
 
     // Year
     document.getElementById("year").textContent = "2025";
-  // ===== Contact Director (Simple Mailto) =====
-document.getElementById("contactDirector")?.addEventListener("click", () => {
+// ===== Contact Director (Modal + Netlify Form) =====
+const contactDirectorBtn = document.getElementById("contactDirector");
+const contactDirectorModal = document.getElementById("contactDirectorModal");
+const contactDirectorClose = document.getElementById("contactDirectorClose");
+const contactDirectorForm = document.getElementById("contactDirectorForm");
+const contactDirectorStatus = document.getElementById("contactDirectorStatus");
 
-  const name = prompt("Your name (required):");
-  if (!name) return;
+function openContactDirectorModal() {
+  if (!contactDirectorModal) return;
+  contactDirectorModal.style.display = "block";
+  contactDirectorModal.setAttribute("aria-hidden", "false");
+}
 
-  const phone = prompt("Phone (required):");
-  if (!phone) return;
+function closeContactDirectorModal() {
+  if (!contactDirectorModal) return;
+  contactDirectorModal.style.display = "none";
+  contactDirectorModal.setAttribute("aria-hidden", "true");
+  if (contactDirectorStatus) contactDirectorStatus.textContent = "";
+}
 
-  const email = prompt("Email (required):");
-  if (!email) return;
+if (contactDirectorBtn) {
+  contactDirectorBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openContactDirectorModal();
+  });
+}
 
-  const msg = prompt("Message (required):");
-  if (!msg) return;
+if (contactDirectorClose) {
+  contactDirectorClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeContactDirectorModal();
+  });
+}
 
-  const subject = "VitaCoreX – Contact Director";
+// закрытие по клику на фон
+if (contactDirectorModal) {
+  contactDirectorModal.addEventListener("click", (e) => {
+    if (e.target === contactDirectorModal) closeContactDirectorModal();
+  });
+}
 
-  const body =
-    "Name: " + name + "\n" +
-    "Phone: " + phone + "\n" +
-    "Email: " + email + "\n\n" +
-    "Message:\n" + msg + "\n\n" +
-    "Website: www.VitaCoreXLLC.com";
-
-  window.location.href =
-    "mailto:vitacorex2025@gmail.com?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" +
-    encodeURIComponent(body);
-
+// закрытие по Esc
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && contactDirectorModal && contactDirectorModal.style.display === "block") {
+    closeContactDirectorModal();
+  }
 });
+
+if (contactDirectorForm) {
+  contactDirectorForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // все поля обязательные
+    if (!contactDirectorForm.checkValidity()) {
+      contactDirectorForm.reportValidity();
+      if (contactDirectorStatus) contactDirectorStatus.textContent = "All fields are required.";
+      return;
+    }
+
+    if (contactDirectorStatus) contactDirectorStatus.textContent = "Sending...";
+
+    const formData = new FormData(contactDirectorForm);
+
+    // важно для Netlify: form-name должен совпадать с name формы
+    const formName = contactDirectorForm.getAttribute("name");
+    if (formName && !formData.get("form-name")) {
+      formData.append("form-name", formName);
+    }
+
+    const body = new URLSearchParams(formData).toString();
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body
+      });
+
+      if (!res.ok) throw new Error("Network response was not ok");
+
+      if (contactDirectorStatus) contactDirectorStatus.textContent = "Sent ✅";
+      contactDirectorForm.reset();
+
+      setTimeout(() => closeContactDirectorModal(), 700);
+    } catch (err) {
+      if (contactDirectorStatus) {
+        contactDirectorStatus.textContent =
+          "Error. Please try again or email: vitacorex2025@gmail.com";
+      }
+    }
+  });
+}
 </body>
 </html>
