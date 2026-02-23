@@ -1493,5 +1493,45 @@ body{ padding-bottom: max(16px, var(--safe-bottom)); }
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = "2025";
   </script>
+ <!-- Floating Call Button -->
+<a href="tel:+18139194242" class="floating-call" aria-label="Call for consultation">📞</a>
+
+<style>
+  .floating-call{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(145deg, #d4af37, #b9962e);
+    color: #000;
+    font-size: 26px;
+
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    z-index: 9999;
+
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .floating-call:hover{
+    transform: scale(1.08);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+  }
+
+  /* Hide on desktop (keep on mobile). Remove this block if you want it visible everywhere. */
+  @media (min-width: 768px){
+    .floating-call{ display:none; }
+  }
+</style>
 </body>
 </html>
