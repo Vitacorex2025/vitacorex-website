@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>VitaCoreX LLC — Executive Consulting &amp; Document Support</title>
+<meta content="VitaCoreX LLC — nationwide executive consulting &amp; structured document support. Scope-first, prepaid engagement, Stripe invoices after scope confirmation." name="description"/>
+<!-- Optional premium-ish font (safe fallback included). If you don’t want external fonts, delete these 2 lines. -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{ --sat: 0px; 
+      --bg: #fbf7ef;
+      --ink:#111114;
+      --muted:#5b5e66;
+
+      --gold:#c0a24a;
+      --gold2:#d8c07a;
+      --goldSoft: rgba(192,162,74,.18);
+      --goldSoft2: rgba(222,207,140,.14);
+
+      --shadow1: 0 18px 50px rgba(17,17,20,.10);
+      --shadow2: 0 10px 30px rgba(17,17,20,.08);
+
+      --radius: 18px;
+      --radius2: 14px;
+
+      --max: 1120px;
+
+      /* subtle khokhloma-ish watermark (inline SVG) */
+      --kho: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27220%27%20height%3D%27220%27%20viewBox%3D%270%200%20220%20220%27%3E%0A%3Cg%20fill%3D%27none%27%20stroke%3D%27%23c0a24a%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%272.2%27%20stroke-linecap%3D%27round%27%3E%0A%3Cpath%20d%3D%27M20%20120c35-70%2075-90%20120-70%2030%2012%2050%2038%2060%2070%27/%3E%0A%3Cpath%20d%3D%27M35%20170c35-55%2070-70%20105-55%2022%209%2036%2027%2044%2050%27/%3E%0A%3Cpath%20d%3D%27M80%2040c25%2010%2035%2028%2030%2052-4%2020-18%2032-38%2038%27/%3E%0A%3Cpath%20d%3D%27M150%2045c-28%208-40%2025-38%2050%202%2022%2016%2036%2040%2042%27/%3E%0A%3Cpath%20d%3D%27M55%2075c18%2018%2020%2036%204%2054-14%2016-32%2018-52%206%27/%3E%0A%3Cpath%20d%3D%27M165%20140c-18-18-20-36-4-54%2014-16%2032-18%2052-6%27/%3E%0A%3Cpath%20d%3D%27M110%2010c10%2022%207%2040-9%2054-14%2012-30%2012-46%200%27/%3E%0A%3Cpath%20d%3D%27M110%20210c-10-22-7-40%209-54%2014-12%2030-12%2046%200%27/%3E%0A%3C/g%3E%0A%3Cg%20fill%3D%27%23c0a24a%27%20fill-opacity%3D%270.10%27%3E%0A%3Ccircle%20cx%3D%2726%27%20cy%3D%27112%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27194%27%20cy%3D%27140%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%2744%27%20r%3D%273%27/%3E%3Ccircle%20cx%3D%27148%27%20cy%3D%2746%27%20r%3D%273%27/%3E%0A%3C/g%3E%0A%3C/svg%3E');
+    }
+    /* Safe-area only in iOS PWA (avoid huge top gap in Safari/preview) */
+    body.is-standalone{ --sat: env(safe-area-inset-top, 0px); }
+
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        var(--kho) 0 0/520px 520px repeat,
+        radial-gradient(900px 500px at 15% 16%, var(--goldSoft2), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, var(--goldSoft), transparent 55%),
+        radial-gradient(1200px 700px at 50% 100%, rgba(17,17,20,.04), transparent 60%),
+        var(--bg);
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 60px}
+
+    /* Top header */
+    .topbar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  padding:0;
+}
+.topbarInner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: calc(10px + var(--sat)) 16px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+@media (min-width: 900px){
+  .topbar{
+    width: min(1180px, calc(100% - 48px));
+    margin: 12px auto 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 10px 24px rgba(17,17,20,.08);
+  }
+}
+.brand{display:flex; gap:12px; align-items:center; min-width:260px}
+    .brand .mark{
+      width:42px; height:42px; border-radius:14px;
+      background:linear-gradient(180deg, rgba(17,17,20,.96), rgba(17,17,20,.90));
+      display:grid; place-items:center;
+      box-shadow:0 0 0 2px rgba(192,162,74,.35), 0 14px 32px rgba(17,17,20,.16);
+      border:1px solid rgba(192,162,74,.45);
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+    .brand .mark img{width:100%; height:100%; object-fit:cover; display:block}
+    .brand .txt{line-height:1.05}
+    .brand .name{
+      font-weight:900; letter-spacing:.2px; font-size:20px;
+    }
+    .brand .sub{font-size:12.5px; color:var(--muted); margin-top:4px; max-width:360px; margin-bottom:8px;}
+
+    .actions{display:flex; align-items:center; gap:12px}
+
+    /* Language pills (premium capsule) */
+    .lang{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:2px solid rgba(17,17,20,.85);
+      box-shadow:0 0 0 2px rgba(192,162,74,.70), 0 12px 26px rgba(17,17,20,.10);
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.95) 0%,
+          rgba(255,255,255,.95) 33%,
+          rgba(26,73,170,.20) 33%,
+          rgba(26,73,170,.20) 66%,
+          rgba(198,40,40,.20) 66%,
+          rgba(198,40,40,.20) 100%
+        ),
+        linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.30));
+      backdrop-filter: blur(6px);
+    }
+    .lang button{
+      border:1px solid rgba(17,17,20,.18);
+      background:rgba(255,255,255,.82);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+      letter-spacing:.2px;
+      cursor:pointer;
+      min-width:48px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+    }
+    .lang button:hover{transform:translateY(-1px)}
+    .lang button.active{
+      box-shadow:0 10px 20px rgba(17,17,20,.12);
+      outline:2px solid rgba(192,162,74,.45);
+      background:rgba(255,255,255,.95);
+    }
+    .lang .en{color:#111114}
+    .lang .ru{color:#0b2f86}
+    .lang .es{color:#8c1212}
+
+    
+
+    /* Bright language buttons (EN white, RU blue, ES red) */
+    .lang button.en{background:#ffffff;color:#111114;border:1px solid rgba(17,17,20,.22)}
+    .lang button.ru{background:#0b2f86;color:#ffffff;border:1px solid rgba(11,47,134,.35)}
+    .lang button.es{background:#c62828;color:#ffffff;border:1px solid rgba(198,40,40,.35)}
+    .lang button.active{filter:saturate(1.05); transform:translateY(-1px)}
+/* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 16px; border-radius:999px;
+      border:2px solid rgba(17,17,20,.85);
+      box-shadow:0 0 0 2px rgba(192,162,74,.70), 0 12px 26px rgba(17,17,20,.10);
+      background:linear-gradient(180deg, rgba(222,207,140,.75), rgba(192,162,74,.80));
+      font-weight:900; letter-spacing:.2px; cursor:pointer;
+      white-space:nowrap;
+      transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
+    .btn.secondary{
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,246,248,.92));
+      border:2px solid rgba(17,17,20,.30);
+      box-shadow:0 0 0 2px rgba(192,162,74,.45), 0 10px 24px rgba(17,17,20,.08);
+      font-weight:800;
+    }
+
+    /* Cards */
+    .card{
+      background:rgba(255,255,255,.86);
+      border:2px solid rgba(17,17,20,.85);
+      border-radius:var(--radius);
+      box-shadow:0 0 0 2px rgba(192,162,74,.70),var(--shadow1),var(--shadow2);
+      padding:22px;
+      margin:16px 0;
+      position:relative;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:10px;
+      border-radius:calc(var(--radius) - 8px);
+      border:1px solid rgba(192,162,74,.22);
+      pointer-events:none;
+    }
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.05fr .95fr; gap:18px; align-items:start}
+    .hero-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:16px}
+    .hero-title{
+      font-family: "Playfair Display", Georgia, serif;
+      font-size:52px; line-height:1.02; margin:0;
+      letter-spacing:.2px;
+    }
+    .hero-sub{
+      color:var(--muted); margin-top:10px; font-size:15px; line-height:1.55;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:999px;
+      border:2px solid rgba(17,17,20,.55);
+      box-shadow:0 0 0 2px rgba(192,162,74,.55), 0 12px 26px rgba(17,17,20,.08);
+      background: rgba(255,255,255,.92);
+      font-weight:800;
+      color:#2b2d31;
+      max-width:100%;
+    }
+    .pill .dot{
+      width:10px; height:10px; border-radius:50%;
+      background:linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow:0 0 0 2px rgba(17,17,20,.25);
+      flex:0 0 auto;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .hero-note{color:var(--muted); font-size:13px; margin-top:10px}
+
+    /* Services */
+    .section-title{
+      font-size:28px; margin:30px 0 14px;
+      font-weight:900;
+    }
+    .muted{color:var(--muted)}
+    .grid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px}
+    .service{
+      padding:16px; border-radius:var(--radius2);
+      border:2px solid rgba(17,17,20,.82);
+      box-shadow:0 0 0 2px rgba(192,162,74,.60), 0 10px 24px rgba(17,17,20,.06);
+      background:rgba(255,255,255,.82);
+      position:relative;
+    }
+    .service h3{margin:0 0 6px; font-size:16px; font-weight:900}
+    .service p{margin:0; color:var(--muted); line-height:1.55; font-size:14px}
+
+    /* Process */
+    .process{display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start}
+    .steps{display:grid; gap:12px}
+    .step{
+      padding:16px; border-radius:var(--radius2);
+      border:2px solid rgba(17,17,20,.82);
+      box-shadow:0 0 0 2px rgba(192,162,74,.60), 0 10px 24px rgba(17,17,20,.06);
+      background:rgba(255,255,255,.84);
+    }
+    .step-head{display:flex;gap:12px;align-items:flex-start}
+    .step-title{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(180deg, rgba(192,162,74,.22), rgba(192,162,74,.10));
+      border:1px solid rgba(17,17,20,.30);
+      box-shadow:0 0 0 1px rgba(192,162,74,.55) inset;
+      padding:4px 10px;
+      border-radius:999px;
+      line-height:1.2;
+    }
+    .step-num{
+      width:30px; height:30px; border-radius:10px;
+      display:grid; place-items:center;
+      background:linear-gradient(180deg, var(--gold2), var(--gold));
+      border:1px solid rgba(17,17,20,.35);
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .step-title-wrap{display:flex; flex-direction:column; gap:4px}
+    .step-title-wrap .t{font-weight:900}
+    .step-title-wrap .d{color:var(--muted); font-size:13.5px; line-height:1.5}
+
+    /* Policy / About */
+    .list{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
+    .footer{
+      margin-top:36px;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.55;
+      text-align:left;
+    }
+    .footer .line{margin:6px 0}
+
+    /* Modal */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(17,17,20,.62);
+      z-index: 9999;
+      overscroll-behavior: contain;
+    }
+    .modal.open{display:grid; place-items:center}
+    .modal-card{
+      width: min(860px, 92vw);
+      background: var(--card);
+      border: 1px solid rgba(19,19,25,.16);
+      border-radius: 18px;
+      box-shadow: 0 28px 64px rgba(0,0,0,.22);
+      overflow: hidden;
+      max-height: calc(100vh - 36px - var(--safe-top) - var(--safe-bottom));
+      display:flex;
+      flex-direction:column;
+    }
+    .modal-head{
+      position:sticky; top:0;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid rgba(199,162,74,.28);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:14px 16px;
+      z-index:2;
+    }
+    .modal-head h2{
+      margin:0;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .close{
+      border:2px solid rgba(17,17,20,.30);
+      border-radius:12px;
+      background:rgba(255,255,255,.85);
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .modal-body{padding:16px; overflow:auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+    .fgrid2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    label{display:block; font-size:13px; font-weight:800; color:#2b2d31; margin:10px 0 6px}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:2px solid rgba(17,17,20,.22);
+      box-shadow:0 0 0 1px rgba(192,162,74,.25) inset;
+      font:inherit;
+      background:rgba(255,255,255,.94);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .modal-actions{display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap; padding:0 16px 16px}
+    .hint{color:var(--muted); font-size:12.5px; margin-top:8px}
+
+    /* iPhone / small screens polish */
+    @media (max-width: 720px){
+      .topbar{gap:10px; padding:14px 10px}
+      .brand .name{font-size:20px}
+      .brand .sub{font-size:12.5px}
+      .actions{gap:10px}
+      .btn{padding:10px 14px}
+      .lang{padding:7px 9px}
+      .lang button{padding:7px 10px; min-width:44px}
+      .hero-head{margin-bottom:14px}
+      .hero-title{font-size:46px; line-height:1.02}
+      .hero-sub{font-size:15px}
+      .card{padding:18px}
+    }
+    @media (max-width: 420px){
+      .topbar{flex-wrap:wrap; justify-content:center}
+      .brand{flex:1 1 100%; justify-content:center; text-align:center}
+      .actions{flex:1 1 100%; justify-content:center}
+      .hero-title{font-size:42px}
+    }
+
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+  
+/* iOS safe-area support for "app-like" feel */
+:root{ --safe-top: env(safe-area-inset-top); --safe-bottom: env(safe-area-inset-bottom); }
+body{ padding-bottom: max(16px, var(--safe-bottom)); }
+.topbar{ padding-top: calc(10px + var(--safe-top)); }
+@media (display-mode: standalone){
+  body{ -webkit-user-select:none; user-select:none; }
+}
+
+/* Brand logo (embedded, reliable on mobile) */
+.brandLogo{
+  width:64px;height:64px;
+  border-radius:16px;
+  object-fit:cover;
+  display:block;
+  border:2px solid rgba(201,176,106,.9);
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  background:#0f0f14;
+}
+@media (max-width:520px){
+  .brandLogo{ width:56px; height:56px; border-radius:14px; }
+}
+
+
+    /* === Overrides: opaque modals + black button text === */
+    .modal{background:rgba(17,17,20,.62)}
+    .modal-card{background:#ffffff !important}
+    .modal-head{background:#ffffff !important}
+    input, select, textarea{background:#ffffff !important}
+    .btn, .btn.secondary{color:#000000 !important}
+    .footer-actions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn .ico{display:inline-flex; width:16px; height:16px; margin-right:6px; vertical-align:middle}
+
+.icon{width:18px;height:18px;display:inline-block;vertical-align:-3px;margin-right:8px;fill:currentColor;}
+
+  .careersBox{margin-top:12px;padding:14px;border:1px solid rgba(0,0,0,.08);border-radius:14px;background:rgba(255,255,255,.65)}
+  .careersTitle{font-weight:800;font-size:16px;margin-bottom:4px}
+  .careersBrand{font-weight:700;opacity:.85;margin-bottom:10px}
+  .careersH{font-weight:800;margin:10px 0 6px}
+  .careersGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:720px){.careersGrid{grid-template-columns:1fr}}
+  .careersBox ul{margin:6px 0 0 18px}
+  .careersBox li{margin:4px 0}
+  .careersFoot{margin-top:10px;font-weight:700}
+
+
+/* --- Mobile polish (iPhone) --- */
+@media (max-width: 520px){
+  body{ padding-left: 0; padding-right: 0; }
+  @media (max-width: 640px){
+    body{ padding-left: calc(env(safe-area-inset-left) + 10px); padding-right: calc(env(safe-area-inset-right) + 10px); }
+  }
+  .topbar{
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 10px;
+  }
+  .brand{
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+  .brand .title{ font-size: 16px; line-height: 1.15; }
+  .brand .tag{ font-size: 12px; }
+  .actions{
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .actions .btn{
+    flex: 1 1 auto;
+  }
+  .lang{
+    margin-left: auto;
+  }
+  .lang button{
+    padding: 8px 10px;
+    min-width: 44px;
+  }
+  .heroCard{
+    padding: 14px;
+  }
+  .heroCard h1{ font-size: 34px; }
+}
+
+
+/* Mobile call button */
+.btn.call{ text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+@media (max-width:640px){ .btn.call{ padding:10px 14px; } }
+
+/* Responsive visibility helpers */
+.mobileOnly{display:none !important;}
+@media (max-width:640px){.mobileOnly{display:inline-flex !important;}}
+
+/* Floating Call Button (draggable) */
+.fab-call{
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(36, 176, 87, .92);
+  box-shadow: 0 12px 28px rgba(0,0,0,.20);
+  border: 1px solid rgba(255,255,255,.55);
+  z-index: 1200;
+  text-decoration: none;
+}
+.fab-call:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(0,0,0,0.20); }
+.fab-call:active{ transform: translateY(0px); }
+.fab-call svg{ width:26px; height:26px; fill:#fff; }
+.fab-call{ display:none !important; }
+@media (max-width: 640px){ .fab-call{ display:flex !important; } }
+.fab-call.is-dragging{ transition:none; }
+@media (max-width: 480px){
+  .fab-call{ right:14px; bottom:14px; width:54px; height:54px; }
+}
+
+
+/* iOS safe-area + notch tuning (clean) */
+.topbar{ padding-top:12px !important; }
+
+/* floating call button safe edges */
+.fab-call{
+  right:16px !important;
+  bottom:16px !important;
+}
+
+@supports (padding-top: env(safe-area-inset-top)){
+  /* Apply notch padding only in PWA/standalone to avoid huge top gaps in browser viewers */
+  body.is-standalone .topbar{
+    padding-top: calc(8px + env(safe-area-inset-top, 0px)) !important;
+  }
+  body.is-standalone .fab-call{
+    right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+@media (min-width: 901px){ .topbarInner{ padding-top:14px; } }
+</style>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="VitaCoreX" name="apple-mobile-web-app-title"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="apple-touch-icon.png" rel="icon" type="image/png"/>
+<link href="site.webmanifest" rel="manifest"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+</head>
+<body>
+<header class="topbar"><div class="topbarInner">
+<div class="brand">
+<div aria-label="VitaCoreX logo" class="mark">
+<!-- Replace with your real logo path if needed -->
+<img alt="VitaCoreX logo" class="brandLogo" decoding="async" loading="eager" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAIAAAAErfB6AABmP0lEQVR42p29d5gcxbU+XKc6TN6ZzbtKq5yFEBJIBBEFIgiTczAYsLkGjG0wOCcwJpiLweZiwAaTcxI5iIwkJJQlFFZaraTNeSdPhzrfHxO6urt6lt8n+3mQNvR0d1Wd8J73vAeqqiYRQoAAAiGIhAAhSPJ/EAkQQoAU/237LiEECRb+WfwZyP8PrL/zP1W4KhKC+W/lvweE5H+l8GvFn+Z+qfgBAIhIAAii+56sa1hfRe7m818H7npICCD3hPY7wPyH2B/GdW/FrxCwbqR0N9zLQ+J8uwjE8af4wkjxAa0HzV8SSk8C1qWh+GD8zxb+UGulGBJE11sF2wviv1VYNSh9EvfTSNwLy/8y93r4v6D9gwovFG27AwgBtP8MEIDS6nK70/EstnvB4r9LfyGC1227ZxS9wNKO4beHfUvxF8LCvkHhpQgW9kHpu2hbRsd7RtsWQ/fFgBDZuRLoes78OcbiyiBBAEIQnG8EkQDB4j4GIv5TvFh+kdDxi7azh9ZpRCQAaLsMsT6ndGwK7wWdn1/8LOsTEBm/MvkPLD4mKx4lyD+w65qC/Wl70Xabh06jl/81cO4l2wlE5yo6Xipwbx2s94PEsSNk9wogZ6gKi+u0VKKT6XipBUNKML8nkDsltj2EtsMK4LymhwEpfcX6WHTZBMTiCqFlOLB0ll2HiNs1pcs67KDHXTguh0WfVzRWRYsGbnNOPMxH8XVYvgScDhJ4d2FtYtulaNGgO01ByR7ZfazdGABYT8D9BHru8eLWBUDh+0KH6QPriObtGgqsjM2CFz8cCw8s/hAkzs9Hy0kgEdlQRLtTRyKy2Mi7J+ti1n+KpgpFTw7AvSRwGQxw3LH1EcUPdm8TmY8RwHXHILgNtPYzdy7RuT+cVslxNciHS1Z0BsVXWIh6sGiirTdW8sJUtG9sN8/yPwn5A2t7qcAFXCWzbdkoziRwFgXR9QQoemCn1SeFABJKB4l4xCXEbjV4HwT2t83dlm2rQDFKQ3eQVYjP7PGClxvl4j3HuouOCyL/bbROmiuYsvtLpxlBlxVwuz+RuynsE+s6+Si+9MbQERPygRI6tq11WFC40CA2F4iIRf9Qsh9ea2zZIfejo2WOURwMY2mvo32BvRydy/qgZTDFhx35LAeR8D/MJQYoMvnEvq7oiIexZHnR+ZlA7BG99V1weA3umAJxxzmOMNhufcDjNaEVjgNAKUIjopwE3GG1feXRFe1DPu4mKDCO9gvYQj1ERKQlE+N+1ehl/QnBcpvB7oTyEYfzkIH3ixJYg5JpQ8hHbihwIuAI2Zy2FdBjaUWOxu3pvH25c60c+Ux+xfk36NhzwiiFfw+2/6Dg9aPXOSycYACCNugAnbHViBbbaZSslK740JAPmrh4Nn9RcHk251YDsLkmu9PjXzG4fhm4QLTwppE7SsAhGECKtyh8bShwtPY3Bo5lt5lzLGcoReG8baHQbWbKuyfLbcgA7t3L40LAG/QCkoLOAB+9kghbgs1lH8iBI8VVRyv2EV0OuJARSD4DAjt8IcCvBJFqIXX02EOOxUMLjLNHK+4XjZ6ZHXiBR85MEQWhDuEyK7Q+GQn3MC6XBKU8kbriXx5nc+0OdLkse1hmbQ0Az8QVSwgYcA4C7aiPtfFE53ykqKHMz6LDPeB3jSQFJwbs/gYFCMaIoY0I8rCjG8JIj7gyI+TjhZKnp1yegA7HgIIQDgtgofNU2PBARDFQgZ5xttv+CGLIUghVWiN0AuGO3IV4IYt2KDBvqgD47Ny5QcFpnK30wJlB2e+hhE94xi3gSHpBDK+gx9NwZ8Adb+d9cPGYg0eIg4LYBEY4P8V94Dh64HDViB5xtBAHBwKAUHCV4IEXgtCAOu7eaSfgO4DMNuePNnQEwRF/2FadLyrYIXKAws7yMj5oC+Ct58YRkp3ScaFcgYUPUMB+4stCdA5v5uXuy4GP4Pr4kUwbCuIWdB4Mt2kHDoAAt6Hmj1KZ2kPxJgGdZpMLkV1vADhQBd1Jv9NJuopcrpMHBMp7JiBA7W++iLkTFOJ5bs9aDI8QvUJBTwTIE54gZcFOaovBifi8OjJO4LNP4F4MWABvCcxyxNLeW80VOgEBYj9oVpAFNmtsxzy5t1fck47/8qUeFC6nlwOQXTcLwjpsCQ4EIcDGb2ZHaadsSAHFUpIL9BYU+oCIfwxHOmeuewFHqcxWZwHPe0ZPPwLlgjJXum6rT3FGoFhCRutSHDzJYxp2RMer4mSvJqEj03DVO4r2xDoTWDYZthcoypwGtJIlcZ0RQbRhweNfKPaaAHzB3A6ugqO2V6ydFwBzsGJJJiqSevgwBDtIWiriI5cegu0BUFRqyhdnrfvwsi4gWBKk6MQ1katrgDeAU4R0bUmCCN/5LuCndVDFJXUk5eEbEFopcGDXFJAQVirC5QMcYWEKPQ0Otwx5BJG4qQWuCAE5WgEUTC0iFIMvdPyg4AxAqbhWtPIgCgndXwbqPBZYgowQBNkfuIprJWIL2GMdJN/FWkEhgUfEMiyBgkPC8l7bA28oPr6uM0miqkJ1nYGdF1QiUhQeBghHKHIyJ4hgT6DQC+QvWzrHTk4FepS5EcsgXHamDrh5FzbLVsKiLSNYvDFw1omLUCOIwkMEr9DZnSnZHS44lhZQTI2xil2Ijtos2OMqV8EAAMBkJBSUlz92zkdPn1cZ9ZsmVwl0JwGuUgoK0lFAUX6L9qcHq4jHV18ElAdbmOp4BzzjjdtmWAKbQIAp569HCclTcIDYcRAsWWIOUABbVg6ObYilfQLgrleDGwe1sEBAArYkwRUPOyu+aKXSxYsILCUW7woZBvxKRVj1B2S/T2YMizVnp7OA74qWEcqZzfK2in+zoqTIwgNQUKdzbCAYIQOxx0CyM0dEQoSMJ0+IlFgoCgICAoetoc2pgSj3KSwNB7QWKgIlphaWrXNA8TABAhKkAADAmI10yRBlhXb2JF55Z6dE5X0d8XBAYS6MRZYlRCysvfDduo0ziCpY3Nt0p6pFJ2yPqIndK45U2EGbtwR3dEaLVTxqfxhAsIegIEgNwYVFg60o40gqwL57BDFnHiIER6QhDjXKPTylkNUwnWVAwf4qwDBYdWVw6eJxJx87vrYqoBvM7TgGhtKZrAmUCi1P2cMMQq8JvHcXIYGuyqAD/hwxySRevqH4tqgUCFS5cFEryBRWqQorXrDD4Mg9bXQSO4SLpaqNY3OjO/RCsDLDMiiGZSMBiGaQ2RMDY+r97T05WYJivEQohUzWXDivsa5KzejmgfbE7tYhn0/GEgsTiSLTS86Zy5jZ2ZuSJVpMl2wYMQjgHr64X8isbIGLGHVyI90OOhPhCVpi6jKAIAJBnjtNKNijaIu/Q6gochGDJo57ZeiFrAOxsVH4LQfctiq5cXBhSs5CLpYo0RRMBJ9Cf//9+r/fOL66wqcbCLRwVUohpxuL5o1t69K6enML5o7J5Qxa3JwSpcm0tuiQCf964sY7blqkaWaBDgr5ZBDy16EOEuB3rZFDqUrjKp04XHHhJYCbx+CuTIhzb9tF85tOdoS24Mmisdty9EQI3fVlzkUgcuCVl3d18zuF8Yphot9HczqjlAACBdAM/GxTtjLI4mlTlmkeK8r/piLT2TPGtO4f0HV60MxGSbL8P2Po98vf7up+48kPX12+g1JARABiGEyWJQokpzNVoUUCMopz46LNQWGUKEjgoYincN4YxDUUsEGGHrVLOwJbguhKQAd6Oxm0Y+IlQwR20kEZ8J8nV9lBC3cnCMBIRVQAgJxBxtXLD/y4/vyjo5pGKC04jH8t7/aHg9GIbJgEKKVAgdKsxiZPqKmM+Uc3RsNBZVRDdPzYKk3Lp0pAKc3mcMbE0N5vtz35yrehoMKQMEZUlT57/0mvP3xyZUQxTISRAyDn+0c74YGvgIpwfltgDfYMAgt5EXpHAQCuVUcn6a4MhIBYJv4X4Y/oYEW5PQ+WAHQnURI8b50Duv0K1EQkn0LNYhAuS2Do5qHzYj86b0I8oSsyJQCKIiWS2uknTpNVdcyMptiYCiD6WSdNH0pkZalACZEo/O7GwxtGV1OZFp0EAMDYUdEJYytVRUZWZEgIQmsk3hYbXW/RQTh3F2ccrleIooPlwSxcy2KPc79FvVB1R82S44UUcRlnwgaCg4j2PNa5xoBcoIQc5RNtO8ABbSJD4lfJllbt90/1jatVfAoxTYsL0NGn/+SKmUuOaOgdzPr9ci5nVkb9l19w2JOvbn3j129+fdfXT72w5aoL50TDvpxmqgrt70//6NLZhx3euK89UYrGNR2rKqTPV2w69qI3uvozigIMrRAfhLxsbiujxbTk6ku2eAbcVEZHmR29V1fsyBFtpDQkQKxgij936CieA0+5F1MSwRZRFM24i5jqgF0QQPBwNkYtV+nLb9h8FyQyElRhQ0tG9cnfX1ozmDQlCpQCBVRU0j3I7rr18ENn13Z0ZzI5fPjO09/6bFf6jS0/TuBPTUX5sG3F+tb/3HmiyehAXL/ojCnXXTijrbkPqAmEShJlSIDAzRePX7ttYPeBoaBfynu0vGMCBLSdBEACSMqgj7yTLULghAh5x8gdHBipJm6tNtqRZP77lVUTodRgZuszIxbvToyLohOVcsURIOQ8l7q8wEkSdpVXrJbBPKpW3LyFHlLDJKGgdOXJ9d392hMf9FGCNdXKU78/bOCPO4PnTqg5bcLWzcOjxlQYGnlxxd6l6zuODFRoxNycSn91QtOSQ2skZD1d/cccP675we3a6u709WMvu3UtAJgMf3HppKGh7LMfdUkSdbIMeb488GuBvCNGbsHBtsRO6F/45sAjNAH32y6Wk8HFmaAAUsBfyUfdNli4VKCwFZnBqrh7xusgoJ6Uyr5Q8iBQbpsC9zzFv4M9U0QCfoXEIkp9lX/RjFAipV157rQli6dURgNTT52zL0tzOdYX12bPnXXR+Ye//NzKRdSnmLhCMn750IUygdYDfQRZ9egxE2bV+oJG48HV/f1JCtI1Z47XDNbem25pz1IQWmNboZM3Xx5EEDc4VORLO9IkAI/UH+w5srUFEN0cB+vXpUCg0pW62xfYCetDeSyHeAG6hZjARpf0yAhIIe8URdRcyQMUCfrjxikLY6Pqgnu79GMOqZw8rnLm/KbomEpCfWNnjmWoxqqihokt+7rXDw3+38qdr3UPhJdOC4ZlLZOJhuWamvCY0XW5PcN1i+taOjPZRGbOlGj3UO7IWZHmA6kNzcmAT+LeINoeEwghQIFQCoiO1Xa8CSexBGyZLoCL0gq2Yon9QmAHYIiDMGB/V7HKiRx5Fe1EXHClPeDEX1FI/AMbPwkRRJbc9os8c4lSRMzkUJZAVYALDMEOmgOlkM6wg6cGn/rDtD2d+rd7s7IShuqKcau6Z48dt2p+fbIvJyl+v1+lANVRv0ZNZmZrAsq+A/1aLq1l0vF4asa4ysaP9+9q9CVHh3va+kIB45iDq1RJOuXnGwcTmiKDjfVZ8JGF1aNANJ3pBgYDMgU0GTqBfQCLuEJsPfoj+lf0AL4ECBeKGTlACFRWTnRuOctfg73jt8QxKYHOgPZ2ExSdcgsc4F2qKCOiFEwT0zkmUzJ7YtBE0nwgp8h8ZO3guhTC7+vOGa2bGA4ojbW+QFgJ1zYaNBpPkZwGyZShaQYzzZxmKhIQZuayOVlmjGkSagGVBBQWCtOwj0im0T+U7eg3kZn9Q/pjb3WGA5RZJQmE/POidbA0nU1uCtVU+L7eOpjVWNAvyRIwZjUmux6Sez3OjkUkZagahC/pOalJaHcOKKTs2HaFk22DXtvJ9SCOc1ZshraZAFvnvBURUJLMGBVBedm86GlHVVVG1Fv+r1UgDEKK3RWAEgXdIEfMCU2spwyhvd/ctDshS7QylqtvqBkzrqG+oTpcEYtEQsGgqqhSfDiDRtqvaFomlUklhgaG+/qGe3uTA4OpfUPGUCIXUOXGav/4xtBwMvvFJt+Bbk2RwWRcY5B9FSQKfYP6H66ect259a983PPhmqGBuFERkvLUEQetx+rtsANHI/O40LuoxYVXQgI1VFZOckV8SNwnrVAfoLxmiqOVRex+0clHAOc9Fx4+mTGPPTh65an1E0epQMlP7m9dvzMVDUl5uwc8WFSI/NBkMBQ3rzi9ZnS1umVPas4E//zp1SlNClVWjJ/YqElRg/hSGSOe0IcS2XQmO3taUy491NyyjyIGVVOVTGRmSGZ6LgeERRTS0ZPZ3ZHe15tbsrD2sTc6v1o/GI2pskQoACIytJP0CQEKybQxrSn05B9nBH2wc1/m8be63l3V7/dJlBCWP1i2rtQShwvRgXR6862QJ6aBZ/HKHa4AIVIwUGWryHjrrvCN05yaDnqHzsKSX+l3rFoCENB0ctWy+h+fNSocVKhE73mm7bONiWhILnk1AEKlPDcDszmWyTITSTQsL55XsbE58/rng0fMDDRWqzvbc76qxtkHz/ztXStUPfnAI1+GIpUte7o6W3d9/fWuY5ccMRzPffTOl1VhKgM+99be3u7UF9/0zj98wWebk0Z8SJIII7iv27z7sf3jRkeOPKRyaFgbThrJjGGYSAFkCSjnRhGJ3yd19Gp7O7KL51VFQvIJ82M1MWXV1kQeILO1zrlaesBdSSKCGpuTnV/Q0UBREbVUsShE21IgWOXqMxKkLijIrh2SHJx7KbG0UBCal/5rmggAFEg6x/7nzIaLltQk0mZFWHn0rc6XPunPry4twAKoGZjKMl1n4YA0tSm8dFHs8lPqfnRWw7Vnjfpsw/C8yWGkymBKWnZc49tf9Xy0sm2gbwiAtffl+uO5eCLbN5zVGV2zrnnDpr3DyUzPQK69NzMwnANiDCX1RNbYvKNnWpN/1rTgh2sG6oMyoeYR8+se+fO84+ZVLzqopqkhQACTaX0woWc0EwBkCSQKQIAxDPikbS2pgWH9uHnR4aR+8JRQQ5X82YZhiUK+vEapIAWBkSrMgpIGEHd45GbrAE9Wqqqa5Ajq0JEuoy0ML2pngaupkC8xYaGDT9h2RAgFktWxMqxohjmcNE+YH/3lpaOzOob80qNvdj/7YW8kIBEAxjCnM11nskzqK5UZ48NHHBQ7dHZ0wuhQQCWJZG5/d3bb3uz9L7TPn1YRC0kbm5Nzp1WYpj5uVGjG1OpoVXRUQ2UwFA5GKiVZBUKYqaORNbVUNp00DUMCI5VMpBLZva0DB7oze7tYMsNa2nMHjVO2tiaYHPjhmWNmTAxPGBUIBaV02mjtyHzzbfzLDf2bmuNd/dlsjqky9ak0TxEYShrnHld788WjM5oZ9ksPvtL55Hs90YisSiSeQp9S9Mq2F4vCZi2bJhQ4iXQEANDTqjsrVnkhNAe1ymkqvMoFNsON4M6oRJkzBZLMsoMmhs44suauZ/cpCr372vFzp4YHEuY/X25/f81QJCgjYjrLAj7a1OCbOykwb1p4RlNwbENA9cs9g/r2vbkNOxMbdsZbOrI9AxoAzp/qP/mIygUzq/w+v8ZIIovdg9g7ZHb1Z/uGjFTaTGc0TTMBgDFGEAFQVSDoh2hEqqtUGqr8o6rkuko5oNJkMvXpN32vfDbU1k0klTbW+iePDcydEjlkRnTOpIrRtQoz2YGezJbdifXfxtduH961P5XKmuGAJEl0OGkccVDFrZeOHVUt7e/M/uT+fV0DuRvOaly9NbFmZyISkhkTLadbjYlvi3J0jdlicCTlegC4BQZemkbII0BhBE0EdUK0QRvgivhNk8gSeeSWSf3D7If3NC+aGX7wpkmrvk3f/XTb/vZ0VZUPgBgmXnBC9fGHxCaM8kdDNJMjrT365pb05ub0tj2pfZ3pTNoghMk+aXRdYNGc6B0/Hq8Z9N+vdz79bmcybWRzBjOREKRAJIkAAKVAqdUPkudeMUTTxHxWQyUa8tGKkHzFGeNuvHDslj3pB1/u/LZ5cE9bSsswAhAISePqA7MnBQ6ZEVkwPTqxMRDw0cGE1nwgveKbgefe68r7vb5+rabG/4uLGs9aHPv1wwde/rj/9msnLpgavPruXfE0U2Tq7PHBcr3hxbPKE20RQNCB7k6T8htDJi6CONpCOw4jQRdejMKCNk9lcBb1KZBkzrz2jLopo/1tPQlKaV2V/+HXO1/4eHDO5NCFJ9a+vbJ/X2dWVaRTD6+ZNMa3bkfqm+2JLS3pPR25tp4c0U2QpVF16uwFNQtmVU6fWBGrUHoHtfteGly9qX9X6zAQEvBB0KcUu44QLdcBpdokFMCXEjEICAGGOJxif392/9tfJY6YX3vmieOuPm/a0FBqx57+ddsGtzQnm/cldu4ZemVFT32Nf+b44Lxp4QUzIgdPDsfC6isf9ybTxtg65erT677envzz4wc2NacCPolSSGfZ6Dr16mWNdz/X7lOIiYSMxIsEl71EC7wHAfZkP/78lWRCyIhccsvDIgowSa7uCx6EgcKJpiSnk/ENviXzo+kcmibxq9IXm+NHz409/Mtp05sCu9uyj73ZKUuUMZYzSNaQbn+ibW9HljEMB+CwmeHDZlUfPKty3JhoIp7d0hx/4f0DW3YOdvbmGAOfCgGfRIDk8xni6huAEuMTkRGbyYKiPpuqAEG2q6Vn847uR5+FuprAjEnhQ2ZUnL+0/srTa3sG2ObdiXXbhnbsy3zyzeDnG4fqq+Snfj87kTFNhooM7X252ZPDV54+atue1FPv9362flhSJd0wE2ntqDnB5V8Fdh3I+lSCjBd3QQFBB+y4TpFsVdyWtiVGW5Wc8GxY4Cg77uPJu1C01C3sbe0cSRaoN0KS/1UKkNPZQVMilVGVAHQPGZmsfuMF4y88oS6VM3Ma/v2F/Ym0GQ5KjFG/36cosiJD0E/PX1J7/GFVCpUP9Oofr+nd8ERza3sykzVUlQZ9ckVYzhsYxtBmf8COFqFNM8dm1pChVS4gQb8UCgJBkkrnPl+b+mhlp0+Vx9T75kyJHjozdtTB1WgYX27qf2lFX/6XVYXmYcuMTv75cuc/boqMrg/c9sPx760a/O3DezsHNEQa8tN5U8Nb96YDKjVcgqQgio9stG1L2q0YvYKtDYU/uzxsLTtRT45eRGwNerxyAJThkSK/yvZWFsYQEWujiiwBAKzflfzBafUXHF/TG9frq3z/fbtz7bfxSFAxEQFAkimlwBgzTVwyv+LFD3o+WDOQzemUgl+lIb8cCcr5azIbEgIWdoKOEpCD0uvkbJfcCWNIGCIhlJJISAEgyEjPgP7WZz3LP+0OBZT5Myp+dn7d65/1GSYChXyRmiGJBOX1O5NPvNvz47NGdfVnli6M9PTXv7tmyDDr/T46qkYFggxHbn7misfgxuEdikgIPBqGXHciQJGT9Z2I/KKOGgEzF7x5WUG/hISYSAI+urs9lc7ql5/ckNZYVVR98p3Oh19tCwfk/J5GgpSCJEHe/SfT5taWFCGkOuaLRRRVoYX4yEQbcA4cwFZqnreILe76ValyCZTSYkHfKoMiEsbQNJEhKjKJRuTqmEII27o7MZQklAIyVkRsML8zwgHpP8vbH369LRaShhPa946Khv106950MCAxJEhAUcDWYoR2Po9TpstW1xPnQijgW4ObsoNE0F1sN9fAJ9wwYhmkpJ4CRNOxsUa9+cImIKStVwsF5PdWDx40KVRfre7t1H7zfy0PvLBfVSjv0AFAliUKgISEgr5QQCEETZOZJjoTcCSsqPbLMO+DCffP4samzkUG4Fr0UaAHYGNyIzLGTJMRgsEA+PyqnUFrUesCKn3o1Y5bH9rX2qVFAvSURZUfrY0rktkzqGka+8GyximjfFmNWfVQtxYXOqDmonaFNwlewBkvFRvQC/j0aNkQX7kYMqPLSEsAOcNcsiB2woLIrPHBjc3JtdszvcPQOZC99u5dX22JSxSiEUXX8zTXvHY1AgVJlvKXkiS52LNrC+8NkxFCFEWytJFsdDCOrc1Q05mqSIRZlJhsTvercqkNAqyuayxdLqfpiiw52MSIhBZtAxYLTaSkkYgkFpa/2Dj8xabh+VMDY+p9vQn8esvw2m8TYxv8Sw+NyKhvbskAr+ONXIuHrZ/HIZEF7rYHD3OKeTsk8w0xIGqaAEF3uicBiFOGhJKOvG5gdVQ+fn6lrNJjD4n9/YW2x97t6RvMbdw+OGda7DdXTZk8JvTLf27P5gxFsh5WkmUqyXlWr6LIjiJqvlTXUOP720+nh0M+hqDIsqQolEpApXxROZ/5IjIq0WhEve0fG156r7UirJgmoxSG4pkbrjryhp+cmOjPEJAlWQaQ8poWzDSZaWi5XKyCvvn2plv/8l5F2McY8qEbYwhEwM0vuHDC/nbD5IGEvvyL/hfe65syIfzi56mNu5IXnVQb8sGhsyJj6gZ6B3VZ5rnbXJMToEP5vkhbEui+grszxEp5QHb1h5RppHdsAnTGqWj3DAVaEMkYbFpdYFS1mjPIpDHhUEBCgge6M3/40dTvHVtfXxN8/v2Onv5cRURhJhYLiYUFIkV/XLJPXGYNikwjIWXy2JDfL2U1qvh8VMqvMQVKCaU+H/Wp0D+YyWlMliXk8n1EVFS5vq5i/JgaEgiRpE6A5lFjwhhBk/gJycRDPpnvLuJfhEWFshfdZIkMDBvdQ9qVp9afckTlFxuH7nhsbzKrRKPq+AbVNFksrIyrV9t7c6pCTeSZE3wRlkfzLfl/bxkJUW0RURaFRK6eQiiRRVGIs4k4BkV5RgBEEqtQFVUihCoyTBgVTKTMX1w+8bzj6/oTZne//uRbbbJMWP6MWFoolObrRwQwr+cFtnKGKkN7d/a8W9aNHxX8xRXTjl80KpUDBSggBQRiEtUn7WxN3PbA2p17h/oHs5mcGQkqhskIQdPEioj/wf98+dLyTU1jqi6/8MhLLjrK1HUCgIxRSijFh/7+0X+eXtl6YCAUVBlzukhWZMqWHpPjN4BfhRc/6j5+fqUqmyctrAr5pEdfbxtbH/D7JIYABCoClCEBoMK29qIcCjhnNthBf2dWI2DzIvUmtXtxrtDBbHZ2qAHH5M9TcylkdUaASBLN6qwiJB82M3LaETWdg0ZddeDpd9t27EsGfBJjiBY6gUCpJMv5Xj+gtJSNl7YVIlJKGCNbdyd/dNuGTc3JWIWfUiorkixLQKVoNPjRl+2vv7+7uzdjmMynUIaMDzlUVe7rT636Zt+V1z3+1rsb/bEAMpNKQGW47qanb/zlK3taB2RJoiAi5TsE6NBSvEVEn0r3tqf/+3ZHLKJ29ecOm1Vx0sLqigCUZF5MBmL7bjs4fKXdirEcGYFNFNJVT6ZEIHZBnDVl5Bi7DkkDnswM/Okv9HRrBgIh+zq1/rhJJdI3bMYi6pEHxVRVrqsMPPJa26Ov7o8EZVYUTivdjCQBSAWlTJAoceTiHIerOqpmsuad/95GgFJZAkkCSaayYqI8c2pdRYVfUSgFQL5rpgANoKJIldEAlaVVa1sIBUPXfRHf3x/84NEnvmiorwj4ZZtJ4wqytNAtY1dPLU19YBgJSi991P3Qqx2VEdnQ9QUzQnVRaSjBGEGdYdegAQC64WyfBI8GeIFGqPgIQpEcWBABoU5uiKAChW4BLjevni9XljJJXceGKnXSmOCBztzqLQlCWP+QUV/pG9fg29OWvvFvO+54tNmv0sLiWvVwRIYEKKUUCUEEKin8PI0SQwWAMEa6+rIVYWXN5t412wYjkQASiVJFUXw5HQ5fMH7CuMp0VrdrNXHmjqFpmojoVynRc6pCO1t7/vnIx9FYSDdMxnh1A7t1YtbXAXgp6MLfGZKgX/rni2033d+6uy3XEMW6aqW7XzdMtrszs60lPaZGrauUdYMALSXrrqgYbB0QIJCYRLvGOtrYBa7WFfCoPqHVRwXEppBIXBCClUiQdM6cPz3412ubwkH67Addr3zcH1Rhf3fmF/9sOfPmTTv3xU8/pl4z7P0NxTsulfoJwcJxcXgcIKaJlJJf/3DSH66dEfHLb316IOBXAShIEkiSyaC6NnbsovGZrFGiYaCrWSxvNadMqCZa1ueHV99Y294x5FNlC0MBrvvWWkJ0a0tYw32AAJCMZp58eLS7P3PZn5tveahz695syE8/WJt48t1+TcMbz687bEYwk2MUeBke4uztQQuiwLLMLffuyCvdudnr5fvMRGgXCBrGAECiMK4xMH9W9KZLx7e0Z/732fZgSN2xL7ly/dBFpzZ+8d8jlx7ZkMoYlLp0RIBQSqkk5TuYOWcF3DuGrGb+/dZ5Jy1quP3RHfGM+cmq9r4hwx/wA5WBSkAlJPS0E6f7FMmuUMURzwkxDLOmOrTg4NEsl8sm4i++scHnU9Gq3HLhDJTedpEqCkUVGRekR4FkcuzQWRWv3T372rNHrd2Z3bw7XV3tf+Kd3s83xM9bUn38IbExdQFKOakR18gPt0ALfNcVtsp34pYUdNCwcEQKr9uRgCTBmPrAUNI894S6hTMrwgEwTNLVl/n9/0z8y3XTfD7f9r1JF520YOioJMtKgS0BkuIulGq6OaoueNrR4595p7u7LxcJq7v29q9a3xWOhAnIVFIlWc1mzcMPmzRtSl0mq1NwRoJACKU0k9XnTK+f1FQJlKzb2Lp+a0ewEDY75gDwZr6UIhU6NGzEw+L1JQq72zQAesP5jX//aZOh68NpsyamNlRLly2tzmpkTG0gTwp2CBI71gNH7hyx/T7nUoHaWhm54QqWko9TNwBEIZ9YXLIo1QOKIp28qKo6pvQMmWce13jtOU2DSTOZYVt2DxeZ5Y4hJkhlmUpK4S5lxS1OkZ8Sk9Vx8fyGEj3q9Q+bQZbyx5dKkm5CuK7q9JPnpjM6zRsKB48MiKaZRxzWpKoAlLz/WUsmo0mUf40olKEvtfBgyboiz4knDIkiwfa9qXia9Q7pJx4Wu3xZfVtXMhaSj54bbaz25Qwil7pVy62gpUcLZXVfnecZC5QH8SkUfJbrGdG9vyy7gnm1m/64ISuqweikpujo+qBmkMtOH5/KQjTk27Y7vnHHQMgvWVkm78FABqoUoEpFdUSRSIiqSl192dWbey44Y/I5S8d39aUqo8FPV+0/0JEMBAMEJAISlWTUyDnfWxStCJomQh5ZROvWTYYBv3LcERNQ15JD8RWf7/KrklWeKvXz2ggtyBANw8zr9zDm0IyzsGu/jzbvT2/cnQkH1e5B85zjGsMhNeiDmRNDJoIs0YGEoRuE2tU2PNQbQDTbB4SaLMDtP8p1H2CZMRkeclAIHKXamohSTFQpwDfbEyBRAIhGfVWxQHUFHdsQYCAhgfue2qXrCNQOjlnGRQKpgMNQWaUlyJhzT8jw8dd2m0j++cejTl48biiudfWl3/1kjxL0G4wQKkmSnE3rs2bVL1wwPpXOFaGxwvoCkGzWmDqpdu6MOmJq6zft37KjO+CXGTJHPQcJr2EFFCDfdWjHGJ0Ns/m/P/LagWyOUUpiITqu3hfwq3XVqokEJNi8O170BbZVGZEJ73gR/GAsh9QhJV5diZzOoE0gF5xRqN0oWDrfjGEoKH2xYWjjrmRlTNUMFvJLoQCtrVKDQfV3/9z20ZddoYBcrLWDQ7ZSklUqqwVIsFAJ4p4KCWMYCSsfftXx3Jt7axujj/3tpIvOmJ5JZV9991vwKcGQz2SEAGXMpCo54+TZmm7anxIkCpmscfSi8ZURlTH9zQ+2pzNGXqOjqELoDDM4OhSWkVIuWWm/Kq/dMnz7Yy0yJUE/8StEkWXGSDhA23pyn64fDvmpKdZzgBFVv4VDqGxVyLyUIYizWmuiJ8fcBpcOiG2cLA+YMkTDIIzhHx7a1TOgISKVaFozmvel/+e2jU++3nr20nHRiGKYeYqCnXQNAJJCZRWsVlUiINkjCfjk3/xtzdfr++pqo4/cfdq9fzpt1ZrWCy59fDCeq6iL5YFSltZOPHZGXU1EM0z+5hmirEgnHjWeoN7Xl/jwy9ZQUGGIwkoL33KH4vYqLplEAgSYieEQXXZ01Vuf9d30QMvezuxw2pAoM0zQDbznmbZE2mSFuoUjhERvkV6vIT9uGUBCoCAIDh5AFligHMAIU7vsew4RVVUaXatoOtt9IHX1nzY/9vqBqoi0YXv8nJ+vfevTzt9cP/fJu4+sqw5ougmEH2dqmej8aEUKeSUC+81BHhBGRaHDidz3f/7u7n0JWVF//qPD33nm+zt298w68p6H//2FL6iGq4LpVK5pfOWRhzWl07pU1DkDINmcOampcsHcRoLm6vVtu/YOmWa+UEjFsD431oNSqdSOhgzt0yTy2k1EM7ChWrnzugm3XtG0ckviqttbvtyUqquS3l018OO/tazbkWBIRtWoPhmYXWYUcUTEigvDHMKSeSMHtrlJgh1ra+vneZr2ocFi4VsARJBl+vdfzLr1ismxsLK9Jbl8RRcwpulsaCh73cWTf3XNLBPV6ljAZMwG1+VtHmOIEhKaN3+soOfl6KxDQohpYiio7G8bPuuaV3a1DDAkhx0yYc0HP/3JNUfdeOtL84656623N4eCRK5UT186y2RYAo1kiWay+rFHjK+tCTHGnntz15ypVbdcPXsoYSCW+tPzE594oB+AEMYwlzNL1UGGyNMbuOZsEgkpOQ2uXNZwyyVj+hO6prFIgK5YO7ipOelXpMtPrrntB+MkiSIhJSwA7ecIBEEtOnFMN5Oh2ImdR1E89fo8NOZE48bsWTqlkM0xk7HrLhj3j1/OqonJikKAAgUysSl80xVTEmkkVGEIQtlwhmgikRVZkalpmoRIiiqjW90GkQAxTBYO+1r2DZxy8ZOff31ACfp0HX//m9O2rrx1zrS6sy7511GnPfDhm5vPOGXOlPHV2ZxBKQUCDFGR6SnHTqASbTkQX7WuY/ueeCioPvDL+cmM5pCt5RWKGBJZBpkS0ySSBADEMJnLDRecnK4zIKRvWDv/hOpDp4d002QMVRmiIflXlzVes6zGYEw3S6JrLm6sXVSFkBGUxdwWgLrwZ7Bl3QUNYXQqkBOwhOVBEA5IFNIZs6tfT6TZEfNq77tlLhAwEcJB+YwlTQ21EQQ5lTH2d8TVPMwEfGMLMIZZDZWAvyLi0zQjq7FoJMAYEkHbf/4cs0hIHRjOnnnFEw899lU4FsoMZ5pGVT39+DUr3/9FZWXk5LMeOuPyxwNBH6UAEgCFXM5sGhObN6uBIH6xpqO9O+lT4eY711SEpbt/Ord/WKNA0ZqdYD08YxgOSkAhlTUDPsmv0nTWtIS0uAGSigTtvVoiwyhQSaLfW1wTUMEwIZM1f3bRmCULYokMG0qaefqOc4yHc5DayLJ6QpyZinQ2PHoYuRQDPLpaeRxQ182Nu9KRSGAwaR6/aNQPzpnY2pFurAnOmlLNiBwJ+TZu629tTwT8smP7UwBdZ919GRIO1lVHCNP7h9KjG6O6wSh4StEbJvOpkgT0hl++9oMfP5PRmBLwx3uThx7S9NZL1618/6axjRWdXfFkSkulNFmmus5OPnbSmPGVejb3zopmoAQoqYioP7173dIj6648c0L/cE6WnALUlBDDZLUxJZ40EkmjMiKHg/JgQtd0pC5IXVVoV5/27b5MMCBndTJpTGDy2EDXgHbiYbGlh8YGkhgKKrvbctkco1CWEeXKcMBOySMCtBmdaZIgXLNmsdqPjFvUmJPjgiJtJeCTPlrdPZQyQwE1njGvOGsiAFRHA8GgRCRKJfbf17YnU4ZhuthklJgmaz0wQFR/U1MVIWZLa/+0KaNMw7B06zm/U+JRmSYDINWx4FMvrjlm2f3vfvBtRUOFrpnDvfGF88Y8/e9Lv1p+zZ2/PnHuzLpUSstmtZ6+5PbtXTuae1ZtaK8Iq8gwFJCG4vqrK/b/5YbpMyaE0xmTUkA7fKabOHF0qHdQQ9McXecPBWlnn24YzK0pxBimMsYbn/bmk3gKWBsNJDPs7GOqNYPJEmg6/XTTsCIBujyrd3keBOUgbi412rS0kQpTLBRyDFyIlYtxyxPO0e+ju/Yln3hjf11tIKvhhHGVDXURJFI8kQuNjjzx2q4X39p1ytHj6muCubzGPs9gBti2s5sQOmfmKEKkLds6ZkwbpRRqBqVhUoX/o33zGaZZWRls2df7vYsfvOTyR7v6hqINwXQqPdAdH9MYven6xR8+d/krj5x7ww8OW7epa/5Jjx938ctdvbl0xkxnzMGEYZok5Jf9Kvzs0kmMcSAzV4ibPj6yfV+KEDJ1bEhRYF9XljlmJAMxTBKrUBfPq3xvZc9rn/XWVymDcdM0mSrDpNGBVBZrouqbK4e27EkH/JShRdsGZy+oSzne3azmsuylKKAkJ4w4Qhuhs7QEbnDNAtwLOZVflVZu6quKhY9c0FBVGVy9uU/PZodSejZu/vBXn8+ZXvPO02f09qY//bo9FFB4wDIfcPzggsMCsvTUyxt7+pJXXXLo5yv3DA5lFJmiB9Rm9X0wJABjR8eS8eSf736PGXjYvDGxSn8mlUkMpwFw2oTKU44df+GyyUctqGuoUcc1hisrlJqoPLUpfPWZ405bXB9P6hMa/Ss39rf35tSSDgsQxkjIL597fN3LH3cnM+yqM8bWVipPvNPZM2CTa5EopLJ44sKqP18zYf3OxKsf945t8O/vyhKkOjOPP6wy4JM+Xjd83/P7ZcnWiQEierOr/o4lfSuntg46kajSAnsKTZcKKTaFH6fuEi+KArbOOKQrVnXubo2Pbgyv3thfEYJVG3rv/c+3waDy9H1LJ02qNTV85b1dskR5XyDL0sBQatnxM2Ye1PTBiu1bt7Uef9SUygr/ii92R8I+hsytDOEUoCKQyeqvPHb5vPkT7rz3g4efWBUJ+ebNboxEJSOnDSeyqXROkXDSuPAxC+qXHtl4xvGjzzyu4XtH186ZXJHTmGGySEDZvT+99tuhgE9iRe5RMsMWH1w5Zaz/qXe6p40PX/W90e092hNvdwh7+C4/tWHauODMieEV3wy+9eXAQFw/ZFpl84H0tPGRf7/R9u/lnbqBUom0W5SbJoQ4AyMo3wch1hmHQjVJUNp19oqDcNVdCQ4QG87FkKgy9amQyWrPvrHr1B+8++8XtsdT5rQJUS2bO+fkKQsPGZccNCaNr6uMBvIM55IdkCQ6HM9+/OVOiIROXzqbEHjutU1nnDo3GFRMxg8KQOdM7aInVBRpYDD94ptbr/jR0Vs+v+kHFy341V/en3fi//3j0VXJVLauJhANq6bJBoayvf3poXg2k9NNE1NZFk+bQAgiIJICZYeTX2MMTz0itnJTXM/hwlkV1TF51dbB/mFNobapGibDkF9qagzG08aUcYGzjq3NpIz6qkBONz9dP/jDO3Y89U5PMm1WhKS8TtRIac8Iq2t5LJcAGS1QrfA7XBm9i5aE2JAPIBSIYWBlVH7m7kV33zz/+CNGa5qZ0/Rd++Pz51QTgFOPHY+Eoiz7An5FkRxwHSJTFenND75lydR5Z8wbO7r2g4+35hg9e9ncoaG0VDjuIK7kISFITIbBoPLOxzuG9nSF/NIfbjl+4wfXXPS9mff8a81BJ//3mlve+3pDW0DFupgSCUqyRJjJdIMxxghjhslUGQDIhl1xRabFDkTI5NjMCcFRdcF3VvbHKpXjDoml08Zn6wco8DSvQsgnS6AqlEqgGbh4bpWkSFPHqC3tCd0gwynjsNkVt1w69t4bJlZHJMNkRY04bmAKojUKyTmGkRd6JW5pOR7Vp855L84U09WtjOg9xNXWeeBTaFdv1qdK11867fn/Peb//njkmIbQ15v6ayorGhsjo8dUGYyqqjI4lEoktRJpuVCPYxgKqmvWta5Z2TJ25thlS+fkctl/PPLJj76/WJIkxnfYoENCteApEDHgV3fs6lm7vlWRSV/3cCzi+93PF69/8/u3/XTh1h09p/zg9WXXvPvAk9s2fNufy+aCKqsIQSwsxyrkihDounHPky3rtg0FA4XqIaUknWXnn1D/wer+7t70wtmRQ6ZXbNub3LonGfLLjNkqBpRCKmsOJgxFooZBaqp8dTXqhIbAlj3pUEC+/pyGe65rOu+4Gk3H9n7LeaM46uHYXjyx0kPzkNidlYwu94sO1UW+jcFqpnBOFXW2mxKgEhlOGu980TVvdl06xy44bdLcmQ1Lr3yztVM74uC6vqGcJEmyTNdv7RyMZ/OyDRKFUrpNKaTS2n+eWbVoyZxrrzji5TfXL39n8w8vW3zFxYsefvzzurqIYTBPAXNAQAIUNN149Z1tJy4eLwHTNbMvlVFkctV5sy4/c8rGb7t/+NsvbrlrbXWVf1Sdv2lUoKHaVxFWDBN7+tMbd8T3dmZCfilf7KJAkmnz4OmRyeMi9z23PRT2nbG4xi/D2yv7UhlWUAMqdrwjElmiiYSxvSU1b0rYMFkyo09s9GsGbe/N3nX9hIUzQn1DRlZhX24eTmXMWFjhpaLQSwnSLu8hGIzrFoxFlPyBShBFWSgazuoUVUQiljEl1kbe154855QpFRHfYBInT6ibOaX2tY/3LTl6SsvegWOPn5pN537+x/dlWX7wjtPe+6RZ1xmVrJjcpyo7mrtOXTztoCOmdbQOrPy6eW/b4F9/u+y1dzZnMrokUQ/mtlX7oZT29ifPWTol5JeYaQKgaerJVMY09NpK3zPLW9I5Q5KhbzDXvD+5fvvQ15sH1m4b3NGayuRY0E9LgT2lkNbYbT+e8taX/Ws3Dy09ovaq0xu3t6buf7FdojyFNx/WwJ+vmdzWk9m+L71scY3fT7/cOBBSSUuXduLCymVHVPYMGj5VSmXN+19s13WklLiVJoFwExzsXxcIe7pbDkuYsT3zAftoCK/uX0d5EBAFKAki+n3S/s7U7Q9trqiIBAKBrv7cspOmNTX4I5UV25v7Tc1879OWL1a33PiDRWdecdTVFy9MpHKlag8SIsk0Hs/c8ff3iI4333jK9Gljvlq54+0VO/5x1yXDw2nZscCu7uX8DbTsG/7wi5agXzJME5lJ0CSEBP3yxyvbvt09qCqUMeZToSIkV1UolVGlskKJhWVVAVYUW5Bl6BvWL146WkJ47ZPuurrApSc3SBI8+0HX4LDO34ZEaTJjnrSoetniqstObdzaHF/+RW/QT7/5NjlxTBgonndcTd8QUxUpGpYff7unvVfzKVBk4NrlvImIySfGPjzHiwMhthPM8dhB0AthH4vEBWyWrjnysRYQhhjwK2s2dcXTxmlLpgYCftOEaNj38VetUydUPfDIyhff2hkI+O794yl+Ik0dX/vi8o3pnCFRi40aCKibtx2YP2vMIUfPicn41oebv/p6z03XLQFCPv1yV0WFn2sqEUympBQ0jQGQc06eksvpQBhBZjIW8MH9/926cedQwF/w6IV2U4b5ptMSJkApZLJs8ujQLy5r+uOje7v69avPaDzz6KrPNww/+HJ70EcZch0ISHwq3Hp5k18l9VXq6m2J1VuTG3cmxjREGNKxdfK0pgClNBCQHnql48UVveEgF08AcQufwUiBNIhqEGB1JdjH6ljjQ9AFSII4rC6wUYErQXBDCQCJabKKsO8f/11/3o/fWrOpO6ubRx4+ZfuuvhlT6zdt7922o3PR/HGNDdFsWmuaWHvoIU3ptCZRylO3JQq/u2P5UHvvRZcdff4Zh8aHk1f/9Jlf/nTpIXPHDg9nZUkq7kpOeb1Ef2EkHFS/XNu2c09/wCchmkiYT6Hd/bkvN/QFeTpYgUdmb4ku1lnu/MmMZ9/v3bozftisiotOqkuk2eNvdxoGy5eDS1shp7Gp40LjRwXTOQwHlAUzYt39uS/WDR06I/L5xr6FsyLZnLlzX/pX/7fvqXe7g36KjDgUhL2lDIHn39t5cjbKN+c7QUibLcFQxN30ZLcIaONiCpa+8A3GMBjwvfnBrpMvfe7Uy5+/8Mcvr9/c9vGqfT//0WJk6VH1YVQlEwlRlXFjqvPyd6WEwWQsFPKv39j613velEKBO/98/tTJo9d+s+sPd7398uNXxaKBbM7IM63sPgVKrY+KQnsHMm99sifoB2aazDRDQXnVxt59HQmfShmWkzegFAaGc3f8eNLO/amn3mmvq/Vff15jVYQ+937Xuu3DoQA1ma3xwTCxrkoOqPnOTWioUo2cfsHSUXvakht3xu988sD197Zcf2/zirX9PpUWKJh8Y7MXKc4GHHqpehBiDf2FEmJKyzE/BJA29wOFWgTaZZXQNZeWIMHGuuDMaTVVlYGV33S89PrGTNZ87tVNc+c0Tpo4djCeAQr80BhdNw3DQvkNw6yqDN7/rw/efP7zMdPHPHjPJbFY9L/PrHpp+aY3n7wqlzNMszAbmB/4ySP+PlV648PmoeEUpfk7xuUrWhmHmLir24QQWYK+Ae0XV0yqq/b/6eFdqkyvPafx8FmRlVuG/728wxaCATGMvKYHFJoCgVCKmZwZCvuWLIy99mkfQfho7dDG5mQ4KE1rCtRXqQV7AQKxsSLfoCQEhPwW9qZJuyFIoGKfLR4KC47iBdjtB7gm4BFCJElKprQLvzf9m7eu+Oi5i99/+sLf3Hj0pPGxzs7ep1/ZdMevT1q/uYPoTKYSMVlzS9+0KY3P/Pv74aCq6Sbl7IuiSNff+mzLpj1Lzjzkb386JxD0/fovb+9o6X/9iSsSSY0h4X+Ys3d5+6Fs3jGwZnOHTyEyJbtbBz9b0xEKKsXk1T6DDQgAqLLU25+7+twJJy4c9bN7d6Wz7MKTai5eUtvWo9/zdHtOZxSAFQajEcNEWYL7fjbjkOnR5raMpudnsbH1uxJXnla7s2V4265kdVS5YEnV364bd99PJvzrlsnfW1yTyjFKwdW3RrwgShe5EQQzJW1tUoXeJPQ4vt66s+5oRiQ5W0jeGQYDymMvbukbSE9uih5/ZNPtv17y0QuX33br0kee+CpW4Zs1uebdj3aFGyo62gdWfdN6/ukHnXLOvEfvOw8IQVYsPiIG/EpnV/zHNz2d7R+66keLf/WTJYTgD2962TTNF/913vBwljEL13WcSQlIJme++1lbKEArI9Inqzt6+jL5YWbcmD3LvMsS7e7PXX7GmEtOHn3tHZt7BvTTj6654bxRumne8+yB5gPpQmxVfEzTxD/+aMppR9Udv6C6eX9yb0c6FpG3t2YM0zz2kJr7Xuw8c0n1Az8bf/OFjYfPjo6u8aXTxuuf96kyKbSzWtIX9neJrsGmdlnDMvMGrcDeH6gE2/wUsDMswWb2wEmq5RJjHgwFnoirKlJ3XyqZMc84ZcbAQDabg0AgcMKpB82YVP/n/13xh5tPvuP+Ty44Z+bzL3zz6ptb/vq70xtD0rTZo1DH9z7eEQyq+SCGIQaD6tbt7d0dA8tOnHH0URN7uoZXrWl99b1t55464/Jz5z3z2tb8QWfcBIFSD7UsQXt35qBplUPxzD2Pfds3mCvgR0A4gVUClMqU9gzkrr1gwqWnjb36to0t+9JHz4/d/j9N1TH178+3v7yiJxq2RI4lCvGUcdmypitOH90/bKgyfXlFd9Avn7Cg8k//aT3v6LrnPuqaPz3yy0vHqgpN5/ISrPJ/3+76bMNwKECd8qRlSRvuqr+44mfXubTSpOIiIdchZ7PsWCTnCAqFzhDfwtbyVYdgQFm7oSNaETzuhGmGjgaj6YQ+/6gpib7kynUHzlw686rrnl+9bn9Wxx9dvqiuJpBL63OmN7z69ubheFaW8929hDESDvq++HqPltGXLJl20uIJXV1Daza2v/HBzpOOm/yT7y94bvnWdMYI+ZWirFmpVIySRJMZ48V39z795t6uvoxPsbT6LdiWAiHQP6zdesWkU46su+ZPm/YeSC86OHbn9RPGNgT/80bXgy+1VxQlrPPcEpNhrEL57dWTFYkQwnK6+f7q/rYe7aNvBmc3BRkjgwntN98f2z9s6IxQClUV8odrB//1epdPBZei0XeYdCnKkdxDToDTgqV2TWr03kjgiqih7DwcuwlnGAwqt9z+3p/uXKH4/bHaSKzCn+keuummEw7s76cSOe6oSVu3dyuyHE9mqUQ1Ta+tCy08ZFw2axoGG4pn8z20hslqqsN3PfjJbbe/pQTlh+49+7orF+Zy5mU/eeXrjR1fvnRF0+iKnoG0kh9aZ2fx5dXX8mUAhpx4HCmMxcvkWDpnPvjrgw+bXX3Zb9e3tmeOXVD5txsnNTX4n3ir856n94cChbSVUkhlTIORrIZzp0RH16iazvIUO0WWOno0iZDDZwQ+Wj/wmysmxNOmTyWVYRoJSC9/0veXJw5QsB0zQWe+q05HRIr9KGI7gx3VkwKBSsfgdie4acn8F1TCBN7ZSd0UKHMBgKLQDz5r/vCzPcxkPh81GBvoG27e1f2H//34obvPjse11d80H3vk1LkHNaRTuUDYt3Fzx6df7bjlhuPnzRnz6Vd7VFWmFBjDUEB99+OdLGccf8K0U0+YqmW11eva3v14t+JT/nXXyQc6kmvWtweDCpVKk045OpGLrgIAkkT7hrRxDf7H/jR/YMi4/s5NQ3HjlKNq7rh+4pg6/+NvdPz18X1Bv1QayDWUMM49oW7p4XWfrR1YfEjNsfMrMznTr0ot7bnn3++aOi78+6vG/OpfrdWVvjlTQlkNBxPG+h2Jh17tfPmTPkUCSktQAYKTZQZuenD+37S4JK7Rdt41H+CGcoBtBrJtOjtwOrRYHKkBTmQUueK7COREJIRURgMbtxz4n5v3h0K+UEjNpPU8le6SH7/01hNX7msb+M9zay+/5GDCGEFGKUGkJx498agl06ZNqLj5tvcJkSglDFlVZfC2+z9Lpo17/3jiX/544pjG0O/u+fz+R1dt39374J1Lj1k46pY7PmVIomHVMEwEboCi3e7IEuQ0Fk9qF5869oZLxj/2evujr7T6VPmas8f+5ILGcFB+8MX2+57bH/JLAJgP+jI5dtOl4689d/SmnSmQKCEMCJqMBH1kxdq+UEC6/dqmf77c1tZj9A6nLv79jnCAajqmswwAQz7KClqpxBqz64IM0WUk862U9iVy8HqFI2yLjA5Bg0ap993uJ8BRNXILLfEEXPs44zyh3eeTgwGlKhaqqgzVVkdCQUXLaXta2tdubn/5kcsffWa1oRnHLJnIMtqTL27curP3hisPjUq4aOG42orAGx/u8vsUZIRSGgooK77Y09zSu+TwcUcdO2HupOq1m7vWrD/wyjs7zz1t2o1XHrR+a++u3cN+vyzL4Br7SygFSmn/oBaL+e69Zc6Sw6pu+fvO5R91VFcGf3H5hBsuGEUI3PXffQ+93BYJybJEGCNUgmTGvObspusuGB9Pmom08cZnPQ3V6nELqitC8spNfQ+/1vnQL6e++FHn8k/6olElGpGqKyRVprJEkKAq5zMrbsCW2x+WTCQAFNXtCiJHYLfszvq+CGuEghipU5mH8FPWeR+ACNbASHRuHSiU6lzVHSvQNkyMRX3PPnzptOnjVEmWJCmd0fa0dK74bMcDj3xy7o+eXP7fqy77yTOhoHTlhXPXbGgLBBQgjILZ3zn0gwtmvb1ix7uf7Y+ElIGhtM+n1NeGnn9j24HOxCN3nrr0tGnLx0Ruvv3jNz/cfd4PX7/6koOfvG/Zmx/u+uuDa/oHc1UxH5D8gBwAIBIlibSu6ezCZROvvXDyp193/OJv2+LD+sEzq266fPyx8yPtPbk7/r33na96q6JqNmfGc2YkJGey5kGTI1efMWZgWFNkkCUI+KXNu1M53dy1P3n/8+33XD/55Y863ls5/KNzxyyaE2moUoJ+CQB0k+3rzv350b2DcUOWil7CiRoguLmtNsFZbvwUutqQhFpKiIXRdoI4HPkBkbZBHmAfte4Z/vHNNkVvIcvSwFCGEHb++QsJQ2Zi0C+PGxVdfNTEqy9csG5D68PPrXvy/gsffPzLe/+1prsnmdXMU46fOHlcNJPRgj7Jp9AX39ldWx268sJ5Q8PplgPD1bHQ3gPDr7+/c1JD5Igjm846fkLAL2/aOfDV1/vf/6L19BPG33z1wdmctnZLb1ZjQb8iUcho5lA8d8ic2gd+e9TB0yv/+M/NT77aQhX5+98b+5frpx08Nbxy0/DN9+36ettwLKIMJvT6auWcE+q7+/W+If1H5447eGpFKmMGfLSlPf3WF32mSdZsjX+1sf8XF0968aOOvrj50C9mHH1ItDaqqDLNB+fRiPLce91rv4378oPcipCjq+HKXttD9KgrgAh5E//xXmCCPKeaHwpjX15nQyo65/XZLBEi+n3yl6v3tu3vX3bKwX6fnEpms5lcNplRFTznrNn793bc/sDnD95+4oEDQ5+t6WAMpzRVHnfE2HRKk4AEA+rzb+4IBJTnHzz7sjOnRUP0y286ZIlmssbLb+/MpHJHLhh1wolTFs6q3d8ZX7ep+9V3d7f1pK+7bMZFyyb3DeS27R5MJHLTJ0Zv/9n8S06funzF/l/+77q9+5KHzKn547XTrj13nKrAE8vbfv9Qc++gFvBJWQ0vO230H384+cTD6l77tDeVNf7n3PHRkKQZGPLLK9YMfLFpMJtj9dXqr74/6f9ebI1GlTt/PA0Bk2mmmcRkxK9Snyr9/bkDz33YHQpIvNZGPpABWyBqY1bAiH0MnsNBufixmAe7IjHgCD9A+HDAAwp3Ej7Bg4GbV49duaZ15dd7Zs9sGD++2q9KqmQgM/R0+sRlU79Z3frLO7+69/fHLjy4bvlHu/e1x79/1nRFBt3EgE9+4e2dqYx+/qkTQj523ML6Q2dXvfvZAU1Hv0/64PPWlRs6p42NHHXkqLOOHVsVVVo70qvXdT73diuV4YbvzzjlqFEnHDH++2dMXr2x5zf3rf90VXtddeiac8f//popi+bGNjfHf/3AjseXt0lSYeTkXTdOu/zUBgCSSJqvfNKFSC4/bbQiE0SQKL3nqda2zswPzhx11ZmjfvnP5nBQeuiWGfG0QQD8Kg36pGCA7uvK/PW/re981Z+nrBB0VlTBiTN6kjocBwhA8GJd0TdI/vz0UZfqYTEp8qBV2j5K8Muue3ROMwwHfbv2dL3w6rodu3rSiXQmk4kn0/vbh597fvM7n+4bGEw/+eq2ZSdM+OUP57349q4N3/Zdcu5MZpjZHD67fEd7V+L8UybWRqWevuTMibHZU6KvfrifEAiHlN17B156pzkV1+bNqDxpybilR4yWJGnX3viXX7e/+O6+cFCRKPn1fd+8+2krQ+nsE5vuuGH6RSc3mobx2PIDv/nnrs3NQ9GITAjRdPzbz2eecmRd36AmUzKcMJ99v0NV6FnH1ft9tCYm3/3k3k+/6b3rhokTRvl/9Y+W7kHdRDjQnQuokNWxb9jYuifxwoc9/3yxbee+dCRIGbpKvLYvgPNL6LHMpdUtHV/wnPMLABCrnFDimoI9yRKw3QU+GkUk9GICamNqOS8sSdQ0MZHMISGRkE9V5cHhtJ7LECIrqsIYMY3cVRfN//WNh9/+989TSeOBPx8nUzz0jBf3tScevm3xZd+b2DeQMg1WX+37/T823fvf7ZVRlSAxTRxKaAdNr/7ZFbPOOWlMOCB98U3n46+0LP+0o78/Q4gZCPqXHF5/6enjlhxeS0xzxer+fz63e+WmgWBAUmUghAwmtB+eM+E3V0/p6csSwoI++Hz94I337ogE5RfunFtb6bvzvy0HOpM3XTR2xbqh+59ppwr1qVTTmamZqp/GIrLJSCpjMoZBP5UkwhxTSYlo+Kw3MInOWBZ4zTg+CnNpEZXGywIpNTGDJ7XaOZzRPVi2iOpa4QAvV+y2AHmxCwDIZHRNN+cfPHbRgvHjRsd8ipTJZDu6ht7+qJmZxr1/OD6dNV58fWsup322to8QXDy/7rm/HTUczwFBVaXtPZlTr12RzrC8YppEaSpr6Do75tDaGy6dfuKiOomSVZv6nn3nwHDCuOjUUYsPqfGp0lfr+x59ueW9r3p0g0VCeWYkmgxDQfmFexbWxZRcTtcMMxqEWx/Y9cGqQVmCg6dXqBIunF1x8JTYXx7f3dpjHDMvNrbeHwpIhsn6hvStzYlv9yYkifpkQELync7ljwuU0+Uohc2IblPuhLXQPSa0sMAOz+sREAsW2N3ORhxTsUaAU4EC5DRjYlPlI/eeP3fOWH/QTyghhk6YTvRcJpla8UXz3f9aO3167WVnT/3sq46nXtuxZ98QAfLg7w77wdmT2rtSACQclC659atPvu4prBMh+SlJ8ZSuKNIJh9Vddfb44xc1KAoxmQkEVm/oe3L5gTc/7xpOahUhGaAw0EOSIJk2jphX9e8/zk+lDUM3q6PSitU919+9PadhTUxdtrjmxIXRLzckvtwyvOyI6pMW1VaEJak4OoAhS6S0PQdSf31i376unE+haGvgAhdzAkRxMrp4s4A2NWkQ9O3YV6fEjrUXG76DrfDeiuASVPa6DrowB5pK66MbKxYvGq9ntaH+eCaRzCZT6WTGNLRZkysvOG3ipi3t9/xrw6EHN9x8zYzpE6ta9g8/8dqeMaNCRy+oNUxTleHLb3o37RwK+KUSTIRIAj5JlmD7nvgbn3au3jwgUbavI3XHo7vuebx5zbZBVYZ84S9Pq8o3p2RybO7UyClH1CMhNTHfh6t7f3znt6GgdPmp9T85fxRQePDlrppK/5+uaTpsVswwMZtlWc1M54xkxmDM9Kv40dqBLzYOl8Su+WKRawmhLI5fph0MuGmxNtqyIxayTwAf8cBZw1EdaS7h5xRDKT9GhDwUjPztCPYJY2Q4nj7r1Dl/+dXSGZNjRjaTyeQMXWemwZgZCQIl7ITvv/3lmvYZU2uuvfSg445sWLX2wCPP7Jo9JXb+0tFHzYv9z20bXvmooyIsGwbjggwkBGQKDEk8pcsSlSTI5sxwUJYlME3miCAkiSbT5pKFVY/89uCtezKvf9z1xca+UxbFjpkXa27LPvN+59pt8SlN4TfuPUiRoH/YLNlGmRJFZge6cw+/3vHuV32hoCRRKE48QlKcNwgjNuuL+a/cvE/HIA3brFoHd50Ql4ku/2F2zp5jnLdbUctxNxy5xzbJsij6Kct0OJ6tigUuOmPW906cPG1CNByQATCZzK7b3Pm/j236ekuvIsNwXCdMq66uuOzsKacdM75vILNqQ0dPb/z9r7oGB7VQWPGpeQ0rwlzDnPN5Sn7OeEmuvThphSCipmMiZURC9IRDG2JhacpYZdLoyIbmxEsf9bTsTxEJohEZkUxtCl979ujZE8M+lTJGMjlzf2f647V976wc6BvWIiHJFVVBiU/lHqjtEdMAjLAGwgTJMcbSNuJdMFvJ6zoufjUh3s4b+KFOIjiNo0FJhsHiyVwgII9pjNRWBWRZHhjM7GgZ1LJ6dXVo2qTqGZOrairVTEbb25ZIJLUJo8OLDqmfMLayuye5cl3HF+u7d7cOZTMGlaWAX1YVKd+lj2iTsyqJrJgMdR2zGtMNU1Ho2Hr/obNih86MNlYF+ob1lRu7W7uMQEAe2+AP+aR4ymhpzzTvT/YPG+Gg3NSgVoQlIGQ4aXT05pJpI+inxYnhnl22yI1t5STgwBWxAnifMxAF2ODqDgcChQXmz5m9XgFCEUovYyI2QVDSvuPTc4tsxks4UABKgSHRNFM3GQXIZo3a6uCVFxx83rLp0yZGQyoSU0dmMNMcjqfXb+t77q0967cPLphTf+yiURPHVqZzbMeevm+2dG/aPtDanhhOaASJT6V+lcoyJYToBuY0M6sxICQcUkbVBWZMCM+bXjFtbCAWUXuHja8393+1sX9UXfC0o+oOnRWrqlAIIcwkDDGbM3ftT7y/qm/5572DCT1fP5Ao+BRK88qGyOWPYHstYC/QlP4L9s4UjuAO6JEyuZt17Dpn1gTu/Ij3/MVEI68sZ+66OrgDN36MYf5X7Z37WMjh0BH9o2hQOOSV6PTDF4x57N4zxowKpuPpXFYzDJ2ZBpomMoMwU5ZZbaPyn6ebr/7tGpCluqrA3Fn1C+fWzJtZOXZUhalpe1oHN24fWL+tb/ueeM9glhBSHVMnjY0smFVz0LTYhLEVEjV7euPb9yTXbR/evCve1Z/Lpo1fXzX5V1eN7+zT0znUjQIZlTFGkCkyCfnp3o707x5u3bUv6VOlwuj3og6/V3AJ3vQ2x6B3r9/1MJ7o9fNQqgfbtEbQFaAXPTk4GghdI2bBueaFvYVWZarkvaE49YlgKS7gSWWIjBEA6BtIr1rXflJgTCRAmUmYWeDnAiFUIgGVbN088MSb7dFo0Oej2Zzx6ap9H3y6V5ZpQ31oSlN06vjwzImxs5eMDwToll2DSMjsKdFclm34dnDb7vhLH7Ttak109KRzGpNlCPqlSEgO+KTlX/UdOa9q1uRIVjdpocqHEiUSBVnC4ZS+c38umWH5KdZoK6wBN9IRiTe4B7zlAuI+Rpw5BHSNgEWwG2lO3a5EC0ACBUZHoaCALlMAzlsri5GCjYICNnaW7XB65QY2ZggiQVmiXT2p55dv+2T1AU03qyp8FSEpoBKfCkCwdyDzyocHbr5n87d7hgN+yTSQAvH55GjE5/PJPf3ZvQfi2RwZNyowf3b1uFFhRFYVVaaMrchltS++aXv7s47VGweGU0YsrFSEZTVvZhmhFHoGcu+t6gOQGmv8kSD1+6giEcNgHb25j9YM/POFtqfe7UplDJXr/ATXeUPuTaAolSwg/I4qu+29c5UFLluxvzhw9oxyIW7RB7uibfTi7qGTCM+nYuCVJBfLX9zscpdaTAkoBetT8l5bopBM65rO6muCTaNC1TGfqsBQQms5kGzrzgRU6vNJrFDsJZTS4YTmV6XTTxh3/WUzD59bt2ff0PPv7H3v8/Ytu/oJgZmTY8cfWnvm8Y2TRgXXbut7/I0D763qTWfMipCMxfFllIJhsnSW1VUpTY2BaFgxTdY7pLV35wbjuixD0C8jKczFLLokQMunCaFIRAcuKAQLnRbdNVPT4ZkLmWjBeJbmYLkWGHnajTVjC6xIyzF71vKrHHKCPKGIH9mFtsoJiuWAikxM5DYMFhtBAcAwWFYzTZMhIqXUp0p5fiQWuHDUMFgypZ9w1LjfXnfI4qPGfLu5+66HN7z9WdvgcE5VIOCXASCTM3OaGfQrx8yv+cnF4w+fU7lq8+A/nm9Z8XWfokg+BUyzWCqlRNdZTi8I/MsSqArIEs2rRDvxW6sl2z6Z24IOUDTN1bGOAh0c9FTs5rL9oqAzcAcTAKCykAeDsHHFW5LLvh1GoHaiO00HbgQeIeXQHrSn9bwlLOQ+mBf/hEzWDPilP9x45PWXz0mn07f945tHn98xnNQiYUWRgOWnVgLkx32YjCTShixJZx5b8+sfTGysCTz3btvfnt7XM6iF/LSIICPkS/YlrUHvzh4AG53KTXvkpni7Hk6EaIE32GQd5qJTQ9HVAEo++Dswb4kgTBAUiewCLgiu8I6XfALgB5WItxU4GybyyKK9rYOCbmBtdeDp+06/8MKDNm7ovvDG959/e7fPR8MBmZSyF8LpWRMS8EmKBOt2DL+/qndsvf/sE+oPnRFZtzPZN6jLkg1aRX5UvGdJwE5zROe7cqshea2kq/gHnqw3K5sq6cQCR6P5DgtsC7uFa+xSdnHwgxwAjbXGZYnV5fICFzNXojSezD1y18mnXTzn7Re2XPTTd/bsH66K+fLVHPAYn5pf5lBQHowbb3/VEwxI5yxpmDo29NJH3ZJU3IVcSmcjMQgFiMA9+dHhfAD4IWki1p0QwwJSnrju6EAoNehTKRis9NgmPAEaufmF5XYxCHh4zv4otJSswIXAoahwDK69JPgJZCSd1XZt7vztvSvjSS0SUkrSTA7gxg72AGP5Ge3kk28G2vu0NVsTzQdS+Xl2aLM63FhV10gwtJloGyLPR7d8SgECa2zXVfasGAMK34+tyRjyowegqgh08KihjdRpFbzAvXresLVt4fJdeIg2yqc70rAxA1zhAKLAcVgpONBUWtc0M1rhkySwzX13WFIRNJ9fnnjKAIBwUHJgqM4nFwF8/HjU0ovjc1lvn+oEu7xTUZ4sDSPaPijRZr0zXURvPLpcZcIG11mcT44yL44IXfFiKVHEYqQP9j5lyzeHQyoNE5Pl55i6atvgmE8v2I+xiIKIJkOHRLJF6kfHFzj8IT/mw+O9QfkyDje4C12AIeErOiDuD0ab9y09Z2G8rIdKk7OfEUca7A6EcINIUISDQEnGynUqEJCHX9FB9AEX79/5hzHGxAQS11hzfvNxlzIZFmapcIcPShPT0HEtQE9Gk1vJW3QcPcYGgOu9F7YREG7QLzrpAKUctWiWEImMhL8iegNW1kRIFBPw7G8OELg+ILCXkdBdm0JSriTljKgRvW2YS+IAbagJf79oLWHpV9HpFgBFtr3EXEd3CuN8a04GBoocUB4T5seggYDxJp4E4mwz4JwLdSblor8AL6rnaWeADwGgMF4WyvoM9JweYNMDQec0Li8XhCX2tu1ccYGpzXEid8PIxQFOVgI3tbgIofLXwBEL6eiuyLmiA+T1VcAh4C3sO7LLtzjeTvEHqfOxywgVloufhdwiUmjHgFI+gIQ4RmChXRYK0YPDWcpErR3p1t50ifthmbsUp4JgZzUURlVZM5JELhycw7GFH4FI7A1CIMqQnBxzgUodOHeP59YCIFQYuDmG1LoH6tiPlHBV0D3dA3kZenTlVt4uy5ozbu/BQ498nXidG4/YDpyPg3ybpDWY0DNh8CzRu06N6CWCc3IwP3LEXg0A4himiEhc247/LHmkeNgGeaMnlQ9LMyls8zetOwG0DXArAah24MEJyPOmF8A1vtC1r/nvInBAC1h7FNw6J4AE7MEx56DRE0xEYvdKxNGdKT5crsZ+KGMdEcvyakQ0DnvoT4m7TMHtORCaElGqS5CI7Y5VBQR+SKsdjMVSbRiExxHsex34mc1Og4HWhFW0DywDR4bvNlrc6EWBJUA7BiQG6L1OinO+oDiAQcH4T/HcBOKmZoDDqRNeRglFy+as6nIYDaCg+ikEkt2lYLsWgCvK8zSBpTVGKD8LG+2IDzq8HhTHBXHfcyq9cuMtgB8Bh254CexTx0aGXol7FZHfmmXZrfazB95S/flXRV1+WeANwQuMcPU3unrlnLo8Iv1UIOB1oviBvOjO/YWe1U44cS62J5QL3OZ1kCwAyhYZRPEbemOqXimzYzSwbQwTepUGHLaLL1YV1DqFEJIoXkI+0LVFw4KftNwHegX77mUWeht0gzNuiMDrPPPnthSyQ3FWO6IwCrLZHU7/EpyKftaITEShBiE6Vpu44yEvZ4tCR4hFqRQugbR1ilvcdCsPJnxxyVmvQqfT4VYV3No9SMgI8A3he+LEVsvVEw0cUm69S1eMBdyxLuTg3Hg2O+WMy6T57YrumANAUIRxtH4KlwTsoyyA2BTaBd0kaBtvioJTjqVGbGuPIf8I6LJjdrVZq8bNt/S7UUskXn4WncQxdEZfxXgK0SNXgTIEb/AIE3ikHkS4fJleaeBKvvYVFY6KQ3ufPXjeG1oH1jKzAM5ir6vRG4hDZNa7xRuIa6CBS6pD9kItwCvYt+tu27FDm5BNiUEC4ELwhBkH2FNvAFH5ooR3OyaWEgcbFLm6AJYF0oEAIi+96eAxIJ9DFflPfEW/CBaWy2iAq5gBx18TprjgQa0Qhd3gXVYvFhtASC1ALqWxYFEQQ0Puhgj4rhCYOPsCgJETAy8gXIRl2YgySATVv6KLc60T2Mlp9gp5+bMlAO7tYmT2qcM8Zu7e2KKnBOCVq0Sa73L5nheu14yA9zZ1xwvA6T8JD5B7B6C7j8rJHxypVikUgwMLCgOBDXLPlRFTDtARnnIUN3B1hPJHF0UkQ0GVm5SZJgj2fQMiRVIQVmEoihMz2wZCp6C4LSwAj8I0CBH+UsAKQMSK9UDKBKTf7Q/w4SvhwzTnJHRb7yuI8u7yqK8zMuSWlVi6NeI0S6SlUJrsDDzh2b0XEZ3jbzxeHvWImvg7KJ93O1umuN5+T4DfPonS0eWKrjYOEKt8lYWM3N8B0VAHjxIPCFFFcd4ivg1AgQ2wp2OCGaDOnSecRgkitMWZ/xQvQsu4SPD+O9hQWNfQcUeiAY75AsAtJh/iIwDySAOXClg/6HW8PJ5g5B0mWtCRri+ev+75s1hm1pjTsgkwFLBPskJ+ezixJrTPL0XqtvLgVaZyPiCK8Uh79QzKVMN4wEqEm3HTvcCL44M2QAcdcSeAHWAAMW7MPbWgrkMAEASoPC8Bxr2x/zdv4o2NEVcNqiSgViZutUcABGTR1nSw0h2/42X1gZTbDaIDIOT4ie64EN8BOvhepY2AotDMycESlHnA/U97dUj0fCIpDeSjYFHYBWK0XJCOoqggy8c2IlvBfSyWqnVoQ7KI0y86zj8WC6UoakASuDe0kYgBnObBth+9KThucQEXsIeClvlCkIsCs8D5EATvEhg3s3kE6B+RL1oIWLEezoPLpjhzA6IHtgBa7okAbLQyIDbeGQBQACrKKaEMLi6KK0AsWTySrbIQPXDaRge+bmPtAhFg7OU+wo0lu0QfxSYGyiHcgnNrr7habxO/W4DozmFsjhnQsYKOZ3IcuuI0J3TXMRAdwDFXmQLRWuMIoYk48gCwNrzgIDlYYOiozKEFenq4MXuyQbgojTjiu/KlOnRjtbbUExzDX9HDDIMHI6w8KIT2NwJleUel5sjCGjMuyOIPlQAQApdJROuCjlYZ5wtzE+d4Ci1xnoJyiFj5UnEJBAKbngEBDhPmETqnJ/KkMttJn15G135P4B5kIdgCnjvUyWgArzqfbdO7ohxbmoQWs8Xm2VwFfcc8hmKFB9AWebpMLHrEBfzBQs8CjUdvH1qOEEvlY1c1sfQKwMMK8S8abK/MwQp0WHoU50HFQh4/LKc0e9mRNiCxXwXLArRo7dcyEJX1tmVwVxnQAVHYfwsc6B1yia27AFACIAtuBG00IGtCYJ6o4eH60LnNwGm4Od2a0ueik+0A7sthKdrkOvXKlEbsYg3ojZ/aWjrQiQOhc+QV2jBz5PEit0AVT0sFR9HM1rRNSp0N4ggKy6NrLmYVge8alYk+qagqIXhhIMg+HJGQSN7HQXb0RPbAgvzRtmiFI1jsbOB1Mdy8JnQur23QLYGRYFU7mmxtU4+s011fEoUJKEiTPAsPZdFwtw0GKAdyo4MLXzSyQoft4ZSBowQ4HB6MKEc/IgbuIGh6j3cVYkLukF0IrtmlUZxRo923lt6MmAzEOwEXFu0CZ0Bc0BBemuslAHevIJdA208+AHAGq0zuM6L8iy3dJny3p+f4XXC1ugIhItllhHIwLRFOCRPvIav/lJeN9uRaE54W6Cyxufo2iB23K50YrprkjqbQ9YQ23BnB0TkBIoy9XIaJopACXMoxTkzHieCVUEhushOXiZbP4fA7lbNGKGyhs3TivJyDVGjPltAj37eMAbiAS/wuFTYgpDihzZM6C1zfjqjBBkBsr2xRGwhBXGdM7LGl7V1A4EaB0WaHwZ2KcSYCXcbBXu12RnQg9lNlG6TBizeMzlgYhOqwgr4LLGviiWMsNtgig/zAW+433RMI3WGo7c7Rq7UYHFCAZ5gJpYjQ3R7kwnZsO895W27xCxFvCr6rSwYUeAoxHGGp+LmiHjddEgTcLFuq7WiCAtcBKE36QrE7s96xXJYkgSiQYSmeXK6qX9YM8rQUl7YTEYTi6JJFdIwEgjLjHK1wGuzrD14ZpietjdckEhhXe+MkcD0yIN5PxdMm7mArhnPI00DRtcZOMNSZnTrSDqSkTCsWlqkLgzeSa7WAiPrWHEFEYSvz3dIO9rGzZgEgFhnjMVAALurEcpUCARLlkYG7ICY7vmpfD/SqL7h79MFRArT7CFsADyNrTDv9O/1/yo7QQoXQYTjt9XgPxU2P4jja/aDVzmALkwqFLPdWRQ+ozNojPMEF3MGoANK2errQ+mWH03TzwB0oBAoZKa76GFqgPHCEdBSCZ6JQD51WvdRgyw+ntLE5Pbygi3VcFN5EtNcQ7J4W+DmMDv8knFNrFaRLXDeHXq5nKu6tvAgeQIzA0NkCTwDiWQm2e0rXROBCjyM3KgmtMczCNOz/1x/xfMq8xjkVorLOg1aua46gqDHQcU5dRgwt6+yubFjUfnQIMAma71AUXYv6lFDQ1WzLPaB8BdR+A+hN3nXPE+SRACDenUvO+LVk77EksOvdmChotbCGU5ZBFPl3Jk4LAMXeG7xJl2Sk/AJdGrdIBMo3/LsGe2iEXDRHXDLIxCa/C2UDTRTAggAjBuJe1Fu3A7btLRRgqKJJlpaHEiiAWGmGTBxsEfF8M0GGCxZL330IAcHxdknJg1rEYwAOeQcHVuMkDYEHOxpGwLntNTeBmGvZ9MG78duRYTgaEtC7X9z1HEDE6a/7kLqgf76rioeKSskGyFC27IRlwVwRxO6ZMtnJR2jffuCJLHENKzzvCEZIa8XJuUgtmRC7dBOv6+WKFcESy3KHzl5lJeIQvrElG+CG69x7VIwcI7HXjkr3xqcZlK8TOiEVEA0/Ao8MwubskBAkHjUDsPkYr7ZLp6wPWhE8ACmrumTPoZyN/TzeDlCOK4iuqVbgSmqBw1PBuziCjuFSwttHUU93uafjVIwBRfu9yIv2oKgLwi0URKjg6DZFoUMgbjqEKO8E4uzkJETUiugROIAAeEME934R427EFROVCS9hhOxS+G0sw2XiHdHIq2yNJXL2MCKfl1H06gZARwek6FQiX/b2UnsXPxMK1xp4WW0vjNFb7oa3LQI8XiDLBcTd+Mw39gKKuKMj5zbu8UOOZNhGCPluBVtnCmBjNnpVeagIQ/fAeizEwNG2jzZUoojVIJSBZAkngm7Vhp38NT5N9NQo5dFIFM51csARXvU9RzIFTh1fx/lGXqpLxDcREbgAHdgxCnP2Mlpl9uQBhSmwZQ9AxhEmTaO93FIKNNDe2Ia8rA3hBlWgMPAR4Fs8hgdIsIzZQ49hNXaVRLH8kf1AIufUrZEHxGMAmEhZEImzSFTitrlHprg5E1gcklJWvcOJAiOXwAHxkHrK77P/D1QL4K8MSFSZAAAAAElFTkSuQmCC"/>
+</div>
+<div class="txt">
+<div class="name" id="brandName">VitaCoreX LLC Consulting</div>
+<div class="sub" id="brandSub">Nationwide — executive consulting &amp; document support across the U.S.</div>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="openConsultTop">Request Consultation</button>
+<div aria-label="Language selector" class="lang">
+<button class="en active" data-lang="en" type="button">EN</button>
+<button class="ru" data-lang="ru" type="button">RU</button>
+<button class="es" data-lang="es" type="button">ES</button>
+</div>
+</div>
+</div></header>
+<main class="wrap">
+<section class="hero">
+<div class="card">
+<div class="hero-head">
+<div class="pill" id="heroPill"><span class="dot"></span><span id="heroPillText">Scope first • Prepaid engagement • Stripe invoices</span></div>
+</div>
+<h1 class="hero-title" id="heroTitle">VitaCoreX LLC Consulting</h1>
+<div class="hero-sub" id="heroSub">
+          Consultation request → scope review → quote/invoice → prepaid engagement → delivery.
+          Clean communication, documented decisions, predictable output.
+        </div>
+<div class="hero-actions">
+<button class="btn" id="openConsult">Request Consultation</button>
+<button class="btn secondary" id="openProject">Submit Project Details</button>
+<button class="btn secondary" id="contactBtn">Contact Director</button>
+</div>
+<div class="hero-note" id="heroNote">
+          Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.
+        </div>
+</div>
+<div class="card">
+<div id="profileTitle" style="font-weight:900; font-size:16px">Profile — VitaCoreX Consulting</div>
+<div class="muted" id="profileText" style="margin-top:6px">
+          Focus: business setup, contracts, structured document work, and negotiation support.
+          Approach: scope confirmed in writing, predictable deliverables, professional communication.
+        </div>
+<div style="height:14px"></div>
+<div id="paymentsTitle" style="font-weight:900; font-size:16px">Payments</div>
+<div class="muted" id="paymentsText" style="margin-top:6px">
+          Stripe invoice after scope confirmation. Prepayment required before work begins.
+          No “Pay Now” checkout — only confirmed scope + invoicing.
+        </div>
+<div style="height:16px"></div>
+<div id="contactTitle" style="font-weight:900; font-size:16px">Contact</div>
+<div class="muted" id="contactText" style="margin-top:6px">
+          Fast routing: consultation request → scope review → quote/invoice → delivery.
+        </div>
+<div class="service" style="margin-top:12px">
+<h3 id="directorTitle">Director contact</h3>
+<p style="margin-top:8px; color:#111114">
+<strong>Phone:</strong> <span id="phoneText">+1 (813) 919-4242</span><br/>
+<strong>Email:</strong> <span id="emailText">vitacorexllc@gmail.com</span><br/>
+<strong>Website:</strong> <span id="webText">www.VitaCoreXLLC.com</span>
+</p>
+<div class="hero-actions" style="margin-top:12px">
+<button class="btn" id="openConsult2">Request Consultation</button>
+<button class="btn secondary" id="openProject2">Submit Project Details</button>
+</div>
+<div class="hint" id="contactHint">
+            Scope → quote/invoice → prepayment → delivery. No “Pay Now” button.
+            <br/>VitaCoreX LLC is not a law firm and does not provide legal representation.
+          </div>
+</div>
+</div>
+</section>
+<section>
+<div class="section-title" id="servicesTitle">Services</div>
+<div class="muted" id="servicesSub">Wide coverage. Scope is confirmed in writing prior to invoicing.</div>
+<div style="height:12px"></div>
+<div class="grid">
+<div class="service">
+<h3 id="s1t">Business setup &amp; compliance</h3>
+<p id="s1d">Company formation, tax registrations, structured setup, documentation packaging.</p>
+</div>
+<div class="service">
+<h3 id="s2t">Contracts</h3>
+<p id="s2d">Contract drafting support, review, risk notes, structured revisions.</p>
+</div>
+<div class="service">
+<h3 id="s3t">Business plans</h3>
+<p id="s3d">Clean, investor-ready structure: market, ops, unit economics, execution plan.</p>
+</div>
+<div class="service">
+<h3 id="s4t">Civil court documents (prep only)</h3>
+<p id="s4d">Formatting, exhibits packaging, declarations, filing-ready structure. No representation.</p>
+</div>
+<div class="service">
+<h3 id="s5t">Forms &amp; document preparation</h3>
+<p id="s5d">Applications, administrative forms, translations and clean final formatting.</p>
+</div>
+<div class="service">
+<h3 id="s6t">Auto purchase support</h3>
+<p id="s6d">Deal structure, paperwork review, lender terms, delivery day checklist.</p>
+</div>
+<div class="service">
+<h3 id="s7t">Lease / landlord paperwork support</h3>
+<p id="s7d">Lease review support, terms analysis, structured communications.</p>
+</div>
+<div class="service">
+<h3 id="s8t">Other projects</h3>
+<p id="s8d">If it’s documents + structure + clarity — it’s within scope (case-by-case).</p>
+</div>
+</div>
+</section>
+<section>
+<div class="section-title" id="processTitle">Engagement process (clean &amp; safe)</div>
+<div class="muted" id="processSub">Exactly how a consulting firm operates — filter → quote → prepaid engagement → delivery.</div>
+<div style="height:12px"></div>
+<div class="process">
+<div class="steps">
+<div class="step">
+<div class="step-head">
+<div class="step-num">1</div>
+<div class="step-title-wrap">
+<div class="t step-title"><span id="p1t">Consultation request</span></div>
+<div class="d" id="p1d">Client submits a short form: service type, description, and budget range. This filters out non-serious inquiries.</div>
+</div>
+</div>
+</div>
+<div class="step">
+<div class="step-head">
+<div class="step-num">2</div>
+<div class="step-title-wrap">
+<div class="t step-title"><span id="p2t">Quote</span></div>
+<div class="d" id="p2d">After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount.</div>
+</div>
+</div>
+</div>
+<div class="step">
+<div class="step-head">
+<div class="step-num">3</div>
+<div class="step-title-wrap">
+<div class="t step-title"><span id="p3t">Prepayment required</span></div>
+<div class="d" id="p3d">Services are provided on a prepaid basis. Work begins only after confirmed payment.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div id="policyTitle" style="font-weight:900; font-size:18px">Payment &amp; engagement policy</div>
+<div class="muted" id="policySub" style="margin-top:6px">Short, strict, and compliance-safe wording.</div>
+<div style="height:10px"></div>
+<div class="service">
+<h3 id="policyPub">Policy (public)</h3>
+<ul class="list" id="policyList">
+<li>Scope, timeline, and price are confirmed in writing prior to invoicing.</li>
+<li>Payments are collected via Stripe invoice after scope confirmation (no “Pay Now” checkout buttons on the website).</li>
+<li>Work starts only after confirmed payment.</li>
+<li>VitaCoreX LLC is not a law firm and does not provide legal representation in court.</li>
+<li>Zelle/Bank transfer may be available upon request and confirmation (case-by-case).</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="section-title" id="aboutTitle">About</div>
+<div class="muted" id="aboutText">
+        VitaCoreX LLC provides executive-level consulting and structured administrative support for entrepreneurs and small businesses. We focus on clear scope, documented decisions, and predictable deliverables — from business formation and contract work to transaction support, operational structure, and filing-ready document preparation (no legal representation in court). We operate on a prepaid model: work begins only after scope and payment are confirmed.
+      </div>
+</section>
+<footer class="footer">
+<div class="line"><span id="year">2025</span> VitaCoreX LLC. All rights reserved.</div>
+<div class="line" id="roleLine">Executive Director: Steven Miller</div>
+<div class="line" id="complianceLine">
+        Services provided under applicable U.S. federal and state regulations governing consulting and administrative support.
+      </div>
+<div class="footer-actions">
+<button class="btn secondary" id="openCareers" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M10 4h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v3H2v-3a2 2 0 0 1 2-2h4V6a2 2 0 0 1 2-2Zm0 4h4V6h-4v2Zm14 8v6a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-6h10v2h4v-2h10Z"></path></svg><span id="openCareersTxt">Careers</span></button>
+<a class="btn secondary" href="https://www.instagram.com/vitacorex_llc/" rel="noopener" target="_blank"><span aria-hidden="true" class="ico"><svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5C18.54 4 20 5.46 20 7.75v8.5C20 18.54 18.54 20 16.25 20h-8.5C5.46 20 4 18.54 4 16.25v-8.5C4 5.46 5.46 4 7.75 4zm4.25 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"></path></svg></span><span id="igTxt">Instagram</span></a>
+<a class="btn secondary" href="https://www.facebook.com/share/1CQH4CS96p/?mibextid=wwXIfr" rel="noopener" target="_blank"><span aria-hidden="true" class="ico"><svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12a10 10 0 10-11.63 9.88v-6.99h-2.8V12h2.8V9.8c0-2.77 1.65-4.3 4.18-4.3 1.21 0 2.47.22 2.47.22v2.7h-1.39c-1.37 0-1.8.85-1.8 1.72V12h3.06l-.49 2.89h-2.57v6.99A10 10 0 0022 12z"></path></svg></span><span id="fbTxt">Facebook</span></a>
+</div>
+</footer>
+</main>
+<!-- Consultation Modal -->
+<div aria-hidden="true" class="modal" id="consultModal">
+<div aria-label="Consultation request" aria-modal="true" class="modal-card" role="dialog">
+<div class="modal-head">
+<h2 id="consultTitle">Request Consultation</h2>
+<button class="close" id="closeConsult" type="button">Close</button>
+</div>
+<div class="modal-body">
+<div class="hint" id="consultHint">
+          Short form. We’ll review scope and respond with a quote and/or Stripe invoice.
+        </div>
+<form id="consultForm">
+<div class="fgrid2">
+<div>
+<label for="c_service" id="c_service_l">Service</label>
+<select id="c_service">
+<option>Business setup &amp; compliance</option>
+<option>Contracts</option>
+<option>Business plans</option>
+<option>Civil court documents (prep only)</option>
+<option>Forms &amp; document prep</option>
+<option>Auto purchase support</option>
+<option>Lease / landlord paperwork</option>
+<option>Other project</option>
+</select>
+</div>
+<div>
+<label for="c_budget" id="c_budget_l">Budget range</label>
+<select id="c_budget">
+<option>&lt; $250</option>
+<option>$250–$750</option>
+<option>$750–$2,000</option>
+<option>$2,000+</option>
+<option>Not sure</option>
+</select>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="c_name" id="c_name_l">Full name</label>
+<input autocomplete="name" id="c_name" placeholder="First &amp; last name"/>
+</div>
+<div>
+<label for="c_email" id="c_email_l">Email</label>
+<input autocomplete="email" id="c_email" placeholder="name@email.com"/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="c_phone" id="c_phone_l">Phone</label>
+<input autocomplete="tel" id="c_phone" placeholder="+1 (___) ___-____"/>
+</div>
+<div>
+<label for="c_deadline" id="c_deadline_l">Timeline</label>
+<select id="c_deadline">
+<option>ASAP</option>
+<option>This week</option>
+<option>1–2 weeks</option>
+<option>Flexible</option>
+</select>
+</div>
+</div>
+<div class="fgrid2" style="margin-top:10px">
+<div>
+<label for="c_ref" id="c_ref_l">Referral (optional)</label>
+<input id="c_ref" placeholder="Referred by (first &amp; last name)"/>
+</div>
+<div>
+<label for="c_ref_phone" id="c_ref_phone_l">Referral phone (optional)</label>
+<input id="c_ref_phone" placeholder="+1 (___) ___-____"/>
+</div>
+</div>
+<label for="c_desc" id="c_desc_l">Brief description</label>
+<textarea id="c_desc" placeholder="What do you need? Add key details, links, and deadline."></textarea>
+<div class="hint" id="autosaveHint1">Autosave is enabled. Your draft is saved locally on this device.</div>
+</form>
+</div>
+<div class="modal-actions">
+<button class="btn secondary" id="clearDraft1" type="button">Clear saved draft</button>
+<button class="btn" id="submitConsult" type="button">Submit</button>
+</div>
+</div>
+</div>
+<!-- Project Modal -->
+<div aria-hidden="true" class="modal" id="projectModal">
+<div aria-label="Project details" aria-modal="true" class="modal-card" role="dialog">
+<div class="modal-head">
+<h2 id="projectTitle">Project details</h2>
+<button class="close" id="closeProject" type="button">Close</button>
+</div>
+<div class="modal-body">
+<div class="hint" id="projectHint">
+          Share details — we’ll confirm scope and respond with timeline + quote.
+        </div>
+<form id="projectForm">
+<div class="fgrid2">
+<div>
+<label for="p_service" id="p_service_l">Service</label>
+<select id="p_service">
+<option>Business setup &amp; compliance</option>
+<option>Contracts</option>
+<option>Business plans</option>
+<option>Civil court documents (prep only)</option>
+<option>Forms &amp; document prep</option>
+<option>Auto purchase support</option>
+<option>Lease / landlord paperwork</option>
+<option>Other project</option>
+</select>
+</div>
+<div>
+<label for="p_deadline" id="p_deadline_l">Timeline</label>
+<select id="p_deadline">
+<option>ASAP</option>
+<option>This week</option>
+<option>1–2 weeks</option>
+<option>Flexible</option>
+</select>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="p_name" id="p_name_l">Full name</label>
+<input autocomplete="name" id="p_name" placeholder="First &amp; last name"/>
+</div>
+<div>
+<label for="p_email" id="p_email_l">Email</label>
+<input autocomplete="email" id="p_email" placeholder="name@email.com"/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="p_phone" id="p_phone_l">Phone</label>
+<input autocomplete="tel" id="p_phone" placeholder="+1 (___) ___-____"/>
+</div>
+<div>
+<div class="hint" id="p_note" style="margin-top:30px">
+                If you have links/files, include them in the description.
+              </div>
+</div>
+</div>
+<div class="fgrid2" style="margin-top:10px">
+<div>
+<label for="p_ref" id="p_ref_l">Referral (optional)</label>
+<input id="p_ref" placeholder="Referred by (first &amp; last name)"/>
+</div>
+<div>
+<label for="p_ref_phone" id="p_ref_phone_l">Referral phone (optional)</label>
+<input id="p_ref_phone" placeholder="+1 (___) ___-____"/>
+</div>
+</div>
+<label for="p_desc" id="p_desc_l">Brief description</label>
+<textarea id="p_desc" placeholder="Share the scope, timeline, and any links/files."></textarea>
+<div class="hint" id="autosaveHint2">Autosave is enabled. Your draft is saved locally on this device.</div>
+</form>
+</div>
+<div class="modal-actions">
+<button class="btn secondary" id="clearDraft2" type="button">Clear saved draft</button>
+<button class="btn" id="submitProject" type="button">Submit</button>
+</div>
+</div>
+</div>
+<!-- Careers Modal -->
+<div aria-hidden="true" class="modal" id="careersModal">
+<div aria-label="Careers" aria-modal="true" class="modal-card" role="dialog">
+<div class="modal-head">
+<h2 id="careersTitle">Career at VitaCoreX LLC</h2>
+<button class="close" id="closeCareers" type="button"><span id="closeCareersTxt">Close</span></button>
+</div>
+<div class="modal-body">
+<div class="hint"><span id="careersHint">Apply to join our team / strategic partnership network.<br/>All fields are required.</span></div>
+<form id="careersForm">
+<div class="fgrid2">
+<div>
+<label for="car_first" id="car_first_l">First name</label>
+<input autocomplete="given-name" id="car_first" name="first" required=""/>
+</div>
+<div>
+<label for="car_last" id="car_last_l">Last name</label>
+<input autocomplete="family-name" id="car_last" name="last" required=""/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="car_ssn4" id="car_ssn4_l">Last 4 of SSN</label>
+<input id="car_ssn4" inputmode="numeric" maxlength="4" name="ssn4" pattern="\d{4}" placeholder="1234" required=""/>
+</div>
+<div>
+<label for="car_phone" id="car_phone_l">Phone</label>
+<input autocomplete="tel" id="car_phone" inputmode="tel" name="phone" placeholder="+1 (___) ___-____" required=""/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="car_email" id="car_email_l">Email</label>
+<input autocomplete="email" id="car_email" name="email" placeholder="name@email.com" required="" type="email"/>
+</div>
+<div>
+<label for="car_address" id="car_address_l">Residential address</label>
+<input autocomplete="street-address" id="car_address" name="address" placeholder="Street, City, State, ZIP" required=""/>
+</div>
+</div>
+<label for="car_notes" id="car_notes_l">Brief note (optional)</label>
+<textarea id="car_notes" name="notes" placeholder="Experience, referral sources, industries, availability (optional)."></textarea>
+<div class="hint" id="careersAbout" style="margin-top:12px">
+<div class="careersBox">
+<div class="careersTitle">Careers &amp; Strategic Partnerships</div>
+<div class="careersBrand">VitaCoreX LLC – Consulting Group</div>
+<p>We collaborate with independent professionals and business developers on a performance-based model. We are expanding a commission-based network for client acquisition and strategic partnerships.</p>
+<div class="careersGrid">
+<div class="careersCol">
+<div class="careersH">Engagement Model</div>
+<ul>
+<li>Commission-based compensation</li>
+<li>Independent Contractor (1099)</li>
+<li>Flexible schedule</li>
+<li>Remote collaboration</li>
+</ul>
+</div>
+<div class="careersCol">
+<div class="careersH">Who We’re Looking For</div>
+<ul>
+<li>Strong networking skills</li>
+<li>Business development professionals</li>
+<li>Consultants seeking performance-based income</li>
+<li>Access to small business / entrepreneurial networks</li>
+</ul>
+</div>
+</div>
+<div class="careersH">Compensation</div>
+<ul>
+<li>Commission per paid client case</li>
+<li>Potential long-term contractor agreement (1099)</li>
+<li>Upside participation in larger structured projects</li>
+</ul>
+<div class="careersH">Services You Will Promote</div>
+<ul>
+<li>Business formation &amp; structuring</li>
+<li>Deal advisory &amp; transaction support</li>
+<li>Business plan development</li>
+<li>Turnkey business launch consulting</li>
+<li>Strategic operational consulting</li>
+</ul>
+<p class="careersFoot">Website: <a href="https://www.vitacorexllc.com" rel="noopener" target="_blank">www.VitaCoreXLLC.com</a></p>
+</div>
+</div>
+<div class="modal-actions">
+<button class="btn secondary" id="clearCareersDraft" type="button"><span id="clearCareersTxt">Clear saved draft</span></button>
+<button class="btn" id="submitCareers" type="button"><span id="submitCareersTxt">Submit</span></button>
+</div>
+<div class="hint"><span id="careersAutosaveTxt">Autosave is enabled. Your draft is saved locally on this device.</span></div>
+</form>
+</div>
+</div>
+</div>
+<!-- Contact Director Modal -->
+<div aria-hidden="true" class="modal" id="directorModal">
+<div aria-label="Contact Director" aria-modal="true" class="modal-card" role="dialog">
+<div class="modal-head">
+<h2 id="directorModalTitle">Contact Director</h2>
+<button class="close" id="closeDirector" type="button"><span id="closeDirectorTxt">Close</span></button>
+</div>
+<div class="modal-body">
+<div class="hint"><span id="directorHint">Please complete the form. We will receive your message by email.<br/>All fields are required except Company (optional).</span></div>
+<form id="directorForm">
+<div class="fgrid2">
+<div>
+<label for="d_first" id="d_first_l">First name</label>
+<input autocomplete="given-name" id="d_first" name="first" required=""/>
+</div>
+<div>
+<label for="d_last" id="d_last_l">Last name</label>
+<input autocomplete="family-name" id="d_last" name="last" required=""/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="d_company" id="d_company_l">Company (optional)</label>
+<input autocomplete="organization" id="d_company" name="company"/>
+</div>
+<div>
+<label for="d_phone" id="d_phone_l">Phone</label>
+<input autocomplete="tel" id="d_phone" inputmode="tel" name="phone" placeholder="+1 (___) ___-____" required=""/>
+</div>
+</div>
+<div class="fgrid2">
+<div>
+<label for="d_email" id="d_email_l">Email</label>
+<input autocomplete="email" id="d_email" name="email" placeholder="name@email.com" required="" type="email"/>
+</div>
+<div></div>
+</div>
+<label for="d_text" id="d_text_l">Message</label>
+<textarea id="d_text" name="message" placeholder="Write your message here..." required=""></textarea>
+<div class="modal-actions">
+<button class="btn secondary" id="clearDirectorDraft" type="button"><span id="clearDirectorTxt">Clear saved draft</span></button>
+<button class="btn" id="submitDirector" type="button"><span id="submitDirectorTxt">Send</span></button>
+</div>
+<div class="hint"><span id="directorAutosaveTxt">Autosave is enabled. Your draft is saved locally on this device.</span></div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  // Detect iOS/Browser standalone (Add to Home Screen) and set body class
+  (function(){
+    try {
+      var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
+      if (isStandalone) document.body.classList.add('is-standalone');
+    } catch(e) {}
+  })();
+
+// ========= Language dictionary =========
+    const dict = {
+      en: {
+        brandName: "VitaCoreX LLC Consulting",
+        brandSub: "Nationwide — executive consulting & document support across the U.S.",
+        openConsult: "Request Consultation",
+        openProject: "Submit Project Details",
+        contactDirector: "Contact Director",
+        heroPillText: "Scope first • Prepaid engagement • Stripe invoices",
+        heroTitle: "VitaCoreX LLC Consulting",
+        heroSub: "Nationwide — executive consulting & structured document support across the U.S.",
+        heroNote: "Payments are not collected via “Pay Now” buttons. Stripe invoices are issued after scope confirmation.",
+        profileTitle: "Profile — VitaCoreX Consulting",
+        profileText: "Focus: business setup, contracts, structured document work, and negotiation support. Approach: scope confirmed in writing, predictable deliverables, professional communication.",
+        paymentsTitle: "Payments",
+        paymentsText: "Stripe invoice after scope confirmation. Prepayment required before work begins. No “Pay Now” checkout — only confirmed scope + invoicing.",
+        contactTitle: "Contact",
+        contactText: "Fast routing: consultation request → scope review → quote/invoice → delivery.",
+        directorTitle: "Director contact",
+        contactHint: "Scope → quote/invoice → prepayment → delivery. No “Pay Now” button.\nVitaCoreX LLC is not a law firm and does not provide legal representation.",
+        servicesTitle: "Services",
+        servicesSub: "Wide coverage. Scope is confirmed in writing prior to invoicing.",
+        s1t: "Business setup & compliance",
+        s1d: "Company formation, tax registrations, structured setup, documentation packaging.",
+        s2t: "Contracts",
+        s2d: "Contract drafting support, review, risk notes, structured revisions.",
+        s3t: "Business plans",
+        s3d: "Clean, investor-ready structure: market, ops, unit economics, execution plan.",
+        s4t: "Civil court documents (prep only)",
+        s4d: "Formatting, exhibits packaging, declarations, filing-ready structure. No representation.",
+        s5t: "Forms & document preparation",
+        s5d: "Applications, administrative forms, translations and clean final formatting.",
+        s6t: "Auto purchase support",
+        s6d: "Deal structure, paperwork review, lender terms, delivery day checklist.",
+        s7t: "Lease / landlord paperwork support",
+        s7d: "Lease review support, terms analysis, structured communications.",
+        s8t: "Other projects",
+        s8d: "If it’s documents + structure + clarity — it’s within scope (case-by-case).",
+        processTitle: "Engagement process (clean & safe)",
+        processSub: "Exactly how a consulting firm operates — filter → quote → prepaid engagement → delivery.",
+        p1t: "Consultation request",
+        p1d: "Client submits a short form: service type, description, and budget range. This filters out non-serious inquiries.",
+        p2t: "Quote",
+        p2d: "After review, we send a proposal (PDF) and/or Stripe invoice with scope, timeline, and total amount.",
+        p3t: "Prepayment required",
+        p3d: "Services are provided on a prepaid basis. Work begins only after confirmed payment.",
+        policyTitle: "Payment & engagement policy",
+        policySub: "Short, strict, and compliance-safe wording.",
+        policyPub: "Policy (public)",
+        aboutTitle: "About",
+        aboutText: "VitaCoreX LLC provides executive-level consulting and structured administrative support for entrepreneurs and small businesses. We focus on clear scope, documented decisions, and predictable deliverables — from business formation and contract work to transaction support, operational structure, and filing-ready document preparation (no legal representation in court). We operate on a prepaid model: work begins only after scope and payment are confirmed.",
+        roleLine: "Executive Director: Steven Miller",
+        complianceLine: "Services provided under applicable U.S. federal and state regulations governing consulting and administrative support.",
+        consultTitle: "Request Consultation",
+        consultHint: "Short form. We’ll review scope and respond with a quote and/or Stripe invoice.",
+        projectTitle: "Project details",
+        projectHint: "Share details — we’ll confirm scope and respond with timeline + quote.",
+        submit: "Submit",
+        close: "Close",
+        clearDraft: "Clear saved draft",
+        autosave1: "Autosave is enabled. Your draft is saved locally on this device.",
+        autosave2: "Autosave is enabled. Your draft is saved locally on this device.",
+        p_note: "If you have links/files, include them in the description.",
+        form:{
+          consult:{
+            serviceLabel:"Service",
+            budgetLabel:"Budget range",
+            nameLabel:"Full name",
+            emailLabel:"Email",
+            phoneLabel:"Phone",
+            deadlineLabel:"Timeline",
+            referralLabel:"Referral (optional)",
+            referralPhoneLabel:"Referral phone (optional)",
+            descLabel:"Brief description",
+            namePH:"First & last name",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"Referred by (first & last name)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"What do you need? Add key details, links, and deadline.",
+            serviceOpts:["Business setup & compliance","Contracts","Business plans","Civil court documents (prep only)","Forms & document prep","Auto purchase support","Lease / landlord paperwork","Other project"],
+            budgetOpts:["< $250","$250–$750","$750–$2,000","$2,000+","Not sure"],
+            deadlineOpts:["ASAP","This week","1–2 weeks","Flexible"],
+        footerCareers: "Careers",
+        careersTitle: "Career at VitaCoreX LLC",
+        careersHint: "Apply to join our team / strategic partnership network.<br>All fields are required.",
+        careersAutosave: "Autosave is enabled. Your draft is saved locally on this device.",
+        careersAbout: "<strong>About VitaCoreX LLC</strong><br>Executive consulting & structured document support: business setup & compliance, contracts, negotiation support, administrative systems, and project-based advisory across the U.S.<br><br><strong>Engagement model</strong><br>• Flexible schedule (project and client-driven).<br>• Independent contractor relationship (Form 1099). Not employment; no W-2, no employee benefits, and no guaranteed hours or income.<br>• Compensation is performance-based, paid as a percentage of <em>closed and paid</em> deals you source, as defined in a written contractor agreement (including eligibility rules, chargebacks/refunds, invoicing, and payout timing).<br>• Contractors are responsible for their own taxes, licensing (if applicable), and compliance with U.S. federal/state laws and platform policies.",
+        closeCareers: "Close",
+        clearCareers: "Clear saved draft",
+        submitCareers: "Submit",
+        directorModalTitle: "Contact Director",
+        directorHint: "Please complete the form. We will receive your message by email.<br>All fields are required except Company (optional).",
+        directorAutosave: "Autosave is enabled. Your draft is saved locally on this device.",
+        closeDirector: "Close",
+        clearDirector: "Clear saved draft",
+        submitDirector: "Send",
+          },
+          project:{
+            titleLabel:"Project details",
+            serviceLabel:"Service",
+            nameLabel:"Full name",
+            emailLabel:"Email",
+            phoneLabel:"Phone",
+            deadlineLabel:"Timeline",
+            referralLabel:"Referral (optional)",
+            referralPhoneLabel:"Referral phone (optional)",
+            descLabel:"Brief description",
+            namePH:"First & last name",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"Referred by (first & last name)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"Share the scope, timeline, and any links/files."
+          }
+        }
+      },
+      ru: {
+        brandName: "VitaCoreX LLC Consulting",
+        brandSub: "По всей стране — executive consulting и структурная поддержка документов в США.",
+        openConsult: "Запрос консультации",
+        openProject: "Отправить детали проекта",
+        contactDirector: "Связаться с директором",
+        heroPillText: "Сначала scope • Предоплата • Счета Stripe",
+        heroTitle: "VitaCoreX LLC Consulting",
+        heroSub: "По всей стране — executive consulting и структурная поддержка документов в США.",
+        heroNote: "Оплата не принимается через кнопки “Pay Now”. Счет Stripe выставляется после подтверждения scope.",
+        profileTitle: "Профиль — VitaCoreX Consulting",
+        profileText: "Фокус: открытие бизнеса, договоры, структурная работа с документами и поддержка переговоров. Подход: scope фиксируется письменно, предсказуемые deliverables, профессиональная коммуникация.",
+        paymentsTitle: "Оплата",
+        paymentsText: "Счет Stripe после подтверждения scope. Работа начинается только после предоплаты. Нет “Pay Now” — только подтвержденный scope + invoicing.",
+        contactTitle: "Контакты",
+        contactText: "Быстрая маршрутизация: запрос → scope review → quote/invoice → выполнение.",
+        directorTitle: "Контакт директора",
+        contactHint: "Scope → quote/invoice → предоплата → выполнение. Кнопки “Pay Now” нет.\nVitaCoreX LLC не является юридической фирмой и не осуществляет представительство.",
+        servicesTitle: "Услуги",
+        servicesSub: "Широкий охват. Scope фиксируется письменно до выставления счёта.",
+        s1t: "Открытие бизнеса и комплаенс",
+        s1d: "Регистрация компании, налоговая, структурирование, пакетирование документов.",
+        s2t: "Договоры",
+        s2d: "Подготовка/ревью контрактов, риск-ноты, структурные правки.",
+        s3t: "Бизнес-планы",
+        s3d: "Чистая структура: рынок, операции, экономика, план реализации.",
+        s4t: "Документы для гражданских судов (подготовка)",
+        s4d: "Форматирование, сборка приложений, декларации, пакет под подачу. Без представительства.",
+        s5t: "Формы и подготовка документов",
+        s5d: "Заявления, административные формы, переводы и финальное форматирование.",
+        s6t: "Сопровождение покупки авто",
+        s6d: "Структура сделки, проверка документов, условия кредитора, чек-лист на выдачу.",
+        s7t: "Аренда / документы лендлорда",
+        s7d: "Ревью аренды, анализ условий, структурная переписка.",
+        s8t: "Другие проекты",
+        s8d: "Если это документы + структура + ясность — берём в работу (case-by-case).",
+        processTitle: "Процесс работы (чисто и безопасно)",
+        processSub: "Как работает фирма: фильтр → quote → предоплата → выполнение.",
+        p1t: "Запрос",
+        p1d: "Короткая форма: услуга, описание, бюджет. Отсекает несерьёзные запросы.",
+        p2t: "Quote / счет",
+        p2d: "После review — предложение (PDF) и/или счёт Stripe со scope, сроками и суммой.",
+        p3t: "Предоплата",
+        p3d: "Работа выполняется на предоплатной основе. Старт только после подтверждения оплаты.",
+        policyTitle: "Политика оплаты и взаимодействия",
+        policySub: "Коротко, строго и комплаенс-безопасно.",
+        policyPub: "Политика (публично)",
+        aboutTitle: "О нас",
+        aboutText: "VitaCoreX LLC — консалтинг и структурированная административная поддержка для предпринимателей и малого бизнеса. Мы работаем через чёткий scope, фиксацию решений и предсказуемый результат: открытие бизнеса, договорная работа, поддержка сделок, структурирование процессов и подготовка документов (без представительства в суде). Модель оплаты — предоплата: работа начинается только после согласования scope и подтверждения оплаты.",
+        roleLine: "Executive Director: Steven Miller",
+        complianceLine: "Услуги оказываются в рамках применимых федеральных и штатных норм США для consulting и административной поддержки.",
+        consultTitle: "Запрос консультации",
+        consultHint: "Короткая форма. Проверим scope и ответим quote и/или счётом Stripe.",
+        projectTitle: "Детали проекта",
+        projectHint: "Опиши задачу — подтвердим scope и ответим сроками + quote.",
+        submit: "Отправить",
+        close: "Закрыть",
+        clearDraft: "Очистить сохранённый черновик",
+        autosave1: "Автосохранение включено. Черновик сохраняется локально на этом устройстве.",
+        autosave2: "Автосохранение включено. Черновик сохраняется локально на этом устройстве.",
+        p_note: "Если есть ссылки/файлы — добавь их в описание.",
+        form:{
+          consult:{
+            serviceLabel:"Услуга",
+            budgetLabel:"Бюджет",
+            nameLabel:"Имя и фамилия",
+            emailLabel:"Email",
+            phoneLabel:"Телефон",
+            deadlineLabel:"Сроки",
+            referralLabel:"Рекомендация (необязательно)",
+            referralPhoneLabel:"Телефон (необязательно)",
+            descLabel:"Краткое описание",
+            namePH:"Имя и фамилия",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"От кого рекомендация (Фамилия Имя)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"Опишите задачу, приложите детали/ссылки и сроки.",
+            serviceOpts:["Открытие бизнеса и комплаенс","Договоры","Бизнес-планы","Документы для гражданских судов (подготовка)","Формы и подготовка документов","Сопровождение покупки авто","Аренда / документы лендлорда","Другой проект"],
+            budgetOpts:["< $250","$250–$750","$750–$2,000","$2,000+","Не уверен"],
+            deadlineOpts:["Срочно","На этой неделе","1–2 недели","Гибко"],
+        footerCareers: "Карьера",
+        careersTitle: "Карьера в VitaCoreX LLC",
+        careersHint: "Подать заявку, чтобы присоединиться к нашей команде / сети стратегических партнёров.<br>Все поля обязательны.",
+        careersAutosave: "Автосохранение включено. Черновик сохранён локально на этом устройстве.",
+        careersAbout: "<strong>О VitaCoreX LLC</strong><br>Executive consulting и структурная поддержка документов: открытие бизнеса и комплаенс, договоры, поддержка переговоров, административные системы и проектный консалтинг по США.<br><br><strong>Модель сотрудничества</strong><br>• Свободный график (зависит от проектов и клиентов).<br>• Независимый подрядчик (Form 1099). Это не трудоустройство: не W‑2, нет employee benefits, нет гарантированных часов или дохода.<br>• Вознаграждение — за результат: процент от сделок, которые вы привели и которые <em>закрыты и оплачены</em>, согласно письменному договору подрядчика (правила зачёта, возвраты/chargebacks, инвойсы, сроки выплат).<br>• Подрядчик сам отвечает за налоги, лицензии (если применимо) и соблюдение законов США и правил платформ.",
+        closeCareers: "Закрыть",
+        clearCareers: "Очистить черновик",
+        submitCareers: "Отправить",
+        directorModalTitle: "Связаться с директором",
+        directorHint: "Заполните форму — сообщение придёт нам на email.<br>Все поля обязательны, кроме Company (опционально).",
+        directorAutosave: "Автосохранение включено. Черновик сохранён локально на этом устройстве.",
+        closeDirector: "Закрыть",
+        clearDirector: "Очистить черновик",
+        submitDirector: "Отправить",
+          },
+          project:{
+            titleLabel:"Детали проекта",
+            serviceLabel:"Услуга",
+            nameLabel:"Имя и фамилия",
+            emailLabel:"Email",
+            phoneLabel:"Телефон",
+            deadlineLabel:"Сроки",
+            referralLabel:"Рекомендация (необязательно)",
+            referralPhoneLabel:"Телефон (необязательно)",
+            descLabel:"Краткое описание",
+            namePH:"Имя и фамилия",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"От кого рекомендация (Фамилия Имя)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"Опишите объём, сроки и приложите ссылки/файлы."
+          }
+        }
+      },
+      es: {
+        brandName: "VitaCoreX LLC Consulting",
+        brandSub: "En todo Estados Unidos — consultoría ejecutiva y soporte documental estructurado.",
+        openConsult: "Solicitar consulta",
+        openProject: "Enviar detalles del proyecto",
+        contactDirector: "Contactar director",
+        heroPillText: "Primero alcance • Prepago • Facturas Stripe",
+        heroTitle: "VitaCoreX LLC Consulting",
+        heroSub: "En todo EE. UU. — consultoría ejecutiva y soporte documental estructurado.",
+        heroNote: "No cobramos con botones “Pay Now”. La factura Stripe se emite tras confirmar el alcance.",
+        profileTitle: "Perfil — VitaCoreX Consulting",
+        profileText: "Enfoque: constitución de negocios, contratos, trabajo documental estructurado y apoyo en negociaciones. Alcance confirmado por escrito, entregables predecibles, comunicación profesional.",
+        paymentsTitle: "Pagos",
+        paymentsText: "Factura Stripe tras confirmar alcance. Prepago requerido antes de iniciar. Sin “Pay Now” — solo alcance confirmado + facturación.",
+        contactTitle: "Contacto",
+        contactText: "Ruta rápida: solicitud → revisión → cotización/factura → entrega.",
+        directorTitle: "Contacto del director",
+        contactHint: "Alcance → cotización/factura → prepago → entrega. Sin botón “Pay Now”.\nVitaCoreX LLC no es un bufete y no brinda representación legal.",
+        servicesTitle: "Servicios",
+        servicesSub: "Cobertura amplia. Alcance confirmado por escrito antes de facturar.",
+        s1t: "Constitución y cumplimiento",
+        s1d: "Formación de empresa, impuestos, estructura, paquete documental.",
+        s2t: "Contratos",
+        s2d: "Soporte de redacción/revisión, notas de riesgo, revisiones estructuradas.",
+        s3t: "Planes de negocio",
+        s3d: "Estructura clara: mercado, operaciones, economía, plan de ejecución.",
+        s4t: "Documentos civiles (preparación)",
+        s4d: "Formato, anexos, declaraciones, paquete listo. Sin representación.",
+        s5t: "Formularios y documentos",
+        s5d: "Aplicaciones, formularios, traducciones y formato final.",
+        s6t: "Compra de auto (soporte)",
+        s6d: "Estructura del trato, revisión de papeles, términos del prestamista, checklist.",
+        s7t: "Arrendamiento / landlord",
+        s7d: "Revisión, análisis de términos, comunicaciones estructuradas.",
+        s8t: "Otro proyecto",
+        s8d: "Si es documentos + estructura + claridad — puede ser (caso por caso).",
+        processTitle: "Proceso (limpio y seguro)",
+        processSub: "Cómo opera una firma: filtro → cotización → prepago → entrega.",
+        p1t: "Solicitud",
+        p1d: "Formulario corto: servicio, descripción y presupuesto. Filtra consultas no serias.",
+        p2t: "Cotización",
+        p2d: "Tras revisar, enviamos propuesta (PDF) y/o factura Stripe con alcance, plazo y monto.",
+        p3t: "Prepago",
+        p3d: "Trabajo por prepago. Iniciamos solo con pago confirmado.",
+        policyTitle: "Política de pago y engagement",
+        policySub: "Breve, estricta y segura.",
+        policyPub: "Política (pública)",
+        aboutTitle: "Acerca de",
+        aboutText: "VitaCoreX LLC ofrece consultoría ejecutiva y soporte administrativo estructurado para emprendedores y pequeñas empresas. Priorizamos alcance claro, decisiones documentadas y entregables previsibles: formación de negocios, contratos, apoyo en transacciones, estructura operativa y preparación de documentos listos para presentar (sin representación legal en corte). Trabajamos con prepago: iniciamos solo después de confirmar alcance y pago.",
+        roleLine: "Executive Director: Steven Miller",
+        complianceLine: "Servicios bajo regulaciones federales y estatales aplicables de EE. UU. para consultoría y soporte administrativo.",
+        consultTitle: "Solicitar consulta",
+        consultHint: "Formulario corto. Revisamos alcance y respondemos con cotización y/o factura Stripe.",
+        projectTitle: "Detalles del proyecto",
+        projectHint: "Comparte detalles — confirmamos alcance y respondemos con plazo + cotización.",
+        submit: "Enviar",
+        close: "Cerrar",
+        clearDraft: "Borrar borrador guardado",
+        autosave1: "Autoguardado activado. Tu borrador se guarda localmente en este dispositivo.",
+        autosave2: "Autoguardado activado. Tu borrador se guarda localmente en este dispositivo.",
+        p_note: "Si tienes enlaces/archivos, inclúyelos en la descripción.",
+        form:{
+          consult:{
+            serviceLabel:"Servicio",
+            budgetLabel:"Presupuesto",
+            nameLabel:"Nombre completo",
+            emailLabel:"Correo",
+            phoneLabel:"Teléfono",
+            deadlineLabel:"Plazo",
+            referralLabel:"Referencia (opcional)",
+            referralPhoneLabel:"Teléfono de referencia (opcional)",
+            descLabel:"Descripción breve",
+            namePH:"Nombre y apellido",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"Referido por (nombre y apellido)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"¿Qué necesitas? Incluye detalles, enlaces y plazo.",
+            serviceOpts:["Constitución y cumplimiento","Contratos","Planes de negocio","Documentos civiles (preparación)","Formularios y documentos","Compra de auto (soporte)","Arrendamiento / landlord","Otro proyecto"],
+            budgetOpts:["< $250","$250–$750","$750–$2,000","$2,000+","No estoy seguro"],
+            deadlineOpts:["Urgente","Esta semana","1–2 semanas","Flexible"],
+        footerCareers: "Carreras",
+        careersTitle: "Carrera en VitaCoreX LLC",
+        careersHint: "Solicita unirte a nuestro equipo / red de alianzas estratégicas.<br>Todos los campos son obligatorios.",
+        careersAutosave: "El autoguardado está activado. Tu borrador se guarda localmente en este dispositivo.",
+        careersAbout: "<strong>Sobre VitaCoreX LLC</strong><br>Consultoría ejecutiva y soporte documental estructurado: creación de negocios y cumplimiento, contratos, apoyo en negociaciones, sistemas administrativos y asesoría por proyecto en EE. UU.<br><br><strong>Modelo de colaboración</strong><br>• Horario flexible (según proyectos y clientes).<br>• Relación de contratista independiente (Formulario 1099). No es empleo: sin W‑2, sin beneficios, sin horas o ingresos garantizados.<br>• Compensación basada en desempeño: porcentaje de acuerdos que generes y que estén <em>cerrados y pagados</em>, según un contrato escrito (reglas, reembolsos/chargebacks, facturación y tiempos de pago).<br>• El contratista es responsable de sus impuestos, licencias (si aplica) y cumplimiento de leyes y políticas.",
+        closeCareers: "Cerrar",
+        clearCareers: "Borrar borrador",
+        submitCareers: "Enviar",
+        directorModalTitle: "Contactar al Director",
+        directorHint: "Completa el formulario. Recibiremos tu mensaje por email.<br>Todos los campos son obligatorios excepto Empresa (opcional).",
+        directorAutosave: "El autoguardado está activado. Tu borrador se guarda localmente en este dispositivo.",
+        closeDirector: "Cerrar",
+        clearDirector: "Borrar borrador",
+        submitDirector: "Enviar",
+          },
+          project:{
+            titleLabel:"Detalles del proyecto",
+            serviceLabel:"Servicio",
+            nameLabel:"Nombre completo",
+            emailLabel:"Correo",
+            phoneLabel:"Teléfono",
+            deadlineLabel:"Plazo",
+            referralLabel:"Referencia (opcional)",
+            referralPhoneLabel:"Teléfono de referencia (opcional)",
+            descLabel:"Descripción breve",
+            namePH:"Nombre y apellido",
+            emailPH:"name@email.com",
+            phonePH:"+1 (___) ___-____",
+            referralPH:"Referido por (nombre y apellido)",
+            referralPhonePH:"+1 (___) ___-____",
+            descPH:"Comparte alcance, plazo y enlaces/archivos."
+          }
+        }
+      }
+    };
+
+    function setText(id, text){
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(text === undefined || text === null) return;
+      el.textContent = String(text);
+    }
+
+    function setHTML(id, htmlStr){ const el=document.getElementById(id); if(!el) return; if(htmlStr===undefined||htmlStr===null) return; el.innerHTML=String(htmlStr); }
+
+    
+function t(d, key) { return (d && d[key] !== undefined && d[key] !== null) ? d[key] : (dict.en && dict.en[key] !== undefined ? dict.en[key] : ""); }
+function setPlaceholder(id, text){
+      const el = document.getElementById(id);
+      if(el && text!=null) el.placeholder = text;
+    }
+
+    function setSelectOptions(selectId, options){
+      const sel = document.getElementById(selectId);
+      if(!sel || !Array.isArray(options)) return;
+      const current = sel.value;
+      sel.innerHTML = "";
+      options.forEach(label => {
+        const opt = document.createElement("option");
+        opt.value = label;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
+      const restored = Array.from(sel.options).find(o => o.value === current);
+      sel.value = restored ? current : sel.options[0]?.value;
+    }
+
+    function applyFormTexts(L){
+      const d = dict[L] || dict.en;
+      const f = d.form;
+      if(!f) return;
+
+      const c = f.consult;
+      if(c){
+        setText("c_service_l", c.serviceLabel);
+        setText("c_budget_l", c.budgetLabel);
+        setText("c_name_l", c.nameLabel);
+        setText("c_email_l", c.emailLabel);
+        setText("c_phone_l", c.phoneLabel);
+        setText("c_deadline_l", c.deadlineLabel);
+        setText("c_ref_l", c.referralLabel);
+        setText("c_ref_phone_l", c.referralPhoneLabel);
+        setText("c_desc_l", c.descLabel);
+
+        setPlaceholder("c_name", c.namePH);
+        setPlaceholder("c_email", c.emailPH);
+        setPlaceholder("c_phone", c.phonePH);
+        setPlaceholder("c_ref", c.referralPH);
+        setPlaceholder("c_ref_phone", c.referralPhonePH);
+        setPlaceholder("c_desc", c.descPH);
+
+        setSelectOptions("c_service", c.serviceOpts);
+        setSelectOptions("c_budget", c.budgetOpts);
+        setSelectOptions("c_deadline", c.deadlineOpts);
+      }
+
+      const p = f.project;
+      if(p){
+        setText("projectTitle", p.titleLabel);
+        setText("p_service_l", p.serviceLabel);
+        setText("p_name_l", p.nameLabel);
+        setText("p_email_l", p.emailLabel);
+        setText("p_phone_l", p.phoneLabel);
+        setText("p_deadline_l", p.deadlineLabel);
+        setText("p_ref_l", p.referralLabel);
+        setText("p_ref_phone_l", p.referralPhoneLabel);
+        setText("p_desc_l", p.descLabel);
+
+        setPlaceholder("p_name", p.namePH);
+        setPlaceholder("p_email", p.emailPH);
+        setPlaceholder("p_phone", p.phonePH);
+        setPlaceholder("p_ref", p.referralPH);
+        setPlaceholder("p_ref_phone", p.referralPhonePH);
+        setPlaceholder("p_desc", p.descPH);
+      }
+    }
+
+    function applyLang(code){
+      const d = dict[code] || dict.en;
+
+      setText("brandName", d.brandName);
+      setText("brandSub", d.brandSub);
+
+      setText("openConsultTop", d.openConsult);
+      setText("openConsult", d.openConsult);
+      setText("openConsult2", d.openConsult);
+
+      setText("openProject", d.openProject);
+      setText("openProject2", d.openProject);
+
+      setText("contactBtn", d.contactDirector);
+
+      setText("heroPillText", d.heroPillText);
+      setText("heroTitle", d.heroTitle);
+      setText("heroSub", d.heroSub);
+      setText("heroNote", d.heroNote);
+
+      setText("profileTitle", d.profileTitle);
+      setText("profileText", d.profileText);
+      setText("paymentsTitle", d.paymentsTitle);
+      setText("paymentsText", d.paymentsText);
+      setText("contactTitle", d.contactTitle);
+      setText("contactText", d.contactText);
+      setText("directorTitle", d.directorTitle);
+      setText("contactHint", d.contactHint);
+
+      setText("servicesTitle", d.servicesTitle);
+      setText("servicesSub", d.servicesSub);
+      setText("s1t", d.s1t); setText("s1d", d.s1d);
+      setText("s2t", d.s2t); setText("s2d", d.s2d);
+      setText("s3t", d.s3t); setText("s3d", d.s3d);
+      setText("s4t", d.s4t); setText("s4d", d.s4d);
+      setText("s5t", d.s5t); setText("s5d", d.s5d);
+      setText("s6t", d.s6t); setText("s6d", d.s6d);
+      setText("s7t", d.s7t); setText("s7d", d.s7d);
+      setText("s8t", d.s8t); setText("s8d", d.s8d);
+
+      setText("processTitle", d.processTitle);
+      setText("processSub", d.processSub);
+      setText("p1t", d.p1t); setText("p1d", d.p1d);
+      setText("p2t", d.p2t); setText("p2d", d.p2d);
+      setText("p3t", d.p3t); setText("p3d", d.p3d);
+
+      setText("policyTitle", d.policyTitle);
+      setText("policySub", d.policySub);
+      setText("policyPub", d.policyPub);
+
+      setText("aboutTitle", d.aboutTitle);
+      setText("aboutText", d.aboutText);
+
+      setText("roleLine", d.roleLine);
+      setText("complianceLine", d.complianceLine);
+
+      setText("consultTitle", d.consultTitle);
+      setText("consultHint", d.consultHint);
+      setText("projectTitle", d.projectTitle);
+      setText("projectHint", d.projectHint);
+
+      setText("submitConsult", d.submit);
+      setText("submitProject", d.submit);
+      setText("closeConsult", d.close);
+      setText("closeProject", d.close);
+      setText("clearDraft1", d.clearDraft);
+      setText("clearDraft2", d.clearDraft);
+      setText("autosaveHint1", d.autosave1);
+      setText("autosaveHint2", d.autosave2);
+      setText("p_note", d.p_note);
+
+      
+      setText("openCareersTxt", d.footerCareers);
+
+      setText("careersTitle", d.careersTitle);
+      setHTML("careersHint", d.careersHint);
+      setHTML("careersAbout", d.careersAbout);
+      setText("closeCareersTxt", d.closeCareers);
+      setText("clearCareersTxt", d.clearCareers);
+      setText("submitCareersTxt", d.submitCareers);
+      setText("careersAutosaveTxt", d.careersAutosave);
+
+      setText("directorModalTitle", d.directorModalTitle);
+      setHTML("directorHint", d.directorHint);
+      setText("closeDirectorTxt", d.closeDirector);
+      setText("clearDirectorTxt", d.clearDirector);
+      setText("submitDirectorTxt", d.submitDirector);
+      setText("directorAutosaveTxt", d.directorAutosave);
+
+
+      applyFormTexts(code);
+    }
+
+    // ========= Language controls =========
+    const langButtons = document.querySelectorAll(".lang button");
+    function setActiveLang(code){
+      langButtons.forEach(b => b.classList.toggle("active", b.dataset.lang === code));
+    }
+    let currentLang = "en";
+
+    langButtons.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        currentLang = btn.dataset.lang;
+        setActiveLang(currentLang);
+        applyLang(currentLang);
+      });
+    });
+
+    setActiveLang(currentLang);
+    applyLang(currentLang);
+
+    // ========= Modals =========
+    const consultModal = document.getElementById("consultModal");
+    const projectModal = document.getElementById("projectModal");
+
+    function openModal(modal){
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(modal){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.getElementById("openConsultTop").addEventListener("click", ()=>openModal(consultModal));
+    document.getElementById("openConsult").addEventListener("click", ()=>openModal(consultModal));
+    document.getElementById("openConsult2").addEventListener("click", ()=>openModal(consultModal));
+
+    document.getElementById("openProject").addEventListener("click", ()=>openModal(projectModal));
+    document.getElementById("openProject2").addEventListener("click", ()=>openModal(projectModal));
+
+    document.getElementById("closeConsult").addEventListener("click", ()=>closeModal(consultModal));
+    document.getElementById("closeProject").addEventListener("click", ()=>closeModal(projectModal));
+
+    consultModal.addEventListener("click", (e)=>{ if(e.target === consultModal) closeModal(consultModal); });
+    projectModal.addEventListener("click", (e)=>{ if(e.target === projectModal) closeModal(projectModal); });
+
+    // ========= Contact =========
+    document.getElementById("contactBtn").addEventListener("click", ()=>{
+      const phone = document.getElementById("phoneText").textContent.trim();
+      const email = document.getElementById("emailText").textContent.trim();
+      const web = document.getElementById("webText").textContent.trim();
+
+      const msg = `Phone: ${phone}\nEmail: ${email}\nWebsite: ${web}`;
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(msg).then(()=>alert("Contact copied to clipboard."));
+      }else{
+        alert(msg);
+      }
+    });
+
+    // ========= Autosave (local drafts) =========
+    function setupAutosave(formId, storageKey){
+      const form = document.getElementById(formId);
+      if(!form) return;
+
+      const fields = form.querySelectorAll("input, textarea, select");
+      const load = () => {
+        try{
+          const raw = localStorage.getItem(storageKey);
+          if(!raw) return;
+          const data = JSON.parse(raw);
+          fields.forEach(el=>{
+            if(el.id && data[el.id] != null){
+              el.value = data[el.id];
+            }
+          });
+        }catch(e){}
+      };
+
+      const save = () => {
+        const data = {};
+        fields.forEach(el=>{
+          if(el.id) data[el.id] = el.value;
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+      };
+
+      fields.forEach(el=> el.addEventListener("input", save));
+      fields.forEach(el=> el.addEventListener("change", save));
+      load();
+
+      return { clear: ()=> localStorage.removeItem(storageKey) };
+    }
+
+    const draft1 = setupAutosave("consultForm", "vitacorex_draft_consult");
+    const draft2 = setupAutosave("projectForm", "vitacorex_draft_project");
+
+    document.getElementById("clearDraft1").addEventListener("click", ()=>{
+      if(draft1) draft1.clear();
+      document.getElementById("consultForm").reset();
+      applyFormTexts(currentLang);
+      alert("Saved draft cleared.");
+    });
+
+    document.getElementById("clearDraft2").addEventListener("click", ()=>{
+      if(draft2) draft2.clear();
+      document.getElementById("projectForm").reset();
+      applyFormTexts(currentLang);
+      alert("Saved draft cleared.");
+    });
+
+    // ========= Submit handlers (mailto demo) =========
+    function safeMailto(to, subject, body){
+      const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = url;
+    }
+    function mailtoLLC(subject, body){ safeMailto("vitacorexllc@gmail.com", subject, body); }
+document.getElementById("submitConsult").addEventListener("click", ()=>{
+      const body =
+        `Service: ${document.getElementById("c_service").value}\n`+
+        `Budget: ${document.getElementById("c_budget").value}\n`+
+        `Name: ${document.getElementById("c_name").value}\n`+
+        `Email: ${document.getElementById("c_email").value}\n`+
+        `Phone: ${document.getElementById("c_phone").value}\n`+
+        `Timeline: ${document.getElementById("c_deadline").value}\n`+
+        `Referral: ${document.getElementById("c_ref").value}\n`+
+        `Referral phone: ${document.getElementById("c_ref_phone").value}\n\n`+
+        `Description:\n${document.getElementById("c_desc").value}\n\n`+
+        `Website: www.VitaCoreXLLC.com`;
+
+      mailtoLLC("VitaCoreX — Consultation request", body);
+      closeModal(consultModal);
+    });
+
+    document.getElementById("submitProject").addEventListener("click", ()=>{
+      const body =
+        `Service: ${document.getElementById("p_service").value}\n`+
+        `Timeline: ${document.getElementById("p_deadline").value}\n`+
+        `Name: ${document.getElementById("p_name").value}\n`+
+        `Email: ${document.getElementById("p_email").value}\n`+
+        `Phone: ${document.getElementById("p_phone").value}\n`+
+        `Referral: ${document.getElementById("p_ref").value}\n`+
+        `Referral phone: ${document.getElementById("p_ref_phone").value}\n\n`+
+        `Description:\n${document.getElementById("p_desc").value}\n\n`+
+        `Website: www.VitaCoreXLLC.com`;
+
+      mailtoLLC("VitaCoreX — Project details", body);
+      closeModal(projectModal);
+    });
+
+    // Year
+    const yEl = document.getElementById("year"); if(yEl) yEl.textContent = "2025";
+  
+
+    // ===== Careers & Director Modals (added) =====
+    function openModal(el){ if(!el) return; el.classList.add("open"); el.setAttribute("aria-hidden","false"); }
+    function closeModal(el){ if(!el) return; el.classList.remove("open"); el.setAttribute("aria-hidden","true"); }
+
+    const careersModal = document.getElementById("careersModal");
+    const directorModal = document.getElementById("directorModal");
+
+    const openCareersBtn = document.getElementById("openCareers");
+    if(openCareersBtn) openCareersBtn.addEventListener("click", ()=>openModal(careersModal));
+    const closeCareersBtn = document.getElementById("closeCareers");
+    if(closeCareersBtn) closeCareersBtn.addEventListener("click", ()=>closeModal(careersModal));
+    if(careersModal) careersModal.addEventListener("click", (e)=>{ if(e.target===careersModal) closeModal(careersModal); });
+
+    const contactBtn = document.getElementById("contactBtn");
+    if(contactBtn) contactBtn.addEventListener("click", ()=>openModal(directorModal));
+    const closeDirectorBtn = document.getElementById("closeDirector");
+    if(closeDirectorBtn) closeDirectorBtn.addEventListener("click", ()=>closeModal(directorModal));
+    if(directorModal) directorModal.addEventListener("click", (e)=>{ if(e.target===directorModal) closeModal(directorModal); });
+
+    // Draft helpers
+    function loadDraft(key, fields){
+      try{
+        const raw = localStorage.getItem(key);
+        if(!raw) return;
+        const data = JSON.parse(raw);
+        fields.forEach(id=>{ const el=document.getElementById(id); if(el && data[id]!=null) el.value=data[id]; });
+      }catch(_){}
+    }
+    function bindAutosave(key, fields){
+      const save = ()=>{
+        try{
+          const data={};
+          fields.forEach(id=>{ const el=document.getElementById(id); if(el) data[id]=el.value||""; });
+          localStorage.setItem(key, JSON.stringify(data));
+        }catch(_){}
+      };
+      fields.forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener("input", save); });
+    }
+
+    // Careers autosave
+    const cKey="vitacorex_careers_draft_v1";
+    const cFields=["car_first","car_last","car_ssn4","car_phone","car_email","car_address","car_notes"];
+    loadDraft(cKey, cFields);
+    bindAutosave(cKey, cFields);
+    const clearCareers = document.getElementById("clearCareersDraft");
+    if(clearCareers) clearCareers.addEventListener("click", ()=>{ localStorage.removeItem(cKey); const f=document.getElementById("careersForm"); if(f) f.reset(); });
+
+    // Director autosave
+    const dKey="vitacorex_director_draft_v1";
+    const dFields=["d_first","d_last","d_company","d_phone","d_email","d_text"];
+    loadDraft(dKey, dFields);
+    bindAutosave(dKey, dFields);
+    const clearDirector = document.getElementById("clearDirectorDraft");
+    if(clearDirector) clearDirector.addEventListener("click", ()=>{ localStorage.removeItem(dKey); const f=document.getElementById("directorForm"); if(f) f.reset(); });
+
+    // Submit Careers (to 2025)
+    const submitCareers = document.getElementById("submitCareers");
+    if(submitCareers) submitCareers.addEventListener("click", ()=>{
+      const form = document.getElementById("careersForm");
+      if(form && !form.reportValidity()) return;
+      const body =
+        `First name: ${document.getElementById("car_first").value}\n`+
+        `Last name: ${document.getElementById("car_last").value}\n`+
+        `Last 4 SSN: ${document.getElementById("car_ssn4").value}\n`+
+        `Phone: ${document.getElementById("car_phone").value}\n`+
+        `Email: ${document.getElementById("car_email").value}\n`+
+        `Address: ${document.getElementById("car_address").value}\n\n`+
+        `Note:\n${document.getElementById("car_notes").value}\n\n`+
+        `Website: www.VitaCoreXLLC.com`;
+      mailtoLLC("VitaCoreX — Careers (1099 contractor application)", body);
+      closeModal(careersModal);
+    });
+
+    // Submit Director (to 2025)
+    const submitDirector = document.getElementById("submitDirector");
+    if(submitDirector) submitDirector.addEventListener("click", ()=>{
+      const form = document.getElementById("directorForm");
+      if(form && !form.reportValidity()) return;
+      const companyVal = (document.getElementById("d_company").value||"").trim();
+      const body =
+        `First name: ${document.getElementById("d_first").value}\n`+
+        `Last name: ${document.getElementById("d_last").value}\n`+
+        `Company: ${companyVal ? companyVal : "(n/a)"}\n`+
+        `Phone: ${document.getElementById("d_phone").value}\n`+
+        `Email: ${document.getElementById("d_email").value}\n\n`+
+        `Message:\n${document.getElementById("d_text").value}\n\n`+
+        `Website: www.VitaCoreXLLC.com`;
+      mailtoLLC("VitaCoreX — Contact Director", body);
+      closeModal(directorModal);
+    });
+</script>
+
+  <!-- Floating Call Button -->
+  <a id="fabCall" class="fab-call" href="tel:+18139194242" aria-label="Call VitaCoreX (813) 919-4242" title="Call (813) 919-4242">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24c1.12.37 2.33.57 3.59.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.47.57 3.59a1 1 0 0 1-.25 1.03l-2.2 2.17z"/>
+    </svg>
+  </a>
+
+
+<script>
+(function(){
+  const btn = document.getElementById('fabCall');
+  if(!btn) return;
+
+  let dragging = false;
+  let startX = 0, startY = 0;
+  let origX = 0, origY = 0;
+  let moved = false;
+
+  const px = (v) => Math.round(v) + 'px';
+
+  function pointerPoint(e){
+    return (e.touches && e.touches[0]) ? e.touches[0] : e;
+  }
+
+  function onDown(e){
+    // only left click
+    if(e.type === 'mousedown' && e.button !== 0) return;
+
+    dragging = true;
+    moved = false;
+    btn.classList.add('is-dragging');
+
+    const p = pointerPoint(e);
+    startX = p.clientX;
+    startY = p.clientY;
+
+    const rect = btn.getBoundingClientRect();
+    origX = rect.left;
+    origY = rect.top;
+
+    // switch to explicit positioning (so it can move)
+    btn.style.right = 'auto';
+    btn.style.bottom = 'auto';
+    btn.style.left = px(origX);
+    btn.style.top = px(origY);
+
+    document.addEventListener('mousemove', onMove, { passive:false });
+    document.addEventListener('mouseup', onUp, { passive:true });
+    document.addEventListener('touchmove', onMove, { passive:false });
+    document.addEventListener('touchend', onUp, { passive:true });
+  }
+
+  function onMove(e){
+    if(!dragging) return;
+
+    const p = pointerPoint(e);
+    const dx = p.clientX - startX;
+    const dy = p.clientY - startY;
+
+    if(Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+
+    const w = btn.offsetWidth;
+    const h = btn.offsetHeight;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    let nx = origX + dx;
+    let ny = origY + dy;
+
+    const pad = 8;
+    nx = Math.min(Math.max(pad, nx), vw - w - pad);
+    ny = Math.min(Math.max(pad, ny), vh - h - pad);
+
+    btn.style.left = px(nx);
+    btn.style.top = px(ny);
+
+    if(e.cancelable) e.preventDefault(); // stop page scroll while dragging on mobile
+  }
+
+  function onUp(){
+    dragging = false;
+    btn.classList.remove('is-dragging');
+
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onUp);
+  }
+
+  // If user dragged, prevent accidental call
+  btn.addEventListener('click', function(e){
+    if(moved){
+      e.preventDefault();
+      moved = false;
+    }
+  });
+
+  btn.addEventListener('mousedown', onDown);
+  btn.addEventListener('touchstart', onDown, { passive:true });
+})();
+</script>
+
+</body>
+</html>
