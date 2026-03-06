@@ -83,7 +83,6 @@
 
     .nav-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .nav-ctas{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-    @media (max-width:720px){.topbar{position:relative !important; top:auto !important; padding-top:0 !important}.topbar-inner{display:block; padding:10px 0 12px !important}.brand{margin-bottom:10px}.nav-ctas{display:grid; grid-template-columns:1fr; gap:10px; width:100%}.nav-ctas .pill{width:100%; min-height:52px; font-size:15px}.brand-title strong{font-size:14px}.brand-title span{font-size:11px}}
     @media (max-width:720px){
       .nav-actions{justify-content:center}
       .langbar,.nav-links,.nav-ctas{width:100%; justify-content:center}
@@ -660,6 +659,37 @@ select.form-select option,
     .cfo-strip .pill{min-width:0}
     @media (max-width:900px){.proof-grid,.cred-stats,.enterprise-grid{grid-template-columns:1fr}.pilot-row{grid-template-columns:1fr}.hero-proof{gap:8px}}
 
+
+@media (max-width:720px){
+      .topbar{position:relative !important; top:auto !important; padding-top:max(8px, env(safe-area-inset-top,0px)) !important; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px)}
+      .topbar-inner{display:grid !important; grid-template-columns:1fr !important; align-items:start !important; gap:10px !important; padding:8px 0 10px !important}
+      .brand{width:100%; min-width:0; justify-content:flex-start}
+      .brand-title{min-width:0}
+      .brand-title strong,.brand-title span{white-space:normal !important; overflow:visible !important; text-overflow:clip !important; line-height:1.25}
+      .nav-actions,.nav-links,.nav-ctas,.langbar{width:100% !important; justify-content:center !important}
+      .nav-links,.nav-ctas,.langbar{display:flex !important; flex-wrap:wrap !important; gap:8px !important}
+      .pill,.langbtn{max-width:100%; text-align:center}
+      .hero{padding-top:10px !important}
+    }
+
+    .download-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .download-trigger{display:inline-flex; align-items:center; justify-content:center}
+    .lead-modal-backdrop{position:fixed; inset:0; background:rgba(4,10,20,.74); z-index:120; display:none; align-items:center; justify-content:center; padding:18px}
+    .lead-modal-backdrop.show{display:flex}
+    .lead-modal{width:min(560px,100%); max-height:min(92vh,900px); overflow:auto; background:linear-gradient(180deg,#24407a 0%,#1a2d57 100%); border:1px solid rgba(255,255,255,.18); box-shadow:0 28px 80px rgba(0,0,0,.45); border-radius:28px; padding:28px 28px 22px; position:relative}
+    .lead-modal h3{margin:0 0 8px; font-size:clamp(28px,4vw,44px); line-height:1.02}
+    .lead-modal p{margin:0 0 18px; color:#e9edf7}
+    .lead-close{position:absolute; right:18px; top:18px; width:52px; height:52px; border-radius:50%; border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.12); color:#fff; font-size:30px; line-height:1; cursor:pointer}
+    .lead-form label{display:block; font-weight:800; margin:12px 0 6px}
+    .lead-form input{width:100%; border-radius:18px; border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.12); color:#fff; padding:14px 16px; font-size:18px; box-sizing:border-box}
+    .lead-form input::placeholder{color:rgba(255,255,255,.7)}
+    .lead-form .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .lead-note{margin-top:12px; font-size:14px; color:#e6ebf6}
+    .lead-error{display:none; margin-top:12px; color:#ffd6d6; font-weight:700}
+    .lead-success{display:none; margin-top:12px; color:#d6ffe2; font-weight:700}
+    .sr-only-field{position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; overflow:hidden!important}
+    @media (max-width: 700px){ .lead-modal{padding:24px 18px 18px; border-radius:24px} .lead-close{width:48px; height:48px; top:14px; right:14px} }
+
 </style>
 </head>
 <body>
@@ -674,86 +704,104 @@ select.form-select option,
 <rect fill="rgba(255,255,255,0.04)" height="58" rx="14" stroke="url(#g)" stroke-width="2" width="58" x="3" y="3"></rect>
 <path d="M18 22l9 22h2l9-22h-5l-5 13-5-13z" fill="url(#g)"></path>
 <path d="M40 44l6-6 6 6" fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-</svg></div><div class="brand-title"><strong>VitaCoreX LLC</strong><span>Healthcare CFO Brief</span></div></div><div class="nav-ctas"><a class="pill ghost" href="index.html">Main site</a><a class="pill ghost" href="paralegal-support.html">Paralegal brief</a><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><button class="pill ghost js-download-pdf" type="button">Download CFO brief (PDF)</button></div></div></div></div>
-<header class="hero"><div class="wrap"><div class="hero-grid"><div class="hero-card"><div class="kicker"><span class="dot"></span><span>Healthcare operators • Dental groups • Structured payment environments</span></div><h1>Revenue recovery infrastructure for healthcare CFOs</h1><p class="lead">Operational consulting for contract infrastructure, payment recovery workflows, and litigation-ready documentation systems designed for recurring revenue, patient responsibility, and card-on-file environments.</p><p class="credline">Built for executives who want tighter documentation control, cleaner operating handoff, and measurable pilot discipline before scaling.</p><div class="chips"><div class="chip">Not a law firm • No legal representation</div><div class="chip">Operational recovery workflows</div><div class="chip">Pilot-ready economics</div><div class="chip">Cleaner counsel handoff</div></div><div class="cta-row"><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><a class="pill ghost" href="#pilot">Review pilot economics</a><button class="pill ghost js-download-pdf" type="button">Download CFO brief (PDF)</button></div></div><aside class="panel"><h3>Executive summary</h3><p>For healthcare operators, the relevant issue is usually not just bad debt. It is workflow inconsistency: incomplete intake, weak commitment tracking, poor documentation quality, and noisy handoff when escalation is required.</p><div class="statgrid"><div class="stat"><strong>1</strong><span>One controlled pilot before wider rollout</span></div><div class="stat"><strong>60–90d</strong><span>Typical proof window</span></div><div class="stat"><strong>3 layers</strong><span>Intake, control, escalation packaging</span></div><div class="stat"><strong>Executive</strong><span>Visibility over workflow status</span></div></div></aside></div></div></header>
+</svg></div>
+<div class="brand-title"><strong>VitaCoreX LLC</strong><span>Healthcare CFO Brief</span></div></div><div class="nav-ctas"><a class="pill ghost" href="/">Main site</a><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><a class="pill ghost" href="#" id="navLeadDownload">Download PDF</a></div></div></div></div>
+<header class="hero"><div class="wrap"><div class="hero-grid"><div class="hero-card"><div class="kicker"><span class="dot"></span><span>Healthcare operators • Dental groups • Structured payment environments</span></div><h1>Revenue recovery infrastructure for healthcare CFOs</h1><p class="lead">Operational consulting for contract infrastructure, payment recovery workflows, and litigation-ready documentation systems designed for recurring revenue, patient responsibility, and card-on-file environments.</p><p class="credline">Built for executives who want tighter documentation control, cleaner operating handoff, and measurable pilot discipline before scaling.</p><div class="chips"><div class="chip">Not a law firm • No legal representation</div><div class="chip">Operational recovery workflows</div><div class="chip">Pilot-ready economics</div><div class="chip">Cleaner counsel handoff</div></div><div class="cta-row"><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><a class="pill ghost" href="#pilot">Review pilot economics</a><div class="download-row"><a class="pill ghost download-trigger" href="#" id="openLeadDownload">Download CFO brief (PDF)</a></div></div></div><aside class="panel"><h3>Executive summary</h3><p>For healthcare operators, the relevant issue is usually not just bad debt. It is workflow inconsistency: incomplete intake, weak commitment tracking, poor documentation quality, and noisy handoff when escalation is required.</p><div class="statgrid"><div class="stat"><strong>1</strong><span>One controlled pilot before wider rollout</span></div><div class="stat"><strong>60–90d</strong><span>Typical proof window</span></div><div class="stat"><strong>3 layers</strong><span>Intake, control, escalation packaging</span></div><div class="stat"><strong>Executive</strong><span>Visibility over workflow status</span></div></div></aside></div></div></header>
 <section class="section"><div class="wrap"><div class="proof-grid"><div class="proof-card"><div class="proof-kicker">Operating model</div><h3>Operating model diagram</h3><p>A disciplined recovery model standardizes how cases enter the workflow, how payment commitments are tracked, and how escalation packages are prepared.</p><div class="proof-list"><div class="proof-item"><strong>Intake standard</strong>Patient balance, contract terms, communication history, and supporting documents captured in one repeatable format.</div><div class="proof-item"><strong>Control layer</strong>Documented commitments, follow-up cadence, and exception routing create less leakage and less improvisation.</div><div class="proof-item"><strong>Escalation path</strong>When needed, outside counsel receives cleaner, litigation-ready documentation sets.</div></div></div><div class="proof-card" id="pilot"><div class="proof-kicker">Pilot economics</div><h3>Pilot economics</h3><p>Illustrative pilot design for testing operating discipline before enterprise deployment.</p><div class="pilot-table"><div class="pilot-row head"><div>Metric</div><div>Before</div><div>Pilot target</div></div><div class="pilot-row"><div>Documentation completeness</div><div>Variable</div><div>Standardized</div></div><div class="pilot-row"><div>Commitment tracking</div><div>Fragmented</div><div>Centralized</div></div><div class="pilot-row"><div>Escalation quality</div><div>Ad hoc</div><div>Litigation-ready</div></div><div class="pilot-row"><div>Executive reporting</div><div>Limited</div><div>Trackable</div></div></div></div><div class="proof-card"><div class="proof-kicker">Enterprise workflow</div><h3>Enterprise workflow</h3><p>The deployment logic is simple: keep local teams focused on collection activity, keep operations focused on control and reporting, and keep legal escalation clean.</p><div class="proof-list"><div class="proof-item"><strong>Front office / billing</strong>Collect required data and maintain documentation standards.</div><div class="proof-item"><strong>Operations leadership</strong>Own governance, status monitoring, and pilot review.</div><div class="proof-item"><strong>External counsel</strong>Receive coherent packages rather than fragmented account histories.</div></div></div></div></div></section>
-<section class="section"><div class="wrap"><div class="cred-card"><div class="proof-kicker">Why this matters</div><h2>What a CFO is actually buying</h2><p>This is not pitched as outsourced legal work. It is an operating-control layer: standardized documentation, cleaner recovery workflow, better escalation packaging, and improved visibility into whether the organization is losing cash because of preventable process failure.</p><div class="cred-stats"><div class="cred-stat"><strong>Control</strong><span>More consistent documentation and escalation discipline.</span></div><div class="cred-stat"><strong>Visibility</strong><span>Cleaner reporting on workflow status and exceptions.</span></div><div class="cred-stat"><strong>Optionality</strong><span>Better readiness for counsel involvement when escalation becomes necessary.</span></div></div><div class="cfo-strip"><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><a class="pill ghost" href="index_v15.html">Back to main site</a></div></div></div></section>
-<footer class="section"><div class="wrap"><div class="footgrid"><div class="footbox"><h3>Compliance boundary</h3><p>VitaCoreX LLC is not a law firm and does not provide legal representation or legal advice. All services are offered as consulting and administrative support.</p></div><div class="footbox"><h3>Contact</h3><p><strong>VitaCoreX LLC</strong><br/>Tampa, Florida • Operating Nationwide (U.S.)<br/>Email: <a href="mailto:VitaCoreX2025@gmail.com">VitaCoreX2025@gmail.com</a></p></div></div></div></footer>
+<section class="section"><div class="wrap"><div class="cred-card"><div class="proof-kicker">Why this matters</div><h2>What a CFO is actually buying</h2><p>This is not pitched as outsourced legal work. It is an operating-control layer: standardized documentation, cleaner recovery workflow, better escalation packaging, and improved visibility into whether the organization is losing cash because of preventable process failure.</p><div class="cred-stats"><div class="cred-stat"><strong>Control</strong><span>More consistent documentation and escalation discipline.</span></div><div class="cred-stat"><strong>Visibility</strong><span>Cleaner reporting on workflow status and exceptions.</span></div><div class="cred-stat"><strong>Optionality</strong><span>Better readiness for counsel involvement when escalation becomes necessary.</span></div></div><div class="cfo-strip"><a class="pill primary" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a><a class="pill ghost" href="#" id="stripLeadDownload">Download CFO brief (PDF)</a><a class="pill ghost" href="/">Back to main site</a></div></div></div></section>
 
-<div class="leadgate" id="leadGate" aria-hidden="true">
-  <div class="leadgate-backdrop" data-close="leadgate"></div>
-  <div class="leadgate-dialog" role="dialog" aria-modal="true" aria-labelledby="leadGateTitle">
-    <button class="leadgate-close" type="button" aria-label="Close" data-close="leadgate">×</button>
-    <h3 id="leadGateTitle">Download CFO brief</h3>
+<div class="lead-modal-backdrop" id="leadModalBackdrop" aria-hidden="true">
+  <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <button class="lead-close" type="button" id="leadModalClose" aria-label="Close">×</button>
+    <h3 id="leadModalTitle">Download CFO brief</h3>
     <p>Enter your details to access the PDF executive brief.</p>
-    <form id="leadCaptureForm" class="leadgate-form">
-      <input type="hidden" name="source_page" value="healthcare-cfo.html">
-      <input type="hidden" name="asset_name" value="PDFFFFFF WEB VitaCoreX Lead Magnet Healthcare Leakage.pdf">
-      <label>Full name<input name="name" type="text" autocomplete="name" placeholder="Your name" required></label>
-      <label>Work email<input name="email" type="email" autocomplete="email" placeholder="name@company.com" required></label>
-      <label>Company<input name="company" type="text" autocomplete="organization" placeholder="Company name"></label>
-      <label>Title<input name="title" type="text" autocomplete="organization-title" placeholder="CFO, owner, operator, etc."></label>
-      <div class="leadgate-actions">
-        <button class="pill primary" type="submit">Get the PDF</button>
-        <a class="pill ghost" id="directPdfLink" href="PDFFFFFF%20WEB%20VitaCoreX%20Lead%20Magnet%20Healthcare%20Leakage.pdf" download>Direct download</a>
+    <form class="lead-form" id="leadCaptureForm" novalidate>
+      <div class="sr-only-field"><label>Website<input type="text" id="websiteField" autocomplete="off"></label></div>
+      <label for="leadName">Full name</label>
+      <input id="leadName" name="name" type="text" placeholder="Your name" required>
+      <label for="leadEmail">Work email</label>
+      <input id="leadEmail" name="email" type="email" placeholder="name@company.com" required>
+      <label for="leadCompany">Company</label>
+      <input id="leadCompany" name="company" type="text" placeholder="Company name">
+      <label for="leadTitle">Title</label>
+      <input id="leadTitle" name="title" type="text" placeholder="CFO, owner, operator, etc.">
+      <div class="actions">
+        <button class="pill primary" type="submit" id="leadSubmitBtn">Get the PDF</button>
       </div>
-      <p class="leadgate-note">By continuing, you agree that VitaCoreX LLC may contact you about this executive brief.</p>
-      <p class="leadgate-status" id="leadGateStatus" aria-live="polite"></p>
+      <div class="lead-note">By continuing, you agree that VitaCoreX LLC may contact you about this executive brief.</div>
+      <div class="lead-error" id="leadError"></div>
+      <div class="lead-success" id="leadSuccess">Your request has been recorded. Preparing download…</div>
     </form>
   </div>
 </div>
-<style>
-.leadgate{position:fixed;inset:0;display:none;z-index:9999}.leadgate.open{display:block}.leadgate-backdrop{position:absolute;inset:0;background:rgba(3,9,24,.68);backdrop-filter:blur(4px)}
-.leadgate-dialog{position:relative;max-width:540px;margin:8vh auto 0;background:#0b1430;border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px 24px 22px;color:#edf2ff;box-shadow:0 24px 80px rgba(0,0,0,.45)}
-.leadgate-dialog h3{margin:0 0 8px;font-size:28px}.leadgate-dialog p{margin:0 0 16px;color:#b9c4df}.leadgate-close{position:absolute;top:12px;right:14px;width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;font-size:28px;line-height:1;cursor:pointer}
-.leadgate-form{display:grid;gap:12px}.leadgate-form label{display:grid;gap:6px;font-size:14px;color:#c7d1ea}.leadgate-form input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#fff;font:inherit}.leadgate-form input::placeholder{color:#8f9abc}.leadgate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}.leadgate-note{font-size:12px;color:#97a4c7}.leadgate-status{min-height:20px;font-size:14px;color:#f5d48a}.pill.js-download-pdf{appearance:none;border:none;cursor:pointer;font:inherit}
-@media (max-width: 640px){.leadgate-dialog{margin:4vh 12px 0;padding:22px 18px 18px;max-height:88vh;overflow:auto}.leadgate-dialog h3{font-size:24px}.leadgate-close{top:10px;right:10px}}
-</style>
+<footer class="section"><div class="wrap"><div class="footgrid"><div class="footbox"><h3>Compliance boundary</h3><p>VitaCoreX LLC is not a law firm and does not provide legal representation or legal advice. All services are offered as consulting and administrative support.</p></div><div class="footbox"><h3>Contact</h3><p><strong>VitaCoreX LLC</strong><br/>Tampa, Florida • Operating Nationwide (U.S.)<br/>Email: <a href="mailto:VitaCoreX2025@gmail.com">VitaCoreX2025@gmail.com</a></p></div></div></div></footer>
+
 <script>
 (function(){
-  const PDF_URL = 'PDFFFFFF%20WEB%20VitaCoreX%20Lead%20Magnet%20Healthcare%20Leakage.pdf';
-  const ENDPOINT = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL_HERE';
-  const gate = document.getElementById('leadGate');
-  const status = document.getElementById('leadGateStatus');
+  const SCRIPT_URL = "PASTE_GOOGLE_SCRIPT_URL_HERE";
+  const PDF_URL = "PDF_VitaCoreX_CFO_Brief.pdf";
+  const modal = document.getElementById('leadModalBackdrop');
+  const closeBtn = document.getElementById('leadModalClose');
   const form = document.getElementById('leadCaptureForm');
-  const openers = document.querySelectorAll('.js-download-pdf');
-  function openGate(){ gate.classList.add('open'); gate.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-  function closeGate(){ gate.classList.remove('open'); gate.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-  function trackDownload(email){
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({event:'lead_magnet_download', asset:'healthcare_cfo_pdf', email:email || ''});
-    if (typeof window.gtag === 'function') {
-      window.gtag('event','lead_magnet_download',{asset_name:'healthcare_cfo_pdf', page_location:window.location.href});
+  const errorEl = document.getElementById('leadError');
+  const successEl = document.getElementById('leadSuccess');
+  const honeypot = document.getElementById('websiteField');
+  const openIds = ['openLeadDownload','navLeadDownload','stripLeadDownload'];
+  const startedAt = Date.now();
+
+  function openModal(e){ if(e) e.preventDefault(); modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; document.getElementById('leadName')?.focus(); }
+  function closeModal(){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  function pushTracking(eventName, payload){
+    try{ if(window.dataLayer){ window.dataLayer.push(Object.assign({event:eventName}, payload||{})); } }catch(e){}
+    try{ if(typeof gtag==='function'){ gtag('event', eventName, payload||{}); } }catch(e){}
+  }
+  function startDownload(){ const a=document.createElement('a'); a.href=PDF_URL; a.download='PDF_VitaCoreX_CFO_Brief.pdf'; document.body.appendChild(a); a.click(); a.remove(); }
+  async function getIp(){ try{ const res = await fetch('https://api.ipify.org?format=json'); const json = await res.json(); return json.ip || ''; }catch(e){ return ''; } }
+  async function submitLead(e){
+    e.preventDefault();
+    errorEl.style.display='none'; successEl.style.display='none';
+    const name = document.getElementById('leadName').value.trim();
+    const email = document.getElementById('leadEmail').value.trim();
+    const company = document.getElementById('leadCompany').value.trim();
+    const title = document.getElementById('leadTitle').value.trim();
+    if(honeypot.value.trim()){ return; }
+    if(Date.now() - startedAt < 1200){ errorEl.textContent = 'Please wait a moment and try again.'; errorEl.style.display='block'; return; }
+    if(!email){ errorEl.textContent = 'Work email is required.'; errorEl.style.display='block'; return; }
+    const payload = {
+      timestamp: new Date().toISOString(),
+      name, email, company, title,
+      page: window.location.href,
+      asset: 'PDF_VitaCoreX_CFO_Brief.pdf',
+      referrer: document.referrer || '',
+      language: navigator.language || '',
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+      userAgent: navigator.userAgent || '',
+      screen: `${window.screen?.width||''}x${window.screen?.height||''}`,
+      eventType: 'pdf_download_gate',
+      ip: await getIp()
+    };
+    const btn = document.getElementById('leadSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Preparing…';
+    try{
+      if(SCRIPT_URL && !SCRIPT_URL.includes('PASTE_GOOGLE_SCRIPT_URL_HERE')){
+        await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) });
+      }
+      pushTracking('pdf_download', {asset:'PDF_VitaCoreX_CFO_Brief', email_domain:(email.split('@')[1]||''), company, title});
+      successEl.style.display='block';
+      setTimeout(()=>{ startDownload(); closeModal(); }, 350);
+    }catch(err){
+      errorEl.textContent = 'There was a problem submitting the form. Please try again.'; errorEl.style.display='block';
+    }finally{
+      btn.disabled = false; btn.textContent = 'Get the PDF';
     }
   }
-  function triggerDownload(){
-    const a=document.createElement('a'); a.href=PDF_URL; a.download='VitaCoreX_Healthcare_CFO_Brief.pdf'; document.body.appendChild(a); a.click(); a.remove();
-  }
-  openers.forEach(btn=>btn.addEventListener('click',openGate));
-  gate.addEventListener('click',function(e){ if(e.target.dataset.close==='leadgate'){ closeGate(); }});
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && gate.classList.contains('open')) closeGate();});
-  form.addEventListener('submit', async function(e){
-    e.preventDefault(); status.textContent='Submitting...';
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.timestamp = new Date().toISOString();
-    try {
-      if (!ENDPOINT || ENDPOINT.indexOf('PASTE_YOUR') === 0) throw new Error('Endpoint not configured');
-      const res = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-      if (!res.ok) throw new Error('Request failed');
-      localStorage.setItem('vitacorex_last_lead_email', data.email || '');
-      status.textContent='Success. Your PDF is downloading...';
-      trackDownload(data.email);
-      triggerDownload();
-      setTimeout(closeGate, 700);
-    } catch(err) {
-      console.warn('Lead capture fallback:', err);
-      localStorage.setItem('vitacorex_last_lead_email', data.email || '');
-      status.textContent='Form saved locally. The PDF is downloading...';
-      trackDownload(data.email);
-      triggerDownload();
-      setTimeout(closeGate, 700);
-    }
-  });
+
+  openIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('click', openModal); });
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  if(modal) modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('show')) closeModal(); });
+  if(form) form.addEventListener('submit', submitLead);
 })();
 </script>
 
