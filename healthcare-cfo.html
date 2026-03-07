@@ -732,6 +732,11 @@ select.form-select option,
       <div class="lead-error" id="leadError"></div>
       <div class="lead-success" id="leadSuccess">Your request has been recorded. Preparing download…</div>
     </form>
+      <div id="pdfActions" style="display:none;gap:12px;flex-wrap:wrap;margin-top:16px;">
+  <a class="pill primary" href="PDF_VitaCoreX_CFO_Brief.pdf" target="_blank" rel="noopener">Open PDF</a>
+  <a class="pill" href="PDF_VitaCoreX_CFO_Brief.pdf" download="PDF_VitaCoreX_CFO_Brief.pdf">Download PDF</a>
+  <button class="pill" type="button" onclick="document.getElementById('pdfActions').style.display='none'">Close</button>
+</div>
   </div>
 </div>
 <footer class="section"><div class="wrap"><div class="footgrid"><div class="footbox"><h3>Compliance boundary</h3><p>VitaCoreX LLC is not a law firm and does not provide legal representation or legal advice. All services are offered as consulting and administrative support.</p></div><div class="footbox"><h3>Contact</h3><p><strong>VitaCoreX LLC</strong><br/>Tampa, Florida • Operating Nationwide (U.S.)<br/>Email: <a href="mailto:VitaCoreX2025@gmail.com">VitaCoreX2025@gmail.com</a></p></div></div></div></footer>
@@ -756,7 +761,8 @@ select.form-select option,
     try{ if(typeof gtag==='function'){ gtag('event', eventName, payload||{}); } }catch(e){}
   }
   function startDownload(){ 
-  window.location.href = PDF_URL;
+  closeModal();
+      document.getElementById('pdfActions').style.display = 'flex';
 }
   async function getIp(){ try{ const res = await fetch('https://api.ipify.org?format=json'); const json = await res.json(); return json.ip || ''; }catch(e){ return ''; } }
   async function submitLead(e){
