@@ -755,7 +755,9 @@ select.form-select option,
     try{ if(window.dataLayer){ window.dataLayer.push(Object.assign({event:eventName}, payload||{})); } }catch(e){}
     try{ if(typeof gtag==='function'){ gtag('event', eventName, payload||{}); } }catch(e){}
   }
-  function startDownload(){ const a=document.createElement('a'); a.href=PDF_URL; a.download='PDF_VitaCoreX_CFO_Brief.pdf'; document.body.appendChild(a); a.click(); a.remove(); }
+  function startDownload(){ 
+  window.location.href = PDF_URL;
+}
   async function getIp(){ try{ const res = await fetch('https://api.ipify.org?format=json'); const json = await res.json(); return json.ip || ''; }catch(e){ return ''; } }
   async function submitLead(e){
     e.preventDefault();
