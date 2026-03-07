@@ -732,85 +732,426 @@ select.form-select option,
       <div class="lead-error" id="leadError"></div>
       <div class="lead-success" id="leadSuccess">Your request has been recorded. Preparing download…</div>
     </form>
-      <div id="pdfActions" style="display:none;gap:12px;flex-wrap:wrap;margin-top:16px;">
-  <a class="pill primary" href="PDF_VitaCoreX_CFO_Brief.pdf" target="_blank" rel="noopener">Open PDF</a>
-  <a class="pill" href="PDF_VitaCoreX_CFO_Brief.pdf" download="PDF_VitaCoreX_CFO_Brief.pdf">Download PDF</a>
-  <button class="pill" type="button" onclick="document.getElementById('pdfActions').style.display='none'">Close</button>
+     <div class="lead-modal-backdrop" id="leadModalBackdrop" aria-hidden="true">
+<div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+<button class="lead-close" type="button" id="leadModalClose" aria-label="Close">×</button>
+<h3 id="leadModalTitle">Download CFO brief</h3>
+<p>Enter your details to access the PDF executive brief.</p>
+
+<form class="lead-form" id="leadCaptureForm" novalidate>
+<div class="sr-only-field">
+<label>Website
+<input type="text" id="websiteField" autocomplete="off">
+</label>
 </div>
+
+<label for="leadName">Full name</label>
+<input id="leadName" name="name" type="text" placeholder="Your name" required>
+
+<label for="leadEmail">Work email</label>
+<input id="leadEmail" name="email" type="email" placeholder="name@company.com" required>
+
+<label for="leadCompany">Company</label>
+<input id="leadCompany" name="company" type="text" placeholder="Company name">
+
+<label for="leadTitle">Title</label>
+<input id="leadTitle" name="title" type="text" placeholder="CFO, owner, operator, etc.">
+
+<div class="actions">
+<button class="pill primary" type="submit" id="leadSubmitBtn">Get the PDF</button>
+</div>
+
+<div class="lead-note">
+By continuing, you agree that VitaCoreX LLC may contact you about this executive brief.
+</div>
+
+<div class="lead-error" id="leadError"></div>
+<div class="lead-success" id="leadSuccess">Your request has been recorded. Choose how to open the PDF below.</div>
+</form>
+
+<div id="pdfActions" style="display:none;gap:12px;flex-wrap:wrap;margin-top:16px;align-items:center;">
+<a class="pill primary" href="PDF_VitaCoreX_CFO_Brief.pdf" target="_blank" rel="noopener">Open PDF</a>
+<a class="pill" href="PDF_VitaCoreX_CFO_Brief.pdf" download="PDF_VitaCoreX_CFO_Brief.pdf">Download PDF</a>
+<button class="pill" type="button" id="closePdfActionsBtn">Close</button>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5s2MbKh0hLiTU_t2iBeOXcX4DzikoqJJpHfClv7Ke94OLXbrx15bzah8Nlma0mTt1hQ/exec";
+const PDF_URL = "PDF_VitaCoreX_CFO_Brief.pdf";
+
+const modal = document.getElementById('leadModalBackdrop');
+const closeBtn = document.getElementById('leadModalClose');
+const form = document.getElementById('leadCaptureForm');
+const errorEl = document.getElementById('leadError');
+const successEl = document.getElementById('leadSuccess');
+const honeypot = document.getElementById('websiteField');
+const pdfActions = document.getElementById('pdfActions');
+const closePdfActionsBtn = document.getElementById('closePdfActionsBtn');
+const openIds = ['openLeadDownload','navLeadDownload','stripLeadDownload'];
+const startedAt = Date.now();
+
+function openModal(e){
+if(e) e.preventDefault();
+if(pdfActions) pdfActions.style.display = 'none';
+if(errorEl) errorEl.style.display = 'none';
+if(successEl) successEl.style.display = 'none';
+modal.classList.add('show');
+modal.setAttribute('aria-hidden','false');
+document.body.style.overflow = 'hidden';
+const nameInput = document.getElementById('leadName');
+if(nameInput) nameInput.focus();
+}
+
+function closeModal(){
+modal.classList.remove('show');
+modal.setAttribute('aria-hidden','true');
+document.body.style.overflow = '';
+}
+
+function pushTracking(eventName, payload){
+try{
+if(window.dataLayer){
+window.dataLayer.push(Object.assign({ event: eventName }, payload || {}));
+}
+}catch(e){}
+try{
+if(typeof gtag === 'function'){
+gtag('event', eventName, payload || {});
+}
+}catch(e){}
+}
+
+function startDownload(){
+closeModal();
+if(pdfActions){
+pdfActions.style.display = 'flex';
+}
+}
+
+async function getIp(){
+try{
+const res = await fetch('https://api.ipify.org?format=json');
+const json = await res.json();
+return json.ip || '';
+}catch(e){
+return '';
+}
+}
+
+async function submitLead(e){
+e.preventDefault();
+
+if(errorEl){
+errorEl.textContent = '';
+errorEl.style.display = 'none';
+}
+if(successEl){
+successEl.style.display = 'none';
+}
+
+const name = document.getElementById('leadName').value.trim();
+const email = document.getElementById('leadEmail').value.trim();
+const company = document.getElementById('leadCompany').value.trim();
+const title = document.getElementById('leadTitle').value.trim();
+
+if(honeypot && honeypot.value.trim()){
+return;
+}
+
+if(Date.now() - startedAt < 1200){
+if(errorEl){
+errorEl.textContent = 'Please wait a moment and try again.';
+errorEl.style.display = 'block';
+}
+return;
+}
+
+if(!email){
+if(errorEl){
+errorEl.textContent = 'Work email is required.';
+errorEl.style.display = 'block';
+}
+return;
+}
+
+const payload = {
+timestamp: new Date().toISOString(),
+name,
+email,
+company,
+title,
+page: window.location.href,
+asset: 'PDF_VitaCoreX_CFO_Brief.pdf',
+referrer: document.referrer || '',
+language: navigator.language || '',
+timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+userAgent: navigator.userAgent || '',
+screen: `${window.screen?.width || ''}x${window.screen?.height || ''}`,
+eventType: 'pdf_download_gate',
+ip: await getIp()
+};
+
+const btn = document.getElementById('leadSubmitBtn');
+if(btn){
+btn.disabled = true;
+btn.textContent = 'Preparing…';
+}
+
+try{
+if(SCRIPT_URL && !SCRIPT_URL.includes('PASTE_GOOGLE_SCRIPT_URL_HERE')){
+await fetch(SCRIPT_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+body: JSON.stringify(payload)
+});
+}
+
+pushTracking('pdf_download_gate_complete', {
+asset: 'PDF_VitaCoreX_CFO_Brief',
+email_domain: (email.split('@')[1] || ''),
+company,
+title
+});
+
+if(successEl){
+successEl.style.display = 'block';
+}
+
+startDownload();
+}catch(err){
+if(errorEl){
+errorEl.textContent = 'There was a problem submitting the form. Please try again.';
+errorEl.style.display = 'block';
+}
+}finally{
+if(btn){
+btn.disabled = false;
+btn.textContent = 'Get the PDF';
+}
+}
+}
+
+openIds.forEach(function(id){
+const el = document.getElementById(id);
+if(el){
+el.addEventListener('click', openModal);
+}
+});
+
+if(closeBtn){
+closeBtn.addEventListener('click', closeModal);
+}
+
+if(closePdfActionsBtn){
+closePdfActionsBtn.addEventListener('click', function(){
+if(pdfActions){
+pdfActions.style.display = 'none';
+}
+});
+}
+
+if(modal){
+modal.addEventListener('click', function(e){
+if(e.target === modal){
+closeModal();
+}
+});
+}
+
+document.addEventListener('keydown', function(e){
+if(e.key === 'Escape' && modal.classList.contains('show')){
+closeModal();
+}
+});
+
+if(form){
+form.addEventListener('submit', submitLead);
+}
+})();
+</script>
+  </div>
   </div>
 </div>
 <footer class="section"><div class="wrap"><div class="footgrid"><div class="footbox"><h3>Compliance boundary</h3><p>VitaCoreX LLC is not a law firm and does not provide legal representation or legal advice. All services are offered as consulting and administrative support.</p></div><div class="footbox"><h3>Contact</h3><p><strong>VitaCoreX LLC</strong><br/>Tampa, Florida • Operating Nationwide (U.S.)<br/>Email: <a href="mailto:VitaCoreX2025@gmail.com">VitaCoreX2025@gmail.com</a></p></div></div></div></footer>
 
 <script>
 (function(){
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5s2MbKh0hLiTU_t2iBeOXcX4DzikoqJJpHfClv7Ke94OLXbrx15bzah8Nlma0mTt1hQ/exec";
-  const PDF_URL = "PDF_VitaCoreX_CFO_Brief.pdf";
-  const modal = document.getElementById('leadModalBackdrop');
-  const closeBtn = document.getElementById('leadModalClose');
-  const form = document.getElementById('leadCaptureForm');
-  const errorEl = document.getElementById('leadError');
-  const successEl = document.getElementById('leadSuccess');
-  const honeypot = document.getElementById('websiteField');
-  const openIds = ['openLeadDownload','navLeadDownload','stripLeadDownload'];
-  const startedAt = Date.now();
 
-  function openModal(e){ if(e) e.preventDefault(); modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; document.getElementById('leadName')?.focus(); }
-  function closeModal(){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-  function pushTracking(eventName, payload){
-    try{ if(window.dataLayer){ window.dataLayer.push(Object.assign({event:eventName}, payload||{})); } }catch(e){}
-    try{ if(typeof gtag==='function'){ gtag('event', eventName, payload||{}); } }catch(e){}
-  }
-  function startDownload(){ 
-  closeModal();
-      document.getElementById('pdfActions').style.display = 'flex';
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5s2MbKh0hLiTU_t2iBeOXcX4DzikoqJJpHfClv7Ke94OLXbrx15bzah8Nlma0mTt1hQ/exec";
+const PDF_URL = "PDF_VitaCoreX_CFO_Brief.pdf";
+
+const modal = document.getElementById('leadModalBackdrop');
+const closeBtn = document.getElementById('leadModalClose');
+const form = document.getElementById('leadCaptureForm');
+const errorEl = document.getElementById('leadError');
+const successEl = document.getElementById('leadSuccess');
+const honeypot = document.getElementById('websiteField');
+const pdfActions = document.getElementById('pdfActions');
+const closePdfActionsBtn = document.getElementById('closePdfActionsBtn');
+
+const openIds = ['openLeadDownload','navLeadDownload','stripLeadDownload'];
+const startedAt = Date.now();
+
+function openModal(e){
+if(e) e.preventDefault();
+
+if(pdfActions) pdfActions.style.display='none';
+if(errorEl){
+errorEl.textContent='';
+errorEl.style.display='none';
 }
-  async function getIp(){ try{ const res = await fetch('https://api.ipify.org?format=json'); const json = await res.json(); return json.ip || ''; }catch(e){ return ''; } }
-  async function submitLead(e){
-    e.preventDefault();
-    errorEl.style.display='none'; successEl.style.display='none';
-    const name = document.getElementById('leadName').value.trim();
-    const email = document.getElementById('leadEmail').value.trim();
-    const company = document.getElementById('leadCompany').value.trim();
-    const title = document.getElementById('leadTitle').value.trim();
-    if(honeypot.value.trim()){ return; }
-    if(Date.now() - startedAt < 1200){ errorEl.textContent = 'Please wait a moment and try again.'; errorEl.style.display='block'; return; }
-    if(!email){ errorEl.textContent = 'Work email is required.'; errorEl.style.display='block'; return; }
-    const payload = {
-      timestamp: new Date().toISOString(),
-      name, email, company, title,
-      page: window.location.href,
-      asset: 'PDF_VitaCoreX_CFO_Brief.pdf',
-      referrer: document.referrer || '',
-      language: navigator.language || '',
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
-      userAgent: navigator.userAgent || '',
-      screen: `${window.screen?.width||''}x${window.screen?.height||''}`,
-      eventType: 'pdf_download_gate',
-      ip: await getIp()
-    };
-    const btn = document.getElementById('leadSubmitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Preparing…';
-    try{
-      if(SCRIPT_URL && !SCRIPT_URL.includes('PASTE_GOOGLE_SCRIPT_URL_HERE')){
-        await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) });
-      }
-      pushTracking('pdf_download', {asset:'PDF_VitaCoreX_CFO_Brief', email_domain:(email.split('@')[1]||''), company, title});
-      successEl.style.display='block';
-      setTimeout(()=>{ startDownload(); closeModal(); }, 350);
-    }catch(err){
-      errorEl.textContent = 'There was a problem submitting the form. Please try again.'; errorEl.style.display='block';
-    }finally{
-      btn.disabled = false; btn.textContent = 'Get the PDF';
-    }
-  }
+if(successEl) successEl.style.display='none';
 
-  openIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('click', openModal); });
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
-  if(modal) modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('show')) closeModal(); });
-  if(form) form.addEventListener('submit', submitLead);
+modal.classList.add('show');
+modal.setAttribute('aria-hidden','false');
+document.body.style.overflow='hidden';
+
+const nameInput=document.getElementById('leadName');
+if(nameInput) nameInput.focus();
+}
+
+function closeModal(){
+modal.classList.remove('show');
+modal.setAttribute('aria-hidden','true');
+document.body.style.overflow='';
+}
+
+function pushTracking(eventName,payload){
+try{
+if(window.dataLayer){
+window.dataLayer.push(Object.assign({event:eventName},payload||{}));
+}
+}catch(e){}
+
+try{
+if(typeof gtag==='function'){
+gtag('event',eventName,payload||{});
+}
+}catch(e){}
+}
+
+function startDownload(){
+closeModal();
+if(pdfActions) pdfActions.style.display='flex';
+}
+
+async function getIp(){
+try{
+const res=await fetch('https://api.ipify.org?format=json');
+const json=await res.json();
+return json.ip||'';
+}catch(e){
+return '';
+}
+}
+
+async function submitLead(e){
+e.preventDefault();
+
+if(errorEl){
+errorEl.textContent='';
+errorEl.style.display='none';
+}
+if(successEl) successEl.style.display='none';
+
+const name=document.getElementById('leadName').value.trim();
+const email=document.getElementById('leadEmail').value.trim();
+const company=document.getElementById('leadCompany').value.trim();
+const title=document.getElementById('leadTitle').value.trim();
+
+if(honeypot && honeypot.value.trim()!==''){
+return;
+}
+
+if(Date.now()-startedAt<1200){
+if(errorEl){
+errorEl.textContent='Please wait a moment and try again.';
+errorEl.style.display='block';
+}
+return;
+}
+
+if(!email){
+if(errorEl){
+errorEl.textContent='Work email is required.';
+errorEl.style.display='block';
+}
+return;
+}
+
+const ip=await getIp();
+
+const payload={
+timestamp:new Date().toISOString(),
+name,
+email,
+company,
+title,
+page:window.location.href,
+asset:'PDF_VitaCoreX_CFO_Brief.pdf',
+referrer:document.referrer||'',
+language:navigator.language||'',
+timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'',
+userAgent:navigator.userAgent||'',
+screen:(window.screen?.width||'')+'x'+(window.screen?.height||''),
+ip
+};
+
+try{
+await fetch(SCRIPT_URL,{
+method:'POST',
+mode:'no-cors',
+headers:{
+'Content-Type':'application/json'
+},
+body:JSON.stringify(payload)
+});
+
+if(successEl) successEl.style.display='block';
+
+pushTracking('lead_capture',{
+asset:'PDF_VitaCoreX_CFO_Brief'
+});
+
+setTimeout(()=>{
+startDownload();
+},350);
+
+}catch(err){
+
+if(errorEl){
+errorEl.textContent='Submission error. Please try again.';
+errorEl.style.display='block';
+}
+
+}
+}
+
+if(closeBtn){
+closeBtn.addEventListener('click',closeModal);
+}
+
+if(closePdfActionsBtn){
+closePdfActionsBtn.addEventListener('click',function(){
+if(pdfActions) pdfActions.style.display='none';
+});
+}
+
+openIds.forEach(function(id){
+const el=document.getElementById(id);
+if(el){
+el.addEventListener('click',openModal);
+}
+});
+
+if(form){
+form.addEventListener('submit',submitLead);
+}
+
 })();
 </script>
-
 </body></html>
