@@ -1,8 +1,25 @@
-VitaCoreX LLC - final website package
+VitaCoreX LLC — verified static release
 
-1) Open index.html first, or upload all files/folders to the root of your hosting account.
-2) Keep the folder structure together exactly as provided.
-3) PDFs are stored in /assets/ and are unlocked through the gated resource modal.
-4) The PDF gate requires Full Name, Company, Phone, and Email before opening the protected PDF in a new tab.
-5) Do not upload the ZIP itself to the site root for browsing. Extract the ZIP first, then upload the extracted contents.
-6) If you use Google Apps Script lead capture, update the endpoint inside assets/script.js or deploy the included .gs file as a Web App.
+Open first:
+- index.html
+
+Folders must stay together:
+- keep index.html, robots.txt, sitemap.xml, and the assets folder at the same level
+- do not rename the assets folder
+
+Where PDFs are stored:
+- assets/lead-magnet-healthcare.pdf
+- assets/healthcare-cfo-brief.pdf
+- assets/dental-cfo-institutional-deck.pdf
+- assets/precollection-recovery-executive-review.pdf
+
+How the lead-gated PDF flow works:
+- click a resource button on Home or Resources
+- complete Full Name, Company, Phone, and Email
+- after submission the selected PDF opens in a new tab
+- the gate does not auto-open on first page load
+- exit-intent prompt can open the same gate later in the session
+
+Social links:
+- Instagram: https://www.instagram.com/vitacorex_llc/
+- Facebook: https://www.facebook.com/VitaCoreXLLC
