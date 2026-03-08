@@ -839,6 +839,16 @@ select.form-select option,
 .hero-card h1,.hero-card p,.panel p,.svc p,.svc h4,.chart-card p,.chart-card h3,.compare-row div,.bar-label,.funnel-label,.entity span,.brand-title span,.brand-title strong,.stat span,.stat strong{overflow-wrap:anywhere; word-break:normal;}
 .svc-premium h4,.svc-premium .svc-title{color:var(--gold2) !important;}
 
+
+/* Careers mobile fallback */
+.careers-mobile-fallback{display:none}
+.careers-desktop-upload{display:block}
+@media (max-width: 768px){
+  .careers-desktop-upload{display:none !important}
+  .careers-mobile-fallback{display:block;margin-top:12px}
+  .careers-mobile-fallback .form-help{margin-bottom:12px}
+}
+
 </style>
 </head>
 <body>
@@ -1790,14 +1800,20 @@ gtag('config', 'G-4FMCHC3SR6');
           <label class="field-label" for="careerMessage"><span id="careerMessageLabel">Why are you a fit?</span> <span class="req-star">*</span></label>
           <textarea class="form-textarea" id="careerMessage" name="message" placeholder="Experience, availability, English level, tools, and why you want to work with VitaCoreX." required></textarea>
         </div>
-        <div>
+        <div class="careers-desktop-upload">
           <label class="field-label" for="careerResume"><span id="careerResumeLabel">Resume / CV attachment</span></label>
           <input accept=".pdf,.doc,.docx,.rtf,.txt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" class="form-file" id="careerResume" name="attachment" type="file"/>
           <div class="form-help" id="careerResumeHelp">Optional. PDF or Word file preferred.</div>
         </div>
-        <div class="form-actions">
+        <div class="form-actions careers-desktop-upload">
           <button class="btn primary" id="careerSubmitBtn" type="submit">Send application</button>
-                  </div>
+        </div>
+        <div class="careers-mobile-fallback">
+          <div class="form-help">iPhone/Safari file upload can be unreliable. On mobile, use email to attach your resume directly.</div>
+          <div class="form-actions">
+            <a class="btn primary" href="mailto:VitaCoreXllc@gmail.com?subject=VitaCoreX%20Careers%20Application&body=Full%20name:%0AEmail:%0APhone:%0ACity%20/%20State:%0ARole%20of%20interest:%0ALinkedIn%20/%20Social:%0AWhy%20you%20are%20a%20fit:%0A%0APlease%20attach%20your%20resume%20to%20this%20email.">Apply by email</a>
+          </div>
+        </div>
         <div class="form-note" id="careerFormNote">Required fields must be completed before sending. File upload depends on browser/network and works best when the page is opened from hosting.</div>
         <div class="status-msg" id="careerStatus"></div>
       </form>
