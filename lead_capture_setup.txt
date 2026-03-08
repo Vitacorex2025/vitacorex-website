@@ -1,9 +1,32 @@
-VitaCoreX capture setup
+VitaCoreX lead capture setup
+
+Files included:
+1. healthcare-cfo_email_capture.html
+2. vitacorex_lead_capture.gs
+3. PDFFFFFF WEB VitaCoreX Lead Magnet Healthcare Leakage.pdf
+
+Setup steps:
 1. Create a Google Sheet.
 2. Open Extensions -> Apps Script.
-3. Paste vitacorex_capture_endpoint.gs.
-4. Replace SPREADSHEET_ID.
-5. Optional: set DRIVE_FOLDER_ID to save uploaded attachments.
-6. Deploy as Web App (Anyone with the link).
-7. Open assets/script.js and set window.VCX_CONFIG.leadEndpoint to the deployed Web App URL.
-8. Upload the site package to hosting.
+3. Paste vitacorex_lead_capture.gs into Apps Script.
+4. Replace SPREADSHEET_ID with your Google Sheet ID.
+5. Deploy as Web App. Access: Anyone with the link.
+6. Copy the deployed Web App URL.
+7. Open healthcare-cfo_email_capture.html and replace:
+   PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL_HERE
+   with your deployed URL.
+8. Upload healthcare-cfo_email_capture.html to your site as healthcare-cfo.html.
+9. Upload the PDF into the same folder.
+
+What gets collected:
+- timestamp
+- name
+- email
+- company
+- title
+- source_page
+- asset_name
+
+Tracking:
+- pushes dataLayer event: lead_magnet_download
+- fires gtag event if gtag exists
