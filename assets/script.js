@@ -13,12 +13,12 @@ window.VCX_CONFIG = {
 (function() {
   const $ = (s, c=document) => c.querySelector(s);
   const $$ = (s, c=document) => [...c.querySelectorAll(s)];
-  const state = {lang: localStorage.getItem('vcx_lang') || window.VCX_CONFIG.defaultLang || 'en', gateShown:false, exitShown:false, activeAsset:null};
+  const state = {lang: sessionStorage.getItem('vcx_lang') || window.VCX_CONFIG.defaultLang || 'en', gateShown:false, exitShown:false, activeAsset:null, exitEligible:false};
 
   function setLang(lang) {
     const dict = window.VCX_TRANSLATIONS[lang] || window.VCX_TRANSLATIONS.en;
     state.lang = lang;
-    localStorage.setItem('vcx_lang', lang);
+    sessionStorage.setItem('vcx_lang', lang);
     document.documentElement.lang = lang;
     $$('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
@@ -86,7 +86,7 @@ window.VCX_CONFIG = {
   function initGate() {
     $$('.gated-resource').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); openGate(btn.dataset.asset); }));
     $$('.modal-close,[data-close-modal]').forEach(btn => btn.addEventListener('click', e => { const target = btn.dataset.closeModal; if (target==='exit') closeExit(); else closeGate(); }));
-    ['gateModal','exitModal','careersMobileModal'].forEach(id => { const m = $('#'+id); if (!m) return; m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); document.body.style.overflow=''; }); });
+    ['gateModal','exitModal','careersMobileModal'].forEach(id => { const m = $('#'+id); if (!m) return; m.addEventListener('click', e => { if (e.target === m) { m.classList.remove('open'); document.body.style.overflow=''; } }); });
     const form = $('#gateForm');
     if (form) form.addEventListener('submit', async e => {
       e.preventDefault();
@@ -101,12 +101,13 @@ window.VCX_CONFIG = {
       const a = document.createElement('a'); a.href = asset; a.target='_blank'; a.rel='noopener'; a.download=''; document.body.appendChild(a); a.click(); a.remove();
     });
     const exitCta = $('#exitUnlock'); if (exitCta) exitCta.addEventListener('click', ()=>{ closeExit(); openGate('assets/lead-magnet-healthcare.pdf'); });
-    document.addEventListener('mouseleave', e => { if (e.clientY <= 0 && window.innerWidth > 860) setTimeout(openExit, 120); });
+    setTimeout(()=>{ state.exitEligible = true; }, 10000);
+    document.addEventListener('mouseleave', e => { if (state.exitEligible && e.clientY <= 0 && window.innerWidth > 860) setTimeout(openExit, 120); });
     let mobileExitEligible = false;
     setTimeout(()=> mobileExitEligible = true, 12000);
     window.addEventListener('scroll', () => {
       const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      if (mobileExitEligible && window.innerWidth <= 860 && depth > .62 && !state.exitShown) openExit();
+      if (mobileExitEligible && state.exitEligible && window.innerWidth <= 860 && depth > .62 && !state.exitShown) openExit();
       const levels = [25,50,75,100];
       const hit = parseInt(localStorage.getItem('vcx_scroll_hit')||'0',10);
       for (const lvl of levels) { if (depth*100 >= lvl && hit < lvl) { localStorage.setItem('vcx_scroll_hit', String(lvl)); window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:'scroll_depth', depth:lvl}); break; } }

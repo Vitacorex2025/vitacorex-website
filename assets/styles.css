@@ -53,3 +53,12 @@ h1{font-size:clamp(40px,5vw,70px);line-height:1.02;letter-spacing:-.045em;margin
 @media (max-width: 1080px){.hero-grid,.grid-3,.footgrid{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}.bar{grid-template-columns:1fr}.output-grid,.calc-grid{grid-template-columns:1fr 1fr}}
 @media (max-width: 860px){.menu-toggle{display:grid;place-items:center}.nav-actions{display:none;position:absolute;left:16px;right:16px;top:78px;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:var(--shadow)}.topbar.open .nav-actions{display:grid;gap:14px}.nav-links{display:grid}.nav-link,.btn,.ghost-btn{width:100%}.lang-switch{margin-left:0}.hero{padding:34px 0 18px}.hero-grid,.grid-2,.grid-3,.grid-4,.footgrid,.output-grid,.calc-grid{grid-template-columns:1fr}.hero-card,.card,.panel,.table-card,.resource-card,.calc,.footer-card{padding:22px}.lead{font-size:18px}h1{font-size:42px}.modal-card h3{font-size:28px}.mobile-careers{display:block}}
 @media (max-width: 560px){.wrap{padding:0 16px}.brand-meta strong{font-size:16px}.brand-meta span{font-size:12px}.hero-card{padding:20px}.eyebrow{font-size:11px;padding:8px 12px}.lead{font-size:17px}.table th,.table td{padding:12px}.modal-card{padding:22px}.modal-actions{display:grid}.bar{gap:6px}.metric strong{font-size:28px}}
+
+.hero-video{position:absolute;inset:0;overflow:hidden;z-index:0;border-bottom-left-radius:38px;border-bottom-right-radius:38px}
+.hero-video video{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02) brightness(1.02)}
+.hero-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(237,243,249,.72),rgba(248,250,252,.86) 38%,rgba(248,250,252,.96) 100%)}
+.hero .wrap{position:relative;z-index:1}
+.hero.hero-home{padding-top:84px;padding-bottom:40px;min-height:560px}
+.hero.hero-home .hero-grid{min-height:430px}
+.hero.hero-home .hero-card,.hero.hero-home .panel{background:rgba(255,255,255,.76);backdrop-filter:blur(12px)}
+@media (max-width: 860px){.hero.hero-home{min-height:0;padding-top:32px}.hero-video{border-bottom-left-radius:28px;border-bottom-right-radius:28px}}
