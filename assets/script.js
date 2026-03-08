@@ -1,154 +1,100 @@
-
 (function(){
-  const commonI18n = JSON.parse(document.getElementById('common-i18n').textContent);
-  const pageI18nEl = document.getElementById('page-i18n');
-  const pageI18n = pageI18nEl ? JSON.parse(pageI18nEl.textContent) : {};
-  const pageMetaEl = document.getElementById('page-meta');
-  const pageMeta = pageMetaEl ? JSON.parse(pageMetaEl.textContent) : {};
-  const storageLang = localStorage.getItem('vcx_lang') || 'en';
-  let currentLang = ['en','ru','es'].includes(storageLang) ? storageLang : 'en';
-  const dataLayer = window.dataLayer = window.dataLayer || [];
-  const leadEndpoint = window.VCX_LEAD_ENDPOINT || '';
-  function track(event, payload){
-    const item = Object.assign({event, ts: new Date().toISOString(), page: location.pathname}, payload||{});
-    dataLayer.push(item);
-    try{
-      const history = JSON.parse(localStorage.getItem('vcx_behavior') || '[]');
-      history.push(item); if(history.length>250) history.shift();
-      localStorage.setItem('vcx_behavior', JSON.stringify(history));
-    }catch(e){}
+  const $ = (s,p=document)=>p.querySelector(s);
+  const $$ = (s,p=document)=>Array.from(p.querySelectorAll(s));
+  const pageData = document.body.dataset.pageI18n ? JSON.parse(document.body.dataset.pageI18n) : {};
+  const site = window.SITE_I18N || {};
+  const menuBtn = $('.menu-btn');
+  const mobilePanel = $('.mobile-panel');
+  if(menuBtn && mobilePanel){menuBtn.addEventListener('click',()=>mobilePanel.classList.toggle('open'));}
+
+  function applyLang(lang){
+    const global = site[lang] || site.en || {};
+    const current = pageData || {};
+    $$('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(global[k]) el.textContent=global[k];});
+    $$('[data-i18n-placeholder]').forEach(el=>{const k=el.dataset.i18nPlaceholder;if(global[k]) el.placeholder=global[k];});
+    $$('[data-page-i18n]').forEach(el=>{const k=el.dataset.pageI18n; if(current[k] && current[k][lang]) el.textContent=current[k][lang];});
+    $$('.lang-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.lang===lang));
+    document.documentElement.lang = lang==='ru' ? 'ru' : (lang==='es' ? 'es' : 'en');
+    localStorage.setItem('vcx_lang', lang);
   }
-  function tx(path){
-    const langSet = pageI18n[currentLang] || {};
-    const parts = path.split('.');
-    let node = langSet;
-    for(const p of parts){ if(node && Object.prototype.hasOwnProperty.call(node,p)){ node = node[p]; } else { node = null; break; } }
-    if(node == null){
-      node = commonI18n[currentLang] && commonI18n[currentLang][path];
-    }
-    if(node == null){
-      node = commonI18n.en && commonI18n.en[path];
-    }
-    return node;
-  }
-  function applyLanguage(lang){
-    currentLang = lang; localStorage.setItem('vcx_lang', lang);
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el=>{ const value = tx(el.dataset.i18n); if(value!=null) el.innerHTML = value; });
-    document.querySelectorAll('[data-i18n-common]').forEach(el=>{ const key = el.dataset.i18nCommon; const value = commonI18n[currentLang][key] || commonI18n.en[key]; if(value!=null) el.textContent = value; });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{ const value = tx(el.dataset.i18nPlaceholder); if(value!=null) el.setAttribute('placeholder', value); });
-    document.querySelectorAll('[data-i18n-placeholder-common]').forEach(el=>{ const key = el.dataset.i18nPlaceholderCommon; const value = commonI18n[currentLang][key] || commonI18n.en[key]; if(value!=null) el.setAttribute('placeholder', value); });
-    if(pageMeta[currentLang]){
-      document.title = pageMeta[currentLang].title;
-      const desc = document.querySelector('meta[name="description"]'); if(desc) desc.setAttribute('content', pageMeta[currentLang].description);
-      const ogt = document.querySelector('meta[property="og:title"]'); if(ogt) ogt.setAttribute('content', pageMeta[currentLang].title);
-      const ogd = document.querySelector('meta[property="og:description"]'); if(ogd) ogd.setAttribute('content', pageMeta[currentLang].description);
-    }
-    document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.lang===lang));
-  }
-  document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click', ()=>{ applyLanguage(btn.dataset.lang); track('language_switch',{lang:btn.dataset.lang}); }));
-  applyLanguage(currentLang);
+  const startLang = localStorage.getItem('vcx_lang') || 'en';
+  applyLang(startLang);
+  $$('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
 
-  const mobileToggle = document.getElementById('mobileToggle');
-  const headerActions = document.getElementById('headerActions');
-  if(mobileToggle && headerActions) mobileToggle.addEventListener('click', ()=> headerActions.classList.toggle('open'));
+  const revealObserver = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});},{threshold:.18});
+  $$('.reveal').forEach(el=>revealObserver.observe(el));
 
-  document.querySelectorAll('.reveal').forEach(el=>{
-    const io = new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('visible'); io.unobserve(entry.target); } }); }, {threshold: .12});
-    io.observe(el);
-  });
-
-  document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click', ()=>track('cta_click',{label:el.dataset.track})));
-
-  const detailButtons = document.querySelectorAll('[data-toggle-detail]');
-  detailButtons.forEach(btn=>btn.addEventListener('click', ()=>{
-    const panel = document.getElementById(btn.dataset.toggleDetail);
-    if(panel){
-      const open = panel.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      track('detail_toggle',{panel:btn.dataset.toggleDetail,open});
-    }
-  }));
-
-  document.querySelectorAll('.accordion button').forEach(btn=>btn.addEventListener('click', ()=>{
-    const id = btn.dataset.panel;
-    const panel = document.getElementById(id);
-    if(panel) panel.classList.toggle('open');
-  }));
-
-  let gatePdf = '';
-  const gateModal = document.getElementById('gateModal');
-  const gateForm = document.getElementById('gateForm');
-  function openGate(pdf){ gatePdf = pdf; if(gateModal) gateModal.hidden = false; track('gate_open',{pdf}); }
-  function closeGate(){ if(gateModal) gateModal.hidden = true; }
-  document.querySelectorAll('.open-gate').forEach(btn=>btn.addEventListener('click', (e)=>{ e.preventDefault(); openGate(btn.dataset.pdf); }));
-  document.querySelectorAll('[data-close-gate]').forEach(el=>el.addEventListener('click', closeGate));
-  if(gateForm){ gateForm.addEventListener('submit', async function(e){
+  const gate = $('#resourceGate'), gateForm = $('#gateForm'), gateTarget = $('#gateTarget'), gateError = $('#gateError');
+  let exitShown = sessionStorage.getItem('vcx_exit_shown') === '1';
+  function openGate(resource){ if(!gate) return; gateTarget.value = resource || ''; gate.classList.add('open'); gate.setAttribute('aria-hidden','false'); }
+  function closeGate(){ if(!gate) return; gate.classList.remove('open'); gate.setAttribute('aria-hidden','true'); }
+  $$('[data-close-modal]').forEach(btn=>btn.addEventListener('click', closeGate));
+  if(gate){ gate.addEventListener('click', e=>{ if(e.target===gate) closeGate(); }); }
+  $$('.gated-resource').forEach(btn=>btn.addEventListener('click',()=>openGate(btn.dataset.resource)));
+  if(gateForm){
+    gateForm.addEventListener('submit', e=>{
       e.preventDefault();
-      const fd = new FormData(gateForm);
-      const payload = Object.fromEntries(fd.entries());
-      payload.pdf = gatePdf; payload.lang = currentLang;
-      track('resource_unlock', payload);
-      if(leadEndpoint){
-        try{ await fetch(leadEndpoint,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload)}); }catch(err){}
-      }
+      gateError.textContent='';
+      const name = $('#gateName').value.trim();
+      const phone = $('#gatePhone').value.trim();
+      const email = $('#gateEmail').value.trim();
+      const target = gateTarget.value;
+      if(!name || !phone || !email){gateError.textContent='Please complete all fields.'; return;}
+      if(!/^\S+@\S+\.\S+$/.test(email)){gateError.textContent='Please enter a valid email.'; return;}
+      const lead = {name, phone, email, target, ts: new Date().toISOString(), page: location.pathname};
+      const existing = JSON.parse(localStorage.getItem('vcx_leads') || '[]'); existing.push(lead); localStorage.setItem('vcx_leads', JSON.stringify(existing));
+      window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:'pdf_unlock', resource: target});
       closeGate();
-      window.open(gatePdf, '_blank');
-      gateForm.reset();
-  }); }
-
-  const exitPopup = document.getElementById('exitPopup');
-  let exitSeen = sessionStorage.getItem('vcx_exit_seen');
-  function showExit(){ if(exitPopup && !exitSeen){ exitPopup.hidden = false; exitSeen='1'; sessionStorage.setItem('vcx_exit_seen','1'); track('exit_popup_show'); } }
-  document.querySelectorAll('[data-close-exit]').forEach(el=>el.addEventListener('click', ()=>{ if(exitPopup) exitPopup.hidden = true; }));
-  document.addEventListener('mouseout', (e)=>{ if(e.clientY < 12) showExit(); });
-  setTimeout(()=> showExit(), 18000);
-
-  const form = document.getElementById('intakeForm');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const fd = new FormData(form);
-      const service = String(fd.get('service')||'');
-      const urgency = String(fd.get('urgency')||'');
-      const docs = String(fd.get('docs')||'');
-      const budget = String(fd.get('budget')||'');
-      let score = 35;
-      if(service.includes('Corporate')) score += 24;
-      if(service.includes('Pre-Collection') || service.includes('Recovery')) score += 22;
-      if(urgency === 'Immediate') score += 15; else if(urgency === '30 days') score += 10; else score += 6;
-      if(docs === 'Most documents ready') score += 18; else if(docs === 'Partial file available') score += 12; else score += 6;
-      if(budget === '$5k+') score += 14; else if(budget === '$2k-$5k') score += 10; else score += 6;
-      score = Math.min(score, 100);
-      let path = 'Structured intake + scoping call';
-      if(service.includes('Pre-Collection') || service.includes('Recovery')) path = 'CFO scoping call + control review';
-      if(service.includes('Corporate')) path = 'File review + legal support package proposal';
-      const summary = `Lead: ${fd.get('name')||''}\nCompany: ${fd.get('company')||''}\nEmail: ${fd.get('email')||''}\nPhone: ${fd.get('phone')||''}\nService path: ${service}\nUrgency: ${urgency}\nDocuments: ${docs}\nBudget: ${budget}\n\nMatter summary:\n${fd.get('summary')||''}\n\nQualification score: ${score}/100\nRecommended path: ${path}`;
-      const result = document.getElementById('intakeResult');
-      if(result){
-        result.classList.add('show');
-        document.getElementById('resultScore').textContent = score + '/100';
-        document.getElementById('resultPath').textContent = path;
-        document.getElementById('resultSummary').textContent = summary;
-        const mail = document.getElementById('resultMail');
-        if(mail) mail.href = 'mailto:VitaCoreX2025@gmail.com?subject=' + encodeURIComponent('VitaCoreX Intake - ' + service) + '&body=' + encodeURIComponent(summary);
-        result.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-      track('intake_submit',{service, score});
+      if(target) window.open(target, '_blank');
     });
   }
-  document.querySelectorAll('[data-copy-text]').forEach(btn=>btn.addEventListener('click', async ()=>{
-    const el = document.querySelector(btn.dataset.copyText);
-    if(!el) return;
-    await navigator.clipboard.writeText(el.textContent.trim());
-    track('copy_summary');
-  }));
 
-  const checkpoints = [25,50,75,100];
-  const fired = {};
+  const exitPrompt = $('#exitPrompt');
+  const exitPromptOpen = $('#exitPromptOpen');
+  const exitPromptClose = $('#exitPromptClose');
+  if(exitPromptOpen) exitPromptOpen.addEventListener('click', ()=>{ exitPrompt.hidden=true; openGate('assets/healthcare-cfo-brief.pdf'); });
+  if(exitPromptClose) exitPromptClose.addEventListener('click', ()=>{ exitPrompt.hidden=true; exitShown=true; sessionStorage.setItem('vcx_exit_shown','1'); });
+
+  let engaged = false;
+  setTimeout(()=>{ engaged = true; }, 12000);
+  document.addEventListener('mouseleave', e=>{
+    if(window.innerWidth <= 900) return;
+    if(!engaged || exitShown || e.clientY > 8) return;
+    exitShown = true; sessionStorage.setItem('vcx_exit_shown','1'); if(exitPrompt) exitPrompt.hidden = false;
+  });
+  let mobileExitReady = false;
   window.addEventListener('scroll', ()=>{
-    const h = document.documentElement;
-    const pct = Math.round((h.scrollTop/(h.scrollHeight-h.clientHeight))*100);
-    checkpoints.forEach(cp=>{ if(pct>=cp && !fired[cp]){ fired[cp]=true; track('scroll_depth',{percent:cp}); } });
+    const doc = document.documentElement;
+    const pct = (window.scrollY / (doc.scrollHeight - window.innerHeight || 1)) * 100;
+    if(window.innerWidth <= 900 && !exitShown && engaged && pct > 55 && !mobileExitReady){
+      mobileExitReady = true; setTimeout(()=>{ if(!exitShown && exitPrompt){ exitPrompt.hidden = false; exitShown = true; sessionStorage.setItem('vcx_exit_shown','1'); }}, 1200);
+    }
+    window.dataLayer = window.dataLayer || [];
+    if(pct>25 && !window._q25){window._q25=true; dataLayer.push({event:'scroll_depth', depth:25});}
+    if(pct>50 && !window._q50){window._q50=true; dataLayer.push({event:'scroll_depth', depth:50});}
+    if(pct>75 && !window._q75){window._q75=true; dataLayer.push({event:'scroll_depth', depth:75});}
   }, {passive:true});
+
+  $$('.btn, .nav-link').forEach(el=>el.addEventListener('click', ()=>{ window.dataLayer = window.dataLayer || []; dataLayer.push({event:'cta_click', label:(el.textContent||'').trim(), href:el.getAttribute('href')||''}); }));
+  $$('[data-copy-text]').forEach(btn=>btn.addEventListener('click', async ()=>{ const target=$(btn.dataset.copyText); if(!target) return; try{ await navigator.clipboard.writeText(target.innerText.trim()); btn.textContent='Copied'; setTimeout(()=>btn.textContent='Copy summary', 1400);}catch(e){} }));
+
+  const intakeForm = $('#intakeForm');
+  if(intakeForm){
+    intakeForm.addEventListener('submit', e=>{
+      e.preventDefault();
+      const fd = new FormData(intakeForm);
+      const email = (fd.get('email')||'').toString().trim();
+      if(!/^\S+@\S+\.\S+$/.test(email)){ $('#intakeError').textContent='Please enter a valid email.'; return; }
+      $('#intakeError').textContent='';
+      const service=(fd.get('service')||'').toString();
+      const urgency=(fd.get('urgency')||'').toString();
+      const docs=(fd.get('docs')||'').toString();
+      const budget=(fd.get('budget')||'').toString();
+      let score=35; if(service.includes('Corporate')) score+=22; if(service.includes('Pre-Collection')) score+=24; score += urgency==='Immediate'?15:urgency==='30 days'?10:6; score += docs==='Most documents ready'?18:docs==='Partial file available'?12:6; score += budget==='$5k+'?14:budget==='$2k-$5k'?10:6; score=Math.min(score,100);
+      let path='Structured intake + scoping call'; if(service.includes('Pre-Collection')) path='Executive review + pilot diagnostic'; if(service.includes('Corporate')) path='File review + support package proposal';
+      const summary=`Lead: ${fd.get('name')||''}\nCompany: ${fd.get('company')||''}\nEmail: ${email}\nPhone: ${fd.get('phone')||''}\nService path: ${service}\nUrgency: ${urgency}\nDocuments: ${docs}\nBudget: ${budget}\n\nMatter summary:\n${fd.get('summary')||''}\n\nQualification score: ${score}/100\nRecommended path: ${path}`;
+      $('#resultScore').textContent = score + '/100'; $('#resultPath').textContent = path; $('#resultSummary').textContent = summary; $('#resultMail').href = 'mailto:VitaCoreX2025@gmail.com?subject=' + encodeURIComponent('VitaCoreX Intake - ' + service) + '&body=' + encodeURIComponent(summary); $('#intakeResult').hidden = false; $('#intakeResult').scrollIntoView({behavior:'smooth', block:'start'});
+      window.dataLayer = window.dataLayer || []; dataLayer.push({event:'intake_submit', service, score});
+    });
+  }
 })();
