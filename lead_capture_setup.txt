@@ -1,0 +1,9 @@
+VitaCoreX capture setup
+1. Create a Google Sheet.
+2. Open Extensions -> Apps Script.
+3. Paste vitacorex_capture_endpoint.gs.
+4. Replace SPREADSHEET_ID.
+5. Optional: set DRIVE_FOLDER_ID to save uploaded attachments.
+6. Deploy as Web App (Anyone with the link).
+7. Open assets/script.js and set window.VCX_CONFIG.leadEndpoint to the deployed Web App URL.
+8. Upload the site package to hosting.
