@@ -1,100 +1,104 @@
-(function(){
-  const $ = (s,p=document)=>p.querySelector(s);
-  const $$ = (s,p=document)=>Array.from(p.querySelectorAll(s));
-  const pageData = document.body.dataset.pageI18n ? JSON.parse(document.body.dataset.pageI18n) : {};
-  const site = window.SITE_I18N || {};
-  const menuBtn = $('.menu-btn');
-  const mobilePanel = $('.mobile-panel');
-  if(menuBtn && mobilePanel){menuBtn.addEventListener('click',()=>mobilePanel.classList.toggle('open'));}
+
+(()=>{
+  const $=(s,el=document)=>el.querySelector(s), $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+  const data = document.body.dataset.pageI18n ? JSON.parse(document.body.dataset.pageI18n) : {};
+  const globalI18n = window.SITE_I18N || {};
+  const endpoint = (window.VCX_CONFIG && window.VCX_CONFIG.leadEndpoint) || "";
+  const langButtons = $$('.lang-btn');
+  const menuBtn = $('.menu-btn'); const mobilePanel = $('.mobile-panel');
+  if(menuBtn) menuBtn.addEventListener('click',()=> mobilePanel.classList.toggle('open'));
 
   function applyLang(lang){
-    const global = site[lang] || site.en || {};
-    const current = pageData || {};
-    $$('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(global[k]) el.textContent=global[k];});
-    $$('[data-i18n-placeholder]').forEach(el=>{const k=el.dataset.i18nPlaceholder;if(global[k]) el.placeholder=global[k];});
-    $$('[data-page-i18n]').forEach(el=>{const k=el.dataset.pageI18n; if(current[k] && current[k][lang]) el.textContent=current[k][lang];});
-    $$('.lang-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.lang===lang));
-    document.documentElement.lang = lang==='ru' ? 'ru' : (lang==='es' ? 'es' : 'en');
+    const g = globalI18n[lang] || globalI18n.en || {};
     localStorage.setItem('vcx_lang', lang);
+    document.documentElement.lang = lang;
+    langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    $$('[data-i18n]').forEach(el=>{ const key = el.dataset.i18n; if(g[key]) el.textContent = g[key]; });
+    $$('[data-page-i18n]').forEach(el=>{ const key = el.dataset.pageI18n; if(data[key] && data[key][lang]) el.textContent = data[key][lang]; });
+    if(data.title && data.title[lang]) document.title = data.title[lang];
+    const md = $('meta[name="description"]'); if(md && data.meta_desc && data.meta_desc[lang]) md.setAttribute('content', data.meta_desc[lang]);
   }
-  const startLang = localStorage.getItem('vcx_lang') || 'en';
-  applyLang(startLang);
-  $$('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
+  const initialLang = ['en','ru','es'].includes(localStorage.getItem('vcx_lang')) ? localStorage.getItem('vcx_lang') : 'en';
+  applyLang(initialLang);
+  langButtons.forEach(btn=>btn.addEventListener('click',()=> applyLang(btn.dataset.lang)));
 
-  const revealObserver = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});},{threshold:.18});
-  $$('.reveal').forEach(el=>revealObserver.observe(el));
+  // reveal
+  const io = new IntersectionObserver(entries=> entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} }), {threshold:.14});
+  $$('.reveal').forEach(el=>io.observe(el));
 
-  const gate = $('#resourceGate'), gateForm = $('#gateForm'), gateTarget = $('#gateTarget'), gateError = $('#gateError');
+  // gate logic
+  const gateModal = $('#gateModal'); const gateForm = $('#gateForm'); const gateState = $('#gateState');
+  const gateAsset = $('#gateAsset'); const gateAssetLabel = $('#gateAssetLabel');
   let exitShown = sessionStorage.getItem('vcx_exit_shown') === '1';
-  function openGate(resource){ if(!gate) return; gateTarget.value = resource || ''; gate.classList.add('open'); gate.setAttribute('aria-hidden','false'); }
-  function closeGate(){ if(!gate) return; gate.classList.remove('open'); gate.setAttribute('aria-hidden','true'); }
-  $$('[data-close-modal]').forEach(btn=>btn.addEventListener('click', closeGate));
-  if(gate){ gate.addEventListener('click', e=>{ if(e.target===gate) closeGate(); }); }
-  $$('.gated-resource').forEach(btn=>btn.addEventListener('click',()=>openGate(btn.dataset.resource)));
-  if(gateForm){
-    gateForm.addEventListener('submit', e=>{
-      e.preventDefault();
-      gateError.textContent='';
-      const name = $('#gateName').value.trim();
-      const phone = $('#gatePhone').value.trim();
-      const email = $('#gateEmail').value.trim();
-      const target = gateTarget.value;
-      if(!name || !phone || !email){gateError.textContent='Please complete all fields.'; return;}
-      if(!/^\S+@\S+\.\S+$/.test(email)){gateError.textContent='Please enter a valid email.'; return;}
-      const lead = {name, phone, email, target, ts: new Date().toISOString(), page: location.pathname};
-      const existing = JSON.parse(localStorage.getItem('vcx_leads') || '[]'); existing.push(lead); localStorage.setItem('vcx_leads', JSON.stringify(existing));
-      window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:'pdf_unlock', resource: target});
-      closeGate();
-      if(target) window.open(target, '_blank');
-    });
+  function openGate(asset,label){
+    if(!gateModal) return;
+    gateAsset.value = asset || (window.VCX_CONFIG && window.VCX_CONFIG.defaultAsset) || '';
+    gateAssetLabel.value = label || (window.VCX_CONFIG && window.VCX_CONFIG.defaultAssetLabel) || 'Resource';
+    gateState.textContent = '';
+    gateModal.classList.add('open'); gateModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    setTimeout(()=> gateForm?.querySelector('input[name="name"]')?.focus(), 30);
   }
-
-  const exitPrompt = $('#exitPrompt');
-  const exitPromptOpen = $('#exitPromptOpen');
-  const exitPromptClose = $('#exitPromptClose');
-  if(exitPromptOpen) exitPromptOpen.addEventListener('click', ()=>{ exitPrompt.hidden=true; openGate('assets/healthcare-cfo-brief.pdf'); });
-  if(exitPromptClose) exitPromptClose.addEventListener('click', ()=>{ exitPrompt.hidden=true; exitShown=true; sessionStorage.setItem('vcx_exit_shown','1'); });
-
-  let engaged = false;
-  setTimeout(()=>{ engaged = true; }, 12000);
-  document.addEventListener('mouseleave', e=>{
-    if(window.innerWidth <= 900) return;
-    if(!engaged || exitShown || e.clientY > 8) return;
-    exitShown = true; sessionStorage.setItem('vcx_exit_shown','1'); if(exitPrompt) exitPrompt.hidden = false;
-  });
-  let mobileExitReady = false;
-  window.addEventListener('scroll', ()=>{
-    const doc = document.documentElement;
-    const pct = (window.scrollY / (doc.scrollHeight - window.innerHeight || 1)) * 100;
-    if(window.innerWidth <= 900 && !exitShown && engaged && pct > 55 && !mobileExitReady){
-      mobileExitReady = true; setTimeout(()=>{ if(!exitShown && exitPrompt){ exitPrompt.hidden = false; exitShown = true; sessionStorage.setItem('vcx_exit_shown','1'); }}, 1200);
+  function closeGate(){ if(!gateModal) return; gateModal.classList.remove('open'); gateModal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  $('.modal-close')?.addEventListener('click', closeGate); $('.modal-cancel')?.addEventListener('click', closeGate);
+  gateModal?.addEventListener('click', e=>{ if(e.target === gateModal) closeGate(); });
+  $$('.gated-resource,.exit-open').forEach(a=> a.addEventListener('click', e=>{ e.preventDefault(); openGate(a.dataset.asset, a.dataset.assetLabel); $('#exitPrompt')?.setAttribute('hidden','hidden'); }));
+  gateForm?.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const fd = new FormData(gateForm); const payload = {timestamp:new Date().toISOString(), name:(fd.get('name')||'').toString().trim(), phone:(fd.get('phone')||'').toString().trim(), email:(fd.get('email')||'').toString().trim(), source_page:document.body.dataset.page || location.pathname, asset_name:(fd.get('assetLabel')||'').toString().trim(), asset:(fd.get('asset')||'').toString().trim()};
+    if(!payload.name || !payload.phone || !payload.email){ gateState.textContent='Please complete all required fields.'; return; }
+    localStorage.setItem('vcx_last_lead', JSON.stringify(payload));
+    window.dataLayer = window.dataLayer || []; dataLayer.push({event:'pdf_gate_submit', asset:payload.asset_name, page:payload.source_page});
+    if(endpoint){
+      try{ await fetch(endpoint,{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(err){}
     }
-    window.dataLayer = window.dataLayer || [];
-    if(pct>25 && !window._q25){window._q25=true; dataLayer.push({event:'scroll_depth', depth:25});}
-    if(pct>50 && !window._q50){window._q50=true; dataLayer.push({event:'scroll_depth', depth:50});}
-    if(pct>75 && !window._q75){window._q75=true; dataLayer.push({event:'scroll_depth', depth:75});}
+    closeGate();
+    if(payload.asset){ window.open(payload.asset, '_blank', 'noopener'); }
+  });
+
+  // exit intent: desktop mouseleave, mobile scroll depth after engagement
+  const exitPrompt = $('#exitPrompt');
+  function showExit(){ if(exitShown || gateModal?.classList.contains('open') || !exitPrompt) return; exitPrompt.hidden = false; exitShown = true; sessionStorage.setItem('vcx_exit_shown','1'); }
+  let entered = false; setTimeout(()=> entered = true, 12000);
+  document.addEventListener('mouseout', e=>{ if(entered && !exitShown && e.clientY <= 0){ showExit(); } });
+  let mobilePrompted = false; window.addEventListener('scroll', ()=>{
+    const depth = (window.scrollY + window.innerHeight) / Math.max(document.body.scrollHeight,1);
+    if(!mobilePrompted && entered && depth > .62 && window.innerWidth < 900){ mobilePrompted = true; showExit(); }
+    const steps = [0.25,0.5,0.75,1]; window.__depthState = window.__depthState || {}; steps.forEach(step=>{ if(depth >= step && !window.__depthState[step]){ window.__depthState[step] = true; window.dataLayer = window.dataLayer || []; dataLayer.push({event:'scroll_depth', depth:Math.round(step*100)}); } });
   }, {passive:true});
+  $('.modal-mini-close')?.addEventListener('click', ()=> exitPrompt.hidden = true);
 
-  $$('.btn, .nav-link').forEach(el=>el.addEventListener('click', ()=>{ window.dataLayer = window.dataLayer || []; dataLayer.push({event:'cta_click', label:(el.textContent||'').trim(), href:el.getAttribute('href')||''}); }));
-  $$('[data-copy-text]').forEach(btn=>btn.addEventListener('click', async ()=>{ const target=$(btn.dataset.copyText); if(!target) return; try{ await navigator.clipboard.writeText(target.innerText.trim()); btn.textContent='Copied'; setTimeout(()=>btn.textContent='Copy summary', 1400);}catch(e){} }));
+  // CTA tracking
+  $$('a.btn, button.btn').forEach(el=> el.addEventListener('click', ()=>{ window.dataLayer = window.dataLayer || []; dataLayer.push({event:'cta_click', label:(el.textContent||'').trim(), page:document.body.dataset.page || location.pathname}); }));
 
-  const intakeForm = $('#intakeForm');
-  if(intakeForm){
-    intakeForm.addEventListener('submit', e=>{
+  // intake form
+  const form = $('#intakeForm');
+  if(form){ form.addEventListener('submit', e=>{
       e.preventDefault();
-      const fd = new FormData(intakeForm);
-      const email = (fd.get('email')||'').toString().trim();
-      if(!/^\S+@\S+\.\S+$/.test(email)){ $('#intakeError').textContent='Please enter a valid email.'; return; }
-      $('#intakeError').textContent='';
-      const service=(fd.get('service')||'').toString();
-      const urgency=(fd.get('urgency')||'').toString();
-      const docs=(fd.get('docs')||'').toString();
-      const budget=(fd.get('budget')||'').toString();
-      let score=35; if(service.includes('Corporate')) score+=22; if(service.includes('Pre-Collection')) score+=24; score += urgency==='Immediate'?15:urgency==='30 days'?10:6; score += docs==='Most documents ready'?18:docs==='Partial file available'?12:6; score += budget==='$5k+'?14:budget==='$2k-$5k'?10:6; score=Math.min(score,100);
-      let path='Structured intake + scoping call'; if(service.includes('Pre-Collection')) path='Executive review + pilot diagnostic'; if(service.includes('Corporate')) path='File review + support package proposal';
-      const summary=`Lead: ${fd.get('name')||''}\nCompany: ${fd.get('company')||''}\nEmail: ${email}\nPhone: ${fd.get('phone')||''}\nService path: ${service}\nUrgency: ${urgency}\nDocuments: ${docs}\nBudget: ${budget}\n\nMatter summary:\n${fd.get('summary')||''}\n\nQualification score: ${score}/100\nRecommended path: ${path}`;
-      $('#resultScore').textContent = score + '/100'; $('#resultPath').textContent = path; $('#resultSummary').textContent = summary; $('#resultMail').href = 'mailto:VitaCoreX2025@gmail.com?subject=' + encodeURIComponent('VitaCoreX Intake - ' + service) + '&body=' + encodeURIComponent(summary); $('#intakeResult').hidden = false; $('#intakeResult').scrollIntoView({behavior:'smooth', block:'start'});
+      const fd = new FormData(form); const email = (fd.get('email')||'').toString().trim();
+      if(!email){ $('#intakeError').hidden = false; $('#intakeError').textContent = 'Email is required.'; return; }
+      $('#intakeError').hidden = true;
+      const service = (fd.get('service')||'').toString(), urgency=(fd.get('urgency')||'').toString(), docs=(fd.get('docs')||'').toString(), budget=(fd.get('budget')||'').toString();
+      let score = 35; if(/Corporate|Pre-Collection/.test(service)) score += 24; if(urgency==='Immediate') score += 15; else if(urgency==='30 days') score += 10; else score += 6; if(docs==='Most documents ready') score += 18; else if(docs==='Partial file available') score += 12; else score += 6; if(budget==='$5k+') score += 14; else if(budget==='$2k-$5k') score += 10; else score += 6; score = Math.min(score,100);
+      let path = 'Structured intake + scoping call'; if(service==='Pre-Collection Architecture') path = 'Recovery architecture review + pilot discussion'; if(service==='Corporate Legal Support Package') path = 'File review + support package proposal';
+      const summary = `Lead: ${fd.get('name')||''}
+Company: ${fd.get('company')||''}
+Email: ${email}
+Phone: ${fd.get('phone')||''}
+Service path: ${service}
+Urgency: ${urgency}
+Documents: ${docs}
+Budget: ${budget}
+
+Matter summary:
+${fd.get('summary')||''}
+
+Qualification score: ${score}/100
+Recommended path: ${path}`;
+      $('#resultScore').textContent = `${score}/100`; $('#resultPath').textContent = path; $('#resultSummary').textContent = summary; $('#resultMail').href = 'mailto:VitaCoreX2025@gmail.com?subject=' + encodeURIComponent('VitaCoreX Intake - ' + service) + '&body=' + encodeURIComponent(summary); $('#intakeResult').hidden = false; $('#intakeResult').scrollIntoView({behavior:'smooth', block:'start'});
       window.dataLayer = window.dataLayer || []; dataLayer.push({event:'intake_submit', service, score});
-    });
-  }
+  }); }
+
+  // careers
+  const careerForm = $('#careerForm');
+  careerForm?.addEventListener('submit', e=>{ e.preventDefault(); const fd = new FormData(careerForm); $('#careerState').textContent = 'Thank you. Please review your email draft or send directly if prompted.'; const body = encodeURIComponent(`Name: ${fd.get('name')||''}\nEmail: ${fd.get('email')||''}\n\nBackground:\n${fd.get('summary')||''}`); window.location.href = `mailto:VitaCoreX2025@gmail.com?subject=Career%20Interest&body=${body}`; });
 })();
