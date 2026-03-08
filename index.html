@@ -900,7 +900,7 @@ Structured administrative and operational support with clear scope, predictable 
 </div>
 <div class="cta-row">
 <button class="pill primary" data-i18n="cta_intake" id="ctaIntake">Start with a case intake</button>
-<a class="pill ghost" data-i18n="cta_process" href="mailto:VitaCoreX2025@gmail.com?subject=Schedule%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a>
+<a class="pill ghost" data-i18n="cta_process" href="mailto:VitaCoreXllc@gmail.com?subject=Schedule%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a>
 </div>
 </div>
 <aside class="panel">
@@ -1212,7 +1212,7 @@ Structured administrative and operational support with clear scope, predictable 
       </div>
       <div class="cfo-strip">
         <a class="pill primary" data-i18n="ips_btn1" href="healthcare-cfo.html">Open Healthcare CFO page</a>
-        <a class="pill ghost" data-i18n="ips_btn2" href="mailto:VitaCoreX2025@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a>
+        <a class="pill ghost" data-i18n="ips_btn2" href="mailto:VitaCoreXllc@gmail.com?subject=Healthcare%20CFO%20Consultation%20%E2%80%94%20VitaCoreX">Schedule consultation</a>
       </div>
     </div>
   </div>
@@ -1347,20 +1347,12 @@ Structured administrative and operational support with clear scope, predictable 
           Organizations may submit a case intake for scope confirmation. Supporting documentation may include contracts, invoices, payment records, correspondence, and court documents. Once intake is reviewed, a structured scope proposal is provided.
         </p>
 <div class="formcard">
-<form action="https://formsubmit.co/VitaCoreXllc@gmail.com" class="form-stack" enctype="multipart/form-data" id="careerForm" method="POST">
-  <input name="_subject" type="hidden" value="New Resume Submission - VitaCoreX"/>
-  <input name="_captcha" type="hidden" value="false"/>
-  <input name="_template" type="hidden" value="table"/>
-  <input name="_autoresponse" type="hidden" value="Thank you. Your application has been received. VitaCoreX will review it shortly."/>
-
-  <input class="form-input" id="careerName" name="full_name" placeholder="Your full name" required type="text"/>
-  <input class="form-input" id="careerEmail" name="email" placeholder="name@mail.com" required type="email"/>
-  <input class="form-input" id="careerPhone" name="phone" placeholder="(813) 555-1234" required type="tel"/>
-  <input class="form-input" id="careerSocial" name="social_link" placeholder="LinkedIn / Instagram / Facebook profile link" required type="url"/>
-  <input class="form-input" id="careerCity" name="city_state" placeholder="Tampa, FL" required type="text"/>
-  <input accept=".pdf,.doc,.docx,.rtf,.txt" class="form-file" id="careerResume" name="attachment" type="file"/>
-  <button class="btn primary" id="careerSubmitBtn" type="submit">Send application</button>
-</form>
+<form action="https://formsubmit.co/VitaCoreXllc@gmail.com" class="form-stack" enctype="multipart/form-data" id="intakeForm" method="POST">
+<input name="_subject" type="hidden" value="VitaCoreX Intake Request"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_autoresponse" type="hidden" value="Thank you. Your request has been received. VitaCoreX will contact you shortly."/>
+<input name="source_page" type="hidden" value="VitaCoreX intake form"/>
 <div class="row">
 <div>
 <label data-i18n="f_name">Name</label>
@@ -1435,7 +1427,7 @@ Structured administrative and operational support with clear scope, predictable 
 <a class="pill" data-i18n="btn_careers" href="#" id="footerCareersBtn">Careers</a>
 <a class="pill" data-i18n="btn_facebook" href="https://www.facebook.com/share/1CQH4CS96p/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a>
 <a class="pill" data-i18n="btn_instagram" href="https://www.instagram.com/vitacorex_llc/" rel="noopener" target="_blank">Instagram</a>
-<a class="pill primary" data-i18n="btn_director" href="mailto:VitaCoreX2025@gmail.com?subject=Contact%20Director%20—%20VitaCoreX">Contact Director</a>
+<a class="pill primary" data-i18n="btn_director" href="mailto:VitaCoreXllc@gmail.com?subject=Contact%20Director%20—%20VitaCoreX">Contact Director</a>
 </div>
 <p class="mini">© 2025 VitaCoreX LLC. <span data-i18n="footer_rights">All rights reserved.</span> <span data-i18n="footer_director">Executive Director: Steven Miller</span></p>
 </div>
@@ -1486,7 +1478,7 @@ Structured administrative and operational support with clear scope, predictable 
 </div>
 <div class="btnrow" style="margin-top:14px">
 <button class="btn primary" data-i18n="modal_cta" id="modalIntake">Submit a case</button>
-<a class="btn" data-i18n="modal_email" href="mailto:VitaCoreXlllc@gmail.com?subject=Pre-Collection%20Program%20Inquiry">Email program inquiry</a>
+<a class="btn" data-i18n="modal_email" href="mailto:VitaCoreXllc@gmail.com?subject=Pre-Collection%20Program%20Inquiry">Email program inquiry</a>
 </div>
 </div>
 </div>
@@ -1603,7 +1595,7 @@ gtag('config', 'G-4FMCHC3SR6');
   }
 
   function mailtoLLC(subject, body) {
-    const href = `mailto:VitaCoreXlllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const href = `mailto:VitaCoreXllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = href;
   }
 
@@ -1710,7 +1702,34 @@ gtag('config', 'G-4FMCHC3SR6');
     });
   }
 
-  bindInternalLinks();
+  
+  function bindCareersForm() {
+    const form = document.getElementById('careersForm');
+    const status = document.getElementById('careerStatus');
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      if (!form.reportValidity()) return;
+      if (status) {
+        const lang = document.documentElement.lang || 'en';
+        status.textContent = lang === 'ru' ? 'Форма отправляется…' : (lang === 'es' ? 'Enviando formulario…' : 'Sending application…');
+      }
+    });
+  }
+
+  function bindCaseReviewForm() {
+    const form = document.getElementById('caseReviewForm');
+    const status = document.getElementById('caseStatus');
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      if (!form.reportValidity()) return;
+      if (status) {
+        const lang = document.documentElement.lang || 'en';
+        status.textContent = lang === 'ru' ? 'Форма отправляется…' : (lang === 'es' ? 'Enviando formulario…' : 'Sending form…');
+      }
+    });
+  }
+
+bindInternalLinks();
   bindServiceToggles();
   document.addEventListener('click', (e) => {
     const toggle = e.target.closest('.svc .toggle');
@@ -1740,6 +1759,8 @@ gtag('config', 'G-4FMCHC3SR6');
   bindButtons();
   bindLangButtons();
   bindIntakeForm();
+  bindCareersForm();
+  bindCaseReviewForm();
   applyLanguage(DEFAULT_LANG);
 })();
 </script>
@@ -1755,6 +1776,7 @@ gtag('config', 'G-4FMCHC3SR6');
         <input name="_subject" type="hidden" value="VitaCoreX Careers (1099) Application"/>
         <input name="_captcha" type="hidden" value="false"/>
         <input name="_template" type="hidden" value="table"/>
+        <input name="_autoresponse" type="hidden" value="Thank you. Your application has been received. VitaCoreX will review it shortly."/>
         <input name="source_page" type="hidden" value="VitaCoreX careers modal"/>
         <div class="form-grid-2">
           <div>
@@ -1820,10 +1842,11 @@ gtag('config', 'G-4FMCHC3SR6');
       <button aria-label="Close" class="xbtn" id="closeCaseReviewModal" type="button">✕</button>
     </div>
     <div class="modal-body">
-      <form action="https://formsubmit.co/VitaCoreX2025@gmail.com" class="form-stack" enctype="multipart/form-data" id="caseReviewForm" method="POST">
+      <form action="https://formsubmit.co/VitaCoreXllc@gmail.com" class="form-stack" enctype="multipart/form-data" id="caseReviewForm" method="POST">
         <input name="_subject" type="hidden" value="VitaCoreX Case Review Request"/>
         <input name="_captcha" type="hidden" value="false"/>
         <input name="_template" type="hidden" value="table"/>
+        <input name="_autoresponse" type="hidden" value="Thank you. Your request has been received. VitaCoreX will contact you shortly."/>
         <input name="source_page" type="hidden" value="VitaCoreX case review modal"/>
         <div class="form-grid-2">
           <div>
