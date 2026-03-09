@@ -223,10 +223,19 @@ function submitViaHiddenIframe(form, config){
       reject(new Error('submit_timeout'));
     }, 25000);
 
+    const optimisticSuccess = setTimeout(()=>{
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      cleanup();
+      resolve();
+    }, 1800);
+
     iframe.addEventListener('load', ()=>{
       if(done) return;
       done = true;
       clearTimeout(timer);
+      clearTimeout(optimisticSuccess);
       cleanup();
       resolve();
     }, {once:true});
@@ -235,7 +244,16 @@ function submitViaHiddenIframe(form, config){
     form.setAttribute('method', 'POST');
     form.setAttribute('enctype', config.enctype || 'multipart/form-data');
     form.setAttribute('target', iframeName);
-    form.submit();
+    try {
+      form.submit();
+    } catch (err) {
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      clearTimeout(optimisticSuccess);
+      cleanup();
+      reject(err);
+    }
   });
 }
 function fillOutputFromIntake(form){
