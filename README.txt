@@ -1,1 +1,1 @@
-Open index.html first. Keep all folders together. PDFs are stored in assets/pdf. The lead-gated PDF flow requires Full Name, Company, Phone, and Email before opening the selected PDF. Upload the full contents of this folder to the site root so index.html, robots.txt, sitemap.xml, and assets/ stay together.
+Open index.html first. Keep all folders together. PDFs are stored in assets/pdf/. The lead-gated PDF flow requires Full Name, Company, Phone, and Email before opening a resource. Upload the entire package to the root of the host and clear old files/cache before publishing.
