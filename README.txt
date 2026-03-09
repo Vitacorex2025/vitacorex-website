@@ -1,1 +1,0 @@
-Open index.html first. Keep all folders together. PDFs are in assets/pdf. This package is rebuilt from v21 as the full multipage base, with v22/v23 UI fixes layered on top. Upload everything to the root of your hosting so index.html, robots.txt, sitemap.xml, and assets/ stay at the top level.
