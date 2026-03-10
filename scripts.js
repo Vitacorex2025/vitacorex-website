@@ -171,45 +171,89 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   sync();
 }
 function submitViaHiddenIframe(form, config){
-  const endpoint = 'https://formsubmit.co/ajax/VitaCoreXllc@gmail.com';
-  const payload = new FormData(form);
+  return new Promise((resolve,reject)=>{
+    const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.title = 'hidden submission target';
+    iframe.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;';
+    document.body.appendChild(iframe);
 
-  payload.set('_subject', config.subject || '');
-  payload.set('_captcha', 'false');
-  payload.set('_template', 'table');
-  payload.set('_replyto', String(config.replyTo || ''));
-  payload.set('Timestamp', new Date().toISOString());
-  payload.set('Browser / Device', detectDevice());
+    const previous = {
+      action: form.getAttribute('action') || '',
+      method: form.getAttribute('method') || '',
+      enctype: form.getAttribute('enctype') || '',
+      target: form.getAttribute('target') || ''
+    };
 
-  if(config.extraFields){
-    Object.entries(config.extraFields).forEach(([name, value])=>{
-      payload.set(name, value);
-    });
-  }
+    const temp = [];
+    const addHidden = (name, value)=>{
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+      temp.push(input);
+    };
 
-  return fetch(endpoint, {
-    method: 'POST',
-    body: payload,
-    headers: {
-      Accept: 'application/json'
+    addHidden('_subject', config.subject);
+    addHidden('_captcha', 'false');
+    addHidden('_template', 'table');
+    addHidden('_replyto', String(config.replyTo || ''));
+    addHidden('Timestamp', new Date().toISOString());
+    addHidden('Browser / Device', detectDevice());
+    if(config.extraFields){
+      Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
     }
-  }).then(async response=>{
-    let data = null;
+
+    let done = false;
+    const cleanup = ()=>{
+      if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
+      if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
+      if(previous.enctype) form.setAttribute('enctype', previous.enctype); else form.removeAttribute('enctype');
+      if(previous.target) form.setAttribute('target', previous.target); else form.removeAttribute('target');
+      temp.forEach(el=>el.remove());
+      setTimeout(()=>iframe.remove(), 300);
+    };
+
+    const timer = setTimeout(()=>{
+      if(done) return;
+      done = true;
+      cleanup();
+      reject(new Error('submit_timeout'));
+    }, 25000);
+
+    const optimisticSuccess = setTimeout(()=>{
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      cleanup();
+      resolve();
+    }, 1800);
+
+    iframe.addEventListener('load', ()=>{
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      clearTimeout(optimisticSuccess);
+      cleanup();
+      resolve();
+    }, {once:true});
+
+    form.setAttribute('action', 'https://formsubmit.co/VitaCoreXllc@gmail.com');
+    form.setAttribute('method', 'POST');
+    form.setAttribute('enctype', config.enctype || 'multipart/form-data');
+    form.setAttribute('target', iframeName);
     try {
-      data = await response.json();
+      form.submit();
     } catch (err) {
-      data = null;
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      clearTimeout(optimisticSuccess);
+      cleanup();
+      reject(err);
     }
-
-    if(!response.ok){
-      throw new Error((data && (data.message || data.error)) || 'submit_failed');
-    }
-
-    if(data && (data.success === 'true' || data.success === true || String(data.message || '').toLowerCase().includes('sent'))){
-      return data;
-    }
-
-    throw new Error((data && (data.message || data.error)) || 'submit_failed');
   });
 }
 function fillOutputFromIntake(form){
@@ -236,47 +280,22 @@ function fillOutputFromIntake(form){
 }
 function bindIntakeForm(form){
   if(!form) return;
-  if(form.dataset.submitBound === '1') return;
-  form.dataset.submitBound = '1';
-
   ensureFileNameMirror(form, 'attachment', 'Attachment');
-
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-
   form.addEventListener('submit', async e=>{
     e.preventDefault();
-
-    if(form.dataset.submitting === '1'){
-      return;
-    }
-
     if(!form.checkValidity()){
       form.reportValidity();
-      if(status){
-        status.textContent='Submission failed. Please try again.';
-        status.className='form-status small-note error';
-      }
+      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
       return;
     }
-
     const fd=new FormData(form);
     const email = String(fd.get('email')||'').trim();
     const file=fd.get('attachment');
     const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-
-    form.dataset.submitting = '1';
-
-    if(status){
-      status.textContent='';
-      status.className='form-status small-note';
-    }
-
-    if(submitBtn){
-      submitBtn.disabled=true;
-      submitBtn.classList.add('is-loading');
-    }
-
+    if(status){ status.textContent=''; status.className='form-status small-note'; }
+    if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
     try{
       await submitViaHiddenIframe(form, {
         subject:'VitaCoreX Intake Request',
@@ -284,24 +303,14 @@ function bindIntakeForm(form){
         enctype:'multipart/form-data',
         extraFields:{'Attachment': fileLabel}
       });
-      if(status){
-        status.textContent='Request sent successfully. Our team will review your submission.';
-        status.className='form-status small-note success';
-      }
+      if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
       fillOutputFromIntake(form);
       form.reset();
       ensureFileNameMirror(form, 'attachment', 'Attachment');
     }catch(err){
-      if(status){
-        status.textContent='Submission failed. Please try again.';
-        status.className='form-status small-note error';
-      }
+      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
     }finally{
-      delete form.dataset.submitting;
-      if(submitBtn){
-        submitBtn.disabled=false;
-        submitBtn.classList.remove('is-loading');
-      }
+      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
   });
 }
