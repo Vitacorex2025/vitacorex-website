@@ -170,6 +170,7 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   fileInput.addEventListener('change', sync);
   sync();
 }
+
 function submitViaHiddenIframe(form, config){
   return new Promise((resolve,reject)=>{
     const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
@@ -196,44 +197,72 @@ function submitViaHiddenIframe(form, config){
       temp.push(input);
     };
 
+    const successToken = `vcx_form_success_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const nextUrl = `${window.location.origin}${window.location.pathname}?${successToken}=1`;
+
     addHidden('_subject', config.subject);
     addHidden('_captcha', 'false');
     addHidden('_template', 'table');
     addHidden('_replyto', String(config.replyTo || ''));
+    addHidden('_next', nextUrl);
     addHidden('Timestamp', new Date().toISOString());
     addHidden('Browser / Device', detectDevice());
+
     if(config.extraFields){
       Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
     }
 
-    let finished = false;
+    let done = false;
+    let timer = null;
+
     const cleanup = ()=>{
       if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
       if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
       if(previous.enctype) form.setAttribute('enctype', previous.enctype); else form.removeAttribute('enctype');
       if(previous.target) form.setAttribute('target', previous.target); else form.removeAttribute('target');
       temp.forEach(el=>el.remove());
-      setTimeout(()=>iframe.remove(), 1500);
+      setTimeout(()=>iframe.remove(), 300);
     };
 
-    const succeed = ()=>{
-      if(finished) return;
-      finished = true;
+    const finishSuccess = ()=>{
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
       cleanup();
       resolve();
     };
 
-    const fail = (err)=>{
-      if(finished) return;
-      finished = true;
+    const finishError = (err)=>{
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
       cleanup();
       reject(err);
     };
 
+    timer = setTimeout(()=>{
+      finishError(new Error('submit_timeout'));
+    }, 30000);
+
     iframe.addEventListener('load', ()=>{
-      // FormSubmit usually triggers a load on the hidden iframe after accepting the POST.
-      // Treat that as success; do not allow any later timeout/error state to overwrite it.
-      succeed();
+      if(done) return;
+
+      try {
+        const href = iframe.contentWindow && iframe.contentWindow.location
+          ? iframe.contentWindow.location.href
+          : '';
+
+        if(!href || href === 'about:blank'){
+          return;
+        }
+
+        if(href.indexOf(`${successToken}=1`) !== -1){
+          finishSuccess();
+          return;
+        }
+      } catch (err) {
+        return;
+      }
     });
 
     form.setAttribute('action', 'https://formsubmit.co/VitaCoreXllc@gmail.com');
@@ -243,14 +272,12 @@ function submitViaHiddenIframe(form, config){
 
     try {
       form.submit();
-      // The submission is already reaching the inbox in production.
-      // Resolve optimistically so the UI cannot fall into a false error state.
-      setTimeout(succeed, 300);
     } catch (err) {
-      fail(err);
+      finishError(err);
     }
   });
 }
+
 function fillOutputFromIntake(form){
   const fd=new FormData(form);
   const service=String(fd.get('service_type')||'');
@@ -273,47 +300,82 @@ function fillOutputFromIntake(form){
   };
   updateOutputLanguage();
 }
+
 function bindIntakeForm(form){
   if(!form) return;
+  if(form.dataset.intakeBound === '1') return;
+  form.dataset.intakeBound = '1';
+
   ensureFileNameMirror(form, 'attachment', 'Attachment');
-  const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
-  const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  let isSubmitting=false;
+
+  const status = form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
+  const submitBtn = form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
+
   form.addEventListener('submit', async e=>{
-    if(isSubmitting){ e.preventDefault(); return; }
     e.preventDefault();
-    if(!form.checkValidity()){
-      form.reportValidity();
-      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+
+    if(form.dataset.submitting === '1'){
       return;
     }
-    isSubmitting=true;
-    const fd=new FormData(form);
-    const email = String(fd.get('email')||'').trim();
-    const file=fd.get('attachment');
-    const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-    if(status){ status.textContent=''; status.className='form-status small-note'; }
-    if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      if(status){
+        status.textContent = 'Submission failed. Please try again.';
+        status.className = 'form-status small-note error';
+      }
+      return;
+    }
+
+    const fd = new FormData(form);
+    const email = String(fd.get('email') || '').trim();
+    const file = fd.get('attachment');
+    const fileLabel = file && typeof file.name === 'string' && file.name ? file.name : 'No file attached';
+
+    form.dataset.submitting = '1';
+
+    if(status){
+      status.textContent = '';
+      status.className = 'form-status small-note';
+    }
+
+    if(submitBtn){
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+    }
+
     try{
       await submitViaHiddenIframe(form, {
-        subject:'VitaCoreX Intake Request',
+        subject: 'VitaCoreX Intake Request',
         replyTo: email,
-        enctype:'multipart/form-data',
-        extraFields:{'Attachment': fileLabel}
+        enctype: 'multipart/form-data',
+        extraFields: {'Attachment': fileLabel}
       });
-      if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
-      form.dataset.submitted='true';
+
+      if(status){
+        status.textContent = 'Request sent successfully. Our team will review your submission.';
+        status.className = 'form-status small-note success';
+      }
+
       fillOutputFromIntake(form);
       form.reset();
-      ensureFileNameMirror(form, 'attachment', 'Attachment');
     }catch(err){
-      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+      if(status){
+        status.textContent = 'Submission failed. Please try again.';
+        status.className = 'form-status small-note error';
+      }
     }finally{
-      setTimeout(()=>{ isSubmitting=false; }, 1200);
-      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
+      delete form.dataset.submitting;
+      ensureFileNameMirror(form, 'attachment', 'Attachment');
+
+      if(submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('is-loading');
+      }
     }
   });
 }
+
 bindIntakeForm($('#intakeForm'));
 
 const careersForm=$('#careersForm');
@@ -341,7 +403,6 @@ if(careersForm){
     }catch(err){
       if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
     }finally{
-      setTimeout(()=>{ isSubmitting=false; }, 1200);
       if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
   });
