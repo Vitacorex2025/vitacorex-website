@@ -507,6 +507,9 @@ function applyConsent(consent){
     gtag('js', new Date());
     gtag('config', ids.ga4, {anonymize_ip:true});
   }
+  if(ids.apolloAppId){
+    loadApolloTracker(ids.apolloAppId);
+  }
   if(ids.clarity){
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", ids.clarity);
   }
@@ -525,6 +528,59 @@ function applyConsent(consent){
     }
   }
 }
+
+function bindTracking(){
+  document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      trackEvent('pdf_download', {
+        asset_name:(a.getAttribute('href')||'').split('/').pop(),
+        link_text:(a.textContent||'').trim().slice(0,80)
+      });
+    });
+  });
+
+  document.querySelectorAll('a, button').forEach(el=>{
+    const text=(el.textContent||'').trim().toLowerCase();
+    const href=(el.getAttribute('href')||'').toLowerCase();
+    const label=(el.textContent||el.getAttribute('aria-label')||'').trim().slice(0,80);
+    if(href.includes('calendly.com') || text.includes('consult') || text.includes('book meeting') || text.includes('request intake') || text.includes('order services')){
+      el.addEventListener('click', ()=>{
+        trackEvent('consultation_click', {label: label, href: href || ''});
+      });
+    }
+  });
+
+  document.querySelectorAll('form').forEach(form=>{
+    form.addEventListener('submit', ()=>{
+      const formName=form.getAttribute('id') || form.getAttribute('name') || 'site_form';
+      trackEvent('form_submit', {form_name: formName});
+      if(/intake|contact/i.test(formName)){
+        trackEvent('contact_form_submit', {form_name: formName});
+        trackEvent('consultation_request', {form_name: formName});
+      }
+      if(/gate/i.test(formName)){
+        trackEvent('pdf_gate_submit', {form_name: formName});
+      }
+    }, {capture:true});
+  });
+
+  ['leakRevenue','dsoRevenue','roiPortfolio'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && !el.dataset.vcxTracked){
+      el.dataset.vcxTracked='1';
+      el.addEventListener('change', ()=>{
+        const map={
+          leakRevenue:'revenue_calculator_use',
+          dsoRevenue:'dso_calculator_use',
+          roiPortfolio:'roi_calculator_use'
+        };
+        trackEvent(map[id] || 'calculator_use', {calculator_id:id});
+      });
+    }
+  });
+}
+bindTracking();
+
 buildCookieBanner();
 
 const careersMobileBtn=$('#careersMobileModal a.btn');
