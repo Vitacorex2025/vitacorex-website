@@ -558,3 +558,74 @@ function initVcxCharts(){
   if(window.Chart) draw();
 }
 initVcxCharts();
+
+
+function initExecutiveWidgets(){
+  const currency=(n)=>'$'+Math.max(0,n||0).toLocaleString(undefined,{maximumFractionDigits:0});
+  const leakageRevenue=document.getElementById('leakRevenue');
+  if(leakageRevenue){
+    const recalcLeak=()=>{
+      const revenue=+document.getElementById('leakRevenue').value||0;
+      const responsibility=(+document.getElementById('leakResponsibility').value||0)/100;
+      const leakage=(+document.getElementById('leakLeakage').value||0)/100;
+      document.getElementById('leakOutput').textContent=currency(revenue*responsibility*leakage);
+    };
+    ['leakRevenue','leakResponsibility','leakLeakage'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.addEventListener('input', recalcLeak);
+    });
+    recalcLeak();
+  }
+
+  const dsoRevenue=document.getElementById('dsoRevenue');
+  if(dsoRevenue){
+    const recalcDso=()=>{
+      const revenue=+document.getElementById('dsoRevenue').value||0;
+      const current=+document.getElementById('dsoCurrent').value||0;
+      const target=+document.getElementById('dsoTarget').value||0;
+      const delta=Math.max(0,current-target);
+      const released=(delta/365)*revenue;
+      document.getElementById('dsoOutput').textContent=currency(released);
+      document.getElementById('dsoDelta').textContent=`${delta} days`;
+    };
+    ['dsoRevenue','dsoCurrent','dsoTarget'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.addEventListener('input', recalcDso);
+    });
+    recalcDso();
+  }
+
+  const roiPortfolio=document.getElementById('roiPortfolio');
+  if(roiPortfolio){
+    const recalcRoi=()=>{
+      const portfolio=+document.getElementById('roiPortfolio').value||0;
+      const improve=(+document.getElementById('roiImprove').value||0)/100;
+      const cost=+document.getElementById('roiCost').value||0;
+      const addCash=portfolio*improve;
+      const multiple=cost>0?(addCash/cost):0;
+      document.getElementById('roiOutput').textContent=currency(addCash);
+      document.getElementById('roiMultiple').textContent=`${multiple.toFixed(1)}x`;
+    };
+    ['roiPortfolio','roiImprove','roiCost'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.addEventListener('input', recalcRoi);
+    });
+    recalcRoi();
+  }
+}
+initExecutiveWidgets();
+
+function improveMobileFileInput(){
+  const input=document.querySelector('#intakeForm input[name="attachment"]');
+  if(!input) return;
+  input.addEventListener('change', ()=>{
+    const help=document.getElementById('attachmentHelp');
+    const file=input.files && input.files[0];
+    if(help && file && /pdf|word|officedocument|image/i.test(file.type || file.name)){
+      help.textContent=`Selected: ${file.name}`;
+    } else if(help && file){
+      help.textContent=`Selected: ${file.name}. Supported on iPhone through Files / Browse.`;
+    }
+  });
+}
+improveMobileFileInput();
