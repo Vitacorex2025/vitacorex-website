@@ -370,7 +370,8 @@ function bindIntakeForm(form){
     }
   });
 }
-bindIntakeForm($('#intakeForm'));
+// disabled custom handler to allow direct formsubmit
+
 
 const careersForm=$('#careersForm');
 if(careersForm){
