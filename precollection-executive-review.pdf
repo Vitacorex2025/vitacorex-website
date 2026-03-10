@@ -221,19 +221,23 @@ function submitViaHiddenIframe(form, config){
       if(done) return;
       done = true;
       cleanup();
-      if(submitted) resolve(); else reject(new Error('submit_timeout'));
+      if(submitted) {
+        resolve();
+      } else {
+        reject(new Error('submit_timeout'));
+      }
     }, 25000);
 
     const optimisticSuccess = setTimeout(()=>{
-      if(done) return;
+      if(done || !submitted) return;
       done = true;
       clearTimeout(timer);
       cleanup();
       resolve();
-    }, 1800);
+    }, 700);
 
     iframe.addEventListener('load', ()=>{
-      if(done) return;
+      if(done || !submitted) return;
       done = true;
       clearTimeout(timer);
       clearTimeout(optimisticSuccess);
