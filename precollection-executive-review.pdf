@@ -294,7 +294,6 @@ function bindIntakeForm(form){
     const email = String(fd.get('email')||'').trim();
     const file=fd.get('attachment');
     const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-    let submissionSucceeded = false;
     if(status){ status.textContent=''; status.className='form-status small-note'; }
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
     try{
@@ -304,15 +303,12 @@ function bindIntakeForm(form){
         enctype:'multipart/form-data',
         extraFields:{'Attachment': fileLabel}
       });
-      submissionSucceeded = true;
       if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
-      try {
-        fillOutputFromIntake(form);
-        form.reset();
-        ensureFileNameMirror(form, 'attachment', 'Attachment');
-      } catch (_postSubmitUiError) {}
+      fillOutputFromIntake(form);
+      form.reset();
+      ensureFileNameMirror(form, 'attachment', 'Attachment');
     }catch(err){
-      if(!submissionSucceeded && status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
     }finally{
       if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
