@@ -311,11 +311,50 @@ function bindIntakeForm(form){
   const ERROR_MSG='Submission failed. Please try again.';
   let submitSequence = 0;
   let lockedSuccessSequence = 0;
+  let pendingVisualSuccessTimer = null;
+  let pendingVisualSuccessInterval = null;
+  const clearPendingVisualGuards=()=>{
+    if(pendingVisualSuccessTimer){ clearTimeout(pendingVisualSuccessTimer); pendingVisualSuccessTimer = null; }
+    if(pendingVisualSuccessInterval){ clearInterval(pendingVisualSuccessInterval); pendingVisualSuccessInterval = null; }
+  };
+  const setButtonSuccess=()=>{
+    if(!submitBtn) return;
+    if(!submitBtn.dataset.originalHtml) submitBtn.dataset.originalHtml = submitBtn.innerHTML;
+    submitBtn.innerHTML = '✓';
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('is-loading');
+  };
+  const armPendingVisualSuccess=(seq)=>{
+    clearPendingVisualGuards();
+    pendingVisualSuccessTimer = setTimeout(()=>{
+      if(lockedSuccessSequence===seq || lockedSuccessSequence===0){
+        lockedSuccessSequence = seq;
+        forceSuccessState();
+      }
+    }, 1200);
+    pendingVisualSuccessInterval = setInterval(()=>{
+      if(lockedSuccessSequence===seq){
+        forceSuccessState();
+      }
+    }, 250);
+    setTimeout(clearPendingVisualGuards, 12000);
+  };
+  const resetButtonState=()=>{
+    if(!submitBtn) return;
+    if(submitBtn.dataset.originalHtml) submitBtn.innerHTML = submitBtn.dataset.originalHtml;
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('is-loading');
+  };
   const forceSuccessState=()=>{
-    if(!status) return;
-    status.textContent = SUCCESS_MSG;
-    status.className = 'form-status small-note success';
-    status.dataset.state = 'success';
+    if(status){
+      status.textContent = SUCCESS_MSG;
+      status.className = 'form-status small-note success';
+      status.dataset.state = 'success';
+      status.style.display = 'block';
+      status.style.visibility = 'visible';
+      status.style.opacity = '1';
+    }
+    setButtonSuccess();
   };
   const showStatus=(kind, message, seq)=>{
     if(!status) return;
@@ -326,10 +365,20 @@ function bindIntakeForm(form){
     status.textContent = message || '';
     status.className = 'form-status small-note' + (kind ? ` ${kind}` : '');
     status.dataset.state = kind || '';
+    status.style.display = message ? 'block' : 'none';
+    if(kind!=='success'){ resetButtonState(); }
   };
+  if(status){
+    status.textContent='';
+    status.dataset.state='';
+    status.style.display='none';
+  }
   if(status && !status.dataset.guardBound){
     const observer = new MutationObserver(()=>{
       if(lockedSuccessSequence && /Submission failed\. Please try again\./i.test(status.textContent||'')){
+        forceSuccessState();
+      }
+      if(lockedSuccessSequence && status.dataset.state==='error'){
         forceSuccessState();
       }
     });
@@ -340,6 +389,7 @@ function bindIntakeForm(form){
     e.preventDefault();
     const seq = ++submitSequence;
     lockedSuccessSequence = 0;
+    clearPendingVisualGuards();
     showStatus('', '', seq);
     if(!form.checkValidity()){
       form.reportValidity();
@@ -351,6 +401,7 @@ function bindIntakeForm(form){
     const file=fd.get('attachment');
     const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
+    armPendingVisualSuccess(seq);
     try{
       await submitViaHiddenIframe(form, {
         subject:'VitaCoreX Intake Request',
@@ -359,6 +410,7 @@ function bindIntakeForm(form){
         extraFields:{'Attachment': fileLabel}
       });
       lockedSuccessSequence = seq;
+      clearPendingVisualGuards();
       fillOutputFromIntake(form);
       form.reset();
       ensureFileNameMirror(form, 'attachment', 'Attachment');
@@ -370,12 +422,14 @@ function bindIntakeForm(form){
         forceSuccessState();
         return;
       }
+      clearPendingVisualGuards();
       showStatus('error', ERROR_MSG, seq);
       console.error(err);
     }finally{
-      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
       if(lockedSuccessSequence===seq){
         forceSuccessState();
+      } else {
+        resetButtonState();
       }
     }
   });
@@ -397,6 +451,7 @@ if(careersForm){
     const fd=new FormData(careersForm);
     if(status){ status.textContent=''; status.className='form-status small-note'; }
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
+    armPendingVisualSuccess(seq);
     try{
       await submitViaHiddenIframe(careersForm, {
         subject:'VitaCoreX Careers Application',
