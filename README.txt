@@ -1,1 +1,2 @@
-Open index.html first. Keep all folders together. PDFs are stored in assets/pdf/. The lead-gated PDF flow requires Full Name, Company, Phone, and Email before opening a resource. Upload the entire package to the root of the host and clear old files/cache before publishing.
+<!DOCTYPE html>
+<meta content="0; url=additional-services.html" http-equiv="refresh"/><link href="https://vitacorexllc.com/additional-services.html" rel="canonical"/><title>Redirecting…</title><p>Redirecting to <a href="additional-services.html">additional-services.html</a></p>
