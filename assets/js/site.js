@@ -170,104 +170,30 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   fileInput.addEventListener('change', sync);
   sync();
 }
-function submitViaHiddenIframe(form, config){
-  return new Promise((resolve,reject)=>{
-    const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const iframe = document.createElement('iframe');
-    iframe.name = iframeName;
-    iframe.title = 'hidden submission target';
-    iframe.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;';
-    document.body.appendChild(iframe);
-
-    const previous = {
-      action: form.getAttribute('action') || '',
-      method: form.getAttribute('method') || '',
-      enctype: form.getAttribute('enctype') || '',
-      target: form.getAttribute('target') || ''
-    };
-
-    const temp = [];
-    const addHidden = (name, value)=>{
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
-      temp.push(input);
-    };
-
-    const successToken = `vcx_form_success_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const nextUrl = `${window.location.origin}${window.location.pathname}?${successToken}=1`;
-
-    addHidden('_subject', config.subject);
-    addHidden('_captcha', 'false');
-    addHidden('_template', 'table');
-    addHidden('_replyto', String(config.replyTo || ''));
-    addHidden('_next', nextUrl);
-    addHidden('Timestamp', new Date().toISOString());
-    addHidden('Browser / Device', detectDevice());
-    if(config.extraFields){
-      Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
-    }
-
-    let done = false;
-    let timer = null;
-
-    const cleanup = ()=>{
-      if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
-      if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
-      if(previous.enctype) form.setAttribute('enctype', previous.enctype); else form.removeAttribute('enctype');
-      if(previous.target) form.setAttribute('target', previous.target); else form.removeAttribute('target');
-      temp.forEach(el=>el.remove());
-      setTimeout(()=>iframe.remove(), 300);
-    };
-
-    const finishSuccess = ()=>{
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      cleanup();
-      resolve();
-    };
-
-    const finishError = err=>{
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      cleanup();
-      reject(err);
-    };
-
-    timer = setTimeout(()=>{
-      finishError(new Error('submit_timeout'));
-    }, 30000);
-
-    iframe.addEventListener('load', ()=>{
-      if(done) return;
-      try {
-        const href = iframe.contentWindow && iframe.contentWindow.location
-          ? iframe.contentWindow.location.href
-          : '';
-        if(!href || href === 'about:blank') return;
-        if(href.indexOf(`${successToken}=1`) !== -1){
-          finishSuccess();
-          return;
-        }
-      } catch (err) {
-        return;
-      }
-    });
-
-    form.setAttribute('action', 'https://formsubmit.co/VitaCoreXllc@gmail.com');
-    form.setAttribute('method', 'POST');
-    form.setAttribute('enctype', config.enctype || 'multipart/form-data');
-    form.setAttribute('target', iframeName);
-    try {
-      form.submit();
-    } catch (err) {
-      finishError(err);
-    }
-  });
+function buildIntakeMailto(form){
+  const fd = new FormData(form);
+  const fullName = String(fd.get('full_name') || '').trim();
+  const phone = String(fd.get('phone') || '').trim();
+  const email = String(fd.get('email') || '').trim();
+  const location = String(fd.get('location') || '').trim();
+  const urgency = String(fd.get('urgency') || '').trim();
+  const serviceType = String(fd.get('service_type') || '').trim();
+  const message = String(fd.get('message') || '').trim();
+  const subject = `VitaCoreX Intake Request - ${fullName || 'New Client'}`;
+  const body = [
+    'New intake request',
+    '',
+    `Full Name: ${fullName}`,
+    `Phone: ${phone}`,
+    `Email: ${email}`,
+    `State / City / ZIP Code: ${location}`,
+    `Urgency: ${urgency}`,
+    `Service Type: ${serviceType}`,
+    '',
+    'Message / Situation Summary:',
+    message || '-'
+  ].join('\n');
+  return `mailto:VitaCoreXllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 function fillOutputFromIntake(form){
   const fd=new FormData(form);
@@ -295,50 +221,63 @@ function bindIntakeForm(form){
   if(!form) return;
   if(form.dataset.intakeBound === '1') return;
   form.dataset.intakeBound = '1';
-  ensureFileNameMirror(form, 'attachment', 'Attachment');
+
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', async e=>{
+
+  form.addEventListener('submit', e=>{
     e.preventDefault();
-    if(form.dataset.submitting === '1') return;
+
     if(!form.checkValidity()){
       form.reportValidity();
-      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+      if(status){
+        status.textContent='Please complete all required fields.';
+        status.className='form-status small-note error';
+      }
       return;
     }
-    const fd=new FormData(form);
-    const email = String(fd.get('email')||'').trim();
-    const file=fd.get('attachment');
-    const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-    form.dataset.submitting = '1';
-    if(status){ status.textContent=''; status.className='form-status small-note'; }
-    if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    try{
-      await submitViaHiddenIframe(form, {
-        subject:'VitaCoreX Intake Request',
-        replyTo: email,
-        enctype:'multipart/form-data',
-        extraFields:{'Attachment': fileLabel}
-      });
-      if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
+
+    if(status){
+      status.textContent='';
+      status.className='form-status small-note';
+    }
+
+    if(submitBtn){
+      submitBtn.disabled=true;
+      submitBtn.classList.add('is-loading');
+    }
+
+    try {
       fillOutputFromIntake(form);
-      form.reset();
-      ensureFileNameMirror(form, 'attachment', 'Attachment');
-    }catch(err){
-      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
-    }finally{
-      delete form.dataset.submitting;
-      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
+      window.location.href = buildIntakeMailto(form);
+      if(status){
+        status.textContent='Your email app is opening with the completed intake details.';
+        status.className='form-status small-note success';
+      }
+    } catch(err){
+      if(status){
+        status.textContent='Unable to open email draft. Please try again.';
+        status.className='form-status small-note error';
+      }
+    } finally {
+      if(submitBtn){
+        submitBtn.disabled=false;
+        submitBtn.classList.remove('is-loading');
+      }
     }
   });
 }
+
 function applyIntakeServiceQuery(form){
   if(!form) return;
+
   const params = new URLSearchParams(window.location.search);
   const raw = String(params.get('service') || '').trim().toLowerCase();
   if(!raw) return;
+
   const serviceSelect = form.querySelector('[name="service_type"]');
   if(!serviceSelect) return;
+
   const individualKeys = {
     contracts: 'Contracts & Documentation',
     immigration: 'Immigration Documents',
@@ -347,13 +286,17 @@ function applyIntakeServiceQuery(form){
     formation: 'Company Formation',
     translation: 'Translation & Localization'
   };
+
   if(!individualKeys[raw]) return;
+
   serviceSelect.value = 'Services for Individuals';
+
   const messageField = form.querySelector('[name="message"]');
   if(messageField && !String(messageField.value || '').trim()){
     messageField.value = `Requested individual service: ${individualKeys[raw]}`;
   }
 }
+
 const intakeForm = $('#intakeForm');
 applyIntakeServiceQuery(intakeForm);
 bindIntakeForm(intakeForm);
