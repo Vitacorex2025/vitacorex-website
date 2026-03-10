@@ -138,7 +138,17 @@ if(menuBtn && mobileNav){
   mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
 }
 const header=$('.site-header');
-function onScrollCompact(){ if(!header) return; header.classList.toggle('header-compact', window.scrollY>30); }
+let lastScrollY=window.scrollY||0;
+function onScrollCompact(){
+  if(!header) return;
+  const current=window.scrollY||0;
+  header.classList.toggle('header-compact', current>26);
+  const shouldHide=current>140 && current>lastScrollY+6;
+  const shouldShow=current<72 || current<lastScrollY-10;
+  if(shouldHide) header.classList.add('header-hidden');
+  if(shouldShow) header.classList.remove('header-hidden');
+  lastScrollY=current;
+}
 onScrollCompact(); window.addEventListener('scroll', onScrollCompact, {passive:true});
 function fmt(date,tz){ return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}).format(date); }
 function clocks(){ const d=new Date(); $$('.clock-vcx').forEach(el=>el.textContent=fmt(d,'America/New_York')); const local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d); $$('.clock-local').forEach(el=>el.textContent=local); }
@@ -400,6 +410,123 @@ if(careersForm){
     setStatus(status,'success','Submitting application…');
   });
 }
+
+function injectHeroClouds(){
+  const heroVideo=$('.hero-video');
+  if(!heroVideo || heroVideo.querySelector('.hero-cloud-layer')) return;
+  const layer1=document.createElement('div');
+  layer1.className='hero-cloud-layer layer-1';
+  const layer2=document.createElement('div');
+  layer2.className='hero-cloud-layer layer-2';
+  heroVideo.appendChild(layer1);
+  heroVideo.appendChild(layer2);
+  const parallax=()=>{
+    const y=window.scrollY||0;
+    layer1.style.transform=`translate3d(${(-y*0.01).toFixed(2)}px, ${(y*0.03).toFixed(2)}px, 0)`;
+    layer2.style.transform=`translate3d(${(-y*0.005).toFixed(2)}px, ${(y*0.018).toFixed(2)}px, 0)`;
+  };
+  parallax();
+  window.addEventListener('scroll',parallax,{passive:true});
+}
+injectHeroClouds();
+
+function initClientMode(){
+  const form=$('#intakeForm');
+  if(!form) return;
+  const modeInput=form.querySelector('[name="client_type"]');
+  const companyField=form.querySelector('[name="company"]');
+  const serviceField=form.querySelector('[name="service_type"]');
+  const companyBlocks=$$('.company-only', form);
+  const buttons=$$('.client-mode-btn', form);
+  const attachment=form.querySelector('[name="attachment"]');
+  if(attachment) attachment.removeAttribute('required');
+
+  const setMode=(mode)=>{
+    if(modeInput) modeInput.value=mode;
+    buttons.forEach(btn=>btn.classList.toggle('active', btn.dataset.mode===mode));
+    companyBlocks.forEach(el=>el.classList.toggle('is-hidden', mode!=='company'));
+    if(companyField){
+      companyField.required = mode==='company';
+      if(mode!=='company') companyField.value='';
+    }
+    if(serviceField && mode==='individual'){
+      const opt=[...serviceField.options].find(o=>/Services for Individuals/i.test(o.value||o.textContent||''));
+      if(opt) serviceField.value=opt.value;
+    }
+  };
+
+  buttons.forEach(btn=>btn.addEventListener('click',()=>setMode(btn.dataset.mode)));
+  serviceField && serviceField.addEventListener('change',()=>{
+    const isIndividuals=/services for individuals/i.test(serviceField.value);
+    if(isIndividuals) setMode('individual');
+  });
+  setMode(modeInput && modeInput.value==='company' ? 'company' : 'individual');
+}
+initClientMode();
+
+function buildCookieBanner(){
+  if(document.querySelector('.cookie-banner')) return;
+  const saved=localStorage.getItem('vcx_cookie_consent');
+  if(saved) return applyConsent(saved);
+  const banner=document.createElement('section');
+  banner.className='cookie-banner';
+  banner.innerHTML=`<strong>Privacy & analytics settings</strong>
+    <p>We use essential cookies plus optional analytics and marketing trackers to understand visits, improve performance, and measure campaigns. Optional trackers load only after consent.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn primary" data-consent="all" type="button">Accept all</button>
+      <button class="cookie-btn" data-consent="analytics" type="button">Analytics only</button>
+      <button class="cookie-btn secondary" data-consent="essential" type="button">Essential only</button>
+    </div>
+    <div class="cookie-meta">Tracker-ready slots: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.</div>`;
+  document.body.appendChild(banner);
+  banner.querySelectorAll('[data-consent]').forEach(btn=>btn.addEventListener('click',()=>{
+    const consent=btn.dataset.consent;
+    localStorage.setItem('vcx_cookie_consent', consent);
+    banner.hidden=true;
+    applyConsent(consent);
+  }));
+}
+function loadScript(src){
+  if(!src || document.querySelector(`script[src="${src}"]`)) return;
+  const s=document.createElement('script');
+  s.src=src; s.async=true; document.head.appendChild(s);
+}
+function applyConsent(consent){
+  const ids=window.VCX_TRACKING_IDS||{};
+  window.dataLayer=window.dataLayer||[];
+  window.vcxConsent=consent;
+  if(consent==='essential') return;
+  if(ids.gtm){
+    window.dataLayer.push({'event':'consent_update','vcx_consent':consent});
+    const gtmSrc='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(ids.gtm);
+    loadScript(gtmSrc);
+  }
+  if(ids.ga4){
+    loadScript('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(ids.ga4));
+    window.gtag=window.gtag||function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', ids.ga4, {anonymize_ip:true});
+  }
+  if(ids.clarity){
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", ids.clarity);
+  }
+  if(ids.hotjarSiteId){
+    (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:ids.hotjarSiteId,hjsv:ids.hotjarVersion||6};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  }
+  if(consent==='all'){
+    if(ids.metaPixel){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', ids.metaPixel); fbq('track', 'PageView');
+    }
+    if(ids.linkedInPartner){
+      window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+      window._linkedin_data_partner_ids.push(ids.linkedInPartner);
+      loadScript('https://snap.licdn.com/li.lms-analytics/insight.min.js');
+    }
+  }
+}
+buildCookieBanner();
+
 const careersMobileBtn=$('#careersMobileModal a.btn');
 if(careersMobileBtn){
  careersMobileBtn.addEventListener('click',e=>{
