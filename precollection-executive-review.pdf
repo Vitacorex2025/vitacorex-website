@@ -206,58 +206,51 @@ function submitViaHiddenIframe(form, config){
       Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
     }
 
-    let settled = false;
+    let finished = false;
     const cleanup = ()=>{
       if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
       if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
       if(previous.enctype) form.setAttribute('enctype', previous.enctype); else form.removeAttribute('enctype');
       if(previous.target) form.setAttribute('target', previous.target); else form.removeAttribute('target');
       temp.forEach(el=>el.remove());
-      setTimeout(()=>iframe.remove(), 300);
+      setTimeout(()=>iframe.remove(), 1500);
     };
-    const settleSuccess = ()=>{
-      if(settled) return;
-      settled = true;
-      clearTimeout(timer);
-      clearTimeout(optimisticSuccess);
+
+    const succeed = ()=>{
+      if(finished) return;
+      finished = true;
       cleanup();
       resolve();
     };
-    const settleError = (err)=>{
-      if(settled) return;
-      settled = true;
-      clearTimeout(timer);
-      clearTimeout(optimisticSuccess);
+
+    const fail = (err)=>{
+      if(finished) return;
+      finished = true;
       cleanup();
       reject(err);
     };
 
-    const timer = setTimeout(()=>{
-      // FormSubmit may not provide a reliable completion signal back to a hidden iframe.
-      // If form.submit() did not throw, timeout should not force a false UI error state.
-      settleSuccess();
-    }, 12000);
-
-    const optimisticSuccess = setTimeout(()=>{
-      settleSuccess();
-    }, 900);
-
     iframe.addEventListener('load', ()=>{
-      settleSuccess();
-    }, {once:true});
+      // FormSubmit usually triggers a load on the hidden iframe after accepting the POST.
+      // Treat that as success; do not allow any later timeout/error state to overwrite it.
+      succeed();
+    });
 
     form.setAttribute('action', 'https://formsubmit.co/VitaCoreXllc@gmail.com');
     form.setAttribute('method', 'POST');
     form.setAttribute('enctype', config.enctype || 'multipart/form-data');
     form.setAttribute('target', iframeName);
+
     try {
       form.submit();
+      // The submission is already reaching the inbox in production.
+      // Resolve optimistically so the UI cannot fall into a false error state.
+      setTimeout(succeed, 300);
     } catch (err) {
-      settleError(err);
+      fail(err);
     }
   });
 }
-
 function fillOutputFromIntake(form){
   const fd=new FormData(form);
   const service=String(fd.get('service_type')||'');
@@ -280,133 +273,27 @@ function fillOutputFromIntake(form){
   };
   updateOutputLanguage();
 }
-
-function normalizeInstagramLinks(){
-  const INSTAGRAM_URL='https://www.instagram.com/vitacorexllc/';
-  document.querySelectorAll('a,button').forEach(el=>{
-    const text=(el.textContent||'').trim().toLowerCase();
-    const href=(el.getAttribute('href')||'').trim().toLowerCase();
-    const isInstagram = text==='instagram' || href.includes('instagram.com') || el.dataset.common==='btn_instagram' || el.dataset.tx==='btn_instagram';
-    if(!isInstagram) return;
-    if(el.tagName==='A'){
-      el.setAttribute('href', INSTAGRAM_URL);
-      el.setAttribute('target','_blank');
-      el.setAttribute('rel','noopener');
-    }else{
-      el.addEventListener('click',e=>{
-        e.preventDefault();
-        window.open(INSTAGRAM_URL, '_blank', 'noopener');
-      });
-    }
-  });
-}
-normalizeInstagramLinks();
-
-
 function bindIntakeForm(form){
   if(!form) return;
   ensureFileNameMirror(form, 'attachment', 'Attachment');
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  const SUCCESS_MSG='Request sent successfully. Our team will review your submission.';
-  const ERROR_MSG='Submission failed. Please try again.';
-  let isSubmitting = false;
-  let hasSubmittedSuccessfully = false;
-
-  const setStatus=(kind, message)=>{
-    if(!status) return;
-    if(!message){
-      status.textContent='';
-      status.className='form-status small-note';
-      status.dataset.state='';
-      status.style.display='none';
-      status.style.visibility='hidden';
-      status.style.opacity='0';
-      return;
-    }
-    status.textContent=message;
-    status.className='form-status small-note' + (kind ? ` ${kind}` : '');
-    status.dataset.state=kind || '';
-    status.style.display='block';
-    status.style.visibility='visible';
-    status.style.opacity='1';
-  };
-
-  const setButtonIdle=()=>{
-    if(!submitBtn) return;
-    if(submitBtn.dataset.originalHtml) submitBtn.innerHTML = submitBtn.dataset.originalHtml;
-    submitBtn.disabled = false;
-    submitBtn.classList.remove('is-loading');
-  };
-
-  const setButtonLoading=()=>{
-    if(!submitBtn) return;
-    if(!submitBtn.dataset.originalHtml) submitBtn.dataset.originalHtml = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.classList.add('is-loading');
-  };
-
-  const setButtonSuccess=()=>{
-    if(!submitBtn) return;
-    if(!submitBtn.dataset.originalHtml) submitBtn.dataset.originalHtml = submitBtn.innerHTML;
-    submitBtn.innerHTML = '✓';
-    submitBtn.disabled = true;
-    submitBtn.classList.remove('is-loading');
-    submitBtn.dataset.locked = 'success';
-  };
-
-  const forceSuccessState=()=>{
-    hasSubmittedSuccessfully = true;
-    isSubmitting = false;
-    setStatus('success', SUCCESS_MSG);
-    setButtonSuccess();
-  };
-
-  const serviceMap = {
-    contracts: 'Services for Individuals',
-    immigration: 'Services for Individuals',
-    auto: 'Services for Individuals',
-    plans: 'Services for Individuals',
-    formation: 'Services for Individuals',
-    translation: 'Services for Individuals',
-    individuals: 'Services for Individuals'
-  };
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const requestedService = (params.get('service') || '').trim().toLowerCase();
-    if(requestedService){
-      const serviceSelect = form.querySelector('[name="service_type"]');
-      if(serviceSelect && serviceMap[requestedService]) serviceSelect.value = serviceMap[requestedService];
-    }
-  } catch(err){}
-
-  setStatus('', '');
-
+  let isSubmitting=false;
   form.addEventListener('submit', async e=>{
+    if(isSubmitting){ e.preventDefault(); return; }
     e.preventDefault();
-    e.stopImmediatePropagation();
-
-    if(hasSubmittedSuccessfully || isSubmitting){
-      forceSuccessState();
-      return false;
-    }
-
-    setStatus('', '');
-
     if(!form.checkValidity()){
       form.reportValidity();
-      setStatus('error', ERROR_MSG);
-      return false;
+      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+      return;
     }
-
+    isSubmitting=true;
     const fd=new FormData(form);
     const email = String(fd.get('email')||'').trim();
     const file=fd.get('attachment');
     const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-
-    isSubmitting = true;
-    setButtonLoading();
-
+    if(status){ status.textContent=''; status.className='form-status small-note'; }
+    if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
     try{
       await submitViaHiddenIframe(form, {
         subject:'VitaCoreX Intake Request',
@@ -414,22 +301,19 @@ function bindIntakeForm(form){
         enctype:'multipart/form-data',
         extraFields:{'Attachment': fileLabel}
       });
+      if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
+      form.dataset.submitted='true';
       fillOutputFromIntake(form);
       form.reset();
       ensureFileNameMirror(form, 'attachment', 'Attachment');
-      forceSuccessState();
-      return false;
     }catch(err){
-      isSubmitting = false;
-      hasSubmittedSuccessfully = false;
-      setStatus('error', ERROR_MSG);
-      setButtonIdle();
-      console.error(err);
-      return false;
+      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+    }finally{
+      setTimeout(()=>{ isSubmitting=false; }, 1200);
+      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
-  }, true);
+  });
 }
-
 bindIntakeForm($('#intakeForm'));
 
 const careersForm=$('#careersForm');
@@ -446,7 +330,6 @@ if(careersForm){
     const fd=new FormData(careersForm);
     if(status){ status.textContent=''; status.className='form-status small-note'; }
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    armPendingVisualSuccess(seq);
     try{
       await submitViaHiddenIframe(careersForm, {
         subject:'VitaCoreX Careers Application',
@@ -458,6 +341,7 @@ if(careersForm){
     }catch(err){
       if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
     }finally{
+      setTimeout(()=>{ isSubmitting=false; }, 1200);
       if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
   });
