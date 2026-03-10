@@ -207,6 +207,7 @@ function submitViaHiddenIframe(form, config){
     }
 
     let done = false;
+    let submitted = false;
     const cleanup = ()=>{
       if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
       if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
@@ -220,7 +221,7 @@ function submitViaHiddenIframe(form, config){
       if(done) return;
       done = true;
       cleanup();
-      reject(new Error('submit_timeout'));
+      if(submitted) resolve(); else reject(new Error('submit_timeout'));
     }, 25000);
 
     const optimisticSuccess = setTimeout(()=>{
@@ -245,6 +246,7 @@ function submitViaHiddenIframe(form, config){
     form.setAttribute('enctype', config.enctype || 'multipart/form-data');
     form.setAttribute('target', iframeName);
     try {
+      submitted = true;
       form.submit();
     } catch (err) {
       if(done) return;
