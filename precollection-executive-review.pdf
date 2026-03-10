@@ -212,7 +212,28 @@ function submitViaHiddenIframe(form, config){
     throw new Error((data && (data.message || data.error)) || 'submit_failed');
   });
 }
-
+function fillOutputFromIntake(form){
+  const fd=new FormData(form);
+  const service=String(fd.get('service_type')||'');
+  const urgency=String(fd.get('urgency')||'Standard');
+  const serviceMap={
+    'Revenue Recovery Workflow Design':'recovery',
+    'Corporate Legal File Control':'file',
+    'Structured Case Intake & Packet Build':'intake',
+    'Executive Briefs / Proof Request':'intake',
+    'Services for Individuals':'intake',
+    'Other':'intake'
+  };
+  lastOutput={
+    service:serviceMap[service]||'intake',
+    fitKey: urgency==='Same day / urgent' ? 'urgency_high' : 'urgency_standard',
+    docsKey:'docs_partial',
+    windowText: urgency==='Same day / urgent' ? 'Same day' : urgency,
+    nextKey: urgency==='Same day / urgent' ? 'next_fast' : 'next_standard',
+    score: urgency==='Same day / urgent' ? 96 : 91
+  };
+  updateOutputLanguage();
+}
 function bindIntakeForm(form){
   if(!form) return;
   if(form.dataset.submitBound === '1') return;
@@ -263,12 +284,10 @@ function bindIntakeForm(form){
         enctype:'multipart/form-data',
         extraFields:{'Attachment': fileLabel}
       });
-
       if(status){
         status.textContent='Request sent successfully. Our team will review your submission.';
         status.className='form-status small-note success';
       }
-
       fillOutputFromIntake(form);
       form.reset();
       ensureFileNameMirror(form, 'attachment', 'Attachment');
@@ -279,7 +298,6 @@ function bindIntakeForm(form){
       }
     }finally{
       delete form.dataset.submitting;
-
       if(submitBtn){
         submitBtn.disabled=false;
         submitBtn.classList.remove('is-loading');
