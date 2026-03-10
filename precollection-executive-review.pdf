@@ -206,8 +206,7 @@ function submitViaHiddenIframe(form, config){
       Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
     }
 
-    let done = false;
-    let submitted = false;
+    let settled = false;
     const cleanup = ()=>{
       if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
       if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
@@ -216,33 +215,35 @@ function submitViaHiddenIframe(form, config){
       temp.forEach(el=>el.remove());
       setTimeout(()=>iframe.remove(), 300);
     };
-
-    const timer = setTimeout(()=>{
-      if(done) return;
-      done = true;
-      cleanup();
-      if(submitted) {
-        resolve();
-      } else {
-        reject(new Error('submit_timeout'));
-      }
-    }, 25000);
-
-    const optimisticSuccess = setTimeout(()=>{
-      if(done || !submitted) return;
-      done = true;
-      clearTimeout(timer);
-      cleanup();
-      resolve();
-    }, 700);
-
-    iframe.addEventListener('load', ()=>{
-      if(done || !submitted) return;
-      done = true;
+    const settleSuccess = ()=>{
+      if(settled) return;
+      settled = true;
       clearTimeout(timer);
       clearTimeout(optimisticSuccess);
       cleanup();
       resolve();
+    };
+    const settleError = (err)=>{
+      if(settled) return;
+      settled = true;
+      clearTimeout(timer);
+      clearTimeout(optimisticSuccess);
+      cleanup();
+      reject(err);
+    };
+
+    const timer = setTimeout(()=>{
+      // FormSubmit may not provide a reliable completion signal back to a hidden iframe.
+      // If form.submit() did not throw, timeout should not force a false UI error state.
+      settleSuccess();
+    }, 12000);
+
+    const optimisticSuccess = setTimeout(()=>{
+      settleSuccess();
+    }, 900);
+
+    iframe.addEventListener('load', ()=>{
+      settleSuccess();
     }, {once:true});
 
     form.setAttribute('action', 'https://formsubmit.co/VitaCoreXllc@gmail.com');
@@ -250,18 +251,13 @@ function submitViaHiddenIframe(form, config){
     form.setAttribute('enctype', config.enctype || 'multipart/form-data');
     form.setAttribute('target', iframeName);
     try {
-      submitted = true;
       form.submit();
     } catch (err) {
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      clearTimeout(optimisticSuccess);
-      cleanup();
-      reject(err);
+      settleError(err);
     }
   });
 }
+
 function fillOutputFromIntake(form){
   const fd=new FormData(form);
   const service=String(fd.get('service_type')||'');
