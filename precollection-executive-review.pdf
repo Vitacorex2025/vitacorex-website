@@ -285,20 +285,28 @@ function bindIntakeForm(form){
   ensureFileNameMirror(form, 'attachment', 'Attachment');
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
+  const SUCCESS_MSG='Request sent successfully. Our team will review your submission.';
+  const ERROR_MSG='Submission failed. Please try again.';
+  const showStatus=(kind, message)=>{
+    if(!status) return;
+    status.textContent = message || '';
+    status.className = 'form-status small-note' + (kind ? ` ${kind}` : '');
+    status.dataset.state = kind || '';
+  };
   form.addEventListener('submit', async e=>{
     e.preventDefault();
     if(!form.checkValidity()){
       form.reportValidity();
-      if(status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
+      showStatus('error', ERROR_MSG);
       return;
     }
     const fd=new FormData(form);
     const email = String(fd.get('email')||'').trim();
     const file=fd.get('attachment');
     const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-    if(status){ status.textContent=''; status.className='form-status small-note'; }
+    showStatus('', '');
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    let delivered = false;
+    let submitSucceeded = false;
     try{
       await submitViaHiddenIframe(form, {
         subject:'VitaCoreX Intake Request',
@@ -306,23 +314,26 @@ function bindIntakeForm(form){
         enctype:'multipart/form-data',
         extraFields:{'Attachment': fileLabel}
       });
-      delivered = true;
-      if(status){ status.textContent='Request sent successfully. Our team will review your submission.'; status.className='form-status small-note success'; }
-      try {
-        fillOutputFromIntake(form);
-        form.reset();
-        ensureFileNameMirror(form, 'attachment', 'Attachment');
-      } catch(postSubmitErr) {
-        console.error(postSubmitErr);
-      }
+      submitSucceeded = true;
+      fillOutputFromIntake(form);
+      form.reset();
+      ensureFileNameMirror(form, 'attachment', 'Attachment');
+      showStatus('success', SUCCESS_MSG);
+      setTimeout(()=>showStatus('success', SUCCESS_MSG), 120);
+      return;
     }catch(err){
-      if(!delivered && status){ status.textContent='Submission failed. Please try again.'; status.className='form-status small-note error'; }
-      if(!delivered){ console.error(err); }
+      if(submitSucceeded){
+        showStatus('success', SUCCESS_MSG);
+        return;
+      }
+      showStatus('error', ERROR_MSG);
+      console.error(err);
     }finally{
       if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
   });
 }
+
 bindIntakeForm($('#intakeForm'));
 
 const careersForm=$('#careersForm');
