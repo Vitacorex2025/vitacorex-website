@@ -1,0 +1,15 @@
+VitaCoreX fixed package
+
+Included in this build:
+- safer mobile menu behavior
+- translated form success/error states
+- gate modal now captures lead submissions before PDF open
+- duplicate file-input listener fix
+- improved translation attribute support
+- premium alignment / spacing / hover / focus polish in CSS
+- stronger homepage hero messaging for B2B + individuals
+
+Files changed:
+- assets/js/site.js
+- assets/css/styles.css
+- index.html
