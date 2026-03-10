@@ -226,6 +226,27 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   sync();
 }
 const FORM_ENDPOINT='https://formsubmit.co/VitaCoreXllc@gmail.com';
+function ensureHiddenField(form, name, value){
+  let el=form.querySelector(`input[name="${name}"]`);
+  if(!el){ el=document.createElement('input'); el.type='hidden'; el.name=name; form.appendChild(el); }
+  el.value=value;
+  return el;
+}
+function configureDirectFormSubmission(form, config){
+  form.setAttribute('action', FORM_ENDPOINT);
+  form.setAttribute('method', 'POST');
+  form.setAttribute('enctype', config.enctype || 'multipart/form-data');
+  form.setAttribute('accept-charset','UTF-8');
+  form.removeAttribute('target');
+  ensureHiddenField(form,'_captcha','false');
+  ensureHiddenField(form,'_template','table');
+  ensureHiddenField(form,'_subject', config.subject || 'VitaCoreX Website Submission');
+  ensureHiddenField(form,'_next','https://vitacorexllc.com/thank-you.html');
+  if(config.replyTo) ensureHiddenField(form,'_replyto', String(config.replyTo||'').trim());
+  ensureHiddenField(form,'Timestamp', new Date().toISOString());
+  ensureHiddenField(form,'Browser / Device', detectDevice());
+}
+
 function submitViaHiddenIframe(form, config){
   return new Promise((resolve,reject)=>{
     const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
@@ -339,35 +360,21 @@ function bindIntakeForm(form){
   ensureFileNameMirror(form, 'attachment', 'Attachment');
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', async e=>{
-    e.preventDefault();
+  form.addEventListener('submit', e=>{
     if(!form.checkValidity()){
+      e.preventDefault();
       form.reportValidity();
-      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
+      setStatus(status,'error',statusText('intake_validation','Please complete all fields before submitting.'));
       return;
     }
     const fd=new FormData(form);
-    const email = String(fd.get('email')||'').trim();
-    const file=fd.get('attachment');
-    const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
-    setStatus(status,'', '');
+    configureDirectFormSubmission(form, {
+      subject:'VitaCoreX Intake Request',
+      replyTo:String(fd.get('email')||'').trim(),
+      enctype:'multipart/form-data'
+    });
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    try{
-      await submitViaHiddenIframe(form, {
-        subject:'VitaCoreX Intake Request',
-        replyTo: email,
-        enctype:'multipart/form-data',
-        extraFields:{'Attachment': fileLabel}
-      });
-      setStatus(status,'success',statusText('intake_success','Request sent successfully. Our team will review your submission.'));
-      fillOutputFromIntake(form);
-      form.reset();
-      ensureFileNameMirror(form, 'attachment', 'Attachment');
-    }catch(err){
-      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
-    }finally{
-      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
-    }
+    setStatus(status,'success','Submitting request…');
   });
 }
 bindIntakeForm($('#intakeForm'));
@@ -376,29 +383,21 @@ const careersForm=$('#careersForm');
 if(careersForm){
   const status=$('#careersFormStatus');
   const submitBtn=$('#careersSubmitBtn') || careersForm.querySelector('button[type="submit"]');
-  careersForm.addEventListener('submit', async e=>{
-    e.preventDefault();
+  careersForm.addEventListener('submit', e=>{
     if(!careersForm.checkValidity()){
+      e.preventDefault();
       careersForm.reportValidity();
-      setStatus(status,'error',statusText('intake_failure','Submission failed. Please try again.'));
+      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
       return;
     }
     const fd=new FormData(careersForm);
-    setStatus(status,'', '');
+    configureDirectFormSubmission(careersForm, {
+      subject:'VitaCoreX Careers Application',
+      replyTo:String(fd.get('email')||'').trim(),
+      enctype:'multipart/form-data'
+    });
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    try{
-      await submitViaHiddenIframe(careersForm, {
-        subject:'VitaCoreX Careers Application',
-        replyTo: String(fd.get('email')||'').trim(),
-        enctype:'application/x-www-form-urlencoded'
-      });
-      setStatus(status,'success',statusText('careers_success','Application sent successfully. We will review your information.'));
-      careersForm.reset();
-    }catch(err){
-      setStatus(status,'error',statusText('intake_failure','Submission failed. Please try again.'));
-    }finally{
-      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
-    }
+    setStatus(status,'success','Submitting application…');
   });
 }
 const careersMobileBtn=$('#careersMobileModal a.btn');
@@ -411,3 +410,24 @@ if(careersMobileBtn){
  });
 }
 })();
+
+function initVcxCharts(){
+  const hasRecovery=document.getElementById('recoveryChart');
+  const hasVelocity=document.getElementById('velocityChart');
+  if(!hasRecovery && !hasVelocity) return;
+  const draw=()=>{
+    if(!window.Chart) return;
+    const rc=document.getElementById('recoveryChart');
+    if(rc && !rc.dataset.ready){
+      rc.dataset.ready='1';
+      new Chart(rc.getContext('2d'),{type:'line',data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}});
+    }
+    const vc=document.getElementById('velocityChart');
+    if(vc && !vc.dataset.ready){
+      vc.dataset.ready='1';
+      new Chart(vc.getContext('2d'),{type:'bar',data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+    }
+  };
+  if(window.Chart) draw();
+}
+initVcxCharts();
