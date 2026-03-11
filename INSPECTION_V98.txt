@@ -1,0 +1,6 @@
+V98 PREMIUM STABLE BUILD
+- Simplified mobile header to brand + menu to eliminate overlap risk.
+- Moved language buttons into the mobile menu.
+- Added immediate clock rendering fallback.
+- Refined desktop nav and desktop dock glass treatment.
+- Preserved page-level calculator fallbacks.

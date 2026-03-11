@@ -1,0 +1,7 @@
+V97 FULL RECHECK
+- Rechecked homepage, corporate legal, and revenue recovery files.
+- Removed duplicate legacy legal sections from corporate legal page.
+- Added page-level fallback calculators to homepage, legal page, and recovery page.
+- Increased mobile header spacing and strengthened hide-on-scroll.
+- Refined desktop dock color/transparency to match iPhone style more closely.
+- Reduced desktop headings and strengthened contrast on dark premium module.
