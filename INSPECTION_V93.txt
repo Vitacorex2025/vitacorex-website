@@ -1,0 +1,7 @@
+V93 RECHECK
+- Mobile header height increased and body offset increased to prevent overlap with hero.
+- Mobile header hide adjusted to explicit fixed translation.
+- Desktop header rebuilt to a cleaner 3-column layout.
+- Desktop dock now uses the same translucent/glass treatment style as mobile.
+- Added explicit legalFiles estimator recalc.
+- Existing global recalculation bridge preserved and extended.

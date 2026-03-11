@@ -1617,3 +1617,92 @@ setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 400);
   document.addEventListener('visibilitychange', queueUpdate);
   setTimeout(queueUpdate, 120);
 })();
+
+
+/* v93 explicit legal exposure + stronger mobile header behavior */
+window.VCX_RECALC_ALL = window.VCX_RECALC_ALL || function(){};
+
+(function(prev){
+  window.VCX_RECALC_ALL = function(){
+    try{ if(typeof prev === 'function') prev(); }catch(e){}
+
+    try{
+      const files = document.getElementById('legalFiles');
+      if(files){
+        const f = Math.max(0, +((document.getElementById('legalFiles')||{}).value || 0));
+        const r = Math.max(0, +((document.getElementById('legalRate')||{}).value || 0));
+        const h = Math.max(0, +((document.getElementById('legalHours')||{}).value || 0));
+        const exposure = f * r * h;
+        const hours = f * h;
+        const out = document.getElementById('legalExposure');
+        const hrs = document.getElementById('legalExposureHours');
+        const result = document.getElementById('legalResult');
+        if(out) out.textContent = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(exposure);
+        if(hrs) hrs.textContent = `${hours.toLocaleString(undefined,{maximumFractionDigits:0})} hrs`;
+        if(result){
+          result.innerHTML = `<strong>Illustrative exposure</strong><p>${hours.toLocaleString(undefined,{maximumFractionDigits:0})} attorney cleanup hours can translate into ${new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(exposure)} before strategic legal work even starts.</p>`;
+        }
+      }
+    }catch(e){}
+
+    try{
+      const rc = document.getElementById('recoveryChart');
+      const vc = document.getElementById('velocityChart');
+      if(rc || vc){
+        setTimeout(()=>{ try{ typeof initVcxCharts === 'function' && initVcxCharts(); }catch(e){} }, 50);
+      }
+    }catch(e){}
+  };
+})(window.VCX_RECALC_ALL);
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  ['legalFiles','legalRate','legalHours','leakRevenue','leakResponsibility','leakLeakage','dsoRevenue','dsoCurrent','dsoTarget','roiPortfolio','roiImprove','roiCost'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && !el.dataset.vcxBound){
+      el.dataset.vcxBound='1';
+      ['input','change','keyup'].forEach(evt=>el.addEventListener(evt, ()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()));
+    }
+  });
+  ['diagEvaluate','liEvaluate','legalCalc'].forEach(id=>{
+    const btn=document.getElementById(id);
+    if(btn && !btn.dataset.vcxBound){
+      btn.dataset.vcxBound='1';
+      btn.addEventListener('click', ()=>setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 10));
+    }
+  });
+  setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 120);
+  setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 500);
+});
+
+/* stronger touch-driven hide/show for iPhone safari */
+(function(){
+  const header=document.querySelector('.site-header');
+  if(!header) return;
+  let lastY=window.scrollY||0;
+  let hideTick=0;
+  function mobile(){ return window.innerWidth <= 900; }
+  function updateHeader(force=false){
+    if(!mobile()){
+      header.classList.remove('header-hidden','header-hidden-ios');
+      return;
+    }
+    const y=window.scrollY||window.pageYOffset||0;
+    const down = y > lastY;
+    const delta = Math.abs(y-lastY);
+    if((down && y > 110 && delta > 3) || (force && y>110)){
+      header.classList.add('header-hidden');
+      header.classList.add('header-hidden-ios');
+    } else if((!down && delta > 2) || y < 70){
+      header.classList.remove('header-hidden');
+      header.classList.remove('header-hidden-ios');
+    }
+    lastY = y;
+  }
+  window.addEventListener('scroll', ()=>updateHeader(false), {passive:true});
+  window.addEventListener('touchmove', ()=>{
+    clearTimeout(hideTick);
+    hideTick=setTimeout(()=>updateHeader(false), 0);
+  }, {passive:true});
+  window.addEventListener('touchend', ()=>updateHeader(false), {passive:true});
+  window.addEventListener('resize', ()=>updateHeader(true), {passive:true});
+})();

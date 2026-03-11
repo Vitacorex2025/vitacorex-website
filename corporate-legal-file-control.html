@@ -163,7 +163,7 @@
         <h3>Attorney cleanup exposure</h3>
         <div class="mini-form">
           <label>Number of active files
-            <input id="legalFiles" type="number" min="0" step="1" value="180" />
+            <input id="legalFiles" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" min="0" step="1" value="180" />
           </label>
           <label>Attorney hourly rate
             <input id="legalRate" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" min="0" step="25" value="400" />
@@ -171,7 +171,7 @@
           <label>Cleanup hours per file
             <input id="legalHours" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" min="0" step="0.5" value="2.5" />
           </label>
-          <button class="btn btn-primary" id="legalCalc" type="button">Estimate cost exposure</button>
+          <button class="btn btn-primary" id="legalCalc" onclick="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="button">Estimate cost exposure</button>
         </div>
       </article>
       <article class="engine-card glass reveal">
