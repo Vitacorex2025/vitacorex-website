@@ -101,21 +101,5 @@
 </a>
 </div>
 </div>
-<script>
-(function(){
-  var header=document.querySelector('.site-header');
-  if(!header) return;
-  var lastY=window.scrollY||0;
-  function update(){
-    if(window.innerWidth>900){ header.style.transform='translateX(-50%)'; return; }
-    var y=window.scrollY||0;
-    if(y>120 && y>lastY+3){ header.style.transform='translate(-50%,-132%)'; header.style.opacity='0'; header.style.pointerEvents='none'; }
-    else if(y<80 || y<lastY-6){ header.style.transform='translateX(-50%)'; header.style.opacity='1'; header.style.pointerEvents='auto'; }
-    lastY=y;
-  }
-  window.addEventListener('scroll', update, {passive:true});
-  window.addEventListener('touchmove', update, {passive:true});
-  window.addEventListener('load', update);
-})();
-</script>
+
 </body></html>

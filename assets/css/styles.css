@@ -5166,3 +5166,557 @@ h2,
     transition:none !important;
   }
 }
+
+
+
+/* v102 responsive structure restore */
+html,body{
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+body{
+  overflow-y:visible !important;
+  overscroll-behavior-y:auto !important;
+  padding-bottom:132px !important;
+}
+.site-header,
+.site-header *{
+  box-sizing:border-box;
+}
+.site-header{
+  position:sticky !important;
+  top:10px !important;
+  left:auto !important;
+  right:auto !important;
+  transform:none !important;
+  width:min(1280px,calc(100% - 28px)) !important;
+  margin:0 auto !important;
+  border-radius:26px !important;
+  border:1px solid rgba(255,255,255,.78) !important;
+  background:
+    linear-gradient(180deg,rgba(252,254,255,.78),rgba(241,246,251,.64)) !important;
+  box-shadow:0 20px 44px rgba(7,22,42,.10), inset 0 1px 0 rgba(255,255,255,.62) !important;
+  backdrop-filter:blur(22px) saturate(150%) !important;
+  -webkit-backdrop-filter:blur(22px) saturate(150%) !important;
+  overflow:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+.site-header .wrap{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:10px !important;
+  padding:0 18px !important;
+}
+.header-shell{
+  display:grid !important;
+  grid-template-columns:minmax(0,auto) minmax(0,1fr) auto !important;
+  align-items:center !important;
+  gap:14px !important;
+  min-height:auto !important;
+  padding:10px 0 8px !important;
+  position:relative !important;
+}
+.brand,
+.brand-title,
+.header-tools,
+.clock-stack,
+.main-nav,
+.mobile-nav,
+.vcx-universal-dock,
+.vcx-dock-row,
+.vcx-dock-action,
+.vcx-icon-app{
+  min-width:0 !important;
+}
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:11px !important;
+  max-width:100% !important;
+  text-decoration:none !important;
+  overflow:hidden !important;
+}
+.brand img{
+  width:42px !important;
+  height:42px !important;
+  border-radius:14px !important;
+  flex:0 0 auto !important;
+}
+.brand-title{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  gap:2px !important;
+  min-width:0 !important;
+}
+.brand-title strong{
+  display:block !important;
+  font-size:1rem !important;
+  line-height:1.02 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.brand-title span{
+  display:block !important;
+  font-size:.74rem !important;
+  line-height:1.12 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.header-order{
+  justify-self:center !important;
+  min-height:42px !important;
+  padding:0 16px !important;
+  border-radius:16px !important;
+  white-space:nowrap !important;
+}
+.header-tools{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  overflow:hidden !important;
+}
+.clock-stack{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,auto)) !important;
+  align-items:center !important;
+  justify-content:end !important;
+  gap:8px !important;
+  width:auto !important;
+}
+.clock-card{
+  min-width:94px !important;
+  padding:8px 10px !important;
+  border-radius:15px !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.50),rgba(255,255,255,.26)) !important;
+  border:1px solid rgba(255,255,255,.66) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
+.clock-label{
+  display:flex !important;
+  align-items:center !important;
+  gap:4px !important;
+  min-width:0 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  font-size:.63rem !important;
+  line-height:1.05 !important;
+  letter-spacing:.07em !important;
+}
+.clock-label > span{
+  white-space:nowrap !important;
+}
+.clock-sub{
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.clock-time{
+  font-size:1rem !important;
+  line-height:1.05 !important;
+  margin-top:3px !important;
+}
+.lang-row{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:5px !important;
+  padding:4px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.42) !important;
+  border:1px solid rgba(255,255,255,.74) !important;
+}
+.lang-btn{
+  min-width:34px !important;
+  min-height:32px !important;
+  padding:6px 8px !important;
+  font-size:.76rem !important;
+}
+.main-nav{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex-wrap:nowrap !important;
+  gap:6px !important;
+  padding:0 0 10px !important;
+  overflow:auto hidden !important;
+  scrollbar-width:none !important;
+  border-top:1px solid rgba(255,255,255,.28) !important;
+}
+.main-nav::-webkit-scrollbar{
+  display:none !important;
+}
+.main-nav a{
+  flex:0 0 auto !important;
+  padding:8px 12px !important;
+  font-size:.84rem !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border-radius:999px !important;
+}
+.mobile-nav{
+  display:none !important;
+}
+.menu-btn{
+  display:none !important;
+}
+h1{
+  font-size:clamp(2rem,3.1vw,3rem) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+  max-width:15ch !important;
+}
+h2{
+  font-size:clamp(1.4rem,2.2vw,2.1rem) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.03em !important;
+  max-width:18ch !important;
+}
+.hero-inner{
+  padding-top:28px !important;
+}
+.hero-copy{
+  padding:24px !important;
+}
+
+/* Dock: desktop clean single row */
+.vcx-universal-dock{
+  position:fixed !important;
+  left:50% !important;
+  right:auto !important;
+  bottom:10px !important;
+  transform:translateX(-50%) !important;
+  width:min(1180px,calc(100vw - 28px)) !important;
+  max-width:1180px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  padding:10px 12px !important;
+  border-radius:24px !important;
+  background:linear-gradient(180deg,rgba(250,252,255,.76),rgba(239,245,250,.58)) !important;
+  border:1px solid rgba(255,255,255,.84) !important;
+  box-shadow:0 18px 42px rgba(7,22,42,.12), inset 0 1px 0 rgba(255,255,255,.58) !important;
+  backdrop-filter:blur(24px) saturate(150%) !important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%) !important;
+}
+.vcx-dock-row,
+.vcx-dock-row-top,
+.vcx-dock-row-bottom{
+  display:contents !important;
+}
+.vcx-dock-pilot,
+.vcx-dock-action,
+.vcx-icon-app{
+  margin:0 !important;
+  min-width:0 !important;
+}
+.vcx-dock-pilot{
+  flex:0 0 auto !important;
+  min-width:146px !important;
+  min-height:46px !important;
+  padding:0 16px !important;
+  border-radius:16px !important;
+  box-shadow:0 14px 28px rgba(22,54,86,.20), inset 0 1px 0 rgba(255,255,255,.24) !important;
+}
+.vcx-dock-action,
+.vcx-icon-app{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:4px !important;
+  padding:4px 5px !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  text-decoration:none !important;
+  color:inherit !important;
+}
+.vcx-circle-link,
+.vcx-icon-wrap{
+  width:44px !important;
+  height:44px !important;
+  border-radius:15px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.80),rgba(238,245,251,.44)),
+    radial-gradient(circle at top left, rgba(255,255,255,.96), transparent 55%) !important;
+  border:1px solid rgba(255,255,255,.88) !important;
+  box-shadow:0 10px 24px rgba(7,22,42,.08), inset 0 1px 0 rgba(255,255,255,.96) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+  color:#183556 !important;
+}
+.vcx-circle-link svg,
+.vcx-icon-wrap svg,
+.vcx-icon-app svg{
+  width:20px !important;
+  height:20px !important;
+}
+.vcx-dock-label{
+  display:block !important;
+  max-width:72px !important;
+  font-size:9px !important;
+  line-height:1.08 !important;
+  text-align:center !important;
+  color:#324a62 !important;
+  font-weight:650 !important;
+  white-space:normal !important;
+}
+@media (hover:hover) and (pointer:fine){
+  .vcx-dock-action,
+  .vcx-icon-app,
+  .vcx-circle-link,
+  .vcx-icon-wrap,
+  .vcx-dock-pilot{
+    transition:transform .22s ease, box-shadow .22s ease, filter .22s ease !important;
+  }
+  .vcx-dock-action:hover,
+  .vcx-icon-app:hover{
+    transform:translateY(-1px) scale(1.01) !important;
+  }
+  .vcx-dock-action:hover .vcx-circle-link,
+  .vcx-icon-app:hover .vcx-icon-wrap,
+  .vcx-dock-pilot:hover{
+    transform:translateY(-2px) scale(1.03) !important;
+    box-shadow:0 16px 30px rgba(7,22,42,.14), inset 0 1px 0 rgba(255,255,255,.98) !important;
+    filter:brightness(1.03) !important;
+  }
+}
+
+@media (max-width:1180px){
+  .header-order{
+    display:none !important;
+  }
+  .main-nav a{
+    padding:8px 10px !important;
+    font-size:.8rem !important;
+  }
+  .clock-card{
+    min-width:86px !important;
+  }
+}
+
+@media (max-width:900px){
+  body{
+    padding-top:152px !important;
+    padding-bottom:146px !important;
+  }
+  .site-header{
+    position:fixed !important;
+    top:8px !important;
+    width:calc(100% - 16px) !important;
+    max-width:720px !important;
+    border-radius:24px !important;
+    overflow:hidden !important;
+  }
+  .site-header .wrap{
+    padding:0 12px !important;
+    gap:8px !important;
+  }
+  .header-shell{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:10px !important;
+    padding:10px 0 8px !important;
+    align-items:start !important;
+  }
+  .brand{
+    grid-column:1 / 2 !important;
+    gap:10px !important;
+    max-width:100% !important;
+  }
+  .brand img{
+    width:40px !important;
+    height:40px !important;
+    border-radius:13px !important;
+  }
+  .brand-title strong{
+    font-size:.96rem !important;
+  }
+  .brand-title span{
+    font-size:.72rem !important;
+  }
+  .menu-btn{
+    display:grid !important;
+    place-items:center !important;
+    width:40px !important;
+    height:40px !important;
+    border-radius:14px !important;
+    position:static !important;
+    margin-top:1px !important;
+    background:rgba(255,255,255,.82) !important;
+  }
+  .header-order,
+  .main-nav{
+    display:none !important;
+  }
+  .header-tools{
+    grid-column:1 / -1 !important;
+    display:block !important;
+    width:100% !important;
+    margin-top:4px !important;
+  }
+  .clock-stack{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important;
+    gap:6px !important;
+    justify-content:stretch !important;
+    width:100% !important;
+  }
+  .clock-card{
+    min-width:0 !important;
+    padding:8px 9px !important;
+    border-radius:14px !important;
+  }
+  .clock-label{
+    font-size:.58rem !important;
+    line-height:1.04 !important;
+  }
+  .clock-sub{
+    font-size:.58rem !important;
+  }
+  .clock-time{
+    font-size:.86rem !important;
+    line-height:1.03 !important;
+  }
+  .lang-row{
+    align-self:center !important;
+    gap:4px !important;
+    padding:4px !important;
+  }
+  .lang-btn{
+    min-width:32px !important;
+    min-height:30px !important;
+    padding:5px 7px !important;
+    font-size:.74rem !important;
+  }
+  .mobile-nav{
+    display:none !important;
+    gap:8px !important;
+    padding:0 0 12px !important;
+  }
+  .mobile-nav.open{
+    display:grid !important;
+  }
+  .mobile-nav a{
+    padding:11px 12px !important;
+    border-radius:14px !important;
+    background:rgba(255,255,255,.84) !important;
+  }
+  h1{
+    font-size:clamp(1.72rem,7vw,2.35rem) !important;
+    max-width:13ch !important;
+  }
+  h2{
+    font-size:clamp(1.18rem,5vw,1.58rem) !important;
+    max-width:19ch !important;
+  }
+  .hero-inner{
+    padding-top:10px !important;
+  }
+  .hero-copy{
+    padding:18px !important;
+  }
+
+  .vcx-universal-dock{
+    width:calc(100vw - 16px) !important;
+    max-width:520px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:8px !important;
+    padding:8px !important;
+    border-radius:22px !important;
+    bottom:8px !important;
+  }
+  .vcx-dock-row-top{
+    display:grid !important;
+    grid-template-columns:minmax(108px,1fr) repeat(5,minmax(0,44px)) !important;
+    align-items:start !important;
+    gap:6px !important;
+  }
+  .vcx-dock-row-bottom{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:6px !important;
+  }
+  .vcx-dock-pilot{
+    min-width:0 !important;
+    min-height:44px !important;
+    padding:0 12px !important;
+    font-size:.95rem !important;
+    border-radius:16px !important;
+  }
+  .vcx-dock-action,
+  .vcx-icon-app{
+    min-width:0 !important;
+    width:auto !important;
+    justify-content:flex-start !important;
+    padding:4px 2px 2px !important;
+    gap:4px !important;
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:42px !important;
+    height:42px !important;
+    border-radius:14px !important;
+    margin-inline:auto !important;
+  }
+  .vcx-dock-label{
+    max-width:100% !important;
+    font-size:8px !important;
+    line-height:1.04 !important;
+  }
+}
+
+@media (max-width:520px){
+  body{
+    padding-top:156px !important;
+    padding-bottom:142px !important;
+  }
+  .site-header .wrap{
+    padding:0 10px !important;
+  }
+  .header-shell{
+    gap:8px !important;
+  }
+  .brand-title span{
+    display:none !important;
+  }
+  .clock-stack{
+    grid-template-columns:minmax(72px,1fr) auto minmax(72px,1fr) !important;
+    gap:5px !important;
+  }
+  .clock-card{
+    padding:7px 8px !important;
+  }
+  .clock-label,
+  .clock-sub{
+    font-size:.55rem !important;
+  }
+  .clock-time{
+    font-size:.82rem !important;
+  }
+  .vcx-dock-row-top{
+    grid-template-columns:minmax(100px,1fr) repeat(5,minmax(0,40px)) !important;
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:40px !important;
+    height:40px !important;
+  }
+  .vcx-dock-pilot{
+    font-size:.9rem !important;
+    min-height:40px !important;
+  }
+  .vcx-dock-label{
+    font-size:8px !important;
+  }
+}
