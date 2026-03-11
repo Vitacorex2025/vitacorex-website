@@ -3152,3 +3152,799 @@ body{
     border-color:rgba(255,255,255,.18) !important;
   }
 }
+
+
+
+/* === FINAL STABILITY OVERRIDES: header + dock cleanup === */
+html,body{
+  overflow-x:hidden !important;
+}
+body{
+  padding-bottom:34px !important;
+}
+
+/* Desktop / large tablet */
+@media (min-width: 901px){
+  body{
+    padding-top:0 !important;
+    padding-bottom:34px !important;
+  }
+  .site-header{
+    position:sticky !important;
+    top:12px !important;
+    left:auto !important;
+    right:auto !important;
+    transform:none !important;
+    -webkit-transform:none !important;
+    width:min(1240px, calc(100% - 28px)) !important;
+    max-width:1240px !important;
+    margin:0 auto 14px !important;
+    border-radius:30px !important;
+    overflow:visible !important;
+    z-index:90 !important;
+  }
+  .site-header.header-hidden,
+  .site-header.header-hidden-ios{
+    transform:none !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+  .site-header .wrap{
+    max-width:none !important;
+    padding:0 18px !important;
+  }
+  .header-shell{
+    display:grid !important;
+    grid-template-columns:minmax(220px,auto) 1fr auto !important;
+    align-items:center !important;
+    gap:18px !important;
+    min-height:78px !important;
+    padding:10px 0 !important;
+  }
+  .brand{
+    position:static !important;
+    width:auto !important;
+    max-width:none !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    text-align:left !important;
+    gap:12px !important;
+    padding:0 !important;
+  }
+  .brand-title{
+    align-items:flex-start !important;
+    text-align:left !important;
+  }
+  .brand-title span{
+    display:block !important;
+  }
+  .main-nav{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    margin:0 !important;
+    padding:0 !important;
+    width:100% !important;
+  }
+  .main-nav a{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    max-width:100% !important;
+  }
+  .mobile-nav,
+  .menu-btn{
+    display:none !important;
+  }
+  .header-tools{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    width:auto !important;
+    position:static !important;
+  }
+  .clock-stack{
+    width:auto !important;
+    align-items:flex-end !important;
+    gap:8px !important;
+  }
+  .clock-widget{
+    min-width:248px !important;
+    max-width:none !important;
+    width:auto !important;
+  }
+  .lang-row{
+    justify-content:flex-end !important;
+    width:auto !important;
+  }
+  .vcx-universal-dock{
+    display:none !important;
+  }
+}
+
+/* Tablet / mobile */
+@media (max-width: 900px){
+  body{
+    padding-top:170px !important;
+    padding-bottom:138px !important;
+  }
+  .site-header{
+    position:fixed !important;
+    top:8px !important;
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    -webkit-transform:translateX(-50%) !important;
+    width:calc(100% - 16px) !important;
+    max-width:720px !important;
+    margin:0 !important;
+    border-radius:28px !important;
+    overflow:hidden !important;
+    z-index:95 !important;
+  }
+  .site-header .wrap{
+    padding:0 14px !important;
+  }
+  .header-shell{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:10px !important;
+    align-items:start !important;
+    min-height:124px !important;
+    padding:12px 0 56px !important;
+    position:relative !important;
+  }
+  .brand{
+    grid-column:1 / 2 !important;
+    align-self:start !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    text-align:left !important;
+    gap:10px !important;
+    padding:0 !important;
+    max-width:calc(100% - 12px) !important;
+  }
+  .brand img{
+    width:44px !important;
+    height:44px !important;
+    border-radius:14px !important;
+  }
+  .brand-title{
+    align-items:flex-start !important;
+    text-align:left !important;
+  }
+  .brand-title strong{
+    font-size:1rem !important;
+    line-height:1.06 !important;
+  }
+  .brand-title span{
+    display:block !important;
+    font-size:.75rem !important;
+  }
+  .header-tools{
+    grid-column:1 / -1 !important;
+    position:absolute !important;
+    left:0 !important;
+    right:54px !important;
+    bottom:10px !important;
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:flex-end !important;
+    gap:10px !important;
+  }
+  .clock-stack{
+    width:min(62vw,260px) !important;
+    align-items:flex-start !important;
+    gap:8px !important;
+  }
+  .clock-widget{
+    width:100% !important;
+    min-width:0 !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    padding:8px !important;
+  }
+  .clock-card{
+    min-width:0 !important;
+  }
+  .clock-label{
+    font-size:.62rem !important;
+  }
+  .clock-time{
+    font-size:1rem !important;
+  }
+  .lang-row{
+    width:auto !important;
+    justify-content:flex-end !important;
+    align-self:flex-end !important;
+    gap:6px !important;
+  }
+  .lang-btn{
+    min-width:38px !important;
+    padding:7px 10px !important;
+    font-size:.8rem !important;
+  }
+  .menu-btn{
+    display:grid !important;
+    place-items:center !important;
+    position:absolute !important;
+    top:10px !important;
+    right:0 !important;
+    width:42px !important;
+    height:42px !important;
+    z-index:2 !important;
+  }
+  .main-nav{
+    display:none !important;
+  }
+  .mobile-nav{
+    display:none !important;
+    grid-column:1 / -1 !important;
+    gap:8px !important;
+    padding:0 0 12px !important;
+  }
+  .mobile-nav.open{
+    display:grid !important;
+  }
+  .vcx-universal-dock{
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    width:min(94vw,560px) !important;
+    bottom:8px !important;
+    padding:8px !important;
+    border-radius:24px !important;
+  }
+  .vcx-dock-row-top{
+    display:grid !important;
+    grid-template-columns:minmax(112px,1fr) repeat(4,44px) !important;
+    align-items:start !important;
+    gap:8px !important;
+  }
+  .vcx-dock-pilot{
+    min-height:44px !important;
+    border-radius:16px !important;
+    padding:0 12px !important;
+    font-size:.92rem !important;
+  }
+  .vcx-dock-action{
+    gap:4px !important;
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:44px !important;
+    height:44px !important;
+    border-radius:14px !important;
+  }
+  .vcx-dock-row-bottom{
+    display:grid !important;
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:8px !important;
+    margin-top:8px !important;
+  }
+  .vcx-icon-app{
+    min-width:0 !important;
+    height:auto !important;
+    padding:8px 4px 4px !important;
+    border-radius:16px !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    gap:4px !important;
+  }
+  .vcx-dock-label{
+    font-size:9px !important;
+    line-height:1.05 !important;
+    max-width:68px !important;
+  }
+}
+
+@media (max-width: 520px){
+  body{
+    padding-top:182px !important;
+    padding-bottom:146px !important;
+  }
+  .header-shell{
+    min-height:132px !important;
+    padding-bottom:58px !important;
+  }
+  .header-tools{
+    right:50px !important;
+    bottom:10px !important;
+  }
+  .clock-stack{
+    width:min(60vw,210px) !important;
+  }
+  .clock-widget{
+    grid-template-columns:1fr !important;
+  }
+  .lang-row{
+    gap:5px !important;
+  }
+  .vcx-dock-row-top{
+    grid-template-columns:minmax(102px,1fr) repeat(4,40px) !important;
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:40px !important;
+    height:40px !important;
+  }
+}
+
+
+/* v99 surgical desktop/mobile header + dock normalization */
+html,body{
+  overflow-x:hidden !important;
+}
+
+@media (min-width:901px){
+  body{
+    padding-top:0 !important;
+    padding-bottom:102px !important;
+  }
+
+  .site-header{
+    position:sticky !important;
+    top:10px !important;
+    left:auto !important;
+    right:auto !important;
+    transform:none !important;
+    -webkit-transform:none !important;
+    width:min(1220px, calc(100% - 28px)) !important;
+    max-width:1220px !important;
+    margin:0 auto 8px !important;
+    border-radius:26px !important;
+    overflow:visible !important;
+    z-index:96 !important;
+    background:linear-gradient(180deg,rgba(250,252,255,.78),rgba(240,246,251,.60)) !important;
+    border:1px solid rgba(255,255,255,.84) !important;
+    box-shadow:0 18px 46px rgba(7,22,42,.12), inset 0 1px 0 rgba(255,255,255,.58) !important;
+    backdrop-filter:blur(22px) saturate(150%) !important;
+    -webkit-backdrop-filter:blur(22px) saturate(150%) !important;
+  }
+
+  .site-header.header-hidden,
+  .site-header.header-hidden-ios{
+    transform:none !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+
+  .site-header .wrap{
+    display:grid !important;
+    grid-template-columns:auto minmax(0,1fr) auto auto !important;
+    align-items:center !important;
+    column-gap:14px !important;
+    row-gap:0 !important;
+    padding:10px 16px !important;
+    max-width:none !important;
+  }
+
+  .header-shell{
+    display:contents !important;
+  }
+
+  .brand{
+    grid-column:1 !important;
+    min-width:0 !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+
+  .brand img{
+    width:44px !important;
+    height:44px !important;
+    border-radius:15px !important;
+  }
+
+  .brand-title{
+    gap:1px !important;
+    min-width:0 !important;
+  }
+
+  .brand-title strong{
+    font-size:.98rem !important;
+    line-height:1.02 !important;
+  }
+
+  .brand-title span{
+    display:block !important;
+    font-size:.74rem !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+  }
+
+  .main-nav{
+    grid-column:2 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-wrap:nowrap !important;
+    min-width:0 !important;
+    gap:6px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+  }
+
+  .main-nav a{
+    padding:9px 11px !important;
+    font-size:.84rem !important;
+    line-height:1 !important;
+    border-radius:999px !important;
+  }
+
+  .header-order{
+    grid-column:3 !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:150px !important;
+    height:42px !important;
+    padding:0 16px !important;
+    margin:0 !important;
+    border-radius:999px !important;
+    white-space:nowrap !important;
+  }
+
+  .header-tools{
+    grid-column:4 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:10px !important;
+    position:static !important;
+    width:auto !important;
+  }
+
+  .clock-stack{
+    display:grid !important;
+    grid-template-columns:minmax(90px,auto) auto minmax(90px,auto) !important;
+    align-items:center !important;
+    gap:6px !important;
+    margin-left:0 !important;
+    width:auto !important;
+  }
+
+  .clock-card{
+    min-width:0 !important;
+    padding:8px 10px !important;
+    border-radius:16px !important;
+    background:linear-gradient(180deg,rgba(255,255,255,.48),rgba(255,255,255,.28)) !important;
+    border:1px solid rgba(255,255,255,.80) !important;
+    box-shadow:0 10px 24px rgba(7,22,42,.08) !important;
+  }
+
+  .clock-label,
+  .clock-sub{
+    font-size:.61rem !important;
+    line-height:1.05 !important;
+    letter-spacing:.06em !important;
+  }
+
+  .clock-time{
+    font-size:.94rem !important;
+    line-height:1.05 !important;
+    margin-top:2px !important;
+  }
+
+  .lang-row{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    padding:4px !important;
+    border-radius:999px !important;
+    background:rgba(255,255,255,.42) !important;
+    border:1px solid rgba(255,255,255,.82) !important;
+    width:auto !important;
+  }
+
+  .lang-btn{
+    min-width:34px !important;
+    padding:6px 9px !important;
+    font-size:.74rem !important;
+    line-height:1 !important;
+  }
+
+  .menu-btn,
+  .mobile-nav{
+    display:none !important;
+  }
+
+  .hero{
+    padding-top:18px !important;
+  }
+
+  .hero-inner{
+    padding-top:14px !important;
+  }
+
+  .hero-grid{
+    gap:16px !important;
+    align-items:start !important;
+  }
+
+  .hero-copy{
+    padding:22px !important;
+  }
+
+  h1{
+    font-size:clamp(1.78rem,2.2vw,2.34rem) !important;
+    line-height:1.04 !important;
+    letter-spacing:-.04em !important;
+    max-width:11ch !important;
+    margin:10px 0 10px !important;
+  }
+
+  h2{
+    font-size:clamp(1.3rem,1.7vw,1.82rem) !important;
+    line-height:1.1 !important;
+    max-width:16ch !important;
+  }
+
+  .lead{
+    font-size:.98rem !important;
+    line-height:1.62 !important;
+    max-width:53ch !important;
+  }
+
+  .vcx-universal-dock{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    width:min(1180px, calc(100% - 28px)) !important;
+    bottom:10px !important;
+    padding:10px 12px !important;
+    border-radius:24px !important;
+    background:linear-gradient(180deg,rgba(250,252,255,.72),rgba(239,245,250,.56)) !important;
+    border:1px solid rgba(255,255,255,.86) !important;
+    box-shadow:0 18px 42px rgba(7,22,42,.12), inset 0 1px 0 rgba(255,255,255,.54) !important;
+    backdrop-filter:blur(22px) saturate(150%) !important;
+    -webkit-backdrop-filter:blur(22px) saturate(150%) !important;
+  }
+
+  .vcx-dock-row,
+  .vcx-dock-row-top,
+  .vcx-dock-row-bottom{
+    display:contents !important;
+  }
+
+  .vcx-dock-pilot,
+  .vcx-dock-action,
+  .vcx-icon-app{
+    flex:0 0 auto !important;
+    min-width:auto !important;
+    margin:0 !important;
+  }
+
+  .vcx-dock-pilot{
+    min-width:148px !important;
+    min-height:46px !important;
+    padding:0 16px !important;
+    border-radius:16px !important;
+  }
+
+  .vcx-dock-action,
+  .vcx-icon-app{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    min-width:72px !important;
+    padding:4px 6px !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:42px !important;
+    height:42px !important;
+    border-radius:14px !important;
+    background:linear-gradient(180deg,rgba(255,255,255,.58),rgba(255,255,255,.34)) !important;
+    border:1px solid rgba(255,255,255,.92) !important;
+    box-shadow:0 10px 22px rgba(7,22,42,.08) !important;
+  }
+
+  .vcx-dock-label{
+    display:block !important;
+    font-size:9px !important;
+    line-height:1.05 !important;
+    max-width:72px !important;
+    color:#344a61 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    font-weight:600 !important;
+  }
+}
+
+@media (max-width:900px){
+  body{
+    padding-top:154px !important;
+    padding-bottom:146px !important;
+  }
+
+  .site-header{
+    position:fixed !important;
+    top:8px !important;
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    -webkit-transform:translateX(-50%) !important;
+    width:calc(100% - 16px) !important;
+    max-width:720px !important;
+    margin:0 !important;
+    border-radius:24px !important;
+    overflow:hidden !important;
+    z-index:95 !important;
+    background:linear-gradient(180deg,rgba(250,252,255,.78),rgba(239,245,250,.62)) !important;
+    border:1px solid rgba(255,255,255,.84) !important;
+    box-shadow:0 18px 44px rgba(7,22,42,.12), inset 0 1px 0 rgba(255,255,255,.54) !important;
+  }
+
+  .site-header .wrap{
+    padding:0 14px !important;
+  }
+
+  .header-shell{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    align-items:start !important;
+    gap:10px !important;
+    min-height:auto !important;
+    padding:10px 0 10px !important;
+    position:relative !important;
+  }
+
+  .brand{
+    grid-column:1 / 2 !important;
+    gap:10px !important;
+    max-width:calc(100% - 8px) !important;
+  }
+
+  .brand img{
+    width:42px !important;
+    height:42px !important;
+    border-radius:14px !important;
+  }
+
+  .brand-title strong{
+    font-size:.98rem !important;
+    line-height:1.03 !important;
+  }
+
+  .brand-title span{
+    display:block !important;
+    font-size:.74rem !important;
+    line-height:1.12 !important;
+  }
+
+  .menu-btn{
+    display:grid !important;
+    place-items:center !important;
+    width:40px !important;
+    height:40px !important;
+    position:static !important;
+    align-self:start !important;
+    margin-top:1px !important;
+  }
+
+  .header-order,
+  .main-nav{
+    display:none !important;
+  }
+
+  .header-tools{
+    grid-column:1 / -1 !important;
+    position:static !important;
+    display:block !important;
+    width:100% !important;
+    margin-top:8px !important;
+  }
+
+  .clock-stack{
+    display:grid !important;
+    grid-template-columns:minmax(86px,1fr) auto minmax(86px,1fr) !important;
+    align-items:center !important;
+    gap:6px !important;
+    width:100% !important;
+  }
+
+  .clock-card{
+    min-width:0 !important;
+    padding:8px 10px !important;
+    border-radius:15px !important;
+  }
+
+  .clock-label,
+  .clock-sub{
+    font-size:.59rem !important;
+    line-height:1.05 !important;
+  }
+
+  .clock-time{
+    font-size:.9rem !important;
+    line-height:1.04 !important;
+    margin-top:2px !important;
+  }
+
+  .lang-row{
+    justify-content:center !important;
+    gap:5px !important;
+    padding:4px !important;
+    border-radius:999px !important;
+    background:rgba(255,255,255,.40) !important;
+    border:1px solid rgba(255,255,255,.78) !important;
+    width:auto !important;
+  }
+
+  .lang-btn{
+    min-width:34px !important;
+    padding:6px 8px !important;
+    font-size:.76rem !important;
+  }
+
+  .mobile-nav{
+    display:none !important;
+    gap:8px !important;
+    padding:0 0 12px !important;
+  }
+
+  .mobile-nav.open{
+    display:grid !important;
+  }
+
+  .hero{
+    padding-top:142px !important;
+  }
+
+  .hero-inner{
+    padding-top:8px !important;
+  }
+}
+
+@media (max-width:520px){
+  body{
+    padding-top:160px !important;
+    padding-bottom:148px !important;
+  }
+
+  .header-shell{
+    gap:8px !important;
+  }
+
+  .clock-stack{
+    grid-template-columns:minmax(78px,1fr) auto minmax(78px,1fr) !important;
+    gap:5px !important;
+  }
+
+  .clock-card{
+    padding:7px 8px !important;
+  }
+
+  .clock-label,
+  .clock-sub{
+    font-size:.56rem !important;
+  }
+
+  .clock-time{
+    font-size:.84rem !important;
+  }
+
+  .brand-title span{
+    max-width:20ch !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+}
