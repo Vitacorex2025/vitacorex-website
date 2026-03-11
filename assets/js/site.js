@@ -687,96 +687,357 @@ function improveMobileFileInput(){
 improveMobileFileInput();
 
 
-/* ===== VitaCoreX v45 luxury CRO + widget resilience patch ===== */
 (function(){
-  const CALENDLY_URL='https://calendly.com/vitacorex2025/30min';
+  function vcxCurrentLang(){
+    const saved = localStorage.getItem('vcx_lang');
+    return ['en','ru','es'].includes(saved) ? saved : 'en';
+  }
 
-  function ensureCalendlyScript(){
-    return new Promise((resolve,reject)=>{
-      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){ resolve(); return; }
-      let script=document.querySelector('script[data-vcx-calendly="1"]');
-      if(script){
-        script.addEventListener('load', ()=>resolve(), {once:true});
-        script.addEventListener('error', ()=>reject(new Error('Calendly failed to load')), {once:true});
-        return;
+  const hardCopy = {
+    en: {
+      marketFallback: 'Market signal temporarily unavailable. Revenue recovery remains one of the largest controllable cash drivers for multi-location operators.',
+      dockCalendar: 'Book a Call',
+      dockWhatsapp: 'WhatsApp',
+      widgets: {
+        eyebrow: 'Executive tools',
+        title: 'Interactive tools that make the offer clearer, more credible, and easier to evaluate.',
+        intro: 'These tools help operators, CFOs, and decision-makers quantify leakage, working-capital impact, and pilot economics before requesting a consultation.',
+        cards: [
+          { pill:'CFO', title:'Revenue leakage calculator', labels:['Annual revenue','Patient / client responsibility %','Recovery leakage %'], metrics:['Estimated hidden cash','Executive use'] },
+          { pill:'Cash velocity', title:'DSO impact simulator', labels:['Annual revenue','Current DSO','Target DSO'], metrics:['Working capital released','DSO reduction'] },
+          { pill:'Pilot ROI', title:'90-day pilot economics', labels:['AR / portfolio in scope','Expected improvement %','Pilot cost'], metrics:['Additional cash','ROI multiple'] }
+        ],
+        benefits: [
+          ['Executive utility','Decision-grade tools','Present the offer like a finance-led operating system rather than a generic service brochure.'],
+          ['Lead quality','Self-qualification before consultation','Better inputs, stronger calls, fewer weak inquiries.'],
+          ['Trust','Metrics-led positioning','Signals that VitaCoreX thinks in controls, economics, and implementation outcomes.']
+        ],
+        kpis:['Net recovery target','Agency fee avoidance','Pilot evidence window'],
+        module:['B2B consulting structure','Built for operators who need cleaner execution before outside cost expands.','Request operational review','View executive briefs']
       }
-      script=document.createElement('script');
-      script.src='https://assets.calendly.com/assets/external/widget.js';
-      script.async=true;
-      script.dataset.vcxCalendly='1';
-      script.setAttribute('data-vcx-calendly','1');
-      script.onload=()=>resolve();
-      script.onerror=()=>reject(new Error('Calendly failed to load'));
-      document.head.appendChild(script);
+    },
+    ru: {
+      marketFallback: 'Рыночный блок временно недоступен. Возврат выручки остаётся одним из самых управляемых драйверов кэша для сетевых операторов.',
+      dockCalendar: 'Назначить звонок',
+      dockWhatsapp: 'WhatsApp',
+      widgets: {
+        eyebrow: 'Executive-инструменты',
+        title: 'Интерактивные инструменты, которые делают предложение понятнее, убедительнее и полезнее.',
+        intro: 'Эти блоки помогают операторам, CFO и руководителям быстро оценить масштаб утечек, влияние на оборотный капитал и экономику пилота до отправки запроса.',
+        cards: [
+          { pill:'CFO', title:'Калькулятор потери выручки', labels:['Годовая выручка','Доля ответственности пациента / клиента %','Процент потери возврата %'], metrics:['Оценка скрытого кэша','Использование для руководства'] },
+          { pill:'Скорость кэша', title:'Симулятор влияния на DSO', labels:['Годовая выручка','Текущий DSO','Целевой DSO'], metrics:['Высвобождение оборотного капитала','Снижение DSO'] },
+          { pill:'ROI пилота', title:'Экономика 90-дневного пилота', labels:['AR / портфель в scope','Ожидаемое улучшение %','Стоимость пилота'], metrics:['Дополнительный кэш','Мультипликатор ROI'] }
+        ],
+        benefits: [
+          ['Практическая ценность','Инструменты для executive-решений','Подают предложение как finance-led operating system, а не как обычный сервисный сайт.'],
+          ['Качество лидов','Самоквалификация до консультации','Лучше вводные данные, сильнее звонки, меньше слабых заявок.'],
+          ['Доверие','Позиционирование через метрики','Показывает, что VitaCoreX мыслит через контроль, экономику и результаты внедрения.']
+        ],
+        kpis:['Цель по чистому возврату','Снижение agency fees','Окно доказательств пилота'],
+        module:['B2B-консалтинговая структура','Для операторов, которым нужно навести порядок до роста внешних расходов.','Запросить операционный разбор','Открыть материалы для руководства']
+      }
+    },
+    es: {
+      marketFallback: 'El bloque de mercado no está disponible temporalmente. La recuperación de ingresos sigue siendo uno de los mayores impulsores de caja controlables para operadores multi-sede.',
+      dockCalendar: 'Reservar llamada',
+      dockWhatsapp: 'WhatsApp',
+      widgets: {
+        eyebrow: 'Herramientas ejecutivas',
+        title: 'Herramientas interactivas que vuelven la oferta más clara, creíble y fácil de evaluar.',
+        intro: 'Estos módulos ayudan a operadores, CFOs y decisores a cuantificar fuga, impacto en capital de trabajo y economía del piloto antes de solicitar una consulta.',
+        cards: [
+          { pill:'CFO', title:'Calculadora de fuga de ingresos', labels:['Ingresos anuales','Responsabilidad del paciente / cliente %','Porcentaje de fuga de recuperación %'], metrics:['Caja oculta estimada','Uso ejecutivo'] },
+          { pill:'Velocidad de caja', title:'Simulador de impacto en DSO', labels:['Ingresos anuales','DSO actual','DSO objetivo'], metrics:['Capital de trabajo liberado','Reducción de DSO'] },
+          { pill:'ROI piloto', title:'Economía del piloto de 90 días', labels:['AR / cartera en alcance','Mejora esperada %','Costo del piloto'], metrics:['Caja adicional','Múltiplo ROI'] }
+        ],
+        benefits: [
+          ['Utilidad ejecutiva','Herramientas para decisión','Presentan la oferta como un sistema operativo guiado por finanzas y no como un folleto genérico.'],
+          ['Calidad del lead','Auto-calificación antes de la consulta','Mejores inputs, llamadas más sólidas y menos consultas débiles.'],
+          ['Confianza','Posicionamiento guiado por métricas','Demuestra que VitaCoreX piensa en controles, economía y resultados de implementación.']
+        ],
+        kpis:['Objetivo de recuperación neta','Evasión de fees de agencia','Ventana de evidencia del piloto'],
+        module:['Estructura consultiva B2B','Para operadores que necesitan una ejecución más limpia antes de que crezca el costo externo.','Solicitar revisión operativa','Ver material ejecutivo']
+      }
+    }
+  };
+
+  function applyHardCopy(){
+    const lang = vcxCurrentLang();
+    const copy = hardCopy[lang] || hardCopy.en;
+    const section = document.querySelector('.premium-widgets-section');
+    if(section){
+      const eyebrow = section.querySelector('.section-head .eyebrow');
+      const title = section.querySelector('.section-head h2');
+      const intro = section.querySelector('.section-head .section-intro');
+      if(eyebrow) eyebrow.textContent = copy.widgets.eyebrow;
+      if(title) title.textContent = copy.widgets.title;
+      if(intro) intro.textContent = copy.widgets.intro;
+
+      section.querySelectorAll('.widget-card').forEach((card, idx)=>{
+        const cfg = copy.widgets.cards[idx];
+        if(!cfg) return;
+        const pill = card.querySelector('.pill');
+        const h3 = card.querySelector('h3');
+        if(pill) pill.textContent = cfg.pill;
+        if(h3) h3.textContent = cfg.title;
+        card.querySelectorAll('.widget-form label').forEach((labelEl, lidx)=>{
+          const input = labelEl.querySelector('input');
+          if(input){
+            const labelText = cfg.labels[lidx] || labelEl.childNodes[0]?.textContent || '';
+            labelEl.childNodes[0].textContent = labelText;
+          }
+        });
+        card.querySelectorAll('.metric-card span').forEach((span, midx)=>{ span.textContent = cfg.metrics[midx] || span.textContent; });
+      });
+
+      section.querySelectorAll('.benefit-card').forEach((card, idx)=>{
+        const cfg = copy.widgets.benefits[idx];
+        if(!cfg) return;
+        const kicker = card.querySelector('.benefit-kicker');
+        const strong = card.querySelector('strong');
+        const p = card.querySelector('p');
+        if(kicker) kicker.textContent = cfg[0];
+        if(strong) strong.textContent = cfg[1];
+        if(p) p.textContent = cfg[2];
+      });
+    }
+
+    document.querySelectorAll('#luxuryMetrics .kpi-label').forEach((el, idx)=>{
+      el.textContent = copy.widgets.kpis[idx] || el.textContent;
+    });
+
+    const module = document.querySelector('.premium-module');
+    if(module){
+      const eyebrow = module.querySelector('.eyebrow');
+      const title = module.querySelector('h2');
+      const buttons = module.querySelectorAll('.cta-row a');
+      if(eyebrow) eyebrow.textContent = copy.widgets.module[0];
+      if(title) title.textContent = copy.widgets.module[1];
+      if(buttons[0]) buttons[0].textContent = copy.widgets.module[2];
+      if(buttons[1]) buttons[1].textContent = copy.widgets.module[3];
+    }
+
+    document.querySelectorAll('.dock-calendar').forEach(a=>{
+      a.textContent = copy.dockCalendar;
+      a.setAttribute('href','https://calendly.com/vitacorex2025/30min');
+    });
+    document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
+  }
+
+  function ensureTradingViewFallback(){
+    const lang = vcxCurrentLang();
+    const copy = hardCopy[lang] || hardCopy.en;
+    const target = document.querySelector('.tradingview-widget-container__widget');
+    if(!target) return;
+    setTimeout(()=>{
+      const hasRenderableChild = Array.from(target.children).some(el => !(el.classList && el.classList.contains('widget-fallback')));
+      const hasIframe = !!target.querySelector('iframe');
+      if(hasRenderableChild || hasIframe) return;
+      if(target.querySelector('.widget-fallback')) return;
+      const msg = document.createElement('div');
+      msg.className = 'widget-fallback';
+      msg.textContent = copy.marketFallback;
+      target.appendChild(msg);
+      target.setAttribute("aria-live","polite");
+    }, 2200);
+  }
+
+  function bindLangRefresh(){
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        setTimeout(()=>{
+          applyHardCopy();
+          ensureTradingViewFallback();
+        }, 20);
+      });
     });
   }
 
-  function openCalendly(url){
-    ensureCalendlyScript().then(()=>{
-      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){
-        window.Calendly.initPopupWidget({ url: url || CALENDLY_URL });
-      } else {
-        window.open(url || CALENDLY_URL, '_blank', 'noopener');
+  document.addEventListener('DOMContentLoaded', ()=>{
+    applyHardCopy();
+    ensureTradingViewFallback();
+    bindLangRefresh();
+  });
+})();
+
+
+(function(){
+  function currentLang(){
+    const saved = localStorage.getItem('vcx_lang');
+    return ['en','ru','es'].includes(saved) ? saved : 'en';
+  }
+  const v52Copy = {
+    en:{
+      eyebrow:'Institutional authority',
+      title:'Operator advisory infrastructure for revenue recovery, legal file control, and disciplined execution.',
+      intro:'Designed for complex operators that need stronger documentation, cleaner escalation pathways, and a more credible operating model before outside legal and agency cost expands.',
+      profiles_pill:'Operator profiles',
+      profiles_title:'Where VitaCoreX operates',
+      profiles_intro:'We support organizations managing contractual complexity across multiple operating environments.',
+      profile_1:'Healthcare operators',
+      profile_2:'Fleet and fuel-card programs',
+      profile_3:'Subscription platforms',
+      profile_4:'Multi-location service networks',
+      profile_5:'Contract-based commercial portfolios',
+      governance_pill:'Governance',
+      governance_title:'Documentation control that supports finance, compliance, and external counsel',
+      governance_intro:'VitaCoreX structures files, payment documentation, and escalation records so legal strategy is not burdened with administrative cleanup.',
+      gov_1:'Auditable file structure and evidence packaging',
+      gov_2:'Payment-plan documentation and authorization control',
+      gov_3:'Paralegal-grade preparation under consulting engagements',
+      gov_4:'Cleaner handoff to outside counsel when escalation is necessary',
+      calc_pill:'Executive impact',
+      calc_title:'Estimate your revenue recovery impact',
+      calc_label_1:'Annual revenue',
+      calc_label_2:'Receivable portfolio in scope',
+      calc_label_3:'Current recovery rate %',
+      calc_metric_1:'Potential additional cash recovered',
+      calc_metric_2:'Estimated contingency fees avoided',
+      calc_metric_3:'Illustrative recovery lift',
+      case_pill:'Illustrative operator case',
+      case_title:'How an institutional advisory engagement is framed',
+      case_stat_1:'Annual revenue operator',
+      case_stat_2:'Receivable portfolio',
+      case_stat_3:'Illustrative DSO improvement',
+      case_1:'Recovery improvement target aligned to pilot economics and workflow discipline.',
+      case_2:'Agency placements reduced through earlier structured conversion and better file control.',
+      case_3:'External counsel receives cleaner, more usable documentation when escalation is warranted.',
+      case_cta:'Review your operating model'
+    },
+    ru:{
+      eyebrow:'Институциональный уровень',
+      title:'Advisory-инфраструктура для возврата выручки, управления legal files и дисциплинированного исполнения.',
+      intro:'Секция для сложных операторов, которым нужны более сильная документация, более чистые пути эскалации и более убедительная operating model до роста внешних юридических и agency-расходов.',
+      profiles_pill:'Профили операторов',
+      profiles_title:'Где работает VitaCoreX',
+      profiles_intro:'Мы поддерживаем организации, управляющие сложными контрактными потоками в разных операционных средах.',
+      profile_1:'Healthcare-операторы',
+      profile_2:'Fleet и fuel-card программы',
+      profile_3:'Subscription-платформы',
+      profile_4:'Сетевые сервисные компании',
+      profile_5:'Коммерческие портфели на договорной основе',
+      governance_pill:'Governance',
+      governance_title:'Контроль документации для finance, compliance и внешнего counsel',
+      governance_intro:'VitaCoreX структурирует файлы, платёжную документацию и records по эскалации так, чтобы юридическая стратегия не тратилась на административный cleanup.',
+      gov_1:'Аудируемая структура файлов и packaging доказательств',
+      gov_2:'Контроль документации payment plans и authorizations',
+      gov_3:'Paralegal-level подготовка в рамках consulting engagements',
+      gov_4:'Более чистый handoff внешнему counsel при необходимости эскалации',
+      calc_pill:'Executive impact',
+      calc_title:'Оцените потенциальный эффект для возврата выручки',
+      calc_label_1:'Годовая выручка',
+      calc_label_2:'Портфель дебиторки в scope',
+      calc_label_3:'Текущий recovery rate %',
+      calc_metric_1:'Потенциальный дополнительный кэш',
+      calc_metric_2:'Оценка избежанных contingency fees',
+      calc_metric_3:'Иллюстративный прирост recovery',
+      case_pill:'Иллюстративный кейс оператора',
+      case_title:'Как выглядит institutional advisory engagement',
+      case_stat_1:'Оператор с годовой выручкой',
+      case_stat_2:'Портфель дебиторки',
+      case_stat_3:'Иллюстративное улучшение DSO',
+      case_1:'Цель по recovery привязана к экономике пилота и дисциплине workflow.',
+      case_2:'Передача в agency снижается за счёт более ранней структурированной конверсии и лучшего file control.',
+      case_3:'Внешний counsel получает более чистую и пригодную документацию, когда эскалация действительно нужна.',
+      case_cta:'Разобрать вашу operating model'
+    },
+    es:{
+      eyebrow:'Autoridad institucional',
+      title:'Infraestructura advisory para recuperación de ingresos, control de expedientes legales y ejecución disciplinada.',
+      intro:'Diseñado para operadores complejos que necesitan documentación más sólida, rutas de escalamiento más limpias y un modelo operativo más creíble antes de que aumenten los costos legales y de agencias.',
+      profiles_pill:'Perfiles de operador',
+      profiles_title:'Dónde opera VitaCoreX',
+      profiles_intro:'Apoyamos a organizaciones que gestionan complejidad contractual en múltiples entornos operativos.',
+      profile_1:'Operadores de salud',
+      profile_2:'Programas de flota y fuel-card',
+      profile_3:'Plataformas de suscripción',
+      profile_4:'Redes de servicios multi-sede',
+      profile_5:'Portafolios comerciales basados en contratos',
+      governance_pill:'Gobernanza',
+      governance_title:'Control documental que respalda finanzas, compliance y asesoría externa',
+      governance_intro:'VitaCoreX estructura expedientes, documentación de pago y registros de escalamiento para que la estrategia legal no se cargue con limpieza administrativa.',
+      gov_1:'Estructura auditable de expedientes y paquetes de evidencia',
+      gov_2:'Control de documentación y autorizaciones de planes de pago',
+      gov_3:'Preparación tipo paralegal bajo contratos de consultoría',
+      gov_4:'Transferencia más limpia a abogados externos cuando el escalamiento es necesario',
+      calc_pill:'Impacto ejecutivo',
+      calc_title:'Estime su impacto de recuperación de ingresos',
+      calc_label_1:'Ingresos anuales',
+      calc_label_2:'Portafolio de cuentas por cobrar en alcance',
+      calc_label_3:'Tasa actual de recuperación %',
+      calc_metric_1:'Caja adicional potencial recuperada',
+      calc_metric_2:'Comisiones de contingencia evitadas estimadas',
+      calc_metric_3:'Mejora ilustrativa de recuperación',
+      case_pill:'Caso ilustrativo de operador',
+      case_title:'Cómo se estructura un engagement de advisory institucional',
+      case_stat_1:'Operador de ingresos anuales',
+      case_stat_2:'Portafolio de cuentas por cobrar',
+      case_stat_3:'Mejora ilustrativa de DSO',
+      case_1:'La mejora de recuperación se alinea con la economía del piloto y la disciplina del flujo de trabajo.',
+      case_2:'Las derivaciones a agencia se reducen mediante conversión estructurada temprana y mejor control de expedientes.',
+      case_3:'La asesoría externa recibe documentación más limpia y utilizable cuando el escalamiento lo justifica.',
+      case_cta:'Revisar su modelo operativo'
+    }
+  };
+
+  function applyV52Copy(){
+    const lang = currentLang();
+    const copy = v52Copy[lang] || v52Copy.en;
+    document.querySelectorAll('[data-v52]').forEach(el=>{
+      const key = el.getAttribute('data-v52');
+      if(copy[key]) el.textContent = copy[key];
+      if(el.tagName === 'LABEL'){
+        const input = el.querySelector('input');
+        if(input && el.firstChild && el.firstChild.nodeType === Node.TEXT_NODE){
+          el.firstChild.textContent = copy[key] || el.firstChild.textContent;
+        }
       }
-    }).catch(()=>{
-      window.open(url || CALENDLY_URL, '_blank', 'noopener');
     });
   }
 
-  document.querySelectorAll('a[href*="calendly.com"], .js-open-calendly').forEach((el)=>{
-    el.classList.add('js-open-calendly');
-    if(!el.getAttribute('href')) el.setAttribute('href', CALENDLY_URL);
-    if(el.dataset.vcxCalendlyBound==='1') return;
-    el.dataset.vcxCalendlyBound='1';
-    el.addEventListener('click', (event)=>{
-      event.preventDefault();
-      openCalendly(el.getAttribute('href') || CALENDLY_URL);
+  function fmtUSD(num){
+    const n = Number(num) || 0;
+    return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
+  }
+
+  function initV52ImpactCalc(){
+    const revenue = document.getElementById('impactRevenue');
+    const portfolio = document.getElementById('impactPortfolio');
+    const recovery = document.getElementById('impactRecovery');
+    const outAdditional = document.getElementById('impactAdditional');
+    const outAvoided = document.getElementById('impactAvoided');
+    const outLift = document.getElementById('impactLift');
+    if(!revenue || !portfolio || !recovery || !outAdditional || !outAvoided || !outLift) return;
+    const calc = ()=>{
+      const rev = Math.max(0, Number(revenue.value) || 0);
+      const port = Math.max(0, Number(portfolio.value) || 0);
+      const base = Math.min(100, Math.max(0, Number(recovery.value) || 0))/100;
+      const uplift = 0.13;
+      const additional = Math.max(0, port * uplift);
+      const avoided = Math.max(0, additional * 0.30);
+      outAdditional.textContent = fmtUSD(additional);
+      outAvoided.textContent = fmtUSD(avoided);
+      outLift.textContent = Math.round(uplift * 100) + '%';
+      if(rev && port > rev*0.6){
+        portfolio.value = Math.round(rev*0.13);
+      }
+      if(base > 0.5){
+        outLift.textContent = '6%';
+      }
+    };
+    [revenue,portfolio,recovery].forEach(el=>{
+      el.addEventListener('input', calc);
+      el.addEventListener('change', calc);
+    });
+    calc();
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    applyV52Copy();
+    initV52ImpactCalc();
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>setTimeout(applyV52Copy,20));
     });
   });
-
-  window.openCalendly=openCalendly;
-
-  function initWidgetFallbacks(){
-    document.querySelectorAll('.ticker-box').forEach((box)=>{
-      if(box.dataset.vcxFallbackReady==='1') return;
-      box.dataset.vcxFallbackReady='1';
-      const fallback=document.createElement('div');
-      fallback.className='market-fallback';
-      fallback.hidden=true;
-      fallback.innerHTML=[
-        '<div class="market-chip"><strong>SPY / QQQ</strong><span>U.S. equity reference</span></div>',
-        '<div class="market-chip"><strong>Gold</strong><span>Macro risk reference</span></div>',
-        '<div class="market-chip"><strong>Oil</strong><span>Operating cost reference</span></div>'
-      ].join('');
-      box.appendChild(fallback);
-
-      const showFallback=()=>{
-        const widget=box.querySelector('.tradingview-widget-container__widget');
-        if(widget && widget.children.length>0) return;
-        box.classList.add('is-fallback');
-        fallback.hidden=false;
-      };
-      window.setTimeout(showFallback, 3200);
-    });
-  }
-  initWidgetFallbacks();
-
-  function fallbackCharts(){
-    const chartHost=document.getElementById('vcxKpiCharts');
-    if(!chartHost) return;
-    window.setTimeout(()=>{
-      if(window.Chart) return;
-      chartHost.querySelectorAll('canvas').forEach((canvas)=>{
-        const card=document.createElement('div');
-        card.className='small-note';
-        card.style.padding='18px';
-        card.style.border='1px solid rgba(14,32,54,.08)';
-        card.style.borderRadius='16px';
-        card.style.background='rgba(255,255,255,.55)';
-        card.textContent='Chart library unavailable in this session. The pilot dashboard remains illustrative and available in the executive deck.';
-        canvas.replaceWith(card);
-      });
-    }, 1800);
-  }
-  fallbackCharts();
 })();

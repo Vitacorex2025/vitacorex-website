@@ -138,17 +138,7 @@ if(menuBtn && mobileNav){
   mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
 }
 const header=$('.site-header');
-let lastScrollY=window.scrollY||0;
-function onScrollCompact(){
-  if(!header) return;
-  const current=window.scrollY||0;
-  header.classList.toggle('header-compact', current>26);
-  const shouldHide=current>140 && current>lastScrollY+6;
-  const shouldShow=current<72 || current<lastScrollY-10;
-  if(shouldHide) header.classList.add('header-hidden');
-  if(shouldShow) header.classList.remove('header-hidden');
-  lastScrollY=current;
-}
+function onScrollCompact(){ if(!header) return; header.classList.toggle('header-compact', window.scrollY>30); }
 onScrollCompact(); window.addEventListener('scroll', onScrollCompact, {passive:true});
 function fmt(date,tz){ return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}).format(date); }
 function clocks(){ const d=new Date(); $$('.clock-vcx').forEach(el=>el.textContent=fmt(d,'America/New_York')); const local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d); $$('.clock-local').forEach(el=>el.textContent=local); }
@@ -236,27 +226,6 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   sync();
 }
 const FORM_ENDPOINT='https://formsubmit.co/VitaCoreXllc@gmail.com';
-function ensureHiddenField(form, name, value){
-  let el=form.querySelector(`input[name="${name}"]`);
-  if(!el){ el=document.createElement('input'); el.type='hidden'; el.name=name; form.appendChild(el); }
-  el.value=value;
-  return el;
-}
-function configureDirectFormSubmission(form, config){
-  form.setAttribute('action', FORM_ENDPOINT);
-  form.setAttribute('method', 'POST');
-  form.setAttribute('enctype', config.enctype || 'multipart/form-data');
-  form.setAttribute('accept-charset','UTF-8');
-  form.removeAttribute('target');
-  ensureHiddenField(form,'_captcha','false');
-  ensureHiddenField(form,'_template','table');
-  ensureHiddenField(form,'_subject', config.subject || 'VitaCoreX Website Submission');
-  ensureHiddenField(form,'_next','https://vitacorexllc.com/thank-you.html');
-  if(config.replyTo) ensureHiddenField(form,'_replyto', String(config.replyTo||'').trim());
-  ensureHiddenField(form,'Timestamp', new Date().toISOString());
-  ensureHiddenField(form,'Browser / Device', detectDevice());
-}
-
 function submitViaHiddenIframe(form, config){
   return new Promise((resolve,reject)=>{
     const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
@@ -370,21 +339,35 @@ function bindIntakeForm(form){
   ensureFileNameMirror(form, 'attachment', 'Attachment');
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', e=>{
+  form.addEventListener('submit', async e=>{
+    e.preventDefault();
     if(!form.checkValidity()){
-      e.preventDefault();
       form.reportValidity();
-      setStatus(status,'error',statusText('intake_validation','Please complete all fields before submitting.'));
+      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
       return;
     }
     const fd=new FormData(form);
-    configureDirectFormSubmission(form, {
-      subject:'VitaCoreX Intake Request',
-      replyTo:String(fd.get('email')||'').trim(),
-      enctype:'multipart/form-data'
-    });
+    const email = String(fd.get('email')||'').trim();
+    const file=fd.get('attachment');
+    const fileLabel=file && typeof file.name==='string' && file.name ? file.name : 'No file attached';
+    setStatus(status,'', '');
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    setStatus(status,'success','Submitting request…');
+    try{
+      await submitViaHiddenIframe(form, {
+        subject:'VitaCoreX Intake Request',
+        replyTo: email,
+        enctype:'multipart/form-data',
+        extraFields:{'Attachment': fileLabel}
+      });
+      setStatus(status,'success',statusText('intake_success','Request sent successfully. Our team will review your submission.'));
+      fillOutputFromIntake(form);
+      form.reset();
+      ensureFileNameMirror(form, 'attachment', 'Attachment');
+    }catch(err){
+      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
+    }finally{
+      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
+    }
   });
 }
 bindIntakeForm($('#intakeForm'));
@@ -393,196 +376,31 @@ const careersForm=$('#careersForm');
 if(careersForm){
   const status=$('#careersFormStatus');
   const submitBtn=$('#careersSubmitBtn') || careersForm.querySelector('button[type="submit"]');
-  careersForm.addEventListener('submit', e=>{
+  careersForm.addEventListener('submit', async e=>{
+    e.preventDefault();
     if(!careersForm.checkValidity()){
-      e.preventDefault();
       careersForm.reportValidity();
-      setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
+      setStatus(status,'error',statusText('intake_failure','Submission failed. Please try again.'));
       return;
     }
     const fd=new FormData(careersForm);
-    configureDirectFormSubmission(careersForm, {
-      subject:'VitaCoreX Careers Application',
-      replyTo:String(fd.get('email')||'').trim(),
-      enctype:'multipart/form-data'
-    });
+    setStatus(status,'', '');
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-    setStatus(status,'success','Submitting application…');
-  });
-}
-
-function injectHeroClouds(){
-  const heroVideo=$('.hero-video');
-  if(!heroVideo || heroVideo.querySelector('.hero-cloud-layer')) return;
-  const layer1=document.createElement('div');
-  layer1.className='hero-cloud-layer layer-1';
-  const layer2=document.createElement('div');
-  layer2.className='hero-cloud-layer layer-2';
-  heroVideo.appendChild(layer1);
-  heroVideo.appendChild(layer2);
-  const parallax=()=>{
-    const y=window.scrollY||0;
-    layer1.style.transform=`translate3d(${(-y*0.01).toFixed(2)}px, ${(y*0.03).toFixed(2)}px, 0)`;
-    layer2.style.transform=`translate3d(${(-y*0.005).toFixed(2)}px, ${(y*0.018).toFixed(2)}px, 0)`;
-  };
-  parallax();
-  window.addEventListener('scroll',parallax,{passive:true});
-}
-injectHeroClouds();
-
-function initClientMode(){
-  const form=$('#intakeForm');
-  if(!form) return;
-  const modeInput=form.querySelector('[name="client_type"]');
-  const companyField=form.querySelector('[name="company"]');
-  const serviceField=form.querySelector('[name="service_type"]');
-  const companyBlocks=$$('.company-only', form);
-  const buttons=$$('.client-mode-btn', form);
-  const attachment=form.querySelector('[name="attachment"]');
-  if(attachment) attachment.removeAttribute('required');
-
-  const setMode=(mode)=>{
-    if(modeInput) modeInput.value=mode;
-    buttons.forEach(btn=>btn.classList.toggle('active', btn.dataset.mode===mode));
-    companyBlocks.forEach(el=>el.classList.toggle('is-hidden', mode!=='company'));
-    if(companyField){
-      companyField.required = mode==='company';
-      if(mode!=='company') companyField.value='';
-    }
-    if(serviceField && mode==='individual'){
-      const opt=[...serviceField.options].find(o=>/Services for Individuals/i.test(o.value||o.textContent||''));
-      if(opt) serviceField.value=opt.value;
-    }
-  };
-
-  buttons.forEach(btn=>btn.addEventListener('click',()=>setMode(btn.dataset.mode)));
-  serviceField && serviceField.addEventListener('change',()=>{
-    const isIndividuals=/services for individuals/i.test(serviceField.value);
-    if(isIndividuals) setMode('individual');
-  });
-  setMode(modeInput && modeInput.value==='company' ? 'company' : 'individual');
-}
-initClientMode();
-
-function buildCookieBanner(){
-  if(document.querySelector('.cookie-banner')) return;
-  const saved=localStorage.getItem('vcx_cookie_consent');
-  if(saved) return applyConsent(saved);
-  const banner=document.createElement('section');
-  banner.className='cookie-banner';
-  banner.innerHTML=`<strong>Privacy & analytics settings</strong>
-    <p>We use essential cookies plus optional analytics and marketing trackers to understand visits, improve performance, and measure campaigns. Optional trackers load only after consent.</p>
-    <div class="cookie-actions">
-      <button class="cookie-btn primary" data-consent="all" type="button">Accept all</button>
-      <button class="cookie-btn" data-consent="analytics" type="button">Analytics only</button>
-      <button class="cookie-btn secondary" data-consent="essential" type="button">Essential only</button>
-    </div>
-    <div class="cookie-meta">Tracker-ready slots: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.</div>`;
-  document.body.appendChild(banner);
-  banner.querySelectorAll('[data-consent]').forEach(btn=>btn.addEventListener('click',()=>{
-    const consent=btn.dataset.consent;
-    localStorage.setItem('vcx_cookie_consent', consent);
-    banner.hidden=true;
-    applyConsent(consent);
-  }));
-}
-function loadScript(src){
-  if(!src || document.querySelector(`script[src="${src}"]`)) return;
-  const s=document.createElement('script');
-  s.src=src; s.async=true; document.head.appendChild(s);
-}
-function applyConsent(consent){
-  const ids=window.VCX_TRACKING_IDS||{};
-  window.dataLayer=window.dataLayer||[];
-  window.vcxConsent=consent;
-  if(consent==='essential') return;
-  if(ids.gtm){
-    window.dataLayer.push({'event':'consent_update','vcx_consent':consent});
-    const gtmSrc='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(ids.gtm);
-    loadScript(gtmSrc);
-  }
-  if(ids.ga4){
-    loadScript('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(ids.ga4));
-    window.gtag=window.gtag||function(){dataLayer.push(arguments);};
-    gtag('js', new Date());
-    gtag('config', ids.ga4, {anonymize_ip:true});
-  }
-  if(ids.apolloAppId){
-    loadApolloTracker(ids.apolloAppId);
-  }
-  if(ids.clarity){
-    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", ids.clarity);
-  }
-  if(ids.hotjarSiteId){
-    (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:ids.hotjarSiteId,hjsv:ids.hotjarVersion||6};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  }
-  if(consent==='all'){
-    if(ids.metaPixel){
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', ids.metaPixel); fbq('track', 'PageView');
-    }
-    if(ids.linkedInPartner){
-      window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
-      window._linkedin_data_partner_ids.push(ids.linkedInPartner);
-      loadScript('https://snap.licdn.com/li.lms-analytics/insight.min.js');
-    }
-  }
-}
-
-function bindTracking(){
-  document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      trackEvent('pdf_download', {
-        asset_name:(a.getAttribute('href')||'').split('/').pop(),
-        link_text:(a.textContent||'').trim().slice(0,80)
+    try{
+      await submitViaHiddenIframe(careersForm, {
+        subject:'VitaCoreX Careers Application',
+        replyTo: String(fd.get('email')||'').trim(),
+        enctype:'application/x-www-form-urlencoded'
       });
-    });
-  });
-
-  document.querySelectorAll('a, button').forEach(el=>{
-    const text=(el.textContent||'').trim().toLowerCase();
-    const href=(el.getAttribute('href')||'').toLowerCase();
-    const label=(el.textContent||el.getAttribute('aria-label')||'').trim().slice(0,80);
-    if(href.includes('calendly.com') || text.includes('consult') || text.includes('book meeting') || text.includes('request intake') || text.includes('order services')){
-      el.addEventListener('click', ()=>{
-        trackEvent('consultation_click', {label: label, href: href || ''});
-      });
-    }
-  });
-
-  document.querySelectorAll('form').forEach(form=>{
-    form.addEventListener('submit', ()=>{
-      const formName=form.getAttribute('id') || form.getAttribute('name') || 'site_form';
-      trackEvent('form_submit', {form_name: formName});
-      if(/intake|contact/i.test(formName)){
-        trackEvent('contact_form_submit', {form_name: formName});
-        trackEvent('consultation_request', {form_name: formName});
-      }
-      if(/gate/i.test(formName)){
-        trackEvent('pdf_gate_submit', {form_name: formName});
-      }
-    }, {capture:true});
-  });
-
-  ['leakRevenue','dsoRevenue','roiPortfolio'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el && !el.dataset.vcxTracked){
-      el.dataset.vcxTracked='1';
-      el.addEventListener('change', ()=>{
-        const map={
-          leakRevenue:'revenue_calculator_use',
-          dsoRevenue:'dso_calculator_use',
-          roiPortfolio:'roi_calculator_use'
-        };
-        trackEvent(map[id] || 'calculator_use', {calculator_id:id});
-      });
+      setStatus(status,'success',statusText('careers_success','Application sent successfully. We will review your information.'));
+      careersForm.reset();
+    }catch(err){
+      setStatus(status,'error',statusText('intake_failure','Submission failed. Please try again.'));
+    }finally{
+      if(submitBtn){ submitBtn.disabled=false; submitBtn.classList.remove('is-loading'); }
     }
   });
 }
-bindTracking();
-
-buildCookieBanner();
-
 const careersMobileBtn=$('#careersMobileModal a.btn');
 if(careersMobileBtn){
  careersMobileBtn.addEventListener('click',e=>{
@@ -592,191 +410,4 @@ if(careersMobileBtn){
    const target=$('#careersForm'); if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
  });
 }
-})();
-
-function initVcxCharts(){
-  const hasRecovery=document.getElementById('recoveryChart');
-  const hasVelocity=document.getElementById('velocityChart');
-  if(!hasRecovery && !hasVelocity) return;
-  const draw=()=>{
-    if(!window.Chart) return;
-    const rc=document.getElementById('recoveryChart');
-    if(rc && !rc.dataset.ready){
-      rc.dataset.ready='1';
-      new Chart(rc.getContext('2d'),{type:'line',data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}});
-    }
-    const vc=document.getElementById('velocityChart');
-    if(vc && !vc.dataset.ready){
-      vc.dataset.ready='1';
-      new Chart(vc.getContext('2d'),{type:'bar',data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
-    }
-  };
-  if(window.Chart) draw();
-}
-initVcxCharts();
-
-
-function initExecutiveWidgets(){
-  const currency=(n)=>'$'+Math.max(0,n||0).toLocaleString(undefined,{maximumFractionDigits:0});
-  const leakageRevenue=document.getElementById('leakRevenue');
-  if(leakageRevenue){
-    const recalcLeak=()=>{
-      const revenue=+document.getElementById('leakRevenue').value||0;
-      const responsibility=(+document.getElementById('leakResponsibility').value||0)/100;
-      const leakage=(+document.getElementById('leakLeakage').value||0)/100;
-      document.getElementById('leakOutput').textContent=currency(revenue*responsibility*leakage);
-    };
-    ['leakRevenue','leakResponsibility','leakLeakage'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcLeak);
-    });
-    recalcLeak();
-  }
-
-  const dsoRevenue=document.getElementById('dsoRevenue');
-  if(dsoRevenue){
-    const recalcDso=()=>{
-      const revenue=+document.getElementById('dsoRevenue').value||0;
-      const current=+document.getElementById('dsoCurrent').value||0;
-      const target=+document.getElementById('dsoTarget').value||0;
-      const delta=Math.max(0,current-target);
-      const released=(delta/365)*revenue;
-      document.getElementById('dsoOutput').textContent=currency(released);
-      document.getElementById('dsoDelta').textContent=`${delta} days`;
-    };
-    ['dsoRevenue','dsoCurrent','dsoTarget'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcDso);
-    });
-    recalcDso();
-  }
-
-  const roiPortfolio=document.getElementById('roiPortfolio');
-  if(roiPortfolio){
-    const recalcRoi=()=>{
-      const portfolio=+document.getElementById('roiPortfolio').value||0;
-      const improve=(+document.getElementById('roiImprove').value||0)/100;
-      const cost=+document.getElementById('roiCost').value||0;
-      const addCash=portfolio*improve;
-      const multiple=cost>0?(addCash/cost):0;
-      document.getElementById('roiOutput').textContent=currency(addCash);
-      document.getElementById('roiMultiple').textContent=`${multiple.toFixed(1)}x`;
-    };
-    ['roiPortfolio','roiImprove','roiCost'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcRoi);
-    });
-    recalcRoi();
-  }
-}
-initExecutiveWidgets();
-
-function improveMobileFileInput(){
-  const input=document.querySelector('#intakeForm input[name="attachment"]');
-  if(!input) return;
-  input.addEventListener('change', ()=>{
-    const help=document.getElementById('attachmentHelp');
-    const file=input.files && input.files[0];
-    if(help && file && /pdf|word|officedocument|image/i.test(file.type || file.name)){
-      help.textContent=`Selected: ${file.name}`;
-    } else if(help && file){
-      help.textContent=`Selected: ${file.name}. Supported on iPhone through Files / Browse.`;
-    }
-  });
-}
-improveMobileFileInput();
-
-
-/* ===== VitaCoreX v45 luxury CRO + widget resilience patch ===== */
-(function(){
-  const CALENDLY_URL='https://calendly.com/vitacorex2025/30min';
-
-  function ensureCalendlyScript(){
-    return new Promise((resolve,reject)=>{
-      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){ resolve(); return; }
-      let script=document.querySelector('script[data-vcx-calendly="1"]');
-      if(script){
-        script.addEventListener('load', ()=>resolve(), {once:true});
-        script.addEventListener('error', ()=>reject(new Error('Calendly failed to load')), {once:true});
-        return;
-      }
-      script=document.createElement('script');
-      script.src='https://assets.calendly.com/assets/external/widget.js';
-      script.async=true;
-      script.dataset.vcxCalendly='1';
-      script.setAttribute('data-vcx-calendly','1');
-      script.onload=()=>resolve();
-      script.onerror=()=>reject(new Error('Calendly failed to load'));
-      document.head.appendChild(script);
-    });
-  }
-
-  function openCalendly(url){
-    ensureCalendlyScript().then(()=>{
-      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){
-        window.Calendly.initPopupWidget({ url: url || CALENDLY_URL });
-      } else {
-        window.open(url || CALENDLY_URL, '_blank', 'noopener');
-      }
-    }).catch(()=>{
-      window.open(url || CALENDLY_URL, '_blank', 'noopener');
-    });
-  }
-
-  document.querySelectorAll('a[href*="calendly.com"], .js-open-calendly').forEach((el)=>{
-    el.classList.add('js-open-calendly');
-    if(!el.getAttribute('href')) el.setAttribute('href', CALENDLY_URL);
-    if(el.dataset.vcxCalendlyBound==='1') return;
-    el.dataset.vcxCalendlyBound='1';
-    el.addEventListener('click', (event)=>{
-      event.preventDefault();
-      openCalendly(el.getAttribute('href') || CALENDLY_URL);
-    });
-  });
-
-  window.openCalendly=openCalendly;
-
-  function initWidgetFallbacks(){
-    document.querySelectorAll('.ticker-box').forEach((box)=>{
-      if(box.dataset.vcxFallbackReady==='1') return;
-      box.dataset.vcxFallbackReady='1';
-      const fallback=document.createElement('div');
-      fallback.className='market-fallback';
-      fallback.hidden=true;
-      fallback.innerHTML=[
-        '<div class="market-chip"><strong>SPY / QQQ</strong><span>U.S. equity reference</span></div>',
-        '<div class="market-chip"><strong>Gold</strong><span>Macro risk reference</span></div>',
-        '<div class="market-chip"><strong>Oil</strong><span>Operating cost reference</span></div>'
-      ].join('');
-      box.appendChild(fallback);
-
-      const showFallback=()=>{
-        const widget=box.querySelector('.tradingview-widget-container__widget');
-        if(widget && widget.children.length>0) return;
-        box.classList.add('is-fallback');
-        fallback.hidden=false;
-      };
-      window.setTimeout(showFallback, 3200);
-    });
-  }
-  initWidgetFallbacks();
-
-  function fallbackCharts(){
-    const chartHost=document.getElementById('vcxKpiCharts');
-    if(!chartHost) return;
-    window.setTimeout(()=>{
-      if(window.Chart) return;
-      chartHost.querySelectorAll('canvas').forEach((canvas)=>{
-        const card=document.createElement('div');
-        card.className='small-note';
-        card.style.padding='18px';
-        card.style.border='1px solid rgba(14,32,54,.08)';
-        card.style.borderRadius='16px';
-        card.style.background='rgba(255,255,255,.55)';
-        card.textContent='Chart library unavailable in this session. The pilot dashboard remains illustrative and available in the executive deck.';
-        canvas.replaceWith(card);
-      });
-    }, 1800);
-  }
-  fallbackCharts();
 })();
