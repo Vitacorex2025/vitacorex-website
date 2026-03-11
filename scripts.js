@@ -1600,3 +1600,156 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('touchend', ()=>updateHeader(false), {passive:true});
   window.addEventListener('resize', ()=>updateHeader(true), {passive:true});
 })();
+
+
+/* v95 final stabilization */
+(function(){
+  const $ = (s,root=document)=>root.querySelector(s);
+  const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
+
+  function bindMenu(){
+    const header=document.querySelector('.site-header');
+    const btn=document.querySelector('.menu-btn');
+    const nav=document.querySelector('.mobile-nav');
+    if(!btn || !nav || btn.dataset.v95Bound) return;
+    btn.dataset.v95Bound='1';
+    btn.addEventListener('click', ()=>{
+      nav.classList.toggle('open');
+      header && header.classList.toggle('nav-open', nav.classList.contains('open'));
+    });
+    $$('a', nav).forEach(a=>a.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      header && header.classList.remove('nav-open');
+    }));
+  }
+
+  function applyHeaderHide(){
+    const header=document.querySelector('.site-header');
+    if(!header) return;
+    let lastY=window.scrollY||0;
+    const mobile=()=>window.innerWidth<=900;
+    const tick=()=>{
+      if(!mobile()){
+        header.classList.remove('header-hidden','header-hidden-ios');
+        return;
+      }
+      const y=window.scrollY||window.pageYOffset||0;
+      const down=y>lastY;
+      const delta=Math.abs(y-lastY);
+      if(down && y>110 && delta>3){
+        header.classList.add('header-hidden','header-hidden-ios');
+      } else if(!down || y<70){
+        header.classList.remove('header-hidden','header-hidden-ios');
+      }
+      lastY=y;
+    };
+    if(!window.__vcxHideBound){
+      window.__vcxHideBound=true;
+      ['scroll','touchmove','touchend'].forEach(evt=>window.addEventListener(evt, tick, {passive:true}));
+      window.addEventListener('resize', tick, {passive:true});
+      setTimeout(tick, 100);
+    }
+  }
+
+  function recalcAll(){
+    const usd = n => '$'+(Math.max(0, Number(n)||0)).toLocaleString(undefined,{maximumFractionDigits:0});
+
+    const leakRevenue=$('#leakRevenue'), leakResp=$('#leakResponsibility'), leakLeak=$('#leakLeakage');
+    if(leakRevenue && leakResp && leakLeak){
+      const val=(Number(leakRevenue.value)||0) * (Math.max(0,Math.min(100,Number(leakResp.value)||0))/100) * (Math.max(0,Math.min(100,Number(leakLeak.value)||0))/100);
+      const out=$('#leakOutput'); if(out) out.textContent=usd(val);
+    }
+
+    const dsoRevenue=$('#dsoRevenue'), dsoCurrent=$('#dsoCurrent'), dsoTarget=$('#dsoTarget');
+    if(dsoRevenue && dsoCurrent && dsoTarget){
+      const delta=Math.max(0,(Number(dsoCurrent.value)||0)-(Number(dsoTarget.value)||0));
+      const released=(delta/365)*(Number(dsoRevenue.value)||0);
+      const out=$('#dsoOutput'), days=$('#dsoDelta');
+      if(out) out.textContent=usd(released);
+      if(days) days.textContent=`${delta} days`;
+    }
+
+    const roiPortfolio=$('#roiPortfolio'), roiImprove=$('#roiImprove'), roiCost=$('#roiCost');
+    if(roiPortfolio && roiImprove && roiCost){
+      const add=(Number(roiPortfolio.value)||0)*(Math.max(0,Math.min(100,Number(roiImprove.value)||0))/100);
+      const cost=(Number(roiCost.value)||0);
+      const out=$('#roiOutput'), mult=$('#roiMultiple');
+      if(out) out.textContent=usd(add);
+      if(mult) mult.textContent=`${cost>0?(add/cost).toFixed(1):'0.0'}x`;
+    }
+
+    const legalFiles=$('#legalFiles'), legalRate=$('#legalRate'), legalHours=$('#legalHours');
+    if(legalFiles && legalRate && legalHours){
+      const exposure=(Number(legalFiles.value)||0)*(Number(legalRate.value)||0)*(Number(legalHours.value)||0);
+      const hours=(Number(legalFiles.value)||0)*(Number(legalHours.value)||0);
+      const out=$('#legalExposure'), hrs=$('#legalExposureHours'), box=$('#legalResult');
+      if(out) out.textContent=usd(exposure);
+      if(hrs) hrs.textContent=`${Math.round(hours).toLocaleString()} hrs`;
+      if(box) box.innerHTML=`<strong>Illustrative exposure</strong><p>${Math.round(hours).toLocaleString()} attorney cleanup hours can translate into ${usd(exposure)} before strategic legal work even starts.</p>`;
+    }
+
+    const legalMatters=$('#legalMatters');
+    if(legalMatters && legalRate && legalHours){
+      const annual=(Number(legalMatters.value)||0)*(Number(legalRate.value)||0)*(Number(legalHours.value)||0)*12;
+      const out=$('#legalDragOutput');
+      if(out) out.textContent=usd(annual);
+    }
+
+    const ready = ['#readyChronology','#readyExhibits','#readySupport','#readyEscalation'].map(id=>$(id)).filter(Boolean);
+    if(ready.length){
+      const score=Math.round(ready.reduce((a,el)=>a+(Number(el.value)||0),0)/ready.length);
+      const out=$('#readyScoreOutput'), status=$('#readyStatusOutput'), fill=$('#readyMeterFill');
+      if(out) out.textContent=`${score}%`;
+      if(fill) fill.style.width=`${score}%`;
+      if(status) status.textContent=score>=80?'Counsel-ready trajectory':score>=65?'Structured but improvable':'Foundational cleanup required';
+    }
+
+    const calc=$('#cfoCalc');
+    if(calc){
+      const get=(name)=>Number(($(`[name="${name}"]`,calc)||{}).value)||0;
+      const principal=get('principal'), gross=Math.max(0,Math.min(100,get('gross')))/100, fee=Math.max(0,Math.min(100,get('fee')))/100,
+            accept=Math.max(0,Math.min(100,get('accept')))/100, complete=Math.max(0,Math.min(100,get('complete')))/100,
+            recovery=Math.max(0,Math.min(100,get('recovery')))/100, setup=get('setup');
+      const agency=principal*gross*(1-fee);
+      const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
+      const lift=pre-agency, pct=agency?(lift/agency*100):0;
+      const a=$('#calcAgency'), b=$('#calcPre'), c=$('#calcLift'), d=$('#calcLiftPct');
+      if(a) a.textContent=usd(agency);
+      if(b) b.textContent=usd(pre);
+      if(c) c.textContent=(lift>=0?'+':'-')+usd(Math.abs(lift));
+      if(d) d.textContent=(pct>=0?'+':'')+pct.toFixed(1)+'%';
+    }
+
+    if(typeof initVcxCharts==='function'){ try{ initVcxCharts(); }catch(e){} }
+  }
+
+  function bindRecalc(){
+    if(window.__vcxRecalcBound) return;
+    window.__vcxRecalcBound=true;
+    ['leakRevenue','leakResponsibility','leakLeakage','dsoRevenue','dsoCurrent','dsoTarget','roiPortfolio','roiImprove','roiCost','legalFiles','legalRate','legalHours','legalMatters','readyChronology','readyExhibits','readySupport','readyEscalation']
+      .forEach(id=>{
+        const el=document.getElementById(id);
+        if(el){
+          ['input','change','keyup'].forEach(evt=>el.addEventListener(evt,recalcAll));
+        }
+      });
+    const calc=$('#cfoCalc');
+    if(calc) $$('input', calc).forEach(el=>['input','change','keyup'].forEach(evt=>el.addEventListener(evt,recalcAll)));
+    ['legalCalc','diagEvaluate','liEvaluate'].forEach(id=>{
+      const btn=document.getElementById(id);
+      if(btn) btn.addEventListener('click', ()=>setTimeout(recalcAll, 10));
+    });
+    window.VCX_RECALC_ALL = recalcAll;
+  }
+
+  function run(){
+    bindMenu();
+    bindRecalc();
+    applyHeaderHide();
+    recalcAll();
+  }
+  document.addEventListener('DOMContentLoaded', run);
+  window.addEventListener('load', run);
+  setTimeout(run, 120);
+  setInterval(recalcAll, 800);
+})();
