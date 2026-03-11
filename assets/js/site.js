@@ -685,3 +685,98 @@ function improveMobileFileInput(){
   });
 }
 improveMobileFileInput();
+
+
+/* ===== VitaCoreX v45 luxury CRO + widget resilience patch ===== */
+(function(){
+  const CALENDLY_URL='https://calendly.com/vitacorex2025/30min';
+
+  function ensureCalendlyScript(){
+    return new Promise((resolve,reject)=>{
+      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){ resolve(); return; }
+      let script=document.querySelector('script[data-vcx-calendly="1"]');
+      if(script){
+        script.addEventListener('load', ()=>resolve(), {once:true});
+        script.addEventListener('error', ()=>reject(new Error('Calendly failed to load')), {once:true});
+        return;
+      }
+      script=document.createElement('script');
+      script.src='https://assets.calendly.com/assets/external/widget.js';
+      script.async=true;
+      script.dataset.vcxCalendly='1';
+      script.setAttribute('data-vcx-calendly','1');
+      script.onload=()=>resolve();
+      script.onerror=()=>reject(new Error('Calendly failed to load'));
+      document.head.appendChild(script);
+    });
+  }
+
+  function openCalendly(url){
+    ensureCalendlyScript().then(()=>{
+      if(window.Calendly && typeof window.Calendly.initPopupWidget==='function'){
+        window.Calendly.initPopupWidget({ url: url || CALENDLY_URL });
+      } else {
+        window.open(url || CALENDLY_URL, '_blank', 'noopener');
+      }
+    }).catch(()=>{
+      window.open(url || CALENDLY_URL, '_blank', 'noopener');
+    });
+  }
+
+  document.querySelectorAll('a[href*="calendly.com"], .js-open-calendly').forEach((el)=>{
+    el.classList.add('js-open-calendly');
+    if(!el.getAttribute('href')) el.setAttribute('href', CALENDLY_URL);
+    if(el.dataset.vcxCalendlyBound==='1') return;
+    el.dataset.vcxCalendlyBound='1';
+    el.addEventListener('click', (event)=>{
+      event.preventDefault();
+      openCalendly(el.getAttribute('href') || CALENDLY_URL);
+    });
+  });
+
+  window.openCalendly=openCalendly;
+
+  function initWidgetFallbacks(){
+    document.querySelectorAll('.ticker-box').forEach((box)=>{
+      if(box.dataset.vcxFallbackReady==='1') return;
+      box.dataset.vcxFallbackReady='1';
+      const fallback=document.createElement('div');
+      fallback.className='market-fallback';
+      fallback.hidden=true;
+      fallback.innerHTML=[
+        '<div class="market-chip"><strong>SPY / QQQ</strong><span>U.S. equity reference</span></div>',
+        '<div class="market-chip"><strong>Gold</strong><span>Macro risk reference</span></div>',
+        '<div class="market-chip"><strong>Oil</strong><span>Operating cost reference</span></div>'
+      ].join('');
+      box.appendChild(fallback);
+
+      const showFallback=()=>{
+        const widget=box.querySelector('.tradingview-widget-container__widget');
+        if(widget && widget.children.length>0) return;
+        box.classList.add('is-fallback');
+        fallback.hidden=false;
+      };
+      window.setTimeout(showFallback, 3200);
+    });
+  }
+  initWidgetFallbacks();
+
+  function fallbackCharts(){
+    const chartHost=document.getElementById('vcxKpiCharts');
+    if(!chartHost) return;
+    window.setTimeout(()=>{
+      if(window.Chart) return;
+      chartHost.querySelectorAll('canvas').forEach((canvas)=>{
+        const card=document.createElement('div');
+        card.className='small-note';
+        card.style.padding='18px';
+        card.style.border='1px solid rgba(14,32,54,.08)';
+        card.style.borderRadius='16px';
+        card.style.background='rgba(255,255,255,.55)';
+        card.textContent='Chart library unavailable in this session. The pilot dashboard remains illustrative and available in the executive deck.';
+        canvas.replaceWith(card);
+      });
+    }, 1800);
+  }
+  fallbackCharts();
+})();

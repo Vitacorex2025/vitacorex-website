@@ -356,3 +356,131 @@ body{padding-top:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLeg
   .widget-results{grid-template-columns:1fr}
   .widget-form input{font-size:16px}
 }
+
+
+/* ===== VitaCoreX v45 luxury CRO + mobile safety patch ===== */
+:root{
+  --safe-top: max(env(safe-area-inset-top), 0px);
+  --safe-right: max(env(safe-area-inset-right), 0px);
+  --safe-bottom: max(env(safe-area-inset-bottom), 0px);
+  --safe-left: max(env(safe-area-inset-left), 0px);
+}
+body{padding-top:0}
+.site-header{
+  top:calc(12px + var(--safe-top));
+  width:min(1320px,calc(100% - 24px - var(--safe-left) - var(--safe-right)));
+}
+.site-header.header-compact{top:calc(8px + var(--safe-top))}
+.hero{padding-top:calc(164px + var(--safe-top))}
+.hero-copy .cta-row{align-items:center}
+.hero-trust-note{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.hero-trust-item{
+  padding:14px 16px;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.20);
+}
+.hero-trust-item strong{display:block;font-size:.98rem;font-weight:800;color:#10243c}
+.hero-trust-item span{display:block;margin-top:4px;font-size:.83rem;color:#2e4865;line-height:1.45}
+.consult-callout{
+  display:grid;
+  grid-template-columns:1.18fr .82fr;
+  gap:26px;
+  align-items:center;
+  padding:28px;
+  border-radius:28px;
+  background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(255,255,255,.56));
+  border:1px solid rgba(255,255,255,.62);
+  box-shadow:0 22px 60px rgba(7,22,42,.12);
+}
+.consult-list{
+  margin:14px 0 0;
+  padding-left:18px;
+  color:#27415e;
+  line-height:1.7;
+}
+.consult-actions{
+  padding:22px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.32));
+  border:1px solid rgba(255,255,255,.58);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42);
+}
+.consult-actions .btn{width:100%}
+.market-fallback{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  padding:10px;
+}
+.market-fallback .market-chip{
+  padding:12px 14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(14,32,54,.08);
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.market-fallback .market-chip strong{font-size:.84rem;color:#0f233b}
+.market-fallback .market-chip span{font-size:.78rem;color:#50647a}
+.dock-calendar{
+  background:linear-gradient(135deg,var(--navy),#28527f);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+}
+.dock-calendar:hover{transform:translateY(-1px)}
+.floating-contact-dock{
+  right:calc(18px + var(--safe-right));
+  bottom:calc(18px + var(--safe-bottom));
+}
+.ticker-box.is-fallback .tradingview-widget-container{display:none}
+@media (max-width:900px){
+  .hero-trust-note,.consult-callout,.market-fallback{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .site-header{
+    top:calc(8px + var(--safe-top));
+    width:min(1320px,calc(100% - 14px - var(--safe-left) - var(--safe-right)));
+    border-radius:22px;
+  }
+  .site-header .wrap{padding:0 12px}
+  .header-shell{grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:10px 0}
+  .brand{min-width:0;gap:10px;max-width:calc(100vw - 142px - var(--safe-left) - var(--safe-right))}
+  .brand img{width:38px;height:38px;border-radius:14px;flex:0 0 auto}
+  .brand-title{min-width:0}
+  .brand-title strong{
+    font-size:.92rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+  }
+  .brand-title span{display:none}
+  .header-tools{gap:6px}
+  .clock-widget{
+    min-width:124px;
+    grid-template-columns:1fr;
+    padding:6px;
+  }
+  .clock-card:last-child{display:none}
+  .clock-card{min-width:0;padding:8px 9px}
+  .clock-time{font-size:.82rem}
+  .clock-label,.clock-sub{font-size:.58rem}
+  .lang-row{display:none}
+  .menu-btn{width:38px;height:38px;border-radius:14px}
+  .hero{padding-top:calc(128px + var(--safe-top))}
+  .hero-trust-note{margin-top:14px}
+  .hero-trust-item{padding:12px 14px}
+  .floating-contact-dock{
+    left:12px;
+    right:12px;
+    bottom:calc(12px + var(--safe-bottom));
+  }
+}
