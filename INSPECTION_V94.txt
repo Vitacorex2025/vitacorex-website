@@ -1,6 +1,0 @@
-V94 recheck
-- Added standalone inline calculator scripts on homepage, legal, and recovery pages.
-- Added direct mobile header hide script independent of bundle timing.
-- Simplified mobile header layout and increased body top spacing.
-- Reduced desktop heading sizes.
-- Made desktop dock more translucent like mobile.
