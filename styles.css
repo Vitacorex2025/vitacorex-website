@@ -1000,3 +1000,15 @@ body{padding-bottom:148px}
   .vcx-icon-app{height:52px; border-radius:18px}
   body{padding-bottom:142px}
 }
+
+
+/* v84 dock home button + calculator cleanup */
+.vcx-dock-row-top{display:grid;grid-template-columns:minmax(136px,1fr) repeat(5,44px);align-items:center;gap:10px}
+.vcx-home-link{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(240,246,251,.94));color:#17314f}
+.vcx-home-link svg,.vcx-social-link svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+.vcx-home-link svg path{fill:currentColor;stroke:none}
+@media (max-width:520px){
+  .vcx-dock-row-top{grid-template-columns:minmax(122px,1fr) repeat(5,40px);gap:8px}
+  .vcx-circle-link{width:40px;height:40px}
+}
+.impact-grid .authority-case{grid-column:1 / -1}

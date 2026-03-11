@@ -634,9 +634,6 @@ function initVcxCharts(){
 
   window.addEventListener('load', draw, {once:true});
 }
-initVcxCharts();
-
-
 function initExecutiveWidgets(){
   const currency=(n)=>'$'+Math.max(0,n||0).toLocaleString(undefined,{maximumFractionDigits:0});
   const leakageRevenue=document.getElementById('leakRevenue');
@@ -690,7 +687,7 @@ function initExecutiveWidgets(){
     recalcRoi();
   }
 }
-initExecutiveWidgets();
+
 
 function improveMobileFileInput(){
   const input=document.querySelector('#intakeForm input[name="attachment"]');
@@ -1229,3 +1226,16 @@ function initV52ImpactCalc(){
     });
   }
 })();
+
+
+function bootVcxCalculators(){
+  try{ initVcxCharts(); }catch(e){}
+  try{ initExecutiveWidgets(); }catch(e){}
+  try{ initV52ImpactCalc(); }catch(e){}
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', bootVcxCalculators);
+} else {
+  bootVcxCalculators();
+}
+window.addEventListener('load', bootVcxCalculators);
