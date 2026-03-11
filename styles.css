@@ -893,3 +893,113 @@ body{
 .dock-chip{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(238,245,251,.92));border:1px solid rgba(255,255,255,.92);box-shadow:0 8px 20px rgba(7,22,42,.08);font-size:.84rem;font-weight:700;text-align:center;line-height:1.15}
 @media (max-width:980px){.quick-launch-shell{grid-template-columns:1fr}.quick-launch-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:720px){.quick-launch-grid{grid-template-columns:1fr}.quick-app-btn{min-height:88px}.mobile-quick-dock{display:flex}body{padding-bottom:84px}}
+
+
+
+/* v74 premium glass service orbs */
+.quick-launch-section,
+.mobile-quick-dock{
+  display:none !important;
+}
+
+.service-orb-launcher{
+  position:fixed;
+  right:18px;
+  top:55%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:9999;
+  opacity:1;
+}
+
+.service-orb{
+  position:relative;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.18));
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.65);
+  box-shadow:0 8px 30px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.85), inset 0 -1px 0 rgba(255,255,255,0.25);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, opacity .25s ease;
+}
+
+.service-orb::before{
+  content:"";
+  position:absolute;
+  top:2px;
+  left:6px;
+  right:6px;
+  height:35%;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0));
+  opacity:.6;
+  pointer-events:none;
+}
+
+.service-orb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:radial-gradient(circle at 30% 22%, rgba(255,255,255,.38), transparent 46%);
+  pointer-events:none;
+}
+
+.service-orb:hover{
+  transform:scale(1.06);
+  box-shadow:0 12px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.3);
+  background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.25));
+}
+
+.service-orb:focus-visible{
+  outline:none;
+  transform:scale(1.06);
+  box-shadow:0 0 0 3px rgba(37,99,235,0.16), 0 12px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.3);
+}
+
+.service-orb svg{
+  position:relative;
+  z-index:1;
+  width:18px;
+  height:18px;
+  display:block;
+}
+
+.service-orb--doc svg{ stroke:#2b3e55; }
+.service-orb--recovery svg{ stroke:#17c964; }
+.service-orb--legal svg{ stroke:#2c2c2c; }
+
+@media (max-width:980px){
+  .service-orb-launcher{
+    right:10px;
+    top:auto;
+    bottom:112px;
+    transform:none;
+    gap:9px;
+  }
+  .service-orb{
+    width:40px;
+    height:40px;
+  }
+  .service-orb svg{
+    width:17px;
+    height:17px;
+  }
+}
+
+@media (max-width:640px){
+  .floating-contact-dock{
+    right:10px;
+    bottom:12px;
+    left:auto;
+  }
+}
