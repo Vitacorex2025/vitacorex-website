@@ -101,4 +101,54 @@
     </a>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function(){
+  function money(n){ return '$' + (Math.max(0,n||0)).toLocaleString(undefined,{maximumFractionDigits:0}); }
+  function recalc(){
+    var form=document.getElementById('cfoCalc'); if(!form) return;
+    function gv(name){ var el=form.querySelector('[name="'+name+'"]'); return +(el&&el.value||0)||0; }
+    var principal=gv('principal');
+    var gross=Math.max(0,Math.min(100,gv('gross')))/100;
+    var fee=Math.max(0,Math.min(100,gv('fee')))/100;
+    var accept=Math.max(0,Math.min(100,gv('accept')))/100;
+    var complete=Math.max(0,Math.min(100,gv('complete')))/100;
+    var recovery=Math.max(0,Math.min(100,gv('recovery')))/100;
+    var setup=gv('setup');
+    var agency=principal*gross*(1-fee);
+    var pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
+    var lift=pre-agency;
+    var pct=agency?(lift/agency*100):0;
+    var a=document.getElementById('calcAgency'), b=document.getElementById('calcPre'), c=document.getElementById('calcLift'), d=document.getElementById('calcLiftPct');
+    if(a) a.textContent=money(agency);
+    if(b) b.textContent=money(pre);
+    if(c) c.textContent=(lift>=0?'+':'-') + money(Math.abs(lift));
+    if(d) d.textContent=(pct>=0?'+':'') + pct.toLocaleString(undefined,{maximumFractionDigits:1}) + '%';
+  }
+  var form=document.getElementById('cfoCalc');
+  if(form){ form.querySelectorAll('input').forEach(function(el){ ['input','change','keyup'].forEach(function(evt){ el.addEventListener(evt,recalc); }); }); }
+  window.VCX_RECALC_ALL = (function(prev){ return function(){ try{ prev&&prev(); }catch(e){} recalc(); }; })(window.VCX_RECALC_ALL);
+  setTimeout(recalc,50); setTimeout(recalc,300); window.addEventListener('load', recalc);
+})();
+</script>
+
+
+<script>
+(function(){
+  var header=document.querySelector('.site-header');
+  if(!header) return;
+  var lastY=window.scrollY||0;
+  function update(){
+    if(window.innerWidth>900){ header.style.transform='translateX(-50%)'; return; }
+    var y=window.scrollY||0;
+    if(y>120 && y>lastY+3){ header.style.transform='translate(-50%,-132%)'; header.style.opacity='0'; header.style.pointerEvents='none'; }
+    else if(y<80 || y<lastY-6){ header.style.transform='translateX(-50%)'; header.style.opacity='1'; header.style.pointerEvents='auto'; }
+    lastY=y;
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('touchmove', update, {passive:true});
+  window.addEventListener('load', update);
+})();
+</script>
+
+</body></html>
