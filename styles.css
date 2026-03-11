@@ -925,3 +925,78 @@ body{
   .floating-contact-dock-compact{left:12px;right:12px;bottom:96px}
   .floating-contact-dock-compact .dock-btn{width:100%;min-width:0}
 }
+
+
+/* v83 unified mobile brand + dock polish */
+.mobile-quick-dock{display:none !important}
+h1{font-size:clamp(2rem,3.45vw,3.45rem);max-width:13ch}
+h2{font-size:clamp(1.45rem,2.2vw,2.25rem);max-width:16ch}
+.hero-copy .lead,.section-intro{max-width:62ch}
+.vcx-universal-dock{
+  position:fixed; left:50%; bottom:12px; transform:translateX(-50%);
+  width:min(94vw,560px); z-index:88; display:flex; flex-direction:column; gap:8px;
+  padding:10px; border-radius:28px;
+  background:linear-gradient(180deg,rgba(248,251,254,.94),rgba(240,246,251,.90));
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:0 22px 58px rgba(7,22,42,.16), inset 0 1px 0 rgba(255,255,255,.98);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+}
+.vcx-dock-row{display:flex; gap:8px; align-items:center}
+.vcx-dock-pilot{
+  flex:1 1 auto; min-width:0; min-height:52px; display:flex; align-items:center; justify-content:center;
+  padding:0 18px; border-radius:22px; font-weight:800; color:#fff;
+  background:linear-gradient(180deg,#16395c,#224d7a);
+  box-shadow:0 14px 28px rgba(22,54,86,.28);
+}
+.vcx-circle-link,.vcx-icon-app{
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(255,255,255,.94);
+  background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(239,245,251,.93));
+  box-shadow:0 10px 22px rgba(7,22,42,.10), inset 0 1px 0 rgba(255,255,255,.98);
+  color:#183556;
+  flex:0 0 auto;
+}
+.vcx-circle-link{
+  width:52px; height:52px; border-radius:50%;
+}
+.vcx-icon-app{
+  flex:1 1 0; height:58px; border-radius:20px;
+}
+.vcx-circle-link svg,.vcx-icon-app svg{width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round}
+.vcx-social-link:hover,.vcx-icon-app:hover,.vcx-dock-pilot:hover{transform:translateY(-1px)}
+body{padding-bottom:148px}
+@media (max-width:900px){
+  .header-order{display:none}
+  .main-nav{padding-left:0}
+}
+@media (max-width:720px){
+  .site-header{width:min(100% - 16px, 100% - 16px); top:8px; border-radius:26px}
+  .site-header .wrap{padding:0 14px}
+  .header-shell{grid-template-columns:1fr; gap:10px; padding:12px 0 10px; position:relative}
+  .brand{
+    width:100%; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;
+    padding-right:0;
+  }
+  .brand img{width:50px; height:50px; border-radius:16px}
+  .brand-title{align-items:center; text-align:center}
+  .brand-title strong{font-size:1.15rem; line-height:1.05}
+  .brand-title span{display:none}
+  .header-tools{width:100%; justify-content:center}
+  .clock-stack{width:100%; align-items:center}
+  .clock-widget{width:100%; min-width:0; max-width:340px}
+  .lang-row{justify-content:center; width:100%}
+  .menu-btn{
+    position:absolute; right:0; top:6px; display:grid; place-items:center;
+    width:46px; height:46px;
+  }
+  .main-nav{margin-top:6px; padding:8px 0 0; border-top:none}
+  h1{font-size:clamp(1.72rem,7.2vw,2.55rem); line-height:.99; letter-spacing:-.05em; max-width:11ch}
+  h2{font-size:clamp(1.28rem,5.2vw,1.72rem); line-height:1.06; max-width:14ch}
+  .lead{font-size:.96rem; line-height:1.58}
+  .hero-copy,.card,.glass,.output-panel,.stat-card,.problem-item{padding:18px}
+  .vcx-universal-dock{width:calc(100vw - 16px); bottom:8px; padding:8px; border-radius:24px}
+  .vcx-dock-pilot{min-height:48px; border-radius:19px; font-size:1rem}
+  .vcx-circle-link{width:48px; height:48px}
+  .vcx-icon-app{height:52px; border-radius:18px}
+  body{padding-bottom:142px}
+}
