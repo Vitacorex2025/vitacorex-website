@@ -1075,3 +1075,163 @@ body{
 @media (max-width:560px){
   .market-strip{grid-template-columns:1fr}
 }
+
+
+
+/* v78 premium green glass service launcher */
+.quick-launch-section,
+.mobile-quick-dock{
+  display:none !important;
+}
+.service-orb-launcher{
+  position:fixed;
+  right:16px;
+  top:54%;
+  transform:translateY(-50%);
+  z-index:92;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  pointer-events:none;
+}
+.service-orb{
+  position:relative;
+  width:48px;
+  height:48px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  isolation:isolate;
+  pointer-events:auto;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255,255,255,.82), rgba(255,255,255,.35) 32%, rgba(183,255,218,.28) 55%, rgba(44,184,112,.22) 72%, rgba(17,92,57,.26) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.42), rgba(145,245,189,.18));
+  border:1px solid rgba(232,255,241,.72);
+  box-shadow:
+    0 14px 34px rgba(5,33,20,.16),
+    0 6px 16px rgba(18,120,74,.18),
+    inset 0 1px 0 rgba(255,255,255,.88),
+    inset 0 -1px 0 rgba(23,123,76,.18);
+  backdrop-filter:blur(18px) saturate(190%);
+  -webkit-backdrop-filter:blur(18px) saturate(190%);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+}
+.service-orb::before{
+  content:"";
+  position:absolute;
+  inset:2px 4px auto 4px;
+  height:38%;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.18));
+  opacity:.9;
+  filter:blur(.2px);
+  pointer-events:none;
+}
+.service-orb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:radial-gradient(circle at 72% 76%, rgba(7,95,55,.22), transparent 46%);
+  opacity:.72;
+  pointer-events:none;
+}
+.service-orb:hover{
+  transform:translateX(-2px) scale(1.06);
+  border-color:rgba(240,255,247,.92);
+  box-shadow:
+    0 18px 40px rgba(5,33,20,.2),
+    0 10px 24px rgba(18,120,74,.24),
+    inset 0 1px 0 rgba(255,255,255,.94),
+    inset 0 -1px 0 rgba(23,123,76,.24);
+}
+.service-orb:focus-visible{
+  outline:none;
+  transform:translateX(-2px) scale(1.05);
+  box-shadow:
+    0 0 0 3px rgba(99,242,156,.22),
+    0 18px 40px rgba(5,33,20,.2),
+    0 10px 24px rgba(18,120,74,.24),
+    inset 0 1px 0 rgba(255,255,255,.94),
+    inset 0 -1px 0 rgba(23,123,76,.24);
+}
+.service-orb svg{
+  width:22px;
+  height:22px;
+  display:block;
+  position:relative;
+  z-index:2;
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,.7))
+    drop-shadow(0 3px 6px rgba(17,99,61,.22));
+}
+.service-orb--home svg{ width:20px; height:20px; }
+.service-orb--doc svg{ transform:translateY(.3px); }
+.service-orb--recovery svg{ transform:translate(0.2px,-0.1px); }
+.service-orb--legal svg{ transform:translateY(.15px); }
+
+.market-ticker .ticker-box{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(14,32,54,.08);
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.72), rgba(255,255,255,.36) 42%, rgba(233,246,255,.72) 100%);
+}
+.market-ticker .ticker-box::before{
+  content:"";
+  position:absolute;
+  inset:0 auto auto 0;
+  width:100%;
+  height:48%;
+  background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,0));
+  pointer-events:none;
+}
+.market-strip{
+  position:relative;
+  z-index:1;
+}
+.tradingview-widget-container,
+.tradingview-widget-container__widget,
+.tradingview-widget-copyright,
+.widget-fallback{
+  display:none !important;
+}
+
+@media (max-width:980px){
+  .service-orb-launcher{
+    right:10px;
+    top:auto;
+    bottom:116px;
+    transform:none;
+    gap:8px;
+  }
+  .service-orb{
+    width:44px;
+    height:44px;
+  }
+  .service-orb svg{
+    width:20px;
+    height:20px;
+  }
+}
+@media (max-width:640px){
+  .service-orb-launcher{
+    right:8px;
+    bottom:104px;
+  }
+  .service-orb{
+    width:42px;
+    height:42px;
+  }
+  .floating-contact-dock{
+    right:10px;
+    bottom:12px;
+    left:auto;
+  }
+  .dock-btn{
+    padding:11px 14px;
+  }
+}

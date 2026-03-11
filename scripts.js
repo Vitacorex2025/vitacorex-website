@@ -825,23 +825,8 @@ improveMobileFileInput();
     document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
   }
 
-  function ensureTradingViewFallback(){
-    const lang = vcxCurrentLang();
-    const copy = hardCopy[lang] || hardCopy.en;
-    const target = document.querySelector('.tradingview-widget-container__widget');
-    if(!target) return;
-    setTimeout(()=>{
-      const hasRenderableChild = Array.from(target.children).some(el => !(el.classList && el.classList.contains('widget-fallback')));
-      const hasIframe = !!target.querySelector('iframe');
-      if(hasRenderableChild || hasIframe) return;
-      if(target.querySelector('.widget-fallback')) return;
-      const msg = document.createElement('div');
-      msg.className = 'widget-fallback';
-      msg.textContent = copy.marketFallback;
-      target.appendChild(msg);
-      target.setAttribute("aria-live","polite");
-    }, 2200);
-  }
+  function ensureTradingViewFallback(){ return; }
+  /* v78 tradingview fallback disabled in favor of local market strip */
 
   function bindLangRefresh(){
     document.querySelectorAll('.lang-btn').forEach(btn=>{

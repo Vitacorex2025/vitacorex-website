@@ -1,0 +1,18 @@
+V80 ANALYSIS + FIXES
+
+Root cause found from mobile screenshot and code review:
+1) The mobile header used a grid that did not reserve a dedicated logo column and allowed the clock stack to visually dominate the header area.
+2) The brand lockup remained horizontal on smaller screens, so the logo + text intruded into the visual space of the clock widget.
+3) Multiple historical CSS layers were stacked in styles.css, so earlier mobile rules were fighting later premium-header rules.
+4) The ticker itself was functional, but its visual hierarchy could be cleaner and more elegant.
+
+What was changed:
+- Brand on mobile now becomes a centered vertical lockup in its own fixed-width left column.
+- Time widget now stays in its own center/right column with constrained width and single-column cards on mobile.
+- Menu button has its own dedicated right column.
+- Added trademark claim marker ™ next to VitaCoreX LLC.
+- Refined ticker glass shell, softened market pills, improved symbol chips, and added a subtle sheen animation.
+- Added gentle hover elevation to key dashboard/widget cards.
+
+Legal note:
+- ™ is generally safer than ® unless trademark registration is complete.
