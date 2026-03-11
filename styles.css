@@ -2196,3 +2196,150 @@ body{padding-bottom:148px}
   font-size:.84rem;
   color:#5f6f83;
 }
+
+
+/* v91 mobile header hide restore + desktop one-line dock */
+@media (max-width:900px){
+  body{padding-top:118px;}
+  .site-header{
+    overflow:visible;
+  }
+  .site-header.header-hidden{
+    transform:translate(-50%,-118%) !important;
+    opacity:.02 !important;
+    pointer-events:none !important;
+  }
+  .site-header.header-compact{
+    top:6px !important;
+  }
+  .header-shell{
+    min-height:96px;
+  }
+  .header-tools{
+    top:52px;
+  }
+  .clock-stack{
+    width:calc(100% - 54px);
+    grid-template-columns:92px auto 92px;
+    gap:6px;
+  }
+  .clock-card{
+    align-items:flex-start;
+    justify-content:center;
+  }
+  .clock-card:first-child .clock-label::before{content:'VitaCoreX '; font-weight:700;}
+  .clock-card:last-child .clock-label::before{content:'Your '; font-weight:700;}
+  .clock-card .clock-time{
+    color:#111 !important;
+  }
+  .menu-btn{
+    top:52px;
+  }
+  .site-header.nav-open .mobile-nav{
+    top:92px;
+  }
+  .site-header.nav-open .lang-row,
+  .site-header.nav-open .clock-stack{
+    opacity:0;
+    pointer-events:none;
+  }
+}
+
+@media (min-width:901px){
+  .header-shell{
+    grid-template-columns:minmax(220px,260px) 1fr auto;
+    align-items:center;
+  }
+  .header-order{
+    justify-self:center;
+    min-width:240px;
+  }
+  .header-tools{
+    display:grid;
+    grid-template-rows:auto auto;
+    justify-items:end;
+    gap:8px;
+  }
+  .clock-stack{
+    align-items:flex-end;
+  }
+  .vcx-universal-dock{
+    width:min(1120px, calc(100% - 48px));
+    left:50%;
+    transform:translateX(-50%);
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius:30px;
+    background:linear-gradient(180deg,rgba(248,251,254,.82),rgba(240,246,251,.76));
+    border:1px solid rgba(255,255,255,.88);
+    box-shadow:0 18px 48px rgba(7,22,42,.14), inset 0 1px 0 rgba(255,255,255,.95);
+  }
+  .vcx-dock-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+  }
+  .vcx-dock-row-top,
+  .vcx-dock-row-bottom{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+  }
+  .vcx-dock-pilot{
+    min-width:190px;
+    min-height:48px;
+    border-radius:18px;
+  }
+  .vcx-dock-action,
+  .vcx-icon-app{
+    flex-direction:column;
+    gap:4px;
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+  }
+  .vcx-dock-label{
+    font-size:10px;
+    line-height:1;
+    max-width:76px;
+    text-align:center;
+  }
+}
+
+
+/* v92 robust iPhone header hide */
+@media (max-width:900px){
+  .site-header{
+    position:fixed !important;
+    top:8px !important;
+    left:50% !important;
+    right:auto !important;
+    width:calc(100% - 16px) !important;
+    transform:translateX(-50%);
+    will-change:transform, opacity, top;
+    -webkit-transform:translateX(-50%);
+    transition:transform .34s ease, opacity .24s ease, top .24s ease, box-shadow .24s ease, background .24s ease !important;
+  }
+  .site-header.header-hidden,
+  .site-header.header-hidden-ios{
+    transform:translate(-50%, calc(-100% - 20px)) !important;
+    -webkit-transform:translate(-50%, calc(-100% - 20px)) !important;
+    opacity:.01 !important;
+    pointer-events:none !important;
+  }
+  .site-header.header-compact:not(.header-hidden):not(.header-hidden-ios){
+    transform:translateX(-50%) !important;
+    -webkit-transform:translateX(-50%) !important;
+  }
+  body{
+    padding-top:118px !important;
+  }
+}

@@ -1467,3 +1467,153 @@ window.VCX_RECALC_ALL = function VCX_RECALC_ALL(){
 document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 40); });
 window.addEventListener('load', ()=>{ setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 80); });
 setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 400);
+
+
+/* v91 explicit recalculation bridge */
+window.VCX_RECALC_ALL = function(){
+  try{
+    const leakRevenue=document.getElementById('leakRevenue');
+    if(leakRevenue){
+      const revenue=Math.max(0,+((document.getElementById('leakRevenue')||{}).value||0));
+      const responsibility=Math.max(0,Math.min(100,+((document.getElementById('leakResponsibility')||{}).value||0)))/100;
+      const leakage=Math.max(0,Math.min(100,+((document.getElementById('leakLeakage')||{}).value||0)))/100;
+      const out=document.getElementById('leakOutput');
+      if(out) out.textContent='$'+(revenue*responsibility*leakage).toLocaleString(undefined,{maximumFractionDigits:0});
+    }
+  }catch(e){}
+
+  try{
+    const dsoRevenue=document.getElementById('dsoRevenue');
+    if(dsoRevenue){
+      const revenue=Math.max(0,+((document.getElementById('dsoRevenue')||{}).value||0));
+      const current=Math.max(0,+((document.getElementById('dsoCurrent')||{}).value||0));
+      const target=Math.max(0,+((document.getElementById('dsoTarget')||{}).value||0));
+      const delta=Math.max(0,current-target);
+      const released=(delta/365)*revenue;
+      const out=document.getElementById('dsoOutput');
+      const days=document.getElementById('dsoDelta');
+      if(out) out.textContent='$'+released.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(days) days.textContent=`${delta} days`;
+    }
+  }catch(e){}
+
+  try{
+    const roiPortfolio=document.getElementById('roiPortfolio');
+    if(roiPortfolio){
+      const portfolio=Math.max(0,+((document.getElementById('roiPortfolio')||{}).value||0));
+      const improve=Math.max(0,Math.min(100,+((document.getElementById('roiImprove')||{}).value||0)))/100;
+      const cost=Math.max(0,+((document.getElementById('roiCost')||{}).value||0));
+      const addCash=portfolio*improve;
+      const multiple=cost>0?(addCash/cost):0;
+      const out=document.getElementById('roiOutput');
+      const mult=document.getElementById('roiMultiple');
+      if(out) out.textContent='$'+addCash.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(mult) mult.textContent=`${multiple.toFixed(1)}x`;
+    }
+  }catch(e){}
+
+  try{
+    const matters=document.getElementById('legalMatters');
+    if(matters){
+      const m=Math.max(0,+((document.getElementById('legalMatters')||{}).value||0));
+      const h=Math.max(0,+((document.getElementById('legalHours')||{}).value||0));
+      const r=Math.max(0,+((document.getElementById('legalRate')||{}).value||0));
+      const annual=m*h*r*12;
+      const dragOut=document.getElementById('legalDragOutput');
+      if(dragOut) dragOut.textContent=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(annual);
+    }
+  }catch(e){}
+
+  try{
+    const ids=['readyChronology','readyExhibits','readySupport','readyEscalation'].map(id=>document.getElementById(id)).filter(Boolean);
+    if(ids.length){
+      const score=Math.round(ids.reduce((a,el)=>a + (+el.value||0),0)/ids.length);
+      const readyScore=document.getElementById('readyScoreOutput');
+      const readyStatus=document.getElementById('readyStatusOutput');
+      const readyFill=document.getElementById('readyMeterFill');
+      if(readyScore) readyScore.textContent=score + '%';
+      if(readyFill) readyFill.style.width=score + '%';
+      if(readyStatus){
+        readyStatus.textContent = score >= 80 ? 'Counsel-ready trajectory' : score >= 65 ? 'Structured but improvable' : 'Foundational cleanup required';
+      }
+    }
+  }catch(e){}
+
+  try{
+    const calc=document.getElementById('cfoCalc');
+    if(calc){
+      const get=(name)=>Math.max(0,+((calc.querySelector(`[name="${name}"]`)||{}).value||0));
+      const principal=get('principal');
+      const gross=Math.min(100,get('gross'))/100;
+      const fee=Math.min(100,get('fee'))/100;
+      const accept=Math.min(100,get('accept'))/100;
+      const complete=Math.min(100,get('complete'))/100;
+      const recovery=Math.min(100,get('recovery'))/100;
+      const setup=get('setup');
+      const agency=principal*gross*(1-fee);
+      const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
+      const lift=pre-agency;
+      const pct=agency?(lift/agency*100):0;
+      const a=document.getElementById('calcAgency');
+      const b=document.getElementById('calcPre');
+      const c=document.getElementById('calcLift');
+      const d=document.getElementById('calcLiftPct');
+      if(a) a.textContent='$'+agency.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(b) b.textContent='$'+pre.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(c) c.textContent=(lift>=0?'+':'-')+'$'+Math.abs(lift).toLocaleString(undefined,{maximumFractionDigits:0});
+      if(d) d.textContent=(pct>=0?'+':'')+pct.toLocaleString(undefined,{maximumFractionDigits:1})+'%';
+    }
+  }catch(e){}
+
+  try{
+    if(typeof initVcxCharts === 'function') initVcxCharts();
+  }catch(e){}
+};
+
+document.addEventListener('DOMContentLoaded', ()=>setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 80));
+window.addEventListener('load', ()=>setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 120));
+setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 400);
+
+
+/* v92 robust iPhone header hide */
+(function(){
+  const header=document.querySelector('.site-header');
+  if(!header) return;
+  let lastY=window.scrollY||window.pageYOffset||0;
+  let ticking=false;
+  const mobile = ()=>window.innerWidth<=900;
+
+  function applyHeaderState(){
+    ticking=false;
+    if(!mobile()){
+      header.classList.remove('header-hidden-ios');
+      return;
+    }
+    const current=window.scrollY||window.pageYOffset||0;
+    const delta=current-lastY;
+
+    if(current > 120 && delta > 4){
+      header.classList.add('header-hidden');
+      header.classList.add('header-hidden-ios');
+    } else if(current < 80 || delta < -6){
+      header.classList.remove('header-hidden');
+      header.classList.remove('header-hidden-ios');
+    }
+    lastY=current;
+  }
+
+  function queueUpdate(){
+    if(ticking) return;
+    ticking=true;
+    requestAnimationFrame(applyHeaderState);
+  }
+
+  window.addEventListener('scroll', queueUpdate, {passive:true});
+  window.addEventListener('touchmove', queueUpdate, {passive:true});
+  window.addEventListener('resize', ()=>{
+    header.classList.remove('header-hidden-ios');
+    queueUpdate();
+  }, {passive:true});
+  document.addEventListener('visibilitychange', queueUpdate);
+  setTimeout(queueUpdate, 120);
+})();

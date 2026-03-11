@@ -16,13 +16,13 @@
         </div>
         <div class="widget-form">
           <label data-page="drag_label_1">Monthly matters requiring packet preparation
-            <input id="legalMatters" type="number" inputmode="numeric" value="18" min="0" step="1" />
+            <input id="legalMatters" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" inputmode="numeric" value="18" min="0" step="1" />
           </label>
           <label data-page="drag_label_2">Average attorney cleanup hours per matter
-            <input id="legalHours" type="number" inputmode="decimal" value="3.5" min="0" step="0.5" />
+            <input id="legalHours" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" inputmode="decimal" value="3.5" min="0" step="0.5" />
           </label>
           <label data-page="drag_label_3">Blended outside counsel hourly rate
-            <input id="legalRate" type="number" inputmode="numeric" value="400" min="0" step="25" />
+            <input id="legalRate" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" inputmode="numeric" value="400" min="0" step="25" />
           </label>
         </div>
         <div class="widget-results">
@@ -45,16 +45,16 @@
         <p class="small-note legal-widget-intro" data-page="readiness_intro"></p>
         <div class="score-grid">
           <label data-page="readiness_label_1">Chronology clarity
-            <input id="readyChronology" type="range" min="0" max="100" value="78" />
+            <input id="readyChronology" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="range" min="0" max="100" value="78" />
           </label>
           <label data-page="readiness_label_2">Exhibit order
-            <input id="readyExhibits" type="range" min="0" max="100" value="72" />
+            <input id="readyExhibits" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="range" min="0" max="100" value="72" />
           </label>
           <label data-page="readiness_label_3">Authorization &amp; payment support
-            <input id="readySupport" type="range" min="0" max="100" value="66" />
+            <input id="readySupport" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="range" min="0" max="100" value="66" />
           </label>
           <label data-page="readiness_label_4">Escalation notes &amp; issue log
-            <input id="readyEscalation" type="range" min="0" max="100" value="74" />
+            <input id="readyEscalation" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="range" min="0" max="100" value="74" />
           </label>
         </div>
         <div class="score-meter">
@@ -166,10 +166,10 @@
             <input id="legalFiles" type="number" min="0" step="1" value="180" />
           </label>
           <label>Attorney hourly rate
-            <input id="legalRate" type="number" min="0" step="25" value="400" />
+            <input id="legalRate" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" min="0" step="25" value="400" />
           </label>
           <label>Cleanup hours per file
-            <input id="legalHours" type="number" min="0" step="0.5" value="2.5" />
+            <input id="legalHours" oninput="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" onchange="window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL()" type="number" min="0" step="0.5" value="2.5" />
           </label>
           <button class="btn btn-primary" id="legalCalc" type="button">Estimate cost exposure</button>
         </div>

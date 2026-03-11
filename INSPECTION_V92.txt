@@ -1,0 +1,6 @@
+V92 RECHECK
+
+- Added fixed-position mobile header override.
+- Added explicit iPhone-specific header hide class.
+- Added RAF-based scroll/touchmove listener for mobile header hide.
+- Preserved desktop behavior.
