@@ -1,0 +1,77 @@
+V89 FULL SITE INSPECTION
+
+additional-services.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+
+ai-intake.html
+
+auto-purchase.html
+
+business-plans.html
+
+careers.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+
+contact.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+
+contracts.html
+
+corporate-legal-file-control.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+  legalCalc: 1
+
+corporate-paralegal.html
+
+immigration-documents.html
+
+index.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+  quick_launch: 1
+  homeLeakCalc: 1
+
+net-recovery.html
+
+resources.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+
+revenue-recovery-workflow.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+  cfoCalc: 1
+  recoveryChart: 1
+  velocityChart: 1
+
+structured-case-intake.html
+  market_ticker: 1
+  dock: 1
+  mobile_nav: 1
+
+thank-you.html
+  market_ticker: 1
+  dock: 1
+
+v51_institutional_blocks.html
+
+Fix summary:
+- Mobile header reduced to a thinner centered layout.
+- Menu overlay now uses an opaque glass panel and hides the clock/language row while open.
+- Mobile header hidden-state override removes the broken top frame effect.
+- Universal bottom dock centered and constrained consistently on all main pages.
+- Calculator listeners now bind to input, change, and keyup for iPhone behavior.
+- Recovery workflow calculator recompute is rebuilt using explicit query selectors for reliable access to named inputs.
+- Revenue recovery charts now draw with vanilla canvas instead of relying on external chart library timing.
+- Chart panels receive explicit canvas height to avoid empty white blocks.

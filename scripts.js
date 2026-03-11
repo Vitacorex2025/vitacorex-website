@@ -134,8 +134,8 @@ applyText();
 $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
 const menuBtn=$('.menu-btn'), mobileNav=$('.mobile-nav');
 if(menuBtn && mobileNav){
-  menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open'));
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+  menuBtn.addEventListener('click',()=>{ mobileNav.classList.toggle('open'); document.querySelector('.site-header')?.classList.toggle('nav-open', mobileNav.classList.contains('open')); });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ mobileNav.classList.remove('open'); document.querySelector('.site-header')?.classList.remove('nav-open'); }));
 }
 const header=$('.site-header');
 let lastScrollY=window.scrollY||0;
@@ -594,59 +594,162 @@ if(careersMobileBtn){
 }
 })();
 
+
 function initVcxCharts(){
-  const hasRecovery=document.getElementById('recoveryChart');
-  const hasVelocity=document.getElementById('velocityChart');
-  if(!hasRecovery && !hasVelocity) return;
+  const rc=document.getElementById('recoveryChart');
+  const vc=document.getElementById('velocityChart');
+  if(!rc && !vc) return;
 
-  const draw=()=>{
-    if(!window.Chart) return false;
+  const drawLineChart=(canvas, points, labels)=>{
+    if(!canvas || !canvas.getContext) return false;
+    const ctx=canvas.getContext('2d');
+    const ratio=window.devicePixelRatio || 1;
+    const rect=canvas.getBoundingClientRect();
+    const width=Math.max(280, Math.round((rect.width || canvas.clientWidth || 320)));
+    const height=Math.max(180, Math.round((rect.height || 220)));
+    canvas.width=width*ratio;
+    canvas.height=height*ratio;
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    ctx.clearRect(0,0,width,height);
 
-    const rc=document.getElementById('recoveryChart');
-    if(rc && !rc.dataset.ready){
-      rc.dataset.ready='1';
-      new Chart(rc.getContext('2d'),{
-        type:'line',
-        data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},
-        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}
-      });
+    const pad={l:28,r:16,t:16,b:28};
+    const innerW=width-pad.l-pad.r;
+    const innerH=height-pad.t-pad.b;
+
+    ctx.strokeStyle='rgba(16,37,59,.10)';
+    ctx.lineWidth=1;
+    for(let i=0;i<=4;i++){
+      const y=pad.t + (innerH/4)*i;
+      ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(width-pad.r,y); ctx.stroke();
     }
 
-    const vc=document.getElementById('velocityChart');
-    if(vc && !vc.dataset.ready){
-      vc.dataset.ready='1';
-      new Chart(vc.getContext('2d'),{
-        type:'bar',
-        data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},
-        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
-      });
-    }
+    const max=100, min=0;
+    const coords=points.map((p,i)=>{
+      const x=pad.l + (innerW/(points.length-1))*i;
+      const y=pad.t + (1-(p-min)/(max-min))*innerH;
+      return {x,y,val:p};
+    });
+
+    const grad=ctx.createLinearGradient(0,pad.t,0,height-pad.b);
+    grad.addColorStop(0,'rgba(145,240,209,.24)');
+    grad.addColorStop(1,'rgba(145,240,209,0)');
+    ctx.fillStyle=grad;
+    ctx.beginPath();
+    ctx.moveTo(coords[0].x, height-pad.b);
+    coords.forEach(c=>ctx.lineTo(c.x,c.y));
+    ctx.lineTo(coords[coords.length-1].x,height-pad.b);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.strokeStyle='#5db99c';
+    ctx.lineWidth=2.5;
+    ctx.beginPath();
+    coords.forEach((c,i)=> i?ctx.lineTo(c.x,c.y):ctx.moveTo(c.x,c.y));
+    ctx.stroke();
+
+    ctx.fillStyle='#163656';
+    coords.forEach(c=>{
+      ctx.beginPath(); ctx.arc(c.x,c.y,3,0,Math.PI*2); ctx.fill();
+    });
+
+    ctx.font='12px Inter, system-ui, sans-serif';
+    ctx.fillStyle='rgba(16,37,59,.58)';
+    ctx.textAlign='center';
+    labels.forEach((label,i)=>{
+      const x=pad.l + (innerW/(labels.length-1))*i;
+      ctx.fillText(label,x,height-8);
+    });
     return true;
   };
 
-  if(draw()) return;
+  const drawBarChart=(canvas, values, labels)=>{
+    if(!canvas || !canvas.getContext) return false;
+    const ctx=canvas.getContext('2d');
+    const ratio=window.devicePixelRatio || 1;
+    const rect=canvas.getBoundingClientRect();
+    const width=Math.max(280, Math.round((rect.width || canvas.clientWidth || 320)));
+    const height=Math.max(180, Math.round((rect.height || 220)));
+    canvas.width=width*ratio;
+    canvas.height=height*ratio;
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    ctx.clearRect(0,0,width,height);
 
-  let attempts=0;
-  const timer=setInterval(()=>{
-    attempts+=1;
-    if(draw() || attempts>40) clearInterval(timer);
-  },150);
+    const pad={l:28,r:18,t:18,b:30};
+    const innerW=width-pad.l-pad.r;
+    const innerH=height-pad.t-pad.b;
+    const max=Math.max(...values)*1.15;
 
-  window.addEventListener('load', draw, {once:true});
+    ctx.strokeStyle='rgba(16,37,59,.10)';
+    ctx.lineWidth=1;
+    for(let i=0;i<=4;i++){
+      const y=pad.t + (innerH/4)*i;
+      ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(width-pad.r,y); ctx.stroke();
+    }
+
+    const barW=Math.min(92, innerW/(values.length*1.7));
+    values.forEach((v,i)=>{
+      const x=pad.l + (innerW/(values.length+1))*(i+1) - barW/2;
+      const h=(v/max)*innerH;
+      const y=height-pad.b-h;
+      const grad=ctx.createLinearGradient(0,y,0,height-pad.b);
+      grad.addColorStop(0, i===0 ? 'rgba(86,112,149,.55)' : 'rgba(145,240,209,.82)');
+      grad.addColorStop(1, i===0 ? 'rgba(86,112,149,.22)' : 'rgba(145,240,209,.28)');
+      ctx.fillStyle=grad;
+      const r=14;
+      ctx.beginPath();
+      ctx.moveTo(x+r,y);
+      ctx.arcTo(x+barW,y,x+barW,y+r,r);
+      ctx.arcTo(x+barW,height-pad.b,x+barW-r,height-pad.b,r);
+      ctx.arcTo(x,height-pad.b,x,height-pad.b-r,r);
+      ctx.arcTo(x,y,x+r,y,r);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.font='700 12px Inter, system-ui, sans-serif';
+      ctx.fillStyle='#163656';
+      ctx.textAlign='center';
+      ctx.fillText(String(v), x+barW/2, y-8);
+      ctx.font='12px Inter, system-ui, sans-serif';
+      ctx.fillStyle='rgba(16,37,59,.58)';
+      ctx.fillText(labels[i], x+barW/2, height-8);
+    });
+    return true;
+  };
+
+  const fallback=(canvas, text)=>{
+    const panel=canvas && canvas.closest ? canvas.closest('.chart-panel') : null;
+    if(panel && !panel.querySelector('.chart-fallback-note')){
+      const note=document.createElement('div');
+      note.className='chart-fallback-note';
+      note.textContent=text;
+      panel.appendChild(note);
+    }
+  };
+
+  requestAnimationFrame(()=>{
+    try{
+      if(rc) drawLineChart(rc,[90,70,50,30,15],['0-30','30-60','60-90','90-120','120+']) || fallback(rc,'Recovery chart preview unavailable.');
+      if(vc) drawBarChart(vc,[52,44],['Baseline','Target']) || fallback(vc,'DSO chart preview unavailable.');
+    }catch(e){
+      if(rc) fallback(rc,'Recovery chart preview unavailable.');
+      if(vc) fallback(vc,'DSO chart preview unavailable.');
+    }
+  });
 }
+
 function initExecutiveWidgets(){
   const currency=(n)=>'$'+Math.max(0,n||0).toLocaleString(undefined,{maximumFractionDigits:0});
   const leakageRevenue=document.getElementById('leakRevenue');
   if(leakageRevenue){
     const recalcLeak=()=>{
       const revenue=+document.getElementById('leakRevenue').value||0;
-      const responsibility=(+document.getElementById('leakResponsibility').value||0)/100;
-      const leakage=(+document.getElementById('leakLeakage').value||0)/100;
+      const responsibility=Math.max(0,Math.min(100,+document.getElementById('leakResponsibility').value||0))/100;
+      const leakage=Math.max(0,Math.min(100,+document.getElementById('leakLeakage').value||0))/100;
       document.getElementById('leakOutput').textContent=currency(revenue*responsibility*leakage);
     };
     ['leakRevenue','leakResponsibility','leakLeakage'].forEach(id=>{
       const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcLeak);
+      if(el){ ['input','change','keyup'].forEach(evt=>el.addEventListener(evt, recalcLeak)); }
     });
     recalcLeak();
   }
@@ -664,7 +767,7 @@ function initExecutiveWidgets(){
     };
     ['dsoRevenue','dsoCurrent','dsoTarget'].forEach(id=>{
       const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcDso);
+      if(el){ ['input','change','keyup'].forEach(evt=>el.addEventListener(evt, recalcDso)); }
     });
     recalcDso();
   }
@@ -682,7 +785,7 @@ function initExecutiveWidgets(){
     };
     ['roiPortfolio','roiImprove','roiCost'].forEach(id=>{
       const el=document.getElementById(id);
-      if(el) el.addEventListener('input', recalcRoi);
+      if(el){ ['input','change','keyup'].forEach(evt=>el.addEventListener(evt, recalcRoi)); }
     });
     recalcRoi();
   }
@@ -1122,10 +1225,38 @@ function initV52ImpactCalc(){
 })();
 
 
+
 function bootVcxCalculators(){
   try{ initVcxCharts(); }catch(e){}
   try{ initExecutiveWidgets(); }catch(e){}
   try{ initV52ImpactCalc(); }catch(e){}
+  try{
+    const calc=document.getElementById('cfoCalc');
+    if(calc){
+      const out={a:document.getElementById('calcAgency'),b:document.getElementById('calcPre'),c:document.getElementById('calcLift'),d:document.getElementById('calcLiftPct')};
+      const recompute=()=>{
+        const principal=+(calc.querySelector('[name="principal"]')?.value||0);
+        const gross=Math.max(0,Math.min(100,+(calc.querySelector('[name="gross"]')?.value||0)))/100;
+        const fee=Math.max(0,Math.min(100,+(calc.querySelector('[name="fee"]')?.value||0)))/100;
+        const accept=Math.max(0,Math.min(100,+(calc.querySelector('[name="accept"]')?.value||0)))/100;
+        const complete=Math.max(0,Math.min(100,+(calc.querySelector('[name="complete"]')?.value||0)))/100;
+        const recovery=Math.max(0,Math.min(100,+(calc.querySelector('[name="recovery"]')?.value||0)))/100;
+        const setup=+(calc.querySelector('[name="setup"]')?.value||0);
+        const agency=principal*gross*(1-fee);
+        const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
+        const lift=pre-agency;
+        const pct=agency?(lift/agency*100):0;
+        if(out.a) out.a.textContent='$'+agency.toLocaleString(undefined,{maximumFractionDigits:0});
+        if(out.b) out.b.textContent='$'+pre.toLocaleString(undefined,{maximumFractionDigits:0});
+        if(out.c) out.c.textContent=(lift>=0?'+':'-')+'$'+Math.abs(lift).toLocaleString(undefined,{maximumFractionDigits:0});
+        if(out.d) out.d.textContent=(pct>=0?'+':'')+pct.toLocaleString(undefined,{maximumFractionDigits:1})+'%';
+      };
+      calc.querySelectorAll('input').forEach(i=>{
+        ['input','change','keyup'].forEach(evt=>i.addEventListener(evt,recompute));
+      });
+      recompute();
+    }
+  }catch(e){}
 }
 if(document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', bootVcxCalculators);
@@ -1133,7 +1264,6 @@ if(document.readyState === 'loading'){
   bootVcxCalculators();
 }
 window.addEventListener('load', bootVcxCalculators);
-
 
 function vcxBootAllInteractive(){
   try{ bootVcxCalculators && bootVcxCalculators(); }catch(e){}
@@ -1143,3 +1273,4 @@ function vcxBootAllInteractive(){
 }
 document.addEventListener('DOMContentLoaded', vcxBootAllInteractive);
 window.addEventListener('load', vcxBootAllInteractive);
+
