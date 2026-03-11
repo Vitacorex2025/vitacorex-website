@@ -1301,3 +1301,147 @@ body{padding-bottom:148px}
     max-width:46px;
   }
 }
+
+
+/* v87 visual cleanup, dedupe, 3D glass icons */
+.quick-app-icon{
+  width:52px;
+  height:52px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(232,240,248,.58));
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 14px 28px rgba(17,37,59,.10),
+    0 3px 8px rgba(255,255,255,.55);
+  color:#163656;
+}
+.quick-app-icon svg{
+  width:24px;
+  height:24px;
+  stroke:currentColor;
+  stroke-width:1.9;
+  fill:none;
+}
+.quick-app-icon-person{
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.90), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#f7fbff,#dfeaf7);
+}
+.quick-app-icon-pre{
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.90), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#eef7ff,#d6e7fb);
+}
+.quick-app-icon-para{
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.90), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg,#f4f8fd,#dde6f3);
+}
+
+@media (max-width:900px){
+  .quick-launch-section{display:none!important;} /* reduce duplicate service gadgets on mobile */
+  .market-head span{display:none;} /* reduce visual load above ticker */
+}
+
+/* stronger glass dock */
+@media (max-width:900px){
+  .vcx-universal-dock{
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255,255,255,.34), rgba(255,255,255,0) 28%),
+      linear-gradient(180deg,rgba(255,255,255,.20),rgba(255,255,255,.10));
+    border:1px solid rgba(255,255,255,.34);
+    box-shadow:
+      0 22px 60px rgba(7,22,42,.22),
+      inset 0 1px 0 rgba(255,255,255,.34),
+      inset 0 -1px 0 rgba(255,255,255,.10);
+  }
+  .vcx-dock-pilot{
+    background:
+      radial-gradient(circle at 25% 15%, rgba(255,255,255,.35), rgba(255,255,255,0) 30%),
+      linear-gradient(180deg,#234a79 0%, #173b62 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.25),
+      0 12px 26px rgba(23,59,98,.32);
+  }
+  .vcx-circle-link,
+  .vcx-icon-wrap{
+    background:
+      radial-gradient(circle at 28% 18%, rgba(255,255,255,.52), rgba(255,255,255,0) 36%),
+      linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.14));
+    border:1px solid rgba(255,255,255,.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.45),
+      0 10px 26px rgba(17,37,59,.16),
+      0 2px 0 rgba(255,255,255,.18);
+  }
+  .vcx-dock-action:nth-child(2) .vcx-circle-link{
+    color:#163656;
+  }
+  .vcx-dock-action:nth-child(3) .vcx-circle-link{
+    color:#E1306C;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.65), rgba(255,255,255,0) 34%),
+      linear-gradient(135deg, rgba(131,58,180,.30), rgba(253,29,29,.16), rgba(245,96,64,.16), rgba(252,175,69,.18)),
+      linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,.10));
+  }
+  .vcx-dock-action:nth-child(4) .vcx-circle-link{
+    color:#1877F2;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.62), rgba(255,255,255,0) 34%),
+      linear-gradient(180deg,rgba(24,119,242,.18),rgba(255,255,255,.12));
+  }
+  .vcx-dock-action:nth-child(5) .vcx-circle-link{
+    color:#25D366;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.62), rgba(255,255,255,0) 34%),
+      linear-gradient(180deg,rgba(37,211,102,.18),rgba(255,255,255,.12));
+  }
+  .vcx-dock-action:nth-child(6) .vcx-circle-link{
+    color:#163656;
+  }
+  .vcx-icon-app{
+    background:
+      radial-gradient(circle at 28% 18%, rgba(255,255,255,.44), rgba(255,255,255,0) 36%),
+      linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+    border:1px solid rgba(255,255,255,.24);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.30),
+      0 10px 24px rgba(17,37,59,.10);
+  }
+  .vcx-icon-app .vcx-icon-wrap{
+    color:#163656;
+  }
+  .vcx-dock-label{
+    color:#30455d;
+    font-size:8px;
+    font-weight:600;
+  }
+}
+
+/* center and reduce mobile section headings further */
+@media (max-width:900px){
+  h1{
+    font-size:clamp(1.76rem,7.8vw,2.22rem);
+    max-width:11ch;
+  }
+  h2{
+    font-size:clamp(1.32rem,5.9vw,1.82rem);
+    max-width:15ch;
+  }
+  .section > .wrap > h2,
+  .section .section-head h2{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .section-intro,
+  .lead{
+    max-width:32ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
