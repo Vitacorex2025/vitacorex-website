@@ -1665,3 +1665,76 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('resize', queue, {passive:true});
   window.addEventListener('orientationchange', queue, {passive:true});
 })();
+
+/* v101 production calculator + layout guard */
+(function(){
+  if(window.__vcxV101Bound) return;
+  window.__vcxV101Bound = true;
+
+  const money = (value)=>new Intl.NumberFormat('en-US',{
+    style:'currency',
+    currency:'USD',
+    maximumFractionDigits:0
+  }).format(Number.isFinite(value) ? value : 0);
+
+  function updateLegalDrag(){
+    const mattersEl = document.getElementById('legalMatters') || document.getElementById('legalFiles');
+    const hoursEl = document.getElementById('legalHours');
+    const rateEl = document.getElementById('legalRate');
+    const dragOut = document.getElementById('legalDragOutput') || document.getElementById('legalExposure');
+    const hoursOut = document.getElementById('legalExposureHours');
+    const result = document.getElementById('legalResult');
+
+    if(!mattersEl || !hoursEl || !rateEl || !dragOut) return;
+
+    const matters = Math.max(0, Number(mattersEl.value) || 0);
+    const hours = Math.max(0, Number(hoursEl.value) || 0);
+    const rate = Math.max(0, Number(rateEl.value) || 0);
+
+    const annualExposure = matters * hours * rate * 12;
+    const annualHours = matters * hours * 12;
+
+    dragOut.textContent = money(annualExposure);
+    if(hoursOut) hoursOut.textContent = `${annualHours.toLocaleString(undefined,{maximumFractionDigits:0})} hrs`;
+    if(result){
+      result.innerHTML = `<strong>Illustrative exposure</strong><p>At the current assumptions, administrative cleanup can absorb <b>${money(annualExposure)}</b> annually across approximately <b>${annualHours.toLocaleString(undefined,{maximumFractionDigits:0})} hours</b> before strategic legal work even starts.</p>`;
+    }
+  }
+
+  function bindLegalDrag(){
+    ['legalMatters','legalFiles','legalHours','legalRate'].forEach((id)=>{
+      const el = document.getElementById(id);
+      if(el && !el.dataset.v101Bound){
+        el.dataset.v101Bound = '1';
+        ['input','change','keyup'].forEach((evt)=>el.addEventListener(evt, updateLegalDrag));
+      }
+    });
+
+    const btn = document.getElementById('legalCalc');
+    if(btn && !btn.dataset.v101Bound){
+      btn.dataset.v101Bound = '1';
+      btn.addEventListener('click', ()=>setTimeout(updateLegalDrag, 0));
+    }
+
+    updateLegalDrag();
+    setTimeout(updateLegalDrag, 80);
+    setTimeout(updateLegalDrag, 320);
+  }
+
+  function normalizeScroll(){
+    document.documentElement.style.overflowY = 'auto';
+    document.body.style.overflowY = 'visible';
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ()=>{
+      bindLegalDrag();
+      normalizeScroll();
+    }, {once:true});
+  }else{
+    bindLegalDrag();
+    normalizeScroll();
+  }
+
+  window.addEventListener('pageshow', bindLegalDrag, {passive:true});
+})();
