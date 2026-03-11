@@ -132,23 +132,7 @@ function applyText(){
 applyText();
 $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
 const menuBtn=$('.menu-btn'), mobileNav=$('.mobile-nav');
-if(menuBtn && mobileNav){
-  menuBtn.addEventListener('click',()=>{ mobileNav.classList.toggle('open'); document.querySelector('.site-header')?.classList.toggle('nav-open', mobileNav.classList.contains('open')); });
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ mobileNav.classList.remove('open'); document.querySelector('.site-header')?.classList.remove('nav-open'); }));
-}
-const header=$('.site-header');
-let lastScrollY=window.scrollY||0;
-function onScrollCompact(){
-  if(!header) return;
-  const current=window.scrollY||0;
-  header.classList.toggle('header-compact', current>26);
-  const shouldHide=current>140 && current>lastScrollY+6;
-  const shouldShow=current<72 || current<lastScrollY-10;
-  if(shouldHide) header.classList.add('header-hidden');
-  if(shouldShow) header.classList.remove('header-hidden');
-  lastScrollY=current;
-}
-onScrollCompact(); window.addEventListener('scroll', onScrollCompact, {passive:true});
+
 function fmt(date,tz){ return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}).format(date); }
 function clocks(){ const d=new Date(); $$('.clock-vcx').forEach(el=>el.textContent=fmt(d,'America/New_York')); const local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d); $$('.clock-local').forEach(el=>el.textContent=local); }
 clocks(); setInterval(clocks,1000);
@@ -1574,48 +1558,7 @@ window.addEventListener('load', ()=>setTimeout(()=>window.VCX_RECALC_ALL&&window
 setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 400);
 
 
-/* v92 robust iPhone header hide */
-(function(){
-  const header=document.querySelector('.site-header');
-  if(!header) return;
-  let lastY=window.scrollY||window.pageYOffset||0;
-  let ticking=false;
-  const mobile = ()=>window.innerWidth<=900;
-
-  function applyHeaderState(){
-    ticking=false;
-    if(!mobile()){
-      header.classList.remove('header-hidden-ios');
-      return;
-    }
-    const current=window.scrollY||window.pageYOffset||0;
-    const delta=current-lastY;
-
-    if(current > 120 && delta > 4){
-      header.classList.add('header-hidden');
-      header.classList.add('header-hidden-ios');
-    } else if(current < 80 || delta < -6){
-      header.classList.remove('header-hidden');
-      header.classList.remove('header-hidden-ios');
-    }
-    lastY=current;
-  }
-
-  function queueUpdate(){
-    if(ticking) return;
-    ticking=true;
-    requestAnimationFrame(applyHeaderState);
-  }
-
-  window.addEventListener('scroll', queueUpdate, {passive:true});
-  window.addEventListener('touchmove', queueUpdate, {passive:true});
-  window.addEventListener('resize', ()=>{
-    header.classList.remove('header-hidden-ios');
-    queueUpdate();
-  }, {passive:true});
-  document.addEventListener('visibilitychange', queueUpdate);
-  setTimeout(queueUpdate, 120);
-})();
+/* v92 robust iPhone header hide removed in v100 */
 
 
 /* v93 explicit legal exposure + stronger mobile header behavior */
@@ -1673,291 +1616,52 @@ document.addEventListener('DOMContentLoaded', ()=>{
   setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 500);
 });
 
-/* stronger touch-driven hide/show for iPhone safari */
+/* stronger touch-driven hide/show for iPhone safari removed in v100 */
+
+
+/* v95 final stabilization replaced by v100 unified controller */
 (function(){
-  const header=document.querySelector('.site-header');
-  if(!header) return;
-  let lastY=window.scrollY||0;
-  let hideTick=0;
-  function mobile(){ return window.innerWidth <= 900; }
-  function updateHeader(force=false){
-    if(!mobile()){
-      header.classList.remove('header-hidden','header-hidden-ios');
-      return;
-    }
-    const y=window.scrollY||window.pageYOffset||0;
-    const down = y > lastY;
-    const delta = Math.abs(y-lastY);
-    if((down && y > 110 && delta > 3) || (force && y>110)){
-      header.classList.add('header-hidden');
-      header.classList.add('header-hidden-ios');
-    } else if((!down && delta > 2) || y < 70){
-      header.classList.remove('header-hidden');
-      header.classList.remove('header-hidden-ios');
-    }
-    lastY = y;
+  if(window.__vcxHeaderControllerV100) return;
+  window.__vcxHeaderControllerV100 = true;
+
+  const header = document.querySelector('.site-header');
+  const menuBtn = document.querySelector('.menu-btn');
+  const mobileNav = document.querySelector('.mobile-nav');
+  let raf = 0;
+
+  function closeMobileNav(){
+    if(mobileNav) mobileNav.classList.remove('open');
+    if(header) header.classList.remove('nav-open');
   }
-  window.addEventListener('scroll', ()=>updateHeader(false), {passive:true});
-  window.addEventListener('touchmove', ()=>{
-    clearTimeout(hideTick);
-    hideTick=setTimeout(()=>updateHeader(false), 0);
-  }, {passive:true});
-  window.addEventListener('touchend', ()=>updateHeader(false), {passive:true});
-  window.addEventListener('resize', ()=>updateHeader(true), {passive:true});
-})();
 
-
-/* v95 final stabilization */
-(function(){
-  const $ = (s,root=document)=>root.querySelector(s);
-  const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
-
-  function bindMenu(){
-    const header=document.querySelector('.site-header');
-    const btn=document.querySelector('.menu-btn');
-    const nav=document.querySelector('.mobile-nav');
-    if(!btn || !nav || btn.dataset.v95Bound) return;
-    btn.dataset.v95Bound='1';
-    btn.addEventListener('click', ()=>{
-      nav.classList.toggle('open');
-      header && header.classList.toggle('nav-open', nav.classList.contains('open'));
+  if(menuBtn && mobileNav && !menuBtn.dataset.v100Bound){
+    menuBtn.dataset.v100Bound = '1';
+    menuBtn.addEventListener('click', ()=>{
+      const isOpen = mobileNav.classList.toggle('open');
+      if(header) header.classList.toggle('nav-open', isOpen);
     });
-    $$('a', nav).forEach(a=>a.addEventListener('click', ()=>{
-      nav.classList.remove('open');
-      header && header.classList.remove('nav-open');
-    }));
+    mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
   }
 
-  function applyHeaderHide(){
-    const header=document.querySelector('.site-header');
+  function applyHeaderState(){
+    raf = 0;
     if(!header) return;
-    let lastY=window.scrollY||0;
-    const mobile=()=>window.innerWidth<=900;
-    const tick=()=>{
-      if(!mobile()){
-        header.classList.remove('header-hidden','header-hidden-ios');
-        return;
-      }
-      const y=window.scrollY||window.pageYOffset||0;
-      const down=y>lastY;
-      const delta=Math.abs(y-lastY);
-      if(down && y>110 && delta>3){
-        header.classList.add('header-hidden','header-hidden-ios');
-      } else if(!down || y<70){
-        header.classList.remove('header-hidden','header-hidden-ios');
-      }
-      lastY=y;
-    };
-    if(!window.__vcxHideBound){
-      window.__vcxHideBound=true;
-      ['scroll','touchmove','touchend'].forEach(evt=>window.addEventListener(evt, tick, {passive:true}));
-      window.addEventListener('resize', tick, {passive:true});
-      setTimeout(tick, 100);
+    const y = window.scrollY || window.pageYOffset || 0;
+    header.classList.toggle('header-compact', y > 24);
+    header.classList.remove('header-hidden', 'header-hidden-ios');
+
+    if(window.innerWidth > 900){
+      closeMobileNav();
     }
   }
 
-  function recalcAll(){
-    const usd = n => '$'+(Math.max(0, Number(n)||0)).toLocaleString(undefined,{maximumFractionDigits:0});
-
-    const leakRevenue=$('#leakRevenue'), leakResp=$('#leakResponsibility'), leakLeak=$('#leakLeakage');
-    if(leakRevenue && leakResp && leakLeak){
-      const val=(Number(leakRevenue.value)||0) * (Math.max(0,Math.min(100,Number(leakResp.value)||0))/100) * (Math.max(0,Math.min(100,Number(leakLeak.value)||0))/100);
-      const out=$('#leakOutput'); if(out) out.textContent=usd(val);
-    }
-
-    const dsoRevenue=$('#dsoRevenue'), dsoCurrent=$('#dsoCurrent'), dsoTarget=$('#dsoTarget');
-    if(dsoRevenue && dsoCurrent && dsoTarget){
-      const delta=Math.max(0,(Number(dsoCurrent.value)||0)-(Number(dsoTarget.value)||0));
-      const released=(delta/365)*(Number(dsoRevenue.value)||0);
-      const out=$('#dsoOutput'), days=$('#dsoDelta');
-      if(out) out.textContent=usd(released);
-      if(days) days.textContent=`${delta} days`;
-    }
-
-    const roiPortfolio=$('#roiPortfolio'), roiImprove=$('#roiImprove'), roiCost=$('#roiCost');
-    if(roiPortfolio && roiImprove && roiCost){
-      const add=(Number(roiPortfolio.value)||0)*(Math.max(0,Math.min(100,Number(roiImprove.value)||0))/100);
-      const cost=(Number(roiCost.value)||0);
-      const out=$('#roiOutput'), mult=$('#roiMultiple');
-      if(out) out.textContent=usd(add);
-      if(mult) mult.textContent=`${cost>0?(add/cost).toFixed(1):'0.0'}x`;
-    }
-
-    const legalFiles=$('#legalFiles'), legalRate=$('#legalRate'), legalHours=$('#legalHours');
-    if(legalFiles && legalRate && legalHours){
-      const exposure=(Number(legalFiles.value)||0)*(Number(legalRate.value)||0)*(Number(legalHours.value)||0);
-      const hours=(Number(legalFiles.value)||0)*(Number(legalHours.value)||0);
-      const out=$('#legalExposure'), hrs=$('#legalExposureHours'), box=$('#legalResult');
-      if(out) out.textContent=usd(exposure);
-      if(hrs) hrs.textContent=`${Math.round(hours).toLocaleString()} hrs`;
-      if(box) box.innerHTML=`<strong>Illustrative exposure</strong><p>${Math.round(hours).toLocaleString()} attorney cleanup hours can translate into ${usd(exposure)} before strategic legal work even starts.</p>`;
-    }
-
-    const legalMatters=$('#legalMatters');
-    if(legalMatters && legalRate && legalHours){
-      const annual=(Number(legalMatters.value)||0)*(Number(legalRate.value)||0)*(Number(legalHours.value)||0)*12;
-      const out=$('#legalDragOutput');
-      if(out) out.textContent=usd(annual);
-    }
-
-    const ready = ['#readyChronology','#readyExhibits','#readySupport','#readyEscalation'].map(id=>$(id)).filter(Boolean);
-    if(ready.length){
-      const score=Math.round(ready.reduce((a,el)=>a+(Number(el.value)||0),0)/ready.length);
-      const out=$('#readyScoreOutput'), status=$('#readyStatusOutput'), fill=$('#readyMeterFill');
-      if(out) out.textContent=`${score}%`;
-      if(fill) fill.style.width=`${score}%`;
-      if(status) status.textContent=score>=80?'Counsel-ready trajectory':score>=65?'Structured but improvable':'Foundational cleanup required';
-    }
-
-    const calc=$('#cfoCalc');
-    if(calc){
-      const get=(name)=>Number(($(`[name="${name}"]`,calc)||{}).value)||0;
-      const principal=get('principal'), gross=Math.max(0,Math.min(100,get('gross')))/100, fee=Math.max(0,Math.min(100,get('fee')))/100,
-            accept=Math.max(0,Math.min(100,get('accept')))/100, complete=Math.max(0,Math.min(100,get('complete')))/100,
-            recovery=Math.max(0,Math.min(100,get('recovery')))/100, setup=get('setup');
-      const agency=principal*gross*(1-fee);
-      const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
-      const lift=pre-agency, pct=agency?(lift/agency*100):0;
-      const a=$('#calcAgency'), b=$('#calcPre'), c=$('#calcLift'), d=$('#calcLiftPct');
-      if(a) a.textContent=usd(agency);
-      if(b) b.textContent=usd(pre);
-      if(c) c.textContent=(lift>=0?'+':'-')+usd(Math.abs(lift));
-      if(d) d.textContent=(pct>=0?'+':'')+pct.toFixed(1)+'%';
-    }
-
-    if(typeof initVcxCharts==='function'){ try{ initVcxCharts(); }catch(e){} }
+  function queue(){
+    if(raf) return;
+    raf = window.requestAnimationFrame(applyHeaderState);
   }
 
-  function bindRecalc(){
-    if(window.__vcxRecalcBound) return;
-    window.__vcxRecalcBound=true;
-    ['leakRevenue','leakResponsibility','leakLeakage','dsoRevenue','dsoCurrent','dsoTarget','roiPortfolio','roiImprove','roiCost','legalFiles','legalRate','legalHours','legalMatters','readyChronology','readyExhibits','readySupport','readyEscalation']
-      .forEach(id=>{
-        const el=document.getElementById(id);
-        if(el){
-          ['input','change','keyup'].forEach(evt=>el.addEventListener(evt,recalcAll));
-        }
-      });
-    const calc=$('#cfoCalc');
-    if(calc) $$('input', calc).forEach(el=>['input','change','keyup'].forEach(evt=>el.addEventListener(evt,recalcAll)));
-    ['legalCalc','diagEvaluate','liEvaluate'].forEach(id=>{
-      const btn=document.getElementById(id);
-      if(btn) btn.addEventListener('click', ()=>setTimeout(recalcAll, 10));
-    });
-    window.VCX_RECALC_ALL = recalcAll;
-  }
-
-  function run(){
-    bindMenu();
-    bindRecalc();
-    applyHeaderHide();
-    recalcAll();
-  }
-  document.addEventListener('DOMContentLoaded', run);
-  window.addEventListener('load', run);
-  setTimeout(run, 120);
-  setInterval(recalcAll, 800);
-})();
-
-
-/* v97 final recheck fix */
-(function(){
-  if(window.__vcxV97Loaded) return;
-  window.__vcxV97Loaded = true;
-
-  function bindMenu(){
-    var header=document.querySelector('.site-header');
-    var btn=document.querySelector('.menu-btn');
-    var nav=document.querySelector('.mobile-nav');
-    if(!btn || !nav) return;
-    btn.onclick=function(){
-      nav.classList.toggle('open');
-      if(header) header.classList.toggle('nav-open', nav.classList.contains('open'));
-    };
-    nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        nav.classList.remove('open');
-        if(header) header.classList.remove('nav-open');
-      });
-    });
-  }
-
-  function bindHide(){
-    var header=document.querySelector('.site-header');
-    if(!header) return;
-    var lastY=window.scrollY||0;
-    function run(){
-      if(window.innerWidth>900){
-        header.classList.remove('header-hidden');
-        header.classList.remove('header-hidden-ios');
-        return;
-      }
-      var y=window.scrollY||window.pageYOffset||0;
-      var down=y>lastY;
-      var delta=Math.abs(y-lastY);
-      if(down && y>120 && delta>4){
-        header.classList.add('header-hidden');
-        header.classList.add('header-hidden-ios');
-      }else if(!down || y<80){
-        header.classList.remove('header-hidden');
-        header.classList.remove('header-hidden-ios');
-      }
-      lastY=y;
-    }
-    ['scroll','touchmove','touchend','resize'].forEach(function(evt){
-      window.addEventListener(evt, run, {passive:true});
-    });
-    setTimeout(run, 80);
-  }
-
-  function run(){
-    bindMenu();
-    if(window.VCX_RECALC_ALL) window.VCX_RECALC_ALL();
-    bindHide();
-  }
-  document.addEventListener('DOMContentLoaded', run);
-  window.addEventListener('load', run);
-  setTimeout(run, 180);
-})();
-
-
-/* v98 premium stable build */
-(function(){
-  if(window.__vcxV98Loaded) return;
-  window.__vcxV98Loaded = true;
-
-  function cloneMobileLangRow(){
-    var nav=document.querySelector('.mobile-nav');
-    var src=document.querySelector('.lang-row');
-    if(!nav || !src || nav.querySelector('.mobile-lang-row')) return;
-    var row=src.cloneNode(true);
-    row.classList.add('mobile-lang-row');
-    nav.insertBefore(row, nav.firstChild);
-    row.querySelectorAll('.lang-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        src.querySelector('[data-lang="'+btn.dataset.lang+'"]')?.click();
-      });
-    });
-  }
-
-  function initClocksNow(){
-    function fmt(date,tz){
-      try{
-        return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}).format(date);
-      }catch(e){ return '--:--'; }
-    }
-    var d=new Date();
-    document.querySelectorAll('.clock-vcx').forEach(function(el){ el.textContent=fmt(d,'America/New_York'); });
-    var local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d);
-    document.querySelectorAll('.clock-local').forEach(function(el){ el.textContent=local; });
-  }
-
-  function run(){
-    cloneMobileLangRow();
-    initClocksNow();
-    if(window.VCX_RECALC_ALL) window.VCX_RECALC_ALL();
-  }
-  document.addEventListener('DOMContentLoaded', run);
-  window.addEventListener('load', run);
-  setTimeout(run, 60);
+  applyHeaderState();
+  window.addEventListener('scroll', queue, {passive:true});
+  window.addEventListener('resize', queue, {passive:true});
+  window.addEventListener('orientationchange', queue, {passive:true});
 })();
