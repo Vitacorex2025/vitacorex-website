@@ -1,0 +1,22 @@
+VITACOREX V77 BUG ANALYSIS
+
+Primary issues verified in the prior archive:
+1. Active HTML pages load assets/css/styles.css and assets/js/site.js.
+2. The glass orb styles were added to root styles.css instead of assets/css/styles.css.
+3. Result: orb markup existed in HTML, but the live pages never received the orb styling.
+4. The market / Bloomberg-like strip still depended on the external TradingView ticker script.
+5. When that script fails, stalls, or is blocked, the page can render an empty / white widget area.
+6. The project contains duplicate root files (styles.css, scripts.js) plus active asset files, which caused false-positive fixes in prior revisions.
+
+What was changed in V77:
+- Added premium glass orb CSS to assets/css/styles.css.
+- Synced root styles.css and scripts.js to the active asset copies to reduce version drift.
+- Removed the external TradingView dependency from page HTML.
+- Replaced the external widget with a local premium market pulse strip that cannot fail into a white box.
+- Removed old large quick-launch section and old mobile dock.
+- Re-injected the three right-side orb links on main pages.
+
+Verification notes:
+- All major HTML pages now contain the orb launcher markup.
+- Active asset stylesheet now contains the service-orb CSS.
+- External TradingView embed references were removed from page HTML.
