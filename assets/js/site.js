@@ -598,20 +598,41 @@ function initVcxCharts(){
   const hasRecovery=document.getElementById('recoveryChart');
   const hasVelocity=document.getElementById('velocityChart');
   if(!hasRecovery && !hasVelocity) return;
+
   const draw=()=>{
-    if(!window.Chart) return;
+    if(!window.Chart) return false;
+
     const rc=document.getElementById('recoveryChart');
     if(rc && !rc.dataset.ready){
       rc.dataset.ready='1';
-      new Chart(rc.getContext('2d'),{type:'line',data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}});
+      new Chart(rc.getContext('2d'),{
+        type:'line',
+        data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}
+      });
     }
+
     const vc=document.getElementById('velocityChart');
     if(vc && !vc.dataset.ready){
       vc.dataset.ready='1';
-      new Chart(vc.getContext('2d'),{type:'bar',data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+      new Chart(vc.getContext('2d'),{
+        type:'bar',
+        data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+      });
     }
+    return true;
   };
-  if(window.Chart) draw();
+
+  if(draw()) return;
+
+  let attempts=0;
+  const timer=setInterval(()=>{
+    attempts+=1;
+    if(draw() || attempts>40) clearInterval(timer);
+  },150);
+
+  window.addEventListener('load', draw, {once:true});
 }
 initVcxCharts();
 
@@ -825,8 +846,23 @@ improveMobileFileInput();
     document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
   }
 
-  function ensureTradingViewFallback(){ return; }
-  /* v78 tradingview fallback disabled in favor of local market strip */
+  function ensureTradingViewFallback(){
+    const lang = vcxCurrentLang();
+    const copy = hardCopy[lang] || hardCopy.en;
+    const target = document.querySelector('.tradingview-widget-container__widget');
+    if(!target) return;
+    setTimeout(()=>{
+      const hasRenderableChild = Array.from(target.children).some(el => !(el.classList && el.classList.contains('widget-fallback')));
+      const hasIframe = !!target.querySelector('iframe');
+      if(hasRenderableChild || hasIframe) return;
+      if(target.querySelector('.widget-fallback')) return;
+      const msg = document.createElement('div');
+      msg.className = 'widget-fallback';
+      msg.textContent = copy.marketFallback;
+      target.appendChild(msg);
+      target.setAttribute("aria-live","polite");
+    }, 2200);
+  }
 
   function bindLangRefresh(){
     document.querySelectorAll('.lang-btn').forEach(btn=>{

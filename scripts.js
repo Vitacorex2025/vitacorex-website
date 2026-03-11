@@ -598,20 +598,41 @@ function initVcxCharts(){
   const hasRecovery=document.getElementById('recoveryChart');
   const hasVelocity=document.getElementById('velocityChart');
   if(!hasRecovery && !hasVelocity) return;
+
   const draw=()=>{
-    if(!window.Chart) return;
+    if(!window.Chart) return false;
+
     const rc=document.getElementById('recoveryChart');
     if(rc && !rc.dataset.ready){
       rc.dataset.ready='1';
-      new Chart(rc.getContext('2d'),{type:'line',data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}});
+      new Chart(rc.getContext('2d'),{
+        type:'line',
+        data:{labels:['0-30','30-60','60-90','90-120','120+'],datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#91f0d1',backgroundColor:'rgba(145,240,209,.18)',fill:true,tension:.35}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}
+      });
     }
+
     const vc=document.getElementById('velocityChart');
     if(vc && !vc.dataset.ready){
       vc.dataset.ready='1';
-      new Chart(vc.getContext('2d'),{type:'bar',data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+      new Chart(vc.getContext('2d'),{
+        type:'bar',
+        data:{labels:['Baseline','Target'],datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.36)','rgba(145,240,209,.72)']}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+      });
     }
+    return true;
   };
-  if(window.Chart) draw();
+
+  if(draw()) return;
+
+  let attempts=0;
+  const timer=setInterval(()=>{
+    attempts+=1;
+    if(draw() || attempts>40) clearInterval(timer);
+  },150);
+
+  window.addEventListener('load', draw, {once:true});
 }
 initVcxCharts();
 
@@ -825,8 +846,23 @@ improveMobileFileInput();
     document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
   }
 
-  function ensureTradingViewFallback(){ return; }
-  /* v78 tradingview fallback disabled in favor of local market strip */
+  function ensureTradingViewFallback(){
+    const lang = vcxCurrentLang();
+    const copy = hardCopy[lang] || hardCopy.en;
+    const target = document.querySelector('.tradingview-widget-container__widget');
+    if(!target) return;
+    setTimeout(()=>{
+      const hasRenderableChild = Array.from(target.children).some(el => !(el.classList && el.classList.contains('widget-fallback')));
+      const hasIframe = !!target.querySelector('iframe');
+      if(hasRenderableChild || hasIframe) return;
+      if(target.querySelector('.widget-fallback')) return;
+      const msg = document.createElement('div');
+      msg.className = 'widget-fallback';
+      msg.textContent = copy.marketFallback;
+      target.appendChild(msg);
+      target.setAttribute("aria-live","polite");
+    }, 2200);
+  }
 
   function bindLangRefresh(){
     document.querySelectorAll('.lang-btn').forEach(btn=>{
@@ -1086,110 +1122,4 @@ function initV52ImpactCalc(){
   }
   readyInputs.forEach(el=>el.addEventListener('input',calcReadiness));
   calcReadiness();
-})();
-
-
-(function(){
-  const btn=document.getElementById('liEvaluate');
-  const box=document.getElementById('liResult');
-  if(!btn || !box) return;
-  btn.addEventListener('click', function(){
-    const revenue=Number((document.getElementById('liRevenue')||{}).value||1);
-    const portfolio=Number((document.getElementById('liPortfolio')||{}).value||1);
-    const pain=((document.getElementById('liPain')||{}).value)||'workflow';
-    const industry=((document.getElementById('liIndustry')||{}).value)||'services';
-    let score = revenue + portfolio + (pain==='counsel' || pain==='agency' ? 2 : 1);
-    let tier = score >= 8 ? 'High-priority operator review' : score >= 6 ? 'Structured diagnostic review' : 'Initial workflow assessment';
-    let focus = {
-      workflow:'workflow sequencing, outreach cadence, and KPI visibility',
-      docs:'documentation governance, chronology, and file readiness',
-      agency:'pre-agency control, fee leakage reduction, and escalation logic',
-      counsel:'file-control infrastructure, attorney cleanup reduction, and counsel support'
-    }[pain];
-    let sector = {
-      healthcare:'Healthcare and dental operators usually benefit from earlier payment commitment conversion and cleaner patient-balance controls.',
-      fleet:'Fleet and fuel portfolios usually benefit from guaranty discipline, ACH control, and faster escalation governance.',
-      subscription:'Subscription platforms usually benefit from stronger documentation, autopay discipline, and cleaner exception handling.',
-      services:'Multi-location service operators usually benefit from standardized workflows and location-level governance.'
-    }[industry];
-    box.innerHTML = '<strong>'+tier+'</strong><p>Suggested focus: <b>'+focus+'</b>. '+sector+' Recommended next step: schedule a strategy consultation and review the current portfolio, file condition, and implementation scope.</p>';
-  });
-})();
-
-
-(function(){
-  const money=(n)=>'$'+Math.round(n).toLocaleString();
-  const byId=(id)=>document.getElementById(id);
-
-  const roiBtn=byId('roiCalculate');
-  if(roiBtn){
-    roiBtn.addEventListener('click', function(){
-      const revenue=parseFloat(byId('roiRevenue').value||0);
-      const portfolio=parseFloat(byId('roiPortfolio').value||0);
-      const currentRate=parseFloat(byId('roiRate').value||0)/100;
-      const agencyFee=parseFloat(byId('roiAgencyFee').value||0)/100;
-
-      const uplift=0.13;
-      const improvedRate=Math.min(currentRate + uplift, 0.92);
-      const baselineCash=portfolio*currentRate;
-      const improvedCash=portfolio*improvedRate;
-      const additional=Math.max(improvedCash-baselineCash,0);
-      const avoided=additional*agencyFee;
-      const dsoGain=Math.max(3, Math.min(12, Math.round((portfolio/(Math.max(revenue,1)))*28)));
-
-      byId('roiAdditional').textContent=money(additional);
-      byId('roiAvoided').textContent=money(avoided);
-      byId('roiDso').textContent=dsoGain+' days';
-      byId('roiBaseBar').style.width=Math.max(12,currentRate*100)+'%';
-      byId('roiImprovedBar').style.width=Math.max(18,improvedRate*100)+'%';
-      const box=byId('roiResult');
-      if(box){
-        box.innerHTML='<strong>Illustrative impact</strong><p>Based on the inputs provided, a structured recovery layer could directionally improve retained cash by <b>'+money(additional)+'</b>, avoid approximately <b>'+money(avoided)+'</b> in contingency leakage, and support a potential <b>'+dsoGain+'-day</b> improvement in cash velocity. Use a pilot to validate actual portfolio performance.</p>';
-      }
-    });
-  }
-
-  const diagBtn=byId('diagEvaluate');
-  if(diagBtn){
-    diagBtn.addEventListener('click', function(){
-      const industry=byId('diagIndustry').value;
-      const complexity=byId('diagComplexity').value;
-      const docs=byId('diagDocs').value;
-      const pain=byId('diagPain').value;
-      let recommendation='Begin with recovery infrastructure review.';
-      if((docs==='weak' && pain==='counsel') || (docs==='weak' && complexity!=='standard')){
-        recommendation='Begin with corporate legal file control and documentation governance.';
-      }
-      if((pain==='recovery' && complexity!=='standard' && docs!=='structured') || (pain==='agency' && complexity==='critical')){
-        recommendation='Run a combined 90-day pilot covering recovery workflow and legal file control.';
-      }
-      const sectorMap={
-        healthcare:'Healthcare and dental operators usually benefit from earlier patient-balance conversion, cleaner payment documentation, and stronger escalation discipline.',
-        fleet:'Fleet, fuel, and logistics operators usually benefit from guaranty discipline, ACH governance, and faster contract-file readiness.',
-        subscription:'Subscription platforms usually benefit from cleaner autopay logic, exception routing, and stronger documentation before enforcement.',
-        services:'Multi-location service operators usually benefit from standardized workflows and file governance across locations.'
-      };
-      const box=byId('diagResult');
-      if(box){
-        box.innerHTML='<strong>'+recommendation+'</strong><p>'+sectorMap[industry]+' This profile suggests prioritizing '+(pain==='counsel'?'documentation control and counsel support':'cash-conversion workflow discipline')+' before external costs escalate further.</p>';
-      }
-    });
-  }
-
-  const legalBtn=byId('legalCalc');
-  if(legalBtn){
-    legalBtn.addEventListener('click', function(){
-      const files=parseFloat(byId('legalFiles').value||0);
-      const rate=parseFloat(byId('legalRate').value||0);
-      const hours=parseFloat(byId('legalHours').value||0);
-      const exposure=files*rate*hours;
-      const totalHours=files*hours;
-      byId('legalExposure').textContent=money(exposure);
-      byId('legalExposureHours').textContent=Math.round(totalHours).toLocaleString()+' hrs';
-      const box=byId('legalResult');
-      if(box){
-        box.innerHTML='<strong>Illustrative exposure</strong><p>At the current assumptions, administrative file cleanup may absorb <b>'+money(exposure)+'</b> in annual attorney time across approximately <b>'+Math.round(totalHours).toLocaleString()+' hours</b>. Stronger documentation infrastructure can reduce this burden before outside review begins.</p>';
-      }
-    });
-  }
 })();
