@@ -1,7 +1,0 @@
-V95 STABILIZATION BUILD
-- Replaced header markup with one stable structure across full pages.
-- Rebuilt mobile/desktop header with strong final CSS overrides.
-- Removed duplicate legacy legal sections from corporate legal page.
-- Rebound calculators with final standalone recalc function.
-- Added interval-based recalc safety net.
-- Kept dock glass style unified across mobile and desktop.
