@@ -1012,3 +1012,20 @@ body{padding-bottom:148px}
   .vcx-circle-link{width:40px;height:40px}
 }
 .impact-grid .authority-case{grid-column:1 / -1}
+
+
+/* v85 comprehensive cleanup */
+.mobile-quick-dock,
+.floating-contact-dock{display:none !important}
+.vcx-universal-dock{z-index:95}
+.vcx-dock-row-top{display:grid;grid-template-columns:minmax(128px,1fr) repeat(5,44px);align-items:center;gap:10px}
+.vcx-home-link{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(240,246,251,.94));color:#17314f}
+.vcx-home-link svg,.vcx-social-link svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+.vcx-home-link svg path{fill:currentColor;stroke:none}
+.impact-grid{grid-template-columns:1fr}
+.impact-grid .authority-case{max-width:none}
+.cfo-engine-section{display:none !important}
+@media (max-width:520px){
+  .vcx-dock-row-top{grid-template-columns:minmax(118px,1fr) repeat(5,40px);gap:8px}
+  .vcx-circle-link{width:40px;height:40px}
+}

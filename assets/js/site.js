@@ -1239,3 +1239,13 @@ if(document.readyState === 'loading'){
   bootVcxCalculators();
 }
 window.addEventListener('load', bootVcxCalculators);
+
+
+function vcxBootAllInteractive(){
+  try{ bootVcxCalculators && bootVcxCalculators(); }catch(e){}
+  try{ initVcxCharts && initVcxCharts(); }catch(e){}
+  try{ initExecutiveWidgets && initExecutiveWidgets(); }catch(e){}
+  try{ initV52ImpactCalc && initV52ImpactCalc(); }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', vcxBootAllInteractive);
+window.addEventListener('load', vcxBootAllInteractive);
