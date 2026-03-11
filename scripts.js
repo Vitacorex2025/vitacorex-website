@@ -1274,3 +1274,90 @@ function vcxBootAllInteractive(){
 document.addEventListener('DOMContentLoaded', vcxBootAllInteractive);
 window.addEventListener('load', vcxBootAllInteractive);
 
+
+
+window.VCX_RECALC_ALL = function VCX_RECALC_ALL(){
+  try{
+    const get = (id)=>document.getElementById(id);
+    const usd = (n)=>'$'+(Math.max(0, Number(n)||0)).toLocaleString(undefined,{maximumFractionDigits:0});
+
+    const leakRevenue=get('leakRevenue'), leakResponsibility=get('leakResponsibility'), leakLeakage=get('leakLeakage');
+    if(leakRevenue && leakResponsibility && leakLeakage){
+      const revenue=Number(leakRevenue.value)||0;
+      const responsibility=Math.max(0,Math.min(100, Number(leakResponsibility.value)||0))/100;
+      const leakage=Math.max(0,Math.min(100, Number(leakLeakage.value)||0))/100;
+      const output=get('leakOutput');
+      if(output) output.textContent = usd(revenue*responsibility*leakage);
+    }
+
+    const dsoRevenue=get('dsoRevenue'), dsoCurrent=get('dsoCurrent'), dsoTarget=get('dsoTarget');
+    if(dsoRevenue && dsoCurrent && dsoTarget){
+      const revenue=Number(dsoRevenue.value)||0;
+      const current=Number(dsoCurrent.value)||0;
+      const target=Number(dsoTarget.value)||0;
+      const delta=Math.max(0,current-target);
+      const released=(delta/365)*revenue;
+      const out=get('dsoOutput'); const d=get('dsoDelta');
+      if(out) out.textContent = usd(released);
+      if(d) d.textContent = `${delta} days`;
+    }
+
+    const roiPortfolio=get('roiPortfolio'), roiImprove=get('roiImprove'), roiCost=get('roiCost');
+    if(roiPortfolio && roiImprove && roiCost){
+      const portfolio=Number(roiPortfolio.value)||0;
+      const improve=Math.max(0,Math.min(100, Number(roiImprove.value)||0))/100;
+      const cost=Number(roiCost.value)||0;
+      const addCash=portfolio*improve;
+      const multiple=cost>0?addCash/cost:0;
+      const out=get('roiOutput'); const mult=get('roiMultiple');
+      if(out) out.textContent = usd(addCash);
+      if(mult) mult.textContent = `${multiple.toFixed(1)}x`;
+    }
+
+    const legalMatters=get('legalMatters'), legalHours=get('legalHours'), legalRate=get('legalRate');
+    if(legalMatters && legalHours && legalRate){
+      const annual=(Number(legalMatters.value)||0)*(Number(legalHours.value)||0)*(Number(legalRate.value)||0)*12;
+      const out=get('legalDragOutput');
+      if(out) out.textContent = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(isFinite(annual)?annual:0);
+    }
+
+    const readyIds=['readyChronology','readyExhibits','readySupport','readyEscalation'].map(get).filter(Boolean);
+    if(readyIds.length){
+      const score=Math.round(readyIds.reduce((a,el)=>a+(Number(el.value)||0),0)/readyIds.length);
+      const scoreOut=get('readyScoreOutput');
+      const statusOut=get('readyStatusOutput');
+      const fill=get('readyMeterFill');
+      if(scoreOut) scoreOut.textContent = `${score}%`;
+      if(fill) fill.style.width = `${score}%`;
+      if(statusOut){
+        statusOut.textContent = score>=80 ? 'Counsel-ready trajectory' : score>=65 ? 'Structured but improvable' : 'Foundational cleanup required';
+      }
+    }
+
+    const calc=document.getElementById('cfoCalc');
+    if(calc){
+      const q=(name)=>calc.querySelector(`[name="${name}"]`);
+      const principal=Number(q('principal')?.value)||0;
+      const gross=Math.max(0,Math.min(100,Number(q('gross')?.value)||0))/100;
+      const fee=Math.max(0,Math.min(100,Number(q('fee')?.value)||0))/100;
+      const accept=Math.max(0,Math.min(100,Number(q('accept')?.value)||0))/100;
+      const complete=Math.max(0,Math.min(100,Number(q('complete')?.value)||0))/100;
+      const recovery=Math.max(0,Math.min(100,Number(q('recovery')?.value)||0))/100;
+      const setup=Number(q('setup')?.value)||0;
+      const agency=principal*gross*(1-fee);
+      const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup;
+      const lift=pre-agency;
+      const pct=agency ? (lift/agency*100) : 0;
+      const a=get('calcAgency'), b=get('calcPre'), c=get('calcLift'), d=get('calcLiftPct');
+      if(a) a.textContent='$'+agency.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(b) b.textContent='$'+pre.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(c) c.textContent=(lift>=0?'+':'-')+'$'+Math.abs(lift).toLocaleString(undefined,{maximumFractionDigits:0});
+      if(d) d.textContent=(pct>=0?'+':'')+pct.toLocaleString(undefined,{maximumFractionDigits:1})+'%';
+    }
+
+    if(typeof initVcxCharts === 'function'){ try{ initVcxCharts(); }catch(e){} }
+  }catch(err){}
+};
+document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 40); });
+window.addEventListener('load', ()=>{ setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 80); });
+setTimeout(()=>window.VCX_RECALC_ALL&&window.VCX_RECALC_ALL(), 400);

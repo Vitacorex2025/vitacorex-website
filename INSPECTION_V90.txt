@@ -1,0 +1,30 @@
+V90 FULL SITE INSPECTION
+
+Structural counts:
+additional-services.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=0 charts=0
+ai-intake.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+auto-purchase.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+business-plans.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+careers.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=0 charts=0
+contact.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=0 charts=0
+contracts.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+corporate-legal-file-control.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=2 charts=0
+corporate-paralegal.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+immigration-documents.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+index.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=3 charts=0
+net-recovery.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+resources.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=0 charts=0
+revenue-recovery-workflow.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=1 charts=2
+structured-case-intake.html: dock=1 ticker=1 mobile_nav=1 calc_inputs=0 charts=0
+thank-you.html: dock=1 ticker=1 mobile_nav=0 calc_inputs=0 charts=0
+v51_institutional_blocks.html: dock=0 ticker=0 mobile_nav=0 calc_inputs=0 charts=0
+
+Key fixes applied:
+- Added forced global recalculation function window.VCX_RECALC_ALL and attached it to all calculator inputs.
+- Added extra recalculation triggers on DOMContentLoaded, load, and delayed timeout.
+- Kept outputs prefilled in HTML so sections never appear blank before JS runs.
+- Desktop dock converted to one transparent glass row.
+- Desktop header reorganized so request-service is centered and clocks/languages stack on the right.
+- Mobile header compressed again so times and language controls share one lighter band.
+- Mobile hidden-header bug overridden to stop the broken frame effect.
+- Chart canvases forced to visible height to prevent empty white blocks.
