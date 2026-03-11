@@ -1,1 +1,0 @@
-V96 POLISH\n- Rechecked homepage and corporate legal layout.\n- Fixed zero-state homepage metrics default values.\n- Improved contrast in dark premium module.\n- Made desktop dock glass/color treatment match iPhone style more closely.\n- Increased bottom safe spacing so dock covers less content.\n
