@@ -696,7 +696,7 @@ improveMobileFileInput();
   const hardCopy = {
     en: {
       marketFallback: 'Market signal temporarily unavailable. Revenue recovery remains one of the largest controllable cash drivers for multi-location operators.',
-      dockCalendar: 'Book a Call',
+      dockCalendar: 'Schedule Consultation',
       dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive tools',
@@ -712,13 +712,13 @@ improveMobileFileInput();
           ['Lead quality','Self-qualification before consultation','Better inputs, stronger calls, fewer weak inquiries.'],
           ['Trust','Metrics-led positioning','Signals that VitaCoreX thinks in controls, economics, and implementation outcomes.']
         ],
-        kpis:['Net recovery target','Agency fee avoidance','Pilot evidence window'],
-        module:['B2B consulting structure','Built for operators who need cleaner execution before outside cost expands.','Request operational review','View executive briefs']
+        kpis:['Net recovery improvement','Agency fee avoidance','Pilot validation window'],
+        module:['B2B consulting structure','Built for operators who require structured execution before legal and recovery costs escalate.','Request strategic review','Review service lines']
       }
     },
     ru: {
       marketFallback: 'Рыночный блок временно недоступен. Возврат выручки остаётся одним из самых управляемых драйверов кэша для сетевых операторов.',
-      dockCalendar: 'Назначить звонок',
+      dockCalendar: 'Назначить консультацию',
       dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive-инструменты',
@@ -1001,7 +1001,27 @@ improveMobileFileInput();
     return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
   }
 
-  function initV52ImpactCalc(){
+  
+function initFloatingDockBehavior(){
+  const dock=document.querySelector('.floating-contact-dock');
+  if(!dock) return;
+  let lastY=window.scrollY||0;
+  const update=()=>{
+    const y=window.scrollY||0;
+    if(window.innerWidth<=900){
+      dock.classList.toggle('dock-compact', y>220);
+      dock.classList.toggle('dock-hidden', y<80);
+    } else {
+      dock.classList.remove('dock-compact','dock-hidden');
+    }
+    lastY=y;
+  };
+  update();
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+}
+
+function initV52ImpactCalc(){
     const revenue = document.getElementById('impactRevenue');
     const portfolio = document.getElementById('impactPortfolio');
     const recovery = document.getElementById('impactRecovery');
@@ -1040,4 +1060,151 @@ improveMobileFileInput();
       btn.addEventListener('click', ()=>setTimeout(applyV52Copy,20));
     });
   });
+
+  initFloatingDockBehavior();
+})();
+
+
+(function(){
+  const nfUsd = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  const matters = document.getElementById('legalMatters');
+  const hours = document.getElementById('legalHours');
+  const rate = document.getElementById('legalRate');
+  const dragOut = document.getElementById('legalDragOutput');
+  function calcLegalDrag(){
+    if(!matters || !hours || !rate || !dragOut) return;
+    const m = parseFloat(matters.value || 0);
+    const h = parseFloat(hours.value || 0);
+    const r = parseFloat(rate.value || 0);
+    const annual = m * h * r * 12;
+    dragOut.textContent = nfUsd.format(isFinite(annual)?annual:0);
+  }
+  [matters,hours,rate].forEach(el=>el && el.addEventListener('input',calcLegalDrag));
+  calcLegalDrag();
+
+  const readyInputs = ['readyChronology','readyExhibits','readySupport','readyEscalation']
+    .map(id=>document.getElementById(id))
+    .filter(Boolean);
+  const readyScoreOut = document.getElementById('readyScoreOutput');
+  const readyStatusOut = document.getElementById('readyStatusOutput');
+  const readyFill = document.getElementById('readyMeterFill');
+  function calcReadiness(){
+    if(!readyInputs.length || !readyScoreOut || !readyStatusOut || !readyFill) return;
+    const score = readyInputs.reduce((a,el)=>a + parseFloat(el.value || 0), 0) / readyInputs.length;
+    const rounded = Math.round(score);
+    readyScoreOut.textContent = rounded + '%';
+    readyFill.style.width = rounded + '%';
+    let status = 'Foundational cleanup required';
+    if(rounded >= 80) status = 'Counsel-ready trajectory';
+    else if(rounded >= 65) status = 'Structured but improvable';
+    readyStatusOut.textContent = status;
+  }
+  readyInputs.forEach(el=>el.addEventListener('input',calcReadiness));
+  calcReadiness();
+})();
+
+
+(function(){
+  const btn=document.getElementById('liEvaluate');
+  const box=document.getElementById('liResult');
+  if(!btn || !box) return;
+  btn.addEventListener('click', function(){
+    const revenue=Number((document.getElementById('liRevenue')||{}).value||1);
+    const portfolio=Number((document.getElementById('liPortfolio')||{}).value||1);
+    const pain=((document.getElementById('liPain')||{}).value)||'workflow';
+    const industry=((document.getElementById('liIndustry')||{}).value)||'services';
+    let score = revenue + portfolio + (pain==='counsel' || pain==='agency' ? 2 : 1);
+    let tier = score >= 8 ? 'High-priority operator review' : score >= 6 ? 'Structured diagnostic review' : 'Initial workflow assessment';
+    let focus = {
+      workflow:'workflow sequencing, outreach cadence, and KPI visibility',
+      docs:'documentation governance, chronology, and file readiness',
+      agency:'pre-agency control, fee leakage reduction, and escalation logic',
+      counsel:'file-control infrastructure, attorney cleanup reduction, and counsel support'
+    }[pain];
+    let sector = {
+      healthcare:'Healthcare and dental operators usually benefit from earlier payment commitment conversion and cleaner patient-balance controls.',
+      fleet:'Fleet and fuel portfolios usually benefit from guaranty discipline, ACH control, and faster escalation governance.',
+      subscription:'Subscription platforms usually benefit from stronger documentation, autopay discipline, and cleaner exception handling.',
+      services:'Multi-location service operators usually benefit from standardized workflows and location-level governance.'
+    }[industry];
+    box.innerHTML = '<strong>'+tier+'</strong><p>Suggested focus: <b>'+focus+'</b>. '+sector+' Recommended next step: schedule a strategy consultation and review the current portfolio, file condition, and implementation scope.</p>';
+  });
+})();
+
+
+(function(){
+  const money=(n)=>'$'+Math.round(n).toLocaleString();
+  const byId=(id)=>document.getElementById(id);
+
+  const roiBtn=byId('roiCalculate');
+  if(roiBtn){
+    roiBtn.addEventListener('click', function(){
+      const revenue=parseFloat(byId('roiRevenue').value||0);
+      const portfolio=parseFloat(byId('roiPortfolio').value||0);
+      const currentRate=parseFloat(byId('roiRate').value||0)/100;
+      const agencyFee=parseFloat(byId('roiAgencyFee').value||0)/100;
+
+      const uplift=0.13;
+      const improvedRate=Math.min(currentRate + uplift, 0.92);
+      const baselineCash=portfolio*currentRate;
+      const improvedCash=portfolio*improvedRate;
+      const additional=Math.max(improvedCash-baselineCash,0);
+      const avoided=additional*agencyFee;
+      const dsoGain=Math.max(3, Math.min(12, Math.round((portfolio/(Math.max(revenue,1)))*28)));
+
+      byId('roiAdditional').textContent=money(additional);
+      byId('roiAvoided').textContent=money(avoided);
+      byId('roiDso').textContent=dsoGain+' days';
+      byId('roiBaseBar').style.width=Math.max(12,currentRate*100)+'%';
+      byId('roiImprovedBar').style.width=Math.max(18,improvedRate*100)+'%';
+      const box=byId('roiResult');
+      if(box){
+        box.innerHTML='<strong>Illustrative impact</strong><p>Based on the inputs provided, a structured recovery layer could directionally improve retained cash by <b>'+money(additional)+'</b>, avoid approximately <b>'+money(avoided)+'</b> in contingency leakage, and support a potential <b>'+dsoGain+'-day</b> improvement in cash velocity. Use a pilot to validate actual portfolio performance.</p>';
+      }
+    });
+  }
+
+  const diagBtn=byId('diagEvaluate');
+  if(diagBtn){
+    diagBtn.addEventListener('click', function(){
+      const industry=byId('diagIndustry').value;
+      const complexity=byId('diagComplexity').value;
+      const docs=byId('diagDocs').value;
+      const pain=byId('diagPain').value;
+      let recommendation='Begin with recovery infrastructure review.';
+      if((docs==='weak' && pain==='counsel') || (docs==='weak' && complexity!=='standard')){
+        recommendation='Begin with corporate legal file control and documentation governance.';
+      }
+      if((pain==='recovery' && complexity!=='standard' && docs!=='structured') || (pain==='agency' && complexity==='critical')){
+        recommendation='Run a combined 90-day pilot covering recovery workflow and legal file control.';
+      }
+      const sectorMap={
+        healthcare:'Healthcare and dental operators usually benefit from earlier patient-balance conversion, cleaner payment documentation, and stronger escalation discipline.',
+        fleet:'Fleet, fuel, and logistics operators usually benefit from guaranty discipline, ACH governance, and faster contract-file readiness.',
+        subscription:'Subscription platforms usually benefit from cleaner autopay logic, exception routing, and stronger documentation before enforcement.',
+        services:'Multi-location service operators usually benefit from standardized workflows and file governance across locations.'
+      };
+      const box=byId('diagResult');
+      if(box){
+        box.innerHTML='<strong>'+recommendation+'</strong><p>'+sectorMap[industry]+' This profile suggests prioritizing '+(pain==='counsel'?'documentation control and counsel support':'cash-conversion workflow discipline')+' before external costs escalate further.</p>';
+      }
+    });
+  }
+
+  const legalBtn=byId('legalCalc');
+  if(legalBtn){
+    legalBtn.addEventListener('click', function(){
+      const files=parseFloat(byId('legalFiles').value||0);
+      const rate=parseFloat(byId('legalRate').value||0);
+      const hours=parseFloat(byId('legalHours').value||0);
+      const exposure=files*rate*hours;
+      const totalHours=files*hours;
+      byId('legalExposure').textContent=money(exposure);
+      byId('legalExposureHours').textContent=Math.round(totalHours).toLocaleString()+' hrs';
+      const box=byId('legalResult');
+      if(box){
+        box.innerHTML='<strong>Illustrative exposure</strong><p>At the current assumptions, administrative file cleanup may absorb <b>'+money(exposure)+'</b> in annual attorney time across approximately <b>'+Math.round(totalHours).toLocaleString()+' hours</b>. Stronger documentation infrastructure can reduce this burden before outside review begins.</p>';
+      }
+    });
+  }
 })();
