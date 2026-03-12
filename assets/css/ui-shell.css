@@ -4481,3 +4481,56 @@ body:not(.modal-open){
   transform:none !important;
   transition:none !important;
 }
+
+
+/* ===== Emergency stability fix v240 ===== */
+html,
+body{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior-y:auto !important;
+}
+body{
+  position:static !important;
+}
+.vcx-header{
+  position:sticky !important;
+  top:0 !important;
+}
+.vcx-header.is-hidden{
+  transform:none !important;
+}
+.vcx-static-market{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+.vcx-market-pill{
+  display:grid;
+  gap:3px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.55));
+  border:1px solid rgba(255,255,255,.56);
+  box-shadow:0 8px 18px rgba(7,22,42,.05);
+}
+.vcx-market-pill span{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#5c7086;
+}
+.vcx-market-pill strong{
+  font-size:.86rem;
+  line-height:1.2;
+  color:#17314f;
+}
+@media (max-width:900px){
+  .vcx-static-market{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .vcx-market-pill{
+    padding:8px 10px;
+  }
+}
