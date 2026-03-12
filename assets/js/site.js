@@ -1401,3 +1401,26 @@ document.addEventListener('visibilitychange', ()=>{
     }
   }, {passive:true});
 })();
+
+
+(function(){
+  function vcxRestoreScrollState(){
+    try{
+      if(!document.body.classList.contains('modal-open')){
+        document.documentElement.style.overflowY='auto';
+        document.documentElement.style.overflowX='hidden';
+        document.body.style.overflowY='auto';
+        document.body.style.overflowX='hidden';
+      }
+    }catch(e){}
+  }
+  window.addEventListener('pageshow', vcxRestoreScrollState);
+  window.addEventListener('load', vcxRestoreScrollState);
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) vcxRestoreScrollState();
+  });
+  document.addEventListener('click', function(e){
+    const closeHit = e.target && (e.target.closest('.modal-close') || e.target.closest('.modal-cancel'));
+    if(closeHit){ setTimeout(vcxRestoreScrollState, 10); }
+  });
+})();
