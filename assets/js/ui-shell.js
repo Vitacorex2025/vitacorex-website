@@ -115,7 +115,7 @@
 
   function bootDesktopScrollRepair(){
     vcxDesktopScrollRepair();
-    ['load','pageshow','focus','resize','mouseup','wheel','touchend'].forEach((evt)=>{
+    ['load','pageshow','focus','resize','mouseup','touchend'].forEach((evt)=>{
       window.addEventListener(evt, ()=>vcxDesktopScrollRepair(), {passive:true});
     });
     document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollRepair(); });
@@ -528,7 +528,7 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
   window.addEventListener('load', vcxHardRestoreScroll, {passive:true});
   window.addEventListener('focus', vcxHardRestoreScroll, {passive:true});
   window.addEventListener('resize', vcxHardRestoreScroll, {passive:true});
-  window.addEventListener('wheel', ()=>{ if(window.innerWidth > 900) vcxHardRestoreScroll(); }, {passive:true});
+  
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxHardRestoreScroll(); });
 
 
@@ -554,7 +554,7 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
     }
   }
 
-  ['wheel','mousewheel','touchstart','touchend','pointerup','scroll'].forEach((evt)=>{
+  ['touchstart','touchend','pointerup','scroll'].forEach((evt)=>{
     window.addEventListener(evt, ()=>vcxEnsureScroll(), {passive:true});
   });
   window.addEventListener('pageshow', vcxEnsureScroll);
@@ -562,4 +562,31 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureScroll(); });
   document.addEventListener('click', ()=>setTimeout(vcxEnsureScroll, 0), true);
   setInterval(vcxEnsureScroll, 1200);
+})();
+
+
+(function(){
+  function vcxEnsureNativeScroll(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
+    if(!hasOpenModal){
+      body.classList.remove('modal-open');
+      body.classList.remove('vcx-lock-scroll');
+      html.classList.remove('vcx-lock-scroll');
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+      html.style.top='';
+      html.style.height='';
+    }
+  }
+  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>window.addEventListener(evt, vcxEnsureNativeScroll, {passive:true}));
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
+  document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
 })();

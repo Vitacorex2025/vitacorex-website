@@ -1287,7 +1287,7 @@ document.addEventListener('visibilitychange', ()=>{
   window.addEventListener('pageshow', vcxDesktopScrollGuard, {passive:true});
   window.addEventListener('focus', vcxDesktopScrollGuard, {passive:true});
   window.addEventListener('resize', vcxDesktopScrollGuard, {passive:true});
-  window.addEventListener('wheel', vcxDesktopScrollGuard, {passive:true});
+  
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollGuard(); });
   document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollGuard, 0); }, true);
 })();
@@ -1313,10 +1313,37 @@ document.addEventListener('visibilitychange', ()=>{
       html.style.top='';
     }
   }
-  ['load','pageshow','focus','resize','mouseup','wheel'].forEach(evt=>{
+  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>{
     window.addEventListener(evt, vcxGlobalDesktopScrollRepair, {passive:true});
   });
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxGlobalDesktopScrollRepair(); });
   document.addEventListener('click', ()=>{ setTimeout(vcxGlobalDesktopScrollRepair, 0); }, true);
   setInterval(vcxGlobalDesktopScrollRepair, 1200);
+})();
+
+
+(function(){
+  function vcxEnsureNativeScroll(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
+    if(!hasOpenModal){
+      body.classList.remove('modal-open');
+      body.classList.remove('vcx-lock-scroll');
+      html.classList.remove('vcx-lock-scroll');
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+      html.style.top='';
+      html.style.height='';
+    }
+  }
+  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>window.addEventListener(evt, vcxEnsureNativeScroll, {passive:true}));
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
+  document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
 })();

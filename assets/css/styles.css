@@ -959,3 +959,16 @@ body{overflow-y:auto !important; overflow-x:hidden !important; overscroll-behavi
 body:not(.modal-open){overflow-y:auto !important;}
 h1{font-size:clamp(1.82rem, 2.7vw, 2.95rem) !important; max-width:15.5ch !important; line-height:1.04 !important;}
 h2{font-size:clamp(1.22rem, 1.75vw, 1.82rem) !important; max-width:24ch !important; line-height:1.1 !important;}
+
+
+
+/* ===== VitaCoreX typography/scroll reset v233 ===== */
+html{overflow-y:auto !important; overscroll-behavior-y:auto !important;}
+body{overflow-y:auto !important;}
+body.modal-open{overflow:hidden !important;}
+h1{font-size:clamp(1.86rem,2.55vw,2.92rem) !important; max-width:15.8ch !important; line-height:1.04 !important;}
+h2{font-size:clamp(1.26rem,1.62vw,1.86rem) !important; max-width:22ch !important; line-height:1.1 !important;}
+@media (max-width:980px){
+  h1{font-size:clamp(1.72rem,6.5vw,2.32rem) !important; max-width:13.2ch !important;}
+  h2{font-size:clamp(1.18rem,4.7vw,1.54rem) !important; max-width:100% !important;}
+}
