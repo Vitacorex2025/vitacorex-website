@@ -6,8 +6,8 @@
   const root = doc.documentElement;
   const body = doc.body;
 
-  const $ = (s, e = doc) => e.querySelector(s);
-  const $$ = (s, e = doc) => Array.from(e.querySelectorAll(s));
+  const $ = (selector, scope = doc) => scope.querySelector(selector);
+  const $$ = (selector, scope = doc) => Array.from(scope.querySelectorAll(selector));
 
   function unlockScroll() {
     if (!body || !root) return;
@@ -22,6 +22,25 @@
     root.style.height = '';
     body.classList.remove('vcx-lock-scroll');
     root.classList.remove('vcx-lock-scroll');
+  }
+
+  function pruneExtras(selector) {
+    const nodes = $$(selector);
+    if (nodes.length <= 1) return;
+    nodes.slice(1).forEach((node) => node.remove());
+  }
+
+  function pruneDuplicateShellNodes() {
+    [
+      '.vcx-header',
+      '.vcx-dock',
+      '.vcx-header-desktop',
+      '.vcx-header-mobile',
+      '.vcx-dock-desktop',
+      '.vcx-dock-mobile',
+      '.vcx-menu-btn',
+      '#vcxMobileNav'
+    ].forEach(pruneExtras);
   }
 
   function initClocks() {
@@ -69,46 +88,39 @@
     if (nav) mobile.append(nav);
   }
 
-
-function forceDisplay(element, value) {
-  if (!element) return;
-  if (value) element.style.setProperty('display', value, 'important');
-  else element.style.removeProperty('display');
-}
-
-function normalizeResponsiveShell() {
-  const isMobile = window.matchMedia('(max-width: 900px)').matches;
-  const desktopHeader = $('.vcx-header-desktop');
-  const mobileHeader = $('.vcx-header-mobile');
-  const desktopDock = $('.vcx-dock-desktop');
-  const mobileDock = $('.vcx-dock-mobile');
-  const button = $('.vcx-menu-btn');
-  const nav = $('#vcxMobileNav');
-  const wrap = $('.vcx-header-mobile');
-
-  if (desktopHeader) {
-    desktopHeader.setAttribute('aria-hidden', isMobile ? 'true' : 'false');
-    forceDisplay(desktopHeader, isMobile ? 'none' : 'block');
-  }
-  if (mobileHeader) {
-    mobileHeader.setAttribute('aria-hidden', isMobile ? 'false' : 'true');
-    forceDisplay(mobileHeader, isMobile ? 'block' : 'none');
-  }
-  if (desktopDock) {
-    desktopDock.setAttribute('aria-hidden', isMobile ? 'true' : 'false');
-    forceDisplay(desktopDock, isMobile ? 'none' : 'flex');
-  }
-  if (mobileDock) {
-    mobileDock.setAttribute('aria-hidden', isMobile ? 'false' : 'true');
-    forceDisplay(mobileDock, isMobile ? 'grid' : 'none');
+  function setVisible(node, visible, displayValue) {
+    if (!node) return;
+    node.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    if (visible) {
+      node.style.setProperty('display', displayValue, 'important');
+      node.hidden = false;
+    } else {
+      node.style.setProperty('display', 'none', 'important');
+      node.hidden = true;
+    }
   }
 
-  if (!isMobile && button && nav && wrap) {
-    button.setAttribute('aria-expanded', 'false');
-    nav.hidden = true;
-    wrap.classList.remove('is-open');
+  function normalizeResponsiveShell() {
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+    const desktopHeader = $('.vcx-header-desktop');
+    const mobileHeader = $('.vcx-header-mobile');
+    const desktopDock = $('.vcx-dock-desktop');
+    const mobileDock = $('.vcx-dock-mobile');
+    const button = $('.vcx-menu-btn');
+    const nav = $('#vcxMobileNav');
+    const wrap = $('.vcx-header-mobile');
+
+    setVisible(desktopHeader, !isMobile, 'block');
+    setVisible(mobileHeader, isMobile, 'block');
+    setVisible(desktopDock, !isMobile, 'flex');
+    setVisible(mobileDock, isMobile, 'grid');
+
+    if (!isMobile && button && nav && wrap) {
+      button.setAttribute('aria-expanded', 'false');
+      nav.hidden = true;
+      wrap.classList.remove('is-open');
+    }
   }
-}
 
   function bindMenu() {
     const wrap = $('.vcx-header-mobile');
@@ -153,6 +165,7 @@ function normalizeResponsiveShell() {
 
     const onChange = () => {
       if (!mq.matches) setOpen(false);
+      normalizeResponsiveShell();
     };
     if (mq.addEventListener) mq.addEventListener('change', onChange);
     else if (mq.addListener) mq.addListener(onChange);
@@ -160,6 +173,7 @@ function normalizeResponsiveShell() {
 
   function boot() {
     unlockScroll();
+    pruneDuplicateShellNodes();
     initClocks();
     normalizeMobileHeader();
     normalizeResponsiveShell();

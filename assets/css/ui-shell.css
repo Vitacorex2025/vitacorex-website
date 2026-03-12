@@ -49,6 +49,24 @@ body:not(.modal-open){
 .vcx-dock-mobile{
   display:none !important;
 }
+.vcx-header-desktop[aria-hidden="true"],
+.vcx-header-mobile[aria-hidden="true"],
+.vcx-dock-desktop[aria-hidden="true"],
+.vcx-dock-mobile[aria-hidden="true"]{
+  display:none !important;
+}
+.vcx-header-desktop[aria-hidden="false"]{
+  display:block !important;
+}
+.vcx-header-mobile[aria-hidden="false"]{
+  display:block !important;
+}
+.vcx-dock-desktop[aria-hidden="false"]{
+  display:flex !important;
+}
+.vcx-dock-mobile[aria-hidden="false"]{
+  display:grid !important;
+}
 
 /* Stable header */
 .vcx-header{
