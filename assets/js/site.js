@@ -1236,3 +1236,31 @@ document.addEventListener('visibilitychange', ()=>{
     }
   }, true);
 })();
+
+
+(function(){
+  function vcxReleaseScrollLock(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.classList.remove('vcx-lock-scroll');
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+    }
+  }
+  window.addEventListener('load', vcxReleaseScrollLock);
+  window.addEventListener('pageshow', vcxReleaseScrollLock);
+  window.addEventListener('focus', vcxReleaseScrollLock);
+  window.addEventListener('resize', vcxReleaseScrollLock);
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxReleaseScrollLock(); });
+  document.addEventListener('click', (e)=>{
+    const t=e.target;
+    if(t instanceof Element && (t.closest('.modal-close') || t.closest('.modal-cancel') || t.closest('.vcx-mobile-nav a'))){
+      setTimeout(vcxReleaseScrollLock,0);
+    }
+  }, true);
+})();

@@ -46,6 +46,23 @@
     }
   }
 
+
+  function vcxForceScrollState(){
+    const body = doc.body;
+    const html = doc.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.classList.remove('vcx-lock-scroll');
+      body.style.overflow = '';
+      body.style.overflowY = 'auto';
+      body.style.position = '';
+      html.style.overflow = '';
+      html.style.overflowY = 'auto';
+      html.style.position = '';
+      root.classList.remove('vcx-mobile-menu-open');
+    }
+  }
+
   function applyViewportState(){
     const body = doc.body;
     if(!body) return;
@@ -115,6 +132,7 @@
 
     setOpen(false);
     restorePageScroll();
+    vcxForceScrollState();
 
     if(!btn.dataset.vcxBound){
       btn.dataset.vcxBound = '1';
@@ -404,6 +422,7 @@
 
   function init(){
     restorePageScroll();
+    vcxForceScrollState();
     applyViewportState();
     initClocks();
     initStatusRibbon();
@@ -439,3 +458,10 @@
   window.addEventListener('resize', vcxNormalizeScrollState);
   window.addEventListener('pageshow', vcxNormalizeScrollState);
 })();
+
+
+window.addEventListener('load', ()=>{ vcxForceScrollState(); });
+window.addEventListener('pageshow', ()=>{ vcxForceScrollState(); });
+window.addEventListener('resize', ()=>{ vcxForceScrollState(); });
+window.addEventListener('focus', ()=>{ vcxForceScrollState(); });
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForceScrollState(); });
