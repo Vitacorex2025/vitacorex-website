@@ -1,9 +1,0 @@
-VitaCoreX v34 package
-Changes included:
-- Rebuilt homepage with higher-trust premium B2B structure
-- Added stronger hero, KPI board, leakage cards, pilot timeline, proof strip, and dual-path CTA for companies + individuals
-- Improved mobile spacing and alignment
-- Added luxury motion/shine/tilt UI effects
-- Fixed resource gate to submit lead data before opening PDF
-- Hardened menu JS and form status handling
-- Added translation coverage for new homepage blocks in EN/RU/ES
