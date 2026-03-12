@@ -90,6 +90,42 @@
   }
 
 
+  
+  function vcxDesktopScrollRepair(){
+    const body = doc.body;
+    const html = doc.documentElement;
+    if(!body || !html) return;
+    const hasOpenModal = !!doc.querySelector('.modal.open, .gate-modal.open');
+    if(window.innerWidth > 900 && !hasOpenModal){
+      body.classList.remove('modal-open');
+      body.classList.remove('vcx-lock-scroll');
+      root.classList.remove('vcx-mobile-menu-open');
+      body.style.overflow = '';
+      body.style.overflowY = 'auto';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      html.style.overflow = '';
+      html.style.overflowY = 'auto';
+      html.style.position = '';
+      html.style.height = '';
+      html.style.top = '';
+    }
+  }
+
+  function bootDesktopScrollRepair(){
+    vcxDesktopScrollRepair();
+    ['load','pageshow','focus','resize','mouseup','wheel','touchend'].forEach((evt)=>{
+      window.addEventListener(evt, ()=>vcxDesktopScrollRepair(), {passive:true});
+    });
+    document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollRepair(); });
+    document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollRepair, 0); }, true);
+    const mo = new MutationObserver(()=>vcxDesktopScrollRepair());
+    mo.observe(doc.documentElement, {attributes:true, subtree:true, attributeFilter:['class','style']});
+    setInterval(vcxDesktopScrollRepair, 1200);
+  }
+
+
   function initStatusRibbon(){
     const items = [
       'Recovery readiness',
@@ -443,6 +479,7 @@
   function init(){
     restorePageScroll();
     vcxForceScrollState();
+    bootDesktopScrollRepair();
     applyViewportState();
     initClocks();
     initStatusRibbon();

@@ -1291,3 +1291,32 @@ document.addEventListener('visibilitychange', ()=>{
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollGuard(); });
   document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollGuard, 0); }, true);
 })();
+
+
+(function(){
+  function vcxGlobalDesktopScrollRepair(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
+    if(window.innerWidth > 900 && !hasOpenModal){
+      body.classList.remove('modal-open');
+      body.classList.remove('vcx-lock-scroll');
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+      html.style.height='';
+      html.style.top='';
+    }
+  }
+  ['load','pageshow','focus','resize','mouseup','wheel'].forEach(evt=>{
+    window.addEventListener(evt, vcxGlobalDesktopScrollRepair, {passive:true});
+  });
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxGlobalDesktopScrollRepair(); });
+  document.addEventListener('click', ()=>{ setTimeout(vcxGlobalDesktopScrollRepair, 0); }, true);
+  setInterval(vcxGlobalDesktopScrollRepair, 1200);
+})();
