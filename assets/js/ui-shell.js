@@ -590,3 +590,33 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
   document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
 })();
+
+
+(function(){
+  function vcxEnforceDesktopScrollV234(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    const openModal = !!document.querySelector('.modal.open, .gate-modal.open');
+    if(window.innerWidth > 900 && !openModal){
+      body.classList.remove('modal-open');
+      body.classList.remove('vcx-lock-scroll');
+      html.classList.remove('vcx-lock-scroll');
+      html.style.overflowY='auto';
+      html.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.overflow='';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+    }
+  }
+  ['load','pageshow','focus','resize','wheel','mouseup','keyup'].forEach(evt=>{
+    window.addEventListener(evt, vcxEnforceDesktopScrollV234, {passive:true});
+  });
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnforceDesktopScrollV234(); });
+  const mo=new MutationObserver(()=>vcxEnforceDesktopScrollV234());
+  document.addEventListener('DOMContentLoaded', ()=>{
+    if(document.body){ mo.observe(document.body, {attributes:true, attributeFilter:['class','style']}); }
+    vcxEnforceDesktopScrollV234();
+  });
+})();
