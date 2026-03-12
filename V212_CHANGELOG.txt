@@ -1,5 +1,0 @@
-v212 changes
-- Header now has true compact-on-scroll state (`vcx-scroll-compact`) before deeper fade/hide.
-- Glass styling was made more transparent and more pronounced across header, dock, time chips, nav shells, and icon buttons.
-- Dock icon buttons now use lighter translucent glass layers with stronger inner highlights.
-- CTA label changed from `Start Pilot` to `Request Service` across all HTML pages.
