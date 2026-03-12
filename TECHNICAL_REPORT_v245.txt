@@ -1,0 +1,105 @@
+VitaCoreX Emergency Fix v245
+Технический отчёт по зависанию / Page Unresponsive
+
+1) Что было проверено
+- Проанализирован live-домен vitacorexllc.com и публичный GitHub-репозиторий.
+- Проанализированы загруженные сборки:
+  - VitaCoreX_layout_refactor_v244.zip
+  - vitacorex_bugfix_v33.zip
+- Проверены HTML/CSS/JS на:
+  - бесконечные циклы
+  - repeated event listeners
+  - duplicated initialization
+  - resize / scroll / observer loops
+  - broken menu / dock logic
+  - render-blocking / render-heavy assets
+
+2) Точный вывод по root cause
+Главная причина зависания находится НЕ в явном бесконечном JS-цикле.
+
+В загруженной сборке v244 резкий рост тяжёлых визуальных эффектов создал перегрузку compositor/GPU:
+- styles.css v33 -> 5 occurrences of backdrop-filter
+- styles.css v244 -> 14 occurrences of backdrop-filter
+- ui-shell.css v244 -> ещё 4 occurrences of backdrop-filter
+- styles.css v33 -> 0 animation declarations
+- styles.css v244 -> 5 animation declarations
+- styles.css v33 -> 6 video-related rules
+- styles.css v244 -> 22 video-related rules
+- styles.css v244 -> 3 will-change
+- styles.css v244 -> 2 mix-blend-mode
+
+Сверху на это накладываются:
+- sticky glass header
+- fixed glass dock
+- hero background video
+- animated cloud layers
+- multiple large blur/filter surfaces on cards/panels
+
+На второстепенных страницах video запускался с autoplay.
+Именно такая комбинация обычно даёт freeze / Page Unresponsive на мобильных и слабых/перегруженных браузерах.
+
+3) Что НЕ найдено
+- Нет ResizeObserver loops.
+- Нет MutationObserver loops.
+- Нет requestAnimationFrame loops.
+- Нет while(true) / явных бесконечных циклов.
+- site.js и ui-shell.js синтаксически валидны.
+- Инициализация в JS защищена guard-флагами:
+  - window.__VCX_SITE_BOOTED__
+  - window.__VCX_UI_SHELL__
+- В ui-shell.js menu button already guarded через dataset.bound.
+То есть JS-архитектура не выглядит как первичный источник freeze.
+
+4) Дополнительные находки
+- В ресурсных CTA есть href="#", которые зависят от modal gate JS.
+  Это не вызывает freeze само по себе, но может выглядеть как "кнопка не работает", если модальный слой ломается.
+- WhatsApp / Calendly ссылки в основных страницах физически присутствуют.
+
+5) Что исправлено в emergency patch
+Фокус только на стабильности, без косметического редизайна.
+
+Добавлено:
+- assets/css/stability.css
+- assets/js/stability.js
+
+Сделано:
+- отключён autoplay на всех video
+- для hero/video включён poster-first fallback
+- video-слой принудительно скрыт, poster image оставлен
+- отключены cloud-layer / shine pseudo-elements
+- сняты backdrop-filter / filter / will-change с тяжёлых glass/fixed/sticky узлов
+- отключены лишние animation/transform нагрузки
+- повторно нормализован scroll state
+- добавлен defensive menu-state normalization
+
+6) Что именно должно стабилизироваться после патча
+- страница должна открываться без тяжёлого фонового видео-рендеринга
+- sticky header / fixed dock больше не должны держать дорогостоящие blur-композитные слои
+- мобильный и desktop рендер должны стать предсказуемее
+- WhatsApp / Calendly ссылки должны остаться доступными
+- навигация должна работать в более стабильном состоянии
+
+7) Изменённые файлы
+- assets/css/stability.css  (new)
+- assets/js/stability.js    (new)
+- index.html
+- corporate-legal-file-control.html
+- revenue-recovery-workflow.html
+- structured-case-intake.html
+- resources.html
+- additional-services.html
+- careers.html
+- contact.html
+- thank-you.html
+
+8) Почему не делался cosmetic rework
+По задаче приоритет — аварийная стабилизация.
+Поэтому самый безопасный путь: убрать тяжёлый compositor/GPU workload, а не продолжать "premium effects".
+
+9) Следующий безопасный шаг после деплоя
+Если после загрузки патча freeze исчезнет, можно возвращать эффекты по одному:
+1. сначала простой hero without video
+2. потом один blur layer
+3. потом only desktop dock glass
+4. потом very light motion
+Никогда не возвращать всё сразу.
