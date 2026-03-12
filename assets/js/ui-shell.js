@@ -653,3 +653,35 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
     vcxEnforceDesktopScrollV234();
   });
 })();
+
+
+(function(){
+  function vcxUltraScrollHeal(){
+    const body=document.body;
+    const html=document.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+    }
+  }
+  ['DOMContentLoaded','pageshow','focus','mouseup','keyup','wheel','resize'].forEach(function(evt){
+    window.addEventListener(evt, vcxUltraScrollHeal, {passive:true});
+  });
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) vcxUltraScrollHeal();
+  });
+  document.addEventListener('click', function(e){
+    const t=e.target;
+    if(t && (t.closest('.modal-close') || t.closest('.modal-cancel') || t.closest('.vcx-menu-btn'))){
+      setTimeout(vcxUltraScrollHeal, 0);
+      setTimeout(vcxUltraScrollHeal, 120);
+    }
+  }, {passive:true});
+})();
