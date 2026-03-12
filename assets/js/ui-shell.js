@@ -1,61 +1,34 @@
 
 (function(){
-  if(window.__VCX_SHELL_V216__) return;
-  window.__VCX_SHELL_V216__ = true;
-
+  window.trackEvent = window.trackEvent || function(){};
   const doc = document;
-  const root = document.documentElement;
-  const common = window.SITE_I18N || {};
-  const pageData = window.PAGE_DATA || {};
+  const root = doc.documentElement;
 
-  const safeOn = (el, type, handler, opts) => {
-    if(!el) return;
-    el.addEventListener(type, handler, opts);
-  };
-
-  function currentLang(){
-    try{
-      const stored = localStorage.getItem('vcx_lang');
-      return ['en','ru','es'].includes(stored) ? stored : 'en';
-    }catch(_){
-      return 'en';
-    }
+  function safeOn(target, event, handler, options){
+    if(!target) return;
+    target.addEventListener(event, handler, options);
   }
 
-  function textForCommon(lang, key){
-    return (common[lang] && common[lang][key]) || (common.en && common.en[key]) || '';
+  function money(value){
+    const n = Number(value) || 0;
+    return new Intl.NumberFormat('en-US', {
+      style:'currency',
+      currency:'USD',
+      maximumFractionDigits:0
+    }).format(n);
   }
 
-  function textForPage(lang, key){
-    return (pageData[lang] && pageData[lang][key]) || (pageData.en && pageData.en[key]) || '';
-  }
-
-  function applyText(lang){
-    doc.querySelectorAll('[data-common]').forEach((el)=>{
-      const value = textForCommon(lang, el.getAttribute('data-common'));
-      if(value) el.textContent = value;
+  function bindInputCalc(ids, run){
+    let found = false;
+    ids.forEach((id)=>{
+      const input = doc.getElementById(id);
+      if(!input || input.dataset.vcxCalcBound) return;
+      input.dataset.vcxCalcBound = '1';
+      found = true;
+      input.addEventListener('input', run);
+      input.addEventListener('change', run);
     });
-    doc.querySelectorAll('[data-page]').forEach((el)=>{
-      const value = textForPage(lang, el.getAttribute('data-page'));
-      if(value) el.textContent = value;
-    });
-    doc.querySelectorAll('.lang-btn').forEach((btn)=>{
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-  }
-
-  function initLangButtons(){
-    const buttons = Array.from(doc.querySelectorAll('.lang-btn'));
-    if(!buttons.length) return;
-    buttons.forEach((btn)=>{
-      if(btn.dataset.vcxBound) return;
-      btn.dataset.vcxBound = '1';
-      btn.addEventListener('click', ()=>{
-        try{ localStorage.setItem('vcx_lang', btn.dataset.lang || 'en'); }catch(_){}
-        applyText(currentLang());
-      });
-    });
-    applyText(currentLang());
+    if(found) run();
   }
 
   function initClocks(){
@@ -73,14 +46,16 @@
       doc.querySelectorAll('.clock-local').forEach((el)=>{ el.textContent = local; });
     }
     tick();
-    setInterval(tick, 1000);
+    if(!window.__vcxClockInterval){
+      window.__vcxClockInterval = setInterval(tick, 1000);
+    }
   }
 
   function initMobileMenu(){
     const header = doc.querySelector('.vcx-header');
-    const mobileWrap = doc.querySelector('.vcx-header-mobile');
     const btn = doc.querySelector('.vcx-menu-btn');
     const nav = doc.getElementById('vcxMobileNav');
+    const mobileWrap = doc.querySelector('.vcx-header-mobile');
     const mq = window.matchMedia('(max-width: 900px)');
     if(!btn || !nav || !mobileWrap) return;
 
@@ -147,33 +122,15 @@
         lastY = y;
         return;
       }
-      if(y > 170 && y > lastY + 6){
-        header.classList.add('is-hidden');
-      } else if(y < 64 || y < lastY - 8){
-        header.classList.remove('is-hidden');
-      }
+      const goingDown = y > lastY + 8;
+      const goingUp = y < lastY - 8;
+      if(y > 140 && goingDown) header.classList.add('is-hidden');
+      if(y < 72 || goingUp) header.classList.remove('is-hidden');
       lastY = y;
     }
+
     onScroll();
-    window.addEventListener('scroll', onScroll, {passive:true});
-  }
-
-  function money(n){
-    const safe = Number.isFinite(n) ? n : 0;
-    return '$' + Math.max(0, safe).toLocaleString(undefined, {maximumFractionDigits:0});
-  }
-
-  function bindInputCalc(ids, compute){
-    const inputs = ids.map((id)=>doc.getElementById(id)).filter(Boolean);
-    if(!inputs.length) return;
-    const run = ()=> compute();
-    inputs.forEach((input)=>{
-      if(input.dataset.vcxCalcBound) return;
-      input.dataset.vcxCalcBound = '1';
-      input.addEventListener('input', run);
-      input.addEventListener('change', run);
-    });
-    run();
+    safeOn(window, 'scroll', onScroll, {passive:true});
   }
 
   function initExecutiveCalculators(){
@@ -220,11 +177,11 @@
       const out1 = doc.getElementById('impactAdditional');
       const out2 = doc.getElementById('impactAvoided');
       const out3 = doc.getElementById('impactLift');
+      const out4 = doc.getElementById('impactDso');
       if(out1) out1.textContent = money(additional);
       if(out2) out2.textContent = money(avoided);
       if(out3) out3.textContent = `${Math.max(0, improved - rate).toFixed(0)}%`;
-      const dsoEl = doc.getElementById('impactDso');
-      if(dsoEl) dsoEl.textContent = `${dso} days`;
+      if(out4) out4.textContent = `${dso} days`;
     });
 
     const roiBtn = doc.getElementById('roiCalculate');
@@ -242,9 +199,11 @@
       const dsoOut = doc.getElementById('roiDso');
       const baseBar = doc.getElementById('roiBaseBar');
       const improvedBar = doc.getElementById('roiImprovedBar');
+      const result = doc.getElementById('roiResult');
       if(addOut) addOut.textContent = money(additional);
       if(avoidOut) avoidOut.textContent = money(avoided);
       if(dsoOut) dsoOut.textContent = `${dso} days`;
+      if(result) result.textContent = money(additional);
       if(baseBar) baseBar.style.width = `${Math.max(10, Math.min(100, rate))}%`;
       if(improvedBar) improvedBar.style.width = `${Math.max(12, Math.min(100, improved))}%`;
     };
@@ -258,9 +217,12 @@
     });
     if(roiBtn && !roiBtn.dataset.vcxCalcBound){
       roiBtn.dataset.vcxCalcBound = '1';
-      roiBtn.addEventListener('click', roiRun);
+      roiBtn.addEventListener('click', (event)=>{
+        event.preventDefault();
+        roiRun();
+      });
     }
-    roiRun();
+    if(doc.getElementById('roiRevenue')) roiRun();
   }
 
   function initRevenueWorkflowCalc(){
@@ -320,29 +282,23 @@
     });
     if(costBtn && !costBtn.dataset.vcxCalcBound){
       costBtn.dataset.vcxCalcBound = '1';
-      costBtn.addEventListener('click', costRun);
+      costBtn.addEventListener('click', (event)=>{
+        event.preventDefault();
+        costRun();
+      });
     }
-    costRun();
+    if(doc.getElementById('legalFiles')) costRun();
 
-    const dragRun = ()=>{
+    bindInputCalc(['legalMatters','legalDragHours','legalDragRate'], ()=>{
       const matters = +(doc.getElementById('legalMatters')?.value || 0);
       const hours = +(doc.getElementById('legalDragHours')?.value || 0);
       const rate = +(doc.getElementById('legalDragRate')?.value || 0);
       const annual = matters * hours * rate * 12;
       const out = doc.getElementById('legalDragOutput');
       if(out) out.textContent = money(annual);
-    };
-    ['legalMatters','legalDragHours','legalDragRate'].forEach((id)=>{
-      const el = doc.getElementById(id);
-      if(el && !el.dataset.vcxCalcBound){
-        el.dataset.vcxCalcBound = '1';
-        el.addEventListener('input', dragRun);
-        el.addEventListener('change', dragRun);
-      }
     });
-    dragRun();
 
-    const readyRun = ()=>{
+    bindInputCalc(['readyChronology','readyExhibits','readySupport','readyEscalation'], ()=>{
       const values = ['readyChronology','readyExhibits','readySupport','readyEscalation']
         .map((id)=> +(doc.getElementById(id)?.value || 0))
         .filter((n)=> Number.isFinite(n));
@@ -356,37 +312,39 @@
       if(out2){
         out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
       }
-    };
-    ['readyChronology','readyExhibits','readySupport','readyEscalation'].forEach((id)=>{
-      const el = doc.getElementById(id);
-      if(el && !el.dataset.vcxCalcBound){
-        el.dataset.vcxCalcBound = '1';
-        el.addEventListener('input', readyRun);
-        el.addEventListener('change', readyRun);
-      }
     });
-    readyRun();
   }
 
   function renderIntakeOutput(){
-    const boxes = Array.from(doc.querySelectorAll('#intakeOutput'));
-    if(!boxes.length) return;
-    boxes.forEach((box)=>{
+    doc.querySelectorAll('#intakeOutput').forEach((box)=>{
+      const current = box.textContent.replace(/\s+/g,' ').trim();
+      if(box.dataset.vcxFilled === '1') return;
+      if(current && current.length > 120 && box.querySelector('.vcx-output-list')) return;
+      box.dataset.vcxFilled = '1';
       box.innerHTML = `
         <ul class="vcx-output-list">
-          <li class="vcx-output-item"><div><strong>Recommended service line</strong></div><span>Structured intake review</span></li>
-          <li class="vcx-output-item"><div><strong>Routing confidence</strong></div><span>Assigned after the required fields are complete</span></li>
-          <li class="vcx-output-item"><div><strong>What to send now</strong></div><span>Contract, invoice, payment history, screenshots, and any prior notices</span></li>
-          <li class="vcx-output-item"><div><strong>Response window</strong></div><span>24–48 business hours after a complete intake</span></li>
-          <li class="vcx-output-item"><div><strong>Recommended next step</strong></div><span>Routing review, document gap check, and consultation handoff</span></li>
+          <li class="vcx-output-item"><div><strong>Recommended service line</strong></div><span>Structured intake review matched to the route and urgency selected in the form.</span></li>
+          <li class="vcx-output-item"><div><strong>Routing confidence</strong></div><span>Updated after the required fields, service type, and urgency are complete.</span></li>
+          <li class="vcx-output-item"><div><strong>What to send now</strong></div><span>Contract, invoice, payment history, screenshots, notices, and any file references already available.</span></li>
+          <li class="vcx-output-item"><div><strong>Response window</strong></div><span>24–48 business hours after a complete intake and usable supporting material.</span></li>
+          <li class="vcx-output-item"><div><strong>Recommended next step</strong></div><span>Routing review, document gap check, and consultation handoff to the correct workstream.</span></li>
         </ul>
         <p class="small-note">This summary becomes more specific as the intake is completed. It is not legal advice.</p>
       `;
     });
   }
 
+  function markSingleHero(){
+    doc.querySelectorAll('.hero-grid, .hero-grid-premium').forEach((grid)=>{
+      const side = grid.querySelector('.hero-side');
+      if(side && !side.textContent.trim() && !side.querySelector('img,svg,canvas,video,form,button,input')){
+        grid.classList.add('hero-grid-single');
+        side.remove();
+      }
+    });
+  }
+
   function init(){
-    initLangButtons();
     initClocks();
     initMobileMenu();
     initHeaderScroll();
@@ -394,6 +352,7 @@
     initRevenueWorkflowCalc();
     initLegalCalculators();
     renderIntakeOutput();
+    markSingleHero();
   }
 
   if(document.readyState === 'loading'){
