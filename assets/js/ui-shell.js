@@ -422,3 +422,20 @@
     init();
   }
 })();
+
+
+(function(){
+  function vcxNormalizeScrollState(){
+    if(!document.body.classList.contains('modal-open')){
+      document.body.style.overflow='';
+      document.body.style.overflowY='auto';
+      document.documentElement.style.overflow='';
+      document.documentElement.style.overflowY='auto';
+      document.documentElement.classList.remove('vcx-mobile-menu-open');
+      document.body.classList.remove('vcx-mobile-menu-open');
+    }
+  }
+  window.addEventListener('load', vcxNormalizeScrollState);
+  window.addEventListener('resize', vcxNormalizeScrollState);
+  window.addEventListener('pageshow', vcxNormalizeScrollState);
+})();

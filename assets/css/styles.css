@@ -912,3 +912,18 @@ h2{
 .hero-inner{
   padding-top:14px !important;
 }
+
+
+/* ===== VitaCoreX wheel scroll fix v228 ===== */
+html,body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+}
+body:not(.modal-open){
+  overflow-y:auto !important;
+}
+.tradingview-widget-container iframe,
+.ticker-box iframe{
+  pointer-events:none !important;
+}

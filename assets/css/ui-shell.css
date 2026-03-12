@@ -1224,3 +1224,122 @@ footer,.footer{
   .vcx-dock-chip{ justify-content:center !important; }
   .vcx-dock-text{ font-size:.66rem !important; }
 }
+
+
+/* ===== VitaCoreX strict layout refactor v228 ===== */
+html{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+  height:auto !important;
+}
+body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+  height:auto !important;
+}
+body:not(.modal-open){
+  overflow-y:auto !important;
+}
+body.modal-open{
+  overflow:hidden !important;
+}
+.tradingview-widget-container,
+.tradingview-widget-container__widget,
+.ticker-box{
+  overflow:visible !important;
+}
+.tradingview-widget-container iframe,
+.ticker-box iframe{
+  pointer-events:none !important;
+}
+.hero h1,
+h1{
+  font-size:clamp(1.88rem, 2.6vw, 2.9rem) !important;
+  max-width:18ch !important;
+}
+.section-head h2,
+.proof-band h2,
+.cta-banner h2,
+h2{
+  font-size:clamp(1.28rem, 1.7vw, 1.92rem) !important;
+  max-width:25ch !important;
+}
+h3,
+.widget-head h3,
+.engine-card h3,
+.seo-card h3,
+.resource-card h3,
+.card h3{
+  font-size:clamp(.98rem, 1.05vw, 1.14rem) !important;
+}
+.hero-copy .lead,
+.section-intro,
+p{
+  max-width:70ch !important;
+}
+.vcx-refactor-stack{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:18px !important;
+}
+.li-grid.vcx-refactor-stack,
+.impact-grid.vcx-refactor-stack,
+.diagnostic-grid.vcx-refactor-stack,
+.grid-2.vcx-refactor-stack,
+.vcx-case-study-panel.vcx-refactor-stack,
+.careers-layout.vcx-refactor-stack,
+.intake-wrap.vcx-refactor-stack{
+  grid-template-columns:minmax(0,1fr) !important;
+}
+.vcx-footer-strong{
+  grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr) minmax(0,.9fr) !important;
+  gap:16px !important;
+}
+.vcx-ending-strong{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:12px !important;
+}
+.vcx-proof-strong{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:10px !important;
+}
+.footer .card,
+.cta-banner,
+.proof-band{
+  padding:20px !important;
+}
+.vcx-dock-shell{
+  width:min(1180px, calc(100% - 24px)) !important;
+}
+.vcx-dock-pilot,
+.vcx-dock-icon,
+.vcx-dock-chip{
+  min-height:40px !important;
+}
+.vcx-dock-icon.is-home{
+  background:linear-gradient(180deg, rgba(64,122,214,.14), rgba(64,122,214,.08)) !important;
+  color:#214f96 !important;
+}
+@media (max-width:900px){
+  .hero h1,
+  h1{
+    font-size:clamp(1.72rem, 6.5vw, 2.28rem) !important;
+    max-width:14ch !important;
+  }
+  .section-head h2,
+  .proof-band h2,
+  .cta-banner h2,
+  h2{
+    font-size:clamp(1.18rem, 5vw, 1.54rem) !important;
+    max-width:100% !important;
+  }
+  .vcx-dock-pilot,
+  .vcx-dock-icon,
+  .vcx-dock-chip{
+    min-height:35px !important;
+  }
+}

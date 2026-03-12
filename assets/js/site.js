@@ -1215,3 +1215,24 @@ document.addEventListener('visibilitychange', ()=>{
     document.documentElement.style.overflowY = 'auto';
   }
 });
+
+
+(function(){
+  function vcxForceScrollRestore(){
+    if(!document.body.classList.contains('modal-open')){
+      document.body.style.overflow='';
+      document.body.style.overflowY='auto';
+      document.documentElement.style.overflow='';
+      document.documentElement.style.overflowY='auto';
+    }
+  }
+  window.addEventListener('load', vcxForceScrollRestore);
+  window.addEventListener('pageshow', vcxForceScrollRestore);
+  window.addEventListener('focus', vcxForceScrollRestore);
+  document.addEventListener('click', function(e){
+    const t=e.target;
+    if(t && t.closest && (t.closest('.modal-close') || t.closest('.modal-cancel'))){
+      setTimeout(vcxForceScrollRestore, 0);
+    }
+  }, true);
+})();
