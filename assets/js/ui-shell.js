@@ -31,6 +31,13 @@
     if(found) run();
   }
 
+
+  function applyViewportState(){
+    const body = doc.body;
+    if(!body) return;
+    body.setAttribute('data-vcx-viewport', window.innerWidth <= 900 ? 'mobile' : 'desktop');
+  }
+
   function initClocks(){
     const fmt = (date, tz) => new Intl.DateTimeFormat([], {
       hour:'2-digit',
@@ -109,6 +116,7 @@
   }
 
   function initHeaderScroll(){
+    safeOn(window, 'resize', applyViewportState, {passive:true});
     const header = doc.querySelector('.vcx-header');
     if(!header) return;
     let lastY = window.scrollY || 0;
@@ -345,6 +353,7 @@
   }
 
   function init(){
+    applyViewportState();
     initClocks();
     initMobileMenu();
     initHeaderScroll();
