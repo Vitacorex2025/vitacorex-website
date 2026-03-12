@@ -981,3 +981,24 @@ body{overflow-y:auto !important; overflow-x:hidden !important}
 body:not(.modal-open){overflow-y:auto !important}
 h1{font-size:clamp(1.9rem,2.8vw,3rem) !important; max-width:16ch !important; line-height:1.04 !important}
 h2{font-size:clamp(1.28rem,1.9vw,1.96rem) !important; max-width:22ch !important; line-height:1.08 !important}
+
+
+/* Emergency stability + scroll restore v239 */
+html, body{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior-y:auto !important;
+  height:auto !important;
+  min-height:100% !important;
+}
+body:not(.modal-open){
+  position:static !important;
+  top:auto !important;
+}
+.vcx-mobile-menu-open body{
+  overflow-y:auto !important;
+}
+.tilt-card{
+  transform:none !important;
+  transition:none !important;
+}

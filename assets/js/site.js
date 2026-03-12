@@ -132,40 +132,7 @@ function applyText(){
 }
 applyText();
 $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
-const menuBtn=$('.menu-btn'), mobileNav=$('.mobile-nav');
-if(menuBtn && mobileNav){
-  menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open'));
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
-}
-const header=$('.site-header');
-let lastScrollY=window.scrollY||0;
-function onScrollCompact(){
-  if(!header) return;
-  const current=window.scrollY||0;
-  header.classList.toggle('header-compact', current>26);
-  const shouldHide=current>140 && current>lastScrollY+6;
-  const shouldShow=current<72 || current<lastScrollY-10;
-  if(shouldHide) header.classList.add('header-hidden');
-  if(shouldShow) header.classList.remove('header-hidden');
-  lastScrollY=current;
-}
-onScrollCompact(); window.addEventListener('scroll', onScrollCompact, {passive:true});
-function fmt(date,tz){ return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}).format(date); }
-function clocks(){ const d=new Date(); $$('.clock-vcx').forEach(el=>el.textContent=fmt(d,'America/New_York')); const local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d); $$('.clock-local').forEach(el=>el.textContent=local); }
-clocks(); setInterval(clocks,1000);
-const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), {threshold:.14}); $$('.reveal').forEach(el=>io.observe(el));
-$$('.bar-fill').forEach(el=>{ const w=el.dataset.width||0; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ el.style.width=w+'%'; ob.disconnect(); }}); ob.observe(el); });
-$$('[data-count-to]').forEach(el=>{ const target=parseFloat(el.dataset.countTo), suffix=el.dataset.suffix||''; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ let start=null; const dur=1300; const step=ts=>{ if(!start) start=ts; const p=Math.min((ts-start)/dur,1); const val=target*p; el.textContent=(Number.isInteger(target)?Math.round(val):val.toFixed(1))+suffix; if(p<1) requestAnimationFrame(step); }; requestAnimationFrame(step); ob.disconnect(); }}); ob.observe(el); });
-$$('.tilt-card').forEach(card=>{
-  const reset=()=>card.style.transform='';
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(900px) rotateX(${(-y*4).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg) translateY(-2px)`;
-  });
-  card.addEventListener('mouseleave',reset);
-});
+/* legacy header/menu/observer/tilt layer removed for stability */
 // resource gate
 const gate=$('#pdfGate'); function openGate(asset,label){ if(!gate) return; gate.classList.add('open'); gate.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open'); gate.querySelector('[name="asset"]').value=asset||''; gate.querySelector('.gate-asset').textContent=label||'PDF'; }
 function closeGate(){ if(!gate) return; gate.classList.remove('open'); gate.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open'); }
@@ -1199,138 +1166,11 @@ function initV52ImpactCalc(){
 })();
 
 
-window.addEventListener('pageshow', ()=>{
-  document.body.classList.remove('modal-open');
-  document.body.style.overflow = '';
-  document.body.style.overflowY = 'auto';
-  document.documentElement.style.overflow = '';
-  document.documentElement.style.overflowY = 'auto';
-});
-
-document.addEventListener('visibilitychange', ()=>{
-  if(!document.hidden && !document.body.classList.contains('modal-open')){
-    document.body.style.overflow = '';
-    document.body.style.overflowY = 'auto';
-    document.documentElement.style.overflow = '';
-    document.documentElement.style.overflowY = 'auto';
-  }
-});
-
-
 (function(){
-  function vcxForceScrollRestore(){
-    if(!document.body.classList.contains('modal-open')){
-      document.body.style.overflow='';
-      document.body.style.overflowY='auto';
-      document.documentElement.style.overflow='';
-      document.documentElement.style.overflowY='auto';
-    }
-  }
-  window.addEventListener('load', vcxForceScrollRestore);
-  window.addEventListener('pageshow', vcxForceScrollRestore);
-  window.addEventListener('focus', vcxForceScrollRestore);
-  document.addEventListener('click', function(e){
-    const t=e.target;
-    if(t && t.closest && (t.closest('.modal-close') || t.closest('.modal-cancel'))){
-      setTimeout(vcxForceScrollRestore, 0);
-    }
-  }, true);
-})();
-
-
-(function(){
-  function vcxReleaseScrollLock(){
+  function vcxScrollRecovery(){
     const body=document.body, html=document.documentElement;
     if(!body || !html) return;
     if(!body.classList.contains('modal-open')){
-      body.classList.remove('vcx-lock-scroll');
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-    }
-  }
-  window.addEventListener('load', vcxReleaseScrollLock);
-  window.addEventListener('pageshow', vcxReleaseScrollLock);
-  window.addEventListener('focus', vcxReleaseScrollLock);
-  window.addEventListener('resize', vcxReleaseScrollLock);
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxReleaseScrollLock(); });
-  document.addEventListener('click', (e)=>{
-    const t=e.target;
-    if(t instanceof Element && (t.closest('.modal-close') || t.closest('.modal-cancel') || t.closest('.vcx-mobile-nav a'))){
-      setTimeout(vcxReleaseScrollLock,0);
-    }
-  }, true);
-})();
-
-
-(function(){
-  function vcxDesktopScrollGuard(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    if(window.innerWidth > 900 && !body.classList.contains('modal-open')){
-      body.classList.remove('vcx-lock-scroll');
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-      html.style.height='';
-    }
-  }
-  window.addEventListener('load', vcxDesktopScrollGuard, {passive:true});
-  window.addEventListener('pageshow', vcxDesktopScrollGuard, {passive:true});
-  window.addEventListener('focus', vcxDesktopScrollGuard, {passive:true});
-  window.addEventListener('resize', vcxDesktopScrollGuard, {passive:true});
-  
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollGuard(); });
-  document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollGuard, 0); }, true);
-})();
-
-
-(function(){
-  function vcxGlobalDesktopScrollRepair(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
-    if(window.innerWidth > 900 && !hasOpenModal){
-      body.classList.remove('modal-open');
-      body.classList.remove('vcx-lock-scroll');
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-      html.style.height='';
-      html.style.top='';
-    }
-  }
-  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>{
-    window.addEventListener(evt, vcxGlobalDesktopScrollRepair, {passive:true});
-  });
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxGlobalDesktopScrollRepair(); });
-  document.addEventListener('click', ()=>{ setTimeout(vcxGlobalDesktopScrollRepair, 0); }, true);
-  setInterval(vcxGlobalDesktopScrollRepair, 1200);
-})();
-
-
-(function(){
-  function vcxEnsureNativeScroll(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
-    if(!hasOpenModal){
-      body.classList.remove('modal-open');
-      body.classList.remove('vcx-lock-scroll');
-      html.classList.remove('vcx-lock-scroll');
       body.style.overflow='';
       body.style.overflowY='auto';
       body.style.position='';
@@ -1343,84 +1183,7 @@ document.addEventListener('visibilitychange', ()=>{
       html.style.height='';
     }
   }
-  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>window.addEventListener(evt, vcxEnsureNativeScroll, {passive:true}));
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
-  document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
-})();
-
-/* VitaCoreX hard scroll restore v235 */
-(function(){
-  function vcxHardScrollReset(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-    }
-  }
-  ['pageshow','focus','mouseup','keyup','wheel','resize'].forEach(evt=>{
-    window.addEventListener(evt, vcxHardScrollReset, {passive:true});
-  });
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxHardScrollReset(); });
-})();
-
-
-(function(){
-  function vcxUltraScrollHeal(){
-    const body=document.body;
-    const html=document.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-    }
-  }
-  ['DOMContentLoaded','pageshow','focus','mouseup','keyup','wheel','resize'].forEach(function(evt){
-    window.addEventListener(evt, vcxUltraScrollHeal, {passive:true});
-  });
-  document.addEventListener('visibilitychange', function(){
-    if(!document.hidden) vcxUltraScrollHeal();
-  });
-  document.addEventListener('click', function(e){
-    const t=e.target;
-    if(t && (t.closest('.modal-close') || t.closest('.modal-cancel') || t.closest('.vcx-menu-btn'))){
-      setTimeout(vcxUltraScrollHeal, 0);
-      setTimeout(vcxUltraScrollHeal, 120);
-    }
-  }, {passive:true});
-})();
-
-
-(function(){
-  function vcxRestoreScrollState(){
-    try{
-      if(!document.body.classList.contains('modal-open')){
-        document.documentElement.style.overflowY='auto';
-        document.documentElement.style.overflowX='hidden';
-        document.body.style.overflowY='auto';
-        document.body.style.overflowX='hidden';
-      }
-    }catch(e){}
-  }
-  window.addEventListener('pageshow', vcxRestoreScrollState);
-  window.addEventListener('load', vcxRestoreScrollState);
-  document.addEventListener('visibilitychange', function(){
-    if(!document.hidden) vcxRestoreScrollState();
-  });
-  document.addEventListener('click', function(e){
-    const closeHit = e.target && (e.target.closest('.modal-close') || e.target.closest('.modal-cancel'));
-    if(closeHit){ setTimeout(vcxRestoreScrollState, 10); }
-  });
+  window.addEventListener('pageshow', vcxScrollRecovery, {passive:true});
+  window.addEventListener('focus', vcxScrollRecovery, {passive:true});
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) vcxScrollRecovery(); });
 })();

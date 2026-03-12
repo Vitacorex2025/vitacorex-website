@@ -1,398 +1,286 @@
 
-(function(){
-  window.trackEvent = window.trackEvent || function(){};
+(() => {
+  if (window.__VCX_SHELL_BOOTED__) return;
+  window.__VCX_SHELL_BOOTED__ = true;
+
   const doc = document;
   const root = doc.documentElement;
+  const body = doc.body;
 
-  function safeOn(target, event, handler, options){
-    if(!target) return;
-    target.addEventListener(event, handler, options);
-  }
+  const q = (s, c = doc) => c.querySelector(s);
+  const qa = (s, c = doc) => Array.from(c.querySelectorAll(s));
 
   function money(value){
     const n = Number(value) || 0;
     return new Intl.NumberFormat('en-US', {
-      style:'currency',
-      currency:'USD',
-      maximumFractionDigits:0
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
     }).format(n);
   }
 
-  function bindInputCalc(ids, run){
-    let found = false;
-    ids.forEach((id)=>{
-      const input = doc.getElementById(id);
-      if(!input || input.dataset.vcxCalcBound) return;
-      input.dataset.vcxCalcBound = '1';
-      found = true;
-      input.addEventListener('input', run);
-      input.addEventListener('change', run);
-    });
-    if(found) run();
-  }
-
-
-
-  function restorePageScroll(){
-    const body = doc.body;
-    const html = doc.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      root.classList.remove('vcx-mobile-menu-open');
-    }
-  }
-
-
-  function vcxForceScrollState(){
-    const body = doc.body;
-    const html = doc.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.classList.remove('vcx-lock-scroll');
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      body.style.position = '';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      html.style.position = '';
-      root.classList.remove('vcx-mobile-menu-open');
-    }
-  }
-
-
-  function vcxHardRestoreScroll(){
-    const body = doc.body;
-    const html = doc.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
+  function restoreNativeScroll(){
+    if (!body) return;
+    if (!body.classList.contains('modal-open')) {
       body.classList.remove('vcx-lock-scroll');
       body.style.overflow = '';
       body.style.overflowY = 'auto';
       body.style.position = '';
       body.style.top = '';
       body.style.width = '';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      html.style.position = '';
-      html.style.height = '';
-      root.classList.remove('vcx-mobile-menu-open');
+      root.style.overflow = '';
+      root.style.overflowY = 'auto';
+      root.style.position = '';
+      root.style.top = '';
+      root.style.height = '';
     }
   }
 
-  function applyViewportState(){
-    const body = doc.body;
-    if(!body) return;
-    body.setAttribute('data-vcx-viewport', window.innerWidth <= 900 ? 'mobile' : 'desktop');
-  }
-
-
-  
-  function vcxDesktopScrollRepair(){
-    const body = doc.body;
-    const html = doc.documentElement;
-    if(!body || !html) return;
-    const hasOpenModal = !!doc.querySelector('.modal.open, .gate-modal.open');
-    if(window.innerWidth > 900 && !hasOpenModal){
-      body.classList.remove('modal-open');
-      body.classList.remove('vcx-lock-scroll');
-      root.classList.remove('vcx-mobile-menu-open');
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      html.style.position = '';
-      html.style.height = '';
-      html.style.top = '';
-    }
-  }
-
-  function bootDesktopScrollRepair(){
-    vcxDesktopScrollRepair();
-    ['load','pageshow','focus','resize','mouseup','touchend'].forEach((evt)=>{
-      window.addEventListener(evt, ()=>vcxDesktopScrollRepair(), {passive:true});
+  function bindCalc(ids, run){
+    const nodes = ids.map((id) => doc.getElementById(id)).filter(Boolean);
+    if (!nodes.length) return;
+    nodes.forEach((node) => {
+      if (node.dataset.vcxCalcBound === '1') return;
+      node.dataset.vcxCalcBound = '1';
+      node.addEventListener('input', run);
+      node.addEventListener('change', run);
     });
-    document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollRepair(); });
-    document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollRepair, 0); }, true);
-    const mo = new MutationObserver(()=>vcxDesktopScrollRepair());
-    mo.observe(doc.documentElement, {attributes:true, subtree:true, attributeFilter:['class','style']});
-    setInterval(vcxDesktopScrollRepair, 1200);
+    run();
   }
 
+  function initClocks(){
+    const vcx = qa('.clock-vcx');
+    const local = qa('.clock-local');
+    if (!vcx.length && !local.length) return;
+    if (window.__vcxClockTimer) window.clearInterval(window.__vcxClockTimer);
 
-  
-  function vcxReorderMobileHeader(){
-    const mobile = doc.querySelector('.vcx-header-mobile');
-    if(!mobile) return;
-    const meta = mobile.querySelector('.vcx-mobile-meta');
-    const row = mobile.querySelector('.vcx-mobile-row');
-    const ribbon = mobile.querySelector('.vcx-status-ribbon-mobile');
-    const nav = mobile.querySelector('.vcx-mobile-nav');
-    if(meta && row && ribbon && nav){
+    const fmtVcx = new Intl.DateTimeFormat([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'America/New_York'
+    });
+    const fmtLocal = new Intl.DateTimeFormat([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+
+    const tick = () => {
+      const now = new Date();
+      const ny = fmtVcx.format(now);
+      const here = fmtLocal.format(now);
+      vcx.forEach((el) => el.textContent = ny);
+      local.forEach((el) => el.textContent = here);
+    };
+    tick();
+    window.__vcxClockTimer = window.setInterval(tick, 1000);
+  }
+
+  function initStatusRibbon(){
+    const tracks = qa('.vcx-status-track');
+    if (!tracks.length) return;
+    const item = 'Recovery readiness';
+    tracks.forEach((track) => {
+      const first = track.querySelector('.vcx-status-item');
+      if (first) first.textContent = item;
+    });
+  }
+
+  function reorderMobileHeader(){
+    const mobile = q('.vcx-header-mobile');
+    if (!mobile) return;
+    const meta = q('.vcx-mobile-meta', mobile);
+    const row = q('.vcx-mobile-row', mobile);
+    const ribbon = q('.vcx-status-ribbon-mobile', mobile);
+    const nav = q('.vcx-mobile-nav', mobile);
+    if (meta && row && ribbon && nav) {
       mobile.append(meta, row, ribbon, nav);
     }
   }
 
-  function vcxRestoreScrollState(){
-    const body = doc.body;
-    const html = doc.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.classList.remove('vcx-lock-scroll');
-      root.classList.remove('vcx-mobile-menu-open');
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      html.style.position = '';
-    }
-  }
-
-  function initStatusRibbon(){
-    const items = [
-      'Recovery readiness',
-      'File integrity',
-      'Cash velocity',
-      'Executive review status'
-    ];
-    const tracks = Array.from(doc.querySelectorAll('.vcx-status-track'));
-    if(!tracks.length) return;
-    let idx = 0;
-    function tick(){
-      idx = (idx + 1) % items.length;
-      tracks.forEach((track)=>{
-        const parts = track.querySelectorAll('.vcx-status-item');
-        if(parts.length >= 1) parts[0].textContent = items[idx];
-      });
-    }
-    setInterval(tick, 3200);
-  }
-
-  function initClocks(){
-    const fmt = (date, tz) => new Intl.DateTimeFormat([], {
-      hour:'2-digit',
-      minute:'2-digit',
-      hour12:false,
-      timeZone:tz
-    }).format(date);
-
-    function tick(){
-      const now = new Date();
-      const local = new Intl.DateTimeFormat([], {hour:'2-digit', minute:'2-digit', hour12:false}).format(now);
-      doc.querySelectorAll('.clock-vcx').forEach((el)=>{ el.textContent = fmt(now, 'America/New_York'); });
-      doc.querySelectorAll('.clock-local').forEach((el)=>{ el.textContent = local; });
-    }
-    tick();
-    if(!window.__vcxClockInterval){
-      window.__vcxClockInterval = setInterval(tick, 1000);
-    }
-  }
-
   function initMobileMenu(){
-    restorePageScroll();
-    const header = doc.querySelector('.vcx-header');
-    const btn = doc.querySelector('.vcx-menu-btn');
-    const nav = doc.getElementById('vcxMobileNav');
-    const mobileWrap = doc.querySelector('.vcx-header-mobile');
+    const header = q('.vcx-header');
+    const wrap = q('.vcx-header-mobile');
+    const btn = q('.vcx-menu-btn');
+    const nav = q('#vcxMobileNav');
     const mq = window.matchMedia('(max-width: 900px)');
-    if(!btn || !nav || !mobileWrap) return;
+    if (!wrap || !btn || !nav) return;
 
-    function setOpen(open){
+    const setOpen = (open) => {
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       nav.hidden = !open;
-      mobileWrap.classList.toggle('is-open', open);
+      wrap.classList.toggle('is-open', open);
       root.classList.toggle('vcx-mobile-menu-open', open);
-      if(header){
+      if (header) {
         header.classList.remove('is-hidden');
-        header.classList.toggle('is-compact', open || (window.scrollY || 0) > 24);
+        header.classList.toggle('is-compact', open || window.scrollY > 24);
       }
-    }
+      if (!open) restoreNativeScroll();
+    };
 
     setOpen(false);
-    vcxHardRestoreScroll();
-    vcxForceScrollState();
 
-    if(!btn.dataset.vcxBound){
+    if (btn.dataset.vcxBound !== '1') {
       btn.dataset.vcxBound = '1';
-      btn.addEventListener('click', (event)=>{
-        event.preventDefault();
-        event.stopPropagation();
-        if(!mq.matches) return;
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!mq.matches) return;
         setOpen(nav.hidden);
-        vcxHardRestoreScroll();
-      }, {passive:false});
-    }
-
-    nav.querySelectorAll('a').forEach((link)=>{
-      if(link.dataset.vcxBound) return;
-      link.dataset.vcxBound = '1';
-      link.addEventListener('click', ()=> setOpen(false));
-    });
-
-    safeOn(document, 'click', (event)=>{
-      if(!mq.matches || nav.hidden) return;
-      const target = event.target;
-      if(!(target instanceof Element)) return;
-      if(target.closest('.vcx-header-mobile')) return;
-      setOpen(false);
-      restorePageScroll();
-    });
-
-    safeOn(document, 'keydown', (event)=>{
-      if(event.key === 'Escape') setOpen(false);
-      restorePageScroll();
-    });
-
-    if(!mq.__vcxBound){
-      mq.__vcxBound = true;
-      mq.addEventListener('change', ()=>{
-        if(!mq.matches) setOpen(false);
       });
     }
+
+    qa('a', nav).forEach((link) => {
+      if (link.dataset.vcxBound === '1') return;
+      link.dataset.vcxBound = '1';
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    if (doc.documentElement.dataset.vcxMenuDocBound !== '1') { doc.documentElement.dataset.vcxMenuDocBound = '1'; doc.addEventListener('click', (e) => {
+      if (!mq.matches || nav.hidden) return;
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest('.vcx-header-mobile')) return;
+      setOpen(false);
+    }); }
+
+    if (doc.documentElement.dataset.vcxMenuKeyBound !== '1') { doc.documentElement.dataset.vcxMenuKeyBound = '1'; doc.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    }); }
+
+    if (!btn.dataset.vcxMqBound) { btn.dataset.vcxMqBound = '1'; mq.addEventListener('change', () => {
+      if (!mq.matches) setOpen(false);
+    }); }
   }
 
   function initHeaderScroll(){
-    safeOn(window, 'resize', applyViewportState, {passive:true});
-    const header = doc.querySelector('.vcx-header');
-    if(!header) return;
-    let lastY = window.scrollY || 0;
-    const desktopMq = window.matchMedia('(min-width: 901px)');
+    const header = q('.vcx-header');
+    if (!header) return;
 
-    function onScroll(){
+    const desktopMq = window.matchMedia('(min-width: 901px)');
+    let lastY = window.scrollY || 0;
+
+    const update = () => {
       const y = window.scrollY || 0;
       const menuOpen = root.classList.contains('vcx-mobile-menu-open');
       const compact = y > 18 || menuOpen;
       header.classList.toggle('is-compact', compact);
 
-      if(menuOpen || !desktopMq.matches){
+      if (menuOpen || !desktopMq.matches) {
         header.classList.remove('is-hidden');
         lastY = y;
         return;
       }
 
-      const goingDown = y > lastY + 10;
-      const goingUp = y < lastY - 10;
+      const goingDown = y > lastY + 14;
+      const goingUp = y < lastY - 14;
 
-      if(y > 220 && goingDown){
-        header.classList.add('is-hidden');
-      }else if(y < 96 || goingUp){
-        header.classList.remove('is-hidden');
-      }
+      if (y > 260 && goingDown) header.classList.add('is-hidden');
+      if (y < 120 || goingUp) header.classList.remove('is-hidden');
 
       lastY = y;
-    }
+    };
 
-    onScroll();
-    safeOn(window, 'scroll', onScroll, {passive:true});
-    safeOn(desktopMq, 'change', onScroll);
+    update();
+    if (!window.__vcxHeaderScrollBound) {
+      window.__vcxHeaderScrollBound = true;
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      desktopMq.addEventListener('change', update);
+    }
   }
 
   function initExecutiveCalculators(){
-    bindInputCalc(['leakRevenue','leakResponsibility','leakLeakage'], ()=>{
-      const revenue = +(doc.getElementById('leakRevenue')?.value || 0);
-      const responsibility = +(doc.getElementById('leakResponsibility')?.value || 0) / 100;
-      const leakage = +(doc.getElementById('leakLeakage')?.value || 0) / 100;
-      const output = doc.getElementById('leakOutput');
-      if(output) output.textContent = money(revenue * responsibility * leakage);
+    bindCalc(['leakRevenue','leakResponsibility','leakLeakage'], () => {
+      const revenue = +(q('#leakRevenue')?.value || 0);
+      const responsibility = +(q('#leakResponsibility')?.value || 0) / 100;
+      const leakage = +(q('#leakLeakage')?.value || 0) / 100;
+      const out = q('#leakOutput');
+      if (out) out.textContent = money(revenue * responsibility * leakage);
     });
 
-    bindInputCalc(['dsoRevenue','dsoCurrent','dsoTarget'], ()=>{
-      const revenue = +(doc.getElementById('dsoRevenue')?.value || 0);
-      const current = +(doc.getElementById('dsoCurrent')?.value || 0);
-      const target = +(doc.getElementById('dsoTarget')?.value || 0);
+    bindCalc(['dsoRevenue','dsoCurrent','dsoTarget'], () => {
+      const revenue = +(q('#dsoRevenue')?.value || 0);
+      const current = +(q('#dsoCurrent')?.value || 0);
+      const target = +(q('#dsoTarget')?.value || 0);
       const delta = Math.max(0, current - target);
       const released = (delta / 365) * revenue;
-      const output = doc.getElementById('dsoOutput');
-      const deltaOut = doc.getElementById('dsoDelta');
-      if(output) output.textContent = money(released);
-      if(deltaOut) deltaOut.textContent = `${delta} days`;
+      const out1 = q('#dsoOutput');
+      const out2 = q('#dsoDelta');
+      if (out1) out1.textContent = money(released);
+      if (out2) out2.textContent = `${delta} days`;
     });
 
-    bindInputCalc(['roi90Portfolio','roiImprove','roiCost'], ()=>{
-      const portfolio = +(doc.getElementById('roi90Portfolio')?.value || 0);
-      const improve = +(doc.getElementById('roiImprove')?.value || 0) / 100;
-      const cost = +(doc.getElementById('roiCost')?.value || 0);
+    bindCalc(['roi90Portfolio','roiImprove','roiCost'], () => {
+      const portfolio = +(q('#roi90Portfolio')?.value || 0);
+      const improve = +(q('#roiImprove')?.value || 0) / 100;
+      const cost = +(q('#roiCost')?.value || 0);
       const additional = portfolio * improve;
       const multiple = cost > 0 ? additional / cost : 0;
-      const out = doc.getElementById('roiOutput');
-      const mult = doc.getElementById('roiMultiple');
-      if(out) out.textContent = money(additional);
-      if(mult) mult.textContent = `${multiple.toFixed(1)}x`;
+      const out1 = q('#roiOutput');
+      const out2 = q('#roiMultiple');
+      if (out1) out1.textContent = money(additional);
+      if (out2) out2.textContent = `${multiple.toFixed(1)}x`;
     });
 
-    bindInputCalc(['impactRevenue','impactPortfolio','impactRecovery'], ()=>{
-      const revenue = +(doc.getElementById('impactRevenue')?.value || 0);
-      const portfolio = +(doc.getElementById('impactPortfolio')?.value || 0);
-      const rate = +(doc.getElementById('impactRecovery')?.value || 0);
+    bindCalc(['impactRevenue','impactPortfolio','impactRecovery'], () => {
+      const revenue = +(q('#impactRevenue')?.value || 0);
+      const portfolio = +(q('#impactPortfolio')?.value || 0);
+      const rate = +(q('#impactRecovery')?.value || 0);
       const improved = Math.min(100, rate + 8);
       const additional = portfolio * ((improved - rate) / 100);
-      const avoided = additional * .30;
+      const avoided = additional * 0.3;
       const dso = revenue > 0 ? Math.max(1, Math.round((additional / revenue) * 365)) : 0;
-      const out1 = doc.getElementById('impactAdditional');
-      const out2 = doc.getElementById('impactAvoided');
-      const out3 = doc.getElementById('impactLift');
-      const out4 = doc.getElementById('impactDso');
-      if(out1) out1.textContent = money(additional);
-      if(out2) out2.textContent = money(avoided);
-      if(out3) out3.textContent = `${Math.max(0, improved - rate).toFixed(0)}%`;
-      if(out4) out4.textContent = `${dso} days`;
+      const out1 = q('#impactAdditional');
+      const out2 = q('#impactAvoided');
+      const out3 = q('#impactLift');
+      const out4 = q('#impactDso');
+      if (out1) out1.textContent = money(additional);
+      if (out2) out2.textContent = money(avoided);
+      if (out3) out3.textContent = `${Math.max(0, improved - rate).toFixed(0)}%`;
+      if (out4) out4.textContent = `${dso} days`;
     });
 
-    const roiBtn = doc.getElementById('roiCalculate');
-    const roiRun = ()=>{
-      const revenue = +(doc.getElementById('roiRevenue')?.value || 0);
-      const portfolio = +(doc.getElementById('roiPortfolio')?.value || 0);
-      const rate = +(doc.getElementById('roiRate')?.value || 0);
-      const fee = +(doc.getElementById('roiAgencyFee')?.value || 0) / 100;
+    const roiBtn = q('#roiCalculate');
+    const roiRun = () => {
+      const revenue = +(q('#roiRevenue')?.value || 0);
+      const portfolio = +(q('#roiPortfolio')?.value || 0);
+      const rate = +(q('#roiRate')?.value || 0);
+      const fee = +(q('#roiAgencyFee')?.value || 0) / 100;
       const improved = Math.min(100, rate + 10);
       const additional = portfolio * ((improved - rate) / 100);
       const avoided = additional * fee;
       const dso = revenue > 0 ? Math.max(1, Math.round((additional / revenue) * 365)) : 0;
-      const addOut = doc.getElementById('roiAdditional');
-      const avoidOut = doc.getElementById('roiAvoided');
-      const dsoOut = doc.getElementById('roiDso');
-      const baseBar = doc.getElementById('roiBaseBar');
-      const improvedBar = doc.getElementById('roiImprovedBar');
-      const result = doc.getElementById('roiResult');
-      if(addOut) addOut.textContent = money(additional);
-      if(avoidOut) avoidOut.textContent = money(avoided);
-      if(dsoOut) dsoOut.textContent = `${dso} days`;
-      if(result) result.textContent = money(additional);
-      if(baseBar) baseBar.style.width = `${Math.max(10, Math.min(100, rate))}%`;
-      if(improvedBar) improvedBar.style.width = `${Math.max(12, Math.min(100, improved))}%`;
-    };
-    ['roiRevenue','roiPortfolio','roiRate','roiAgencyFee'].forEach((id)=>{
-      const input = doc.getElementById(id);
-      if(input && !input.dataset.vcxCalcBound){
-        input.dataset.vcxCalcBound = '1';
-        input.addEventListener('input', roiRun);
-        input.addEventListener('change', roiRun);
+      const addOut = q('#roiAdditional');
+      const avoidOut = q('#roiAvoided');
+      const dsoOut = q('#roiDso');
+      const baseBar = q('#roiBaseBar');
+      const improvedBar = q('#roiImprovedBar');
+      const result = q('#roiResult');
+      if (addOut) addOut.textContent = money(additional);
+      if (avoidOut) avoidOut.textContent = money(avoided);
+      if (dsoOut) dsoOut.textContent = `${dso} days`;
+      if (result) {
+        const p = result.querySelector('p');
+        if (p) p.textContent = `Additional recovered cash ${money(additional)}, avoided contingency fees ${money(avoided)}, and an estimated ${dso}-day DSO gain.`;
       }
-    });
-    if(roiBtn && !roiBtn.dataset.vcxCalcBound){
+      if (baseBar) baseBar.style.width = `${Math.max(10, Math.min(100, rate))}%`;
+      if (improvedBar) improvedBar.style.width = `${Math.max(18, Math.min(100, improved))}%`;
+    };
+    if (roiBtn && roiBtn.dataset.vcxCalcBound !== '1') {
       roiBtn.dataset.vcxCalcBound = '1';
-      roiBtn.addEventListener('click', (event)=>{
-        event.preventDefault();
+      roiBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         roiRun();
       });
     }
-    if(doc.getElementById('roiRevenue')) roiRun();
+    bindCalc(['roiRevenue','roiPortfolio','roiRate','roiAgencyFee'], roiRun);
   }
 
   function initRevenueWorkflowCalc(){
-    const form = doc.getElementById('cfoCalc');
-    if(!form) return;
-    const inputs = Array.from(form.querySelectorAll('input'));
-    const run = ()=>{
+    const form = q('#cfoCalc');
+    if (!form) return;
+    const run = () => {
       const principal = +(form.querySelector('[name="principal"]')?.value || 0);
       const gross = +(form.querySelector('[name="gross"]')?.value || 0) / 100;
       const fee = +(form.querySelector('[name="fee"]')?.value || 0) / 100;
@@ -404,17 +292,14 @@
       const structured = principal * (accept * complete * recovery) + (principal * (1 - accept * complete)) * (gross * (1 - fee)) - setup;
       const lift = structured - agency;
       const pct = agency > 0 ? (lift / agency) * 100 : 0;
-      const a = doc.getElementById('calcAgency');
-      const b = doc.getElementById('calcPre');
-      const c = doc.getElementById('calcLift');
-      const d = doc.getElementById('calcLiftPct');
-      if(a) a.textContent = money(agency);
-      if(b) b.textContent = money(structured);
-      if(c) c.textContent = (lift >= 0 ? '+' : '-') + money(Math.abs(lift));
-      if(d) d.textContent = `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`;
+      const a = q('#calcAgency'), b = q('#calcPre'), c = q('#calcLift'), d = q('#calcLiftPct');
+      if (a) a.textContent = money(agency);
+      if (b) b.textContent = money(structured);
+      if (c) c.textContent = (lift >= 0 ? '+' : '-') + money(Math.abs(lift));
+      if (d) d.textContent = `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`;
     };
-    inputs.forEach((input)=>{
-      if(input.dataset.vcxCalcBound) return;
+    qa('input', form).forEach((input) => {
+      if (input.dataset.vcxCalcBound === '1') return;
       input.dataset.vcxCalcBound = '1';
       input.addEventListener('input', run);
       input.addEventListener('change', run);
@@ -423,66 +308,48 @@
   }
 
   function initLegalCalculators(){
-    const costBtn = doc.getElementById('legalCalc');
-    const costRun = ()=>{
-      const files = +(doc.getElementById('legalFiles')?.value || 0);
-      const rate = +(doc.getElementById('legalRate')?.value || 0);
-      const hours = +(doc.getElementById('legalHours')?.value || 0);
+    const costRun = () => {
+      const files = +(q('#legalFiles')?.value || 0);
+      const rate = +(q('#legalRate')?.value || 0);
+      const hours = +(q('#legalHours')?.value || 0);
       const exposure = files * rate * hours;
       const totalHours = files * hours;
-      const out = doc.getElementById('legalExposure');
-      const hoursOut = doc.getElementById('legalExposureHours');
-      if(out) out.textContent = money(exposure);
-      if(hoursOut) hoursOut.textContent = `${Math.round(totalHours).toLocaleString()} hrs`;
+      const out = q('#legalExposure');
+      const hrs = q('#legalExposureHours');
+      if (out) out.textContent = money(exposure);
+      if (hrs) hrs.textContent = `${Math.round(totalHours).toLocaleString()} hrs`;
     };
-    ['legalFiles','legalRate','legalHours'].forEach((id)=>{
-      const el = doc.getElementById(id);
-      if(el && !el.dataset.vcxCalcBound){
-        el.dataset.vcxCalcBound = '1';
-        el.addEventListener('input', costRun);
-        el.addEventListener('change', costRun);
-      }
-    });
-    if(costBtn && !costBtn.dataset.vcxCalcBound){
-      costBtn.dataset.vcxCalcBound = '1';
-      costBtn.addEventListener('click', (event)=>{
-        event.preventDefault();
-        costRun();
-      });
-    }
-    if(doc.getElementById('legalFiles')) costRun();
+    bindCalc(['legalFiles','legalRate','legalHours'], costRun);
 
-    bindInputCalc(['legalMatters','legalDragHours','legalDragRate'], ()=>{
-      const matters = +(doc.getElementById('legalMatters')?.value || 0);
-      const hours = +(doc.getElementById('legalDragHours')?.value || 0);
-      const rate = +(doc.getElementById('legalDragRate')?.value || 0);
+    bindCalc(['legalMatters','legalDragHours','legalDragRate'], () => {
+      const matters = +(q('#legalMatters')?.value || 0);
+      const hours = +(q('#legalDragHours')?.value || 0);
+      const rate = +(q('#legalDragRate')?.value || 0);
       const annual = matters * hours * rate * 12;
-      const out = doc.getElementById('legalDragOutput');
-      if(out) out.textContent = money(annual);
+      const out = q('#legalDragOutput');
+      if (out) out.textContent = money(annual);
     });
 
-    bindInputCalc(['readyChronology','readyExhibits','readySupport','readyEscalation'], ()=>{
-      const values = ['readyChronology','readyExhibits','readySupport','readyEscalation']
-        .map((id)=> +(doc.getElementById(id)?.value || 0))
-        .filter((n)=> Number.isFinite(n));
-      if(!values.length) return;
-      const score = values.reduce((a,b)=>a+b,0) / values.length;
-      const fill = doc.getElementById('readyMeterFill');
-      const out1 = doc.getElementById('readyScoreOutput');
-      const out2 = doc.getElementById('readyStatusOutput');
-      if(fill) fill.style.width = `${score}%`;
-      if(out1) out1.textContent = `${Math.round(score)}%`;
-      if(out2){
-        out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
-      }
+    bindCalc(['readyChronology','readyExhibits','readySupport','readyEscalation'], () => {
+      const ids = ['readyChronology','readyExhibits','readySupport','readyEscalation'];
+      const values = ids.map((id) => +(q('#' + id)?.value || 0)).filter((n) => Number.isFinite(n));
+      if (!values.length) return;
+      const score = values.reduce((a,b) => a+b, 0) / values.length;
+      const fill = q('#readyMeterFill');
+      const out1 = q('#readyScoreOutput');
+      const out2 = q('#readyStatusOutput');
+      if (fill) fill.style.width = `${score}%`;
+      if (out1) out1.textContent = `${Math.round(score)}%`;
+      if (out2) out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
     });
   }
 
   function renderIntakeOutput(){
-    doc.querySelectorAll('#intakeOutput').forEach((box)=>{
-      const current = box.textContent.replace(/\s+/g,' ').trim();
-      if(box.dataset.vcxFilled === '1') return;
-      if(current && current.length > 120 && box.querySelector('.vcx-output-list')) return;
+    qa('#intakeOutput').forEach((box) => {
+      if (box.dataset.vcxFilled === '1') return;
+      const hasStructured = box.querySelector('.vcx-output-list');
+      const current = box.textContent.replace(/\s+/g, ' ').trim();
+      if (hasStructured || current.length > 120) return;
       box.dataset.vcxFilled = '1';
       box.innerHTML = `
         <ul class="vcx-output-list">
@@ -498,24 +365,27 @@
   }
 
   function markSingleHero(){
-    doc.querySelectorAll('.hero-grid, .hero-grid-premium').forEach((grid)=>{
-      const side = grid.querySelector('.hero-side');
-      if(side && !side.textContent.trim() && !side.querySelector('img,svg,canvas,video,form,button,input')){
+    qa('.hero-grid').forEach((grid) => {
+      const side = q('.hero-side', grid);
+      if (!side) {
+        grid.classList.add('hero-grid-single');
+        return;
+      }
+      const useful = side.querySelector('button,input,select,textarea,.widget-card,.card,.chart,.output-panel,.kpi-board,.kpi-card,.glass-card,.metric-card');
+      if (!useful) {
         grid.classList.add('hero-grid-single');
         side.remove();
       }
     });
   }
 
-  function init(){
-    restorePageScroll();
-    vcxForceScrollState();
-    bootDesktopScrollRepair();
-    applyViewportState();
+  function boot(){
+    if (window.__vcxShellBooted) return;
+    window.__vcxShellBooted = true;
+    restoreNativeScroll();
     initClocks();
-    vcxReorderMobileHeader();
-    vcxRestoreScrollState();
     initStatusRibbon();
+    reorderMobileHeader();
     initMobileMenu();
     initHeaderScroll();
     initExecutiveCalculators();
@@ -523,165 +393,17 @@
     initLegalCalculators();
     renderIntakeOutput();
     markSingleHero();
+    window.addEventListener('pageshow', restoreNativeScroll, { passive: true });
+    window.addEventListener('focus', restoreNativeScroll, { passive: true });
+    window.addEventListener('resize', restoreNativeScroll, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) restoreNativeScroll();
+    });
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init, {once:true});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
   } else {
-    init();
+    boot();
   }
-})();
-
-
-(function(){
-  function vcxNormalizeScrollState(){
-    if(!document.body.classList.contains('modal-open')){
-      document.body.style.overflow='';
-      document.body.style.overflowY='auto';
-      document.documentElement.style.overflow='';
-      document.documentElement.style.overflowY='auto';
-      document.documentElement.classList.remove('vcx-mobile-menu-open');
-      document.body.classList.remove('vcx-mobile-menu-open');
-    }
-  }
-  window.addEventListener('load', vcxNormalizeScrollState);
-  window.addEventListener('resize', vcxNormalizeScrollState);
-  window.addEventListener('pageshow', vcxNormalizeScrollState);
-})();
-
-
-window.addEventListener('load', ()=>{ vcxForceScrollState(); });
-window.addEventListener('pageshow', ()=>{ vcxForceScrollState(); });
-window.addEventListener('resize', ()=>{ vcxForceScrollState(); });
-window.addEventListener('focus', ()=>{ vcxForceScrollState(); });
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForceScrollState(); });
-
-
-  window.addEventListener('pageshow', vcxHardRestoreScroll, {passive:true});
-  window.addEventListener('load', vcxHardRestoreScroll, {passive:true});
-  window.addEventListener('focus', vcxHardRestoreScroll, {passive:true});
-  window.addEventListener('resize', vcxHardRestoreScroll, {passive:true});
-  
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxHardRestoreScroll(); });
-
-
-(function(){
-  const body = document.body;
-  const html = document.documentElement;
-
-  function vcxEnsureScroll(){
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      html.style.overflow = '';
-      html.style.overflowY = 'auto';
-      html.style.position = '';
-      html.style.height = '';
-      body.classList.remove('vcx-lock-scroll');
-      html.classList.remove('vcx-lock-scroll');
-      document.documentElement.classList.remove('vcx-mobile-menu-open');
-    }
-  }
-
-  ['touchstart','touchend','pointerup','scroll'].forEach((evt)=>{
-    window.addEventListener(evt, ()=>vcxEnsureScroll(), {passive:true});
-  });
-  window.addEventListener('pageshow', vcxEnsureScroll);
-  window.addEventListener('focus', vcxEnsureScroll);
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureScroll(); });
-  document.addEventListener('click', ()=>setTimeout(vcxEnsureScroll, 0), true);
-  setInterval(vcxEnsureScroll, 1200);
-})();
-
-
-(function(){
-  function vcxEnsureNativeScroll(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    const hasOpenModal = !!document.querySelector('.modal.open, .gate-modal.open');
-    if(!hasOpenModal){
-      body.classList.remove('modal-open');
-      body.classList.remove('vcx-lock-scroll');
-      html.classList.remove('vcx-lock-scroll');
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-      html.style.top='';
-      html.style.height='';
-    }
-  }
-  ['load','pageshow','focus','resize','mouseup'].forEach(evt=>window.addEventListener(evt, vcxEnsureNativeScroll, {passive:true}));
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
-  document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
-})();
-
-
-(function(){
-  function vcxEnforceDesktopScrollV234(){
-    const body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    const openModal = !!document.querySelector('.modal.open, .gate-modal.open');
-    if(window.innerWidth > 900 && !openModal){
-      body.classList.remove('modal-open');
-      body.classList.remove('vcx-lock-scroll');
-      html.classList.remove('vcx-lock-scroll');
-      html.style.overflowY='auto';
-      html.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.overflow='';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-    }
-  }
-  ['load','pageshow','focus','resize','wheel','mouseup','keyup'].forEach(evt=>{
-    window.addEventListener(evt, vcxEnforceDesktopScrollV234, {passive:true});
-  });
-  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnforceDesktopScrollV234(); });
-  const mo=new MutationObserver(()=>vcxEnforceDesktopScrollV234());
-  document.addEventListener('DOMContentLoaded', ()=>{
-    if(document.body){ mo.observe(document.body, {attributes:true, attributeFilter:['class','style']}); }
-    vcxEnforceDesktopScrollV234();
-  });
-})();
-
-
-(function(){
-  function vcxUltraScrollHeal(){
-    const body=document.body;
-    const html=document.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-    }
-  }
-  ['DOMContentLoaded','pageshow','focus','mouseup','keyup','wheel','resize'].forEach(function(evt){
-    window.addEventListener(evt, vcxUltraScrollHeal, {passive:true});
-  });
-  document.addEventListener('visibilitychange', function(){
-    if(!document.hidden) vcxUltraScrollHeal();
-  });
-  document.addEventListener('click', function(e){
-    const t=e.target;
-    if(t && (t.closest('.modal-close') || t.closest('.modal-cancel') || t.closest('.vcx-menu-btn'))){
-      setTimeout(vcxUltraScrollHeal, 0);
-      setTimeout(vcxUltraScrollHeal, 120);
-    }
-  }, {passive:true});
 })();
