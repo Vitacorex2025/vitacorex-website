@@ -1002,3 +1002,91 @@ body:not(.modal-open){
   transform:none !important;
   transition:none !important;
 }
+
+
+/* ===== emergency stability + mobile cleanup v243 ===== */
+html, body{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior-y:auto !important;
+}
+body:not(.modal-open){
+  position:static !important;
+  top:auto !important;
+  width:auto !important;
+}
+.hero-cloud-layer,
+.hero-video video,
+.shine-card::after{
+  animation:none !important;
+}
+.hero-video video{
+  opacity:.88;
+}
+h1, .hero h1{
+  font-size:clamp(1.9rem, 3vw, 3rem) !important;
+  line-height:1.05 !important;
+  max-width:18ch !important;
+}
+h2, .section-head h2, .proof-band h2, .cta-banner h2{
+  font-size:clamp(1.28rem, 2vw, 1.95rem) !important;
+  line-height:1.1 !important;
+  max-width:24ch !important;
+}
+h3, .widget-head h3, .card h3{
+  font-size:clamp(1rem, 1.2vw, 1.18rem) !important;
+  line-height:1.24 !important;
+}
+.section, .section-tight, .band{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+}
+.hero + .section, .market-ticker + .section{
+  padding-top:8px !important;
+}
+.li-grid,
+.impact-grid,
+.diagnostic-grid,
+.intake-wrap,
+.careers-layout,
+.grid-2.vcx-flow-wide-left,
+.grid-2.vcx-flow-form-output,
+.grid-2.vcx-stack-desktop,
+.vcx-case-study-panel{
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:18px !important;
+}
+.footer-grid{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) !important;
+}
+.vcx-dock-shell{
+  width:min(1120px, calc(100% - 24px)) !important;
+  padding:6px 8px !important;
+}
+.vcx-dock-pilot, .vcx-dock-icon, .vcx-dock-chip{
+  min-height:38px !important;
+}
+@media (max-width: 900px){
+  body{padding-bottom:126px !important;}
+  h1, .hero h1{
+    font-size:clamp(1.72rem, 7vw, 2.35rem) !important;
+    max-width:14ch !important;
+  }
+  h2, .section-head h2, .proof-band h2, .cta-banner h2{
+    font-size:clamp(1.18rem, 5.2vw, 1.55rem) !important;
+    max-width:100% !important;
+  }
+  .grid-3, .resource-grid, .authority-grid, .seo-grid, .widget-grid, .form-grid, .audience-split, .footer-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:14px !important;
+  }
+  .vcx-dock-shell{
+    width:calc(100% - 20px) !important;
+    padding:5px 6px !important;
+  }
+  .vcx-dock-pilot, .vcx-dock-icon, .vcx-dock-chip{
+    min-height:34px !important;
+    padding:0 8px !important;
+  }
+  .vcx-dock-text{font-size:.66rem !important;}
+}

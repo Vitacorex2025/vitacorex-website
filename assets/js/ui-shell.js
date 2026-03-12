@@ -1,15 +1,16 @@
+
 (() => {
-  if (window.__VCX_SHELL_BOOTED__) return;
-  window.__VCX_SHELL_BOOTED__ = true;
+  if (window.__VCX_UI_SHELL__) return;
+  window.__VCX_UI_SHELL__ = true;
 
   const doc = document;
   const root = doc.documentElement;
   const body = doc.body;
 
-  const q = (s, c = doc) => c.querySelector(s);
-  const qa = (s, c = doc) => Array.from(c.querySelectorAll(s));
+  const $ = (s, e = doc) => e.querySelector(s);
+  const $$ = (s, e = doc) => Array.from(e.querySelectorAll(s));
 
-  function restoreNativeScroll() {
+  function unlockScroll() {
     if (!body || !root) return;
     if (body.classList.contains('modal-open')) return;
     body.style.overflow = '';
@@ -25,11 +26,11 @@
   }
 
   function initClocks() {
-    const vcx = qa('.clock-vcx');
-    const local = qa('.clock-local');
-    if (!vcx.length && !local.length) return;
+    const vcxClocks = $$('.clock-vcx');
+    const localClocks = $$('.clock-local');
+    if (!vcxClocks.length && !localClocks.length) return;
 
-    const fmtVcx = new Intl.DateTimeFormat([], {
+    const fmtTampa = new Intl.DateTimeFormat([], {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false,
@@ -43,66 +44,65 @@
 
     const tick = () => {
       const now = new Date();
-      const ny = fmtVcx.format(now);
-      const here = fmtLocal.format(now);
-      vcx.forEach((el) => { el.textContent = ny; });
-      local.forEach((el) => { el.textContent = here; });
+      const tampa = fmtTampa.format(now);
+      const local = fmtLocal.format(now);
+      vcxClocks.forEach((el) => { el.textContent = tampa; });
+      localClocks.forEach((el) => { el.textContent = local; });
     };
 
     tick();
     if (window.__vcxClockTimer) clearInterval(window.__vcxClockTimer);
-    window.__vcxClockTimer = setInterval(tick, 60000);
+    window.__vcxClockTimer = window.setInterval(tick, 60000);
   }
 
   function normalizeMobileHeader() {
-    const mobile = q('.vcx-header-mobile');
+    const mobile = $('.vcx-header-mobile');
     if (!mobile) return;
-    const meta = q('.vcx-mobile-meta', mobile);
-    const row = q('.vcx-mobile-row', mobile);
-    const ribbon = q('.vcx-status-ribbon-mobile', mobile);
-    const nav = q('.vcx-mobile-nav', mobile);
+    const meta = $('.vcx-mobile-meta', mobile);
+    const row = $('.vcx-mobile-row', mobile);
+    const ribbon = $('.vcx-status-ribbon-mobile', mobile);
+    const nav = $('.vcx-mobile-nav', mobile);
     if (!meta || !row || !ribbon) return;
     mobile.append(meta, row, ribbon);
     if (nav) mobile.append(nav);
   }
 
   function initMobileMenu() {
-    const wrap = q('.vcx-header-mobile');
-    const btn = q('.vcx-menu-btn');
-    const nav = q('#vcxMobileNav');
-    if (!wrap || !btn || !nav || btn.dataset.vcxBound === '1') return;
-    btn.dataset.vcxBound = '1';
+    const wrap = $('.vcx-header-mobile');
+    const button = $('.vcx-menu-btn');
+    const nav = $('#vcxMobileNav');
+    if (!wrap || !button || !nav || button.dataset.bound === '1') return;
+    button.dataset.bound = '1';
+
     const mq = window.matchMedia('(max-width: 900px)');
 
     const setOpen = (open) => {
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
       nav.hidden = !open;
       wrap.classList.toggle('is-open', open);
-      if (!open) restoreNativeScroll();
+      if (!open) unlockScroll();
     };
 
     setOpen(false);
 
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
       if (!mq.matches) return;
       setOpen(nav.hidden);
-    }, { passive: false });
-
-    qa('a', nav).forEach((link) => {
-      if (link.dataset.vcxBound === '1') return;
-      link.dataset.vcxBound = '1';
-      link.addEventListener('click', () => setOpen(false));
     });
 
-    doc.addEventListener('click', (e) => {
+    $$('a', nav).forEach((link) => {
+      link.addEventListener('click', () => setOpen(false), { passive: true });
+    });
+
+    doc.addEventListener('click', (event) => {
       if (!mq.matches || nav.hidden) return;
-      if (e.target instanceof Element && e.target.closest('.vcx-header-mobile')) return;
-      setOpen(false);
+      const inside = event.target instanceof Element && event.target.closest('.vcx-header-mobile');
+      if (!inside) setOpen(false);
     });
 
-    doc.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setOpen(false);
+    doc.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
     });
 
     mq.addEventListener('change', () => {
@@ -111,14 +111,14 @@
   }
 
   function boot() {
-    restoreNativeScroll();
+    unlockScroll();
     initClocks();
     normalizeMobileHeader();
     initMobileMenu();
-    window.addEventListener('pageshow', restoreNativeScroll, { passive: true });
-    window.addEventListener('focus', restoreNativeScroll, { passive: true });
+    window.addEventListener('pageshow', unlockScroll, { passive: true });
+    window.addEventListener('focus', unlockScroll, { passive: true });
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) restoreNativeScroll();
+      if (!document.hidden) unlockScroll();
     });
   }
 
