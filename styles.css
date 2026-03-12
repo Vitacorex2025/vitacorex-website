@@ -803,77 +803,10 @@ body{
   }
 }
 
-
-/* v64 LinkedIn + SEO authority sections */
-.linkedin-lead-section .li-grid,
-.seo-authority-section .seo-grid{display:grid;grid-template-columns:1.15fr .95fr;gap:22px}
-.seo-authority-section .seo-grid{grid-template-columns:repeat(3,1fr)}
-.li-card,.seo-card{border:1px solid rgba(30,41,59,.10);box-shadow:0 18px 48px rgba(15,23,42,.08)}
-.li-card{padding:28px;border-radius:24px}
-.mini-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.mini-form label{display:flex;flex-direction:column;gap:8px;font-size:.92rem;color:var(--muted);font-weight:600}
-.mini-form select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(30,41,59,.14);background:rgba(255,255,255,.88);color:var(--ink)}
-.mini-form .btn{grid-column:1/-1}
-.assessment-result{margin-top:16px;padding:18px 18px;border-radius:18px;background:linear-gradient(180deg,#f5f9fd 0%,#eef4fb 100%);border:1px solid rgba(30,41,59,.10)}
-.assessment-result strong{display:block;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase;color:#284361;margin-bottom:8px}
-.assessment-result p{margin:0;color:var(--ink);line-height:1.65}
-.seo-card{padding:24px;border-radius:22px;background:rgba(255,255,255,.82)}
-.seo-card h3{margin:0 0 10px;font-size:1.05rem}
-.seo-card p{margin:0;color:var(--muted);line-height:1.7}
-@media (max-width: 960px){
-  .linkedin-lead-section .li-grid,.seo-authority-section .seo-grid{grid-template-columns:1fr}
+/* premium grey-blue widget theme */
+.widget-card, .calculator-card{
+background: linear-gradient(145deg,#1e293b,#334155);
+color:#f1f5f9;
 }
-@media (max-width: 640px){
-  .mini-form{grid-template-columns:1fr}
-}
-
-
-.cfo-engine-section,.operator-diagnostic-section,.legal-estimator-section{position:relative}
-.diagnostic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.engine-card{border:1px solid rgba(148,163,184,.18);border-radius:24px;padding:28px;background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(30,41,59,.92));box-shadow:0 18px 50px rgba(2,6,23,.18);color:#e5eef8}
-.engine-card.card{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(244,248,252,.98));color:var(--ink);border:1px solid rgba(14,32,54,.08)}
-.engine-card h3{margin:8px 0 18px}
-.engine-card .mini-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.engine-card .mini-form label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:inherit}
-.engine-card .mini-form input,.engine-card .mini-form select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(148,163,184,.28);background:rgba(248,250,252,.95);color:#0f172a;font:inherit}
-.engine-card .mini-form button{grid-column:1/-1}
-.result-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
-.metric-card{border:1px solid rgba(148,163,184,.16);border-radius:18px;padding:16px;background:rgba(255,255,255,.04)}
-.engine-card.card .metric-card{background:#fff;border-color:rgba(14,32,54,.08)}
-.metric-label{display:block;font-size:12px;color:inherit;opacity:.72;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em}
-.metric-card strong{font-size:clamp(22px,3vw,30px)}
-.roi-result{min-height:110px}
-.viz-bars{margin-top:18px;display:grid;gap:12px}
-.viz-row{display:grid;grid-template-columns:92px 1fr;align-items:center;gap:12px;font-size:13px}
-.viz-row div{height:12px;border-radius:999px;background:rgba(148,163,184,.18);overflow:hidden}
-.viz-row i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#93c5fd,#d6b16a)}
-@media (max-width: 980px){
-  .diagnostic-grid{grid-template-columns:1fr}
-}
-@media (max-width: 720px){
-  .engine-card{padding:22px}
-  .engine-card .mini-form{grid-template-columns:1fr}
-  .result-metrics{grid-template-columns:1fr}
-}
-
-
-/* v71 homepage polish */
-.section-head .section-intro{max-width:70ch}
-.premium-widgets-section .section-head h2,
-.authority-section .section-head h2,
-.linkedin-lead-section .section-head h2,
-.seo-authority-section .section-head h2,
-.cfo-engine-section .section-head h2,
-.diagnostic-section .section-head h2{
-  letter-spacing:-0.02em;
-}
-.premium-module{
-  background:linear-gradient(180deg, rgba(30,41,59,.92), rgba(15,23,42,.92));
-  border:1px solid rgba(148,163,184,.18);
-}
-.workflow-chip{
-  border-color:rgba(148,163,184,.22);
-}
-.floating-contact-dock .dock-btn{
-  box-shadow:0 10px 26px rgba(15,23,42,.24);
-}
+body{padding-bottom:140px;}
+.kpi-fallback{font-size:14px;opacity:.8;margin-top:6px;}
