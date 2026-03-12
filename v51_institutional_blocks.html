@@ -1,0 +1,47 @@
+
+<!-- Institutional Authority Sections Added v51 -->
+<section class="executive-impact">
+<h2>Estimate Your Revenue Recovery Impact</h2>
+<p>Use the quick estimator below to understand potential recovery improvement.</p>
+<label>Annual Revenue</label>
+<input id="rev" placeholder="e.g. 40000000" type="number"/>
+<label>Receivable Portfolio</label>
+<input id="ar" placeholder="e.g. 5200000" type="number"/>
+<label>Current Recovery Rate (%)</label>
+<input id="rate" placeholder="e.g. 25" type="number"/>
+<button onclick="calcImpact()">Estimate Impact</button>
+<div id="impactResult"></div>
+</section>
+<section class="institutional-case">
+<h2>Illustrative Operator Case</h2>
+<p>Multi‑location operator | Annual revenue: $40M</p>
+<ul>
+<li>Receivable portfolio: $5.2M</li>
+<li>Recovery improvement: +13%</li>
+<li>Agency placements reduced: 28%</li>
+<li>DSO improvement: −8 days</li>
+</ul>
+</section>
+<section class="operator-industries">
+<h2>Operators We Support</h2>
+<ul>
+<li>Healthcare organizations</li>
+<li>Fleet and fuel‑card platforms</li>
+<li>Subscription infrastructure companies</li>
+<li>Multi‑location service networks</li>
+</ul>
+</section>
+<script>
+function calcImpact(){
+ let rev=document.getElementById('rev').value||0;
+ let ar=document.getElementById('ar').value||0;
+ let rate=document.getElementById('rate').value||0;
+
+ let uplift=ar*0.13;
+ let agencyLeak=ar*0.30;
+
+ document.getElementById('impactResult').innerHTML=
+ "Estimated additional recovery: $"+Math.round(uplift).toLocaleString()+
+ "<br>Potential contingency fees avoided: $"+Math.round(agencyLeak).toLocaleString();
+}
+</script>
