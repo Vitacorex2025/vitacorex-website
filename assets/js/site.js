@@ -387,13 +387,6 @@ function injectHeroClouds(){
   layer2.className='hero-cloud-layer layer-2';
   heroVideo.appendChild(layer1);
   heroVideo.appendChild(layer2);
-  const parallax=()=>{
-    const y=window.scrollY||0;
-    layer1.style.transform=`translate3d(${(-y*0.01).toFixed(2)}px, ${(y*0.03).toFixed(2)}px, 0)`;
-    layer2.style.transform=`translate3d(${(-y*0.005).toFixed(2)}px, ${(y*0.018).toFixed(2)}px, 0)`;
-  };
-  parallax();
-  window.addEventListener('scroll',parallax,{passive:true});
 }
 injectHeroClouds();
 
@@ -560,6 +553,8 @@ if(careersMobileBtn){
  });
 }
 })();
+
+
 
 
 
