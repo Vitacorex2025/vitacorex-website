@@ -1,0 +1,71 @@
+VitaCoreX emergency recovery analysis v253
+
+Summary
+- Compared current live site HTML from https://www.vitacorexllc.com/ and https://vitacorexllc.com/ with uploaded archives:
+  - VitaCoreX_structural_rebuild_v221.zip (known-good baseline)
+  - VitaCoreX_layout_refactor_v244.zip (broken refactor)
+- Confirmed www redirects to apex (non-www). The live page currently renders duplicate shell states on the same page.
+- Main breaking change is between v221 and v244, not between v221 and the emergency patches.
+
+Exact root cause
+1) v221 already had dual shell markup in HTML:
+   - one desktop header block
+   - one mobile header block
+   - one desktop dock block
+   - one mobile dock block
+   This is not a problem by itself.
+
+2) v221 worked because the shell was mutually exclusive:
+   - assets/css/ui-shell.css hid mobile shell by default on desktop:
+     .vcx-header-mobile{display:none}
+     .vcx-dock-mobile{display:none}
+   - assets/js/ui-shell.js set body[data-vcx-viewport] and kept viewport state synchronized.
+
+3) v244 broke that contract:
+   - base desktop-hide rules for mobile shell were removed from ui-shell.css
+   - viewport-state control from ui-shell.js was simplified and no longer set body[data-vcx-viewport]
+   - HTML still contained both shell branches, so desktop and mobile rendered together.
+
+Why previous fixes could still appear “not working”
+- The site architecture depends on the CSS/JS visibility layer to hide one branch of the shell.
+- If hosting serves stale CSS/JS from cache, or if only part of the package is uploaded, the broken responsive state can survive.
+- Because the HTML contains both branches, any stale asset problem can reintroduce duplicate header/dock rendering.
+
+What was rebuilt in v253
+- Rebased the recovery package on the known-good v221 archive.
+- Added an inline emergency shell guard to every HTML page:
+  - critical CSS forces desktop/mobile shell to be mutually exclusive before external CSS finishes loading
+  - early inline script sets data-vcx-viewport on html/body before paint and on resize
+- Added a small duplicate-pruning guard to assets/js/ui-shell.js:
+  - keeps only one .vcx-header
+  - keeps only one .vcx-dock
+  - hard-syncs desktop/mobile shell visibility from viewport
+- Added root safety files:
+  - .htaccess
+  - index.php
+  - index.htm
+- Added emergency no-cache headers in .htaccess for html/css/js so stale shell assets are less likely to persist.
+
+What guarantees single render in this package
+- Known-good v221 shell CSS/JS is restored.
+- Inline guard runs even if external CSS/JS is stale or delayed.
+- html[data-vcx-viewport] and body[data-vcx-viewport] both receive viewport state.
+- desktop/mobile shell visibility is enforced in three layers:
+  1. inline critical CSS
+  2. v221 ui-shell.css
+  3. ui-shell.js emergency sync/prune guard
+
+Deployment note
+- Upload the entire package to the site root, replacing existing files.
+- Do not upload only css/js.
+- Clear host/CDN cache after upload.
+- Because www redirects to apex, validate the final result on https://vitacorexllc.com/ after publish.
+
+Files modified
+- all root .html pages
+- assets/js/ui-shell.js
+- .htaccess
+- index.php
+- index.htm
+- BREAKING_CHANGE_EVIDENCE_v253.diff
+- QA_COUNTS_v253.json

@@ -1,132 +1,408 @@
-(() => {
-  if (window.__VCX_EMERGENCY_SHELL_V251__) return;
-  window.__VCX_EMERGENCY_SHELL_V251__ = true;
+
+(function(){
+  window.trackEvent = window.trackEvent || function(){};
   const doc = document;
   const root = doc.documentElement;
-  const NAV = [
-    { href: 'index.html', label: 'Home' },
-    { href: 'corporate-legal-file-control.html', label: 'Legal File Control' },
-    { href: 'revenue-recovery-workflow.html', label: 'Pre-Collection' },
-    { href: 'structured-case-intake.html', label: 'Request Service', cta: true },
-    { href: 'resources.html', label: 'Executive Briefs' },
-    { href: 'additional-services.html', label: 'Individuals' },
-    { href: 'careers.html', label: 'Careers' }
-  ];
-  const DOCK = [
-    { href: 'structured-case-intake.html', label: 'Request Service', primary: true },
-    { href: 'index.html', label: 'Home' },
-    { href: 'https://wa.me/18139194242', label: 'WhatsApp', external: true },
-    { href: 'https://calendly.com/vitacorex2025/30min', label: 'Book', external: true },
-    { href: 'resources.html', label: 'Briefs' }
-  ];
-  const LEGACY = [
-    '.vcx-header','.vcx-dock-shell','.vcx-dock-desktop','.vcx-dock-mobile','.vcx-header-shell','.vcx-header-desktop','.vcx-header-mobile',
-    '.vcx-recovery-shell','.vcx-recovery-dock','.vcx-xrec-header','.vcx-xrec-dock',
-    '[data-vcx-hotfix="header"]','[data-vcx-hotfix="dock"]','[data-vcx-shell="single"]','[data-vcx-dock="single"]'
-  ];
-  const normalizePath = (path) => {
-    const clean = String(path || '').split('?')[0].split('#')[0];
-    if (!clean || clean === '/' || clean.endsWith('/')) return 'index.html';
-    return clean.slice(clean.lastIndexOf('/') + 1) || 'index.html';
-  };
-  const currentPage = () => normalizePath(window.location.pathname);
-  const isActive = (href) => !/^https?:\/\//i.test(href) && normalizePath(href) === currentPage();
-  function unlockScroll() {
-    const body = doc.body;
-    if (!body) return;
-    if (body.classList.contains('modal-open')) return;
-    body.style.overflow = '';
-    body.style.overflowY = 'auto';
-    body.style.position = '';
-    body.style.top = '';
-    body.style.width = '';
-    root.style.overflow = '';
-    root.style.overflowY = 'auto';
-    root.style.height = '';
+
+  function safeOn(target, event, handler, options){
+    if(!target) return;
+    target.addEventListener(event, handler, options);
   }
-  function removeLegacy() {
-    LEGACY.forEach((selector) => {
-      doc.querySelectorAll(selector).forEach((node) => node.remove());
+
+  function money(value){
+    const n = Number(value) || 0;
+    return new Intl.NumberFormat('en-US', {
+      style:'currency',
+      currency:'USD',
+      maximumFractionDigits:0
+    }).format(n);
+  }
+
+  function bindInputCalc(ids, run){
+    let found = false;
+    ids.forEach((id)=>{
+      const input = doc.getElementById(id);
+      if(!input || input.dataset.vcxCalcBound) return;
+      input.dataset.vcxCalcBound = '1';
+      found = true;
+      input.addEventListener('input', run);
+      input.addEventListener('change', run);
     });
+    if(found) run();
   }
-  function emergencyHeaderHTML() {
-    const links = NAV.map((item) => {
-      const classes = ['vcx-emr-navlink'];
-      if (isActive(item.href)) classes.push('is-active');
-      if (item.cta) classes.push('is-cta');
-      return '<a class="' + classes.join(' ') + '" href="' + item.href + '">' + item.label + '</a>';
-    }).join('');
-    return '' +
-      '<header class="vcx-emr-header" data-vcx-emergency="header">' +
-        '<div class="vcx-emr-wrap">' +
-          '<div class="vcx-emr-bar">' +
-            '<a class="vcx-emr-brand" href="index.html" aria-label="VitaCoreX home">' +
-              '<img src="assets/img/logo.png" alt="VitaCoreX logo">' +
-              '<div class="vcx-emr-brandcopy"><strong>VitaCoreX LLC</strong><span>Recovery systems & legal file control</span></div>' +
-            '</a>' +
-            '<button class="vcx-emr-menu" type="button" aria-expanded="false" aria-controls="vcxEmergencyNav">Menu</button>' +
-            '<nav class="vcx-emr-nav" id="vcxEmergencyNav" aria-label="Primary">' + links + '</nav>' +
-          '</div>' +
-        '</div>' +
-      '</header>';
-  }
-  function emergencyDockHTML() {
-    const links = DOCK.map((item) => {
-      const classes = ['vcx-emr-docklink'];
-      if (item.primary) classes.push('is-primary');
-      const attrs = item.external ? ' target="_blank" rel="noopener"' : '';
-      return '<a class="' + classes.join(' ') + '" href="' + item.href + '"' + attrs + '>' + item.label + '</a>';
-    }).join('');
-    return '<div class="vcx-emr-dock" data-vcx-emergency="dock" aria-label="Quick actions"><div class="vcx-emr-dockinner">' + links + '</div></div>';
-  }
-  function ensureShell() {
+
+
+  function applyViewportState(){
     const body = doc.body;
-    if (!body) return;
-    removeLegacy();
-    doc.querySelectorAll('[data-vcx-emergency="header"]').forEach((node, index) => { if (index > 0) node.remove(); });
-    doc.querySelectorAll('[data-vcx-emergency="dock"]').forEach((node, index) => { if (index > 0) node.remove(); });
-    if (!doc.querySelector('[data-vcx-emergency="header"]')) body.insertAdjacentHTML('afterbegin', emergencyHeaderHTML());
-    if (!doc.querySelector('[data-vcx-emergency="dock"]')) body.insertAdjacentHTML('beforeend', emergencyDockHTML());
-    body.classList.remove('vcx-lock-scroll');
-    unlockScroll();
-    bindMenu();
+    if(!body) return;
+    body.setAttribute('data-vcx-viewport', window.innerWidth <= 900 ? 'mobile' : 'desktop');
   }
-  function bindMenu() {
-    const header = doc.querySelector('[data-vcx-emergency="header"]');
-    const button = header && header.querySelector('.vcx-emr-menu');
-    const nav = header && header.querySelector('.vcx-emr-nav');
-    if (!header || !button || !nav || button.dataset.bound === '1') return;
-    button.dataset.bound = '1';
-    const setOpen = (open) => {
-      header.classList.toggle('is-open', !!open);
-      button.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
+
+  function initClocks(){
+    const fmt = (date, tz) => new Intl.DateTimeFormat([], {
+      hour:'2-digit',
+      minute:'2-digit',
+      hour12:false,
+      timeZone:tz
+    }).format(date);
+
+    function tick(){
+      const now = new Date();
+      const local = new Intl.DateTimeFormat([], {hour:'2-digit', minute:'2-digit', hour12:false}).format(now);
+      doc.querySelectorAll('.clock-vcx').forEach((el)=>{ el.textContent = fmt(now, 'America/New_York'); });
+      doc.querySelectorAll('.clock-local').forEach((el)=>{ el.textContent = local; });
+    }
+    tick();
+    if(!window.__vcxClockInterval){
+      window.__vcxClockInterval = setInterval(tick, 1000);
+    }
+  }
+
+  function initMobileMenu(){
+    const header = doc.querySelector('.vcx-header');
+    const btn = doc.querySelector('.vcx-menu-btn');
+    const nav = doc.getElementById('vcxMobileNav');
+    const mobileWrap = doc.querySelector('.vcx-header-mobile');
+    const mq = window.matchMedia('(max-width: 900px)');
+    if(!btn || !nav || !mobileWrap) return;
+
+    function setOpen(open){
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.hidden = !open;
+      mobileWrap.classList.toggle('is-open', open);
+      root.classList.toggle('vcx-mobile-menu-open', open);
+      if(header){
+        header.classList.remove('is-hidden');
+        header.classList.toggle('is-compact', open || (window.scrollY || 0) > 24);
+      }
+    }
+
     setOpen(false);
-    button.addEventListener('click', () => setOpen(!header.classList.contains('is-open')));
-    nav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => setOpen(false), { passive: true });
+
+    if(!btn.dataset.vcxBound){
+      btn.dataset.vcxBound = '1';
+      btn.addEventListener('click', (event)=>{
+        event.preventDefault();
+        event.stopPropagation();
+        if(!mq.matches) return;
+        setOpen(nav.hidden);
+      }, {passive:false});
+    }
+
+    nav.querySelectorAll('a').forEach((link)=>{
+      if(link.dataset.vcxBound) return;
+      link.dataset.vcxBound = '1';
+      link.addEventListener('click', ()=> setOpen(false));
     });
-    doc.addEventListener('click', (event) => {
+
+    safeOn(document, 'click', (event)=>{
+      if(!mq.matches || nav.hidden) return;
       const target = event.target;
-      if (!(target instanceof Element)) return;
-      if (!target.closest('[data-vcx-emergency="header"]')) setOpen(false);
+      if(!(target instanceof Element)) return;
+      if(target.closest('.vcx-header-mobile')) return;
+      setOpen(false);
     });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 1024) setOpen(false);
-    }, { passive: true });
+
+    safeOn(document, 'keydown', (event)=>{
+      if(event.key === 'Escape') setOpen(false);
+    });
+
+    if(!mq.__vcxBound){
+      mq.__vcxBound = true;
+      mq.addEventListener('change', ()=>{
+        if(!mq.matches) setOpen(false);
+      });
+    }
   }
-  window.__VCX_EMERGENCY_SHELL_REPAIR__ = ensureShell;
-  if (doc.readyState === 'loading') {
-    doc.addEventListener('DOMContentLoaded', ensureShell, { once: true });
+
+  function initHeaderScroll(){
+    safeOn(window, 'resize', applyViewportState, {passive:true});
+    const header = doc.querySelector('.vcx-header');
+    if(!header) return;
+    let lastY = window.scrollY || 0;
+
+    function onScroll(){
+      const y = window.scrollY || 0;
+      const menuOpen = root.classList.contains('vcx-mobile-menu-open');
+      header.classList.toggle('is-compact', y > 24 || menuOpen);
+      if(menuOpen){
+        header.classList.remove('is-hidden');
+        lastY = y;
+        return;
+      }
+      const goingDown = y > lastY + 8;
+      const goingUp = y < lastY - 8;
+      if(y > 140 && goingDown) header.classList.add('is-hidden');
+      if(y < 72 || goingUp) header.classList.remove('is-hidden');
+      lastY = y;
+    }
+
+    onScroll();
+    safeOn(window, 'scroll', onScroll, {passive:true});
+  }
+
+  function initExecutiveCalculators(){
+    bindInputCalc(['leakRevenue','leakResponsibility','leakLeakage'], ()=>{
+      const revenue = +(doc.getElementById('leakRevenue')?.value || 0);
+      const responsibility = +(doc.getElementById('leakResponsibility')?.value || 0) / 100;
+      const leakage = +(doc.getElementById('leakLeakage')?.value || 0) / 100;
+      const output = doc.getElementById('leakOutput');
+      if(output) output.textContent = money(revenue * responsibility * leakage);
+    });
+
+    bindInputCalc(['dsoRevenue','dsoCurrent','dsoTarget'], ()=>{
+      const revenue = +(doc.getElementById('dsoRevenue')?.value || 0);
+      const current = +(doc.getElementById('dsoCurrent')?.value || 0);
+      const target = +(doc.getElementById('dsoTarget')?.value || 0);
+      const delta = Math.max(0, current - target);
+      const released = (delta / 365) * revenue;
+      const output = doc.getElementById('dsoOutput');
+      const deltaOut = doc.getElementById('dsoDelta');
+      if(output) output.textContent = money(released);
+      if(deltaOut) deltaOut.textContent = `${delta} days`;
+    });
+
+    bindInputCalc(['roi90Portfolio','roiImprove','roiCost'], ()=>{
+      const portfolio = +(doc.getElementById('roi90Portfolio')?.value || 0);
+      const improve = +(doc.getElementById('roiImprove')?.value || 0) / 100;
+      const cost = +(doc.getElementById('roiCost')?.value || 0);
+      const additional = portfolio * improve;
+      const multiple = cost > 0 ? additional / cost : 0;
+      const out = doc.getElementById('roiOutput');
+      const mult = doc.getElementById('roiMultiple');
+      if(out) out.textContent = money(additional);
+      if(mult) mult.textContent = `${multiple.toFixed(1)}x`;
+    });
+
+    bindInputCalc(['impactRevenue','impactPortfolio','impactRecovery'], ()=>{
+      const revenue = +(doc.getElementById('impactRevenue')?.value || 0);
+      const portfolio = +(doc.getElementById('impactPortfolio')?.value || 0);
+      const rate = +(doc.getElementById('impactRecovery')?.value || 0);
+      const improved = Math.min(100, rate + 8);
+      const additional = portfolio * ((improved - rate) / 100);
+      const avoided = additional * .30;
+      const dso = revenue > 0 ? Math.max(1, Math.round((additional / revenue) * 365)) : 0;
+      const out1 = doc.getElementById('impactAdditional');
+      const out2 = doc.getElementById('impactAvoided');
+      const out3 = doc.getElementById('impactLift');
+      const out4 = doc.getElementById('impactDso');
+      if(out1) out1.textContent = money(additional);
+      if(out2) out2.textContent = money(avoided);
+      if(out3) out3.textContent = `${Math.max(0, improved - rate).toFixed(0)}%`;
+      if(out4) out4.textContent = `${dso} days`;
+    });
+
+    const roiBtn = doc.getElementById('roiCalculate');
+    const roiRun = ()=>{
+      const revenue = +(doc.getElementById('roiRevenue')?.value || 0);
+      const portfolio = +(doc.getElementById('roiPortfolio')?.value || 0);
+      const rate = +(doc.getElementById('roiRate')?.value || 0);
+      const fee = +(doc.getElementById('roiAgencyFee')?.value || 0) / 100;
+      const improved = Math.min(100, rate + 10);
+      const additional = portfolio * ((improved - rate) / 100);
+      const avoided = additional * fee;
+      const dso = revenue > 0 ? Math.max(1, Math.round((additional / revenue) * 365)) : 0;
+      const addOut = doc.getElementById('roiAdditional');
+      const avoidOut = doc.getElementById('roiAvoided');
+      const dsoOut = doc.getElementById('roiDso');
+      const baseBar = doc.getElementById('roiBaseBar');
+      const improvedBar = doc.getElementById('roiImprovedBar');
+      const result = doc.getElementById('roiResult');
+      if(addOut) addOut.textContent = money(additional);
+      if(avoidOut) avoidOut.textContent = money(avoided);
+      if(dsoOut) dsoOut.textContent = `${dso} days`;
+      if(result) result.textContent = money(additional);
+      if(baseBar) baseBar.style.width = `${Math.max(10, Math.min(100, rate))}%`;
+      if(improvedBar) improvedBar.style.width = `${Math.max(12, Math.min(100, improved))}%`;
+    };
+    ['roiRevenue','roiPortfolio','roiRate','roiAgencyFee'].forEach((id)=>{
+      const input = doc.getElementById(id);
+      if(input && !input.dataset.vcxCalcBound){
+        input.dataset.vcxCalcBound = '1';
+        input.addEventListener('input', roiRun);
+        input.addEventListener('change', roiRun);
+      }
+    });
+    if(roiBtn && !roiBtn.dataset.vcxCalcBound){
+      roiBtn.dataset.vcxCalcBound = '1';
+      roiBtn.addEventListener('click', (event)=>{
+        event.preventDefault();
+        roiRun();
+      });
+    }
+    if(doc.getElementById('roiRevenue')) roiRun();
+  }
+
+  function initRevenueWorkflowCalc(){
+    const form = doc.getElementById('cfoCalc');
+    if(!form) return;
+    const inputs = Array.from(form.querySelectorAll('input'));
+    const run = ()=>{
+      const principal = +(form.querySelector('[name="principal"]')?.value || 0);
+      const gross = +(form.querySelector('[name="gross"]')?.value || 0) / 100;
+      const fee = +(form.querySelector('[name="fee"]')?.value || 0) / 100;
+      const accept = +(form.querySelector('[name="accept"]')?.value || 0) / 100;
+      const complete = +(form.querySelector('[name="complete"]')?.value || 0) / 100;
+      const recovery = +(form.querySelector('[name="recovery"]')?.value || 0) / 100;
+      const setup = +(form.querySelector('[name="setup"]')?.value || 0);
+      const agency = principal * gross * (1 - fee);
+      const structured = principal * (accept * complete * recovery) + (principal * (1 - accept * complete)) * (gross * (1 - fee)) - setup;
+      const lift = structured - agency;
+      const pct = agency > 0 ? (lift / agency) * 100 : 0;
+      const a = doc.getElementById('calcAgency');
+      const b = doc.getElementById('calcPre');
+      const c = doc.getElementById('calcLift');
+      const d = doc.getElementById('calcLiftPct');
+      if(a) a.textContent = money(agency);
+      if(b) b.textContent = money(structured);
+      if(c) c.textContent = (lift >= 0 ? '+' : '-') + money(Math.abs(lift));
+      if(d) d.textContent = `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`;
+    };
+    inputs.forEach((input)=>{
+      if(input.dataset.vcxCalcBound) return;
+      input.dataset.vcxCalcBound = '1';
+      input.addEventListener('input', run);
+      input.addEventListener('change', run);
+    });
+    run();
+  }
+
+  function initLegalCalculators(){
+    const costBtn = doc.getElementById('legalCalc');
+    const costRun = ()=>{
+      const files = +(doc.getElementById('legalFiles')?.value || 0);
+      const rate = +(doc.getElementById('legalRate')?.value || 0);
+      const hours = +(doc.getElementById('legalHours')?.value || 0);
+      const exposure = files * rate * hours;
+      const totalHours = files * hours;
+      const out = doc.getElementById('legalExposure');
+      const hoursOut = doc.getElementById('legalExposureHours');
+      if(out) out.textContent = money(exposure);
+      if(hoursOut) hoursOut.textContent = `${Math.round(totalHours).toLocaleString()} hrs`;
+    };
+    ['legalFiles','legalRate','legalHours'].forEach((id)=>{
+      const el = doc.getElementById(id);
+      if(el && !el.dataset.vcxCalcBound){
+        el.dataset.vcxCalcBound = '1';
+        el.addEventListener('input', costRun);
+        el.addEventListener('change', costRun);
+      }
+    });
+    if(costBtn && !costBtn.dataset.vcxCalcBound){
+      costBtn.dataset.vcxCalcBound = '1';
+      costBtn.addEventListener('click', (event)=>{
+        event.preventDefault();
+        costRun();
+      });
+    }
+    if(doc.getElementById('legalFiles')) costRun();
+
+    bindInputCalc(['legalMatters','legalDragHours','legalDragRate'], ()=>{
+      const matters = +(doc.getElementById('legalMatters')?.value || 0);
+      const hours = +(doc.getElementById('legalDragHours')?.value || 0);
+      const rate = +(doc.getElementById('legalDragRate')?.value || 0);
+      const annual = matters * hours * rate * 12;
+      const out = doc.getElementById('legalDragOutput');
+      if(out) out.textContent = money(annual);
+    });
+
+    bindInputCalc(['readyChronology','readyExhibits','readySupport','readyEscalation'], ()=>{
+      const values = ['readyChronology','readyExhibits','readySupport','readyEscalation']
+        .map((id)=> +(doc.getElementById(id)?.value || 0))
+        .filter((n)=> Number.isFinite(n));
+      if(!values.length) return;
+      const score = values.reduce((a,b)=>a+b,0) / values.length;
+      const fill = doc.getElementById('readyMeterFill');
+      const out1 = doc.getElementById('readyScoreOutput');
+      const out2 = doc.getElementById('readyStatusOutput');
+      if(fill) fill.style.width = `${score}%`;
+      if(out1) out1.textContent = `${Math.round(score)}%`;
+      if(out2){
+        out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
+      }
+    });
+  }
+
+  function renderIntakeOutput(){
+    doc.querySelectorAll('#intakeOutput').forEach((box)=>{
+      const current = box.textContent.replace(/\s+/g,' ').trim();
+      if(box.dataset.vcxFilled === '1') return;
+      if(current && current.length > 120 && box.querySelector('.vcx-output-list')) return;
+      box.dataset.vcxFilled = '1';
+      box.innerHTML = `
+        <ul class="vcx-output-list">
+          <li class="vcx-output-item"><div><strong>Recommended service line</strong></div><span>Structured intake review matched to the route and urgency selected in the form.</span></li>
+          <li class="vcx-output-item"><div><strong>Routing confidence</strong></div><span>Updated after the required fields, service type, and urgency are complete.</span></li>
+          <li class="vcx-output-item"><div><strong>What to send now</strong></div><span>Contract, invoice, payment history, screenshots, notices, and any file references already available.</span></li>
+          <li class="vcx-output-item"><div><strong>Response window</strong></div><span>24–48 business hours after a complete intake and usable supporting material.</span></li>
+          <li class="vcx-output-item"><div><strong>Recommended next step</strong></div><span>Routing review, document gap check, and consultation handoff to the correct workstream.</span></li>
+        </ul>
+        <p class="small-note">This summary becomes more specific as the intake is completed. It is not legal advice.</p>
+      `;
+    });
+  }
+
+  function markSingleHero(){
+    doc.querySelectorAll('.hero-grid, .hero-grid-premium').forEach((grid)=>{
+      const side = grid.querySelector('.hero-side');
+      if(side && !side.textContent.trim() && !side.querySelector('img,svg,canvas,video,form,button,input')){
+        grid.classList.add('hero-grid-single');
+        side.remove();
+      }
+    });
+  }
+
+  function init(){
+    applyViewportState();
+    initClocks();
+    initMobileMenu();
+    initHeaderScroll();
+    initExecutiveCalculators();
+    initRevenueWorkflowCalc();
+    initLegalCalculators();
+    renderIntakeOutput();
+    markSingleHero();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init, {once:true});
   } else {
-    ensureShell();
+    init();
   }
-  window.addEventListener('pageshow', ensureShell, { passive: true });
-  window.addEventListener('focus', unlockScroll, { passive: true });
-  doc.addEventListener('visibilitychange', () => { if (!doc.hidden) unlockScroll(); });
 })();
 
-
-(() => {
-  try { if (typeof window.__VCX_EMERGENCY_SHELL_REPAIR__ === 'function') window.__VCX_EMERGENCY_SHELL_REPAIR__(); } catch (e) {}
+(function(){
+  const doc = document;
+  function viewport(){
+    return (window.innerWidth || doc.documentElement.clientWidth || 1024) <= 900 ? 'mobile' : 'desktop';
+  }
+  function applyViewport(){
+    const vp = viewport();
+    doc.documentElement.setAttribute('data-vcx-viewport', vp);
+    if(doc.body) doc.body.setAttribute('data-vcx-viewport', vp);
+  }
+  function keepLast(selector){
+    const nodes = Array.from(doc.querySelectorAll(selector));
+    if(nodes.length <= 1) return;
+    nodes.slice(0, -1).forEach((node) => node.remove());
+  }
+  function pruneShell(){
+    keepLast('.vcx-header');
+    keepLast('.vcx-dock');
+    const vp = viewport();
+    doc.querySelectorAll('.vcx-header-desktop').forEach((el)=>{ el.style.display = vp === 'mobile' ? 'none' : 'block'; });
+    doc.querySelectorAll('.vcx-header-mobile').forEach((el)=>{ el.style.display = vp === 'mobile' ? 'grid' : 'none'; });
+    doc.querySelectorAll('.vcx-dock-desktop').forEach((el)=>{ el.style.display = vp === 'mobile' ? 'none' : 'flex'; });
+    doc.querySelectorAll('.vcx-dock-mobile').forEach((el)=>{ el.style.display = vp === 'mobile' ? 'grid' : 'none'; });
+  }
+  function sync(){
+    applyViewport();
+    pruneShell();
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', sync, {once:true});
+  } else {
+    sync();
+  }
+  window.addEventListener('resize', sync, {passive:true});
 })();
