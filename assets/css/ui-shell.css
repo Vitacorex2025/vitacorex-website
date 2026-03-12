@@ -768,3 +768,94 @@ h3,
 }
 
 @media (max-width: 1320px){.vcx-brand-copy span{display:none}.vcx-header-meta{gap:6px}.vcx-main-nav{gap:6px}}
+
+
+/* ===== v218 -> v219 strict layout repair: mobile top gap + desktop editorial flow ===== */
+
+/* root cause cleanup: legacy fixed-header hero offset */
+.hero{
+  padding-top: 0 !important;
+}
+
+/* keep header safe for notch, but remove duplicate top gap before first card */
+@media (max-width: 900px){
+  .vcx-header{
+    top: max(0px, env(safe-area-inset-top, 0px));
+    padding-top: max(0px, env(safe-area-inset-top, 0px));
+    margin-bottom: 0 !important;
+  }
+  .vcx-header-shell{
+    padding-bottom: 6px !important;
+  }
+  .vcx-header + .hero,
+  .vcx-header + section.hero{
+    margin-top: 4px !important;
+  }
+  .hero{
+    padding-top: 0 !important;
+  }
+  .hero-inner{
+    padding-top: 0 !important;
+    padding-bottom: 6px !important;
+  }
+  .hero-grid,
+  .hero-grid-premium{
+    gap: 10px !important;
+  }
+  .hero-copy{
+    padding-top: 12px !important;
+  }
+  .hero .market-ticker{
+    margin-top: 2px !important;
+  }
+  .hero + .section,
+  .hero + section.section,
+  .hero + .section.band,
+  .market-ticker + .section,
+  .market-ticker + section.section{
+    padding-top: 6px !important;
+  }
+}
+
+/* desktop content rebalance: stop forcing mismatched cards into rigid pairings */
+@media (min-width: 901px){
+  body[data-vcx-page="home"] .pilot-layout,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output{
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+    align-items: start !important;
+    max-width: 960px;
+  }
+
+  body[data-vcx-page="home"] .pilot-layout > *,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left > *,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-form-output > *,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output > *,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output > *{
+    max-width: 960px;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left .chart.card.reveal,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-form-output .card.reveal:last-child,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output .output-panel,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output .output-panel{
+    max-width: 760px;
+  }
+
+  body[data-vcx-page="home"] .pilot-layout .pilot-panel:last-child{
+    max-width: 740px;
+  }
+
+  body[data-vcx-page="home"] .pilot-layout .pilot-panel,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left .card,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-form-output .card,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output > *,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output > *{
+    justify-self: stretch !important;
+  }
+}

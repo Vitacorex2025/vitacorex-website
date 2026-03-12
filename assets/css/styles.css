@@ -214,7 +214,7 @@ body{padding-top:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLeg
   width:46px;height:46px;border-radius:16px;border:1px solid rgba(255,255,255,.24);
   background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.10));box-shadow:0 12px 28px rgba(7,22,42,.08)
 }
-.hero{padding-top:160px;overflow:hidden}
+.hero{padding-top:0;overflow:hidden}
 .hero-video{background:#081521}
 .hero-video::before,.hero-video::after{
   content:"";position:absolute;inset:-6%;pointer-events:none;z-index:1;
@@ -318,7 +318,7 @@ body{padding-top:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLeg
   .lang-row{align-self:stretch}
   .lang-btn{min-width:38px;padding:7px 10px}
   .menu-btn{width:42px;height:42px}
-  .hero{padding-top:146px}
+  .hero{padding-top:0}
   .business-details-grid,.form-grid{grid-template-columns:1fr}
   .cookie-banner{left:10px;right:10px;bottom:10px;padding:14px;border-radius:20px}
 }
