@@ -87,12 +87,16 @@
       unlockScroll();
     };
     $$('[data-gated-asset]').forEach((button) => {
+      if (button.dataset.bound === '1') return;
+      button.dataset.bound = '1';
       button.addEventListener('click', (event) => {
         event.preventDefault();
         openGate(button.dataset.gatedAsset, button.dataset.gatedLabel);
       });
     });
     $$('.modal-close,.modal-cancel').forEach((button) => {
+      if (button.dataset.bound === '1') return;
+      button.dataset.bound = '1';
       button.addEventListener('click', closeGate);
     });
     gate.addEventListener('click', (event) => {
@@ -327,7 +331,7 @@
           unlockScroll();
         }
         const target = $('#careersForm');
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (target) target.scrollIntoView({ behavior: 'auto', block: 'start' });
       });
     }
   }
@@ -351,3 +355,20 @@
     boot();
   }
 })();
+
+
+window.addEventListener('pageshow', () => {
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+  document.body.style.overflowY = 'auto';
+  document.documentElement.style.overflow = '';
+  document.documentElement.style.overflowY = 'auto';
+}, { passive: true });
+
+window.addEventListener('error', () => {
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+  document.body.style.overflowY = 'auto';
+  document.documentElement.style.overflow = '';
+  document.documentElement.style.overflowY = 'auto';
+}, { passive: true });

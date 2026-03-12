@@ -1,4 +1,3 @@
-
 (() => {
   if (window.__VCX_UI_SHELL__) return;
   window.__VCX_UI_SHELL__ = true;
@@ -30,7 +29,7 @@
     const localClocks = $$('.clock-local');
     if (!vcxClocks.length && !localClocks.length) return;
 
-    const fmtTampa = new Intl.DateTimeFormat([], {
+    const fmtVcx = new Intl.DateTimeFormat([], {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false,
@@ -42,17 +41,17 @@
       hour12: false
     });
 
-    const tick = () => {
+    const render = () => {
       const now = new Date();
-      const tampa = fmtTampa.format(now);
+      const vcx = fmtVcx.format(now);
       const local = fmtLocal.format(now);
-      vcxClocks.forEach((el) => { el.textContent = tampa; });
+      vcxClocks.forEach((el) => { el.textContent = vcx; });
       localClocks.forEach((el) => { el.textContent = local; });
     };
 
-    tick();
+    render();
     if (window.__vcxClockTimer) clearInterval(window.__vcxClockTimer);
-    window.__vcxClockTimer = window.setInterval(tick, 60000);
+    window.__vcxClockTimer = setInterval(render, 60000);
   }
 
   function normalizeMobileHeader() {
@@ -62,12 +61,15 @@
     const row = $('.vcx-mobile-row', mobile);
     const ribbon = $('.vcx-status-ribbon-mobile', mobile);
     const nav = $('.vcx-mobile-nav', mobile);
-    if (!meta || !row || !ribbon) return;
-    mobile.append(meta, row, ribbon);
+    if (!meta || !row) return;
+    mobile.innerHTML = '';
+    mobile.append(meta);
+    mobile.append(row);
+    if (ribbon) mobile.append(ribbon);
     if (nav) mobile.append(nav);
   }
 
-  function initMobileMenu() {
+  function bindMenu() {
     const wrap = $('.vcx-header-mobile');
     const button = $('.vcx-menu-btn');
     const nav = $('#vcxMobileNav');
@@ -92,38 +94,43 @@
     });
 
     $$('a', nav).forEach((link) => {
+      if (link.dataset.bound === '1') return;
+      link.dataset.bound = '1';
       link.addEventListener('click', () => setOpen(false), { passive: true });
     });
 
     doc.addEventListener('click', (event) => {
       if (!mq.matches || nav.hidden) return;
-      const inside = event.target instanceof Element && event.target.closest('.vcx-header-mobile');
-      if (!inside) setOpen(false);
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (!target.closest('.vcx-header-mobile')) setOpen(false);
     });
 
     doc.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') setOpen(false);
     });
 
-    mq.addEventListener('change', () => {
+    const onChange = () => {
       if (!mq.matches) setOpen(false);
-    });
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
   }
 
   function boot() {
     unlockScroll();
     initClocks();
     normalizeMobileHeader();
-    initMobileMenu();
+    bindMenu();
     window.addEventListener('pageshow', unlockScroll, { passive: true });
     window.addEventListener('focus', unlockScroll, { passive: true });
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) unlockScroll();
+    doc.addEventListener('visibilitychange', () => {
+      if (!doc.hidden) unlockScroll();
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  if (doc.readyState === 'loading') {
+    doc.addEventListener('DOMContentLoaded', boot, { once: true });
   } else {
     boot();
   }
