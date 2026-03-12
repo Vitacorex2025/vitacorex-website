@@ -835,3 +835,130 @@ html.vcx-scroll-compact .vcx-mobile-meta .vcx-time-chip-mobile{
   padding-top: 4px;
   padding-bottom: 4px;
 }
+
+
+/* v213 targeted functional refinements */
+.vcx-main-nav{
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.vcx-main-nav a{
+  display:inline-grid;
+  place-items:center;
+  min-height:40px;
+  padding:8px 10px;
+  font-size:.84rem;
+  line-height:1.14;
+  font-weight:640;
+  white-space:normal;
+  text-align:center;
+  text-wrap:balance;
+  max-width:154px;
+}
+
+.vcx-main-nav a.is-long{
+  max-width:142px;
+}
+
+.vcx-mobile-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 10px;
+  font-size:.81rem;
+  line-height:1.14;
+  white-space:normal;
+  text-align:center;
+  text-wrap:balance;
+}
+
+.vcx-dock-desktop{
+  grid-template-columns: minmax(160px, 1.2fr) repeat(3, minmax(0, .72fr)) repeat(3, minmax(0, 1fr));
+}
+
+.vcx-dock-mobile-row-icons{
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  justify-items:center;
+}
+.vcx-dock-mobile-row-services{
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+.vcx-dock-shell{
+  padding: 8px;
+}
+.vcx-dock-icon{
+  padding: 4px 2px 3px;
+}
+.vcx-dock-iconbox{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+.vcx-dock-chip{
+  min-height: 40px;
+}
+.vcx-dock-chipicon{
+  width: 24px;
+  height: 24px;
+}
+.vcx-dock svg{
+  width: 20px;
+  height: 20px;
+}
+.vcx-dock-text{
+  font-size: .68rem;
+  line-height:1.06;
+}
+body{
+  padding-bottom: 168px;
+}
+
+@media (max-width: 900px){
+  body{
+    padding-bottom: 176px;
+  }
+  .vcx-main-nav a{
+    max-width:none;
+  }
+  .vcx-dock-mobile-row-icons{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap:6px;
+  }
+}
+
+@media (max-width: 560px){
+  body{
+    padding-bottom: 172px;
+  }
+  .vcx-main-nav a,
+  .vcx-mobile-nav a{
+    font-size:.78rem;
+  }
+  .vcx-dock-shell{
+    padding:7px;
+    gap:6px;
+  }
+  .vcx-dock-mobile-row-icons{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+  .vcx-dock-iconbox{
+    width: 40px;
+    height: 40px;
+  }
+  .vcx-dock svg{
+    width: 19px;
+    height: 19px;
+  }
+  .vcx-dock-chip{
+    min-height: 38px;
+    padding: 0 6px;
+  }
+  .vcx-dock-text{
+    font-size:.62rem;
+  }
+}

@@ -696,8 +696,6 @@ improveMobileFileInput();
   const hardCopy = {
     en: {
       marketFallback: 'Market signal temporarily unavailable. Revenue recovery remains one of the largest controllable cash drivers for multi-location operators.',
-      dockCalendar: 'Schedule Consultation',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive tools',
         title: 'Interactive tools that make the offer clearer, more credible, and easier to evaluate.',
@@ -718,8 +716,6 @@ improveMobileFileInput();
     },
     ru: {
       marketFallback: 'Рыночный блок временно недоступен. Возврат выручки остаётся одним из самых управляемых драйверов кэша для сетевых операторов.',
-      dockCalendar: 'Назначить консультацию',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive-инструменты',
         title: 'Интерактивные инструменты, которые делают предложение понятнее, убедительнее и полезнее.',
@@ -740,8 +736,6 @@ improveMobileFileInput();
     },
     es: {
       marketFallback: 'El bloque de mercado no está disponible temporalmente. La recuperación de ingresos sigue siendo uno de los mayores impulsores de caja controlables para operadores multi-sede.',
-      dockCalendar: 'Reservar llamada',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Herramientas ejecutivas',
         title: 'Herramientas interactivas que vuelven la oferta más clara, creíble y fácil de evaluar.',
@@ -818,11 +812,6 @@ improveMobileFileInput();
       if(buttons[1]) buttons[1].textContent = copy.widgets.module[3];
     }
 
-    document.querySelectorAll('.dock-calendar').forEach(a=>{
-      a.textContent = copy.dockCalendar;
-      a.setAttribute('href','https://calendly.com/vitacorex2025/30min');
-    });
-    document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
   }
 
   function ensureTradingViewFallback(){
