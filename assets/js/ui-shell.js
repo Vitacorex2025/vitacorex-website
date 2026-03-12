@@ -38,6 +38,27 @@
     body.setAttribute('data-vcx-viewport', window.innerWidth <= 900 ? 'mobile' : 'desktop');
   }
 
+
+  function initStatusRibbon(){
+    const items = [
+      'Recovery readiness',
+      'File integrity',
+      'Cash velocity',
+      'Executive review status'
+    ];
+    const tracks = Array.from(doc.querySelectorAll('.vcx-status-track'));
+    if(!tracks.length) return;
+    let idx = 0;
+    function tick(){
+      idx = (idx + 1) % items.length;
+      tracks.forEach((track)=>{
+        const parts = track.querySelectorAll('.vcx-status-item');
+        if(parts.length >= 1) parts[0].textContent = items[idx];
+      });
+    }
+    setInterval(tick, 3200);
+  }
+
   function initClocks(){
     const fmt = (date, tz) => new Intl.DateTimeFormat([], {
       hour:'2-digit',
@@ -120,25 +141,35 @@
     const header = doc.querySelector('.vcx-header');
     if(!header) return;
     let lastY = window.scrollY || 0;
+    const desktopMq = window.matchMedia('(min-width: 901px)');
 
     function onScroll(){
       const y = window.scrollY || 0;
       const menuOpen = root.classList.contains('vcx-mobile-menu-open');
-      header.classList.toggle('is-compact', y > 24 || menuOpen);
-      if(menuOpen){
+      const compact = y > 18 || menuOpen;
+      header.classList.toggle('is-compact', compact);
+
+      if(menuOpen || !desktopMq.matches){
         header.classList.remove('is-hidden');
         lastY = y;
         return;
       }
-      const goingDown = y > lastY + 8;
-      const goingUp = y < lastY - 8;
-      if(y > 140 && goingDown) header.classList.add('is-hidden');
-      if(y < 72 || goingUp) header.classList.remove('is-hidden');
+
+      const goingDown = y > lastY + 10;
+      const goingUp = y < lastY - 10;
+
+      if(y > 220 && goingDown){
+        header.classList.add('is-hidden');
+      }else if(y < 96 || goingUp){
+        header.classList.remove('is-hidden');
+      }
+
       lastY = y;
     }
 
     onScroll();
     safeOn(window, 'scroll', onScroll, {passive:true});
+    safeOn(desktopMq, 'change', onScroll);
   }
 
   function initExecutiveCalculators(){
@@ -355,6 +386,7 @@
   function init(){
     applyViewportState();
     initClocks();
+    initStatusRibbon();
     initMobileMenu();
     initHeaderScroll();
     initExecutiveCalculators();
