@@ -735,7 +735,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-desktop{display:block !important}
 body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
 
 
-/* ===== PREMIUM BOTTOM DOCK REFINEMENT ===== */
+/* ===== ULTRA PREMIUM ICON DOCK REFINEMENT ===== */
 .vcx-dock{
   left:50%;
   bottom:max(12px, env(safe-area-inset-bottom, 0px));
@@ -749,37 +749,37 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   padding:10px 12px;
   border-radius:26px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.44), rgba(232,239,248,.18)),
-    radial-gradient(120% 150% at 0% 0%, rgba(123,153,201,.18), transparent 44%),
-    radial-gradient(120% 150% at 100% 100%, rgba(22,45,79,.16), transparent 43%),
-    rgba(228,236,246,.26);
+    linear-gradient(180deg, rgba(255,255,255,.40), rgba(232,239,248,.16)),
+    radial-gradient(125% 170% at 0% 0%, rgba(134,163,210,.16), transparent 42%),
+    radial-gradient(140% 160% at 100% 100%, rgba(18,39,68,.18), transparent 44%),
+    rgba(226,234,244,.24);
   border:1px solid rgba(255,255,255,.34);
-  backdrop-filter:blur(26px) saturate(165%);
-  -webkit-backdrop-filter:blur(26px) saturate(165%);
+  backdrop-filter:blur(28px) saturate(170%);
+  -webkit-backdrop-filter:blur(28px) saturate(170%);
   box-shadow:
-    0 18px 40px rgba(7,22,42,.18),
-    inset 0 1px 0 rgba(255,255,255,.58),
-    inset 0 -1px 0 rgba(255,255,255,.14);
+    0 20px 42px rgba(7,22,42,.20),
+    inset 0 1px 0 rgba(255,255,255,.60),
+    inset 0 -1px 0 rgba(255,255,255,.12);
 }
 .vcx-dock-shell::before{
   content:"";
   position:absolute;
   inset:1px 1px auto;
-  height:52%;
+  height:54%;
   border-radius:inherit;
   background:linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,0));
-  opacity:.95;
+  opacity:.96;
   pointer-events:none;
 }
 .vcx-dock-shell::after{
   content:"";
   position:absolute;
-  inset:auto 12% 5px;
+  inset:auto 12% 6px;
   height:28px;
   border-radius:999px;
-  background:radial-gradient(50% 100% at 50% 0%, rgba(255,255,255,.18), rgba(255,255,255,0));
-  pointer-events:none;
+  background:radial-gradient(70% 100% at 50% 0%, rgba(255,255,255,.18), rgba(255,255,255,0));
   filter:blur(8px);
+  pointer-events:none;
 }
 .vcx-dock-desktop{
   display:flex;
@@ -791,6 +791,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
 .vcx-dock a{
   text-decoration:none;
   touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
 }
 .vcx-dock-pilot,
 .vcx-dock-icon,
@@ -798,12 +799,13 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
 .vcx-dock-iconbox,
 .vcx-dock-chipicon{
   transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease,
-    background .22s ease,
-    color .22s ease,
-    opacity .22s ease;
+    transform .24s ease,
+    box-shadow .24s ease,
+    border-color .24s ease,
+    background .24s ease,
+    color .24s ease,
+    filter .24s ease,
+    opacity .24s ease;
 }
 .vcx-dock-pilot,
 .vcx-dock-chip{
@@ -817,16 +819,12 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   border-radius:18px;
   font-size:.75rem;
   font-weight:800;
-  letter-spacing:.01em;
-  color:#607489;
-  border:1px solid rgba(255,255,255,.24);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.34), rgba(229,237,246,.16)),
-    rgba(227,235,245,.16);
+  letter-spacing:.012em;
+  border:1px solid rgba(255,255,255,.22);
   box-shadow:
-    0 10px 20px rgba(7,22,42,.11),
-    inset 0 1px 0 rgba(255,255,255,.46),
-    inset 0 -12px 24px rgba(69,87,112,.05);
+    0 12px 22px rgba(7,22,42,.14),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -14px 24px rgba(28,46,72,.08);
 }
 .vcx-dock-pilot::before,
 .vcx-dock-chip::before,
@@ -837,21 +835,34 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   inset:1px 1px auto;
   height:48%;
   border-radius:inherit;
-  background:linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,0));
+  background:linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,0));
+  pointer-events:none;
+}
+.vcx-dock-iconbox::after,
+.vcx-dock-chipicon::after{
+  content:"";
+  position:absolute;
+  inset:auto 7px 4px;
+  height:10px;
+  border-radius:999px;
+  background:radial-gradient(65% 100% at 50% 0%, rgba(255,255,255,.20), rgba(255,255,255,0));
+  opacity:.95;
   pointer-events:none;
 }
 .vcx-dock-pilot{
-  min-width:138px;
+  min-width:142px;
   padding:0 18px;
-  color:#f7fbff;
-  border-color:rgba(182,208,245,.34);
+  color:#f5fbff;
+  text-shadow:0 1px 0 rgba(8,22,44,.16);
+  border-color:rgba(166,198,245,.36);
   background:
-    linear-gradient(180deg, rgba(66,111,177,.98), rgba(28,70,130,.96)),
-    linear-gradient(135deg, rgba(119,154,213,.34), rgba(255,255,255,0));
+    linear-gradient(180deg, rgba(92,145,220,.98), rgba(34,82,150,.96)),
+    radial-gradient(115% 120% at 18% 18%, rgba(255,255,255,.22), transparent 42%),
+    linear-gradient(135deg, rgba(126,171,237,.32), rgba(255,255,255,0));
   box-shadow:
-    0 16px 28px rgba(14,42,84,.30),
-    inset 0 1px 0 rgba(255,255,255,.26),
-    inset 0 -10px 22px rgba(10,30,62,.12);
+    0 18px 32px rgba(14,42,84,.34),
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -12px 24px rgba(10,30,62,.18);
 }
 .vcx-dock-pilot::after{
   content:"";
@@ -859,7 +870,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   inset:auto 16px 6px 16px;
   height:14px;
   border-radius:999px;
-  background:radial-gradient(75% 100% at 50% 0%, rgba(255,255,255,.16), rgba(255,255,255,0));
+  background:radial-gradient(78% 100% at 50% 0%, rgba(255,255,255,.18), rgba(255,255,255,0));
   pointer-events:none;
 }
 .vcx-dock-icon{
@@ -868,86 +879,209 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   align-items:center;
   justify-content:center;
   gap:6px;
-  min-width:58px;
+  min-width:60px;
   padding:4px 3px 2px;
-  color:#5b6f84;
 }
 .vcx-dock-iconbox,
 .vcx-dock-chipicon{
   position:relative;
   display:grid;
   place-items:center;
-  width:44px;
-  height:44px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.28);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.36), rgba(229,237,246,.16)),
-    radial-gradient(115% 120% at 18% 18%, rgba(255,255,255,.28), transparent 48%);
+  width:46px;
+  height:46px;
+  border-radius:17px;
+  border:1px solid rgba(255,255,255,.26);
+  color:#fff;
   box-shadow:
-    0 12px 22px rgba(7,22,42,.12),
-    inset 0 1px 0 rgba(255,255,255,.48),
-    inset 0 -12px 20px rgba(75,96,125,.06);
+    0 14px 24px rgba(7,22,42,.16),
+    inset 0 1px 0 rgba(255,255,255,.46),
+    inset 0 -14px 22px rgba(17,31,52,.14);
 }
 .vcx-dock-chipicon{
-  width:30px;
-  height:30px;
+  width:31px;
+  height:31px;
   border-radius:12px;
-  border-color:rgba(255,255,255,.22);
 }
 .vcx-dock svg{
   width:20px;
   height:20px;
   fill:none;
   stroke:currentColor;
-  stroke-width:1.9;
+  stroke-width:1.95;
   stroke-linecap:round;
   stroke-linejoin:round;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.08));
 }
 .vcx-dock-text{
   font-size:.63rem;
   font-weight:780;
   line-height:1.08;
-  letter-spacing:.01em;
-  color:currentColor;
+  letter-spacing:.012em;
+}
+.vcx-dock-icon .vcx-dock-text{
+  color:#4c6178;
+  text-shadow:0 1px 0 rgba(255,255,255,.26);
+}
+.vcx-dock-chip{
+  color:#f6fbff;
+  text-shadow:0 1px 0 rgba(10,24,42,.10);
 }
 .vcx-dock-chip .vcx-dock-text{
   font-size:.66rem;
 }
-.vcx-dock-icon.is-home{color:#54677b}
-.vcx-dock-icon.is-instagram{color:#6f667f}
-.vcx-dock-icon.is-facebook{color:#587087}
-.vcx-dock-icon.is-whatsapp{color:#58786f}
-.vcx-dock-icon.is-book{color:#716980}
+.vcx-dock-chipicon{
+  color:#fff;
+}
 
-.vcx-dock-chip.is-individuals,
-.vcx-dock-chip.is-precollection,
-.vcx-dock-chip.is-paralegal{
-  color:#5d7288;
+/* Individual premium app-like icon treatments */
+.vcx-dock-icon.is-home .vcx-dock-text{color:#456452}
+.vcx-dock-icon.is-home .vcx-dock-iconbox{
+  border-color:rgba(145,189,160,.58);
   background:
-    linear-gradient(180deg, rgba(255,255,255,.36), rgba(227,236,245,.18)),
-    rgba(226,234,244,.18);
+    linear-gradient(180deg, rgba(156,203,173,.98), rgba(72,127,97,.97)),
+    radial-gradient(120% 120% at 20% 18%, rgba(255,255,255,.34), transparent 44%),
+    linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,0));
+  box-shadow:
+    0 15px 24px rgba(44,88,61,.24),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -13px 22px rgba(32,70,48,.18);
+}
+
+.vcx-dock-icon.is-instagram .vcx-dock-text{color:#654f67}
+.vcx-dock-icon.is-instagram .vcx-dock-iconbox{
+  border-color:rgba(219,150,183,.42);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
+    linear-gradient(135deg, #f6b45d 6%, #ee6f71 34%, #c9569d 64%, #6f63d0 100%);
+  box-shadow:
+    0 15px 24px rgba(119,63,113,.24),
+    inset 0 1px 0 rgba(255,255,255,.38),
+    inset 0 -13px 22px rgba(86,43,89,.18);
+}
+
+.vcx-dock-icon.is-facebook .vcx-dock-text{color:#47648b}
+.vcx-dock-icon.is-facebook .vcx-dock-iconbox{
+  border-color:rgba(125,162,221,.44);
+  background:
+    linear-gradient(180deg, rgba(145,184,240,.98), rgba(53,98,176,.96)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.30), transparent 44%);
+  box-shadow:
+    0 15px 24px rgba(43,75,132,.24),
+    inset 0 1px 0 rgba(255,255,255,.40),
+    inset 0 -13px 22px rgba(26,52,102,.18);
+}
+
+.vcx-dock-icon.is-whatsapp .vcx-dock-text{color:#436c56}
+.vcx-dock-icon.is-whatsapp .vcx-dock-iconbox{
+  border-color:rgba(125,205,154,.46);
+  background:
+    linear-gradient(180deg, rgba(111,213,145,.98), rgba(35,146,83,.96)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.32), transparent 46%);
+  box-shadow:
+    0 15px 24px rgba(27,104,59,.24),
+    inset 0 1px 0 rgba(255,255,255,.40),
+    inset 0 -13px 22px rgba(18,82,46,.18);
+}
+
+.vcx-dock-icon.is-book .vcx-dock-text{color:#6a5b38}
+.vcx-dock-icon.is-book .vcx-dock-iconbox{
+  border-color:rgba(209,184,118,.48);
+  background:
+    linear-gradient(180deg, rgba(224,199,123,.98), rgba(175,136,57,.96)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.34), transparent 44%);
+  box-shadow:
+    0 15px 24px rgba(117,87,34,.24),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -13px 22px rgba(98,71,28,.18);
+}
+
+/* Service chips */
+.vcx-dock-chip.is-individuals{
+  border-color:rgba(173,195,224,.30);
+  background:
+    linear-gradient(180deg, rgba(115,142,176,.96), rgba(69,93,123,.95)),
+    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.16), transparent 42%);
+  box-shadow:
+    0 16px 28px rgba(41,62,89,.24),
+    inset 0 1px 0 rgba(255,255,255,.24),
+    inset 0 -14px 24px rgba(22,34,52,.18);
+}
+.vcx-dock-chip.is-individuals .vcx-dock-chipicon{
+  border-color:rgba(197,217,244,.28);
+  background:
+    linear-gradient(180deg, rgba(173,194,223,.98), rgba(102,128,164,.95)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.26), transparent 44%);
+  box-shadow:
+    0 10px 18px rgba(33,55,82,.18),
+    inset 0 1px 0 rgba(255,255,255,.36),
+    inset 0 -10px 18px rgba(47,68,94,.18);
+}
+
+.vcx-dock-chip.is-precollection{
+  border-color:rgba(170,192,221,.30);
+  background:
+    linear-gradient(180deg, rgba(108,135,169,.96), rgba(63,88,118,.95)),
+    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.16), transparent 42%);
+  box-shadow:
+    0 16px 28px rgba(36,58,84,.24),
+    inset 0 1px 0 rgba(255,255,255,.24),
+    inset 0 -14px 24px rgba(20,33,50,.18);
+}
+.vcx-dock-chip.is-precollection .vcx-dock-chipicon{
+  border-color:rgba(179,209,229,.30);
+  background:
+    linear-gradient(180deg, rgba(103,178,206,.98), rgba(54,110,146,.95)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.26), transparent 44%);
+  box-shadow:
+    0 10px 18px rgba(31,70,92,.18),
+    inset 0 1px 0 rgba(255,255,255,.36),
+    inset 0 -10px 18px rgba(28,63,82,.18);
+}
+
+.vcx-dock-chip.is-paralegal{
+  border-color:rgba(173,194,223,.30);
+  background:
+    linear-gradient(180deg, rgba(111,138,170,.96), rgba(65,89,119,.95)),
+    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.16), transparent 42%);
+  box-shadow:
+    0 16px 28px rgba(37,58,84,.24),
+    inset 0 1px 0 rgba(255,255,255,.24),
+    inset 0 -14px 24px rgba(20,33,50,.18);
+}
+.vcx-dock-chip.is-paralegal .vcx-dock-chipicon{
+  border-color:rgba(196,214,234,.30);
+  background:
+    linear-gradient(180deg, rgba(162,184,214,.98), rgba(94,119,155,.95)),
+    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.26), transparent 44%);
+  box-shadow:
+    0 10px 18px rgba(33,55,82,.18),
+    inset 0 1px 0 rgba(255,255,255,.36),
+    inset 0 -10px 18px rgba(42,63,88,.18);
 }
 
 .vcx-dock-icon:hover,
 .vcx-dock-chip:hover,
 .vcx-dock-pilot:hover{
-  transform:translateY(-1px);
+  transform:translateY(-2px);
 }
 .vcx-dock-icon:hover .vcx-dock-iconbox,
 .vcx-dock-chip:hover .vcx-dock-chipicon,
 .vcx-dock-chip:hover,
 .vcx-dock-pilot:hover{
+  filter:saturate(1.05) brightness(1.02);
   box-shadow:
-    0 16px 28px rgba(7,22,42,.16),
+    0 18px 30px rgba(7,22,42,.18),
     inset 0 1px 0 rgba(255,255,255,.54),
-    inset 0 -12px 20px rgba(68,92,123,.07);
+    inset 0 -14px 22px rgba(20,34,52,.12);
 }
 .vcx-dock-pilot:hover{
   box-shadow:
-    0 18px 30px rgba(14,42,84,.34),
-    inset 0 1px 0 rgba(255,255,255,.28),
-    inset 0 -10px 22px rgba(10,30,62,.12);
+    0 20px 34px rgba(14,42,84,.38),
+    inset 0 1px 0 rgba(255,255,255,.30),
+    inset 0 -12px 24px rgba(10,30,62,.18);
+}
+.vcx-dock a:active{
+  transform:translateY(0) scale(.988);
 }
 .vcx-dock a:focus-visible{
   outline:none;
@@ -957,9 +1091,9 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
 .vcx-dock a.vcx-dock-pilot:focus-visible,
 .vcx-dock a.vcx-dock-chip:focus-visible{
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.48),
-    0 0 0 4px rgba(90,126,188,.22),
-    0 16px 28px rgba(7,22,42,.16);
+    0 0 0 1px rgba(255,255,255,.52),
+    0 0 0 4px rgba(92,129,189,.22),
+    0 16px 28px rgba(7,22,42,.18);
 }
 
 body[data-vcx-page="home"] .vcx-dock-icon.is-home .vcx-dock-iconbox,
@@ -968,24 +1102,12 @@ body[data-vcx-page="revenue-recovery"] .vcx-dock-chip.is-precollection,
 body[data-vcx-page="corporate-legal"] .vcx-dock-chip.is-paralegal,
 body[data-vcx-page="structured-intake"] .vcx-dock-pilot,
 body[data-vcx-page="contact"] .vcx-dock-pilot{
-  border-color:rgba(130,161,207,.38);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.40), rgba(213,225,239,.22)),
-    rgba(215,226,240,.22);
+  transform:translateY(-1px);
+  filter:saturate(1.06) brightness(1.03);
   box-shadow:
-    0 14px 26px rgba(12,34,62,.16),
-    inset 0 1px 0 rgba(255,255,255,.56),
-    inset 0 -12px 22px rgba(67,90,121,.08);
-}
-body[data-vcx-page="structured-intake"] .vcx-dock-pilot,
-body[data-vcx-page="contact"] .vcx-dock-pilot{
-  background:
-    linear-gradient(180deg, rgba(73,118,184,.98), rgba(31,74,136,.96)),
-    linear-gradient(135deg, rgba(119,154,213,.34), rgba(255,255,255,0));
-  box-shadow:
-    0 18px 32px rgba(14,42,84,.36),
-    inset 0 1px 0 rgba(255,255,255,.28),
-    inset 0 -10px 22px rgba(10,30,62,.12);
+    0 18px 30px rgba(12,34,62,.20),
+    inset 0 1px 0 rgba(255,255,255,.54),
+    inset 0 -14px 24px rgba(18,34,58,.12);
 }
 
 @media (max-width: 1080px) and (min-width: 901px){
@@ -1000,11 +1122,11 @@ body[data-vcx-page="contact"] .vcx-dock-pilot{
     gap:6px;
   }
   .vcx-dock-pilot{
-    min-width:128px;
+    min-width:130px;
     padding:0 16px;
   }
   .vcx-dock-icon{
-    min-width:54px;
+    min-width:56px;
   }
   .vcx-dock-chip{
     padding:0 12px;
@@ -1053,8 +1175,8 @@ body[data-vcx-page="contact"] .vcx-dock-pilot{
     padding:2px 1px 0;
   }
   .vcx-dock-iconbox{
-    width:42px;
-    height:42px;
+    width:43px;
+    height:43px;
     border-radius:15px;
   }
   .vcx-dock-chip{
@@ -1064,8 +1186,8 @@ body[data-vcx-page="contact"] .vcx-dock-pilot{
     gap:6px;
   }
   .vcx-dock-chipicon{
-    width:26px;
-    height:26px;
+    width:27px;
+    height:27px;
     border-radius:11px;
   }
   .vcx-dock svg{
@@ -1105,6 +1227,10 @@ body[data-vcx-page="contact"] .vcx-dock-pilot{
   .vcx-dock-chip{
     padding:0 6px;
   }
+  .vcx-dock-chipicon{
+    width:26px;
+    height:26px;
+  }
   .vcx-dock-icon .vcx-dock-text{
     font-size:.56rem;
   }
@@ -1112,4 +1238,5 @@ body[data-vcx-page="contact"] .vcx-dock-pilot{
     font-size:.58rem;
   }
 }
-/* ===== END PREMIUM BOTTOM DOCK REFINEMENT ===== */
+/* ===== END ULTRA PREMIUM ICON DOCK REFINEMENT ===== */
+
