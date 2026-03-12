@@ -1347,3 +1347,25 @@ document.addEventListener('visibilitychange', ()=>{
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureNativeScroll(); });
   document.addEventListener('click', ()=>{ setTimeout(vcxEnsureNativeScroll,0); }, true);
 })();
+
+/* VitaCoreX hard scroll restore v235 */
+(function(){
+  function vcxHardScrollReset(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+    }
+  }
+  ['pageshow','focus','mouseup','keyup','wheel','resize'].forEach(evt=>{
+    window.addEventListener(evt, vcxHardScrollReset, {passive:true});
+  });
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxHardScrollReset(); });
+})();

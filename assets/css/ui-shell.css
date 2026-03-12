@@ -3529,3 +3529,312 @@ body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-form-output{
     justify-content:center !important;
   }
 }
+
+
+
+/* ===== VitaCoreX premium app adaptation v235 ===== */
+:root{
+  --vcx-max-wide: 1360px;
+  --vcx-copy-max: 68ch;
+  --vcx-card-pad-lg: 22px;
+  --vcx-card-pad-sm: 18px;
+  --vcx-gap-xl: 22px;
+  --vcx-gap-lg: 18px;
+  --vcx-gap-sm: 12px;
+  --vcx-h1: clamp(1.9rem, 2.8vw, 3rem);
+  --vcx-h2: clamp(1.28rem, 1.9vw, 1.96rem);
+  --vcx-h3: clamp(1rem, 1.15vw, 1.18rem);
+}
+html{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior-y:auto !important;
+}
+body{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior-y:auto !important;
+  padding-bottom:86px !important;
+}
+.wrap{
+  max-width:var(--vcx-max-wide) !important;
+}
+.hero-inner{padding:12px 0 8px !important}
+.hero-copy{padding:20px !important}
+.hero-grid,.hero-grid-premium,.hero-grid-single{
+  gap:16px !important;
+}
+.section,.section-tight,.band{
+  padding-top:18px !important;
+  padding-bottom:18px !important;
+}
+.hero + .section,
+.hero + .section.band,
+.market-ticker + .section,
+.market-ticker + .section.band{
+  padding-top:8px !important;
+}
+h1,.hero h1{
+  font-size:var(--vcx-h1) !important;
+  line-height:1.04 !important;
+  max-width:16ch !important;
+  letter-spacing:-.038em !important;
+  text-wrap:balance;
+}
+h2,.section-head h2,.proof-band h2,.cta-banner h2{
+  font-size:var(--vcx-h2) !important;
+  line-height:1.08 !important;
+  max-width:22ch !important;
+  letter-spacing:-.028em !important;
+  text-wrap:balance;
+}
+h3,.widget-head h3,.card h3,.resource-card h3,.engine-card h3,.seo-card h3,.li-card h3{
+  font-size:var(--vcx-h3) !important;
+  line-height:1.22 !important;
+  letter-spacing:-.016em !important;
+  text-wrap:balance;
+}
+.lead,.section-intro,p{
+  max-width:var(--vcx-copy-max) !important;
+}
+.section-head{
+  margin-bottom:12px !important;
+  max-width:900px !important;
+}
+.widget-head{margin-bottom:10px !important}
+.card,.glass,.widget-card,.engine-card,.li-card,.seo-card,.authority-card,.authority-case,.resource-card,.output-panel,.cta-banner{
+  padding:var(--vcx-card-pad-lg) !important;
+  border-radius:22px !important;
+}
+.widget-form,.mini-form,.form-grid,.resource-grid,.careers-layout,.intake-wrap,.authority-grid,.impact-grid,.li-grid,.seo-grid,.diagnostic-grid,.widget-grid,.legal-chart-grid,.audience-split,.leak-grid{
+  gap:var(--vcx-gap-lg) !important;
+  align-items:start !important;
+}
+.vcx-premium-flow{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:16px !important;
+}
+.vcx-proof-strong,
+.proof-band.vcx-premium-flow{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:10px !important;
+}
+.vcx-footer-balance{
+  align-items:start !important;
+}
+.vcx-output-panel-compact{
+  padding:18px !important;
+}
+.vcx-output-item{
+  grid-template-columns:minmax(0,180px) minmax(0,1fr) !important;
+  gap:10px !important;
+  padding:10px 0 !important;
+}
+.vcx-output-item strong{
+  font-size:.85rem !important;
+  line-height:1.28 !important;
+}
+.vcx-output-item span{
+  font-size:.93rem !important;
+  line-height:1.54 !important;
+}
+
+/* Desktop restructuring for weak side-by-side sections */
+body[data-vcx-page="home"] .li-grid,
+body[data-vcx-page="home"] .impact-grid,
+body[data-vcx-page="home"] .diagnostic-grid{
+  grid-template-columns:minmax(0,1fr) !important;
+}
+body[data-vcx-page="home"] .seo-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="home"] .authority-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="corporate-legal"] .diagnostic-grid,
+body[data-vcx-page="corporate-legal"] .grid-2,
+body[data-vcx-page="revenue-recovery"] .grid-2,
+body[data-vcx-page="revenue-recovery"] .vcx-case-study-panel{
+  grid-template-columns:minmax(0,1fr) !important;
+}
+body[data-vcx-page="resources"] .resource-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="additional-services"] .grid-3{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="careers"] .careers-layout{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+}
+
+/* Header compactness */
+.vcx-header-shell{
+  padding:8px 12px 10px !important;
+}
+.vcx-header-top{
+  gap:10px !important;
+}
+.vcx-header-navrow{
+  margin-top:6px !important;
+  padding-top:6px !important;
+}
+.vcx-main-nav{
+  gap:2px !important;
+}
+.vcx-main-nav a{
+  min-height:31px !important;
+  padding:0 6px !important;
+  font-size:.76rem !important;
+}
+.vcx-main-nav a.is-long{
+  font-size:.72rem !important;
+}
+.vcx-status-ribbon{
+  min-height:42px !important;
+  padding:7px 12px !important;
+}
+.vcx-status-item{
+  font-size:.77rem !important;
+}
+.vcx-time-chip{
+  min-height:39px !important;
+  padding:7px 10px !important;
+}
+
+/* Dock refinement */
+.vcx-dock{
+  bottom:12px !important;
+}
+.vcx-dock-shell{
+  width:min(1100px, calc(100% - 22px)) !important;
+  padding:6px 8px !important;
+  border-radius:20px !important;
+}
+.vcx-dock-desktop{
+  gap:6px !important;
+}
+.vcx-dock-pilot,.vcx-dock-icon,.vcx-dock-chip{
+  min-height:36px !important;
+  padding:0 10px !important;
+  gap:7px !important;
+  box-shadow:0 7px 16px rgba(7,22,42,.06) !important;
+}
+.vcx-dock-pilot{
+  padding:0 14px !important;
+}
+.vcx-dock-text{
+  font-size:.69rem !important;
+}
+.vcx-dock-iconbox,.vcx-dock-chipicon{
+  width:20px !important;
+  height:20px !important;
+}
+
+/* mobile / app */
+@media (max-width: 900px){
+  body{
+    padding-bottom:124px !important;
+  }
+  .wrap{
+    padding-left:15px !important;
+    padding-right:15px !important;
+  }
+  .vcx-header{
+    padding:calc(env(safe-area-inset-top, 0px) + 5px) 0 5px !important;
+  }
+  .vcx-header-shell{
+    padding:7px 9px 8px !important;
+    border-radius:18px !important;
+  }
+  .vcx-mobile-meta{
+    gap:5px !important;
+  }
+  .vcx-mobile-row{
+    gap:8px !important;
+    padding-top:5px !important;
+  }
+  .vcx-status-ribbon-mobile{
+    order:3 !important;
+    min-height:34px !important;
+    margin-top:6px !important;
+    padding:6px 10px !important;
+    gap:8px !important;
+  }
+  .vcx-status-ribbon-mobile .vcx-status-item{
+    font-size:.70rem !important;
+  }
+  .vcx-mobile-nav{
+    order:4 !important;
+    padding-top:7px !important;
+  }
+  h1,.hero h1{
+    font-size:clamp(1.72rem, 7vw, 2.28rem) !important;
+    max-width:13ch !important;
+  }
+  h2,.section-head h2,.proof-band h2,.cta-banner h2{
+    font-size:clamp(1.18rem, 5vw, 1.56rem) !important;
+    max-width:100% !important;
+  }
+  h3{
+    font-size:clamp(.96rem, 4.4vw, 1.08rem) !important;
+  }
+  .lead,.section-intro,p{
+    max-width:100% !important;
+  }
+  .hero-copy{
+    padding:17px !important;
+  }
+  .section,.section-tight,.band{
+    padding-top:15px !important;
+    padding-bottom:15px !important;
+  }
+  .leak-grid,
+  .audience-split,
+  .grid-3,
+  .resource-grid,
+  .careers-layout,
+  .authority-grid,
+  .impact-grid,
+  .li-grid,
+  .seo-grid,
+  .diagnostic-grid,
+  .widget-grid,
+  .legal-chart-grid,
+  .form-grid,
+  .intake-wrap,
+  .footer-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:14px !important;
+  }
+  .vcx-output-item{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:4px !important;
+  }
+  .vcx-dock-shell{
+    width:min(100%, calc(100% - 20px)) !important;
+    padding:6px 7px !important;
+  }
+  .vcx-dock-desktop{
+    display:none !important;
+  }
+  .vcx-dock-mobile{
+    display:grid !important;
+    gap:6px !important;
+  }
+  .vcx-dock-mobile-row{
+    display:grid !important;
+    gap:6px !important;
+  }
+  .vcx-dock-mobile-row-pilot{grid-template-columns:minmax(0,1fr) !important;}
+  .vcx-dock-mobile-row-icons{grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+  .vcx-dock-mobile-row-services{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+  .vcx-dock-pilot,.vcx-dock-icon,.vcx-dock-chip{
+    min-height:33px !important;
+    padding:0 8px !important;
+  }
+  .vcx-dock-text{
+    font-size:.64rem !important;
+  }
+}

@@ -126,6 +126,37 @@
   }
 
 
+  
+  function vcxReorderMobileHeader(){
+    const mobile = doc.querySelector('.vcx-header-mobile');
+    if(!mobile) return;
+    const meta = mobile.querySelector('.vcx-mobile-meta');
+    const row = mobile.querySelector('.vcx-mobile-row');
+    const ribbon = mobile.querySelector('.vcx-status-ribbon-mobile');
+    const nav = mobile.querySelector('.vcx-mobile-nav');
+    if(meta && row && ribbon && nav){
+      mobile.append(meta, row, ribbon, nav);
+    }
+  }
+
+  function vcxRestoreScrollState(){
+    const body = doc.body;
+    const html = doc.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.classList.remove('vcx-lock-scroll');
+      root.classList.remove('vcx-mobile-menu-open');
+      body.style.overflow = '';
+      body.style.overflowY = 'auto';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      html.style.overflow = '';
+      html.style.overflowY = 'auto';
+      html.style.position = '';
+    }
+  }
+
   function initStatusRibbon(){
     const items = [
       'Recovery readiness',
@@ -482,6 +513,8 @@
     bootDesktopScrollRepair();
     applyViewportState();
     initClocks();
+    vcxReorderMobileHeader();
+    vcxRestoreScrollState();
     initStatusRibbon();
     initMobileMenu();
     initHeaderScroll();
