@@ -1,10 +1,12 @@
 
 /* v210 isolated header/menu/dock rebuild */
 :root{
-  --vcx-glass-bg: rgba(255,255,255,.58);
-  --vcx-glass-border: rgba(255,255,255,.38);
-  --vcx-shadow-soft: 0 14px 34px rgba(7,22,42,.10);
-  --vcx-shadow-card: 0 10px 24px rgba(7,22,42,.10);
+  --vcx-glass-bg: rgba(255,255,255,.32);
+  --vcx-glass-strong: rgba(255,255,255,.44);
+  --vcx-glass-soft: rgba(255,255,255,.18);
+  --vcx-glass-border: rgba(255,255,255,.34);
+  --vcx-shadow-soft: 0 18px 44px rgba(7,22,42,.12);
+  --vcx-shadow-card: 0 16px 34px rgba(7,22,42,.12);
   --vcx-radius-xl: 24px;
   --vcx-radius-lg: 18px;
   --vcx-radius-md: 14px;
@@ -17,6 +19,27 @@ body{
   padding-bottom: 112px;
 }
 
+.vcx-header,
+.vcx-dock{
+  transition: transform .48s cubic-bezier(.22,.8,.2,1), opacity .38s ease, filter .38s ease;
+  will-change: transform, opacity;
+}
+
+.vcx-header{
+  transform-origin: top center;
+}
+
+html.vcx-scroll-hide .vcx-header{
+  transform: translateY(-18px) scale(.985);
+  opacity: .05;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+html.vcx-scroll-hide .vcx-dock{
+  transform: translateX(-50%) translateY(10px);
+}
+
 .vcx-header{
   position: sticky;
   top: 10px;
@@ -25,11 +48,15 @@ body{
 }
 
 .vcx-header-shell{
-  background: var(--vcx-glass-bg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.18)),
+    radial-gradient(120% 160% at 0% 0%, rgba(122,168,255,.16), transparent 46%),
+    radial-gradient(120% 160% at 100% 0%, rgba(255,153,225,.14), transparent 42%),
+    var(--vcx-glass-bg);
   border: 1px solid var(--vcx-glass-border);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: var(--vcx-shadow-soft);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: var(--vcx-shadow-soft), inset 0 1px 0 rgba(255,255,255,.46);
   border-radius: 24px;
   padding: 10px 14px 12px;
 }
@@ -98,11 +125,13 @@ body{
 .vcx-header-navrow,
 .vcx-mobile-nav,
 .vcx-dock-shell{
-  background: rgba(255,255,255,.42);
-  border: 1px solid rgba(255,255,255,.34);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.46), 0 10px 24px rgba(7,22,42,.06);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.18)),
+    rgba(255,255,255,.24);
+  border: 1px solid rgba(255,255,255,.32);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.52), 0 10px 24px rgba(7,22,42,.06);
 }
 
 .vcx-time-chip{
@@ -315,11 +344,15 @@ body{
 .vcx-dock-shell{
   border-radius: 22px;
   padding: 8px;
-  background: rgba(255,255,255,.52);
-  border: 1px solid rgba(255,255,255,.35);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 16px 34px rgba(7,22,42,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.16)),
+    radial-gradient(120% 160% at 0% 100%, rgba(78,165,255,.16), transparent 42%),
+    radial-gradient(120% 160% at 100% 0%, rgba(255,111,196,.14), transparent 40%),
+    rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.34);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: 0 18px 42px rgba(7,22,42,.14), inset 0 1px 0 rgba(255,255,255,.46);
 }
 
 .vcx-dock-desktop{
@@ -351,10 +384,12 @@ body{
   align-items:center;
   justify-content:center;
   padding: 0 14px;
-  background: linear-gradient(135deg, #16395c, #255784);
+  background:
+    linear-gradient(135deg, rgba(38,85,140,.94), rgba(88,46,182,.90)),
+    rgba(255,255,255,.22);
   color:#fff;
   font-weight:800;
-  box-shadow: 0 12px 24px rgba(22,54,86,.22);
+  box-shadow: 0 14px 28px rgba(58,72,180,.24), inset 0 1px 0 rgba(255,255,255,.34);
 }
 
 .vcx-dock-icon,
@@ -365,9 +400,11 @@ body{
   justify-content:center;
   gap:4px;
   padding: 6px 6px 5px;
-  background: rgba(255,255,255,.48);
-  border: 1px solid rgba(255,255,255,.34);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 8px 18px rgba(7,22,42,.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.16)),
+    rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.32);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.52), 0 12px 24px rgba(7,22,42,.10);
   color: #24435f;
 }
 
@@ -385,9 +422,11 @@ body{
   align-items:center;
   justify-content:center;
   flex:0 0 auto;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(255,255,255,.42);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.56);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.16)),
+    rgba(255,255,255,.20);
+  border: 1px solid rgba(255,255,255,.34);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.58), 0 10px 20px rgba(7,22,42,.08);
 }
 
 .vcx-dock-iconbox{
@@ -426,6 +465,102 @@ body{
 .is-facebook{ color:#2563eb; }
 .is-whatsapp{ color:#16a34a; }
 .is-book{ color:#a16207; }
+
+
+.vcx-menu-btn,
+.vcx-main-nav a,
+.vcx-mobile-nav a,
+.vcx-dock-pilot,
+.vcx-dock-icon,
+.vcx-dock-chip,
+.vcx-time-chip,
+.vcx-lang-switch{
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease, color .22s ease, opacity .22s ease;
+}
+
+.vcx-menu-btn:hover,
+.vcx-main-nav a:hover,
+.vcx-mobile-nav a:hover,
+.vcx-dock-pilot:hover,
+.vcx-dock-icon:hover,
+.vcx-dock-chip:hover{
+  transform: translateY(-1px);
+}
+
+.vcx-time-chip:hover,
+.vcx-lang-switch:hover{
+  transform: translateY(-1px);
+}
+
+.vcx-dock-iconbox{
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-dock-iconbox::before{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 46%);
+  pointer-events:none;
+}
+
+.is-home .vcx-dock-iconbox{
+  background:
+    linear-gradient(135deg, rgba(70,170,255,.38), rgba(26,93,236,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+.is-instagram .vcx-dock-iconbox{
+  background:
+    linear-gradient(135deg, rgba(255,143,88,.34), rgba(233,48,120,.26) 48%, rgba(126,59,255,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+.is-facebook .vcx-dock-iconbox{
+  background:
+    linear-gradient(135deg, rgba(85,151,255,.36), rgba(37,99,235,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+.is-whatsapp .vcx-dock-iconbox{
+  background:
+    linear-gradient(135deg, rgba(66,214,151,.34), rgba(22,163,74,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+.is-book .vcx-dock-iconbox{
+  background:
+    linear-gradient(135deg, rgba(255,205,94,.34), rgba(245,158,11,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+.vcx-dock-chip .vcx-dock-chipicon{
+  background:
+    linear-gradient(135deg, rgba(92,148,255,.30), rgba(137,88,255,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.14)),
+    rgba(255,255,255,.22);
+}
+
+.vcx-dock-text{
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .vcx-header,
+  .vcx-dock,
+  .vcx-menu-btn,
+  .vcx-main-nav a,
+  .vcx-mobile-nav a,
+  .vcx-dock-pilot,
+  .vcx-dock-icon,
+  .vcx-dock-chip,
+  .vcx-time-chip,
+  .vcx-lang-switch{
+    transition: none !important;
+  }
+}
 
 @media (max-width: 1100px){
   .vcx-main-nav a{

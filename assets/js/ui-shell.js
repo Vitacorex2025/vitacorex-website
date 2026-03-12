@@ -51,4 +51,22 @@
 
   mq.addEventListener('change', sync);
   window.addEventListener('orientationchange', sync, {passive:true});
+
+  let lastY = window.scrollY || 0;
+  function syncScroll(){
+    const y = window.scrollY || 0;
+    const mobileOpen = document.documentElement.classList.contains('vcx-mobile-menu-open');
+    const shouldHide = !mobileOpen && y > 96 && y > lastY + 6;
+    const shouldShow = y < 28 || y < lastY - 8 || mobileOpen;
+    if(shouldHide){
+      document.documentElement.classList.add('vcx-scroll-hide');
+    } else if(shouldShow){
+      document.documentElement.classList.remove('vcx-scroll-hide');
+    }
+    lastY = y;
+  }
+
+  window.addEventListener('scroll', syncScroll, {passive:true});
+  syncScroll();
+
 })();
