@@ -1,9 +1,7 @@
 <?php
-$path = __DIR__ . '/index.html';
-if (is_file($path)) {
-    header('Content-Type: text/html; charset=UTF-8');
-    readfile($path);
-    exit;
-}
-http_response_code(404);
-echo 'index.html not found';
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+header('Location: /index.html', true, 302);
+exit;
+?>

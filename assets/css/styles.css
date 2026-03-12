@@ -1115,3 +1115,54 @@ html,body{
   transform:none !important;
   will-change:auto !important;
 }
+
+
+
+/* ===== Emergency recovery v251: single static shell + legacy neutralizer ===== */
+html{overflow-x:hidden!important}
+body{overflow-x:hidden!important;padding-top:84px!important;padding-bottom:88px!important}
+body.modal-open{padding-top:84px!important}
+.vcx-header,.vcx-dock-shell,.vcx-dock-desktop,.vcx-dock-mobile,.vcx-header-shell,.vcx-header-desktop,.vcx-header-mobile,.vcx-recovery-shell,.vcx-recovery-dock,.vcx-xrec-header,.vcx-xrec-dock,[data-vcx-hotfix="header"],[data-vcx-hotfix="dock"],[data-vcx-shell="single"],[data-vcx-dock="single"]{display:none!important;visibility:hidden!important;pointer-events:none!important}
+.vcx-emr-header,.vcx-emr-dock{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.vcx-emr-header{position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(11,18,29,.96);color:#f4f7fb;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.vcx-emr-wrap{max-width:1280px;margin:0 auto;padding:10px 20px}
+.vcx-emr-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:54px}
+.vcx-emr-brand{display:flex!important;align-items:center;gap:12px;min-width:0;color:#f4f7fb!important;text-decoration:none!important}
+.vcx-emr-brand img{width:38px;height:38px;object-fit:contain;flex:0 0 auto}
+.vcx-emr-brandcopy{display:flex;flex-direction:column;min-width:0}
+.vcx-emr-brandcopy strong{font-size:1rem;line-height:1.1}
+.vcx-emr-brandcopy span{font-size:.74rem;line-height:1.2;color:rgba(244,247,251,.72);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vcx-emr-menu{display:none;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#f4f7fb;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer}
+.vcx-emr-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;min-width:0}
+.vcx-emr-navlink{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:999px;color:#f4f7fb!important;text-decoration:none!important;border:1px solid transparent;font-size:.92rem;font-weight:650;line-height:1.2}
+.vcx-emr-navlink:hover,.vcx-emr-navlink.is-active{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+.vcx-emr-navlink.is-cta{background:#2e5fa5;border-color:#2e5fa5;color:#fff!important;font-weight:800}
+.vcx-emr-dock{position:fixed;left:0;right:0;bottom:0;z-index:9998;padding:0 10px calc(env(safe-area-inset-bottom,0px) + 10px)}
+.vcx-emr-dockinner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) repeat(4,minmax(0,1fr));gap:8px;padding:10px;background:rgba(11,18,29,.96);border:1px solid rgba(255,255,255,.10);border-radius:20px;box-shadow:0 16px 42px rgba(0,0,0,.24)}
+.vcx-emr-docklink{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#f4f7fb!important;text-decoration:none!important;font-size:.9rem;font-weight:700;text-align:center}
+.vcx-emr-docklink.is-primary{background:#2e5fa5;border-color:#2e5fa5;color:#fff!important}
+@media (max-width: 1024px){
+  body{padding-top:82px!important;padding-bottom:136px!important}
+  .vcx-emr-wrap{padding:10px 16px}
+  .vcx-emr-bar{align-items:flex-start}
+  .vcx-emr-menu{display:inline-flex}
+  .vcx-emr-nav{display:none;position:absolute;top:calc(100% - 4px);left:16px;right:16px;flex-direction:column;align-items:stretch;padding:12px;border-radius:18px;background:rgba(11,18,29,.985);border:1px solid rgba(255,255,255,.10);box-shadow:0 20px 40px rgba(0,0,0,.26)}
+  .vcx-emr-header.is-open .vcx-emr-nav{display:flex}
+  .vcx-emr-navlink{justify-content:flex-start;padding:12px 14px}
+  .vcx-emr-dockinner{max-width:640px;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 640px){
+  body{padding-top:80px!important;padding-bottom:150px!important}
+  .vcx-emr-wrap{padding:8px 14px}
+  .vcx-emr-brand img{width:34px;height:34px}
+  .vcx-emr-brandcopy strong{font-size:.96rem}
+  .vcx-emr-brandcopy span{max-width:42vw}
+  .vcx-emr-dock{padding:0 8px calc(env(safe-area-inset-bottom,0px) + 8px)}
+  .vcx-emr-dockinner{gap:6px;padding:8px;border-radius:18px}
+  .vcx-emr-docklink{min-height:42px;font-size:.84rem;padding:0 10px}
+}
+/* Prevent legacy overlay spacing from compounding with emergency shell */
+@media (min-width: 1025px){
+  .site-header{top:84px!important}
+}
+

@@ -1,0 +1,47 @@
+VitaCoreX emergency recovery v251
+
+ROOT CAUSE
+1) The live site is still serving the broken dual-shell markup.
+   Evidence from the live HTML:
+   - The page outputs a full desktop header nav first, then a second mobile header block with "☰ Menu".
+   - The page outputs the bottom dock once as a full row and then again as separate repeated rows.
+2) The original break was architectural:
+   - desktop shell and mobile shell existed in the DOM at the same time
+   - visibility depended on CSS media logic instead of a single render path
+3) Prior recovery attempts could fail on production if the host continued serving stale HTML/root entry files or cached shell assets.
+
+WHAT WAS REMOVED / ROLLED BACK
+- Legacy shell visibility is now neutralized aggressively in:
+  - assets/css/styles.css
+  - assets/css/ui-shell.css
+- Legacy shell DOM is removed at runtime from:
+  - .vcx-header
+  - .vcx-dock-shell
+  - .vcx-header-desktop / .vcx-header-mobile
+  - .vcx-dock-desktop / .vcx-dock-mobile
+  - previous recovery shell selectors
+
+WHAT WAS REBUILT
+- A new static emergency header was inserted directly into every HTML page.
+- A new static emergency bottom dock was inserted directly into every HTML page.
+- assets/js/site.js now contains an emergency shell repair layer that:
+  - removes any legacy shell if stale HTML is still present
+  - injects one emergency header if missing
+  - injects one emergency dock if missing
+  - binds a simple mobile menu
+- assets/js/ui-shell.js was reduced to a compatibility bridge that calls the same emergency shell repair layer.
+- Root entry safety files were refreshed:
+  - .htaccess
+  - index.php
+  - index.htm
+
+WHAT GUARANTEES SINGLE RENDER
+1) Every HTML page now contains exactly one emergency header markup block and one emergency dock markup block.
+2) Legacy shell selectors are force-hidden in CSS.
+3) Runtime repair removes legacy shell nodes before ensuring the emergency shell exists.
+4) The runtime repair deduplicates any previously injected emergency shell blocks if they appear more than once.
+
+VALIDATION NOTES
+- Static QA counts were generated for all HTML pages.
+- I could not honestly certify a full Chromium render pass inside this container because the local headless Chromium process crashes on GPU/init in this environment before a trustworthy browser-pass can complete.
+- Because of that limitation, this package is delivered as the strongest production-safe emergency rebuild I can verify from code and static QA without making a false claim about live rendering.

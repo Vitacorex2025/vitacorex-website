@@ -1,0 +1,172 @@
+{
+  "additional-services.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "ai-intake.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "auto-purchase.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "business-plans.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "careers.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "contact.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "contracts.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "corporate-legal-file-control.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "corporate-paralegal.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "immigration-documents.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "index.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "net-recovery.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  },
+  "resources.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "revenue-recovery-workflow.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "structured-case-intake.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "thank-you.html": {
+    "emergency_header_markup": 1,
+    "emergency_dock_markup": 1,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": true,
+    "loads_ui_shell_js": true,
+    "loads_styles_css": true,
+    "loads_ui_shell_css": true
+  },
+  "v51_institutional_blocks.html": {
+    "emergency_header_markup": 0,
+    "emergency_dock_markup": 0,
+    "legacy_vcx_header_markup": 0,
+    "legacy_vcx_dock_shell_markup": 0,
+    "loads_site_js": false,
+    "loads_ui_shell_js": false,
+    "loads_styles_css": false,
+    "loads_ui_shell_css": false
+  }
+}
