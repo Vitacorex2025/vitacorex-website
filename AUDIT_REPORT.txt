@@ -1,0 +1,41 @@
+VitaCoreX technical + visual audit report
+
+What was broken
+- The header, mobile menu, and bottom dock were being controlled by multiple generations of CSS and JS at the same time.
+- Late-stage responsive blocks with many !important overrides were re-breaking earlier layout logic.
+- The header had contradictory desktop/mobile display rules, inflated min-heights, and repeated spacing overrides.
+- The dock had multiple incompatible row models across breakpoints, which caused stacking, oversized glass shells, and unreliable click zones.
+- Mobile and desktop interaction state was being managed by several JS “guard/stabilizer” blocks, which made menu state fragile and hard to predict.
+
+What was rewritten from scratch
+- Rebuilt the final header layout layer as one unified architecture:
+  - desktop = compact two-row header
+  - mobile = compact meta row + menu button + collapsible nav
+- Rebuilt the final bottom dock architecture:
+  - desktop = one horizontal control row
+  - mobile = Start Pilot row + icon row + service row
+- Rebuilt the menu controller:
+  - open/close state
+  - aria-expanded / aria-controls
+  - click outside to close
+  - Escape to close
+  - auto-close on desktop resize
+
+Why buttons were not working reliably
+- The dock container and earlier layout layers were creating oversized fixed/floating interaction zones.
+- Multiple JS controllers were touching the same header/mobile-nav state.
+- Closed mobile navigation still had conflicting display/geometry rules from older CSS generations.
+- Result: click targets could be covered, state could drift, and controls could become unreliable across breakpoints.
+
+What responsive issues were removed
+- Removed the last broken v100-v102 header controller layer from JS.
+- Removed the last v207 header correction layer from CSS and replaced it with one final v208 architecture layer.
+- Removed contradictory hidden/compact header transforms.
+- Removed conflicting dock row assumptions between desktop and mobile.
+- Simplified breakpoints to a stable desktop/mobile model around 900px and a compact pass at 640px.
+
+What was simplified / refactored
+- One final CSS architecture for header + hero spacing + dock.
+- One final JS controller for menu/header state.
+- Dock HTML normalized to a consistent three-row source structure that adapts cleanly by CSS.
+- Shared content/forms/calculators were preserved; only broken structural UI systems were rebuilt.

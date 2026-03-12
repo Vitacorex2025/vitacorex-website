@@ -1770,3 +1770,85 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('resize', normalizeHeader, {passive:true});
   window.addEventListener('orientationchange', normalizeHeader, {passive:true});
 })();
+/* v208 unified header + interaction controller */
+(function(){
+  if(window.__vcxUnifiedLayoutV208) return;
+  window.__vcxUnifiedLayoutV208 = true;
+
+  const header = document.querySelector('.site-header');
+  const menuBtn = document.querySelector('.menu-btn');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const desktopBreakpoint = 900;
+
+  function setExpanded(open){
+    if(!menuBtn || !mobileNav || !header) return;
+    mobileNav.classList.toggle('open', open);
+    header.classList.toggle('nav-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function closeMobileNav(){
+    setExpanded(false);
+  }
+
+  function toggleMobileNav(){
+    if(!mobileNav || !menuBtn) return;
+    const open = !mobileNav.classList.contains('open');
+    setExpanded(open);
+  }
+
+  function syncLayoutState(){
+    if(!header) return;
+    header.classList.remove('header-hidden', 'header-hidden-ios');
+    const compact = (window.scrollY || window.pageYOffset || 0) > 20;
+    header.classList.toggle('header-compact', compact);
+
+    if(window.innerWidth > desktopBreakpoint){
+      closeMobileNav();
+    }
+  }
+
+  if(menuBtn && mobileNav && !menuBtn.dataset.vcxUnifiedBound){
+    menuBtn.dataset.vcxUnifiedBound = '1';
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.setAttribute('aria-controls', mobileNav.id || 'vcx-mobile-nav');
+    if(!mobileNav.id) mobileNav.id = 'vcx-mobile-nav';
+
+    menuBtn.addEventListener('click', function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      toggleMobileNav();
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('click', function(event){
+      if(!header.contains(event.target)){
+        closeMobileNav();
+      }
+    });
+
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape'){
+        closeMobileNav();
+      }
+    });
+  }
+
+  let rafId = 0;
+  function queueSync(){
+    if(rafId) return;
+    rafId = window.requestAnimationFrame(function(){
+      rafId = 0;
+      syncLayoutState();
+    });
+  }
+
+  syncLayoutState();
+  window.addEventListener('scroll', queueSync, {passive:true});
+  window.addEventListener('resize', queueSync, {passive:true});
+  window.addEventListener('orientationchange', queueSync, {passive:true});
+  window.addEventListener('pageshow', syncLayoutState, {passive:true});
+})();
