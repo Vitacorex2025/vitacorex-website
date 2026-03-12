@@ -1,419 +1,356 @@
-(function(){
-  if(window.__vcxUiShellV212) return;
-  window.__vcxUiShellV212 = true;
-
-  const menuBtn = document.querySelector('.vcx-menu-btn');
-  const mobileNav = document.getElementById('vcxMobileNav');
-  const mq = window.matchMedia('(max-width: 900px)');
-
-  if(!menuBtn || !mobileNav) return;
-
-  function setOpen(open){
-    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    mobileNav.hidden = !open;
-    document.documentElement.classList.toggle('vcx-mobile-menu-open', open);
-    if(open){
-      document.documentElement.classList.remove('vcx-scroll-hide');
-      document.documentElement.classList.add('vcx-scroll-compact');
-    }
-  }
-
-  function closeMenu(){
-    setOpen(false);
-  }
-
-  function toggleMenu(event){
-    if(event) event.preventDefault();
-    if(!mq.matches) return;
-    setOpen(mobileNav.hidden);
-  }
-
-  setOpen(false);
-  menuBtn.addEventListener('click', toggleMenu, {passive:false});
-  mobileNav.querySelectorAll('a').forEach((link)=>{
-    link.addEventListener('click', closeMenu);
-  });
-
-  document.addEventListener('click', (event)=>{
-    if(!mq.matches || mobileNav.hidden) return;
-    const target = event.target;
-    if(!(target instanceof Element)) return;
-    if(target.closest('.vcx-header-mobile')) return;
-    closeMenu();
-  });
-
-  document.addEventListener('keydown', (event)=>{
-    if(event.key === 'Escape') closeMenu();
-  });
-
-  function sync(){
-    if(!mq.matches){
-      closeMenu();
-    }
-  }
-
-  mq.addEventListener('change', sync);
-  window.addEventListener('orientationchange', sync, {passive:true});
-
-  let lastY = window.scrollY || 0;
-  function syncScroll(){
-    const y = window.scrollY || 0;
-    const mobileOpen = document.documentElement.classList.contains('vcx-mobile-menu-open');
-    const compact = y > 34;
-    const shouldHide = !mobileOpen && y > 150 && y > lastY + 7;
-    const shouldShow = y < 34 || y < lastY - 10 || mobileOpen;
-
-    document.documentElement.classList.toggle('vcx-scroll-compact', compact || mobileOpen);
-
-    if(shouldHide){
-      document.documentElement.classList.add('vcx-scroll-hide');
-    } else if(shouldShow){
-      document.documentElement.classList.remove('vcx-scroll-hide');
-    }
-
-    lastY = y;
-  }
-
-  window.addEventListener('scroll', syncScroll, {passive:true});
-  syncScroll();
-})();
 
 (function(){
-  if(window.__vcxCalcRecoveryV213) return;
-  window.__vcxCalcRecoveryV213 = true;
+  if(window.__VCXFinalShell) return;
+  window.__VCXFinalShell = true;
 
-  const money = (n)=>{
-    const value = Number.isFinite(n) ? n : 0;
-    return '$' + Math.max(0, value).toLocaleString(undefined, {maximumFractionDigits:0});
-  };
+  const doc = document;
+  const root = document.documentElement;
 
-  function bindInputGroup(ids, handler){
-    const nodes = ids.map((id)=>document.getElementById(id)).filter(Boolean);
-    if(!nodes.length) return false;
-    nodes.forEach((node)=>{
-      if(node.dataset.vcxCalcBound === '1') return;
-      node.addEventListener('input', handler);
-      node.addEventListener('change', handler);
-      node.dataset.vcxCalcBound = '1';
+  const common = (window.SITE_I18N && window.SITE_I18N.en) ? window.SITE_I18N : {};
+  const pageData = window.PAGE_DATA || {};
+
+  function currentLang(){
+    const stored = localStorage.getItem('vcx_lang');
+    return ['en','ru','es'].includes(stored) ? stored : 'en';
+  }
+
+  function textForCommon(lang, key){
+    return (common[lang] && common[lang][key]) || (common.en && common.en[key]) || '';
+  }
+
+  function textForPage(lang, key){
+    return (pageData[lang] && pageData[lang][key]) || (pageData.en && pageData.en[key]) || '';
+  }
+
+  function applyFallbackText(lang){
+    doc.querySelectorAll('[data-common]').forEach((el)=>{
+      const value = textForCommon(lang, el.getAttribute('data-common'));
+      if(value) el.textContent = value;
     });
-    handler();
-    return true;
+    doc.querySelectorAll('[data-page]').forEach((el)=>{
+      const value = textForPage(lang, el.getAttribute('data-page'));
+      if(value) el.textContent = value;
+    });
+    doc.querySelectorAll('.lang-btn').forEach((btn)=>{
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
   }
 
-  function initExecutiveTools(){
-    bindInputGroup(['leakRevenue','leakResponsibility','leakLeakage'], ()=>{
-      const revenue = +(document.getElementById('leakRevenue') || {}).value || 0;
-      const responsibility = (+(document.getElementById('leakResponsibility') || {}).value || 0) / 100;
-      const leakage = (+(document.getElementById('leakLeakage') || {}).value || 0) / 100;
-      const output = document.getElementById('leakOutput');
+  function initLangButtons(){
+    const buttons = Array.from(doc.querySelectorAll('.lang-btn'));
+    if(!buttons.length) return;
+    buttons.forEach((btn)=>{
+      btn.addEventListener('click', ()=>{
+        localStorage.setItem('vcx_lang', btn.dataset.lang || 'en');
+        applyFallbackText(currentLang());
+      });
+    });
+    applyFallbackText(currentLang());
+  }
+
+  function initClocks(){
+    const fmt = (date, tz) => new Intl.DateTimeFormat([], {
+      hour:'2-digit',
+      minute:'2-digit',
+      hour12:false,
+      timeZone:tz
+    }).format(date);
+
+    function tick(){
+      const now = new Date();
+      doc.querySelectorAll('.clock-vcx').forEach((el)=>{ el.textContent = fmt(now, 'America/New_York'); });
+      const local = new Intl.DateTimeFormat([], {hour:'2-digit', minute:'2-digit', hour12:false}).format(now);
+      doc.querySelectorAll('.clock-local').forEach((el)=>{ el.textContent = local; });
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  function initMobileMenu(){
+    const header = doc.querySelector('.vcx-header');
+    const mobileWrap = doc.querySelector('.vcx-header-mobile');
+    const btn = doc.querySelector('.vcx-menu-btn');
+    const nav = doc.getElementById('vcxMobileNav');
+    const mq = window.matchMedia('(max-width: 900px)');
+    if(!btn || !nav || !mobileWrap) return;
+
+    function setOpen(open){
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.hidden = !open;
+      mobileWrap.classList.toggle('is-open', open);
+      root.classList.toggle('vcx-mobile-menu-open', open);
+      if(header){
+        header.classList.remove('is-hidden');
+        header.classList.toggle('is-compact', open || window.scrollY > 32);
+      }
+    }
+
+    setOpen(false);
+
+    btn.addEventListener('click', (event)=>{
+      event.preventDefault();
+      if(!mq.matches) return;
+      setOpen(nav.hidden);
+    }, {passive:false});
+
+    nav.querySelectorAll('a').forEach((link)=>{
+      link.addEventListener('click', ()=> setOpen(false));
+    });
+
+    document.addEventListener('click', (event)=>{
+      if(!mq.matches || nav.hidden) return;
+      const target = event.target;
+      if(!(target instanceof Element)) return;
+      if(target.closest('.vcx-header-mobile')) return;
+      setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event)=>{
+      if(event.key === 'Escape') setOpen(false);
+    });
+
+    mq.addEventListener('change', ()=>{
+      if(!mq.matches) setOpen(false);
+    });
+  }
+
+  function initHeaderScroll(){
+    const header = doc.querySelector('.vcx-header');
+    if(!header) return;
+    let lastY = window.scrollY || 0;
+
+    function onScroll(){
+      const y = window.scrollY || 0;
+      const menuOpen = root.classList.contains('vcx-mobile-menu-open');
+      header.classList.toggle('is-compact', y > 28 || menuOpen);
+      if(menuOpen){
+        header.classList.remove('is-hidden');
+        lastY = y;
+        return;
+      }
+      const goingDown = y > lastY + 8;
+      const goingUp = y < lastY - 8;
+      if(y > 180 && goingDown){
+        header.classList.add('is-hidden');
+      } else if(y < 80 || goingUp){
+        header.classList.remove('is-hidden');
+      }
+      lastY = y;
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  function money(n){
+    const safe = Number.isFinite(n) ? n : 0;
+    return '$' + Math.max(0, safe).toLocaleString(undefined, {maximumFractionDigits:0});
+  }
+
+  function bindInputCalc(ids, compute){
+    const inputs = ids
+      .map((id)=>doc.getElementById(id))
+      .filter(Boolean);
+    if(!inputs.length) return;
+    const run = ()=> compute();
+    inputs.forEach((input)=> input.addEventListener('input', run));
+    run();
+  }
+
+  function initExecutiveCalculators(){
+    bindInputCalc(['leakRevenue','leakResponsibility','leakLeakage'], ()=>{
+      const revenue = +(doc.getElementById('leakRevenue')?.value || 0);
+      const responsibility = +(doc.getElementById('leakResponsibility')?.value || 0) / 100;
+      const leakage = +(doc.getElementById('leakLeakage')?.value || 0) / 100;
+      const output = doc.getElementById('leakOutput');
       if(output) output.textContent = money(revenue * responsibility * leakage);
     });
 
-    bindInputGroup(['dsoRevenue','dsoCurrent','dsoTarget'], ()=>{
-      const revenue = +(document.getElementById('dsoRevenue') || {}).value || 0;
-      const current = +(document.getElementById('dsoCurrent') || {}).value || 0;
-      const target = +(document.getElementById('dsoTarget') || {}).value || 0;
+    bindInputCalc(['dsoRevenue','dsoCurrent','dsoTarget'], ()=>{
+      const revenue = +(doc.getElementById('dsoRevenue')?.value || 0);
+      const current = +(doc.getElementById('dsoCurrent')?.value || 0);
+      const target = +(doc.getElementById('dsoTarget')?.value || 0);
       const delta = Math.max(0, current - target);
       const released = (delta / 365) * revenue;
-      const output = document.getElementById('dsoOutput');
-      const badge = document.getElementById('dsoDelta');
+      const output = doc.getElementById('dsoOutput');
+      const deltaOut = doc.getElementById('dsoDelta');
       if(output) output.textContent = money(released);
-      if(badge) badge.textContent = `${delta} days`;
+      if(deltaOut) deltaOut.textContent = `${delta} days`;
     });
 
-    bindInputGroup(['roiPortfolio','roiImprove','roiCost'], ()=>{
-      const portfolio = +(document.getElementById('roiPortfolio') || {}).value || 0;
-      const improve = (+(document.getElementById('roiImprove') || {}).value || 0) / 100;
-      const cost = +(document.getElementById('roiCost') || {}).value || 0;
-      const addCash = portfolio * improve;
-      const multiple = cost > 0 ? (addCash / cost) : 0;
-      const output = document.getElementById('roiOutput');
-      const badge = document.getElementById('roiMultiple');
-      if(output) output.textContent = money(addCash);
-      if(badge) badge.textContent = `${multiple.toFixed(1)}x`;
+    bindInputCalc(['roi90Portfolio','roiImprove','roiCost'], ()=>{
+      const portfolio = +(doc.getElementById('roi90Portfolio')?.value || 0);
+      const improve = +(doc.getElementById('roiImprove')?.value || 0) / 100;
+      const cost = +(doc.getElementById('roiCost')?.value || 0);
+      const additional = portfolio * improve;
+      const multiple = cost > 0 ? additional / cost : 0;
+      const out = doc.getElementById('roiOutput');
+      const mult = doc.getElementById('roiMultiple');
+      if(out) out.textContent = money(additional);
+      if(mult) mult.textContent = `${multiple.toFixed(1)}x`;
     });
+
+    bindInputCalc(['impactPortfolio','impactRecovery'], ()=>{
+      const portfolio = +(doc.getElementById('impactPortfolio')?.value || 0);
+      const rate = +(doc.getElementById('impactRecovery')?.value || 0);
+      const improved = Math.min(100, rate + 8);
+      const additional = portfolio * ((improved - rate) / 100);
+      const avoided = additional * .30;
+      const out1 = doc.getElementById('impactAdditional');
+      const out2 = doc.getElementById('impactAvoided');
+      const out3 = doc.getElementById('impactLift');
+      if(out1) out1.textContent = money(additional);
+      if(out2) out2.textContent = money(avoided);
+      if(out3) out3.textContent = `${Math.max(0, improved - rate).toFixed(0)}%`;
+    });
+
+    const roiBtn = doc.getElementById('roiCalculate');
+    const roiRun = ()=>{
+      const revenue = +(doc.getElementById('roiRevenue')?.value || 0);
+      const portfolio = +(doc.getElementById('roiPortfolio')?.value || 0);
+      const rate = +(doc.getElementById('roiRate')?.value || 0);
+      const fee = +(doc.getElementById('roiAgencyFee')?.value || 0) / 100;
+      const improved = Math.min(100, rate + 10);
+      const additional = portfolio * ((improved - rate) / 100);
+      const avoided = additional * fee;
+      const dso = revenue > 0 ? Math.max(1, Math.round((additional / revenue) * 365)) : 0;
+
+      const addOut = doc.getElementById('roiAdditional');
+      const avoidOut = doc.getElementById('roiAvoided');
+      const dsoOut = doc.getElementById('roiDso');
+      const baseBar = doc.getElementById('roiBaseBar');
+      const improvedBar = doc.getElementById('roiImprovedBar');
+
+      if(addOut) addOut.textContent = money(additional);
+      if(avoidOut) avoidOut.textContent = money(avoided);
+      if(dsoOut) dsoOut.textContent = `${dso} days`;
+      if(baseBar) baseBar.style.width = `${Math.max(10, Math.min(100, rate))}%`;
+      if(improvedBar) improvedBar.style.width = `${Math.max(12, Math.min(100, improved))}%`;
+    };
+    ['roiRevenue','roiPortfolio','roiRate','roiAgencyFee'].forEach((id)=>{
+      const input = doc.getElementById(id);
+      if(input) input.addEventListener('input', roiRun);
+    });
+    if(roiBtn) roiBtn.addEventListener('click', roiRun);
+    roiRun();
   }
 
-  function initCfoCalc(){
-    const form = document.getElementById('cfoCalc');
-    if(!form || form.dataset.vcxCalcBound === '1') return;
-    const fields = Array.from(form.querySelectorAll('input'));
-    const out = {
-      agency: document.getElementById('calcAgency'),
-      pre: document.getElementById('calcPre'),
-      lift: document.getElementById('calcLift'),
-      pct: document.getElementById('calcLiftPct')
-    };
-    const recalc = ()=>{
-      const principal = +((form.principal || {}).value) || 0;
-      const gross = (+((form.gross || {}).value) || 0) / 100;
-      const fee = (+((form.fee || {}).value) || 0) / 100;
-      const accept = (+((form.accept || {}).value) || 0) / 100;
-      const complete = (+((form.complete || {}).value) || 0) / 100;
-      const recovery = (+((form.recovery || {}).value) || 0) / 100;
-      const setup = +((form.setup || {}).value) || 0;
+  function initRevenueWorkflowCalc(){
+    const form = doc.getElementById('cfoCalc');
+    if(!form) return;
+    const inputs = Array.from(form.querySelectorAll('input'));
+    const run = ()=>{
+      const principal = +(form.querySelector('[name="principal"]')?.value || 0);
+      const gross = +(form.querySelector('[name="gross"]')?.value || 0) / 100;
+      const fee = +(form.querySelector('[name="fee"]')?.value || 0) / 100;
+      const accept = +(form.querySelector('[name="accept"]')?.value || 0) / 100;
+      const complete = +(form.querySelector('[name="complete"]')?.value || 0) / 100;
+      const recovery = +(form.querySelector('[name="recovery"]')?.value || 0) / 100;
+      const setup = +(form.querySelector('[name="setup"]')?.value || 0);
+
       const agency = principal * gross * (1 - fee);
-      const pre = principal * (accept * complete * recovery) + (principal * (1 - accept * complete)) * (gross * (1 - fee)) - setup;
-      const lift = pre - agency;
-      const pct = agency ? (lift / agency * 100) : 0;
-      if(out.agency) out.agency.textContent = money(agency);
-      if(out.pre) out.pre.textContent = money(pre);
-      if(out.lift) out.lift.textContent = (lift >= 0 ? '+' : '-') + money(Math.abs(lift));
-      if(out.pct) out.pct.textContent = (pct >= 0 ? '+' : '') + pct.toLocaleString(undefined, {maximumFractionDigits:1}) + '%';
+      const structured = principal * (accept * complete * recovery) + (principal * (1 - accept * complete)) * (gross * (1 - fee)) - setup;
+      const lift = structured - agency;
+      const pct = agency > 0 ? (lift / agency) * 100 : 0;
+
+      const a = doc.getElementById('calcAgency');
+      const b = doc.getElementById('calcPre');
+      const c = doc.getElementById('calcLift');
+      const d = doc.getElementById('calcLiftPct');
+      if(a) a.textContent = money(agency);
+      if(b) b.textContent = money(structured);
+      if(c) c.textContent = (lift >= 0 ? '+' : '-') + money(Math.abs(lift));
+      if(d) d.textContent = `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`;
     };
-    fields.forEach((field)=>{
-      field.addEventListener('input', recalc);
-      field.addEventListener('change', recalc);
-    });
-    form.dataset.vcxCalcBound = '1';
-    recalc();
+    inputs.forEach((input)=>input.addEventListener('input', run));
+    run();
   }
 
-  function initAll(){
-    initExecutiveTools();
-    initCfoCalc();
+  function initLegalCalculators(){
+    const costBtn = doc.getElementById('legalCalc');
+    const costRun = ()=>{
+      const files = +(doc.getElementById('legalFiles')?.value || 0);
+      const rate = +(doc.getElementById('legalRate')?.value || 0);
+      const hours = +(doc.getElementById('legalHours')?.value || 0);
+      const exposure = files * rate * hours;
+      const totalHours = files * hours;
+      const out = doc.getElementById('legalExposure');
+      const hoursOut = doc.getElementById('legalExposureHours');
+      if(out) out.textContent = money(exposure);
+      if(hoursOut) hoursOut.textContent = `${Math.round(totalHours).toLocaleString()} hrs`;
+    };
+    ['legalFiles','legalRate','legalHours'].forEach((id)=>{
+      const el = doc.getElementById(id);
+      if(el) el.addEventListener('input', costRun);
+    });
+    if(costBtn) costBtn.addEventListener('click', costRun);
+    costRun();
+
+    const dragRun = ()=>{
+      const matters = +(doc.getElementById('legalMatters')?.value || 0);
+      const hours = +(doc.getElementById('legalDragHours')?.value || 0);
+      const rate = +(doc.getElementById('legalDragRate')?.value || 0);
+      const annual = matters * hours * rate * 12;
+      const out = doc.getElementById('legalDragOutput');
+      if(out) out.textContent = money(annual);
+    };
+    ['legalMatters','legalDragHours','legalDragRate'].forEach((id)=>{
+      const el = doc.getElementById(id);
+      if(el) el.addEventListener('input', dragRun);
+    });
+    dragRun();
+
+    const readyRun = ()=>{
+      const values = ['readyChronology','readyExhibits','readySupport','readyEscalation']
+        .map((id)=> +(doc.getElementById(id)?.value || 0));
+      if(!values.filter(Boolean).length) return;
+      const score = values.reduce((a,b)=>a+b,0) / values.length;
+      const fill = doc.getElementById('readyMeterFill');
+      const out1 = doc.getElementById('readyScoreOutput');
+      const out2 = doc.getElementById('readyStatusOutput');
+      if(fill) fill.style.width = `${score}%`;
+      if(out1) out1.textContent = `${Math.round(score)}%`;
+      if(out2){
+        out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
+      }
+    };
+    ['readyChronology','readyExhibits','readySupport','readyEscalation'].forEach((id)=>{
+      const el = doc.getElementById(id);
+      if(el) el.addEventListener('input', readyRun);
+    });
+    readyRun();
+  }
+
+  function renderIntakeOutput(){
+    const boxes = Array.from(doc.querySelectorAll('#intakeOutput'));
+    if(!boxes.length) return;
+    boxes.forEach((box)=>{
+      box.innerHTML = `
+        <ul class="vcx-output-list">
+          <li class="vcx-output-item"><div><strong>Recommended service line</strong></div><span>Structured intake review</span></li>
+          <li class="vcx-output-item"><div><strong>Routing confidence</strong></div><span>Built after form completion</span></li>
+          <li class="vcx-output-item"><div><strong>What to send now</strong></div><span>Contracts, invoices, payment records, screenshots</span></li>
+          <li class="vcx-output-item"><div><strong>Response window</strong></div><span>24–48 business hours after complete intake</span></li>
+          <li class="vcx-output-item"><div><strong>Next step</strong></div><span>Review + clean routing recommendation</span></li>
+        </ul>
+        <p class="small-note">Complete the intake to replace this summary with a more specific routing recommendation.</p>
+      `;
+    });
+  }
+
+  function init(){
+    initLangButtons();
+    initClocks();
+    initMobileMenu();
+    initHeaderScroll();
+    initExecutiveCalculators();
+    initRevenueWorkflowCalc();
+    initLegalCalculators();
+    renderIntakeOutput();
   }
 
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initAll, {once:true});
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    initAll();
+    init();
   }
-
-  document.addEventListener('click', (event)=>{
-    const target = event.target;
-    if(target instanceof Element && target.closest('.lang-btn')){
-      setTimeout(initAll, 30);
-    }
-  });
-})();
-
-
-
-(function(){
-  if(window.__vcxUiRepairV214) return;
-  window.__vcxUiRepairV214 = true;
-
-  const money = (n)=>{
-    const value = Number.isFinite(Number(n)) ? Number(n) : 0;
-    return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(Math.max(0, value));
-  };
-
-  function onReady(fn){
-    if(document.readyState === 'loading'){
-      document.addEventListener('DOMContentLoaded', fn, {once:true});
-    } else {
-      fn();
-    }
-  }
-
-  function bindFields(fields, handler){
-    const nodes = fields.filter(Boolean);
-    if(!nodes.length) return;
-    nodes.forEach((node)=>{
-      node.addEventListener('input', handler);
-      node.addEventListener('change', handler);
-    });
-    handler();
-  }
-
-  function initCalculators(){
-    // Revenue leakage calculator
-    const leakRevenue = document.getElementById('leakRevenue');
-    const leakResp = document.getElementById('leakResponsibility');
-    const leakLeak = document.getElementById('leakLeakage');
-    const leakOut = document.getElementById('leakOutput');
-    if(leakRevenue && leakResp && leakLeak && leakOut){
-      bindFields([leakRevenue, leakResp, leakLeak], ()=>{
-        const revenue = +leakRevenue.value || 0;
-        const responsibility = (+leakResp.value || 0) / 100;
-        const leakage = (+leakLeak.value || 0) / 100;
-        leakOut.textContent = money(revenue * responsibility * leakage);
-      });
-    }
-
-    // DSO impact simulator
-    const dsoRevenue = document.getElementById('dsoRevenue');
-    const dsoCurrent = document.getElementById('dsoCurrent');
-    const dsoTarget = document.getElementById('dsoTarget');
-    const dsoOutput = document.getElementById('dsoOutput');
-    const dsoDelta = document.getElementById('dsoDelta');
-    if(dsoRevenue && dsoCurrent && dsoTarget && dsoOutput && dsoDelta){
-      bindFields([dsoRevenue, dsoCurrent, dsoTarget], ()=>{
-        const revenue = +dsoRevenue.value || 0;
-        const current = +dsoCurrent.value || 0;
-        const target = +dsoTarget.value || 0;
-        const delta = Math.max(0, current - target);
-        dsoOutput.textContent = money((delta / 365) * revenue);
-        dsoDelta.textContent = delta + ' days';
-      });
-    }
-
-    // 90-day pilot economics
-    const roi90Portfolio = document.getElementById('roi90Portfolio');
-    const roiImprove = document.getElementById('roiImprove');
-    const roiCost = document.getElementById('roiCost');
-    const roiOutput = document.getElementById('roiOutput');
-    const roiMultiple = document.getElementById('roiMultiple');
-    if(roi90Portfolio && roiImprove && roiCost && roiOutput && roiMultiple){
-      bindFields([roi90Portfolio, roiImprove, roiCost], ()=>{
-        const portfolio = +roi90Portfolio.value || 0;
-        const improve = (+roiImprove.value || 0) / 100;
-        const cost = +roiCost.value || 0;
-        const addCash = portfolio * improve;
-        const multiple = cost > 0 ? addCash / cost : 0;
-        roiOutput.textContent = money(addCash);
-        roiMultiple.textContent = multiple.toFixed(1) + 'x';
-      });
-    }
-
-    // Estimate your revenue recovery impact
-    const impactRevenue = document.getElementById('impactRevenue');
-    const impactPortfolio = document.getElementById('impactPortfolio');
-    const impactRecovery = document.getElementById('impactRecovery');
-    const impactAdditional = document.getElementById('impactAdditional');
-    const impactAvoided = document.getElementById('impactAvoided');
-    const impactLift = document.getElementById('impactLift');
-    if(impactRevenue && impactPortfolio && impactRecovery && impactAdditional && impactAvoided && impactLift){
-      bindFields([impactRevenue, impactPortfolio, impactRecovery], ()=>{
-        const revenue = +impactRevenue.value || 0;
-        const portfolio = +impactPortfolio.value || 0;
-        const rate = Math.min(100, Math.max(0, +impactRecovery.value || 0)) / 100;
-        const uplift = rate >= 0.5 ? 0.06 : 0.13;
-        const additional = portfolio * uplift;
-        const avoided = additional * 0.30;
-        impactAdditional.textContent = money(additional);
-        impactAvoided.textContent = money(avoided);
-        impactLift.textContent = Math.round(uplift * 100) + '%';
-        if(revenue && portfolio > revenue * 0.6){
-          impactPortfolio.value = Math.round(revenue * 0.13);
-        }
-      });
-    }
-
-    // Revenue recovery impact model
-    const roiRevenue = document.getElementById('roiRevenue');
-    const roiModelPortfolio = document.querySelector('#roiRevenue') ? document.querySelector('input#roiPortfolio') : null;
-    const roiRate = document.getElementById('roiRate');
-    const roiAgencyFee = document.getElementById('roiAgencyFee');
-    const roiCalculate = document.getElementById('roiCalculate');
-    const roiAdditional = document.getElementById('roiAdditional');
-    const roiAvoided = document.getElementById('roiAvoided');
-    const roiDso = document.getElementById('roiDso');
-    const roiBaseBar = document.getElementById('roiBaseBar');
-    const roiImprovedBar = document.getElementById('roiImprovedBar');
-    const roiResult = document.getElementById('roiResult');
-    function runImpactModel(){
-      if(!(roiRevenue && roiModelPortfolio && roiRate && roiAgencyFee && roiAdditional && roiAvoided && roiDso && roiBaseBar && roiImprovedBar && roiResult)) return;
-      const revenue = +roiRevenue.value || 0;
-      const portfolio = +roiModelPortfolio.value || 0;
-      const currentRate = Math.min(100, Math.max(0, +roiRate.value || 0)) / 100;
-      const agencyFee = Math.min(100, Math.max(0, +roiAgencyFee.value || 0)) / 100;
-      const uplift = 0.13;
-      const improvedRate = Math.min(currentRate + uplift, 0.92);
-      const baselineCash = portfolio * currentRate;
-      const improvedCash = portfolio * improvedRate;
-      const additional = Math.max(improvedCash - baselineCash, 0);
-      const avoided = additional * agencyFee;
-      const dsoGain = Math.max(3, Math.min(12, Math.round((portfolio / Math.max(revenue, 1)) * 28)));
-      roiAdditional.textContent = money(additional);
-      roiAvoided.textContent = money(avoided);
-      roiDso.textContent = dsoGain + ' days';
-      roiBaseBar.style.width = Math.max(12, currentRate * 100) + '%';
-      roiImprovedBar.style.width = Math.max(18, improvedRate * 100) + '%';
-      roiResult.innerHTML = '<strong>Illustrative impact</strong><p>Based on the inputs provided, a structured recovery layer could directionally improve retained cash by <b>' + money(additional) + '</b>, avoid approximately <b>' + money(avoided) + '</b> in contingency leakage, and support a potential <b>' + dsoGain + '-day</b> improvement in cash velocity.</p>';
-    }
-    if(roiRevenue && roiModelPortfolio && roiRate && roiAgencyFee){
-      bindFields([roiRevenue, roiModelPortfolio, roiRate, roiAgencyFee], runImpactModel);
-      if(roiCalculate && !roiCalculate.dataset.vcxBound){
-        roiCalculate.addEventListener('click', runImpactModel);
-        roiCalculate.dataset.vcxBound = '1';
-      }
-    }
-
-    // Diagnostic recommender
-    const diagIndustry = document.getElementById('diagIndustry');
-    const diagComplexity = document.getElementById('diagComplexity');
-    const diagDocs = document.getElementById('diagDocs');
-    const diagPain = document.getElementById('diagPain');
-    const diagEvaluate = document.getElementById('diagEvaluate');
-    const diagResult = document.getElementById('diagResult');
-    function runDiagnostic(){
-      if(!(diagIndustry && diagComplexity && diagDocs && diagPain && diagResult)) return;
-      const industry = diagIndustry.value;
-      const complexity = diagComplexity.value;
-      const docs = diagDocs.value;
-      const pain = diagPain.value;
-      let recommendation = 'Begin with recovery infrastructure review.';
-      if((docs === 'weak' && pain === 'counsel') || (docs === 'weak' && complexity !== 'standard')){
-        recommendation = 'Begin with corporate legal file control and documentation governance.';
-      } else if((pain === 'recovery' && complexity !== 'standard') || pain === 'agency'){
-        recommendation = 'Begin with revenue recovery infrastructure and a tightly scoped 90-day pilot.';
-      }
-      diagResult.innerHTML = '<strong>Recommended engagement path</strong><p><b>' + recommendation + '</b> This reflects the current combination of documentation quality, operational complexity, and recovery pressure selected in the diagnostic.</p>';
-    }
-    if(diagIndustry && diagComplexity && diagDocs && diagPain && diagResult){
-      bindFields([diagIndustry, diagComplexity, diagDocs, diagPain], runDiagnostic);
-      if(diagEvaluate && !diagEvaluate.dataset.vcxBound){
-        diagEvaluate.addEventListener('click', runDiagnostic);
-        diagEvaluate.dataset.vcxBound = '1';
-      }
-    }
-  }
-
-  function initCharts(){
-    const recoveryChart = document.getElementById('recoveryChart');
-    const velocityChart = document.getElementById('velocityChart');
-    const kpiWrap = document.getElementById('vcxKpiCharts');
-    if(!recoveryChart && !velocityChart) return;
-
-    const draw = ()=>{
-      if(!window.Chart) return false;
-      if(recoveryChart && !recoveryChart.dataset.vcxReady){
-        recoveryChart.dataset.vcxReady = '1';
-        new Chart(recoveryChart.getContext('2d'), {
-          type:'line',
-          data:{
-            labels:['0-30','30-60','60-90','90-120','120+'],
-            datasets:[{label:'Recovery probability',data:[90,70,50,30,15],borderColor:'#6ee7c8',backgroundColor:'rgba(110,231,200,.14)',fill:true,tension:.35}]
-          },
-          options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}}}
-        });
-      }
-      if(velocityChart && !velocityChart.dataset.vcxReady){
-        velocityChart.dataset.vcxReady = '1';
-        new Chart(velocityChart.getContext('2d'), {
-          type:'bar',
-          data:{
-            labels:['Baseline','Target'],
-            datasets:[{label:'DSO',data:[52,44],backgroundColor:['rgba(255,255,255,.28)','rgba(110,231,200,.78)'],borderRadius:10}]
-          },
-          options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
-        });
-      }
-      return true;
-    };
-
-    if(draw()) return;
-    window.addEventListener('load', ()=>{ 
-      if(!draw() && kpiWrap){
-        kpiWrap.classList.add('vcx-kpi-empty');
-      }
-    }, {once:true});
-  }
-
-  onReady(()=>{
-    initCalculators();
-    initCharts();
-  });
-
-  document.addEventListener('click', (event)=>{
-    const t = event.target;
-    if(t instanceof Element && t.closest('.lang-btn')){
-      setTimeout(()=>{
-        initCalculators();
-        initCharts();
-      }, 40);
-    }
-  });
 })();
