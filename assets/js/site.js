@@ -1197,3 +1197,21 @@ function initV52ImpactCalc(){
     });
   }
 })();
+
+
+window.addEventListener('pageshow', ()=>{
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+  document.body.style.overflowY = 'auto';
+  document.documentElement.style.overflow = '';
+  document.documentElement.style.overflowY = 'auto';
+});
+
+document.addEventListener('visibilitychange', ()=>{
+  if(!document.hidden && !document.body.classList.contains('modal-open')){
+    document.body.style.overflow = '';
+    document.body.style.overflowY = 'auto';
+    document.documentElement.style.overflow = '';
+    document.documentElement.style.overflowY = 'auto';
+  }
+});

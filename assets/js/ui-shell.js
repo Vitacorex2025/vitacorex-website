@@ -32,6 +32,20 @@
   }
 
 
+
+  function restorePageScroll(){
+    const body = doc.body;
+    const html = doc.documentElement;
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.style.overflow = '';
+      body.style.overflowY = 'auto';
+      html.style.overflow = '';
+      html.style.overflowY = 'auto';
+      root.classList.remove('vcx-mobile-menu-open');
+    }
+  }
+
   function applyViewportState(){
     const body = doc.body;
     if(!body) return;
@@ -80,6 +94,7 @@
   }
 
   function initMobileMenu(){
+    restorePageScroll();
     const header = doc.querySelector('.vcx-header');
     const btn = doc.querySelector('.vcx-menu-btn');
     const nav = doc.getElementById('vcxMobileNav');
@@ -99,6 +114,7 @@
     }
 
     setOpen(false);
+    restorePageScroll();
 
     if(!btn.dataset.vcxBound){
       btn.dataset.vcxBound = '1';
@@ -107,6 +123,7 @@
         event.stopPropagation();
         if(!mq.matches) return;
         setOpen(nav.hidden);
+        restorePageScroll();
       }, {passive:false});
     }
 
@@ -122,10 +139,12 @@
       if(!(target instanceof Element)) return;
       if(target.closest('.vcx-header-mobile')) return;
       setOpen(false);
+      restorePageScroll();
     });
 
     safeOn(document, 'keydown', (event)=>{
       if(event.key === 'Escape') setOpen(false);
+      restorePageScroll();
     });
 
     if(!mq.__vcxBound){
@@ -384,6 +403,7 @@
   }
 
   function init(){
+    restorePageScroll();
     applyViewportState();
     initClocks();
     initStatusRibbon();

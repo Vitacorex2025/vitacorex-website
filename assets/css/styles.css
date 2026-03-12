@@ -877,3 +877,38 @@ body{
 .floating-contact-dock .dock-btn{
   box-shadow:0 10px 26px rgba(15,23,42,.24);
 }
+
+
+
+/* ===== VitaCoreX scroll + typography stabilization v227 ===== */
+html{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+}
+body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+}
+body:not(.modal-open){
+  overflow-y:auto !important;
+}
+h1{
+  font-size:clamp(1.95rem, 2.8vw, 3.1rem) !important;
+  max-width:17ch !important;
+  line-height:1.04 !important;
+}
+h2{
+  font-size:clamp(1.35rem, 1.9vw, 2.02rem) !important;
+  max-width:24ch !important;
+  line-height:1.08 !important;
+}
+.section-head h2,
+.proof-band h2,
+.cta-banner h2{
+  max-width:24ch !important;
+}
+.hero-inner{
+  padding-top:14px !important;
+}
