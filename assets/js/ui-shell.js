@@ -1,7 +1,6 @@
-
 (function(){
-  if(window.__vcxUiShellV210) return;
-  window.__vcxUiShellV210 = true;
+  if(window.__vcxUiShellV212) return;
+  window.__vcxUiShellV212 = true;
 
   const menuBtn = document.querySelector('.vcx-menu-btn');
   const mobileNav = document.getElementById('vcxMobileNav');
@@ -13,6 +12,10 @@
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     mobileNav.hidden = !open;
     document.documentElement.classList.toggle('vcx-mobile-menu-open', open);
+    if(open){
+      document.documentElement.classList.remove('vcx-scroll-hide');
+      document.documentElement.classList.add('vcx-scroll-compact');
+    }
   }
 
   function closeMenu(){
@@ -56,17 +59,21 @@
   function syncScroll(){
     const y = window.scrollY || 0;
     const mobileOpen = document.documentElement.classList.contains('vcx-mobile-menu-open');
-    const shouldHide = !mobileOpen && y > 96 && y > lastY + 6;
-    const shouldShow = y < 28 || y < lastY - 8 || mobileOpen;
+    const compact = y > 34;
+    const shouldHide = !mobileOpen && y > 150 && y > lastY + 7;
+    const shouldShow = y < 34 || y < lastY - 10 || mobileOpen;
+
+    document.documentElement.classList.toggle('vcx-scroll-compact', compact || mobileOpen);
+
     if(shouldHide){
       document.documentElement.classList.add('vcx-scroll-hide');
     } else if(shouldShow){
       document.documentElement.classList.remove('vcx-scroll-hide');
     }
+
     lastY = y;
   }
 
   window.addEventListener('scroll', syncScroll, {passive:true});
   syncScroll();
-
 })();
