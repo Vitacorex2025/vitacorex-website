@@ -404,3 +404,48 @@ h3,.widget-head h3,.card h3,.engine-card h3,.seo-card h3,.resource-card h3{
   .vcx-dock-chip{justify-content:center !important;}
   .vcx-dock-text{font-size:.66rem !important;}
 }
+
+/* ===== emergency stability layer v242 ===== */
+html{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  height:auto !important;
+}
+body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  height:auto !important;
+  min-height:100% !important;
+  position:static !important;
+}
+.vcx-header,
+.vcx-dock-shell,
+.market-wrap,
+.glass,
+.proof-band,
+.cta-banner{
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.vcx-header{
+  position:sticky !important;
+}
+.vcx-dock{
+  pointer-events:none !important;
+}
+.vcx-dock-shell,
+.vcx-header,
+.vcx-header-shell{
+  will-change:auto !important;
+  transform:none !important;
+}
+.hero-video::before,
+.hero-video::after,
+.hero-cloud-layer{
+  display:none !important;
+}
+@media (max-width:900px){
+  body{
+    padding-bottom:118px !important;
+  }
+}

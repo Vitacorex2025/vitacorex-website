@@ -5,30 +5,29 @@
   const doc = document;
   const root = doc.documentElement;
   const body = doc.body;
+
   const q = (s, c = doc) => c.querySelector(s);
   const qa = (s, c = doc) => Array.from(c.querySelectorAll(s));
 
   function restoreNativeScroll() {
     if (!body || !root) return;
-    if (!body.classList.contains('modal-open')) {
-      body.style.overflow = '';
-      body.style.overflowY = 'auto';
-      body.style.position = '';
-      body.style.top = '';
-      body.style.width = '';
-      root.style.overflow = '';
-      root.style.overflowY = 'auto';
-      root.style.height = '';
-      body.classList.remove('vcx-lock-scroll');
-      root.classList.remove('vcx-lock-scroll');
-    }
+    if (body.classList.contains('modal-open')) return;
+    body.style.overflow = '';
+    body.style.overflowY = 'auto';
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    root.style.overflow = '';
+    root.style.overflowY = 'auto';
+    root.style.height = '';
+    body.classList.remove('vcx-lock-scroll');
+    root.classList.remove('vcx-lock-scroll');
   }
 
   function initClocks() {
     const vcx = qa('.clock-vcx');
     const local = qa('.clock-local');
     if (!vcx.length && !local.length) return;
-    if (window.__vcxClockTimer) window.clearInterval(window.__vcxClockTimer);
 
     const fmtVcx = new Intl.DateTimeFormat([], {
       hour: '2-digit',
@@ -51,10 +50,11 @@
     };
 
     tick();
-    window.__vcxClockTimer = window.setInterval(tick, 60000);
+    if (window.__vcxClockTimer) clearInterval(window.__vcxClockTimer);
+    window.__vcxClockTimer = setInterval(tick, 60000);
   }
 
-  function reorderMobileHeader() {
+  function normalizeMobileHeader() {
     const mobile = q('.vcx-header-mobile');
     if (!mobile) return;
     const meta = q('.vcx-mobile-meta', mobile);
@@ -72,7 +72,6 @@
     const nav = q('#vcxMobileNav');
     if (!wrap || !btn || !nav || btn.dataset.vcxBound === '1') return;
     btn.dataset.vcxBound = '1';
-
     const mq = window.matchMedia('(max-width: 900px)');
 
     const setOpen = (open) => {
@@ -88,7 +87,7 @@
       e.preventDefault();
       if (!mq.matches) return;
       setOpen(nav.hidden);
-    });
+    }, { passive: false });
 
     qa('a', nav).forEach((link) => {
       if (link.dataset.vcxBound === '1') return;
@@ -114,7 +113,7 @@
   function boot() {
     restoreNativeScroll();
     initClocks();
-    reorderMobileHeader();
+    normalizeMobileHeader();
     initMobileMenu();
     window.addEventListener('pageshow', restoreNativeScroll, { passive: true });
     window.addEventListener('focus', restoreNativeScroll, { passive: true });

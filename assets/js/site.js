@@ -452,6 +452,8 @@ function loadScript(src){
   s.src=src; s.async=true; document.head.appendChild(s);
 }
 function applyConsent(consent){
+  window.vcxConsent = consent;
+  return;
   const ids=window.VCX_TRACKING_IDS||{};
   window.dataLayer=window.dataLayer||[];
   window.vcxConsent=consent;
@@ -539,9 +541,9 @@ function bindTracking(){
     }
   });
 }
-bindTracking();
+/* emergency-disabled tracking listeners for stability */
 
-buildCookieBanner();
+/* emergency-disabled cookie banner for stability */
 
 const careersMobileBtn=$('#careersMobileModal a.btn');
 if(careersMobileBtn){
@@ -555,28 +557,25 @@ if(careersMobileBtn){
 })();
 
 
-
-
-
-
-(function(){
-  function vcxSafeScrollRecovery(){
-    var body=document.body, html=document.documentElement;
-    if(!body || !html) return;
-    if(!body.classList.contains('modal-open')){
-      body.style.overflow='';
-      body.style.overflowY='auto';
-      body.style.position='';
-      body.style.top='';
-      body.style.width='';
-      html.style.overflow='';
-      html.style.overflowY='auto';
-      html.style.position='';
-      html.style.top='';
-      html.style.height='';
-    }
+window.addEventListener('pageshow', function vcxEmergencyScrollRecovery(){
+  if(!document.body.classList.contains('modal-open')){
+    document.body.style.overflow='';
+    document.body.style.overflowY='auto';
+    document.body.style.position='';
+    document.body.style.top='';
+    document.body.style.width='';
+    document.documentElement.style.overflow='';
+    document.documentElement.style.overflowY='auto';
+    document.documentElement.style.height='';
   }
-  window.addEventListener('pageshow', vcxSafeScrollRecovery, {passive:true});
-  window.addEventListener('focus', vcxSafeScrollRecovery, {passive:true});
-  document.addEventListener('visibilitychange', function(){ if(!document.hidden) vcxSafeScrollRecovery(); });
-})();
+}, {passive:true});
+
+document.addEventListener('visibilitychange', function(){
+  if(document.hidden) return;
+  if(!document.body.classList.contains('modal-open')){
+    document.body.style.overflow='';
+    document.body.style.overflowY='auto';
+    document.documentElement.style.overflow='';
+    document.documentElement.style.overflowY='auto';
+  }
+});
