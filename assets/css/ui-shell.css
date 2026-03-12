@@ -209,7 +209,7 @@ body{
 
 /* ===== GLOBAL TYPE + SPACING CLEANUP ===== */
 .hero{ margin-top: 0 !important; }
-.hero-inner{ padding: 18px 0 10px !important; }
+.hero-inner{ padding: 12px 0 10px !important; }
 .hero-grid,
 .hero-grid-premium{
   align-items:start !important;
@@ -523,38 +523,80 @@ h3,
 .vcx-dock-icon.is-whatsapp{color:#19a866}
 .vcx-dock-icon.is-book{color:#7a57d1}
 
+
+
+/* ===== STRICT LAYOUT REPAIR: mobile top spacing + desktop editorial flow ===== */
+@media (min-width: 901px){
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop,
+  body[data-vcx-page="corporate-legal"] .vcx-stack-desktop{
+    grid-template-columns: minmax(0,1fr) !important;
+    max-width: 860px;
+  }
+
+  body[data-vcx-page="corporate-legal"] .vcx-flow-wide-right{
+    grid-template-columns: minmax(300px,.84fr) minmax(0,1.16fr) !important;
+  }
+
+  body[data-vcx-page="revenue-recovery"] .vcx-flow-wide-left{
+    grid-template-columns: minmax(0,1.14fr) minmax(320px,.86fr) !important;
+  }
+
+  body[data-vcx-page="revenue-recovery"] .vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .vcx-flow-form-output,
+  body[data-vcx-page="contact"] .vcx-flow-form-output{
+    grid-template-columns: minmax(0,1.12fr) minmax(320px,.88fr) !important;
+  }
+
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop > *,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop > *,
+  body[data-vcx-page="corporate-legal"] .vcx-stack-desktop > *{
+    max-width: 860px;
+  }
+
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop .authority-case,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop .engine-card:last-child,
+  body[data-vcx-page="corporate-legal"] .vcx-stack-desktop > *:last-child{
+    max-width: 940px;
+  }
+
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop .impact-card{
+    max-width: 760px;
+  }
+}
+
 @media (max-width: 1120px){
   .vcx-main-nav a{ font-size:.82rem; }
   .vcx-main-nav a.is-long{ font-size:.78rem; }
 }
 
 @media (max-width: 900px){
-  html{ scroll-padding-top: 76px; }
+  html{ scroll-padding-top: 68px; }
   body{ padding-bottom: 136px; }
 
   .vcx-header{
-    top: 4px;
-    padding-top: 4px;
+    top: max(0px, env(safe-area-inset-top, 0px));
+    padding-top: max(2px, env(safe-area-inset-top, 0px));
   }
   .vcx-header-shell{
-    padding: 9px 10px;
+    padding: 7px 8px;
     border-radius: 18px;
   }
   .vcx-header-desktop{ display:none; }
   .vcx-header-mobile{
     display:grid;
-    gap:8px;
+    gap:6px;
   }
   .vcx-mobile-meta{
     display:grid;
     grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
     align-items:center;
-    gap:6px;
+    gap:4px;
   }
   .vcx-time-chip-mobile{
-    min-height: 34px;
-    padding: 5px 7px;
-    gap: 6px;
+    min-height: 31px;
+    padding: 4px 6px;
+    gap: 5px;
   }
   .vcx-time-chip-mobile .vcx-time-label span:first-child,
   .vcx-time-chip-mobile .vcx-time-sub{
@@ -567,17 +609,26 @@ h3,
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:6px;
+  }
+  
+  .vcx-mobile-brand{
     gap:8px;
   }
-  .vcx-mobile-brand span{
-    font-size:.86rem;
+  .vcx-mobile-brand img{
+    width:32px;
+    height:32px;
+    border-radius:12px;
+  }
+.vcx-mobile-brand span{
+    font-size:.82rem;
     font-weight:800;
     color:var(--vcx-ink);
   }
   .vcx-menu-btn{
     appearance:none;
-    min-height:36px;
-    padding:0 11px;
+    min-height:34px;
+    padding:0 10px;
     border-radius:14px;
     border:1px solid rgba(255,255,255,.42);
     background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.54));
@@ -589,7 +640,7 @@ h3,
     gap:7px;
     cursor:pointer;
   }
-  .vcx-menu-text{ font-size:.76rem; }
+  .vcx-menu-text{ font-size:.72rem; }
   .vcx-mobile-nav{
     display:grid;
     gap:6px;
@@ -610,7 +661,11 @@ h3,
     border:1px solid rgba(255,255,255,.36);
   }
 
-  .hero-inner{ padding: 14px 0 8px !important; }
+  .hero-inner{ padding: 4px 0 6px !important; }
+  .hero-copy{ padding: 14px 15px 15px !important; }
+  .hero-copy .eyebrow{ margin-bottom: 2px !important; }
+  .hero-copy h1{ margin-top: 8px !important; }
+  .hero .market-ticker{ margin-top: 4px !important; }
   .hero-grid,
   .hero-grid-premium,
   .impact-grid,
@@ -645,8 +700,13 @@ h3,
   .section,
   .section-tight,
   .band{
-    padding-top: 16px !important;
+    padding-top: 14px !important;
     padding-bottom: 16px !important;
+  }
+  .hero + .section,
+  .hero + section.section,
+  .hero + .section.band{
+    padding-top: 8px !important;
   }
 
   .vcx-dock{
