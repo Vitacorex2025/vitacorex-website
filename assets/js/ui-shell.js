@@ -69,6 +69,47 @@
     if (nav) mobile.append(nav);
   }
 
+
+function forceDisplay(element, value) {
+  if (!element) return;
+  if (value) element.style.setProperty('display', value, 'important');
+  else element.style.removeProperty('display');
+}
+
+function normalizeResponsiveShell() {
+  const isMobile = window.matchMedia('(max-width: 900px)').matches;
+  const desktopHeader = $('.vcx-header-desktop');
+  const mobileHeader = $('.vcx-header-mobile');
+  const desktopDock = $('.vcx-dock-desktop');
+  const mobileDock = $('.vcx-dock-mobile');
+  const button = $('.vcx-menu-btn');
+  const nav = $('#vcxMobileNav');
+  const wrap = $('.vcx-header-mobile');
+
+  if (desktopHeader) {
+    desktopHeader.setAttribute('aria-hidden', isMobile ? 'true' : 'false');
+    forceDisplay(desktopHeader, isMobile ? 'none' : 'block');
+  }
+  if (mobileHeader) {
+    mobileHeader.setAttribute('aria-hidden', isMobile ? 'false' : 'true');
+    forceDisplay(mobileHeader, isMobile ? 'block' : 'none');
+  }
+  if (desktopDock) {
+    desktopDock.setAttribute('aria-hidden', isMobile ? 'true' : 'false');
+    forceDisplay(desktopDock, isMobile ? 'none' : 'flex');
+  }
+  if (mobileDock) {
+    mobileDock.setAttribute('aria-hidden', isMobile ? 'false' : 'true');
+    forceDisplay(mobileDock, isMobile ? 'grid' : 'none');
+  }
+
+  if (!isMobile && button && nav && wrap) {
+    button.setAttribute('aria-expanded', 'false');
+    nav.hidden = true;
+    wrap.classList.remove('is-open');
+  }
+}
+
   function bindMenu() {
     const wrap = $('.vcx-header-mobile');
     const button = $('.vcx-menu-btn');
@@ -121,11 +162,16 @@
     unlockScroll();
     initClocks();
     normalizeMobileHeader();
+    normalizeResponsiveShell();
     bindMenu();
     window.addEventListener('pageshow', unlockScroll, { passive: true });
     window.addEventListener('focus', unlockScroll, { passive: true });
+    window.addEventListener('resize', normalizeResponsiveShell, { passive: true });
     doc.addEventListener('visibilitychange', () => {
-      if (!doc.hidden) unlockScroll();
+      if (!doc.hidden) {
+        unlockScroll();
+        normalizeResponsiveShell();
+      }
     });
   }
 

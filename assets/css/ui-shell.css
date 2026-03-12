@@ -35,6 +35,21 @@ body:not(.modal-open){
   overflow:visible !important;
 }
 
+/* Emergency recovery: enforce a single responsive shell.
+   Desktop is the default state; mobile variants are opt-in at <=900px. */
+.vcx-header-desktop{
+  display:block !important;
+}
+.vcx-header-mobile{
+  display:none !important;
+}
+.vcx-dock-desktop{
+  display:flex !important;
+}
+.vcx-dock-mobile{
+  display:none !important;
+}
+
 /* Stable header */
 .vcx-header{
   position:sticky !important;
@@ -357,6 +372,21 @@ p,.lead,.section-intro{
 .vcx-dock-chip.is-paralegal{
   background:linear-gradient(180deg, rgba(109,87,170,.84), rgba(78,61,129,.76)) !important;
   color:#fff !important;
+}
+
+@media (min-width: 901px){
+  .vcx-header-desktop{
+    display:block !important;
+  }
+  .vcx-header-mobile{
+    display:none !important;
+  }
+  .vcx-dock-desktop{
+    display:flex !important;
+  }
+  .vcx-dock-mobile{
+    display:none !important;
+  }
 }
 
 /* Mobile */
