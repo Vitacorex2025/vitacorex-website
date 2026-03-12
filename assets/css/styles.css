@@ -927,3 +927,27 @@ body:not(.modal-open){
 .ticker-box iframe{
   pointer-events:none !important;
 }
+
+
+
+/* ===== VitaCoreX scroll and type reset v230 ===== */
+html,body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+}
+body:not(.modal-open){
+  overflow-y:auto !important;
+  position:static !important;
+}
+h1{
+  font-size:clamp(1.88rem, 2.7vw, 2.95rem) !important;
+  max-width:16ch !important;
+  line-height:1.04 !important;
+}
+h2{
+  font-size:clamp(1.28rem, 1.8vw, 1.9rem) !important;
+  max-width:22ch !important;
+  line-height:1.1 !important;
+}
+.hero-inner{padding-top:12px !important}

@@ -1264,3 +1264,30 @@ document.addEventListener('visibilitychange', ()=>{
     }
   }, true);
 })();
+
+
+(function(){
+  function vcxDesktopScrollGuard(){
+    const body=document.body, html=document.documentElement;
+    if(!body || !html) return;
+    if(window.innerWidth > 900 && !body.classList.contains('modal-open')){
+      body.classList.remove('vcx-lock-scroll');
+      body.style.overflow='';
+      body.style.overflowY='auto';
+      body.style.position='';
+      body.style.top='';
+      body.style.width='';
+      html.style.overflow='';
+      html.style.overflowY='auto';
+      html.style.position='';
+      html.style.height='';
+    }
+  }
+  window.addEventListener('load', vcxDesktopScrollGuard, {passive:true});
+  window.addEventListener('pageshow', vcxDesktopScrollGuard, {passive:true});
+  window.addEventListener('focus', vcxDesktopScrollGuard, {passive:true});
+  window.addEventListener('resize', vcxDesktopScrollGuard, {passive:true});
+  window.addEventListener('wheel', vcxDesktopScrollGuard, {passive:true});
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxDesktopScrollGuard(); });
+  document.addEventListener('click', ()=>{ setTimeout(vcxDesktopScrollGuard, 0); }, true);
+})();
