@@ -2226,3 +2226,504 @@ h3,.widget-head h3,.card h3,.engine-card h3,.seo-card h3,.resource-card h3{
   .vcx-dock-chip{justify-content:center !important;}
   .vcx-dock-text{font-size:.64rem !important;}
 }
+
+
+/* ===== VitaCoreX premium mobile/app adaptation v232 ===== */
+:root{
+  --vcx-v232-max: 1368px;
+  --vcx-v232-copy: 68ch;
+  --vcx-v232-h1: clamp(1.82rem, 2.7vw, 2.95rem);
+  --vcx-v232-h2: clamp(1.22rem, 1.75vw, 1.82rem);
+  --vcx-v232-h3: clamp(.98rem, 1.05vw, 1.14rem);
+  --vcx-v232-gap: 16px;
+  --vcx-v232-gap-lg: 20px;
+  --vcx-v232-card-pad: 20px;
+  --vcx-v232-card-pad-mobile: 16px;
+}
+
+/* global scroll / sizing discipline */
+html{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+}
+body{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior-y:auto !important;
+  padding-top:0 !important;
+  padding-bottom:84px !important;
+}
+.wrap{
+  max-width:var(--vcx-v232-max) !important;
+  padding-left:20px !important;
+  padding-right:20px !important;
+}
+body[data-vcx-viewport="desktop"] .wrap{
+  max-width:var(--vcx-v232-max) !important;
+}
+
+/* typography */
+h1,.hero h1{
+  font-size:var(--vcx-v232-h1) !important;
+  line-height:1.04 !important;
+  letter-spacing:-.038em !important;
+  max-width:15.5ch !important;
+  margin:10px 0 8px !important;
+  text-wrap:balance;
+}
+h2,
+.section-head h2,
+.proof-band h2,
+.cta-banner h2{
+  font-size:var(--vcx-v232-h2) !important;
+  line-height:1.1 !important;
+  letter-spacing:-.026em !important;
+  max-width:24ch !important;
+  margin:0 0 8px !important;
+  text-wrap:balance;
+}
+h3,
+.widget-head h3,
+.card h3,
+.engine-card h3,
+.resource-card h3,
+.seo-card h3,
+.authority-card h3,
+.authority-case h3{
+  font-size:var(--vcx-v232-h3) !important;
+  line-height:1.22 !important;
+  letter-spacing:-.014em !important;
+  text-wrap:balance;
+}
+.lead,
+.section-intro,
+p{
+  max-width:var(--vcx-v232-copy) !important;
+}
+.section-head{
+  max-width:860px !important;
+  margin-bottom:12px !important;
+}
+.hero-inner{
+  padding:12px 0 8px !important;
+}
+.hero-copy{
+  padding:20px !important;
+}
+.hero-proof-row{
+  gap:8px !important;
+  margin-top:14px !important;
+}
+.proof-pill{
+  padding:8px 12px !important;
+  font-size:.8rem !important;
+}
+.market-wrap{
+  padding:8px 12px !important;
+}
+.section,
+.section-tight,
+.band{
+  padding-top:18px !important;
+  padding-bottom:18px !important;
+}
+.hero + .section,
+.market-ticker + .section{
+  padding-top:8px !important;
+}
+
+/* cards / controls */
+.card,
+.glass,
+.widget-card,
+.engine-card,
+.li-card,
+.seo-card,
+.authority-card,
+.authority-case,
+.resource-card,
+.output-panel,
+.proof-band,
+.cta-banner{
+  border-radius:22px !important;
+}
+.card,
+.widget-card,
+.engine-card,
+.li-card,
+.seo-card,
+.authority-card,
+.authority-case,
+.resource-card,
+.output-panel,
+.proof-band,
+.cta-banner{
+  padding:var(--vcx-v232-card-pad) !important;
+}
+.cta-row{
+  gap:10px !important;
+}
+.btn{
+  min-height:40px !important;
+  padding:0 14px !important;
+  border-radius:14px !important;
+}
+
+/* header */
+.vcx-header{
+  padding:calc(env(safe-area-inset-top, 0px) + 6px) 0 6px !important;
+}
+.vcx-header-shell{
+  padding:8px 10px 10px !important;
+  border-radius:20px !important;
+}
+.vcx-header-top{
+  grid-template-columns:minmax(196px,232px) minmax(250px,1fr) auto !important;
+  gap:10px !important;
+}
+.vcx-header-navrow{
+  margin-top:6px !important;
+  padding-top:7px !important;
+}
+.vcx-main-nav{
+  gap:3px !important;
+}
+.vcx-main-nav a{
+  min-height:30px !important;
+  padding:0 6px !important;
+  font-size:.74rem !important;
+}
+.vcx-main-nav a.is-long{
+  font-size:.71rem !important;
+}
+.vcx-status-ribbon{
+  min-height:42px !important;
+  padding:6px 12px !important;
+}
+.vcx-status-item{
+  font-size:.76rem !important;
+}
+.vcx-time-chip{
+  min-height:38px !important;
+  padding:6px 9px !important;
+}
+.vcx-time-value{
+  font-size:.86rem !important;
+}
+.vcx-time-label span:first-child{
+  font-size:.58rem !important;
+}
+.vcx-time-sub{
+  font-size:.62rem !important;
+}
+
+/* make sections feel like one interface */
+.hero-grid,
+.hero-grid-premium,
+.hero-grid-single,
+.vcx-refactor-stack,
+.vcx-flow-stack,
+.vcx-flow-premium,
+.vcx-premium-stack,
+.vcx-refactor-flow{
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:16px !important;
+  align-items:start !important;
+}
+.vcx-refactor-balance,
+.vcx-balance-grid{
+  align-items:start !important;
+  gap:18px !important;
+}
+.vcx-v232.resource-grid,
+.vcx-v232.grid-3,
+.vcx-v232.widget-grid,
+.vcx-v232.authority-grid,
+.vcx-v232.seo-grid,
+.vcx-v232.careers-layout,
+.vcx-v232.footer-grid{
+  gap:18px !important;
+}
+.vcx-v232.proof-band,
+.vcx-v232.cta-banner{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:12px !important;
+}
+.vcx-v232.footer-grid{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+}
+.footer .card{
+  padding:16px !important;
+}
+
+/* stronger desktop structure for weak pairings */
+body[data-vcx-page="home"] .li-grid,
+body[data-vcx-page="home"] .impact-grid,
+body[data-vcx-page="home"] .diagnostic-grid,
+body[data-vcx-page="corporate-legal"] .diagnostic-grid,
+body[data-vcx-page="corporate-legal"] .grid-2,
+body[data-vcx-page="revenue-recovery"] .grid-2,
+body[data-vcx-page="revenue-recovery"] .vcx-case-study-panel,
+body[data-vcx-page="structured-intake"] .intake-wrap,
+body[data-vcx-page="contact"] .intake-wrap,
+body[data-vcx-page="careers"] .careers-layout{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:18px !important;
+}
+
+body[data-vcx-page="home"] .resource-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="home"] .seo-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="home"] .authority-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="home"] .widget-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="home"] .widget-grid > :last-child{
+  grid-column:1 / -1 !important;
+}
+body[data-vcx-page="home"] .grid-3{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="resources"] .resource-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+body[data-vcx-page="additional-services"] .grid-3{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+
+/* output cards */
+.vcx-output-list{
+  gap:0 !important;
+}
+.vcx-output-item{
+  grid-template-columns:minmax(0,178px) minmax(0,1fr) !important;
+  padding:9px 0 !important;
+}
+.vcx-output-item strong{
+  font-size:.84rem !important;
+}
+.vcx-output-item span{
+  font-size:.92rem !important;
+  line-height:1.52 !important;
+}
+
+/* remove weak placeholder strip if still present */
+.counter-grid,
+.proof-points{
+  display:none !important;
+}
+
+/* bottom dock */
+.vcx-dock{
+  bottom:12px !important;
+}
+.vcx-dock-shell{
+  width:min(1080px, calc(100% - 20px)) !important;
+  padding:5px 7px !important;
+  border-radius:20px !important;
+  box-shadow:0 14px 34px rgba(7,22,42,.10) !important;
+}
+.vcx-dock-desktop{
+  gap:5px !important;
+}
+.vcx-dock-pilot,
+.vcx-dock-icon,
+.vcx-dock-chip{
+  min-height:36px !important;
+  padding:0 10px !important;
+  gap:6px !important;
+  border-radius:999px !important;
+}
+.vcx-dock-pilot{
+  min-width:auto !important;
+  font-size:.78rem !important;
+  padding:0 13px !important;
+}
+.vcx-dock-text{
+  font-size:.68rem !important;
+}
+.vcx-dock-icon{
+  min-width:38px !important;
+}
+.vcx-dock-iconbox,
+.vcx-dock-chipicon{
+  width:18px !important;
+  height:18px !important;
+}
+.vcx-dock-pilot.is-request{
+  background:linear-gradient(180deg, rgba(56,112,194,.94), rgba(35,79,150,.88)) !important;
+  color:#f6fbff !important;
+}
+.vcx-dock-icon.is-instagram{
+  background:linear-gradient(135deg, rgba(250,175,70,.98), rgba(245,96,64,.92) 35%, rgba(193,53,132,.92) 68%, rgba(131,58,180,.90)) !important;
+  color:#fff !important;
+}
+.vcx-dock-icon.is-facebook{
+  background:linear-gradient(180deg, rgba(24,119,242,.95), rgba(17,86,191,.88)) !important;
+  color:#fff !important;
+}
+.vcx-dock-icon.is-whatsapp{
+  background:linear-gradient(180deg, rgba(37,211,102,.95), rgba(19,164,74,.88)) !important;
+  color:#fff !important;
+}
+.vcx-dock-icon.is-book{
+  background:linear-gradient(180deg, rgba(229,190,94,.96), rgba(189,148,50,.88)) !important;
+  color:#1f1807 !important;
+}
+.vcx-dock-chip.is-individuals{
+  background:linear-gradient(180deg, rgba(98,116,140,.82), rgba(72,88,110,.74)) !important;
+  color:#fff !important;
+}
+.vcx-dock-chip.is-precollection{
+  background:linear-gradient(180deg, rgba(40,103,124,.88), rgba(26,77,95,.80)) !important;
+  color:#fff !important;
+}
+.vcx-dock-chip.is-paralegal{
+  background:linear-gradient(180deg, rgba(107,85,170,.86), rgba(79,60,130,.78)) !important;
+  color:#fff !important;
+}
+
+/* mobile / app */
+@media (max-width: 900px){
+  body{
+    padding-bottom:120px !important;
+  }
+  .wrap{
+    padding-left:15px !important;
+    padding-right:15px !important;
+  }
+  .vcx-header{
+    padding:calc(env(safe-area-inset-top, 0px) + 5px) 0 5px !important;
+  }
+  .vcx-header-shell{
+    padding:7px 8px 8px !important;
+    border-radius:18px !important;
+  }
+  .vcx-mobile-meta{
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important;
+    gap:4px !important;
+  }
+  .vcx-mobile-row{
+    gap:8px !important;
+    padding-top:4px !important;
+  }
+  .vcx-status-ribbon-mobile{
+    min-height:34px !important;
+    margin-top:5px !important;
+    padding:5px 9px !important;
+    gap:7px !important;
+    order:3 !important;
+  }
+  .vcx-mobile-nav{
+    order:4 !important;
+  }
+  .vcx-menu-btn{
+    min-height:32px !important;
+    padding:0 9px !important;
+  }
+  .vcx-time-chip-mobile{
+    min-height:34px !important;
+    padding:4px 7px !important;
+  }
+  h1,.hero h1{
+    font-size:clamp(1.68rem, 6.4vw, 2.14rem) !important;
+    max-width:13ch !important;
+  }
+  h2,.section-head h2,.proof-band h2,.cta-banner h2{
+    font-size:clamp(1.14rem, 4.7vw, 1.48rem) !important;
+    max-width:100% !important;
+  }
+  h3,.widget-head h3,.card h3,.engine-card h3,.resource-card h3,.seo-card h3,.authority-card h3,.authority-case h3{
+    font-size:clamp(.94rem, 4vw, 1.06rem) !important;
+  }
+  .hero-copy{
+    padding:16px !important;
+  }
+  .proof-pill{
+    font-size:.76rem !important;
+    padding:7px 10px !important;
+  }
+  .section,.section-tight,.band{
+    padding-top:14px !important;
+    padding-bottom:14px !important;
+  }
+
+  .leak-grid,
+  .audience-split,
+  .grid-3,
+  .widget-grid,
+  .authority-grid,
+  .impact-grid,
+  .li-grid,
+  .seo-grid,
+  .resource-grid,
+  .careers-layout,
+  .intake-wrap,
+  .diagnostic-grid,
+  .legal-chart-grid,
+  .footer-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+  .widget-grid > :last-child{
+    grid-column:auto !important;
+  }
+  .vcx-output-item{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:4px !important;
+  }
+
+  .vcx-dock-shell{
+    width:min(100%, calc(100% - 18px)) !important;
+    padding:5px 6px !important;
+    border-radius:18px !important;
+  }
+  .vcx-dock-desktop{
+    display:none !important;
+  }
+  .vcx-dock-mobile{
+    display:grid !important;
+    gap:5px !important;
+  }
+  .vcx-dock-mobile-row{
+    display:grid !important;
+    gap:5px !important;
+  }
+  .vcx-dock-mobile-row-pilot{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  .vcx-dock-mobile-row-icons{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  }
+  .vcx-dock-mobile-row-services{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+  .vcx-dock-pilot,
+  .vcx-dock-icon,
+  .vcx-dock-chip{
+    min-height:32px !important;
+    padding:0 7px !important;
+  }
+  .vcx-dock-icon{
+    min-width:0 !important;
+  }
+  .vcx-dock-chip{
+    justify-content:center !important;
+  }
+  .vcx-dock-text{
+    font-size:.63rem !important;
+  }
+  .vcx-dock-iconbox,
+  .vcx-dock-chipicon{
+    width:17px !important;
+    height:17px !important;
+  }
+}

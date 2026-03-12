@@ -951,3 +951,11 @@ h2{
   line-height:1.1 !important;
 }
 .hero-inner{padding-top:12px !important}
+
+
+/* ===== VitaCoreX v232 base scroll and type reset ===== */
+html{overflow-y:auto !important; overflow-x:hidden !important; overscroll-behavior-y:auto !important;}
+body{overflow-y:auto !important; overflow-x:hidden !important; overscroll-behavior-y:auto !important;}
+body:not(.modal-open){overflow-y:auto !important;}
+h1{font-size:clamp(1.82rem, 2.7vw, 2.95rem) !important; max-width:15.5ch !important; line-height:1.04 !important;}
+h2{font-size:clamp(1.22rem, 1.75vw, 1.82rem) !important; max-width:24ch !important; line-height:1.1 !important;}

@@ -530,3 +530,36 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxForc
   window.addEventListener('resize', vcxHardRestoreScroll, {passive:true});
   window.addEventListener('wheel', ()=>{ if(window.innerWidth > 900) vcxHardRestoreScroll(); }, {passive:true});
   document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxHardRestoreScroll(); });
+
+
+(function(){
+  const body = document.body;
+  const html = document.documentElement;
+
+  function vcxEnsureScroll(){
+    if(!body || !html) return;
+    if(!body.classList.contains('modal-open')){
+      body.style.overflow = '';
+      body.style.overflowY = 'auto';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      html.style.overflow = '';
+      html.style.overflowY = 'auto';
+      html.style.position = '';
+      html.style.height = '';
+      body.classList.remove('vcx-lock-scroll');
+      html.classList.remove('vcx-lock-scroll');
+      document.documentElement.classList.remove('vcx-mobile-menu-open');
+    }
+  }
+
+  ['wheel','mousewheel','touchstart','touchend','pointerup','scroll'].forEach((evt)=>{
+    window.addEventListener(evt, ()=>vcxEnsureScroll(), {passive:true});
+  });
+  window.addEventListener('pageshow', vcxEnsureScroll);
+  window.addEventListener('focus', vcxEnsureScroll);
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) vcxEnsureScroll(); });
+  document.addEventListener('click', ()=>setTimeout(vcxEnsureScroll, 0), true);
+  setInterval(vcxEnsureScroll, 1200);
+})();
