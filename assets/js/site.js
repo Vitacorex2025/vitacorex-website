@@ -300,6 +300,7 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   sync();
 }
 const FORM_ENDPOINT='https://formsubmit.co/VitaCoreXllc@gmail.com';
+const FILE_UPLOAD_NOTIFICATION_ENDPOINT='https://formsubmit.co/vitacorexllc@gmail.com';
 function ensureHiddenField(form, name, value){
   let el=form.querySelector(`input[name="${name}"]`);
   if(!el){ el=document.createElement('input'); el.type='hidden'; el.name=name; form.appendChild(el); }
@@ -307,7 +308,7 @@ function ensureHiddenField(form, name, value){
   return el;
 }
 function configureDirectFormSubmission(form, config){
-  form.setAttribute('action', FORM_ENDPOINT);
+  form.setAttribute('action', config.endpoint || FORM_ENDPOINT);
   form.setAttribute('method', 'POST');
   form.setAttribute('enctype', config.enctype || 'multipart/form-data');
   form.setAttribute('accept-charset','UTF-8');
@@ -315,10 +316,13 @@ function configureDirectFormSubmission(form, config){
   ensureHiddenField(form,'_captcha','false');
   ensureHiddenField(form,'_template','table');
   ensureHiddenField(form,'_subject', config.subject || 'VitaCoreX Website Submission');
-  ensureHiddenField(form,'_next','https://vitacorexllc.com/thank-you.html');
+  ensureHiddenField(form,'_next', config.next || 'https://vitacorexllc.com/thank-you.html');
   if(config.replyTo) ensureHiddenField(form,'_replyto', String(config.replyTo||'').trim());
   ensureHiddenField(form,'Timestamp', new Date().toISOString());
   ensureHiddenField(form,'Browser / Device', detectDevice());
+  if(config.extraFields){
+    Object.entries(config.extraFields).forEach(([name, value])=>ensureHiddenField(form, name, value));
+  }
 }
 
 function submitViaHiddenIframe(form, config){
@@ -431,7 +435,19 @@ function fillOutputFromIntake(form){
 }
 function bindIntakeForm(form){
   if(!form) return;
-  ensureFileNameMirror(form, 'attachment', 'Attachment');
+  ensureFileNameMirror(form, 'attachment', 'Uploaded file name');
+  const attachmentInput=form.querySelector('[name="attachment"]');
+  const syncUploadMetadata=()=>{
+    const file=attachmentInput && attachmentInput.files && attachmentInput.files[0];
+    ensureHiddenField(form,'Has file upload','Yes');
+    ensureHiddenField(form,'File field name','attachment');
+    ensureHiddenField(form,'File uploaded', file ? 'Yes' : 'No');
+    ensureHiddenField(form,'Uploaded file name', file && file.name ? file.name : 'No file attached');
+  };
+  if(attachmentInput){
+    attachmentInput.addEventListener('change', syncUploadMetadata);
+    syncUploadMetadata();
+  }
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
   form.addEventListener('submit', e=>{
@@ -441,11 +457,23 @@ function bindIntakeForm(form){
       setStatus(status,'error',statusText('intake_validation','Please complete all fields before submitting.'));
       return;
     }
+    syncUploadMetadata();
     const fd=new FormData(form);
+    const formName=String(fd.get('form_name') || 'Structured Intake').trim();
+    const source=String(fd.get('Source') || 'structured_case_intake').trim();
     configureDirectFormSubmission(form, {
-      subject:'VitaCoreX Intake Request',
+      endpoint: FILE_UPLOAD_NOTIFICATION_ENDPOINT,
+      subject:`New Website File Upload Submission — ${formName}`,
       replyTo:String(fd.get('email')||'').trim(),
-      enctype:'multipart/form-data'
+      enctype:'multipart/form-data',
+      extraFields:{
+        'Form': formName,
+        'Source': source,
+        'Submission type': 'website_file_upload_submission',
+        'Has file upload': 'Yes',
+        'File field name': 'attachment',
+        'File uploaded': String(fd.get('Uploaded file name')||'').trim() && String(fd.get('Uploaded file name')).trim()!=='No file attached' ? 'Yes' : 'No'
+      }
     });
     if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
     setStatus(status,'success','Submitting request…');
