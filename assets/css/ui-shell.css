@@ -2698,3 +2698,78 @@ body[data-vcx-page="revenue-recovery"] .row{
     font-size:.98rem !important;
   }
 }
+
+/* Global top-block stacking and width alignment refinement */
+.hero-grid.hero-grid-composed{
+  grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr) !important;
+  align-items:stretch !important;
+  gap:20px !important;
+}
+
+.hero-grid.hero-grid-composed .hero-copy{
+  min-width:0 !important;
+  align-self:stretch !important;
+}
+
+.hero-grid.hero-grid-composed .hero-side{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  justify-content:flex-start !important;
+  gap:14px !important;
+  min-width:0 !important;
+  width:100% !important;
+  align-self:stretch !important;
+}
+
+.hero-grid.hero-grid-composed .hero-side > *{
+  width:100% !important;
+  margin:0 !important;
+}
+
+.hero-grid.hero-grid-composed .hero-side > .problem-item{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  align-self:stretch !important;
+  flex:1 1 0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  padding:18px 18px 17px !important;
+}
+
+.hero-grid.hero-grid-composed .hero-side > .problem-item:only-child{
+  flex:1 1 auto !important;
+  min-height:100% !important;
+  justify-content:flex-start !important;
+  padding-block:18px !important;
+}
+
+.hero-grid.hero-grid-composed .hero-side h3,
+.hero-grid.hero-grid-composed .hero-side p{
+  max-width:none !important;
+}
+
+@media (min-width: 901px) and (max-width: 1180px){
+  .hero-grid.hero-grid-composed{
+    grid-template-columns:minmax(0,1.14fr) minmax(290px,.86fr) !important;
+    gap:18px !important;
+  }
+}
+
+@media (max-width: 900px){
+  .hero-grid.hero-grid-composed{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+
+  .hero-grid.hero-grid-composed .hero-side{
+    gap:12px !important;
+  }
+
+  .hero-grid.hero-grid-composed .hero-side > .problem-item,
+  .hero-grid.hero-grid-composed .hero-side > .problem-item:only-child{
+    flex:0 0 auto !important;
+    min-height:0 !important;
+  }
+}
