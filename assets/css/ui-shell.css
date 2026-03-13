@@ -1942,3 +1942,514 @@ body[data-vcx-page="corporate-legal"] .bar-row span{
   }
 }
 /* ===== END CALCULATOR GRID ALIGNMENT + OVERFLOW FIX ===== */
+
+
+
+/* ===== PREMIUM SECTION BLOCK ALIGNMENT REFINEMENT ===== */
+.leak-grid,
+.audience-split,
+.counter-grid,
+.counter-grid-2,
+.grid-2,
+.grid-3,
+.grid-4,
+.resource-grid,
+.widget-grid,
+.authority-grid,
+.impact-grid,
+.seo-grid,
+.li-grid,
+.diagnostic-grid,
+.chart-grid,
+.kpi-grid,
+.legal-chart-grid,
+.metrics-grid,
+.widget-results,
+.result-metrics,
+.authority-metrics{
+  align-items:stretch !important;
+}
+
+.leak-grid,
+.audience-split,
+.counter-grid,
+.counter-grid-2,
+.grid-2,
+.grid-3,
+.grid-4,
+.resource-grid,
+.widget-grid,
+.authority-grid,
+.impact-grid,
+.seo-grid,
+.li-grid,
+.diagnostic-grid,
+.chart-grid,
+.kpi-grid,
+.legal-chart-grid{
+  gap:16px !important;
+}
+
+.leak-grid > *,
+.audience-split > *,
+.counter-grid > *,
+.counter-grid-2 > *,
+.grid-2 > *,
+.grid-3 > *,
+.grid-4 > *,
+.resource-grid > *,
+.widget-grid > *,
+.authority-grid > *,
+.impact-grid > *,
+.seo-grid > *,
+.li-grid > *,
+.diagnostic-grid > *,
+.chart-grid > *,
+.kpi-grid > *,
+.legal-chart-grid > *{
+  min-width:0 !important;
+  height:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+.leak-grid > * > :first-child,
+.audience-split > * > :first-child,
+.counter-grid > * > :first-child,
+.counter-grid-2 > * > :first-child,
+.grid-2 > * > :first-child,
+.grid-3 > * > :first-child,
+.grid-4 > * > :first-child,
+.resource-grid > * > :first-child,
+.widget-grid > * > :first-child,
+.authority-grid > * > :first-child,
+.impact-grid > * > :first-child,
+.seo-grid > * > :first-child,
+.li-grid > * > :first-child,
+.diagnostic-grid > * > :first-child,
+.chart-grid > * > :first-child,
+.kpi-grid > * > :first-child,
+.legal-chart-grid > * > :first-child{
+  margin-top:0 !important;
+}
+
+.leak-grid > * > :last-child,
+.audience-split > * > :last-child,
+.counter-grid > * > :last-child,
+.counter-grid-2 > * > :last-child,
+.grid-2 > * > :last-child,
+.grid-3 > * > :last-child,
+.grid-4 > * > :last-child,
+.resource-grid > * > :last-child,
+.widget-grid > * > :last-child,
+.authority-grid > * > :last-child,
+.impact-grid > * > :last-child,
+.seo-grid > * > :last-child,
+.li-grid > * > :last-child,
+.diagnostic-grid > * > :last-child,
+.chart-grid > * > :last-child,
+.kpi-grid > * > :last-child,
+.legal-chart-grid > * > :last-child{
+  margin-bottom:0 !important;
+}
+
+.leak-grid > * p,
+.audience-split > * p,
+.grid-2 > * p,
+.grid-3 > * p,
+.grid-4 > * p,
+.resource-grid > * p,
+.widget-grid > * p,
+.authority-grid > * p,
+.impact-grid > * p,
+.seo-grid > * p,
+.li-grid > * p,
+.diagnostic-grid > * p,
+.chart-grid > * p,
+.kpi-grid > * p,
+.legal-chart-grid > * p{
+  max-width:none !important;
+}
+
+.leak-grid > * .sublist,
+.audience-split > * .sublist,
+.grid-2 > * .sublist,
+.grid-3 > * .sublist,
+.grid-4 > * .sublist,
+.resource-grid > * .sublist,
+.widget-grid > * .sublist,
+.authority-grid > * .sublist,
+.impact-grid > * .sublist,
+.seo-grid > * .sublist,
+.li-grid > * .sublist,
+.diagnostic-grid > * .sublist,
+.chart-grid > * .sublist,
+.kpi-grid > * .sublist,
+.legal-chart-grid > * .sublist{
+  margin:0 !important;
+}
+
+.leak-grid > * .cta-row,
+.audience-split > * .cta-row,
+.grid-2 > * .cta-row,
+.grid-3 > * .cta-row,
+.grid-4 > * .cta-row,
+.resource-grid > * .cta-row,
+.widget-grid > * .cta-row,
+.authority-grid > * .cta-row,
+.impact-grid > * .cta-row,
+.seo-grid > * .cta-row,
+.li-grid > * .cta-row,
+.diagnostic-grid > * .cta-row,
+.chart-grid > * .cta-row,
+.kpi-grid > * .cta-row,
+.legal-chart-grid > * .cta-row{
+  margin-top:auto !important;
+  padding-top:12px !important;
+}
+
+.resource-card .meta{
+  margin-top:auto !important;
+}
+
+.resource-card .meta + .btn,
+.resource-card .meta + a.btn{
+  margin-top:12px !important;
+}
+
+.widget-card .widget-results,
+.authority-card .authority-metrics,
+.impact-card .authority-metrics,
+.engine-card .assessment-result,
+.output-panel .cta-row{
+  margin-top:auto !important;
+}
+
+.widget-results > *,
+.result-metrics > *,
+.authority-metrics > *,
+.metrics-grid > *{
+  min-width:0 !important;
+  height:100% !important;
+}
+
+.metric-card,
+.kpi-card,
+.counter.card,
+.lux-card,
+.resource-card,
+.service-card-lux,
+.audience-card,
+.authority-card,
+.authority-case,
+.impact-card,
+.widget-card,
+.engine-card,
+.legal-chart-card,
+.li-card,
+.seo-card,
+.benefit-card,
+.pilot-panel,
+.confidentiality-card{
+  box-sizing:border-box !important;
+}
+
+@media (max-width: 900px){
+  .leak-grid,
+  .audience-split,
+  .counter-grid,
+  .counter-grid-2,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .resource-grid,
+  .widget-grid,
+  .authority-grid,
+  .impact-grid,
+  .seo-grid,
+  .li-grid,
+  .diagnostic-grid,
+  .chart-grid,
+  .kpi-grid,
+  .legal-chart-grid{
+    gap:14px !important;
+  }
+}
+
+@media (max-width: 620px){
+  .leak-grid > *,
+  .audience-split > *,
+  .counter-grid > *,
+  .counter-grid-2 > *,
+  .grid-2 > *,
+  .grid-3 > *,
+  .grid-4 > *,
+  .resource-grid > *,
+  .widget-grid > *,
+  .authority-grid > *,
+  .impact-grid > *,
+  .seo-grid > *,
+  .li-grid > *,
+  .diagnostic-grid > *,
+  .chart-grid > *,
+  .kpi-grid > *,
+  .legal-chart-grid > *{
+    min-height:0 !important;
+  }
+
+  .leak-grid > * .cta-row,
+  .audience-split > * .cta-row,
+  .grid-2 > * .cta-row,
+  .grid-3 > * .cta-row,
+  .grid-4 > * .cta-row,
+  .resource-grid > * .cta-row,
+  .widget-grid > * .cta-row,
+  .authority-grid > * .cta-row,
+  .impact-grid > * .cta-row,
+  .seo-grid > * .cta-row,
+  .li-grid > * .cta-row,
+  .diagnostic-grid > * .cta-row,
+  .chart-grid > * .cta-row,
+  .kpi-grid > * .cta-row,
+  .legal-chart-grid > * .cta-row{
+    padding-top:10px !important;
+  }
+}
+/* ===== END PREMIUM SECTION BLOCK ALIGNMENT REFINEMENT ===== */
+
+
+/* ===== PREMIUM TABLE / PANEL WIDTH ADAPTATION ===== */
+@media (min-width: 901px){
+  .premium-widgets-section .widget-grid,
+  .legal-ops-visuals .widget-grid,
+  .authority-section .authority-grid,
+  .authority-section .impact-grid,
+  .cfo-engine-section .diagnostic-grid,
+  .legal-estimator-section .diagnostic-grid,
+  body[data-vcx-page="home"] .pilot-layout,
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left,
+  body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="corporate-legal"] .grid-2.vcx-stack-desktop,
+  body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right,
+  body[data-vcx-page="corporate-legal"] .legal-chart-grid,
+  body[data-vcx-page="resources"] .resource-grid,
+  body[data-vcx-page="careers"] .careers-layout{
+    width:min(100%, 1120px) !important;
+    max-width:1120px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  body[data-vcx-page="home"] .pilot-layout{
+    max-width:1100px !important;
+    grid-template-columns:minmax(340px, .98fr) minmax(0, 1.02fr) !important;
+  }
+
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop,
+  body[data-vcx-page="corporate-legal"] .grid-2.vcx-stack-desktop{
+    max-width:1100px !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body[data-vcx-page="home"] .authority-grid{
+    grid-template-columns:minmax(320px, .97fr) minmax(0, 1.03fr) !important;
+  }
+
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left{
+    grid-template-columns:minmax(0, 1.02fr) minmax(320px, .98fr) !important;
+  }
+
+  body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output{
+    grid-template-columns:minmax(0, 1.12fr) minmax(340px, .88fr) !important;
+    max-width:1108px !important;
+  }
+
+  body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right,
+  body[data-vcx-page="corporate-legal"] .legal-chart-grid{
+    grid-template-columns:minmax(320px, .96fr) minmax(0, 1.04fr) !important;
+    max-width:1100px !important;
+  }
+
+  .premium-widgets-section .widget-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    max-width:1120px !important;
+  }
+
+  .legal-ops-visuals .widget-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    max-width:1100px !important;
+  }
+
+  .authority-section .impact-grid{
+    grid-template-columns:minmax(320px, .98fr) minmax(0, 1.02fr) !important;
+    max-width:1100px !important;
+  }
+
+  .cfo-engine-section .diagnostic-grid,
+  .legal-estimator-section .diagnostic-grid{
+    grid-template-columns:minmax(320px, 1.02fr) minmax(0, .98fr) !important;
+    max-width:1100px !important;
+  }
+
+  body[data-vcx-page="resources"] .resource-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    max-width:1100px !important;
+  }
+
+  body[data-vcx-page="careers"] .careers-layout{
+    grid-template-columns:minmax(0, 1.02fr) minmax(320px, .98fr) !important;
+    max-width:1080px !important;
+  }
+}
+
+.premium-widgets-section .widget-grid,
+.legal-ops-visuals .widget-grid,
+.authority-section .authority-grid,
+.authority-section .impact-grid,
+.cfo-engine-section .diagnostic-grid,
+.legal-estimator-section .diagnostic-grid,
+body[data-vcx-page="home"] .pilot-layout,
+body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop,
+body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop,
+body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left,
+body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output,
+body[data-vcx-page="corporate-legal"] .grid-2.vcx-stack-desktop,
+body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right,
+body[data-vcx-page="corporate-legal"] .legal-chart-grid,
+body[data-vcx-page="resources"] .resource-grid,
+body[data-vcx-page="careers"] .careers-layout,
+.widget-results,
+.result-metrics,
+.authority-metrics,
+.score-grid,
+.business-details-grid{
+  align-items:stretch !important;
+  gap:18px !important;
+}
+
+.premium-widgets-section .widget-grid > *,
+.legal-ops-visuals .widget-grid > *,
+.authority-section .authority-grid > *,
+.authority-section .impact-grid > *,
+.cfo-engine-section .diagnostic-grid > *,
+.legal-estimator-section .diagnostic-grid > *,
+body[data-vcx-page="home"] .pilot-layout > *,
+body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop > *,
+body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop > *,
+body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left > *,
+body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output > *,
+body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output > *,
+body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output > *,
+body[data-vcx-page="corporate-legal"] .grid-2.vcx-stack-desktop > *,
+body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right > *,
+body[data-vcx-page="corporate-legal"] .legal-chart-grid > *,
+body[data-vcx-page="resources"] .resource-grid > *,
+body[data-vcx-page="careers"] .careers-layout > *{
+  min-width:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+.premium-widgets-section .widget-card,
+.legal-ops-visuals .widget-card,
+.authority-section .authority-card,
+.authority-section .authority-case,
+.authority-section .impact-card,
+.cfo-engine-section .engine-card,
+.legal-estimator-section .engine-card,
+body[data-vcx-page="home"] .pilot-panel,
+body[data-vcx-page="revenue-recovery"] #calc .card,
+body[data-vcx-page="revenue-recovery"] #calc .chart,
+body[data-vcx-page="structured-intake"] .luxury-intake-form,
+body[data-vcx-page="structured-intake"] .output-panel,
+body[data-vcx-page="contact"] .luxury-intake-form,
+body[data-vcx-page="contact"] .output-panel,
+body[data-vcx-page="corporate-legal"] .legal-chart-card,
+body[data-vcx-page="corporate-legal"] .card.reveal,
+body[data-vcx-page="resources"] .resource-card,
+body[data-vcx-page="careers"] .card{
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+
+.premium-widgets-section .widget-form,
+.legal-ops-visuals .widget-form,
+.cfo-engine-section .mini-form,
+.legal-estimator-section .mini-form,
+body[data-vcx-page="revenue-recovery"] #calc .form-grid,
+body[data-vcx-page="structured-intake"] .form-grid,
+body[data-vcx-page="contact"] .form-grid,
+body[data-vcx-page="corporate-legal"] .score-grid,
+body[data-vcx-page="structured-intake"] #intakeOutput,
+body[data-vcx-page="contact"] #intakeOutput,
+.widget-results,
+.result-metrics,
+.authority-metrics,
+.business-details-grid{
+  width:100% !important;
+  max-width:none !important;
+}
+
+.premium-widgets-section .widget-results .metric-card,
+.legal-ops-visuals .widget-results .metric-card,
+.authority-section .authority-metrics .metric-card,
+.cfo-engine-section .result-metrics .metric-card,
+.legal-estimator-section .result-metrics .metric-card,
+body[data-vcx-page="corporate-legal"] .metric-card,
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item{
+  width:100% !important;
+  max-width:none !important;
+}
+
+body[data-vcx-page="corporate-legal"] .bar-row{
+  grid-template-columns:minmax(160px, 190px) minmax(0, 1fr) !important;
+}
+
+body[data-vcx-page="corporate-legal"] .bar-track,
+body[data-vcx-page="revenue-recovery"] .bar-bg,
+body[data-vcx-page="revenue-recovery"] .row{
+  min-width:0 !important;
+}
+
+@media (max-width: 900px){
+  .premium-widgets-section .widget-grid,
+  .legal-ops-visuals .widget-grid,
+  .authority-section .authority-grid,
+  .authority-section .impact-grid,
+  .cfo-engine-section .diagnostic-grid,
+  .legal-estimator-section .diagnostic-grid,
+  body[data-vcx-page="home"] .pilot-layout,
+  body[data-vcx-page="home"] .authority-section .impact-grid.vcx-stack-desktop,
+  body[data-vcx-page="home"] .cfo-engine-section .diagnostic-grid.vcx-stack-desktop,
+  body[data-vcx-page="revenue-recovery"] .grid-2.vcx-flow-wide-left,
+  body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="corporate-legal"] .grid-2.vcx-stack-desktop,
+  body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right,
+  body[data-vcx-page="corporate-legal"] .legal-chart-grid,
+  body[data-vcx-page="resources"] .resource-grid,
+  body[data-vcx-page="careers"] .careers-layout{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  body[data-vcx-page="corporate-legal"] .bar-row{
+    grid-template-columns:1fr !important;
+  }
+}
+/* ===== END PREMIUM TABLE / PANEL WIDTH ADAPTATION ===== */
