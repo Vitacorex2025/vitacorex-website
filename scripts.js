@@ -167,10 +167,57 @@ $$('.tilt-card').forEach(card=>{
   card.addEventListener('mouseleave',reset);
 });
 // resource gate
-const gate=$('#pdfGate'); function openGate(asset,label){ if(!gate) return; gate.classList.add('open'); gate.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open'); gate.querySelector('[name="asset"]').value=asset||''; gate.querySelector('.gate-asset').textContent=label||'PDF'; }
-function closeGate(){ if(!gate) return; gate.classList.remove('open'); gate.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open'); }
-$$('[data-gated-asset]').forEach(btn=>btn.addEventListener('click',e=>{ e.preventDefault(); openGate(btn.dataset.gatedAsset, btn.dataset.gatedLabel); }));
-$$('.modal-close,.modal-cancel').forEach(btn=>btn.addEventListener('click',closeGate)); gate && gate.addEventListener('click',e=>{ if(e.target===gate) closeGate(); });
+const gate=$('#pdfGate');
+function openGate(asset,label){
+  if(!gate) return;
+  gate.classList.add('open');
+  gate.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  const assetField=gate.querySelector('[name="asset"]');
+  const assetLabel=gate.querySelector('.gate-asset');
+  if(assetField) assetField.value=asset||'';
+  if(assetLabel) assetLabel.textContent=label||'PDF';
+}
+function closeGate(){
+  if(!gate) return;
+  gate.classList.remove('open');
+  gate.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+}
+function normalizeAssetUrl(asset){
+  return String(asset||'').trim();
+}
+function isAppleMobileContext(){
+  const ua=navigator.userAgent||'';
+  return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform==='MacIntel' && (navigator.maxTouchPoints||0)>1);
+}
+function openPdfAsset(asset, pendingWindow){
+  const url=normalizeAssetUrl(asset);
+  if(!url) return;
+  if(isAppleMobileContext()){
+    window.location.assign(url);
+    return;
+  }
+  if(pendingWindow && !pendingWindow.closed){
+    try{
+      pendingWindow.opener=null;
+      pendingWindow.location.href=url;
+      return;
+    }catch(err){}
+  }
+  const tempLink=document.createElement('a');
+  tempLink.href=url;
+  tempLink.target='_blank';
+  tempLink.rel='noopener';
+  tempLink.click();
+}
+$$('[data-gated-asset]').forEach(btn=>btn.addEventListener('click',e=>{
+  e.preventDefault();
+  const asset=btn.dataset.gatedAsset || btn.getAttribute('href') || '';
+  openGate(asset, btn.dataset.gatedLabel);
+}));
+$$('.modal-close,.modal-cancel').forEach(btn=>btn.addEventListener('click',closeGate));
+gate && gate.addEventListener('click',e=>{ if(e.target===gate) closeGate(); });
 const gateForm=$('#gateForm');
 if(gateForm){
   const gateState=$('#gateState');
@@ -184,24 +231,41 @@ if(gateForm){
       setStatus(gateState,'error',statusText('intake_validation','Please complete all required fields.'));
       return;
     }
-    if(gateSubmitBtn){ gateSubmitBtn.disabled=true; gateSubmitBtn.classList.add('is-loading'); }
+    const asset=String(fd.get('asset')||'').trim();
+    const sameTab=isAppleMobileContext();
+    let pendingWindow=null;
+    if(asset && !sameTab){
+      pendingWindow=window.open('about:blank','_blank','noopener');
+      if(pendingWindow){
+        try{ pendingWindow.opener=null; }catch(err){}
+      }
+    }
+    if(gateSubmitBtn){
+      gateSubmitBtn.disabled=true;
+      gateSubmitBtn.classList.add('is-loading');
+    }
     try{
       await submitViaHiddenIframe(gateForm, {
         subject:'VitaCoreX Resource Access',
         replyTo:String(fd.get('email')||'').trim(),
         enctype:'application/x-www-form-urlencoded',
-        extraFields:{Asset: String(fd.get('asset')||'')}
+        extraFields:{Asset: asset}
       });
       localStorage.setItem('vcx_gate', JSON.stringify(Object.fromEntries(fd.entries())));
       setStatus(gateState,'success',statusText('gate_success','Access granted. Opening the resource now.'));
-      const asset=String(fd.get('asset')||'');
       closeGate();
-      if(asset) window.open(asset,'_blank','noopener');
+      openPdfAsset(asset, pendingWindow);
       gateForm.reset();
     }catch(err){
+      if(pendingWindow && !pendingWindow.closed){
+        try{ pendingWindow.close(); }catch(closeErr){}
+      }
       setStatus(gateState,'error',statusText('gate_failure','Submission failed. Please try again or use email.'));
     }finally{
-      if(gateSubmitBtn){ gateSubmitBtn.disabled=false; gateSubmitBtn.classList.remove('is-loading'); }
+      if(gateSubmitBtn){
+        gateSubmitBtn.disabled=false;
+        gateSubmitBtn.classList.remove('is-loading');
+      }
     }
   });
 }
