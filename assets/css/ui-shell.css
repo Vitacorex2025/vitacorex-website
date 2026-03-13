@@ -3420,19 +3420,25 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   align-items:flex-start;
 }
 .footer-project-btn{
-  margin-top:10px;
+  margin-top:8px;
+  align-self:start;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:44px;
-  padding:0 18px;
+  width:fit-content;
+  max-width:min(100%, 236px);
+  min-height:38px;
+  padding:9px 14px;
   border-radius:999px;
-  border:1px solid rgba(168,135,76,.34);
-  background:linear-gradient(180deg, rgba(201,172,109,.96), rgba(171,139,78,.94));
+  border:1px solid rgba(168,135,76,.30);
+  background:linear-gradient(180deg, rgba(201,172,109,.94), rgba(171,139,78,.92));
   color:#13253b;
+  font-size:.875rem;
   font-weight:700;
+  line-height:1.2;
   letter-spacing:.01em;
-  box-shadow:0 10px 24px rgba(96,74,38,.18), inset 0 1px 0 rgba(255,255,255,.28);
+  text-align:center;
+  box-shadow:0 8px 18px rgba(96,74,38,.14), inset 0 1px 0 rgba(255,255,255,.24);
   cursor:pointer;
   transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
@@ -3486,10 +3492,14 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   min-height:132px;
 }
 .web-project-form .modal-actions{
-  margin-top:8px;
+  margin-top:10px;
+  width:100%;
+  display:flex;
+  justify-content:center;
   align-items:center;
 }
 .web-project-submit{
+  margin-inline:auto;
   background:linear-gradient(180deg, rgba(201,172,109,.98), rgba(171,139,78,.95));
   color:#13253b;
   border:1px solid rgba(166,132,70,.34);
@@ -3509,8 +3519,11 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 }
 @media (max-width:900px){
   .footer-project-btn{
-    width:100%;
-    max-width:320px;
+    width:fit-content;
+    max-width:min(100%, 220px);
+    min-height:36px;
+    padding:8px 13px;
+    font-size:.84rem;
   }
   #webProjectModal{
     padding:14px;
