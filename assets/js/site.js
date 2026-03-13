@@ -191,25 +191,18 @@ function isAppleMobileContext(){
   const ua=navigator.userAgent||'';
   return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform==='MacIntel' && (navigator.maxTouchPoints||0)>1);
 }
-function openPdfAsset(asset, pendingWindow){
-  const url=normalizeAssetUrl(asset);
-  if(!url) return;
+function openPdfAsset(asset){
+  const rawUrl=normalizeAssetUrl(asset);
+  if(!rawUrl) throw new Error('missing_pdf_asset');
+  const absoluteUrl=new URL(rawUrl, window.location.href).href;
   if(isAppleMobileContext()){
-    window.location.assign(url);
+    window.location.assign(absoluteUrl);
     return;
   }
-  if(pendingWindow && !pendingWindow.closed){
-    try{
-      pendingWindow.opener=null;
-      pendingWindow.location.href=url;
-      return;
-    }catch(err){}
+  const opened=window.open(absoluteUrl,'_blank','noopener');
+  if(!opened){
+    window.location.assign(absoluteUrl);
   }
-  const tempLink=document.createElement('a');
-  tempLink.href=url;
-  tempLink.target='_blank';
-  tempLink.rel='noopener';
-  tempLink.click();
 }
 $$('[data-gated-asset]').forEach(btn=>btn.addEventListener('click',e=>{
   e.preventDefault();
@@ -232,34 +225,35 @@ if(gateForm){
       return;
     }
     const asset=String(fd.get('asset')||'').trim();
-    const sameTab=isAppleMobileContext();
-    let pendingWindow=null;
-    if(asset && !sameTab){
-      pendingWindow=window.open('about:blank','_blank','noopener');
-      if(pendingWindow){
-        try{ pendingWindow.opener=null; }catch(err){}
-      }
+    if(!asset){
+      setStatus(gateState,'error',statusText('gate_failure','The PDF link is unavailable. Please try again or use email.'));
+      return;
     }
     if(gateSubmitBtn){
       gateSubmitBtn.disabled=true;
       gateSubmitBtn.classList.add('is-loading');
     }
     try{
-      await submitViaHiddenIframe(gateForm, {
-        subject:'VitaCoreX Resource Access',
+      await submitViaFormSubmitAjax(gateForm, {
+        subject:'New Website PDF Access Request — Executive Brief',
         replyTo:String(fd.get('email')||'').trim(),
-        enctype:'application/x-www-form-urlencoded',
-        extraFields:{Asset: asset}
+        formUrl: window.location.href,
+        extraFields:{
+          'Form': 'Executive Brief PDF Access',
+          'Source': String(fd.get('Source')||'executive_brief_request').trim(),
+          'Submission type': 'website_pdf_access_request',
+          'Requested asset': asset,
+          'Asset label': String((gate.querySelector('.gate-asset') && gate.querySelector('.gate-asset').textContent) || '').trim(),
+          'File uploaded': 'No'
+        }
       });
       localStorage.setItem('vcx_gate', JSON.stringify(Object.fromEntries(fd.entries())));
       setStatus(gateState,'success',statusText('gate_success','Access granted. Opening the resource now.'));
       closeGate();
-      openPdfAsset(asset, pendingWindow);
+      openPdfAsset(asset);
       gateForm.reset();
     }catch(err){
-      if(pendingWindow && !pendingWindow.closed){
-        try{ pendingWindow.close(); }catch(closeErr){}
-      }
+      console.error('PDF gate submission failed:', err);
       setStatus(gateState,'error',statusText('gate_failure','Submission failed. Please try again or use email.'));
     }finally{
       if(gateSubmitBtn){
@@ -299,8 +293,10 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   fileInput.addEventListener('change', sync);
   sync();
 }
-const FORM_ENDPOINT='https://formsubmit.co/VitaCoreXllc@gmail.com';
-const FILE_UPLOAD_NOTIFICATION_ENDPOINT='https://formsubmit.co/vitacorexllc@gmail.com';
+const OWNER_NOTIFICATION_EMAIL='vitacorexllc@gmail.com';
+const FORM_ENDPOINT=`https://formsubmit.co/${OWNER_NOTIFICATION_EMAIL}`;
+const FORM_AJAX_ENDPOINT=`https://formsubmit.co/ajax/${OWNER_NOTIFICATION_EMAIL}`;
+const FILE_UPLOAD_NOTIFICATION_ENDPOINT=FORM_ENDPOINT;
 function ensureHiddenField(form, name, value){
   let el=form.querySelector(`input[name="${name}"]`);
   if(!el){ el=document.createElement('input'); el.type='hidden'; el.name=name; form.appendChild(el); }
@@ -317,6 +313,7 @@ function configureDirectFormSubmission(form, config){
   ensureHiddenField(form,'_template','table');
   ensureHiddenField(form,'_subject', config.subject || 'VitaCoreX Website Submission');
   ensureHiddenField(form,'_next', config.next || 'https://vitacorexllc.com/thank-you.html');
+  ensureHiddenField(form,'_url', config.formUrl || window.location.href);
   if(config.replyTo) ensureHiddenField(form,'_replyto', String(config.replyTo||'').trim());
   ensureHiddenField(form,'Timestamp', new Date().toISOString());
   ensureHiddenField(form,'Browser / Device', detectDevice());
@@ -325,92 +322,48 @@ function configureDirectFormSubmission(form, config){
   }
 }
 
-function submitViaHiddenIframe(form, config){
-  return new Promise((resolve,reject)=>{
-    const iframeName = `vcx_submit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const iframe = document.createElement('iframe');
-    iframe.name = iframeName;
-    iframe.title = 'hidden submission target';
-    iframe.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;';
-    document.body.appendChild(iframe);
+async function submitViaFormSubmitAjax(form, config){
+  const formData = new FormData(form);
+  formData.set('_captcha', 'false');
+  formData.set('_template', 'table');
+  formData.set('_subject', config.subject || 'VitaCoreX Website Submission');
+  formData.set('_url', config.formUrl || window.location.href);
+  formData.set('Timestamp', new Date().toISOString());
+  formData.set('Browser / Device', detectDevice());
+  if(config.replyTo) formData.set('_replyto', String(config.replyTo || '').trim());
+  if(config.extraFields){
+    Object.entries(config.extraFields).forEach(([name, value])=>formData.set(name, value == null ? '' : String(value)));
+  }
 
-    const previous = {
-      action: form.getAttribute('action') || '',
-      method: form.getAttribute('method') || '',
-      enctype: form.getAttribute('enctype') || '',
-      target: form.getAttribute('target') || ''
-    };
-
-    const temp = [];
-    const addHidden = (name, value)=>{
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
-      temp.push(input);
-    };
-
-    addHidden('_subject', config.subject);
-    addHidden('_captcha', 'false');
-    addHidden('_template', 'table');
-    addHidden('_replyto', String(config.replyTo || ''));
-    addHidden('Timestamp', new Date().toISOString());
-    addHidden('Browser / Device', detectDevice());
-    if(config.extraFields){
-      Object.entries(config.extraFields).forEach(([name, value])=>addHidden(name, value));
-    }
-
-    let done = false;
-    const cleanup = ()=>{
-      if(previous.action) form.setAttribute('action', previous.action); else form.removeAttribute('action');
-      if(previous.method) form.setAttribute('method', previous.method); else form.removeAttribute('method');
-      if(previous.enctype) form.setAttribute('enctype', previous.enctype); else form.removeAttribute('enctype');
-      if(previous.target) form.setAttribute('target', previous.target); else form.removeAttribute('target');
-      temp.forEach(el=>el.remove());
-      setTimeout(()=>iframe.remove(), 300);
-    };
-
-    const timer = setTimeout(()=>{
-      if(done) return;
-      done = true;
-      cleanup();
-      reject(new Error('submit_timeout'));
-    }, 25000);
-
-    const optimisticSuccess = setTimeout(()=>{
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      cleanup();
-      resolve();
-    }, 1800);
-
-    iframe.addEventListener('load', ()=>{
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      clearTimeout(optimisticSuccess);
-      cleanup();
-      resolve();
-    }, {once:true});
-
-    form.setAttribute('action', config.endpoint || FORM_ENDPOINT);
-    form.setAttribute('method', 'POST');
-    form.setAttribute('enctype', config.enctype || 'multipart/form-data');
-    form.setAttribute('target', iframeName);
-    try {
-      form.submit();
-    } catch (err) {
-      if(done) return;
-      done = true;
-      clearTimeout(timer);
-      clearTimeout(optimisticSuccess);
-      cleanup();
-      reject(err);
-    }
+  const response = await fetch(config.endpoint || FORM_AJAX_ENDPOINT, {
+    method:'POST',
+    body:formData,
+    headers:{'Accept':'application/json'}
   });
+
+  const contentType = response.headers.get('content-type') || '';
+  let payload = null;
+  if(contentType.includes('application/json')){
+    payload = await response.json().catch(()=>null);
+  }else{
+    const text = await response.text().catch(()=>'');
+    payload = { message:text };
+  }
+
+  const message = String((payload && payload.message) || '').trim();
+  const successValue = payload && Object.prototype.hasOwnProperty.call(payload, 'success') ? payload.success : true;
+  const success = successValue === true || successValue === 'true' || /success/i.test(message);
+
+  if(!response.ok || !success){
+    const err = new Error(message || `formsubmit_${response.status}`);
+    err.payload = payload;
+    err.status = response.status;
+    throw err;
+  }
+
+  return payload || { success:true };
 }
+
 function fillOutputFromIntake(form){
   const fd=new FormData(form);
   const service=String(fd.get('service_type')||'');
@@ -481,7 +434,7 @@ function bindIntakeForm(form){
 }
 bindIntakeForm($('#intakeForm'));
 
-const WEB_PROJECT_FORM_ENDPOINT='https://formsubmit.co/Vitacorexllc@mail.com';
+const WEB_PROJECT_FORM_ENDPOINT=FORM_AJAX_ENDPOINT;
 function bindWebProjectModal(){
   const modal=$('#webProjectModal');
   if(!modal) return;
@@ -540,16 +493,22 @@ function bindWebProjectModal(){
       }
       if(status) setStatus(status,'','');
       try{
-        await submitViaHiddenIframe(form, {
+        await submitViaFormSubmitAjax(form, {
           endpoint: WEB_PROJECT_FORM_ENDPOINT,
-          subject:'VitaCoreX Web Site Project Request',
+          subject:'New Website Project Request — Footer Modal',
           replyTo:String(fd.get('email')||'').trim(),
-          enctype:'application/x-www-form-urlencoded'
+          formUrl: window.location.href,
+          extraFields:{
+            'Form': 'Web Site Project Request',
+            'Source': String(fd.get('Source')||'web_site_project_footer_modal').trim(),
+            'Submission type': 'website_project_request'
+          }
         });
         form.reset();
         modal.classList.add('web-project-success');
         if(status) setStatus(status,'success',statusText('web_project_success','Thank you. Your request has been received. We will review it and contact you.'));
       }catch(err){
+        console.error('Web project modal submission failed:', err);
         if(status) setStatus(status,'error',statusText('web_project_error','Something went wrong. Please try again.'));
       }finally{
         if(submitBtn){
