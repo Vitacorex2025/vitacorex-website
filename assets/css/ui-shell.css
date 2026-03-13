@@ -1632,3 +1632,313 @@ h3,
   }
 }
 /* ===== END TYPOGRAPHY + CONTENT LAYOUT REFINEMENT ===== */
+
+
+/* ===== CALCULATOR GRID ALIGNMENT + OVERFLOW FIX ===== */
+.premium-widgets-section .widget-grid,
+.legal-ops-visuals .widget-grid,
+.authority-section .impact-grid,
+.cfo-engine-section .diagnostic-grid,
+.legal-estimator-section .diagnostic-grid,
+body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output,
+body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+body[data-vcx-page="corporate-legal"] .legal-chart-grid{
+  align-items:stretch !important;
+  gap:16px !important;
+}
+
+.premium-widgets-section .widget-grid > *,
+.legal-ops-visuals .widget-grid > *,
+.authority-section .impact-grid > *,
+.cfo-engine-section .diagnostic-grid > *,
+.legal-estimator-section .diagnostic-grid > *,
+body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output > *,
+body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output > *,
+body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output > *,
+body[data-vcx-page="corporate-legal"] .legal-chart-grid > *{
+  min-width:0 !important;
+}
+
+.premium-widgets-section .widget-card,
+.legal-ops-visuals .widget-card,
+.authority-section .impact-card,
+.cfo-engine-section .engine-card,
+.legal-estimator-section .engine-card,
+body[data-vcx-page="structured-intake"] .output-panel,
+body[data-vcx-page="contact"] .output-panel,
+body[data-vcx-page="revenue-recovery"] #calc .card,
+body[data-vcx-page="corporate-legal"] .legal-chart-card{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:14px !important;
+  min-width:0 !important;
+  height:100% !important;
+}
+
+.premium-widgets-section .widget-head,
+.legal-ops-visuals .widget-head,
+.authority-section .widget-head,
+.cfo-engine-section .mini-form,
+.legal-estimator-section .mini-form,
+body[data-vcx-page="revenue-recovery"] #calc .form-grid,
+.premium-widgets-section .widget-form,
+.legal-ops-visuals .widget-form,
+.authority-section .widget-form,
+.premium-widgets-section .widget-results,
+.legal-ops-visuals .widget-results,
+.authority-section .authority-metrics,
+.cfo-engine-section .result-metrics,
+.legal-estimator-section .result-metrics,
+.cfo-engine-section .assessment-result,
+.legal-estimator-section .assessment-result,
+body[data-vcx-page="revenue-recovery"] #calc .out-row,
+body[data-vcx-page="structured-intake"] #intakeOutput,
+body[data-vcx-page="contact"] #intakeOutput,
+body[data-vcx-page="corporate-legal"] .score-grid,
+body[data-vcx-page="corporate-legal"] .legal-chart-grid,
+body[data-vcx-page="corporate-legal"] .bar-chart{
+  min-width:0 !important;
+}
+
+.premium-widgets-section .widget-form label,
+.legal-ops-visuals .widget-form label,
+.authority-section .widget-form label,
+.cfo-engine-section .mini-form label,
+.legal-estimator-section .mini-form label,
+body[data-vcx-page="revenue-recovery"] #calc .field,
+body[data-vcx-page="revenue-recovery"] #calc .field label,
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item,
+body[data-vcx-page="corporate-legal"] .score-grid label{
+  min-width:0 !important;
+}
+
+.premium-widgets-section .widget-form input,
+.legal-ops-visuals .widget-form input,
+.authority-section .widget-form input,
+.cfo-engine-section .mini-form input,
+.cfo-engine-section .mini-form select,
+.legal-estimator-section .mini-form input,
+.legal-estimator-section .mini-form select,
+body[data-vcx-page="revenue-recovery"] #calc input,
+body[data-vcx-page="structured-intake"] .field input,
+body[data-vcx-page="structured-intake"] .field select,
+body[data-vcx-page="structured-intake"] .field textarea,
+body[data-vcx-page="contact"] .field input,
+body[data-vcx-page="contact"] .field select,
+body[data-vcx-page="contact"] .field textarea{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+}
+
+.premium-widgets-section .widget-results,
+.legal-ops-visuals .widget-results,
+.authority-section .authority-metrics,
+.cfo-engine-section .result-metrics,
+.legal-estimator-section .result-metrics{
+  align-items:stretch !important;
+  grid-auto-rows:1fr !important;
+}
+
+.premium-widgets-section .widget-results{
+  margin-top:auto !important;
+}
+
+.authority-section .authority-metrics{
+  margin-top:auto !important;
+}
+
+.premium-widgets-section .metric-card,
+.legal-ops-visuals .metric-card,
+.authority-section .authority-metrics .metric-card,
+.cfo-engine-section .result-metrics .metric-card,
+.legal-estimator-section .result-metrics .metric-card,
+body[data-vcx-page="revenue-recovery"] #calc .out-row,
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+.premium-widgets-section .metric-card,
+.legal-ops-visuals .metric-card,
+.authority-section .authority-metrics .metric-card,
+.cfo-engine-section .result-metrics .metric-card,
+.legal-estimator-section .result-metrics .metric-card{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  gap:8px !important;
+}
+
+.premium-widgets-section .metric-card span,
+.legal-ops-visuals .metric-card span,
+.authority-section .authority-metrics .metric-card span,
+.cfo-engine-section .metric-label,
+.legal-estimator-section .metric-label,
+body[data-vcx-page="revenue-recovery"] #calc .out-row span,
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item strong,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item strong{
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+  line-height:1.4 !important;
+}
+
+.premium-widgets-section .metric-card strong,
+.legal-ops-visuals .metric-card strong,
+.authority-section .authority-metrics .metric-card strong,
+.cfo-engine-section .result-metrics .metric-card strong,
+.legal-estimator-section .result-metrics .metric-card strong,
+body[data-vcx-page="revenue-recovery"] #calc .out-row strong,
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item span,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item span{
+  min-width:0 !important;
+  max-width:100% !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+}
+
+.premium-widgets-section .metric-card strong,
+.legal-ops-visuals .metric-card strong{
+  font-size:clamp(1.08rem, 0.9vw + 0.9rem, 1.55rem) !important;
+  line-height:1.14 !important;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+.authority-section .authority-metrics .metric-card strong,
+.cfo-engine-section .result-metrics .metric-card strong,
+.legal-estimator-section .result-metrics .metric-card strong{
+  font-size:clamp(1.12rem, 1.1vw + 0.92rem, 1.85rem) !important;
+  line-height:1.08 !important;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+body[data-vcx-page="revenue-recovery"] #calc .out-row{
+  gap:6px !important;
+  padding:14px 0 !important;
+}
+
+body[data-vcx-page="revenue-recovery"] #calc .out-row strong{
+  font-size:clamp(1.02rem, 0.95vw + 0.88rem, 1.5rem) !important;
+  line-height:1.18 !important;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-list,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-list{
+  gap:10px !important;
+}
+
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item{
+  gap:6px !important;
+  padding:12px 14px !important;
+}
+
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item strong,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item strong{
+  font-size:.70rem !important;
+}
+
+body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item span,
+body[data-vcx-page="contact"] #intakeOutput .vcx-output-item span{
+  font-size:.92rem !important;
+  line-height:1.5 !important;
+}
+
+body[data-vcx-page="corporate-legal"] .legal-chart-grid .card{
+  min-width:0 !important;
+  height:100% !important;
+}
+
+body[data-vcx-page="corporate-legal"] .bar-row{
+  min-width:0 !important;
+  grid-template-columns:minmax(150px, 180px) minmax(0,1fr) !important;
+}
+
+body[data-vcx-page="corporate-legal"] .bar-row span{
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+}
+
+@media (min-width: 901px){
+  body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output{
+    grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr) !important;
+  }
+
+  body[data-vcx-page="corporate-legal"] .diagnostic-grid.vcx-flow-wide-right{
+    grid-template-columns:minmax(320px,.96fr) minmax(0,1.04fr) !important;
+  }
+}
+
+@media (max-width: 900px){
+  .premium-widgets-section .widget-grid,
+  .legal-ops-visuals .widget-grid,
+  .authority-section .impact-grid,
+  .cfo-engine-section .diagnostic-grid,
+  .legal-estimator-section .diagnostic-grid,
+  body[data-vcx-page="structured-intake"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="contact"] .intake-wrap.vcx-flow-form-output,
+  body[data-vcx-page="revenue-recovery"] #calc .grid-2.vcx-flow-form-output,
+  body[data-vcx-page="corporate-legal"] .legal-chart-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:14px !important;
+  }
+}
+
+@media (max-width: 720px){
+  .premium-widgets-section .widget-card,
+  .legal-ops-visuals .widget-card,
+  .authority-section .impact-card,
+  .cfo-engine-section .engine-card,
+  .legal-estimator-section .engine-card,
+  body[data-vcx-page="structured-intake"] .output-panel,
+  body[data-vcx-page="contact"] .output-panel,
+  body[data-vcx-page="revenue-recovery"] #calc .card,
+  body[data-vcx-page="corporate-legal"] .legal-chart-card{
+    padding:16px !important;
+    gap:12px !important;
+  }
+
+  .premium-widgets-section .widget-results,
+  .legal-ops-visuals .widget-results,
+  .authority-section .authority-metrics,
+  .cfo-engine-section .result-metrics,
+  .legal-estimator-section .result-metrics{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+
+  .cfo-engine-section .mini-form,
+  .legal-estimator-section .mini-form,
+  body[data-vcx-page="revenue-recovery"] #calc .form-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+
+  .premium-widgets-section .metric-card strong,
+  .legal-ops-visuals .metric-card strong,
+  .authority-section .authority-metrics .metric-card strong,
+  .cfo-engine-section .result-metrics .metric-card strong,
+  .legal-estimator-section .result-metrics .metric-card strong,
+  body[data-vcx-page="revenue-recovery"] #calc .out-row strong{
+    font-size:clamp(1rem, 4.8vw, 1.34rem) !important;
+  }
+
+  body[data-vcx-page="structured-intake"] #intakeOutput .vcx-output-item span,
+  body[data-vcx-page="contact"] #intakeOutput .vcx-output-item span{
+    font-size:.88rem !important;
+    line-height:1.46 !important;
+  }
+
+  body[data-vcx-page="corporate-legal"] .bar-row{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+}
+/* ===== END CALCULATOR GRID ALIGNMENT + OVERFLOW FIX ===== */
