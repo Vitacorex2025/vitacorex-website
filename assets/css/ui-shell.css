@@ -2453,3 +2453,125 @@ body[data-vcx-page="revenue-recovery"] .row{
   }
 }
 /* ===== END PREMIUM TABLE / PANEL WIDTH ADAPTATION ===== */
+
+
+/* ===== MID-PAGE SECTION WIDTH + ALIGNMENT REFINEMENT ===== */
+@media (min-width: 961px){
+  body[data-vcx-page="home"] .linkedin-lead-section .section-head,
+  body[data-vcx-page="home"] .seo-authority-section .section-head,
+  body[data-vcx-page="home"] .linkedin-lead-section .li-grid,
+  body[data-vcx-page="home"] .seo-authority-section .seo-grid{
+    width:min(100%, 1160px) !important;
+    max-width:1160px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .section-head,
+  body[data-vcx-page="home"] .seo-authority-section .section-head{
+    margin-bottom:0 !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .section-head h2,
+  body[data-vcx-page="home"] .seo-authority-section .section-head h2{
+    max-width:29ch !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .section-intro,
+  body[data-vcx-page="home"] .seo-authority-section .section-intro{
+    max-width:82ch !important;
+  }
+
+  body[data-vcx-page="home"] .section .wrap > .section-head + .li-grid,
+  body[data-vcx-page="home"] .section .wrap > .section-head + .seo-grid{
+    margin-top:14px !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .li-grid{
+    grid-template-columns:minmax(0, 1.04fr) minmax(0, .96fr) !important;
+    gap:20px !important;
+    align-items:stretch !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .li-card,
+  body[data-vcx-page="home"] .seo-authority-section .seo-card{
+    min-height:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .li-card{
+    padding:30px !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .mini-form{
+    width:100% !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:14px !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .mini-form label,
+  body[data-vcx-page="home"] .linkedin-lead-section .mini-form select{
+    min-width:0 !important;
+    width:100% !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .assessment-result{
+    width:100% !important;
+  }
+
+  body[data-vcx-page="home"] .seo-authority-section .seo-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:20px !important;
+    align-items:stretch !important;
+  }
+
+  body[data-vcx-page="home"] .seo-authority-section .seo-card{
+    padding:26px !important;
+  }
+}
+
+@media (max-width: 960px){
+  body[data-vcx-page="home"] .linkedin-lead-section .section-head,
+  body[data-vcx-page="home"] .seo-authority-section .section-head,
+  body[data-vcx-page="home"] .linkedin-lead-section .li-grid,
+  body[data-vcx-page="home"] .seo-authority-section .seo-grid{
+    width:100% !important;
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .li-card,
+  body[data-vcx-page="home"] .seo-authority-section .seo-card{
+    min-height:0 !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .li-card{
+    padding:24px !important;
+  }
+
+  body[data-vcx-page="home"] .seo-authority-section .seo-card{
+    padding:22px !important;
+  }
+
+  body[data-vcx-page="home"] .section .wrap > .section-head + .li-grid,
+  body[data-vcx-page="home"] .section .wrap > .section-head + .seo-grid{
+    margin-top:12px !important;
+  }
+}
+
+@media (max-width: 640px){
+  body[data-vcx-page="home"] .linkedin-lead-section .li-card{
+    padding:20px !important;
+  }
+
+  body[data-vcx-page="home"] .seo-authority-section .seo-card{
+    padding:18px !important;
+  }
+
+  body[data-vcx-page="home"] .linkedin-lead-section .mini-form{
+    grid-template-columns:1fr !important;
+  }
+}
+/* ===== END MID-PAGE SECTION WIDTH + ALIGNMENT REFINEMENT ===== */
