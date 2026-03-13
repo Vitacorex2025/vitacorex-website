@@ -3107,3 +3107,107 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 #intakeForm .client-mode-btn{
   transition:background .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease !important;
 }
+
+
+/* Header legibility refinement */
+.vcx-brand img,
+.vcx-mobile-brand img{
+  filter:contrast(1.06) saturate(1.03) brightness(1.01);
+  opacity:1;
+  box-shadow:0 12px 24px rgba(7,22,42,.16);
+}
+
+.vcx-brand-copy strong,
+.vcx-mobile-brand span{
+  color:#102d4a;
+  font-weight:800;
+}
+
+.vcx-brand-copy span{
+  color:#536b84;
+}
+
+.vcx-metric-text,
+.vcx-metric-bar-mobile .vcx-metric-text{
+  color:rgba(17,38,61,.88);
+  font-weight:650;
+  letter-spacing:.016em;
+}
+
+.vcx-header-meta{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.76), rgba(255,255,255,.46)),
+    radial-gradient(120% 150% at 0% 0%, rgba(122,166,255,.09), transparent 44%);
+  border-color:rgba(255,255,255,.42);
+  box-shadow:0 10px 20px rgba(7,22,42,.06);
+}
+
+.vcx-time-chip,
+.vcx-time-chip-mobile{
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.58));
+  border-color:rgba(255,255,255,.48);
+  box-shadow:0 9px 18px rgba(7,22,42,.06);
+}
+
+.vcx-time-label span:first-child{
+  color:#2c4a68;
+}
+
+.vcx-time-sub,
+.vcx-time-chip-mobile .vcx-time-sub{
+  color:#667d95;
+}
+
+.vcx-time-value,
+.vcx-time-chip-mobile .vcx-time-value{
+  color:#112f4c;
+}
+
+.vcx-main-nav a{
+  color:#22415f;
+  background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.42));
+  border-color:rgba(255,255,255,.34);
+  box-shadow:0 7px 16px rgba(7,22,42,.05);
+}
+
+.vcx-main-nav a:hover,
+.vcx-main-nav a:focus-visible{
+  color:#163653;
+}
+
+.vcx-lang-switch .lang-btn{
+  color:#3f5872;
+}
+
+.vcx-menu-btn{
+  color:#15324e;
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.58));
+  border-color:rgba(255,255,255,.48);
+}
+
+.vcx-menu-text{
+  color:inherit;
+}
+
+.vcx-mobile-nav a{
+  color:#234260;
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.60));
+  border-color:rgba(255,255,255,.42);
+}
+
+@media (max-width: 860px){
+  .vcx-brand-copy strong,
+  .vcx-mobile-brand span{
+    color:#112f4b;
+  }
+
+  .vcx-brand-copy span{
+    color:#5c7289;
+  }
+
+  .vcx-metric-bar-mobile .vcx-metric-text{
+    color:rgba(17,38,61,.82);
+    font-weight:600;
+  }
+}
+
