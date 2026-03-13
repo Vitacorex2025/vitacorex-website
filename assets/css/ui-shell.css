@@ -2773,3 +2773,108 @@ body[data-vcx-page="revenue-recovery"] .row{
     min-height:0 !important;
   }
 }
+
+
+/* ===== CAREERS SECTION TWO-BLOCK STACK REFINEMENT ===== */
+body[data-vcx-page="careers"] .careers-layout{
+  grid-template-columns:minmax(0,1fr) !important;
+  width:min(100%, 1000px) !important;
+  max-width:1000px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  gap:20px !important;
+  align-items:stretch !important;
+}
+
+body[data-vcx-page="careers"] .careers-layout > .card{
+  height:auto !important;
+  padding:24px 26px !important;
+  align-self:stretch !important;
+}
+
+body[data-vcx-page="careers"] .careers-layout > .card h2{
+  margin-bottom:12px !important;
+}
+
+body[data-vcx-page="careers"] .talent-list{
+  gap:12px !important;
+  margin-top:10px !important;
+}
+
+body[data-vcx-page="careers"] .talent-item{
+  min-width:0 !important;
+}
+
+body[data-vcx-page="careers"] #careersForm{
+  display:grid !important;
+  gap:16px !important;
+  width:100% !important;
+  max-width:none !important;
+}
+
+body[data-vcx-page="careers"] #careersForm > .form-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+  gap:14px 16px !important;
+  width:100% !important;
+  max-width:none !important;
+}
+
+body[data-vcx-page="careers"] #careersForm .field{
+  min-width:0 !important;
+}
+
+body[data-vcx-page="careers"] #careersForm .field.full{
+  grid-column:1 / -1 !important;
+}
+
+body[data-vcx-page="careers"] #careersForm input,
+body[data-vcx-page="careers"] #careersForm select,
+body[data-vcx-page="careers"] #careersForm textarea{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+}
+
+body[data-vcx-page="careers"] #careersForm textarea{
+  min-height:132px !important;
+}
+
+body[data-vcx-page="careers"] #careersForm .cta-row{
+  margin-top:2px !important;
+}
+
+body[data-vcx-page="careers"] #careersForm #careersSubmitBtn{
+  width:100% !important;
+}
+
+body[data-vcx-page="careers"] #careersFormStatus,
+body[data-vcx-page="careers"] .careers-layout .small-note{
+  margin-top:0 !important;
+}
+
+@media (max-width: 900px){
+  body[data-vcx-page="careers"] .careers-layout{
+    width:100% !important;
+    max-width:100% !important;
+    gap:14px !important;
+  }
+
+  body[data-vcx-page="careers"] .careers-layout > .card{
+    padding:18px 16px !important;
+  }
+
+  body[data-vcx-page="careers"] #careersForm{
+    gap:14px !important;
+  }
+
+  body[data-vcx-page="careers"] #careersForm > .form-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+
+  body[data-vcx-page="careers"] #careersForm textarea{
+    min-height:120px !important;
+  }
+}
+/* ===== END CAREERS SECTION TWO-BLOCK STACK REFINEMENT ===== */
