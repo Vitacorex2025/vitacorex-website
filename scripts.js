@@ -443,6 +443,9 @@ function initClientMode(){
 
   const setMode=(mode)=>{
     if(modeInput) modeInput.value=mode;
+    form.dataset.clientMode=mode;
+    form.classList.toggle('is-company-mode', mode==='company');
+    form.classList.toggle('is-individual-mode', mode!=='company');
     buttons.forEach(btn=>btn.classList.toggle('active', btn.dataset.mode===mode));
     companyBlocks.forEach(el=>el.classList.toggle('is-hidden', mode!=='company'));
     if(companyField){

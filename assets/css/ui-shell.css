@@ -3081,3 +3081,29 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   }
 }
 /* ===== END GLOBAL TOP-HERO REBUILD MODE ===== */
+
+/* ===== INTAKE MODE COLOR SWITCH ===== */
+#intakeForm[data-client-mode="individual"] .client-mode-btn.active[data-mode="individual"]{
+  background:linear-gradient(135deg, #153250, #2a5a8c) !important;
+  color:#f7fbff !important;
+  box-shadow:0 14px 30px rgba(21,50,80,.22) !important;
+}
+#intakeForm[data-client-mode="company"] .client-mode-btn.active[data-mode="company"]{
+  background:linear-gradient(135deg, #bea05d, #d6bb7b) !important;
+  color:#10243b !important;
+  box-shadow:0 14px 30px rgba(182,144,70,.18) !important;
+}
+#intakeForm[data-client-mode="company"] #intakeSubmitBtn{
+  background:linear-gradient(135deg, #bea05d, #d6bb7b) !important;
+  color:#10243b !important;
+  box-shadow:0 16px 32px rgba(182,144,70,.20) !important;
+  border-color:rgba(120,84,22,.14) !important;
+}
+#intakeForm[data-client-mode="individual"] #intakeSubmitBtn{
+  background:linear-gradient(135deg, #153250, #2a5a8c) !important;
+  color:#f7fbff !important;
+  box-shadow:0 16px 32px rgba(21,50,80,.20) !important;
+}
+#intakeForm .client-mode-btn{
+  transition:background .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease !important;
+}
