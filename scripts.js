@@ -46,7 +46,7 @@ const extra={
   field_linkedin_ph:'https://www.linkedin.com/in/...',
   careers_mobile_button2:'Open application form',gate_success:'Access granted. Opening the resource now.',gate_failure:'Submission failed. Please try again or use email.',
   role_bizdocs:'Business documentation support',
-order_services:'Order Services',clock_local_sub:'Local',services_individuals_title:'Services for Individuals',services_individuals_intro:'Services for individuals and specialized one-off matters remain fully available, while the primary VitaCoreX focus stays on corporate B2B operating support.',request_review:'Request review',see_all_individuals:'See all services for individuals',res1_title:'Healthcare leakage brief',res1_desc:'Operator-facing summary of leakage points, DSO drag, and early agency fee compression.',res1_tag:'Operator brief',res2_title:'Healthcare CFO brief',res2_desc:'Finance-facing brief for owners, CFOs, and operator leadership.',res2_tag:'CFO decision brief',res3_title:'Dental institutional deck',res3_desc:'Institutional framing with pilot economics, sequencing logic, and executive positioning.',res3_tag:'Institutional deck',res4_title:'Pre-collection executive review',res4_desc:'Framework logic, controlled escalation, and economics for pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Packet quality signal',counter_clarity:'Handoff clarity signal',counter_control:'Recovery control signal',counter_pressure:'Illustrative leakage pressure',counter_adoption:'ALSP operating adoption',counter_window:'Pilot design window',ind1_title:'Contracts & Documentation',ind1_desc:'Administrative support for contract drafting, document review, business forms, demand letters, and structured support packets.',ind1_b1:'Contract drafting',ind1_b2:'Document review',ind1_b3:'Business forms',ind1_b4:'Demand letters',ind1_b5:'Support packets',ind2_title:'Immigration Documents',ind2_desc:'Packet organization, form guidance, submission-readiness review, and evidence structuring for personal filing support.',ind2_b1:'Packet organization',ind2_b2:'Form guidance',ind2_b3:'Submission review',ind2_b4:'Evidence structuring',ind2_b5:'Administrative support',ind3_title:'Auto Purchase Review',ind3_desc:'Buyer-side review before signing, with fee analysis, payment-structure clarity, and negotiation support.',ind3_b1:'Dealer contract review',ind3_b2:'Fee analysis',ind3_b3:'Payment review',ind3_b4:'Negotiation support',ind3_b5:'Risk summary',ind4_title:'Business Plans',ind4_desc:'Executive summary, investor narrative, launch plan, financial framing, and pitch support.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'Launch plan',ind4_b4:'Financial framing',ind4_b5:'Pitch support',ind5_title:'Company Formation',ind5_desc:'Structured support for opening companies, entity setup, filing packets, and launch-readiness documents.',ind5_b1:'Entity formation support',ind5_b2:'Opening packages',ind5_b3:'Filing support',ind5_b4:'Business setup packet',ind5_b5:'Launch checklist',ind6_title:'Translation & Localization',ind6_desc:'Translation support, bilingual document cleanup, and structured localization for business or filing materials.',ind6_b1:'Document translation support',ind6_b2:'Bilingual cleanup',ind6_b3:'Localization review',ind6_b4:'Evidence translation pack',ind6_b5:'Administrative coordination',field_phone_careers:'Phone',field_role:'Role of interest',select_role:'Select role',role_ops:'Operations support',role_docs:'Documentation support',role_intake:'Intake support',role_translation:'Translation support',role_admin:'Admin support',role_client:'Client coordination',field_background:'Short background',careers_placeholder:'Short introduction, role of interest, and the kind of work you can support.',careers_helper:'Complete all required fields to activate the application email.',careers_who_title:'Who we look for',careers_apply_title:'How to apply',careers_t1:'Disciplined candidates who can work in a documentation-first operating model.',careers_t2:'Strong and confident English.',careers_t3:'Verifiable recommendations strongly preferred.',careers_t4:'Preference for Russian-speaking candidates with excellent English.',field_need:'Primary need',field_urgency:'Urgency',field_docs:'Document readiness',field_company_context:'Company / matter context',field_company_context_ph:'Company, packet, contract, invoice',intake_placeholder:'Describe the matter, the business context, and the decision that is blocked.',attach_materials:'Attach materials',attach_helper:'Add contracts, invoices, screenshots, exhibits, or packet drafts.',need_recovery:'Revenue Recovery Workflow Design',need_file:'Corporate Legal File Control',need_intake:'Structured Case Intake & Packet Build',urgency_standard:'Standard',urgency_high:'High',docs_ready:'Core documents are ready',docs_partial:'Only partial material is ready',next_standard:'We will review the intake and propose the first clean work product.',next_fast:'We will prioritize the intake and route the next-step memo first'},
+order_services:'Order Services',clock_local_sub:'Local',services_individuals_title:'Services for Individuals',services_individuals_intro:'Services for individuals and specialized one-off matters remain fully available, while the primary VitaCoreX focus stays on corporate B2B operating support.',request_review:'Request review',see_all_individuals:'See all services for individuals',res1_title:'Healthcare leakage brief',res1_desc:'Operator-facing summary of leakage points, DSO drag, and early agency fee compression.',res1_tag:'Operator brief',res2_title:'Healthcare CFO brief',res2_desc:'Finance-facing brief for owners, CFOs, and operator leadership.',res2_tag:'CFO decision brief',res3_title:'Dental institutional deck',res3_desc:'Institutional framing with pilot economics, sequencing logic, and executive positioning.',res3_tag:'Institutional deck',res4_title:'Pre-collection executive review',res4_desc:'Framework logic, controlled escalation, and economics for pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Packet quality signal',counter_clarity:'Handoff clarity signal',counter_control:'Recovery control signal',counter_pressure:'Illustrative leakage pressure',counter_adoption:'ALSP operating adoption',counter_window:'Pilot design window',ind1_title:'Contracts & Documentation',ind1_desc:'Administrative support for contract drafting, document review, business forms, demand letters, and structured support packets.',ind1_b1:'Contract drafting',ind1_b2:'Document review',ind1_b3:'Business forms',ind1_b4:'Demand letters',ind1_b5:'Support packets',ind2_title:'Immigration Documents',ind2_desc:'Packet organization, form guidance, submission-readiness review, and evidence structuring for personal filing support.',ind2_b1:'Packet organization',ind2_b2:'Form guidance',ind2_b3:'Submission review',ind2_b4:'Evidence structuring',ind2_b5:'Administrative support',ind3_title:'Auto Purchase Review',ind3_desc:'Buyer-side review before signing, with fee analysis, payment-structure clarity, and negotiation support.',ind3_b1:'Dealer contract review',ind3_b2:'Fee analysis',ind3_b3:'Payment review',ind3_b4:'Negotiation support',ind3_b5:'Risk summary',ind4_title:'Business Plans',ind4_desc:'Executive summary, investor narrative, launch plan, financial framing, and pitch support.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'Launch plan',ind4_b4:'Financial framing',ind4_b5:'Pitch support',ind5_title:'Company Formation',ind5_desc:'Structured support for opening companies, entity setup, filing packets, and launch-readiness documents.',ind5_b1:'Entity formation support',ind5_b2:'Opening packages',ind5_b3:'Filing support',ind5_b4:'Business setup packet',ind5_b5:'Launch checklist',ind6_title:'Translation & Localization',ind6_desc:'Translation support, bilingual document cleanup, and structured localization for business or filing materials.',ind6_b1:'Document translation support',ind6_b2:'Bilingual cleanup',ind6_b3:'Localization review',ind6_b4:'Evidence translation pack',ind6_b5:'Administrative coordination',field_phone_careers:'Phone',field_role:'Role of interest',select_role:'Select role',role_ops:'Operations support',role_docs:'Documentation support',role_intake:'Intake support',role_translation:'Translation support',role_admin:'Admin support',role_client:'Client coordination',field_background:'Short background',careers_placeholder:'Short introduction, role of interest, and the kind of work you can support.',careers_helper:'Complete all required fields to activate the application email.',careers_who_title:'Who we look for',careers_apply_title:'How to apply',careers_t1:'Disciplined candidates who can work in a documentation-first operating model.',careers_t2:'Strong and confident English.',careers_t3:'Verifiable recommendations strongly preferred.',careers_t4:'Preference for Russian-speaking candidates with excellent English.',field_need:'Primary need',field_urgency:'Urgency',field_docs:'Document readiness',field_company_context:'Company / matter context',field_company_context_ph:'Company, packet, contract, invoice',intake_placeholder:'Describe the matter, the business context, and the decision that is blocked.',attach_materials:'Attach materials',attach_helper:'Add contracts, invoices, screenshots, exhibits, or packet drafts.',need_recovery:'Revenue Recovery Workflow Design',need_file:'Corporate Legal File Control',need_intake:'Structured Case Intake & Packet Build',urgency_standard:'Standard',urgency_high:'High',docs_ready:'Core documents are ready',docs_partial:'Only partial material is ready',next_standard:'We will review the intake and propose the first clean work product.',next_fast:'We will prioritize the intake and route the next-step memo first',web_project_cta:'Request a Web Site Project',web_project_title:'Request a Web Site Project',web_project_intro:'Tell us about your website project and budget. We will review the request and contact you with the next step.',web_project_field_name:'Name',web_project_field_company:'Company',web_project_field_phone:'Phone',web_project_field_email:'Email',web_project_field_budget:'Budget',web_project_budget_placeholder:'Select budget',web_project_budget_more:'More than 40',web_project_notes_label:'Project Notes (optional)',web_project_notes_placeholder:'Briefly describe the type of website or project you want.',web_project_submit:'Submit Request',web_project_success:'Thank you. Your request has been received. We will review it and contact you.',web_project_error:'Something went wrong. Please try again.',web_project_validation:'Please complete all required fields before submitting.'},
  ru:{order_services:'Заказать услуги',clock_local_sub:'Локально',services_individuals_title:'Услуги для физических лиц',services_individuals_intro:'Услуги для физических лиц и разовых специализированных задач полностью доступны, при этом основной фокус VitaCoreX остаётся на корпоративной B2B-операционной поддержке.',request_review:'Запросить разбор',see_all_individuals:'Смотреть все услуги для физических лиц',res1_title:'Обзор точек утечки в healthcare',res1_desc:'Краткий материал для операторов о точках утечки, давлении на DSO и раннем сжатии комиссии агентств.',res1_tag:'Материал для операторов',res2_title:'CFO brief для healthcare',res2_desc:'Материал для owners, CFOs и операционного руководства с финансовым ракурсом.',res2_tag:'Материал для CFO',res3_title:'Институциональный deck для dental',res3_desc:'Институциональная подача с логикой пилота, sequencing и executive framing.',res3_tag:'Институциональный deck',res4_title:'Executive review по pre-collection',res4_desc:'Логика controlled escalation и экономика pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Сигнал качества пакета',counter_clarity:'Сигнал ясности handoff',counter_control:'Сигнал контроля возврата',counter_pressure:'Иллюстративное давление утечек',counter_adoption:'Операционный сигнал adoption',counter_window:'Окно проектирования пилота',ind1_title:'Договоры и документы',ind1_desc:'Административная поддержка по подготовке договоров, проверке документов, бизнес-форм и demand letters.',ind1_b1:'Подготовка договоров',ind1_b2:'Проверка документов',ind1_b3:'Бизнес-формы',ind1_b4:'Demand letters',ind1_b5:'Пакеты поддержки',ind2_title:'Иммиграционные документы',ind2_desc:'Организация пакета, сопровождение по формам, проверка готовности к подаче и структурирование доказательств.',ind2_b1:'Организация пакета',ind2_b2:'Сопровождение по формам',ind2_b3:'Проверка готовности к подаче',ind2_b4:'Структурирование доказательств',ind2_b5:'Административная поддержка',ind3_title:'Проверка покупки автомобиля',ind3_desc:'Проверка сделки до подписания: анализ fee, логики платежей и поддержка переговоров.',ind3_b1:'Проверка дилерского контракта',ind3_b2:'Анализ fee',ind3_b3:'Проверка платежной структуры',ind3_b4:'Поддержка переговоров',ind3_b5:'Краткое резюме рисков',ind4_title:'Бизнес-планы',ind4_desc:'Executive summary, investor narrative, launch plan, финансовая рамка и поддержка pitch.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'План запуска',ind4_b4:'Финансовая рамка',ind4_b5:'Поддержка pitch',ind5_title:'Открытие компаний',ind5_desc:'Структурированная помощь по запуску компании, пакетам открытия, filing и стартовым документам.',ind5_b1:'Поддержка по формированию компании',ind5_b2:'Пакеты открытия',ind5_b3:'Поддержка filing',ind5_b4:'Стартовый бизнес-пакет',ind5_b5:'Launch checklist',ind6_title:'Перевод и локализация',ind6_desc:'Поддержка перевода документов, билингвальная вычитка и локализация материалов для бизнеса и подачи.',ind6_b1:'Поддержка перевода документов',ind6_b2:'Билингвальная вычитка',ind6_b3:'Проверка локализации',ind6_b4:'Пакет перевода доказательств',ind6_b5:'Административная координация',field_phone_careers:'Телефон',field_role:'Интересующая роль',select_role:'Выберите роль',role_ops:'Операционная поддержка',role_docs:'Документационная поддержка',role_intake:'Поддержка intake',role_translation:'Поддержка перевода',role_admin:'Административная поддержка',role_client:'Координация с клиентами',field_background:'Краткая информация о вас',careers_placeholder:'Коротко представьтесь, укажите интересующую роль и чем именно вы можете быть полезны.',careers_helper:'Заполните все обязательные поля, чтобы активировать письмо для отклика.',careers_who_title:'Кого мы ищем',careers_apply_title:'Как откликнуться',careers_t1:'Дисциплинированных кандидатов, способных работать в documentation-first модели.',careers_t2:'Уверенный английский.',careers_t3:'Подтверждаемые рекомендации крайне желательны.',careers_t4:'Предпочтение кандидатам с русским языком и сильным английским.',field_need:'Основной запрос',field_urgency:'Срочность',field_docs:'Готовность документов',field_company_context:'Компания / контекст задачи',field_company_context_ph:'Компания, пакет, договор, счёт',intake_placeholder:'Опишите задачу, деловой контекст и решение, которое сейчас заблокировано.',
   intake_submit:'Отправить структурированный запрос',
   field_location:'Штат / город / ZIP-код',
@@ -77,7 +77,7 @@ order_services:'Order Services',clock_local_sub:'Local',services_individuals_tit
   field_linkedin:'LinkedIn',
   field_linkedin_ph:'https://www.linkedin.com/in/...',
   careers_mobile_button2:'Открыть форму заявки',gate_success:'Доступ открыт. Ресурс открывается.',gate_failure:'Не удалось отправить форму. Попробуйте ещё раз или напишите на email.',
-  role_bizdocs:'Поддержка бизнес-документации',attach_materials:'Прикрепить материалы',attach_helper:'Добавьте договоры, счета, скриншоты, exhibits или draft-пакеты.',need_recovery:'Система возврата дебиторной выручки',need_file:'Контроль юридического документооборота компании',need_intake:'Структурированный первичный разбор и сбор пакета',urgency_standard:'Стандартно',urgency_high:'Высокий приоритет',docs_ready:'Основные документы готовы',docs_partial:'Готова только часть материалов',next_standard:'Мы рассмотрим intake и предложим первый аккуратный рабочий пакет.',next_fast:'Мы приоритизируем intake и сначала направим next-step memo.'},
+  role_bizdocs:'Поддержка бизнес-документации',attach_materials:'Прикрепить материалы',attach_helper:'Добавьте договоры, счета, скриншоты, exhibits или draft-пакеты.',need_recovery:'Система возврата дебиторной выручки',need_file:'Контроль юридического документооборота компании',need_intake:'Структурированный первичный разбор и сбор пакета',urgency_standard:'Стандартно',urgency_high:'Высокий приоритет',docs_ready:'Основные документы готовы',docs_partial:'Готова только часть материалов',next_standard:'Мы рассмотрим intake и предложим первый аккуратный рабочий пакет.',next_fast:'Мы приоритизируем intake и сначала направим next-step memo.',web_project_cta:'Заказать проект сайта',web_project_title:'Заказать проект сайта',web_project_intro:'Опишите ваш проект сайта и бюджет. Мы рассмотрим заявку и свяжемся с вами по следующему шагу.',web_project_field_name:'Имя',web_project_field_company:'Компания',web_project_field_phone:'Телефон',web_project_field_email:'Email',web_project_field_budget:'Бюджет',web_project_budget_placeholder:'Выберите бюджет',web_project_budget_more:'Больше 40',web_project_notes_label:'Комментарий по проекту (необязательно)',web_project_notes_placeholder:'Кратко опишите, какой сайт или проект вы хотите.',web_project_submit:'Отправить заявку',web_project_success:'Спасибо. Ваша заявка получена. Мы рассмотрим ее и свяжемся с вами.',web_project_error:'Что-то пошло не так. Пожалуйста, попробуйте еще раз.',web_project_validation:'Пожалуйста, заполните все обязательные поля перед отправкой.'},
  es:{order_services:'Solicitar servicio',clock_local_sub:'Local',services_individuals_title:'Servicios para individuos',services_individuals_intro:'Los servicios para individuos y asuntos especializados de una sola vez siguen totalmente disponibles, mientras el foco principal de VitaCoreX permanece en soporte operativo B2B corporativo.',request_review:'Solicitar revisión',see_all_individuals:'Ver todos los servicios para individuos',res1_title:'Brief de fugas en healthcare',res1_desc:'Resumen para operadores sobre puntos de fuga, presión sobre DSO y compresión temprana de comisiones de agencia.',res1_tag:'Brief para operadores',res2_title:'Brief para CFO en healthcare',res2_desc:'Documento con enfoque financiero para owners, CFOs y liderazgo operativo.',res2_tag:'Brief para CFO',res3_title:'Deck institucional dental',res3_desc:'Presentación institucional con economía del piloto, lógica de secuencia y posicionamiento ejecutivo.',res3_tag:'Deck institucional',res4_title:'Revisión ejecutiva pre-collection',res4_desc:'Lógica de escalación controlada y economía para secuencia pre-agencia.',res4_tag:'Revisión ejecutiva',counter_quality:'Señal de calidad del paquete',counter_clarity:'Señal de claridad del handoff',counter_control:'Señal de control de recuperación',counter_pressure:'Presión ilustrativa de fugas',counter_adoption:'Adopción operativa ALSP',counter_window:'Ventana de diseño del piloto',ind1_title:'Contratos y documentación',ind1_desc:'Soporte administrativo para redacción de contratos, revisión documental, formularios de negocio y cartas de demanda.',ind1_b1:'Redacción de contratos',ind1_b2:'Revisión de documentos',ind1_b3:'Formularios de negocio',ind1_b4:'Cartas de demanda',ind1_b5:'Paquetes de soporte',ind2_title:'Documentos migratorios',ind2_desc:'Organización del paquete, guía de formularios, revisión previa a la presentación y estructuración de evidencia.',ind2_b1:'Organización del paquete',ind2_b2:'Guía de formularios',ind2_b3:'Revisión previa a envío',ind2_b4:'Estructuración de evidencia',ind2_b5:'Soporte administrativo',ind3_title:'Revisión de compra de auto',ind3_desc:'Revisión del lado del comprador antes de firmar, con análisis de cargos, pagos y apoyo de negociación.',ind3_b1:'Revisión de contrato del dealer',ind3_b2:'Análisis de cargos',ind3_b3:'Revisión de pagos',ind3_b4:'Apoyo de negociación',ind3_b5:'Resumen de riesgos',ind4_title:'Planes de negocio',ind4_desc:'Resumen ejecutivo, narrativa para inversionistas, plan de lanzamiento, marco financiero y apoyo para pitch.',ind4_b1:'Resumen ejecutivo',ind4_b2:'Narrativa para inversionistas',ind4_b3:'Plan de lanzamiento',ind4_b4:'Marco financiero',ind4_b5:'Apoyo para pitch',ind5_title:'Formación de empresas',ind5_desc:'Soporte estructurado para abrir compañías, paquetes de constitución, filings y documentos de lanzamiento.',ind5_b1:'Soporte de formación',ind5_b2:'Paquetes de apertura',ind5_b3:'Soporte de filing',ind5_b4:'Paquete de puesta en marcha',ind5_b5:'Checklist de lanzamiento',ind6_title:'Traducción y localización',ind6_desc:'Soporte de traducción documental, limpieza bilingüe y localización estructurada para materiales de negocio o filing.',ind6_b1:'Soporte de traducción documental',ind6_b2:'Limpieza bilingüe',ind6_b3:'Revisión de localización',ind6_b4:'Paquete de traducción de evidencia',ind6_b5:'Coordinación administrativa',field_phone_careers:'Teléfono',field_role:'Rol de interés',select_role:'Selecciona un rol',role_ops:'Soporte operativo',role_docs:'Soporte documental',role_intake:'Soporte de intake',role_translation:'Soporte de traducción',role_admin:'Soporte administrativo',role_client:'Coordinación con clientes',field_background:'Breve experiencia',careers_placeholder:'Preséntate brevemente, indica el rol de interés y el tipo de trabajo que puedes apoyar.',careers_helper:'Completa todos los campos obligatorios para activar el correo de aplicación.',careers_who_title:'A quién buscamos',careers_apply_title:'Cómo aplicar',careers_t1:'Candidatos disciplinados que puedan trabajar en un modelo centrado en la documentación.',careers_t2:'Inglés sólido y seguro.',careers_t3:'Referencias verificables fuertemente preferidas.',careers_t4:'Preferencia por candidatos rusohablantes con excelente inglés.',field_need:'Necesidad principal',field_urgency:'Urgencia',field_docs:'Estado de documentos',field_company_context:'Empresa / contexto del asunto',field_company_context_ph:'Empresa, paquete, contrato, factura',intake_placeholder:'Describe el asunto, el contexto del negocio y la decisión que hoy está bloqueada.',
   intake_submit:'Enviar intake estructurado',
   field_location:'Estado / Ciudad / Código ZIP',
@@ -108,7 +108,7 @@ order_services:'Order Services',clock_local_sub:'Local',services_individuals_tit
   field_linkedin:'LinkedIn',
   field_linkedin_ph:'https://www.linkedin.com/in/...',
   careers_mobile_button2:'Abrir formulario de solicitud',gate_success:'Acceso concedido. Abriendo el recurso.',gate_failure:'No se pudo enviar. Inténtelo otra vez o use el correo.',
-  role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.'}
+  role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.',web_project_cta:'Solicitar un proyecto de sitio web',web_project_title:'Solicitar un proyecto de sitio web',web_project_intro:'Cuéntenos sobre su proyecto de sitio web y presupuesto. Revisaremos la solicitud y nos pondremos en contacto con usted con el siguiente paso.',web_project_field_name:'Nombre',web_project_field_company:'Empresa',web_project_field_phone:'Teléfono',web_project_field_email:'Correo electrónico',web_project_field_budget:'Presupuesto',web_project_budget_placeholder:'Seleccione el presupuesto',web_project_budget_more:'Más de 40',web_project_notes_label:'Notas del proyecto (opcional)',web_project_notes_placeholder:'Describa brevemente el tipo de sitio web o proyecto que desea.',web_project_submit:'Enviar solicitud',web_project_success:'Gracias. Su solicitud ha sido recibida. La revisaremos y nos pondremos en contacto con usted.',web_project_error:'Algo salió mal. Por favor, inténtelo de nuevo.',web_project_validation:'Por favor, complete todos los campos obligatorios antes de enviar.'}
 };
 let lang=['en','ru','es'].includes(localStorage.getItem('vcx_lang'))?localStorage.getItem('vcx_lang'):'en';
 function tr(key){return (extra[lang]&&extra[lang][key]) || (page[lang]&&page[lang][key]) || (common[lang]&&common[lang][key]) || (extra.en&&extra.en[key]) || (page.en&&page.en[key]) || (common.en&&common.en[key]) || '';}
@@ -391,7 +391,7 @@ function submitViaHiddenIframe(form, config){
       resolve();
     }, {once:true});
 
-    form.setAttribute('action', FORM_ENDPOINT);
+    form.setAttribute('action', config.endpoint || FORM_ENDPOINT);
     form.setAttribute('method', 'POST');
     form.setAttribute('enctype', config.enctype || 'multipart/form-data');
     form.setAttribute('target', iframeName);
@@ -452,6 +452,88 @@ function bindIntakeForm(form){
   });
 }
 bindIntakeForm($('#intakeForm'));
+
+const WEB_PROJECT_FORM_ENDPOINT='https://formsubmit.co/Vitacorexllc@mail.com';
+function bindWebProjectModal(){
+  const modal=$('#webProjectModal');
+  if(!modal) return;
+  const form=$('#webProjectForm');
+  const status=$('#webProjectStatus');
+  const submitBtn=form ? (form.querySelector('#webProjectSubmitBtn') || form.querySelector('button[type="submit"]')) : null;
+  const closeBtns=Array.from(modal.querySelectorAll('.modal-close,[data-web-project-close]'));
+  const triggers=$$('[data-web-project-open]');
+  const firstField=form ? form.querySelector('input[name="name"]') : null;
+  let lastTrigger=null;
+
+  function openWebProjectModal(trigger){
+    lastTrigger=trigger || document.activeElement || null;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    modal.classList.remove('web-project-success');
+    if(status) setStatus(status,'','');
+    setTimeout(()=>{ if(firstField) firstField.focus(); }, 40);
+  }
+
+  function closeWebProjectModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if(lastTrigger && typeof lastTrigger.focus==='function'){
+      try{ lastTrigger.focus(); }catch(err){}
+    }
+  }
+
+  triggers.forEach((btn)=>{
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      openWebProjectModal(btn);
+    });
+  });
+
+  closeBtns.forEach((btn)=>btn.addEventListener('click', closeWebProjectModal));
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeWebProjectModal(); });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key==='Escape' && modal.classList.contains('open')) closeWebProjectModal();
+  });
+
+  if(form){
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(!form.checkValidity()){
+        form.reportValidity();
+        if(status) setStatus(status,'error',statusText('web_project_validation','Please complete all required fields before submitting.'));
+        return;
+      }
+      const fd=new FormData(form);
+      if(submitBtn){
+        submitBtn.disabled=true;
+        submitBtn.classList.add('is-loading');
+      }
+      if(status) setStatus(status,'','');
+      try{
+        await submitViaHiddenIframe(form, {
+          endpoint: WEB_PROJECT_FORM_ENDPOINT,
+          subject:'VitaCoreX Web Site Project Request',
+          replyTo:String(fd.get('email')||'').trim(),
+          enctype:'application/x-www-form-urlencoded'
+        });
+        form.reset();
+        modal.classList.add('web-project-success');
+        if(status) setStatus(status,'success',statusText('web_project_success','Thank you. Your request has been received. We will review it and contact you.'));
+      }catch(err){
+        if(status) setStatus(status,'error',statusText('web_project_error','Something went wrong. Please try again.'));
+      }finally{
+        if(submitBtn){
+          submitBtn.disabled=false;
+          submitBtn.classList.remove('is-loading');
+        }
+      }
+    });
+  }
+}
+bindWebProjectModal();
+
 
 const careersForm=$('#careersForm');
 if(careersForm){
@@ -763,8 +845,6 @@ improveMobileFileInput();
   const hardCopy = {
     en: {
       marketFallback: 'Market signal temporarily unavailable. Revenue recovery remains one of the largest controllable cash drivers for multi-location operators.',
-      dockCalendar: 'Schedule Consultation',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive tools',
         title: 'Interactive tools that make the offer clearer, more credible, and easier to evaluate.',
@@ -785,8 +865,6 @@ improveMobileFileInput();
     },
     ru: {
       marketFallback: 'Рыночный блок временно недоступен. Возврат выручки остаётся одним из самых управляемых драйверов кэша для сетевых операторов.',
-      dockCalendar: 'Назначить консультацию',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Executive-инструменты',
         title: 'Интерактивные инструменты, которые делают предложение понятнее, убедительнее и полезнее.',
@@ -807,8 +885,6 @@ improveMobileFileInput();
     },
     es: {
       marketFallback: 'El bloque de mercado no está disponible temporalmente. La recuperación de ingresos sigue siendo uno de los mayores impulsores de caja controlables para operadores multi-sede.',
-      dockCalendar: 'Reservar llamada',
-      dockWhatsapp: 'WhatsApp',
       widgets: {
         eyebrow: 'Herramientas ejecutivas',
         title: 'Herramientas interactivas que vuelven la oferta más clara, creíble y fácil de evaluar.',
@@ -885,11 +961,6 @@ improveMobileFileInput();
       if(buttons[1]) buttons[1].textContent = copy.widgets.module[3];
     }
 
-    document.querySelectorAll('.dock-calendar').forEach(a=>{
-      a.textContent = copy.dockCalendar;
-      a.setAttribute('href','https://calendly.com/vitacorex2025/30min');
-    });
-    document.querySelectorAll('.dock-whatsapp').forEach(a=>{ a.textContent = copy.dockWhatsapp; });
   }
 
   function ensureTradingViewFallback(){
@@ -1168,4 +1239,110 @@ function initV52ImpactCalc(){
   }
   readyInputs.forEach(el=>el.addEventListener('input',calcReadiness));
   calcReadiness();
+})();
+
+
+(function(){
+  const btn=document.getElementById('liEvaluate');
+  const box=document.getElementById('liResult');
+  if(!btn || !box) return;
+  btn.addEventListener('click', function(){
+    const revenue=Number((document.getElementById('liRevenue')||{}).value||1);
+    const portfolio=Number((document.getElementById('liPortfolio')||{}).value||1);
+    const pain=((document.getElementById('liPain')||{}).value)||'workflow';
+    const industry=((document.getElementById('liIndustry')||{}).value)||'services';
+    let score = revenue + portfolio + (pain==='counsel' || pain==='agency' ? 2 : 1);
+    let tier = score >= 8 ? 'High-priority operator review' : score >= 6 ? 'Structured diagnostic review' : 'Initial workflow assessment';
+    let focus = {
+      workflow:'workflow sequencing, outreach cadence, and KPI visibility',
+      docs:'documentation governance, chronology, and file readiness',
+      agency:'pre-agency control, fee leakage reduction, and escalation logic',
+      counsel:'file-control infrastructure, attorney cleanup reduction, and counsel support'
+    }[pain];
+    let sector = {
+      healthcare:'Healthcare and dental operators usually benefit from earlier payment commitment conversion and cleaner patient-balance controls.',
+      fleet:'Fleet and fuel portfolios usually benefit from guaranty discipline, ACH control, and faster escalation governance.',
+      subscription:'Subscription platforms usually benefit from stronger documentation, autopay discipline, and cleaner exception handling.',
+      services:'Multi-location service operators usually benefit from standardized workflows and location-level governance.'
+    }[industry];
+    box.innerHTML = '<strong>'+tier+'</strong><p>Suggested focus: <b>'+focus+'</b>. '+sector+' Recommended next step: schedule a strategy consultation and review the current portfolio, file condition, and implementation scope.</p>';
+  });
+})();
+
+
+(function(){
+  const money=(n)=>'$'+Math.round(n).toLocaleString();
+  const byId=(id)=>document.getElementById(id);
+
+  const roiBtn=byId('roiCalculate');
+  if(roiBtn){
+    roiBtn.addEventListener('click', function(){
+      const revenue=parseFloat(byId('roiRevenue').value||0);
+      const portfolio=parseFloat(byId('roiPortfolio').value||0);
+      const currentRate=parseFloat(byId('roiRate').value||0)/100;
+      const agencyFee=parseFloat(byId('roiAgencyFee').value||0)/100;
+
+      const uplift=0.13;
+      const improvedRate=Math.min(currentRate + uplift, 0.92);
+      const baselineCash=portfolio*currentRate;
+      const improvedCash=portfolio*improvedRate;
+      const additional=Math.max(improvedCash-baselineCash,0);
+      const avoided=additional*agencyFee;
+      const dsoGain=Math.max(3, Math.min(12, Math.round((portfolio/(Math.max(revenue,1)))*28)));
+
+      byId('roiAdditional').textContent=money(additional);
+      byId('roiAvoided').textContent=money(avoided);
+      byId('roiDso').textContent=dsoGain+' days';
+      byId('roiBaseBar').style.width=Math.max(12,currentRate*100)+'%';
+      byId('roiImprovedBar').style.width=Math.max(18,improvedRate*100)+'%';
+      const box=byId('roiResult');
+      if(box){
+        box.innerHTML='<strong>Illustrative impact</strong><p>Based on the inputs provided, a structured recovery layer could directionally improve retained cash by <b>'+money(additional)+'</b>, avoid approximately <b>'+money(avoided)+'</b> in contingency leakage, and support a potential <b>'+dsoGain+'-day</b> improvement in cash velocity. Use a pilot to validate actual portfolio performance.</p>';
+      }
+    });
+  }
+
+  const diagBtn=byId('diagEvaluate');
+  if(diagBtn){
+    diagBtn.addEventListener('click', function(){
+      const industry=byId('diagIndustry').value;
+      const complexity=byId('diagComplexity').value;
+      const docs=byId('diagDocs').value;
+      const pain=byId('diagPain').value;
+      let recommendation='Begin with recovery infrastructure review.';
+      if((docs==='weak' && pain==='counsel') || (docs==='weak' && complexity!=='standard')){
+        recommendation='Begin with corporate legal file control and documentation governance.';
+      }
+      if((pain==='recovery' && complexity!=='standard' && docs!=='structured') || (pain==='agency' && complexity==='critical')){
+        recommendation='Run a combined 90-day pilot covering recovery workflow and legal file control.';
+      }
+      const sectorMap={
+        healthcare:'Healthcare and dental operators usually benefit from earlier patient-balance conversion, cleaner payment documentation, and stronger escalation discipline.',
+        fleet:'Fleet, fuel, and logistics operators usually benefit from guaranty discipline, ACH governance, and faster contract-file readiness.',
+        subscription:'Subscription platforms usually benefit from cleaner autopay logic, exception routing, and stronger documentation before enforcement.',
+        services:'Multi-location service operators usually benefit from standardized workflows and file governance across locations.'
+      };
+      const box=byId('diagResult');
+      if(box){
+        box.innerHTML='<strong>'+recommendation+'</strong><p>'+sectorMap[industry]+' This profile suggests prioritizing '+(pain==='counsel'?'documentation control and counsel support':'cash-conversion workflow discipline')+' before external costs escalate further.</p>';
+      }
+    });
+  }
+
+  const legalBtn=byId('legalCalc');
+  if(legalBtn){
+    legalBtn.addEventListener('click', function(){
+      const files=parseFloat(byId('legalFiles').value||0);
+      const rate=parseFloat(byId('legalRate').value||0);
+      const hours=parseFloat(byId('legalHours').value||0);
+      const exposure=files*rate*hours;
+      const totalHours=files*hours;
+      byId('legalExposure').textContent=money(exposure);
+      byId('legalExposureHours').textContent=Math.round(totalHours).toLocaleString()+' hrs';
+      const box=byId('legalResult');
+      if(box){
+        box.innerHTML='<strong>Illustrative exposure</strong><p>At the current assumptions, administrative file cleanup may absorb <b>'+money(exposure)+'</b> in annual attorney time across approximately <b>'+Math.round(totalHours).toLocaleString()+' hours</b>. Stronger documentation infrastructure can reduce this burden before outside review begins.</p>';
+      }
+    });
+  }
 })();

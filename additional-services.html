@@ -94,6 +94,7 @@
         <a data-common="intake" href="structured-case-intake.html">Structured Case Intake</a>
         <a data-common="careers" href="careers.html">Careers</a>
         <a data-common="cta_contact" href="mailto:VitaCoreXllc@gmail.com">Contact the director</a>
+        <button class="footer-project-btn" data-web-project-open type="button" data-tx="web_project_cta">Request a Web Site Project</button>
       </nav>
     </div>
     <div class="footer-group">
@@ -104,7 +105,60 @@
       </nav>
     </div>
   </div>
-</footer><div aria-hidden="true" class="modal" id="pdfGate"><div class="modal-card"><div class="modal-head"><div><h3 data-common="gate_title">Unlock the executive brief</h3><p class="small-note" data-common="gate_copy">Enter your details to access the PDF and keep the follow-up sequence organized.</p><p class="small-note gate-asset"></p></div><button class="modal-close" type="button">×</button></div><form action="https://formsubmit.co/VitaCoreXllc@gmail.com" class="form-grid" id="gateForm" method="POST" style="margin-top:14px"><div class="field"><label data-common="field_name">Full Name</label><input name="full_name" required=""/></div><div class="field"><label data-common="field_company">Company</label><input name="company" required=""/></div><div class="field"><label data-common="field_phone">Phone</label><input name="phone" required=""/></div><div class="field"><label data-common="field_email">Email</label><input name="email" required="" type="email"/></div><input name="asset" type="hidden"/><div class="field full"><p class="small-note" id="gateState"></p></div><div class="modal-actions field full"><button class="btn btn-secondary modal-cancel" data-common="gate_cancel" type="button">Cancel</button><button class="btn btn-primary" data-common="gate_submit" type="submit">Unlock PDF</button></div><input name="_captcha" type="hidden" value="false"/><input name="_template" type="hidden" value="table"/><input name="_subject" type="hidden" value="VitaCoreX Resource Access"/></form></div></div><div aria-hidden="true" class="modal" id="careersMobileModal"><div class="modal-card"><div class="modal-head"><div><h3 data-common="careers_mobile_title">Careers — mobile application</h3><p class="small-note" data-common="careers_mobile_body">We look for disciplined, reliable people who can work inside a documentation-first operating model. Strong English is required. Verifiable recommendations are strongly preferred. Prior experience in documentation, operations, client support, legal support, or litigation support is preferred. There is a strong preference for Russian-speaking candidates with excellent English. In your email, include your full name, phone number, city/state, role of interest, a short introduction, and attach your resume/CV.</p></div><button class="modal-close careers-close" type="button">×</button></div><div class="modal-actions"><a class="btn btn-primary" data-common="careers_mobile_button" data-tx="careers_mobile_button2" href="careers.html#careersForm">Open application form</a></div></div></div><div aria-label="Quick access dock" class="vcx-dock">
+</footer>
+<div aria-hidden="true" class="modal" id="webProjectModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <h3 data-tx="web_project_title">Request a Web Site Project</h3>
+        <p class="small-note web-project-intro" data-tx="web_project_intro">Tell us about your website project and budget. We will review the request and contact you with the next step.</p>
+      </div>
+      <button aria-label="Close" class="modal-close" data-web-project-close type="button">×</button>
+    </div>
+    <form action="https://formsubmit.co/Vitacorexllc@mail.com" class="form-grid web-project-form" id="webProjectForm" method="POST">
+      <div class="field">
+        <label data-tx="web_project_field_name" for="webProjectName">Name</label>
+        <input id="webProjectName" name="name" required type="text"/>
+      </div>
+      <div class="field">
+        <label data-tx="web_project_field_company" for="webProjectCompany">Company</label>
+        <input id="webProjectCompany" name="company" required type="text"/>
+      </div>
+      <div class="field">
+        <label data-tx="web_project_field_phone" for="webProjectPhone">Phone</label>
+        <input id="webProjectPhone" name="phone" required type="tel"/>
+      </div>
+      <div class="field">
+        <label data-tx="web_project_field_email" for="webProjectEmail">Email</label>
+        <input id="webProjectEmail" name="email" required type="email"/>
+      </div>
+      <div class="field full">
+        <label data-tx="web_project_field_budget" for="webProjectBudget">Budget</label>
+        <select id="webProjectBudget" name="budget" required>
+          <option selected disabled value="" data-tx="web_project_budget_placeholder">Select budget</option>
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
+          <option>40</option>
+          <option data-tx="web_project_budget_more">More than 40</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label data-tx="web_project_notes_label" for="webProjectNotes">Project Notes (optional)</label>
+        <textarea data-tx-placeholder="web_project_notes_placeholder" id="webProjectNotes" name="project_notes" placeholder="Briefly describe the type of website or project you want."></textarea>
+      </div>
+      <input name="Source" type="hidden" value="web_site_project_footer_modal"/>
+      <div class="field full">
+        <p class="small-note form-status" id="webProjectStatus"></p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn web-project-submit" id="webProjectSubmitBtn" type="submit" data-tx="web_project_submit">Submit Request</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div aria-hidden="true" class="modal" id="pdfGate"><div class="modal-card"><div class="modal-head"><div><h3 data-common="gate_title">Unlock the executive brief</h3><p class="small-note" data-common="gate_copy">Enter your details to access the PDF and keep the follow-up sequence organized.</p><p class="small-note gate-asset"></p></div><button class="modal-close" type="button">×</button></div><form action="https://formsubmit.co/VitaCoreXllc@gmail.com" class="form-grid" id="gateForm" method="POST" style="margin-top:14px"><div class="field"><label data-common="field_name">Full Name</label><input name="full_name" required=""/></div><div class="field"><label data-common="field_company">Company</label><input name="company" required=""/></div><div class="field"><label data-common="field_phone">Phone</label><input name="phone" required=""/></div><div class="field"><label data-common="field_email">Email</label><input name="email" required="" type="email"/></div><input name="asset" type="hidden"/><div class="field full"><p class="small-note" id="gateState"></p></div><div class="modal-actions field full"><button class="btn btn-secondary modal-cancel" data-common="gate_cancel" type="button">Cancel</button><button class="btn btn-primary" data-common="gate_submit" type="submit">Unlock PDF</button></div><input name="_captcha" type="hidden" value="false"/><input name="_template" type="hidden" value="table"/><input name="_subject" type="hidden" value="VitaCoreX Resource Access"/></form></div></div><div aria-hidden="true" class="modal" id="careersMobileModal"><div class="modal-card"><div class="modal-head"><div><h3 data-common="careers_mobile_title">Careers — mobile application</h3><p class="small-note" data-common="careers_mobile_body">We look for disciplined, reliable people who can work inside a documentation-first operating model. Strong English is required. Verifiable recommendations are strongly preferred. Prior experience in documentation, operations, client support, legal support, or litigation support is preferred. There is a strong preference for Russian-speaking candidates with excellent English. In your email, include your full name, phone number, city/state, role of interest, a short introduction, and attach your resume/CV.</p></div><button class="modal-close careers-close" type="button">×</button></div><div class="modal-actions"><a class="btn btn-primary" data-common="careers_mobile_button" data-tx="careers_mobile_button2" href="careers.html#careersForm">Open application form</a></div></div></div><div aria-label="Quick access dock" class="vcx-dock">
 <div class="vcx-dock-shell">
 <div class="vcx-dock-desktop">
 <a aria-label="Request Service" class="vcx-dock-pilot" href="structured-case-intake.html">Request Service</a>
