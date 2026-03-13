@@ -3213,27 +3213,27 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 
 
 
-/* ===== BOTTOM DOCK BRIGHTNESS + GLASS REFINEMENT ===== */
+/* ===== BOTTOM DOCK BRIGHTNESS + GLASS POLISH ===== */
 .vcx-dock-shell{
   background:
-    linear-gradient(180deg, rgba(255,255,255,.28), rgba(236,243,250,.10)),
-    radial-gradient(125% 170% at 0% 0%, rgba(134,163,210,.11), transparent 42%),
-    radial-gradient(140% 160% at 100% 100%, rgba(18,39,68,.10), transparent 44%),
-    rgba(226,234,244,.12);
-  border:1px solid rgba(255,255,255,.42);
+    linear-gradient(180deg, rgba(255,255,255,.24), rgba(242,247,252,.07)),
+    radial-gradient(125% 170% at 0% 0%, rgba(136,172,220,.09), transparent 42%),
+    radial-gradient(140% 160% at 100% 100%, rgba(17,38,66,.07), transparent 44%),
+    rgba(224,233,243,.08);
+  border:1px solid rgba(255,255,255,.44);
   box-shadow:
-    0 18px 34px rgba(7,22,42,.14),
-    inset 0 1px 0 rgba(255,255,255,.68),
-    inset 0 -1px 0 rgba(255,255,255,.10);
+    0 18px 34px rgba(7,22,42,.12),
+    inset 0 1px 0 rgba(255,255,255,.76),
+    inset 0 -1px 0 rgba(255,255,255,.08);
 }
 .vcx-dock-shell::before{
-  background:linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,0));
-  opacity:.92;
+  background:linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,0));
+  opacity:.96;
 }
 .vcx-dock-shell::after{
   inset:auto 14% 6px;
-  height:24px;
-  background:radial-gradient(70% 100% at 50% 0%, rgba(255,255,255,.14), rgba(255,255,255,0));
+  height:22px;
+  background:radial-gradient(72% 100% at 50% 0%, rgba(255,255,255,.16), rgba(255,255,255,0));
   filter:blur(7px);
 }
 
@@ -3241,178 +3241,196 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 .vcx-dock-chip,
 .vcx-dock-iconbox,
 .vcx-dock-chipicon{
-  border-color:rgba(255,255,255,.30);
+  border-color:rgba(255,255,255,.34);
 }
 
 .vcx-dock-pilot{
-  color:#fbfdff;
+  color:#ffffff;
   background:
-    linear-gradient(180deg, rgba(104,155,229,.99), rgba(41,90,161,.97)),
-    radial-gradient(115% 120% at 18% 18%, rgba(255,255,255,.24), transparent 42%),
-    linear-gradient(135deg, rgba(126,171,237,.34), rgba(255,255,255,0));
+    linear-gradient(180deg, rgba(114,165,238,.995), rgba(46,99,174,.985)),
+    radial-gradient(120% 120% at 18% 16%, rgba(255,255,255,.28), transparent 42%),
+    linear-gradient(135deg, rgba(141,184,242,.28), rgba(255,255,255,0));
   box-shadow:
-    0 18px 30px rgba(14,42,84,.28),
-    inset 0 1px 0 rgba(255,255,255,.30),
-    inset 0 -12px 24px rgba(10,30,62,.16);
+    0 16px 28px rgba(14,42,84,.24),
+    inset 0 1px 0 rgba(255,255,255,.40),
+    inset 0 -10px 22px rgba(10,30,62,.14);
 }
+.vcx-dock-pilot .vcx-dock-text{
+  color:#ffffff;
+  text-shadow:0 1px 0 rgba(15,44,86,.18);
+}
+
 .vcx-dock-icon .vcx-dock-text{
-  color:#536c84;
-  text-shadow:0 1px 0 rgba(255,255,255,.22);
+  color:#4a657e;
+  text-shadow:0 1px 0 rgba(255,255,255,.26);
 }
 .vcx-dock-chip .vcx-dock-text{
-  color:#fbfdff;
+  color:#ffffff;
+  text-shadow:0 1px 0 rgba(17,31,52,.16);
 }
 
 .vcx-dock-iconbox,
 .vcx-dock-chipicon{
   box-shadow:
-    0 12px 20px rgba(7,22,42,.12),
-    inset 0 1px 0 rgba(255,255,255,.50),
-    inset 0 -12px 20px rgba(17,31,52,.12);
+    0 12px 20px rgba(7,22,42,.10),
+    inset 0 1px 0 rgba(255,255,255,.58),
+    inset 0 -10px 18px rgba(17,31,52,.10);
+}
+.vcx-dock-iconbox::before,
+.vcx-dock-chipicon::before{
+  opacity:.96;
+}
+.vcx-dock-iconbox::after,
+.vcx-dock-chipicon::after{
+  opacity:.72;
 }
 
-.vcx-dock-icon.is-home .vcx-dock-text{color:#607f86}
+.vcx-dock-icon.is-home .vcx-dock-text{color:#54757e}
 .vcx-dock-icon.is-home .vcx-dock-iconbox{
-  border-color:rgba(153,189,193,.60);
+  border-color:rgba(166,204,208,.62);
   background:
-    linear-gradient(180deg, rgba(147,185,189,.99), rgba(90,125,131,.98)),
-    radial-gradient(120% 120% at 20% 18%, rgba(255,255,255,.36), transparent 44%),
-    linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,0));
+    linear-gradient(180deg, rgba(162,199,203,.995), rgba(102,136,143,.985)),
+    radial-gradient(124% 124% at 20% 16%, rgba(255,255,255,.38), transparent 44%),
+    linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0));
   box-shadow:
-    0 14px 22px rgba(47,84,90,.20),
-    inset 0 1px 0 rgba(255,255,255,.44),
-    inset 0 -12px 20px rgba(35,67,73,.16);
+    0 14px 22px rgba(47,84,90,.18),
+    inset 0 1px 0 rgba(255,255,255,.50),
+    inset 0 -10px 18px rgba(35,67,73,.14);
 }
 
-.vcx-dock-icon.is-instagram .vcx-dock-text{color:#70546f}
+.vcx-dock-icon.is-instagram .vcx-dock-text{color:#6a4f68}
 .vcx-dock-icon.is-instagram .vcx-dock-iconbox{
-  border-color:rgba(225,159,190,.46);
+  border-color:rgba(232,170,201,.50);
   background:
-    linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,0)),
-    linear-gradient(135deg, #f7bc68 6%, #f27976 34%, #cf5da1 64%, #7668d6 100%);
+    linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,0)),
+    linear-gradient(135deg, #f8c16f 6%, #f5877f 34%, #d764a7 64%, #7f73de 100%);
   box-shadow:
-    0 14px 22px rgba(119,63,113,.20),
-    inset 0 1px 0 rgba(255,255,255,.40),
-    inset 0 -12px 20px rgba(86,43,89,.16);
+    0 14px 22px rgba(119,63,113,.18),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -10px 18px rgba(86,43,89,.14);
 }
 
-.vcx-dock-icon.is-facebook .vcx-dock-text{color:#53719a}
+.vcx-dock-icon.is-facebook .vcx-dock-text{color:#4d6d98}
 .vcx-dock-icon.is-facebook .vcx-dock-iconbox{
-  border-color:rgba(135,172,232,.46);
+  border-color:rgba(145,182,240,.50);
   background:
-    linear-gradient(180deg, rgba(153,191,246,.99), rgba(61,107,186,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.32), transparent 44%);
+    linear-gradient(180deg, rgba(165,201,248,.995), rgba(70,118,196,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.34), transparent 44%);
   box-shadow:
-    0 14px 22px rgba(43,75,132,.20),
-    inset 0 1px 0 rgba(255,255,255,.42),
-    inset 0 -12px 20px rgba(26,52,102,.16);
+    0 14px 22px rgba(43,75,132,.18),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -10px 18px rgba(26,52,102,.14);
 }
 
-.vcx-dock-icon.is-whatsapp .vcx-dock-text{color:#4c775f}
+.vcx-dock-icon.is-whatsapp .vcx-dock-text{color:#476f59}
 .vcx-dock-icon.is-whatsapp .vcx-dock-iconbox{
-  border-color:rgba(132,214,162,.48);
+  border-color:rgba(140,221,170,.52);
   background:
-    linear-gradient(180deg, rgba(122,221,155,.99), rgba(41,158,93,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.34), transparent 46%);
+    linear-gradient(180deg, rgba(134,230,166,.995), rgba(45,166,97,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.36), transparent 46%);
   box-shadow:
-    0 14px 22px rgba(27,104,59,.20),
-    inset 0 1px 0 rgba(255,255,255,.42),
-    inset 0 -12px 20px rgba(18,82,46,.16);
+    0 14px 22px rgba(27,104,59,.18),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -10px 18px rgba(18,82,46,.14);
 }
 
-.vcx-dock-icon.is-book .vcx-dock-text{color:#735f33}
+.vcx-dock-icon.is-book .vcx-dock-text{color:#6d5a31}
 .vcx-dock-icon.is-book .vcx-dock-iconbox{
-  border-color:rgba(217,192,126,.50);
+  border-color:rgba(224,199,132,.54);
   background:
-    linear-gradient(180deg, rgba(232,207,132,.99), rgba(184,144,63,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.36), transparent 44%);
+    linear-gradient(180deg, rgba(236,212,140,.995), rgba(193,152,69,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.38), transparent 44%);
   box-shadow:
-    0 14px 22px rgba(117,87,34,.20),
-    inset 0 1px 0 rgba(255,255,255,.44),
-    inset 0 -12px 20px rgba(98,71,28,.16);
+    0 14px 22px rgba(117,87,34,.18),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -10px 18px rgba(98,71,28,.14);
 }
 
 .vcx-dock-chip.is-individuals{
-  border-color:rgba(183,204,232,.34);
+  border-color:rgba(190,210,236,.38);
   background:
-    linear-gradient(180deg, rgba(126,154,189,.98), rgba(78,103,134,.97)),
-    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.18), transparent 42%);
+    linear-gradient(180deg, rgba(135,164,199,.99), rgba(86,111,142,.985)),
+    radial-gradient(124% 124% at 18% 16%, rgba(255,255,255,.22), transparent 42%);
   box-shadow:
-    0 14px 24px rgba(41,62,89,.20),
-    inset 0 1px 0 rgba(255,255,255,.26),
-    inset 0 -12px 20px rgba(22,34,52,.16);
+    0 14px 22px rgba(41,62,89,.18),
+    inset 0 1px 0 rgba(255,255,255,.30),
+    inset 0 -10px 18px rgba(22,34,52,.14);
 }
 .vcx-dock-chip.is-individuals .vcx-dock-chipicon{
-  border-color:rgba(206,224,249,.32);
+  border-color:rgba(214,231,252,.38);
   background:
-    linear-gradient(180deg, rgba(184,203,229,.99), rgba(113,139,175,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.28), transparent 44%);
+    linear-gradient(180deg, rgba(195,213,236,.995), rgba(122,148,184,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.30), transparent 44%);
   box-shadow:
-    0 9px 16px rgba(33,55,82,.16),
-    inset 0 1px 0 rgba(255,255,255,.38),
-    inset 0 -9px 16px rgba(47,68,94,.16);
+    0 9px 16px rgba(33,55,82,.14),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -8px 14px rgba(47,68,94,.14);
 }
 
 .vcx-dock-chip.is-precollection{
-  border-color:rgba(181,203,230,.34);
+  border-color:rgba(188,211,238,.38);
   background:
-    linear-gradient(180deg, rgba(118,146,181,.98), rgba(72,97,128,.97)),
-    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.18), transparent 42%);
+    linear-gradient(180deg, rgba(128,156,191,.99), rgba(79,104,135,.985)),
+    radial-gradient(124% 124% at 18% 16%, rgba(255,255,255,.22), transparent 42%);
   box-shadow:
-    0 14px 24px rgba(36,58,84,.20),
-    inset 0 1px 0 rgba(255,255,255,.26),
-    inset 0 -12px 20px rgba(20,33,50,.16);
+    0 14px 22px rgba(36,58,84,.18),
+    inset 0 1px 0 rgba(255,255,255,.30),
+    inset 0 -10px 18px rgba(20,33,50,.14);
 }
 .vcx-dock-chip.is-precollection .vcx-dock-chipicon{
-  border-color:rgba(189,218,237,.32);
+  border-color:rgba(198,226,244,.38);
   background:
-    linear-gradient(180deg, rgba(113,190,218,.99), rgba(63,121,158,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.28), transparent 44%);
+    linear-gradient(180deg, rgba(122,198,226,.995), rgba(70,129,166,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.30), transparent 44%);
   box-shadow:
-    0 9px 16px rgba(31,70,92,.16),
-    inset 0 1px 0 rgba(255,255,255,.38),
-    inset 0 -9px 16px rgba(28,63,82,.16);
+    0 9px 16px rgba(31,70,92,.14),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -8px 14px rgba(28,63,82,.14);
 }
 
 .vcx-dock-chip.is-paralegal{
-  border-color:rgba(183,204,232,.34);
+  border-color:rgba(190,210,236,.38);
   background:
-    linear-gradient(180deg, rgba(122,150,184,.98), rgba(75,100,130,.97)),
-    radial-gradient(120% 120% at 18% 18%, rgba(255,255,255,.18), transparent 42%);
+    linear-gradient(180deg, rgba(131,159,194,.99), rgba(82,107,137,.985)),
+    radial-gradient(124% 124% at 18% 16%, rgba(255,255,255,.22), transparent 42%);
   box-shadow:
-    0 14px 24px rgba(37,58,84,.20),
-    inset 0 1px 0 rgba(255,255,255,.26),
-    inset 0 -12px 20px rgba(20,33,50,.16);
+    0 14px 22px rgba(37,58,84,.18),
+    inset 0 1px 0 rgba(255,255,255,.30),
+    inset 0 -10px 18px rgba(20,33,50,.14);
 }
 .vcx-dock-chip.is-paralegal .vcx-dock-chipicon{
-  border-color:rgba(205,223,241,.32);
+  border-color:rgba(212,229,245,.38);
   background:
-    linear-gradient(180deg, rgba(171,193,221,.99), rgba(103,128,165,.97)),
-    radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.28), transparent 44%);
+    linear-gradient(180deg, rgba(181,202,228,.995), rgba(111,136,173,.985)),
+    radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.30), transparent 44%);
   box-shadow:
-    0 9px 16px rgba(33,55,82,.16),
-    inset 0 1px 0 rgba(255,255,255,.38),
-    inset 0 -9px 16px rgba(42,63,88,.16);
+    0 9px 16px rgba(33,55,82,.14),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -8px 14px rgba(42,63,88,.14);
 }
 
 .vcx-dock-icon:hover .vcx-dock-iconbox,
 .vcx-dock-chip:hover .vcx-dock-chipicon,
 .vcx-dock-chip:hover,
 .vcx-dock-pilot:hover{
-  filter:saturate(1.06) brightness(1.04);
+  filter:saturate(1.08) brightness(1.06);
 }
 
 @media (max-width: 900px){
   .vcx-dock-shell{
     background:
-      linear-gradient(180deg, rgba(255,255,255,.26), rgba(236,243,250,.08)),
-      radial-gradient(125% 170% at 0% 0%, rgba(134,163,210,.10), transparent 42%),
-      radial-gradient(140% 160% at 100% 100%, rgba(18,39,68,.08), transparent 44%),
-      rgba(226,234,244,.10);
-    border-color:rgba(255,255,255,.40);
+      linear-gradient(180deg, rgba(255,255,255,.22), rgba(242,247,252,.06)),
+      radial-gradient(125% 170% at 0% 0%, rgba(136,172,220,.08), transparent 42%),
+      radial-gradient(140% 160% at 100% 100%, rgba(17,38,66,.06), transparent 44%),
+      rgba(224,233,243,.07);
+    border-color:rgba(255,255,255,.42);
+    box-shadow:
+      0 14px 24px rgba(7,22,42,.11),
+      inset 0 1px 0 rgba(255,255,255,.72),
+      inset 0 -1px 0 rgba(255,255,255,.08);
   }
 }
-/* ===== END BOTTOM DOCK BRIGHTNESS + GLASS REFINEMENT ===== */
+/* ===== END BOTTOM DOCK BRIGHTNESS + GLASS POLISH ===== */
 
 
 /* v221 footer web project lead modal */
