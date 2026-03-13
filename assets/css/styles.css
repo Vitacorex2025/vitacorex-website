@@ -955,3 +955,42 @@ body{
     margin-bottom:10px;
   }
 }
+
+
+/* Audience CTA color hierarchy update */
+[data-page="ind_badge"].audience-badge{
+  background:linear-gradient(135deg,#1f4a76 0%,#2d628f 100%);
+  color:#f7fbff;
+  box-shadow:0 12px 24px rgba(26,63,102,.18);
+}
+
+[data-page="b2b_badge"].audience-badge{
+  background:linear-gradient(135deg,#af8b4d 0%,#cfb071 100%);
+  color:#12263d;
+  box-shadow:0 12px 24px rgba(127,93,36,.18);
+}
+
+[data-page="ind_cta"].btn{
+  background:linear-gradient(135deg,#1f4a76 0%,#2d628f 100%);
+  border-color:rgba(31,74,118,.28);
+  color:#f7fbff;
+  box-shadow:0 14px 28px rgba(26,63,102,.18);
+}
+
+[data-page="b2b_cta"].btn{
+  background:linear-gradient(135deg,#af8b4d 0%,#cfb071 100%);
+  border-color:rgba(161,124,60,.3);
+  color:#12263d;
+  box-shadow:0 14px 28px rgba(127,93,36,.18);
+}
+
+[data-page="ind_cta"].btn:hover,
+[data-page="b2b_cta"].btn:hover{
+  box-shadow:0 16px 30px rgba(16,31,54,.14);
+}
+
+[data-page="ind_cta"].btn:focus-visible,
+[data-page="b2b_cta"].btn:focus-visible{
+  outline:2px solid rgba(24,77,122,.22);
+  outline-offset:2px;
+}
