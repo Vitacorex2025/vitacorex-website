@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | DocketMint</title>
+  <meta name="theme-color" content="#F4F7FA"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/assets/css/app-shell.css" rel="stylesheet"/>
+</head>
+<body data-app-screen="home" data-page="home" data-i18n-title-key="home.title">
+  <a class="skip-link" href="#homeMain">Skip to home</a>
+  <div class="app-shell">
+    <aside class="app-sidebar" data-app-sidebar>
+      <div class="sidebar-brand-wrap">
+        <a aria-label="DocketMint platform" class="sidebar-brand" href="/app/home/">
+          <div class="brand-mark"><img alt="" src="/assets/img/logo.png"/></div>
+          <div class="brand-copy">
+            <div class="brand-title">DocketMint</div>
+            <div class="brand-subtitle">Recovery OS</div>
+          </div>
+        </a>
+      </div>
+      <div class="app-nav-group">
+        <div class="sidebar-section-title">Primary</div>
+        <nav aria-label="Primary navigation" class="sidebar-nav"></nav>
+      </div>
+      <section class="sidebar-service-center">
+        <div class="service-nav-header">
+          <div class="eyebrow">Workflows</div>
+          <h3>Recovery workflows</h3>
+          <p>Keep intake, evidence review, packet build, and counsel handoff inside one focused recovery workspace.</p>
+        </div>
+        <div class="service-sidebar-list" data-services-sidebar></div>
+      </section>
+      <div class="sidebar-footer">
+        <a class="sidebar-utility-link" href="/app/settings/"><span>Settings</span></a>
+      </div>
+    </aside>
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-heading">
+          <button aria-label="Toggle navigation" class="sidebar-toggle" data-sidebar-toggle type="button">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="topbar-kicker">Recovery home</div>
+            <div class="topbar-title">Recovery Command Center</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="topbar-account-host" data-home-account></div>
+        </div>
+      </header>
+      <main class="app-content" id="homeMain">
+        <div class="notice-banner is-warning" data-home-error hidden></div>
+        <div class="notice-banner is-warning" data-rbac-create-lock hidden></div>
+
+        <section class="panel hero-panel">
+          <div class="hero-copy">
+            <div class="page-kicker">Recovery Diagnostic</div>
+            <h1>Turn confusing paperwork into a clear next step.</h1>
+            <p>Open Recovery Diagnostic, surface blockers and readiness, and move only review-ready matters into demand pack, settlement, or counsel handoff.</p>
+            <p class="micro-note">Upload the recovery file set, see blockers and readiness, and move the matter into the right next step.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-home-upload type="button">Open Recovery Diagnostic intake</button>
+              <button class="btn btn-secondary" data-camera-trigger type="button">Capture from iPhone</button>
+            </div>
+            <p class="camera-guidance-copy">For iPhone capture, keep the full page in frame, reduce glare, and start with page 1 so the intake record stays clean.</p>
+          </div>
+          <div class="hero-card">
+            <div class="panel-eyebrow">Review queue</div>
+            <h2>Resume last recovery matter</h2>
+            <div data-home-continue></div>
+          </div>
+        </section>
+
+        <section class="workspace-panel workflow-funnel-panel">
+          <div class="subsection-header subsection-header--tight">
+            <div>
+              <div class="eyebrow">Operating model</div>
+              <h2>Intake, diagnose, then hand off with control.</h2>
+              <p class="micro-note">Upload files, see blockers, build the next step.</p>
+            </div>
+          </div>
+          <div class="entry-grid">
+            <button class="entry-card entry-card-step" data-entry="recovery" type="button">
+              <span class="workflow-step-index">1</span>
+              <strong>Upload files</strong>
+              <span>Start a controlled matter or intake lane with invoices, contracts, guaranties, statements, and correspondence.</span>
+            </button>
+            <button class="entry-card entry-card-step" data-entry="evidence" type="button">
+              <span class="workflow-step-index">2</span>
+              <strong>See blockers and readiness</strong>
+              <span>Keep evidence gaps, debtor verification, and documentation weakness visible before anything moves into packet work.</span>
+            </button>
+            <button class="entry-card entry-card-step" data-entry="handoff" type="button">
+              <span class="workflow-step-index">3</span>
+              <strong>Build the next step</strong>
+              <span>Continue into demand pack or counsel handoff only when the file is clear enough to survive real review.</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="app-grid app-grid-2">
+          <section class="workspace-panel" data-home-start-matter>
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Controlled intake</div>
+                <h2>Open a recovery intake session</h2>
+              </div>
+            </div>
+            <p class="micro-note">Upload the source set, see blockers and readiness, and promote the intake into a formal matter only when the handoff is strong enough to move forward.</p>
+            <div class="inline-actions">
+              <a class="btn btn-primary" href="/app/case-intake/?workflow=recovery_diagnostic">Start Recovery Diagnostic</a>
+              <button class="btn btn-secondary" data-camera-trigger type="button">Capture from iPhone</button>
+            </div>
+          </section>
+          <section class="workspace-panel" data-home-support>
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Governance</div>
+                <h2>Support and workspace controls</h2>
+              </div>
+            </div>
+            <p class="micro-note">Open support guidance, account settings, plan visibility, and workflow controls without leaving the logged-in recovery workspace.</p>
+            <div class="inline-actions">
+              <a class="btn btn-secondary" href="/app/settings-support/">Support</a>
+              <a class="btn btn-secondary" href="/app/settings/">Settings</a>
+            </div>
+          </section>
+        </section>
+
+        <section class="workspace-panel" data-home-commercial>
+          <div class="subsection-header subsection-header--tight">
+            <div>
+              <div class="eyebrow">Deployment and usage</div>
+              <h2>Commercial fit for this recovery workspace</h2>
+            </div>
+          </div>
+          <div class="stack-list" data-home-commercial-panel></div>
+        </section>
+
+        <section class="app-grid app-grid-2">
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Recent matters</div>
+                <h2>Recent recovery matters</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-home-recent-cases></div>
+          </section>
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Urgent deadlines</div>
+                <h2>Urgent deadlines</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-urgent-deadlines></div>
+          </section>
+        </section>
+
+        <section class="app-grid app-grid-2">
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Recommended workflows</div>
+                <h2>Live recovery workflows</h2>
+              </div>
+            </div>
+            <div class="service-catalog-grid" data-home-popular></div>
+          </section>
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow">Recent activity</div>
+                <h2>Recent activity</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-home-activity></div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="app-overlay" data-app-overlay hidden></div>
+  <script src="/assets/js/runtime-config.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/api-client.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/platform-services.js"></script>
+  <script src="/assets/js/app-shell.js"></script>
+  <script src="/assets/js/home.js"></script>
+  <script src="/assets/js/intake-router.js"></script>
+  <script src="/assets/js/camera-intake.js"></script>
+</body>
+</html>
+

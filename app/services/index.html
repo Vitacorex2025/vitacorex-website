@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recovery Workflows | DocketMint</title>
+  <meta name="theme-color" content="#F4F7FA"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/assets/css/app-shell.css" rel="stylesheet"/>
+</head>
+<body data-app-screen="services" data-page="services" data-i18n-title-key="services.title">
+  <a class="skip-link" href="#servicesMain">Skip to recovery workflows</a>
+  <div class="app-shell">
+    <aside class="app-sidebar" data-app-sidebar>
+      <div class="sidebar-brand-wrap">
+        <a aria-label="DocketMint platform" class="sidebar-brand" href="/app/home/">
+          <div class="brand-mark"><img alt="" src="/assets/img/logo.png"/></div>
+          <div class="brand-copy">
+            <div class="brand-title">DocketMint</div>
+            <div class="brand-subtitle">Recovery OS</div>
+          </div>
+        </a>
+      </div>
+      <div class="app-nav-group">
+        <div class="sidebar-section-title" data-i18n="nav.primary">Primary</div>
+        <nav aria-label="Primary navigation" class="sidebar-nav"></nav>
+      </div>
+      <section class="sidebar-service-center">
+        <div class="service-nav-header">
+          <div class="eyebrow">Workflows</div>
+          <h3>Recovery workflows</h3>
+          <p>Keep intake, evidence review, packet build, and counsel handoff in view without diluting the main rail.</p>
+        </div>
+        <div class="service-sidebar-list" data-services-sidebar></div>
+      </section>
+      <div class="sidebar-footer">
+        <a class="sidebar-utility-link" href="/app/settings/"><span data-i18n="common.settings">Settings</span></a>
+      </div>
+    </aside>
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-heading">
+          <button aria-label="Toggle navigation" class="sidebar-toggle" data-sidebar-toggle type="button">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="topbar-kicker">Recovery OS</div>
+            <div class="topbar-title">Recovery workflows</div>
+            <p>Upload files, see blockers and readiness, then build the right next step.</p>
+          </div>
+        </div>
+        <div class="topbar-actions"></div>
+      </header>
+      <main class="app-content" id="servicesMain">
+        <div class="notice-banner is-warning" data-services-error hidden></div>
+        <section class="page-header">
+          <div class="page-header-copy">
+            <div class="page-kicker">Recovery OS</div>
+            <h1>Recovery workflows</h1>
+            <p>Upload files, see blockers and readiness, then build the right next step.</p>
+          </div>
+          <div class="page-header-actions">
+            <a class="btn btn-primary" href="/app/case-intake/?workflow=invoice_recovery">Start Recovery Diagnostic</a>
+            <a class="btn btn-secondary" href="/app/home/">Back to home</a>
+          </div>
+        </section>
+
+        <section class="workspace-panel">
+          <div class="subsection-header subsection-header--tight">
+            <div>
+                <div class="eyebrow">Recovery funnel</div>
+                <h2>Start, diagnose, and build</h2>
+            </div>
+          </div>
+          <div data-services-catalog></div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+  <div class="app-overlay" data-app-overlay hidden></div>
+  <script src="/assets/js/runtime-config.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/api-client.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/platform-services.js"></script>
+  <script src="/assets/js/app-shell.js"></script>
+  <script src="/assets/js/services-page.js"></script>
+</body>
+</html>
