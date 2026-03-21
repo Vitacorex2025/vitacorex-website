@@ -1,6 +1,3 @@
-CONFIDENTIAL
+PUBLIC RESOURCE NOTICE
 
-This document and any attached materials are confidential and intended solely for the named recipient.
-Unauthorized use, disclosure, forwarding, or distribution is prohibited.
-
-VitaCoreX LLC
+If a downloadable PDF must remain confidential, enforce access control or deploy-level header controls such as X-Robots-Tag before publishing it.

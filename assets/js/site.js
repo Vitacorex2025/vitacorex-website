@@ -46,7 +46,7 @@ const extra={
   field_linkedin_ph:'https://www.linkedin.com/in/...',
   careers_mobile_button2:'Open application form',gate_success:'Access granted. Opening the resource now.',gate_failure:'Submission failed. Please try again or use email.',
   role_bizdocs:'Business documentation support',
-order_services:'Order Services',clock_local_sub:'Local',services_individuals_title:'Services for Individuals',services_individuals_intro:'Services for individuals and specialized one-off matters remain fully available, while the primary VitaCoreX focus stays on corporate B2B operating support.',request_review:'Request review',see_all_individuals:'See all services for individuals',res1_title:'Healthcare leakage brief',res1_desc:'Operator-facing summary of leakage points, DSO drag, and early agency fee compression.',res1_tag:'Operator brief',res2_title:'Healthcare CFO brief',res2_desc:'Finance-facing brief for owners, CFOs, and operator leadership.',res2_tag:'CFO decision brief',res3_title:'Dental institutional deck',res3_desc:'Institutional framing with pilot economics, sequencing logic, and executive positioning.',res3_tag:'Institutional deck',res4_title:'Pre-collection executive review',res4_desc:'Framework logic, controlled escalation, and economics for pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Packet quality signal',counter_clarity:'Handoff clarity signal',counter_control:'Recovery control signal',counter_pressure:'Illustrative leakage pressure',counter_adoption:'ALSP operating adoption',counter_window:'Pilot design window',ind1_title:'Contracts & Documentation',ind1_desc:'Administrative support for contract drafting, document review, business forms, demand letters, and structured support packets.',ind1_b1:'Contract drafting',ind1_b2:'Document review',ind1_b3:'Business forms',ind1_b4:'Demand letters',ind1_b5:'Support packets',ind2_title:'Immigration Documents',ind2_desc:'Packet organization, form guidance, submission-readiness review, and evidence structuring for personal filing support.',ind2_b1:'Packet organization',ind2_b2:'Form guidance',ind2_b3:'Submission review',ind2_b4:'Evidence structuring',ind2_b5:'Administrative support',ind3_title:'Auto Purchase Review',ind3_desc:'Buyer-side review before signing, with fee analysis, payment-structure clarity, and negotiation support.',ind3_b1:'Dealer contract review',ind3_b2:'Fee analysis',ind3_b3:'Payment review',ind3_b4:'Negotiation support',ind3_b5:'Risk summary',ind4_title:'Business Plans',ind4_desc:'Executive summary, investor narrative, launch plan, financial framing, and pitch support.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'Launch plan',ind4_b4:'Financial framing',ind4_b5:'Pitch support',ind5_title:'Company Formation',ind5_desc:'Structured support for opening companies, entity setup, filing packets, and launch-readiness documents.',ind5_b1:'Entity formation support',ind5_b2:'Opening packages',ind5_b3:'Filing support',ind5_b4:'Business setup packet',ind5_b5:'Launch checklist',ind6_title:'Translation & Localization',ind6_desc:'Translation support, bilingual document cleanup, and structured localization for business or filing materials.',ind6_b1:'Document translation support',ind6_b2:'Bilingual cleanup',ind6_b3:'Localization review',ind6_b4:'Evidence translation pack',ind6_b5:'Administrative coordination',field_phone_careers:'Phone',field_role:'Role of interest',select_role:'Select role',role_ops:'Operations support',role_docs:'Documentation support',role_intake:'Intake support',role_translation:'Translation support',role_admin:'Admin support',role_client:'Client coordination',field_background:'Short background',careers_placeholder:'Short introduction, role of interest, and the kind of work you can support.',careers_helper:'Complete all required fields to activate the application email.',careers_who_title:'Who we look for',careers_apply_title:'How to apply',careers_t1:'Disciplined candidates who can work in a documentation-first operating model.',careers_t2:'Strong and confident English.',careers_t3:'Verifiable recommendations strongly preferred.',careers_t4:'Preference for Russian-speaking candidates with excellent English.',field_need:'Primary need',field_urgency:'Urgency',field_docs:'Document readiness',field_company_context:'Company / matter context',field_company_context_ph:'Company, packet, contract, invoice',intake_placeholder:'Describe the matter, the business context, and the decision that is blocked.',attach_materials:'Attach materials',attach_helper:'Add contracts, invoices, screenshots, exhibits, or packet drafts.',need_recovery:'Revenue Recovery Workflow Design',need_file:'Corporate Legal File Control',need_intake:'Structured Case Intake & Packet Build',urgency_standard:'Standard',urgency_high:'High',docs_ready:'Core documents are ready',docs_partial:'Only partial material is ready',next_standard:'We will review the intake and propose the first clean work product.',next_fast:'We will prioritize the intake and route the next-step memo first',web_project_cta:'Request a Web Site Project',web_project_title:'Request a Web Site Project',web_project_intro:'Tell us about your website project and budget. We will review the request and contact you with the next step.',web_project_field_name:'Name',web_project_field_company:'Company',web_project_field_phone:'Phone',web_project_field_email:'Email',web_project_field_budget:'Budget',web_project_budget_placeholder:'Select budget',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'More than $40,000',web_project_notes_label:'Project Notes (optional)',web_project_notes_placeholder:'Briefly describe the type of website or project you want.',web_project_submit:'Submit Request',web_project_success:'Thank you. Your request has been received. We will review it and contact you.',web_project_error:'Something went wrong. Please try again.',web_project_validation:'Please complete all required fields before submitting.'},
+order_services:'Order Services',clock_local_sub:'Local',services_individuals_title:'Services for Individuals',services_individuals_intro:'Services for individuals and specialized one-off matters remain fully available, while the primary VitaCoreX focus stays on corporate B2B operating support.',request_review:'Request review',see_all_individuals:'See all services for individuals',res1_title:'Healthcare leakage brief',res1_desc:'Operator-facing summary of leakage points, DSO drag, and early agency fee compression.',res1_tag:'Operator brief',res2_title:'Healthcare CFO brief',res2_desc:'Finance-facing brief for owners, CFOs, and operator leadership.',res2_tag:'CFO decision brief',res3_title:'Dental institutional deck',res3_desc:'Institutional framing with pilot economics, sequencing logic, and executive positioning.',res3_tag:'Institutional deck',res4_title:'Pre-collection executive review',res4_desc:'Framework logic, controlled escalation, and economics for pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Packet quality signal',counter_clarity:'Handoff clarity signal',counter_control:'Recovery control signal',counter_pressure:'Illustrative leakage pressure',counter_adoption:'ALSP operating adoption',counter_window:'Pilot design window',ind1_title:'Contracts & Documentation',ind1_desc:'Administrative support for contract drafting, document review, business forms, demand letters, and structured support packets.',ind1_b1:'Contract drafting',ind1_b2:'Document review',ind1_b3:'Business forms',ind1_b4:'Demand letters',ind1_b5:'Support packets',ind2_title:'Immigration Documents',ind2_desc:'Packet organization, form guidance, submission-readiness review, and evidence structuring for personal filing support.',ind2_b1:'Packet organization',ind2_b2:'Form guidance',ind2_b3:'Submission review',ind2_b4:'Evidence structuring',ind2_b5:'Administrative support',ind3_title:'Auto Purchase Review',ind3_desc:'Buyer-side review before signing, with fee analysis, payment-structure clarity, and negotiation support.',ind3_b1:'Dealer contract review',ind3_b2:'Fee analysis',ind3_b3:'Payment review',ind3_b4:'Negotiation support',ind3_b5:'Risk summary',ind4_title:'Business Plans',ind4_desc:'Executive summary, investor narrative, launch plan, financial framing, and pitch support.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'Launch plan',ind4_b4:'Financial framing',ind4_b5:'Pitch support',ind5_title:'Company Formation',ind5_desc:'Structured support for opening companies, entity setup, filing packets, and launch-readiness documents.',ind5_b1:'Entity formation support',ind5_b2:'Opening packages',ind5_b3:'Filing support',ind5_b4:'Business setup packet',ind5_b5:'Launch checklist',ind6_title:'Translation & Localization',ind6_desc:'Translation support, bilingual document cleanup, and structured localization for business or filing materials.',ind6_b1:'Document translation support',ind6_b2:'Bilingual cleanup',ind6_b3:'Localization review',ind6_b4:'Evidence translation pack',ind6_b5:'Administrative coordination',field_phone_careers:'Phone',field_role:'Role of interest',select_role:'Select role',role_ops:'Operations support',role_docs:'Documentation support',role_intake:'Intake support',role_translation:'Translation support',role_admin:'Admin support',role_client:'Client coordination',field_background:'Short background',careers_placeholder:'Short introduction, role of interest, and the kind of work you can support.',careers_helper:'Complete all required fields to activate the application email.',careers_who_title:'Who we look for',careers_apply_title:'How to apply',careers_t1:'Disciplined candidates who can work in a documentation-first operating model.',careers_t2:'Strong and confident English.',careers_t3:'Verifiable recommendations strongly preferred.',careers_t4:'Preference for Russian-speaking candidates with excellent English.',field_need:'Primary need',field_urgency:'Urgency',field_docs:'Document readiness',field_company_context:'Company / matter context',field_company_context_ph:'Company, packet, contract, invoice',intake_placeholder:'Describe the matter, the business context, and the decision that is blocked.',attach_materials:'Attach materials',attach_helper:'Add contracts, invoices, screenshots, exhibits, or packet drafts.',need_recovery:'Revenue Recovery Workflow Design',need_file:'Corporate Legal File Control',need_intake:'Structured Case Intake & Packet Build',urgency_standard:'Standard',urgency_high:'High',docs_ready:'Core documents are ready',docs_partial:'Only partial material is ready',next_standard:'We will review the intake and propose the first clean work product.',next_fast:'We will prioritize the intake and route the next-step memo first',web_project_cta:'Website request',web_project_title:'Website request',web_project_intro:'Tell us about your website project and budget. We will review the request and contact you with the next step.',web_project_field_name:'Name',web_project_field_company:'Company',web_project_field_phone:'Phone',web_project_field_email:'Email',web_project_field_budget:'Budget',web_project_budget_placeholder:'Select budget',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'More than $40,000',web_project_notes_label:'Project Notes (optional)',web_project_notes_placeholder:'Briefly describe the type of website or project you want.',web_project_submit:'Submit Request',web_project_success:'Thank you. Your request has been received. We will review it and contact you.',web_project_error:'Something went wrong. Please try again.',web_project_validation:'Please complete all required fields before submitting.'},
  ru:{order_services:'Заказать услуги',clock_local_sub:'Локально',services_individuals_title:'Услуги для физических лиц',services_individuals_intro:'Услуги для физических лиц и разовых специализированных задач полностью доступны, при этом основной фокус VitaCoreX остаётся на корпоративной B2B-операционной поддержке.',request_review:'Запросить разбор',see_all_individuals:'Смотреть все услуги для физических лиц',res1_title:'Обзор точек утечки в healthcare',res1_desc:'Краткий материал для операторов о точках утечки, давлении на DSO и раннем сжатии комиссии агентств.',res1_tag:'Материал для операторов',res2_title:'CFO brief для healthcare',res2_desc:'Материал для owners, CFOs и операционного руководства с финансовым ракурсом.',res2_tag:'Материал для CFO',res3_title:'Институциональный deck для dental',res3_desc:'Институциональная подача с логикой пилота, sequencing и executive framing.',res3_tag:'Институциональный deck',res4_title:'Executive review по pre-collection',res4_desc:'Логика controlled escalation и экономика pre-agency sequencing.',res4_tag:'Executive review',counter_quality:'Сигнал качества пакета',counter_clarity:'Сигнал ясности handoff',counter_control:'Сигнал контроля возврата',counter_pressure:'Иллюстративное давление утечек',counter_adoption:'Операционный сигнал adoption',counter_window:'Окно проектирования пилота',ind1_title:'Договоры и документы',ind1_desc:'Административная поддержка по подготовке договоров, проверке документов, бизнес-форм и demand letters.',ind1_b1:'Подготовка договоров',ind1_b2:'Проверка документов',ind1_b3:'Бизнес-формы',ind1_b4:'Demand letters',ind1_b5:'Пакеты поддержки',ind2_title:'Иммиграционные документы',ind2_desc:'Организация пакета, сопровождение по формам, проверка готовности к подаче и структурирование доказательств.',ind2_b1:'Организация пакета',ind2_b2:'Сопровождение по формам',ind2_b3:'Проверка готовности к подаче',ind2_b4:'Структурирование доказательств',ind2_b5:'Административная поддержка',ind3_title:'Проверка покупки автомобиля',ind3_desc:'Проверка сделки до подписания: анализ fee, логики платежей и поддержка переговоров.',ind3_b1:'Проверка дилерского контракта',ind3_b2:'Анализ fee',ind3_b3:'Проверка платежной структуры',ind3_b4:'Поддержка переговоров',ind3_b5:'Краткое резюме рисков',ind4_title:'Бизнес-планы',ind4_desc:'Executive summary, investor narrative, launch plan, финансовая рамка и поддержка pitch.',ind4_b1:'Executive summary',ind4_b2:'Investor narrative',ind4_b3:'План запуска',ind4_b4:'Финансовая рамка',ind4_b5:'Поддержка pitch',ind5_title:'Открытие компаний',ind5_desc:'Структурированная помощь по запуску компании, пакетам открытия, filing и стартовым документам.',ind5_b1:'Поддержка по формированию компании',ind5_b2:'Пакеты открытия',ind5_b3:'Поддержка filing',ind5_b4:'Стартовый бизнес-пакет',ind5_b5:'Launch checklist',ind6_title:'Перевод и локализация',ind6_desc:'Поддержка перевода документов, билингвальная вычитка и локализация материалов для бизнеса и подачи.',ind6_b1:'Поддержка перевода документов',ind6_b2:'Билингвальная вычитка',ind6_b3:'Проверка локализации',ind6_b4:'Пакет перевода доказательств',ind6_b5:'Административная координация',field_phone_careers:'Телефон',field_role:'Интересующая роль',select_role:'Выберите роль',role_ops:'Операционная поддержка',role_docs:'Документационная поддержка',role_intake:'Поддержка intake',role_translation:'Поддержка перевода',role_admin:'Административная поддержка',role_client:'Координация с клиентами',field_background:'Краткая информация о вас',careers_placeholder:'Коротко представьтесь, укажите интересующую роль и чем именно вы можете быть полезны.',careers_helper:'Заполните все обязательные поля, чтобы активировать письмо для отклика.',careers_who_title:'Кого мы ищем',careers_apply_title:'Как откликнуться',careers_t1:'Дисциплинированных кандидатов, способных работать в documentation-first модели.',careers_t2:'Уверенный английский.',careers_t3:'Подтверждаемые рекомендации крайне желательны.',careers_t4:'Предпочтение кандидатам с русским языком и сильным английским.',field_need:'Основной запрос',field_urgency:'Срочность',field_docs:'Готовность документов',field_company_context:'Компания / контекст задачи',field_company_context_ph:'Компания, пакет, договор, счёт',intake_placeholder:'Опишите задачу, деловой контекст и решение, которое сейчас заблокировано.',
   intake_submit:'Отправить структурированный запрос',
   field_location:'Штат / город / ZIP-код',
@@ -108,9 +108,9 @@ order_services:'Order Services',clock_local_sub:'Local',services_individuals_tit
   field_linkedin:'LinkedIn',
   field_linkedin_ph:'https://www.linkedin.com/in/...',
   careers_mobile_button2:'Abrir formulario de solicitud',gate_success:'Acceso concedido. Abriendo el recurso.',gate_failure:'No se pudo enviar. Inténtelo otra vez o use el correo.',
-  role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.',web_project_cta:'Solicitar un proyecto de sitio web',web_project_title:'Solicitar un proyecto de sitio web',web_project_intro:'Cuéntenos sobre su proyecto de sitio web y presupuesto. Revisaremos la solicitud y nos pondremos en contacto con usted con el siguiente paso.',web_project_field_name:'Nombre',web_project_field_company:'Empresa',web_project_field_phone:'Teléfono',web_project_field_email:'Correo electrónico',web_project_field_budget:'Presupuesto',web_project_budget_placeholder:'Seleccione presupuesto',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'Más de $40,000',web_project_notes_label:'Notas del proyecto (opcional)',web_project_notes_placeholder:'Describa brevemente el tipo de sitio web o proyecto que desea.',web_project_submit:'Enviar solicitud',web_project_success:'Gracias. Su solicitud ha sido recibida. La revisaremos y nos pondremos en contacto con usted.',web_project_error:'Algo salió mal. Por favor, inténtelo de nuevo.',web_project_validation:'Por favor, complete todos los campos obligatorios antes de enviar.'}
+  role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.',web_project_cta:'Solicitud de sitio web',web_project_title:'Solicitud de sitio web',web_project_intro:'Cuéntenos sobre su proyecto de sitio web y presupuesto. Revisaremos la solicitud y nos pondremos en contacto con usted con el siguiente paso.',web_project_field_name:'Nombre',web_project_field_company:'Empresa',web_project_field_phone:'Teléfono',web_project_field_email:'Correo electrónico',web_project_field_budget:'Presupuesto',web_project_budget_placeholder:'Seleccione presupuesto',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'Más de $40,000',web_project_notes_label:'Notas del proyecto (opcional)',web_project_notes_placeholder:'Describa brevemente el tipo de sitio web o proyecto que desea.',web_project_submit:'Enviar solicitud',web_project_success:'Gracias. Su solicitud ha sido recibida. La revisaremos y nos pondremos en contacto con usted.',web_project_error:'Algo salió mal. Por favor, inténtelo de nuevo.',web_project_validation:'Por favor, complete todos los campos obligatorios antes de enviar.'}
 };
-let lang=['en','ru','es'].includes(localStorage.getItem('vcx_lang'))?localStorage.getItem('vcx_lang'):'en';
+let lang='en';
 function tr(key){return (extra[lang]&&extra[lang][key]) || (page[lang]&&page[lang][key]) || (common[lang]&&common[lang][key]) || (extra.en&&extra.en[key]) || (page.en&&page.en[key]) || (common.en&&common.en[key]) || '';}
 function statusText(key, fallback){ return tr(key) || fallback || ''; }
 function setStatus(el, type, message){
@@ -127,8 +127,7 @@ function applyText(){
  $$('[data-tx-placeholder]').forEach(el=>{ const v=tr(el.dataset.txPlaceholder); if(v) el.setAttribute('placeholder',v); });
  $$('[data-tx-title]').forEach(el=>{ const v=tr(el.dataset.txTitle); if(v) el.setAttribute('title',v); });
  $$('[data-tx-value]').forEach(el=>{ const v=tr(el.dataset.txValue); if(v) el.setAttribute('value',v); });
- if(page[lang]?.title) document.title=page[lang].title;
- const md=$('meta[name="description"]'); if(md && page[lang]?.desc) md.setAttribute('content',page[lang].desc);
+ 
 }
 applyText();
 $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
@@ -166,107 +165,6 @@ $$('.tilt-card').forEach(card=>{
   });
   card.addEventListener('mouseleave',reset);
 });
-// resource gate
-const gate=$('#pdfGate');
-function openGate(asset,label){
-  if(!gate) return;
-  gate.classList.add('open');
-  gate.setAttribute('aria-hidden','false');
-  document.body.classList.add('modal-open');
-  const assetField=gate.querySelector('[name="asset"]');
-  const assetLabel=gate.querySelector('.gate-asset');
-  if(assetField) assetField.value=asset||'';
-  if(assetLabel) assetLabel.textContent=label||'PDF';
-}
-function closeGate(){
-  if(!gate) return;
-  gate.classList.remove('open');
-  gate.setAttribute('aria-hidden','true');
-  document.body.classList.remove('modal-open');
-}
-function normalizeAssetUrl(asset){
-  return String(asset||'').trim();
-}
-function isAppleMobileContext(){
-  const ua=navigator.userAgent||'';
-  return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform==='MacIntel' && (navigator.maxTouchPoints||0)>1);
-}
-function openPdfAsset(asset){
-  const rawUrl=normalizeAssetUrl(asset);
-  if(!rawUrl) throw new Error('missing_pdf_asset');
-  const absoluteUrl=new URL(rawUrl, window.location.href).href;
-  if(isAppleMobileContext()){
-    window.location.assign(absoluteUrl);
-    return;
-  }
-  const opened=window.open(absoluteUrl,'_blank','noopener');
-  if(!opened){
-    window.location.assign(absoluteUrl);
-  }
-}
-$$('[data-gated-asset]').forEach(btn=>btn.addEventListener('click',e=>{
-  e.preventDefault();
-  const asset=btn.dataset.gatedAsset || btn.getAttribute('href') || '';
-  openGate(asset, btn.dataset.gatedLabel);
-}));
-$$('.modal-close,.modal-cancel').forEach(btn=>btn.addEventListener('click',closeGate));
-gate && gate.addEventListener('click',e=>{ if(e.target===gate) closeGate(); });
-const gateForm=$('#gateForm');
-if(gateForm){
-  const gateState=$('#gateState');
-  const gateSubmitBtn=gateForm.querySelector('button[type="submit"]');
-  gateForm.addEventListener('submit', async e=>{
-    e.preventDefault();
-    const fd=new FormData(gateForm);
-    const required=['full_name','company','phone','email'];
-    const ok=required.every(k=>String(fd.get(k)||'').trim());
-    if(!ok){
-      setStatus(gateState,'error',statusText('intake_validation','Please complete all required fields.'));
-      return;
-    }
-    const asset=String(fd.get('asset')||'').trim();
-    if(!asset){
-      setStatus(gateState,'error',statusText('gate_failure','The PDF link is unavailable. Please try again or use email.'));
-      return;
-    }
-    if(gateSubmitBtn){
-      gateSubmitBtn.disabled=true;
-      gateSubmitBtn.classList.add('is-loading');
-    }
-    try{
-      await submitViaFormSubmitAjax(gateForm, {
-        subject:'New Website PDF Access Request — Executive Brief',
-        replyTo:String(fd.get('email')||'').trim(),
-        formUrl: window.location.href,
-        extraFields:{
-          'Form': 'Executive Brief PDF Access',
-          'Source': String(fd.get('Source')||'executive_brief_request').trim(),
-          'Submission type': 'website_pdf_access_request',
-          'Requested asset': asset,
-          'Asset label': String((gate.querySelector('.gate-asset') && gate.querySelector('.gate-asset').textContent) || '').trim(),
-          'File uploaded': 'No'
-        }
-      });
-      localStorage.setItem('vcx_gate', JSON.stringify(Object.fromEntries(fd.entries())));
-      setStatus(gateState,'success',statusText('gate_success','Access granted. Opening the resource now.'));
-      closeGate();
-      openPdfAsset(asset);
-      gateForm.reset();
-    }catch(err){
-      console.error('PDF gate submission failed:', err);
-      setStatus(gateState,'error',statusText('gate_failure','Submission failed. Please try again or use email.'));
-    }finally{
-      if(gateSubmitBtn){
-        gateSubmitBtn.disabled=false;
-        gateSubmitBtn.classList.remove('is-loading');
-      }
-    }
-  });
-}
-// Exit intent only on gated resources
-let exitShown=false, armed=false; setTimeout(()=>armed=true,12000); function triggerExit(){ if(exitShown) return; const first=$('[data-gated-asset]'); if(first){ exitShown=true; openGate(first.dataset.gatedAsset, first.dataset.gatedLabel); } }
-document.addEventListener('mouseout',e=>{ if(armed && !exitShown && e.clientY<=0 && window.innerWidth>900) triggerExit(); });
-window.addEventListener('scroll',()=>{ const depth=(window.scrollY+window.innerHeight)/Math.max(document.body.scrollHeight,1); if(armed && !exitShown && window.innerWidth<=900 && depth>.72) triggerExit(); }, {passive:true});
 // CFO calc
 const calc=$('#cfoCalc'); if(calc){ const out={a:$('#calcAgency'),b:$('#calcPre'),c:$('#calcLift'),d:$('#calcLiftPct')}; const recompute=()=>{ const principal=+calc.principal.value||0, gross=(+calc.gross.value||0)/100, fee=(+calc.fee.value||0)/100, accept=(+calc.accept.value||0)/100, complete=(+calc.complete.value||0)/100, recovery=(+calc.recovery.value||0)/100, setup=+calc.setup.value||0; const agency=principal*gross*(1-fee); const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup; const lift=pre-agency; const pct=agency?(lift/agency*100):0; out.a.textContent='$'+agency.toLocaleString(undefined,{maximumFractionDigits:0}); out.b.textContent='$'+pre.toLocaleString(undefined,{maximumFractionDigits:0}); out.c.textContent=(lift>=0?'+':'-')+'$'+Math.abs(lift).toLocaleString(undefined,{maximumFractionDigits:0}); out.d.textContent=(pct>=0?'+':'')+pct.toLocaleString(undefined,{maximumFractionDigits:1})+'%'; }; $$('input',calc).forEach(i=>i.addEventListener('input',recompute)); recompute(); }
 
@@ -293,7 +191,7 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   fileInput.addEventListener('change', sync);
   sync();
 }
-const OWNER_NOTIFICATION_EMAIL='vitacorexllc@gmail.com';
+const OWNER_NOTIFICATION_EMAIL=['vitacorexllc','gmail.com'].join('@');
 const FORM_ENDPOINT=`https://formsubmit.co/${OWNER_NOTIFICATION_EMAIL}`;
 const FORM_AJAX_ENDPOINT=`https://formsubmit.co/ajax/${OWNER_NOTIFICATION_EMAIL}`;
 const FILE_UPLOAD_NOTIFICATION_ENDPOINT=FORM_ENDPOINT;
@@ -433,94 +331,6 @@ function bindIntakeForm(form){
   });
 }
 bindIntakeForm($('#intakeForm'));
-
-const WEB_PROJECT_FORM_ENDPOINT=FORM_AJAX_ENDPOINT;
-function bindWebProjectModal(){
-  const modal=$('#webProjectModal');
-  if(!modal) return;
-  const form=$('#webProjectForm');
-  const status=$('#webProjectStatus');
-  const submitBtn=form ? (form.querySelector('#webProjectSubmitBtn') || form.querySelector('button[type="submit"]')) : null;
-  const closeBtns=Array.from(modal.querySelectorAll('.modal-close,[data-web-project-close]'));
-  const triggers=$$('[data-web-project-open]');
-  const firstField=form ? form.querySelector('input[name="name"]') : null;
-  let lastTrigger=null;
-
-  function openWebProjectModal(trigger){
-    lastTrigger=trigger || document.activeElement || null;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('modal-open');
-    modal.classList.remove('web-project-success');
-    if(status) setStatus(status,'','');
-    setTimeout(()=>{ if(firstField) firstField.focus(); }, 40);
-  }
-
-  function closeWebProjectModal(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-    if(lastTrigger && typeof lastTrigger.focus==='function'){
-      try{ lastTrigger.focus(); }catch(err){}
-    }
-  }
-
-  triggers.forEach((btn)=>{
-    btn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      openWebProjectModal(btn);
-    });
-  });
-
-  closeBtns.forEach((btn)=>btn.addEventListener('click', closeWebProjectModal));
-  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeWebProjectModal(); });
-  document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape' && modal.classList.contains('open')) closeWebProjectModal();
-  });
-
-  if(form){
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      if(!form.checkValidity()){
-        form.reportValidity();
-        if(status) setStatus(status,'error',statusText('web_project_validation','Please complete all required fields before submitting.'));
-        return;
-      }
-      const fd=new FormData(form);
-      if(submitBtn){
-        submitBtn.disabled=true;
-        submitBtn.classList.add('is-loading');
-      }
-      if(status) setStatus(status,'','');
-      try{
-        await submitViaFormSubmitAjax(form, {
-          endpoint: WEB_PROJECT_FORM_ENDPOINT,
-          subject:'New Website Project Request — Footer Modal',
-          replyTo:String(fd.get('email')||'').trim(),
-          formUrl: window.location.href,
-          extraFields:{
-            'Form': 'Web Site Project Request',
-            'Source': String(fd.get('Source')||'web_site_project_footer_modal').trim(),
-            'Submission type': 'website_project_request'
-          }
-        });
-        form.reset();
-        modal.classList.add('web-project-success');
-        if(status) setStatus(status,'success',statusText('web_project_success','Thank you. Your request has been received. We will review it and contact you.'));
-      }catch(err){
-        console.error('Web project modal submission failed:', err);
-        if(status) setStatus(status,'error',statusText('web_project_error','Something went wrong. Please try again.'));
-      }finally{
-        if(submitBtn){
-          submitBtn.disabled=false;
-          submitBtn.classList.remove('is-loading');
-        }
-      }
-    });
-  }
-}
-bindWebProjectModal();
-
 
 const careersForm=$('#careersForm');
 if(careersForm){
@@ -824,10 +634,7 @@ improveMobileFileInput();
 
 
 (function(){
-  function vcxCurrentLang(){
-    const saved = localStorage.getItem('vcx_lang');
-    return ['en','ru','es'].includes(saved) ? saved : 'en';
-  }
+  function vcxCurrentLang(){ return 'en'; }
 
   const hardCopy = {
     en: {
