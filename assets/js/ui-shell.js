@@ -67,32 +67,51 @@
     if(!btn || !nav || !mobileWrap) return;
 
     function setOpen(open){
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      nav.hidden = !open;
-      mobileWrap.classList.toggle('is-open', open);
-      root.classList.toggle('vcx-mobile-menu-open', open);
+      const isOpen = !!open;
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      nav.hidden = !isOpen;
+      nav.setAttribute('data-open', isOpen ? 'true' : 'false');
+      mobileWrap.classList.toggle('is-open', isOpen);
+      root.classList.toggle('vcx-mobile-menu-open', isOpen);
       if(header){
         header.classList.remove('is-hidden');
-        header.classList.toggle('is-compact', open || (window.scrollY || 0) > 24);
+        header.classList.toggle('is-compact', isOpen || (window.scrollY || 0) > 24);
       }
     }
 
+    window.__vcxSetMenuOpen = setOpen;
+    window.__vcxToggleMobileMenu = function(){
+      if(!mq.matches) return;
+      setOpen(nav.hidden);
+    };
+
     setOpen(false);
+
+    function activateToggle(event){
+      if(event){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      if(!mq.matches) return;
+      window.__vcxToggleMobileMenu();
+    }
 
     if(!btn.dataset.vcxBound){
       btn.dataset.vcxBound = '1';
-      btn.addEventListener('click', (event)=>{
-        event.preventDefault();
-        event.stopPropagation();
-        if(!mq.matches) return;
-        setOpen(nav.hidden);
-      }, {passive:false});
+      btn.addEventListener('click', activateToggle, {passive:false});
+      btn.addEventListener('touchend', activateToggle, {passive:false});
+      btn.addEventListener('keydown', (event)=>{
+        if(event.key === 'Enter' || event.key === ' '){
+          activateToggle(event);
+        }
+      });
     }
 
     nav.querySelectorAll('a').forEach((link)=>{
       if(link.dataset.vcxBound) return;
       link.dataset.vcxBound = '1';
       link.addEventListener('click', ()=> setOpen(false));
+      link.addEventListener('touchend', ()=> setOpen(false), {passive:true});
     });
 
     safeOn(document, 'click', (event)=>{
@@ -109,9 +128,9 @@
 
     if(!mq.__vcxBound){
       mq.__vcxBound = true;
-      mq.addEventListener('change', ()=>{
-        if(!mq.matches) setOpen(false);
-      });
+      const onChange = ()=>{ if(!mq.matches) setOpen(false); };
+      if(typeof mq.addEventListener === 'function') mq.addEventListener('change', onChange);
+      else if(typeof mq.addListener === 'function') mq.addListener(onChange);
     }
   }
 

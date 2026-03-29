@@ -1,0 +1,13 @@
+QA REPORT — VitaCoreX bundle v3
+Date: 2026-03-29
+
+Static QA checks completed
+1. Verified public shell pages include ui-shell.js.
+2. Verified premium-fixes.js and premium-fixes.css are attached across public pages.
+3. Verified shell-i18n.js is attached across HTML pages.
+4. Verified visible language switch controls are present across public header pages.
+5. Verified old number 813 919 4242 is absent from the bundle.
+6. Verified no missing local asset links were introduced during this pass.
+
+Known limitation
+- This bundle was hardened and statically validated, but final confirmation of live production behavior still depends on deployment environment, caching layer, and browser/device QA after upload.

@@ -1,0 +1,36 @@
+VitaCoreX premium sweep v3 — 2026-03-29
+
+Scope of this pass
+- Fixed broken mobile menu behavior across the public bundle by standardizing ui-shell loading and hardening the mobile menu controller for click, touch, keyboard, and old Safari media-query listeners.
+- Restored visible EN / RU / ES language switches across the public shell, including desktop and mobile header states, plus thank-you flow.
+- Added shell-level i18n fallback layer so nav, footer, core CTA labels, and clock labels remain translated even on pages that lacked complete page dictionaries.
+- Added premium-fixes.js fallback layer for translation cleanup, title overrides, and static-page translation pass.
+- Added calculator fallback logic for:
+  * homepage engagement recommendation block
+  * corporate legal attorney-drag estimator
+  * corporate legal cleanup-exposure estimator
+- Added performance-oriented media handling:
+  * hero video suppressed on mobile and reduced-motion environments
+  * desktop video playback deferred until idle
+  * heavy backdrop-filter usage reduced on mobile
+  * reveal motion disabled on mobile to cut UI jank
+- Added premium-fixes.css polish:
+  * stronger text contrast
+  * deeper premium card treatment
+  * refined pills / language switch / menu button styling
+  * more cohesive premium typography for desktop headings
+  * improved mobile menu surface and section accents
+- Patched thank-you page to include language switch and shell translation hooks.
+
+Compatibility / analytics notes
+- Existing VCX_TRACKING_IDS, GA4 / Apollo patterns, forms, hidden attribution capture, data attributes, and CTA flows were preserved.
+- No tracker IDs were removed or renamed.
+
+Validation summary
+- Old phone number not found in HTML / JS / CSS / XML / TXT files.
+- Public header pages now include:
+  * ui-shell.js
+  * premium-fixes.js
+  * premium-fixes.css
+  * shell-i18n.js
+  * visible language switch controls
