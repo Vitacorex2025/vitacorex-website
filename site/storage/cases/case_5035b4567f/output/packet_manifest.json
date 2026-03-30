@@ -1,0 +1,26 @@
+{
+  "case_id": "case_5035b4567f",
+  "generated_at": "2026-03-20T04:41:16.928610+00:00",
+  "status": "ready_for_verification",
+  "plaintiff_name": "Cube Systems LLC",
+  "defendant_name": "XPRESS GLOBAL TRANSPORTATION",
+  "amount_in_controversy": "110651.07",
+  "generated_documents": [
+    {
+      "document_name": "02 Complaint.docx",
+      "document_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5035b4567f\\output\\02 Complaint.docx",
+      "document_type": "complaint",
+      "download_url": "/files/cases/case_5035b4567f/output/02 Complaint.docx",
+      "status": "generated",
+      "blocking_reason": null
+    }
+  ],
+  "warnings": [
+    "Spreadsheet balances and invoice PDF totals reconcile.",
+    "3e045771ef54_Cases to Steven Citifuel_XPRESS_GLOBAL_TRANSPORT.xlsx Sheet1!row 2: Amount field is blank.",
+    "3e045771ef54_Cases to Steven Citifuel_XPRESS_GLOBAL_TRANSPORT.xlsx Sheet1!row 3: Amount field is blank.",
+    "3e045771ef54_Cases to Steven Citifuel_XPRESS_GLOBAL_TRANSPORT.xlsx Sheet1!row 4: Amount field is blank.",
+    "Defendant appears to be out-of-state. Verify foreign-service path before Florida filing."
+  ],
+  "missing_items": []
+}

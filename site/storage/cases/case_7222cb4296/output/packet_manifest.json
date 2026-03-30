@@ -1,0 +1,38 @@
+{
+  "case_id": "case_7222cb4296",
+  "generated_at": "2026-03-17T16:11:39.712516+00:00",
+  "status": "ready_for_verification",
+  "plaintiff_name": "Client Company LLC",
+  "defendant_name": "Counterparty LLC",
+  "amount_in_controversy": "299249.82",
+  "generated_documents": [
+    {
+      "document_name": "02 Complaint.docx",
+      "document_path": null,
+      "document_type": "complaint",
+      "download_url": null,
+      "status": "failed_qa",
+      "blocking_reason": "Document still contains REVIEW REQUIRED placeholders. • Complaint contains duplicated or missing WHEREFORE paragraph."
+    },
+    {
+      "document_name": "09 Debt Calculation Sheet.docx",
+      "document_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_7222cb4296\\output\\09 Debt Calculation Sheet.docx",
+      "document_type": "debt_calculation_sheet",
+      "download_url": "/files/cases/case_7222cb4296/output/09 Debt Calculation Sheet.docx",
+      "status": "generated",
+      "blocking_reason": null
+    }
+  ],
+  "warnings": [
+    "Amount in controversy is based on spreadsheet balances only.",
+    "Governing law was not confidently extracted from the uploaded files.",
+    "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+    "Payment terms were not confidently extracted from the uploaded files.",
+    "Interest language was not confidently extracted from the uploaded files.",
+    "d2592a2beda0_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+    "d2592a2beda0_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+  ],
+  "missing_items": [
+    "complaint:Document still contains REVIEW REQUIRED placeholders. • Complaint contains duplicated or missing WHEREFORE paragraph."
+  ]
+}

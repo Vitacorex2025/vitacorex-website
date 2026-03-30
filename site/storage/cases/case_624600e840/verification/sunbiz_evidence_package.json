@@ -1,0 +1,38 @@
+{
+  "queried_entity_name": "XPRESS GLOBAL TRANSPORTATION",
+  "matched": false,
+  "exact_match": false,
+  "match_score": null,
+  "matched_entity_name": null,
+  "detail_url": null,
+  "florida_document_number": null,
+  "fein_number": null,
+  "entity_status": "UNAVAILABLE",
+  "entity_type": null,
+  "principal_address": null,
+  "mailing_address": null,
+  "registered_agent_name": null,
+  "registered_agent_address": null,
+  "officers": [],
+  "search_candidates": [],
+  "warnings": [
+    "Live SunBiz integration is not configured in this environment."
+  ],
+  "looked_up_at": "2026-03-20T04:47:36.429594Z",
+  "source_url": null,
+  "pdf_report_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_624600e840\\verification\\sunbiz_internal_verification_memo.pdf",
+  "pdf_download_url": "/files/cases/case_624600e840/verification/sunbiz_internal_verification_memo.pdf",
+  "provider_status": "unavailable",
+  "result_classification": "unavailable",
+  "official_record_available": false,
+  "evidence_package_path": null,
+  "evidence_download_url": null,
+  "search_capture_path": null,
+  "detail_capture_path": null,
+  "source_capture_downloads": [],
+  "official_source_urls": [
+    "https://search.sunbiz.org/inquiry/corporationsearch/byname"
+  ],
+  "case_id": "case_624600e840",
+  "memo_disclaimer": "Internal verification memo only. Not an official Florida certificate or certified copy."
+}

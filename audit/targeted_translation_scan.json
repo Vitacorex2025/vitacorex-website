@@ -1,0 +1,428 @@
+{
+  "ok": false,
+  "routes_checked": 18,
+  "issues": [
+    {
+      "route": "/ru/resources.html",
+      "file": "ru/resources.html",
+      "visible_strings": 145,
+      "forbidden_english_hits": 1,
+      "hits": [
+        {
+          "text": "proof and executive brief",
+          "matches": [
+            "executive brief"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/ru/careers.html",
+      "file": "ru/careers.html",
+      "visible_strings": 98,
+      "forbidden_english_hits": 4,
+      "hits": [
+        {
+          "text": "careers_application",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "/ru/thank-you.html?purpose=careers_application",
+          "matches": [
+            "careers"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/ru/contact.html",
+      "file": "ru/contact.html",
+      "visible_strings": 205,
+      "forbidden_english_hits": 5,
+      "hits": [
+        {
+          "text": "company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company-review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company confidential review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "/ru/thank-you.html?purpose=company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "30-day review",
+          "matches": [
+            "review"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/resources.html",
+      "file": "es/resources.html",
+      "visible_strings": 145,
+      "forbidden_english_hits": 1,
+      "hits": [
+        {
+          "text": "proof and executive brief",
+          "matches": [
+            "executive brief"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/careers.html",
+      "file": "es/careers.html",
+      "visible_strings": 98,
+      "forbidden_english_hits": 4,
+      "hits": [
+        {
+          "text": "careers_application",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "/es/thank-you.html?purpose=careers_application",
+          "matches": [
+            "careers"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/contact.html",
+      "file": "es/contact.html",
+      "visible_strings": 205,
+      "forbidden_english_hits": 5,
+      "hits": [
+        {
+          "text": "company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company-review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company confidential review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "/es/thank-you.html?purpose=company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "30-day review",
+          "matches": [
+            "review"
+          ]
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "route": "/ru/",
+      "file": "ru/index.html",
+      "visible_strings": 146,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/ru/corporate-legal-file-control.html",
+      "file": "ru/corporate-legal-file-control.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/ru/revenue-recovery-workflow.html",
+      "file": "ru/revenue-recovery-workflow.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/ru/structured-case-intake.html",
+      "file": "ru/structured-case-intake.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/ru/resources.html",
+      "file": "ru/resources.html",
+      "visible_strings": 145,
+      "forbidden_english_hits": 1,
+      "hits": [
+        {
+          "text": "proof and executive brief",
+          "matches": [
+            "executive brief"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/ru/additional-services.html",
+      "file": "ru/additional-services.html",
+      "visible_strings": 147,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/ru/careers.html",
+      "file": "ru/careers.html",
+      "visible_strings": 98,
+      "forbidden_english_hits": 4,
+      "hits": [
+        {
+          "text": "careers_application",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "/ru/thank-you.html?purpose=careers_application",
+          "matches": [
+            "careers"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/ru/contact.html",
+      "file": "ru/contact.html",
+      "visible_strings": 205,
+      "forbidden_english_hits": 5,
+      "hits": [
+        {
+          "text": "company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company-review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company confidential review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "/ru/thank-you.html?purpose=company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "30-day review",
+          "matches": [
+            "review"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/ru/thank-you.html",
+      "file": "ru/thank-you.html",
+      "visible_strings": 63,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/",
+      "file": "es/index.html",
+      "visible_strings": 146,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/corporate-legal-file-control.html",
+      "file": "es/corporate-legal-file-control.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/revenue-recovery-workflow.html",
+      "file": "es/revenue-recovery-workflow.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/structured-case-intake.html",
+      "file": "es/structured-case-intake.html",
+      "visible_strings": 140,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/resources.html",
+      "file": "es/resources.html",
+      "visible_strings": 145,
+      "forbidden_english_hits": 1,
+      "hits": [
+        {
+          "text": "proof and executive brief",
+          "matches": [
+            "executive brief"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/additional-services.html",
+      "file": "es/additional-services.html",
+      "visible_strings": 147,
+      "forbidden_english_hits": 0,
+      "hits": []
+    },
+    {
+      "route": "/es/careers.html",
+      "file": "es/careers.html",
+      "visible_strings": 98,
+      "forbidden_english_hits": 4,
+      "hits": [
+        {
+          "text": "careers_application",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "careers",
+          "matches": [
+            "careers"
+          ]
+        },
+        {
+          "text": "/es/thank-you.html?purpose=careers_application",
+          "matches": [
+            "careers"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/contact.html",
+      "file": "es/contact.html",
+      "visible_strings": 205,
+      "forbidden_english_hits": 5,
+      "hits": [
+        {
+          "text": "company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company-review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "company confidential review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "/es/thank-you.html?purpose=company_review",
+          "matches": [
+            "review"
+          ]
+        },
+        {
+          "text": "30-day review",
+          "matches": [
+            "review"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/es/thank-you.html",
+      "file": "es/thank-you.html",
+      "visible_strings": 63,
+      "forbidden_english_hits": 0,
+      "hits": []
+    }
+  ]
+}

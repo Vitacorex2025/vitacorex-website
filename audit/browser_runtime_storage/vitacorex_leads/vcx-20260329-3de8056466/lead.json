@@ -1,0 +1,56 @@
+{
+  "lead_id": "vcx-20260329-3de8056466",
+  "created_at": "2026-03-29T20:10:54.706917+00:00",
+  "purpose": "executive_brief",
+  "pipeline_stage": "New",
+  "client_type": "company",
+  "language": "en",
+  "asset_requested": "executive-brief",
+  "service_line": "proof and executive brief",
+  "contact": {
+    "full_name": "Brief QA",
+    "email": "brief-70f96559@example.com",
+    "phone": "",
+    "company_name": "VitaCoreX QA Co",
+    "title": "",
+    "location": "",
+    "linkedin_url": ""
+  },
+  "context": {
+    "page_path": "/resources.html",
+    "page_url": "http://127.0.0.1:55315/resources.html",
+    "page_title": "Executive Briefs, Sample Outputs, and Pilot Proof | VitaCoreX",
+    "landing_page": "http://127.0.0.1:55315/",
+    "referrer": "http://127.0.0.1:55315/",
+    "route_key": "executive-brief",
+    "client_ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36",
+    "utm_source": "qa",
+    "utm_medium": "",
+    "utm_campaign": "",
+    "utm_term": "",
+    "utm_content": "",
+    "gclid": "gclid-test",
+    "fbclid": "",
+    "msclkid": "msclkid-test",
+    "li_fat_id": "li-fat-test",
+    "landing_language": "en"
+  },
+  "lead_scoring": {
+    "industry": "",
+    "revenue_band": "",
+    "portfolio_band": "",
+    "documentation_quality": "",
+    "urgency": "",
+    "pain_type": "",
+    "campaign_source": "qa"
+  },
+  "notes": {
+    "message": "",
+    "operator_size": "",
+    "geography": "",
+    "role_interest": "",
+    "services_requested": []
+  },
+  "attachments": []
+}

@@ -1,0 +1,1362 @@
+{
+  "id": "case_5e5db2ec0e",
+  "workspace_id": "ws_0f1eaf605b93",
+  "created_by_user_id": "usr_9e86590c6888",
+  "environment_tag": "recovery",
+  "record_type": "recovery_record",
+  "reference": null,
+  "title": "Counterparty acceptance packet",
+  "status": "packet_generated",
+  "current_extraction_version": 0,
+  "workflow_slug": null,
+  "issue_category": "unknown",
+  "intake_channel": "web",
+  "current_stage": "classified",
+  "urgency_level": "medium",
+  "recommended_paths": [
+    "review_matter",
+    "upload_supporting_documents",
+    "build_action_summary"
+  ],
+  "deadlines": [],
+  "official_contacts": [],
+  "source_map": [
+    {
+      "label": "Counterparty LLC.pdf",
+      "value": "FileType.SUPPORTING_EXHIBIT",
+      "source_file": "Counterparty LLC.pdf",
+      "source_excerpt": "Client upload sample",
+      "confidence": 1.0
+    },
+    {
+      "label": "Counterparty LLC Invoices.xlsx",
+      "value": "FileType.INVOICE_EXCEL",
+      "source_file": "Counterparty LLC Invoices.xlsx",
+      "source_excerpt": null,
+      "confidence": 0.5
+    }
+  ],
+  "action_packet_status": "not_built",
+  "action_packet_outputs": [],
+  "workflow_payload": {
+    "recovery_workspace_modules": {
+      "reconciliation_center": {
+        "supported_balance": "299249.82",
+        "unsupported_balance": "0.00",
+        "invoice_count": 2,
+        "matched_invoice_count": 2,
+        "unmatched_invoice_count": 0,
+        "debtor_count": 1,
+        "debtor_conflicts": [],
+        "guarantor_present": false,
+        "guarantor_status": "No guarantor extracted",
+        "evidence_gaps": [],
+        "source_balances_by_file": [
+          {
+            "file_name": "Counterparty LLC.pdf",
+            "file_type": "FileType.SUPPORTING_EXHIBIT",
+            "scope": "active",
+            "extraction_status": "failed",
+            "quality_score": 0.22,
+            "balance_hint": null,
+            "warnings": [
+              "OCR fallback unavailable in this environment; install pdf2image and pytesseract to enable it."
+            ]
+          },
+          {
+            "file_name": "Counterparty LLC Invoices.xlsx",
+            "file_type": "FileType.INVOICE_EXCEL",
+            "scope": "active",
+            "extraction_status": "partially_extracted",
+            "quality_score": 0.62,
+            "balance_hint": "125000.00",
+            "warnings": [
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+            ]
+          }
+        ],
+        "route_reason_codes": []
+      },
+      "communications_log": {
+        "count": 1,
+        "last_touch": {
+          "summary": "Generated packet v1 for review.",
+          "entry_type": "generated_draft",
+          "channel": "packet_archive",
+          "actor_label": "Generation engine",
+          "created_at": "2026-03-20T17:56:57.853281Z"
+        }
+      },
+      "settlement_tracker": {
+        "count": 0,
+        "latest": null
+      },
+      "deadline_engine": {
+        "deadline_count": 0,
+        "override_count": 0
+      },
+      "packet_archive": {
+        "version_count": 1,
+        "latest": {
+          "id": "b46209e9d2cb",
+          "version_number": 1,
+          "created_at": "2026-03-20T17:56:57.853196Z",
+          "updated_at": "2026-03-20T17:56:57.853198Z",
+          "generation_qa_status": "completed_with_warnings",
+          "release_state": "ready_for_review",
+          "review_required": true,
+          "is_court_draft": true,
+          "selected_document_types": [
+            "complaint",
+            "debt_calculation_sheet"
+          ],
+          "document_types": [
+            "debt_calculation_sheet"
+          ],
+          "document_count": 1,
+          "zip_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\case_5e5db2ec0e_packet.zip",
+          "zip_download_url": "/files/cases/case_5e5db2ec0e/output/case_5e5db2ec0e_packet.zip",
+          "warning_count": 8,
+          "summary": "1 generated, 1 blocked / 2 requested",
+          "reviewed_by_user_id": null,
+          "reviewed_by_label": null
+        }
+      },
+      "portal_access": {
+        "enabled": false,
+        "mode": "invite_only",
+        "signed_link_only": true,
+        "read_only": true,
+        "upload_request_enabled": true,
+        "ui_enabled": false,
+        "status_label": "deferred_for_safe_release"
+      }
+    }
+  },
+  "source_files": [
+    {
+      "id": "5feed65f17ee",
+      "filename": "5feed65f17ee_Counterparty-LLC.pdf",
+      "original_filename": "Counterparty LLC.pdf",
+      "workspace_id": "ws_0f1eaf605b93",
+      "matter_id": "case_5e5db2ec0e",
+      "content_type": "application/pdf",
+      "file_type": "supporting_exhibit",
+      "storage_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\source_files\\5feed65f17ee_Counterparty-LLC.pdf",
+      "size_bytes": 621,
+      "extraction_version": 0,
+      "extraction_quality_score": 0.22,
+      "extraction_status": "failed",
+      "extraction_method": "direct_text",
+      "extraction_report": {
+        "text_characters": 20,
+        "alnum_characters": 18,
+        "near_empty_text": true,
+        "page_count": 1,
+        "ocr_attempted": true,
+        "ocr_used": false,
+        "score": 0.22,
+        "status": "failed",
+        "method": "direct_text"
+      },
+      "extracted_text": "Client upload sample",
+      "parsed_payload": null,
+      "normalized_evidence": {
+        "schema_version": "2026-03-19",
+        "document_type": "correspondence",
+        "source_filename": "Counterparty LLC.pdf",
+        "parties": {
+          "plaintiffs": [],
+          "debtors": [],
+          "guarantors": []
+        },
+        "facts": [],
+        "amounts": [],
+        "dates": [],
+        "identifiers": {
+          "invoice_numbers": []
+        },
+        "uncertain_fields": [
+          {
+            "field": "document_text",
+            "reason": "near_empty_text",
+            "confidence": 0.0
+          }
+        ],
+        "conflicts": [],
+        "quality": {
+          "score": 0.22,
+          "status": "failed",
+          "method": "direct_text"
+        },
+        "provenance": {},
+        "summary": {
+          "extracted_fact_count": 0,
+          "text_characters": 20
+        }
+      },
+      "warnings": [
+        "OCR fallback unavailable in this environment; install pdf2image and pytesseract to enable it."
+      ],
+      "uploaded_at": "2026-03-20T17:56:56.984212Z",
+      "template_slot": null,
+      "sha256": "020dcafe4e7b7398904c1195bacba01b39a6797543d4628ffd4c4b0da028bc9d",
+      "excluded_from_active_matter": false,
+      "exclusion_reason": null,
+      "scope_type": "matter",
+      "service_scope": null
+    },
+    {
+      "id": "384e1d89b9a4",
+      "filename": "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx",
+      "original_filename": "Counterparty LLC Invoices.xlsx",
+      "workspace_id": "ws_0f1eaf605b93",
+      "matter_id": "case_5e5db2ec0e",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_type": "invoice_excel",
+      "storage_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\source_files\\384e1d89b9a4_Counterparty-LLC-Invoices.xlsx",
+      "size_bytes": 5095,
+      "extraction_version": 0,
+      "extraction_quality_score": 0.62,
+      "extraction_status": "partially_extracted",
+      "extraction_method": "workbook_parser",
+      "extraction_report": {
+        "worksheet_count": 1,
+        "selected_worksheet_count": 1,
+        "ignored_worksheet_count": 0,
+        "selected_worksheets": [
+          "Invoices"
+        ],
+        "ignored_worksheets": [],
+        "selected_row_count": 2,
+        "selection_candidate_count": 1,
+        "multi_entity_conflict": false,
+        "source_format": "workbook",
+        "status": "partially_extracted",
+        "score": 0.62,
+        "method": "workbook_parser"
+      },
+      "extracted_text": null,
+      "parsed_payload": {
+        "source_filename": "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx",
+        "invoice_count": 2,
+        "total_original_amount": "0.00",
+        "total_balance_due": "299249.82",
+        "math_verified": true,
+        "warnings": [
+          "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+          "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+        ],
+        "conflicts": [],
+        "line_items": [
+          {
+            "organization": "Client Company LLC",
+            "company": "Counterparty LLC",
+            "owner_name": "John Counterparty",
+            "company_email": null,
+            "company_number": null,
+            "company_address": "123 Main St, Orlando, FL 32801",
+            "county": "Orange",
+            "invoice_number": "INV-1001",
+            "invoice_date": "2026-01-10",
+            "due_date": "2026-02-10",
+            "customer_name": "Counterparty LLC",
+            "original_amount": "0.00",
+            "balance_due": "125000.00",
+            "raw_original_amount_text": null,
+            "raw_balance_due_text": "125000.00",
+            "parse_confidence": 1.0,
+            "parse_warning": "Amount field is blank.",
+            "included_in_total": true,
+            "currency": "USD",
+            "source_sheet": "Invoices",
+            "source_row": 2
+          },
+          {
+            "organization": "Client Company LLC",
+            "company": "Counterparty LLC",
+            "owner_name": "John Counterparty",
+            "company_email": null,
+            "company_number": null,
+            "company_address": "123 Main St, Orlando, FL 32801",
+            "county": "Orange",
+            "invoice_number": "INV-1002",
+            "invoice_date": "2026-01-17",
+            "due_date": "2026-02-17",
+            "customer_name": "Counterparty LLC",
+            "original_amount": "0.00",
+            "balance_due": "174249.82",
+            "raw_original_amount_text": null,
+            "raw_balance_due_text": "174249.82",
+            "parse_confidence": 1.0,
+            "parse_warning": "Amount field is blank.",
+            "included_in_total": true,
+            "currency": "USD",
+            "source_sheet": "Invoices",
+            "source_row": 3
+          }
+        ],
+        "debtor_entities": [
+          "Counterparty LLC"
+        ],
+        "plaintiff_entities": [
+          "Client Company LLC"
+        ],
+        "guarantor_entities": [
+          "John Counterparty"
+        ],
+        "excluded_low_confidence_rows": 0,
+        "worksheet_report": [
+          {
+            "title": "Invoices",
+            "selected": true,
+            "selection_reason": "Worksheet contains usable aging rows.",
+            "matched_headers": [
+              "balance_due",
+              "company",
+              "company_address",
+              "county",
+              "due_date",
+              "invoice_date",
+              "invoice_number",
+              "organization",
+              "owner_name"
+            ],
+            "row_count": 2,
+            "parsed_row_count": 2,
+            "usable_row_count": 2,
+            "excluded_low_confidence_rows": 0,
+            "source_format": "workbook",
+            "debtor_entities": [
+              "Counterparty LLC"
+            ],
+            "plaintiff_entities": [
+              "Client Company LLC"
+            ],
+            "warnings": [
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+            ]
+          }
+        ],
+        "selected_worksheets": [
+          "Invoices"
+        ],
+        "ignored_worksheets": [],
+        "selection_candidates": [
+          {
+            "entity_key": "COUNTERPARTY",
+            "entity_name": "Counterparty LLC",
+            "row_count": 2,
+            "usable_row_count": 2,
+            "total_balance_due": "299249.82",
+            "worksheets": [
+              "Invoices"
+            ]
+          }
+        ],
+        "parser_report": {
+          "worksheet_count": 1,
+          "selected_worksheet_count": 1,
+          "ignored_worksheet_count": 0,
+          "selected_worksheets": [
+            "Invoices"
+          ],
+          "ignored_worksheets": [],
+          "selected_row_count": 2,
+          "selection_candidate_count": 1,
+          "multi_entity_conflict": false,
+          "source_format": "workbook",
+          "status": "ready"
+        }
+      },
+      "normalized_evidence": {
+        "schema_version": "2026-03-19",
+        "document_type": "aging_report",
+        "source_filename": "Counterparty LLC Invoices.xlsx",
+        "parties": {
+          "plaintiffs": [
+            "Client Company LLC"
+          ],
+          "debtors": [
+            "Counterparty LLC"
+          ],
+          "guarantors": [
+            "John Counterparty"
+          ]
+        },
+        "facts": [
+          {
+            "field": "selected_worksheets",
+            "value": "Invoices",
+            "confidence": 0.95,
+            "uncertain": false,
+            "source": "workbook_parser",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "extraction_method": "workbook_parser"
+          },
+          {
+            "field": "debtor_selection_candidates",
+            "value": "Counterparty LLC (2 row(s))",
+            "confidence": 0.88,
+            "uncertain": false,
+            "source": "workbook_parser",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "extraction_method": "workbook_parser"
+          }
+        ],
+        "amounts": [
+          {
+            "field": "balance_due",
+            "value": "125000.00",
+            "currency": "USD",
+            "confidence": 1.0,
+            "uncertain": false,
+            "source": "Invoices",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "source_sheet": "Invoices",
+            "source_row": 2,
+            "source_excerpt": "INV-1001 2026-01-10 2026-02-10 125000.00",
+            "extraction_method": "workbook_parser",
+            "invoice_number": "INV-1001"
+          },
+          {
+            "field": "balance_due",
+            "value": "174249.82",
+            "currency": "USD",
+            "confidence": 1.0,
+            "uncertain": false,
+            "source": "Invoices",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "source_sheet": "Invoices",
+            "source_row": 3,
+            "source_excerpt": "INV-1002 2026-01-17 2026-02-17 174249.82",
+            "extraction_method": "workbook_parser",
+            "invoice_number": "INV-1002"
+          }
+        ],
+        "dates": [
+          {
+            "field": "invoice_date",
+            "value": "2026-01-10",
+            "confidence": 0.85,
+            "uncertain": false,
+            "source": "Invoices",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "source_sheet": "Invoices",
+            "source_row": 2,
+            "source_excerpt": "INV-1001 2026-01-10 2026-02-10",
+            "extraction_method": "workbook_parser",
+            "invoice_number": "INV-1001"
+          },
+          {
+            "field": "invoice_date",
+            "value": "2026-01-17",
+            "confidence": 0.85,
+            "uncertain": false,
+            "source": "Invoices",
+            "source_file": "Counterparty LLC Invoices.xlsx",
+            "source_sheet": "Invoices",
+            "source_row": 3,
+            "source_excerpt": "INV-1002 2026-01-17 2026-02-17",
+            "extraction_method": "workbook_parser",
+            "invoice_number": "INV-1002"
+          }
+        ],
+        "identifiers": {
+          "invoice_numbers": [
+            "INV-1001",
+            "INV-1002"
+          ]
+        },
+        "worksheet_report": [
+          {
+            "title": "Invoices",
+            "selected": true,
+            "selection_reason": "Worksheet contains usable aging rows.",
+            "matched_headers": [
+              "balance_due",
+              "company",
+              "company_address",
+              "county",
+              "due_date",
+              "invoice_date",
+              "invoice_number",
+              "organization",
+              "owner_name"
+            ],
+            "row_count": 2,
+            "parsed_row_count": 2,
+            "usable_row_count": 2,
+            "excluded_low_confidence_rows": 0,
+            "source_format": "workbook",
+            "debtor_entities": [
+              "Counterparty LLC"
+            ],
+            "plaintiff_entities": [
+              "Client Company LLC"
+            ],
+            "warnings": [
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+              "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+            ]
+          }
+        ],
+        "parser_report": {
+          "worksheet_count": 1,
+          "selected_worksheet_count": 1,
+          "ignored_worksheet_count": 0,
+          "selected_worksheets": [
+            "Invoices"
+          ],
+          "ignored_worksheets": [],
+          "selected_row_count": 2,
+          "selection_candidate_count": 1,
+          "multi_entity_conflict": false,
+          "source_format": "workbook",
+          "status": "ready"
+        },
+        "uncertain_fields": [
+          {
+            "field": "balance_due",
+            "reason": "Amount field is blank.",
+            "confidence": 1.0,
+            "invoice_number": "INV-1001",
+            "source": "Invoices"
+          },
+          {
+            "field": "balance_due",
+            "reason": "Amount field is blank.",
+            "confidence": 1.0,
+            "invoice_number": "INV-1002",
+            "source": "Invoices"
+          },
+          {
+            "field": "balance_due",
+            "reason": "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+            "confidence": 0.0,
+            "source": "workbook_parser"
+          },
+          {
+            "field": "balance_due",
+            "reason": "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank.",
+            "confidence": 0.0,
+            "source": "workbook_parser"
+          }
+        ],
+        "conflicts": [],
+        "provenance": {
+          "selected_worksheets": [
+            {
+              "value": "Invoices",
+              "confidence": 0.95,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": null,
+              "source_row": null,
+              "source_excerpt": null,
+              "extraction_method": "workbook_parser",
+              "invoice_number": null
+            }
+          ],
+          "debtor_selection_candidates": [
+            {
+              "value": "Counterparty LLC (2 row(s))",
+              "confidence": 0.88,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": null,
+              "source_row": null,
+              "source_excerpt": null,
+              "extraction_method": "workbook_parser",
+              "invoice_number": null
+            }
+          ],
+          "balance_due": [
+            {
+              "value": "125000.00",
+              "confidence": 1.0,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": "Invoices",
+              "source_row": 2,
+              "source_excerpt": "INV-1001 2026-01-10 2026-02-10 125000.00",
+              "extraction_method": "workbook_parser",
+              "invoice_number": "INV-1001"
+            },
+            {
+              "value": "174249.82",
+              "confidence": 1.0,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": "Invoices",
+              "source_row": 3,
+              "source_excerpt": "INV-1002 2026-01-17 2026-02-17 174249.82",
+              "extraction_method": "workbook_parser",
+              "invoice_number": "INV-1002"
+            }
+          ],
+          "invoice_date": [
+            {
+              "value": "2026-01-10",
+              "confidence": 0.85,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": "Invoices",
+              "source_row": 2,
+              "source_excerpt": "INV-1001 2026-01-10 2026-02-10",
+              "extraction_method": "workbook_parser",
+              "invoice_number": "INV-1001"
+            },
+            {
+              "value": "2026-01-17",
+              "confidence": 0.85,
+              "source_file": "Counterparty LLC Invoices.xlsx",
+              "source_sheet": "Invoices",
+              "source_row": 3,
+              "source_excerpt": "INV-1002 2026-01-17 2026-02-17",
+              "extraction_method": "workbook_parser",
+              "invoice_number": "INV-1002"
+            }
+          ]
+        },
+        "summary": {
+          "invoice_count": 2,
+          "selected_worksheet_count": 1,
+          "total_balance_due": "299249.82"
+        }
+      },
+      "warnings": [
+        "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+        "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+      ],
+      "uploaded_at": "2026-03-20T17:56:56.994750Z",
+      "template_slot": null,
+      "sha256": "0293187bbcd5941cc7f9240720d673be56f17f0ed616b3001f4d523fcd12270a",
+      "excluded_from_active_matter": false,
+      "exclusion_reason": null,
+      "scope_type": "matter",
+      "service_scope": null
+    }
+  ],
+  "template_files": [],
+  "extracted_case_data": {
+    "plaintiff": {
+      "party_name": "Client Company LLC",
+      "entity_type": "Limited Liability Company",
+      "party_role": "plaintiff",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": []
+    },
+    "defendant_entity": {
+      "party_name": "Counterparty LLC",
+      "entity_type": "Limited Liability Company",
+      "party_role": "defendant_entity",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": [
+        "a limited liability company"
+      ]
+    },
+    "personal_guarantor": null,
+    "venue": {
+      "venue_clause": null,
+      "venue_state": "Florida",
+      "venue_county": "Orange",
+      "source_document_type": null,
+      "selection_source": "invoice_excel_county_column",
+      "selection_confidence": 0.93,
+      "venue_paragraph": null
+    },
+    "county_candidates": [
+      {
+        "county": "Orange",
+        "source": "invoice_excel_county_column",
+        "evidence": "Spreadsheet county column repeated 2 time(s).",
+        "confidence": 0.93
+      }
+    ],
+    "invoice_summary": {
+      "source_filename": "Counterparty LLC.pdf",
+      "source_priority_used": "invoice_excel",
+      "invoice_count": 2,
+      "total_original_amount": "0.00",
+      "total_balance_due": "299249.82",
+      "math_verified": true,
+      "warnings": [
+        "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+        "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank."
+      ],
+      "conflicts": [],
+      "line_items": [
+        {
+          "invoice_number": "INV-1001",
+          "invoice_date": "2026-01-10",
+          "due_date": "2026-02-10",
+          "customer_name": "Counterparty LLC",
+          "original_amount": "0.00",
+          "balance_due": "125000.00",
+          "raw_original_amount_text": null,
+          "raw_balance_due_text": "125000.00",
+          "parse_confidence": 1.0,
+          "parse_warning": "Amount field is blank.",
+          "included_in_total": true,
+          "currency": "USD",
+          "source_sheet": "Invoices",
+          "source_row": 2,
+          "source_filename": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel"
+        },
+        {
+          "invoice_number": "INV-1002",
+          "invoice_date": "2026-01-17",
+          "due_date": "2026-02-17",
+          "customer_name": "Counterparty LLC",
+          "original_amount": "0.00",
+          "balance_due": "174249.82",
+          "raw_original_amount_text": null,
+          "raw_balance_due_text": "174249.82",
+          "parse_confidence": 1.0,
+          "parse_warning": "Amount field is blank.",
+          "included_in_total": true,
+          "currency": "USD",
+          "source_sheet": "Invoices",
+          "source_row": 3,
+          "source_filename": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel"
+        }
+      ]
+    },
+    "amount_in_controversy": "299249.82",
+    "florida_court": {
+      "court_level": "circuit_civil",
+      "court_division_label": "Circuit Court",
+      "amount_in_controversy": "299249.82",
+      "venue_county": "Orange",
+      "reasoning": [
+        "Amount in controversy exceeds $50,000; Circuit Court selected."
+      ]
+    },
+    "governing_law": null,
+    "payment_terms": null,
+    "default_terms": null,
+    "interest_terms": null,
+    "service_address": null,
+    "business_address": null,
+    "contract_execution_location": null,
+    "separate_summons_required": false,
+    "contract_evidence": [],
+    "guaranty_evidence": [],
+    "legal_counts": [
+      {
+        "code": "breach_of_contract",
+        "label": "Count I – Breach of Contract",
+        "supported": false,
+        "reason": "No contract evidence extracted."
+      },
+      {
+        "code": "account_stated",
+        "label": "Count II – Account Stated",
+        "supported": true,
+        "reason": "Invoice or statement delivery evidence supports account stated."
+      },
+      {
+        "code": "breach_of_personal_guaranty",
+        "label": "Count III – Breach of Personal Guaranty",
+        "supported": false,
+        "reason": "No guaranty-supported individual liability evidence was extracted."
+      },
+      {
+        "code": "unjust_enrichment",
+        "label": "Count IV – Unjust Enrichment (Alternative)",
+        "supported": true,
+        "reason": "Alternative quasi-contract count retained for review."
+      }
+    ],
+    "source_conflicts": [],
+    "missing_required_facts": [],
+    "review_flags": [
+      "needs_review:governing_law"
+    ],
+    "warnings": [
+      "Amount in controversy is based on spreadsheet balances only.",
+      "Governing law was not confidently extracted from the uploaded files.",
+      "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+      "Payment terms were not confidently extracted from the uploaded files.",
+      "Interest language was not confidently extracted from the uploaded files."
+    ],
+    "matter_consistency": {
+      "status": "pass",
+      "anchor_plaintiff_name": "Client Company LLC",
+      "anchor_debtor_name": "Counterparty LLC",
+      "detected_debtor_entities": [
+        "Counterparty LLC"
+      ],
+      "detected_plaintiff_entities": [
+        "Client Company LLC"
+      ],
+      "detected_guarantors": [
+        "John Counterparty"
+      ],
+      "source_set_used": [
+        "Counterparty LLC.pdf",
+        "Counterparty LLC Invoices.xlsx"
+      ],
+      "excluded_sources": [],
+      "blockers": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "amount_reconciliation": {
+      "status": "pass",
+      "spreadsheet_total": "299249.82",
+      "invoice_pdf_total": "0.00",
+      "approved_total": "299249.82",
+      "spreadsheet_invoice_count": 2,
+      "invoice_pdf_count": 0,
+      "used_invoice_count": 2,
+      "excluded_low_confidence_rows": 0,
+      "warnings": [
+        "Amount in controversy is based on spreadsheet balances only."
+      ],
+      "blockers": [],
+      "source_pdf_total": "0.00",
+      "source_spreadsheet_total": "299249.82",
+      "approved_reconciled_total": "299249.82",
+      "case_summary_total": "299249.82",
+      "review_approved": false,
+      "excluded_sources": []
+    },
+    "source_set_used": [
+      "Counterparty LLC.pdf",
+      "Counterparty LLC Invoices.xlsx"
+    ],
+    "recovery_truth": {
+      "schema_version": "2026-03-19",
+      "supported_balance": "299249.82",
+      "unsupported_balance": "0.00",
+      "invoice_count": 2,
+      "matched_invoice_count": 0,
+      "matched_invoice_numbers": [],
+      "debtor_count": 1,
+      "guarantor_present": false,
+      "venue_present": true,
+      "governing_law_present": false,
+      "contactability_present": false,
+      "performance_proof_present": true,
+      "evidence_gap_count": 3,
+      "evidence_gaps": [
+        "signed_contract",
+        "governing_law",
+        "contact_path"
+      ],
+      "critical_blockers": [],
+      "critical_blocker_codes": [],
+      "reconciliation_summary": {
+        "status": "pass",
+        "spreadsheet_total": "299249.82",
+        "invoice_pdf_total": "0.00",
+        "supported_balance": "299249.82",
+        "unsupported_balance": "0.00",
+        "matched_invoice_count": 0,
+        "matched_invoice_numbers": [],
+        "excluded_low_confidence_rows": 0,
+        "conflicts": []
+      },
+      "evidence_coverage": {
+        "contract_present": false,
+        "invoice_support_present": true,
+        "guarantor_present": false,
+        "venue_present": true,
+        "governing_law_present": false,
+        "contactability_present": false,
+        "performance_proof_present": true
+      },
+      "source_provenance": [
+        {
+          "field": "selected_worksheets",
+          "value": "Invoices",
+          "confidence": 0.95,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": null,
+          "source_row": null,
+          "source_excerpt": null,
+          "extraction_method": "workbook_parser",
+          "invoice_number": null,
+          "uncertain": false
+        },
+        {
+          "field": "debtor_selection_candidates",
+          "value": "Counterparty LLC (2 row(s))",
+          "confidence": 0.88,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": null,
+          "source_row": null,
+          "source_excerpt": null,
+          "extraction_method": "workbook_parser",
+          "invoice_number": null,
+          "uncertain": false
+        },
+        {
+          "field": "balance_due",
+          "value": "125000.00",
+          "confidence": 1.0,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": "Invoices",
+          "source_row": 2,
+          "source_excerpt": "INV-1001 2026-01-10 2026-02-10 125000.00",
+          "extraction_method": "workbook_parser",
+          "invoice_number": "INV-1001",
+          "uncertain": false
+        },
+        {
+          "field": "balance_due",
+          "value": "174249.82",
+          "confidence": 1.0,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": "Invoices",
+          "source_row": 3,
+          "source_excerpt": "INV-1002 2026-01-17 2026-02-17 174249.82",
+          "extraction_method": "workbook_parser",
+          "invoice_number": "INV-1002",
+          "uncertain": false
+        },
+        {
+          "field": "invoice_date",
+          "value": "2026-01-10",
+          "confidence": 0.85,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": "Invoices",
+          "source_row": 2,
+          "source_excerpt": "INV-1001 2026-01-10 2026-02-10",
+          "extraction_method": "workbook_parser",
+          "invoice_number": "INV-1001",
+          "uncertain": false
+        },
+        {
+          "field": "invoice_date",
+          "value": "2026-01-17",
+          "confidence": 0.85,
+          "source_file": "Counterparty LLC Invoices.xlsx",
+          "source_kind": "invoice_excel",
+          "source_sheet": "Invoices",
+          "source_row": 3,
+          "source_excerpt": "INV-1002 2026-01-17 2026-02-17",
+          "extraction_method": "workbook_parser",
+          "invoice_number": "INV-1002",
+          "uncertain": false
+        }
+      ],
+      "low_quality_files": [],
+      "route_reason_codes": [],
+      "primary_next_step": null,
+      "secondary_options": [],
+      "readiness_score": 60.0,
+      "source_backed_explanation": [
+        "Supported balance 299,249.82 is grounded in the approved reconciled source set.",
+        "Only part of the venue/governing-law support is present, so review remains necessary."
+      ]
+    },
+    "processed_at": "2026-03-20T17:56:57.184918Z"
+  },
+  "sunbiz_lookup": null,
+  "entity_verification": null,
+  "jurisdiction_analysis": {
+    "recommended_forum": {
+      "forum_state": "FL",
+      "forum_county": "Orange",
+      "label": "Florida / Orange County",
+      "rank": 1,
+      "confidence_score": 0.68,
+      "reasons": [
+        "Venue county extracted: Orange County."
+      ],
+      "blockers": [],
+      "service_method_notes": [
+        "Florida filing may still require non-Florida service planning if the defendant is foreign or unregistered."
+      ],
+      "state_pack_available": true
+    },
+    "alternate_forum": null,
+    "ranked_forums": [
+      {
+        "forum_state": "FL",
+        "forum_county": "Orange",
+        "label": "Florida / Orange County",
+        "rank": 1,
+        "confidence_score": 0.68,
+        "reasons": [
+          "Venue county extracted: Orange County."
+        ],
+        "blockers": [],
+        "service_method_notes": [
+          "Florida filing may still require non-Florida service planning if the defendant is foreign or unregistered."
+        ],
+        "state_pack_available": true
+      }
+    ],
+    "reason_summary": [
+      "Venue county extracted: Orange County."
+    ],
+    "blockers": [],
+    "service_notes": [],
+    "arbitration_override": false,
+    "generated_at": "2026-03-20T17:56:57.185007Z"
+  },
+  "contract_review": null,
+  "forms_engine": [],
+  "client_snapshot": {
+    "case_id": "case_5e5db2ec0e",
+    "matter_label": "Counterparty acceptance packet",
+    "selected_matter": "Counterparty acceptance packet",
+    "mode": "case",
+    "source_file_count": 2,
+    "source_set_count": 2,
+    "plaintiff_name": "Client Company LLC",
+    "defendant_name": "Counterparty LLC",
+    "guarantor_name": null,
+    "plaintiff": "Client Company LLC",
+    "defendant": "Counterparty LLC",
+    "guarantor": null,
+    "governing_law": null,
+    "venue_county": "Orange",
+    "court_level": "Circuit Court",
+    "draft_amount": "299249.82",
+    "extracted_amount": "299249.82",
+    "approved_amount": "299249.82",
+    "display_amount": "299249.82",
+    "status": "packet_generated",
+    "readiness": "output_available",
+    "next_action": "Download the generated outputs.",
+    "route_status": null,
+    "route_reason_codes": [],
+    "readiness_score": 0.0,
+    "blocker_count": 0,
+    "warning_count": 9,
+    "blockers": [],
+    "warnings": [
+      "Amount in controversy is based on spreadsheet balances only.",
+      "Governing law was not confidently extracted from the uploaded files.",
+      "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+      "Payment terms were not confidently extracted from the uploaded files.",
+      "Interest language was not confidently extracted from the uploaded files.",
+      "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+      "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank.",
+      "OCR fallback unavailable in this environment; install pdf2image and pytesseract to enable it.",
+      "SunBiz verification is still recommended before generating Florida registered-agent service documents."
+    ],
+    "sunbiz_state": "not_run",
+    "generated_documents": [
+      {
+        "document_name": "09 Debt Calculation Sheet.docx",
+        "document_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\09 Debt Calculation Sheet.docx",
+        "document_type": "debt_calculation_sheet",
+        "download_url": "/files/cases/case_5e5db2ec0e/output/09 Debt Calculation Sheet.docx",
+        "status": "generated",
+        "blocking_reason": null
+      }
+    ],
+    "generated_document_count": 1,
+    "has_zip": true,
+    "packet_generation_allowed": true,
+    "verification_required": true,
+    "verification_report_available": false,
+    "recent_activity": [
+      {
+        "recorded_at": "2026-03-20T17:56:57.858368+00:00",
+        "event_type": "usage.packet_generated",
+        "payload": {
+          "selected_document_types": [
+            "complaint",
+            "debt_calculation_sheet"
+          ],
+          "blocked_document_count": 1,
+          "successful_document_count": 1
+        }
+      },
+      {
+        "recorded_at": "2026-03-20T17:56:57.854675+00:00",
+        "event_type": "generation.partial",
+        "payload": {
+          "document_count": 1,
+          "blocked_document_count": 1,
+          "not_applicable_document_count": 0,
+          "zip_download_url": "/files/cases/case_5e5db2ec0e/output/case_5e5db2ec0e_packet.zip",
+          "warnings": [
+            "Amount in controversy is based on spreadsheet balances only.",
+            "Governing law was not confidently extracted from the uploaded files.",
+            "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+            "Payment terms were not confidently extracted from the uploaded files.",
+            "Interest language was not confidently extracted from the uploaded files.",
+            "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+            "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank.",
+            "OCR fallback unavailable in this environment; install pdf2image and pytesseract to enable it."
+          ],
+          "coverage": {
+            "expected_document_types": [
+              "demand_letter",
+              "complaint",
+              "civil_cover_sheet",
+              "request_for_issuance_of_summons",
+              "summons_company",
+              "motion_for_clerks_default",
+              "proposed_final_judgment",
+              "debt_calculation_sheet",
+              "affidavit_of_amount_due",
+              "exhibit_index"
+            ],
+            "generated_document_types": [
+              "debt_calculation_sheet"
+            ],
+            "blocked_or_missing_document_types": [
+              "complaint"
+            ],
+            "missing_document_types": [
+              "demand_letter",
+              "complaint",
+              "civil_cover_sheet",
+              "request_for_issuance_of_summons",
+              "summons_company",
+              "motion_for_clerks_default",
+              "proposed_final_judgment",
+              "affidavit_of_amount_due",
+              "exhibit_index"
+            ],
+            "missing_template_files": [],
+            "passed": false
+          },
+          "selected_document_types": [
+            "complaint",
+            "debt_calculation_sheet"
+          ]
+        }
+      },
+      {
+        "recorded_at": "2026-03-20T17:56:57.205804+00:00",
+        "event_type": "case.processed",
+        "payload": {
+          "status": "ready_for_verification",
+          "active_source_file_count": 2,
+          "template_file_count": 0,
+          "blocker_count": 0,
+          "sunbiz_triggered": false
+        }
+      },
+      {
+        "recorded_at": "2026-03-20T17:56:57.009712+00:00",
+        "event_type": "usage.upload_completed",
+        "payload": {
+          "file_count": 2,
+          "stored_file_count": 2,
+          "duplicate_skipped_count": 0
+        }
+      },
+      {
+        "recorded_at": "2026-03-20T17:56:56.995958+00:00",
+        "event_type": "source_file.uploaded",
+        "payload": {
+          "file_id": "384e1d89b9a4",
+          "filename": "Counterparty LLC Invoices.xlsx",
+          "sha256": "0293187bbcd5941cc7f9240720d673be56f17f0ed616b3001f4d523fcd12270a"
+        }
+      }
+    ]
+  },
+  "packet_generation": {
+    "generated_at": "2026-03-20T17:56:57.826273Z",
+    "documents": [
+      {
+        "document_name": "02 Complaint.docx",
+        "document_path": null,
+        "document_type": "complaint",
+        "download_url": null,
+        "status": "blocked",
+        "blocking_reason": "Complaint generation requires extracted or reviewed contract facts for: governing law, payment terms, default terms, interest terms, venue clause."
+      },
+      {
+        "document_name": "09 Debt Calculation Sheet.docx",
+        "document_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\09 Debt Calculation Sheet.docx",
+        "document_type": "debt_calculation_sheet",
+        "download_url": "/files/cases/case_5e5db2ec0e/output/09 Debt Calculation Sheet.docx",
+        "status": "generated",
+        "blocking_reason": null
+      }
+    ],
+    "zip_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\case_5e5db2ec0e_packet.zip",
+    "download_url": "/files/cases/case_5e5db2ec0e/output/case_5e5db2ec0e_packet.zip",
+    "warnings": [
+      "Amount in controversy is based on spreadsheet balances only.",
+      "Governing law was not confidently extracted from the uploaded files.",
+      "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+      "Payment terms were not confidently extracted from the uploaded files.",
+      "Interest language was not confidently extracted from the uploaded files.",
+      "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 2: Amount field is blank.",
+      "384e1d89b9a4_Counterparty-LLC-Invoices.xlsx Invoices!row 3: Amount field is blank.",
+      "OCR fallback unavailable in this environment; install pdf2image and pytesseract to enable it."
+    ],
+    "selected_document_types": [
+      "complaint",
+      "debt_calculation_sheet"
+    ],
+    "summary": "1 generated, 1 blocked / 2 requested",
+    "version_number": 1,
+    "generation_qa_status": "completed_with_warnings",
+    "release_state": "ready_for_review",
+    "review_required": true,
+    "is_court_draft": true,
+    "archive_entry_id": "b46209e9d2cb"
+  },
+  "generation_progress": {
+    "job_id": "d0b2475e79894edbbc2c60b7b55dec25",
+    "status": "completed_with_blockers",
+    "message": "1 generated, 1 blocked / 2 requested",
+    "selected_document_types": [
+      "complaint",
+      "debt_calculation_sheet"
+    ],
+    "total_documents": 2,
+    "completed_documents": 2,
+    "progress_percent": 100.0,
+    "current_document_type": null,
+    "current_document_name": null,
+    "items": [
+      {
+        "document_type": "complaint",
+        "document_name": "02 Complaint.docx",
+        "status": "blocked",
+        "blocking_reason": "Complaint generation requires extracted or reviewed contract facts for: governing law, payment terms, default terms, interest terms, venue clause.",
+        "download_url": null
+      },
+      {
+        "document_type": "debt_calculation_sheet",
+        "document_name": "09 Debt Calculation Sheet.docx",
+        "status": "generated",
+        "blocking_reason": null,
+        "download_url": "/files/cases/case_5e5db2ec0e/output/09 Debt Calculation Sheet.docx"
+      }
+    ],
+    "blocking_items": [
+      "Complaint generation requires extracted or reviewed contract facts for: governing law, payment terms, default terms, interest terms, venue clause."
+    ],
+    "started_at": "2026-03-20T17:56:57.382612Z",
+    "finished_at": "2026-03-20T17:56:57.853090Z"
+  },
+  "download_ledger": [
+    {
+      "id": "5b2f414f3553",
+      "category": "generated_output",
+      "file_name": "09 Debt Calculation Sheet.docx",
+      "file_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\09 Debt Calculation Sheet.docx",
+      "download_url": "/files/cases/case_5e5db2ec0e/output/09 Debt Calculation Sheet.docx",
+      "generated_at": "2026-03-20T17:56:57.826273Z",
+      "downloaded_at": null,
+      "available": true,
+      "metadata": {
+        "document_type": "debt_calculation_sheet",
+        "packet_version": 1,
+        "release_state": "ready_for_review",
+        "generation_qa_status": "completed_with_warnings"
+      },
+      "owner_kind": "case",
+      "owner_id": "case_5e5db2ec0e",
+      "service_slug": "matter_workspace"
+    },
+    {
+      "id": "07cc38fed2e2",
+      "category": "zip_package",
+      "file_name": "case_5e5db2ec0e_packet.zip",
+      "file_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\case_5e5db2ec0e_packet.zip",
+      "download_url": "/files/cases/case_5e5db2ec0e/output/case_5e5db2ec0e_packet.zip",
+      "generated_at": "2026-03-20T17:56:57.826273Z",
+      "downloaded_at": null,
+      "available": true,
+      "metadata": {
+        "selected_document_types": [
+          "complaint",
+          "debt_calculation_sheet"
+        ],
+        "packet_version": 1,
+        "release_state": "ready_for_review",
+        "generation_qa_status": "completed_with_warnings"
+      },
+      "owner_kind": "case",
+      "owner_id": "case_5e5db2ec0e",
+      "service_slug": "matter_workspace"
+    }
+  ],
+  "linked_records": [],
+  "communications_log": [
+    {
+      "id": "a64b609cd3ad",
+      "entry_type": "generated_draft",
+      "channel": "packet_archive",
+      "direction": "outbound_draft",
+      "summary": "Generated packet v1 for review.",
+      "body": "1 generated, 1 blocked / 2 requested",
+      "actor_user_id": null,
+      "actor_label": "Generation engine",
+      "related_packet_version": 1,
+      "metadata": {
+        "release_state": "ready_for_review",
+        "document_types": [
+          "debt_calculation_sheet"
+        ],
+        "selected_document_types": [
+          "complaint",
+          "debt_calculation_sheet"
+        ],
+        "is_court_draft": true
+      },
+      "created_at": "2026-03-20T17:56:57.853281Z"
+    }
+  ],
+  "settlement_tracker": [],
+  "deadline_overrides": [],
+  "packet_archive": [
+    {
+      "id": "b46209e9d2cb",
+      "version_number": 1,
+      "created_at": "2026-03-20T17:56:57.853196Z",
+      "updated_at": "2026-03-20T17:56:57.853198Z",
+      "generation_qa_status": "completed_with_warnings",
+      "release_state": "ready_for_review",
+      "review_required": true,
+      "is_court_draft": true,
+      "selected_document_types": [
+        "complaint",
+        "debt_calculation_sheet"
+      ],
+      "document_types": [
+        "debt_calculation_sheet"
+      ],
+      "document_count": 1,
+      "zip_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_5e5db2ec0e\\output\\case_5e5db2ec0e_packet.zip",
+      "zip_download_url": "/files/cases/case_5e5db2ec0e/output/case_5e5db2ec0e_packet.zip",
+      "warning_count": 8,
+      "summary": "1 generated, 1 blocked / 2 requested",
+      "reviewed_by_user_id": null,
+      "reviewed_by_label": null
+    }
+  ],
+  "portal_access": {
+    "enabled": false,
+    "mode": "invite_only",
+    "signed_link_only": true,
+    "read_only": true,
+    "upload_request_enabled": true,
+    "ui_enabled": false,
+    "status_label": "deferred_for_safe_release"
+  },
+  "notes": [],
+  "is_test": false,
+  "is_fixture": false,
+  "is_internal_diagnostic": false,
+  "archived_at": null,
+  "deleted_at": null,
+  "created_at": "2026-03-20T17:56:51.693913Z",
+  "updated_at": "2026-03-20T17:56:57.859707Z"
+}

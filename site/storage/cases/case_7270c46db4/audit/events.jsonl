@@ -1,0 +1,5 @@
+{"recorded_at": "2026-03-20T16:19:50.114615+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Source invalidation", "environment_tag": "recovery", "record_type": "recovery_record", "plaintiff_name": "Client Company", "defendant_name": "Counterparty"}}
+{"recorded_at": "2026-03-20T16:19:50.173920+00:00", "event_type": "usage.upload_started", "payload": {"file_count": 1}}
+{"recorded_at": "2026-03-20T16:19:50.182852+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "117547a61ba4", "filename": "Counterparty LLC.pdf", "sha256": "020dcafe4e7b7398904c1195bacba01b39a6797543d4628ffd4c4b0da028bc9d"}}
+{"recorded_at": "2026-03-20T16:19:50.195761+00:00", "event_type": "usage.upload_completed", "payload": {"file_count": 1, "stored_file_count": 1, "duplicate_skipped_count": 0}}
+{"recorded_at": "2026-03-20T16:19:50.316330+00:00", "event_type": "source_file.removed", "payload": {"file_id": "117547a61ba4"}}

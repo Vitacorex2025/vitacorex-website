@@ -1,0 +1,372 @@
+[
+  {
+    "id": "ses_f5938026ec0343189fccb19a",
+    "user_id": "usr_bb7c0cea001a",
+    "workspace_id": "ws_490e05a924b6",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:24.873967Z",
+    "last_seen_at": "2026-03-17T19:30:25.463323Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_780ba34ca1c44b56b731642c",
+    "user_id": "usr_b2590b8ec00d",
+    "workspace_id": "ws_5147a36539bc",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:25.517073Z",
+    "last_seen_at": "2026-03-17T19:30:25.525413Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_01baa901db754c848df11015",
+    "user_id": "usr_bbd9cdecd328",
+    "workspace_id": "ws_25b2a5a3c4d0",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:24.881835Z",
+    "last_seen_at": "2026-03-17T19:30:25.983402Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_e40ca993b5d34a14bd919959",
+    "user_id": "usr_bdb062f1009d",
+    "workspace_id": "ws_8bc1cd5f76bd",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:25.041518Z",
+    "last_seen_at": "2026-03-17T19:30:26.078322Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_337f24b5c7fb46909ad43bf3",
+    "user_id": "usr_460b111b4283",
+    "workspace_id": "ws_859217df20e6",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:25.185124Z",
+    "last_seen_at": "2026-03-17T19:30:26.166654Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_3c09ab7d947c4f099889c7d4",
+    "user_id": "usr_04c985ac4d15",
+    "workspace_id": "ws_06d021802a98",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:25.343000Z",
+    "last_seen_at": "2026-03-17T19:30:26.367285Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_9a828e76c83f46a7945c5afe",
+    "user_id": "usr_d35befa6024b",
+    "workspace_id": "ws_d2bda263b004",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:30:25.074088Z",
+    "last_seen_at": "2026-03-17T19:31:14.544659Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_1cca9bd104f8490aace938a6",
+    "user_id": "usr_9ff1edad3722",
+    "workspace_id": "ws_8b58b91f640e",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.583072Z",
+    "last_seen_at": "2026-03-17T19:32:22.589489Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_708756be2dc84a62812c6386",
+    "user_id": "usr_4e0da99eefa3",
+    "workspace_id": "ws_11873f65bb50",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.441644Z",
+    "last_seen_at": "2026-03-17T19:32:23.351077Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_c1862cd44cea4648a0c87b14",
+    "user_id": "usr_d64c8612d7d3",
+    "workspace_id": "ws_9d9238041904",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.573893Z",
+    "last_seen_at": "2026-03-17T19:32:23.469502Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_bb1d11b280f64cc3b1c1f9b3",
+    "user_id": "usr_c33fc636a548",
+    "workspace_id": "ws_c6eda6e5c9ac",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.700093Z",
+    "last_seen_at": "2026-03-17T19:32:23.569877Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_2642a61d4df44a2da2dbd294",
+    "user_id": "usr_5c39bd48fa1d",
+    "workspace_id": "ws_1ca59a8cc955",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.831598Z",
+    "last_seen_at": "2026-03-17T19:32:23.644754Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_bf9de9c7ab814d51a8a154a5",
+    "user_id": "usr_0b5c1ad2eaf2",
+    "workspace_id": "ws_318b4625560c",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.974897Z",
+    "last_seen_at": "2026-03-17T19:32:23.796775Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_62729ca7ea354daf9604743e",
+    "user_id": "usr_845b8b8efe42",
+    "workspace_id": "ws_1f9e3eb47298",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:32:22.423171Z",
+    "last_seen_at": "2026-03-17T19:33:16.596238Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_4185563bba5f4d85bb256811",
+    "user_id": "usr_eff9bb08e2fc",
+    "workspace_id": "ws_da4e39bd5d4b",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.419858Z",
+    "last_seen_at": "2026-03-17T19:43:44.428082Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_0ef049695d4e4b73ab546b10",
+    "user_id": "usr_886fe5f2680f",
+    "workspace_id": "ws_97b7e9425682",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.581318Z",
+    "last_seen_at": "2026-03-17T19:43:44.599917Z",
+    "revoked_at": "2026-03-17T19:43:44.605461Z"
+  },
+  {
+    "id": "ses_00f7c5f9ef5c4300917d2a8a",
+    "user_id": "usr_886fe5f2680f",
+    "workspace_id": "ws_97b7e9425682",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.723604Z",
+    "last_seen_at": "2026-03-17T19:43:44.730153Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_3a2a5f0cd6414f0881482563",
+    "user_id": "usr_be202fd2ba0d",
+    "workspace_id": "ws_f9994d742048",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.855308Z",
+    "last_seen_at": "2026-03-17T19:43:45.000059Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_020d1644c55b4318877e95f5",
+    "user_id": "usr_5f1567f21ef5",
+    "workspace_id": "ws_a8ecfb734128",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.972457Z",
+    "last_seen_at": "2026-03-17T19:43:45.896502Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_17219268daba4dd498aa6b66",
+    "user_id": "usr_24917fb71f1c",
+    "workspace_id": "ws_b64e54f99077",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:43.653485Z",
+    "last_seen_at": "2026-03-17T19:43:46.260619Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_3ea53c6271b74ca29a6823b9",
+    "user_id": "usr_bd48ce6937ef",
+    "workspace_id": "ws_d91c8a1c0dd8",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:43.765910Z",
+    "last_seen_at": "2026-03-17T19:43:46.333724Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_17dc1ceab335422483222257",
+    "user_id": "usr_aac2312306ff",
+    "workspace_id": "ws_b17e68a4b152",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:43.887350Z",
+    "last_seen_at": "2026-03-17T19:43:46.432700Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_884a2feffb6442589963948d",
+    "user_id": "usr_90d6251eee90",
+    "workspace_id": "ws_e4b67a4ef04d",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.009478Z",
+    "last_seen_at": "2026-03-17T19:43:46.501528Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_ada505023b6a4fde8cce49f7",
+    "user_id": "usr_25b53a031bac",
+    "workspace_id": "ws_0907c4576d16",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.134081Z",
+    "last_seen_at": "2026-03-17T19:44:38.088688Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_078401384988407a923de5e5",
+    "user_id": "usr_56df84faa885",
+    "workspace_id": "ws_9dd4d5c9c71b",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T19:43:44.255116Z",
+    "last_seen_at": "2026-03-17T19:44:38.749376Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_8a2e53cd0cb84f10876f5f4a",
+    "user_id": "usr_321c6fa07c84",
+    "workspace_id": "ws_fbbc09a3e81c",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:00:03.564695Z",
+    "last_seen_at": "2026-03-17T20:00:03.599848Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_9ba99b79ea7543a98c19ac16",
+    "user_id": "usr_6141c32f78b4",
+    "workspace_id": "ws_f86fa644ff00",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.341114Z",
+    "last_seen_at": "2026-03-17T20:09:47.350474Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_b7c67de937fe4da9a4405d05",
+    "user_id": "usr_aac312b3312f",
+    "workspace_id": "ws_68d7c2753c9d",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.497013Z",
+    "last_seen_at": "2026-03-17T20:09:47.517189Z",
+    "revoked_at": "2026-03-17T20:09:47.522015Z"
+  },
+  {
+    "id": "ses_bb022709479b4576b7564b26",
+    "user_id": "usr_aac312b3312f",
+    "workspace_id": "ws_68d7c2753c9d",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.643280Z",
+    "last_seen_at": "2026-03-17T20:09:47.651695Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_42cf2090c78e420e81eb0959",
+    "user_id": "usr_2b1940643228",
+    "workspace_id": "ws_9fa4fba1f128",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.784171Z",
+    "last_seen_at": "2026-03-17T20:09:47.931487Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_1f851e5f24494968b87587fc",
+    "user_id": "usr_05a1d7f22d95",
+    "workspace_id": "ws_fcf327c6989a",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.903935Z",
+    "last_seen_at": "2026-03-17T20:09:48.797381Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_b083b6ae0274482ebbe2aeb4",
+    "user_id": "usr_dc3ce267cf37",
+    "workspace_id": "ws_f5f8ab652169",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:46.563249Z",
+    "last_seen_at": "2026-03-17T20:09:49.180596Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_eb959f13c7b74e2c9d784e64",
+    "user_id": "usr_f8c54088b15f",
+    "workspace_id": "ws_a076f7a52a20",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:46.681916Z",
+    "last_seen_at": "2026-03-17T20:09:49.264437Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_312082c84a8b413eac5f39ea",
+    "user_id": "usr_e062ce570b35",
+    "workspace_id": "ws_5b8934fc631f",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:46.804915Z",
+    "last_seen_at": "2026-03-17T20:09:49.364339Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_8259484e619f49fb9a0be354",
+    "user_id": "usr_d6c507360833",
+    "workspace_id": "ws_c5ade236e1e2",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:46.932840Z",
+    "last_seen_at": "2026-03-17T20:09:49.449780Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_34de6adaf25045a698f4276e",
+    "user_id": "usr_cfbf57bb548e",
+    "workspace_id": "ws_cd08c3887f82",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.056599Z",
+    "last_seen_at": "2026-03-17T20:10:41.571168Z",
+    "revoked_at": null
+  },
+  {
+    "id": "ses_28ae1754030f4aa2acfd5085",
+    "user_id": "usr_fe61692e1313",
+    "workspace_id": "ws_b7126b439f9e",
+    "user_agent": "testclient",
+    "ip_address": "testclient",
+    "created_at": "2026-03-17T20:09:47.179143Z",
+    "last_seen_at": "2026-03-17T20:10:42.251165Z",
+    "revoked_at": null
+  }
+]

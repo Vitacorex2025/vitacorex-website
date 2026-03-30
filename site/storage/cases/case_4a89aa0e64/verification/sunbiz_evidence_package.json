@@ -1,0 +1,42 @@
+{
+  "queried_entity_name": "Test Entity LLC",
+  "matched": true,
+  "exact_match": true,
+  "match_score": 1.0,
+  "matched_entity_name": "TEST ENTITY LLC",
+  "detail_url": "https://search.sunbiz.org/Inquiry/corporationsearch/SearchResultDetail?x=1",
+  "florida_document_number": "L24000012345",
+  "fein_number": "12-3456789",
+  "entity_status": "ACTIVE",
+  "entity_type": "Florida Limited Liability Company",
+  "principal_address": "123 MAIN ST, ORLANDO, FL 32801",
+  "mailing_address": null,
+  "registered_agent_name": "REGISTERED AGENT LLC",
+  "registered_agent_address": "123 MAIN ST, ORLANDO, FL 32801",
+  "officers": [
+    {
+      "officer_name": "Jane Manager",
+      "officer_title": "MGR",
+      "officer_address": "123 MAIN ST"
+    }
+  ],
+  "search_candidates": [],
+  "warnings": [],
+  "looked_up_at": "2026-03-20T06:42:57.259300Z",
+  "source_url": "https://search.sunbiz.org/Inquiry/corporationsearch/SearchResultDetail?x=1",
+  "pdf_report_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_4a89aa0e64\\verification\\sunbiz_internal_verification_memo.pdf",
+  "pdf_download_url": "/files/cases/case_4a89aa0e64/verification/sunbiz_internal_verification_memo.pdf",
+  "provider_status": "ok",
+  "result_classification": "verified_match",
+  "official_record_available": true,
+  "evidence_package_path": null,
+  "evidence_download_url": null,
+  "search_capture_path": null,
+  "detail_capture_path": null,
+  "source_capture_downloads": [],
+  "official_source_urls": [
+    "https://search.sunbiz.org/inquiry/corporationsearch/byname"
+  ],
+  "case_id": "case_4a89aa0e64",
+  "memo_disclaimer": "Internal verification memo only. Not an official Florida certificate or certified copy."
+}

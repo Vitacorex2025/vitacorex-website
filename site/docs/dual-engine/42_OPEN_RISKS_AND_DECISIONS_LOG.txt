@@ -1,0 +1,20 @@
+2026-03-21 | OPEN | RISK-001 | This workspace has no Git metadata, so branch `feature/docketmint-dual-engine-reset` cannot be created in-thread. Move the work into the real Git checkout before code layers begin.
+2026-03-21 | OPEN | RISK-002 | The extracted Next.js technical reference still carries legacy identifiers such as package name `deadline-crm-calendar`. Those legacy names must be removed in the active mainline before public-facing implementation layers.
+2026-03-21 | OPEN | RISK-003 | The current Python and Render tree is still present and could be mistaken for the production foundation. Keep it reference-only and do not continue parallel feature development there.
+2026-03-21 | OPEN | RISK-004 | Ownership is defined by workstream only. Assign named owners once the work is moved into the real Git mainline and execution board.
+2026-03-21 | OPEN | RISK-005 | The current `vercel.json` in this extracted Python workspace still points at the old Render bridge model. Replace it only in the actual Next.js mainline during stack cutover.
+2026-03-21 | DECISION | DEC-001 | Product brand is DocketMint.
+2026-03-21 | DECISION | DEC-002 | Platform positioning is one platform with two operational engines: Legal Workflow and Recovery Pipeline.
+2026-03-21 | DECISION | DEC-003 | Generator behavior remains a capability module inside DocketMint, not a separate app.
+2026-03-21 | DECISION | DEC-004 | Dual-access users must land on an environment chooser, not a calendar-first or generator-first default.
+2026-03-21 | DECISION | DEC-005 | Shared canonical objects, shared identity, shared billing, and shared audit history are mandatory.
+2026-03-21 | DECISION | DEC-006 | Future Codex layers must execute as narrow build passes in the order schema and types, data access, routes, UI, tests, docs.
+2026-03-21 | DECISION | DEC-007 | No placeholder-only pages are allowed in future dual-engine layers.
+2026-03-21 | DECISION | DEC-008 | The only valid macro-phase order is reset, foundation, engines, cross-linking, automation, hardening.
+2026-03-21 | DECISION | DEC-009 | The only valid gate order is Gate A, Gate B, Gate C, Gate D, Gate E, Gate F, with no forward movement before prior acceptance.
+2026-03-21 | DECISION | DEC-010 | Packet generation and generation-module work must not start before Gate D is accepted.
+2026-03-21 | DECISION | DEC-011 | Next.js App Router is the approved DocketMint app shell and routing foundation.
+2026-03-21 | DECISION | DEC-012 | Supabase is the approved auth, Postgres, storage, and RLS foundation.
+2026-03-21 | DECISION | DEC-013 | Vercel is the approved primary frontend deployment path for the Next.js application.
+2026-03-21 | DECISION | DEC-014 | File-backed persistence is banned as core production state.
+2026-03-21 | DECISION | DEC-015 | Separate workers and services are deferred until proven load justifies them.

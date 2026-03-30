@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | DocketMint</title>
+  <meta name="theme-color" content="#F4F7FA"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/assets/css/app-shell.css" rel="stylesheet"/>
+</head>
+<body data-app-screen="home-hub" data-i18n-title-key="home_hub.title" data-page="home">
+  <a class="skip-link" data-i18n="home_hub.skip" href="#homeHubMain">Skip to DocketMint home</a>
+  <div class="app-shell">
+    <aside class="app-sidebar" data-app-sidebar>
+      <div class="sidebar-brand-wrap">
+        <a aria-label="DocketMint platform" class="sidebar-brand" data-i18n-aria-label="shell.brand_platform" href="/app/home/">
+          <div class="brand-mark"><img alt="" src="/assets/img/logo.png"/></div>
+          <div class="brand-copy">
+            <div class="brand-title">DocketMint</div>
+            <div class="brand-subtitle" data-i18n="home_hub.brand_subtitle">One platform. Two operational engines.</div>
+          </div>
+        </a>
+      </div>
+      <div class="app-nav-group">
+        <div class="sidebar-section-title" data-i18n="common.primary">Primary</div>
+        <nav aria-label="Primary navigation" class="sidebar-nav" data-i18n-aria-label="common.primary"></nav>
+      </div>
+      <section class="sidebar-support-card">
+        <div class="eyebrow" data-i18n="home_hub.sidebar_model_eyebrow">Platform model</div>
+        <h3 data-i18n="home_hub.sidebar_model_title">Shared records across Legal and Recovery</h3>
+        <p data-i18n="home_hub.sidebar_model_copy">DocketMint keeps matters, recovery records, documents, notes, deadlines, and activity inside one workspace instead of splitting them across disconnected tools.</p>
+        <div class="sidebar-actions">
+          <a class="btn btn-secondary btn-sm" data-i18n="home_hub.open_legal" href="/app/legal/">Open Legal</a>
+          <a class="btn btn-secondary btn-sm" data-i18n="home_hub.open_recovery" href="/app/recovery/">Open Recovery</a>
+        </div>
+      </section>
+      <div class="sidebar-footer">
+        <a class="sidebar-utility-link" href="/app/settings/"><span data-i18n="common.settings">Settings</span></a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-heading">
+          <button aria-label="Toggle navigation" class="sidebar-toggle" data-i18n-aria-label="shell.toggle_navigation" data-sidebar-toggle type="button">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="topbar-kicker" data-i18n="home_hub.topbar_kicker">Unified workspace</div>
+            <div class="topbar-title" data-i18n="home_hub.topbar_title">DocketMint home</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="topbar-account-host" data-home-account></div>
+        </div>
+      </header>
+
+      <main class="app-content" id="homeHubMain">
+        <div class="notice-banner is-warning" data-home-error hidden></div>
+
+        <section class="panel hero-panel">
+          <div class="hero-copy">
+            <div class="page-kicker" data-i18n="home_hub.hero_kicker">One platform. Two operational engines.</div>
+            <h1 data-i18n="home_hub.hero_title">Run legal workflow and recovery pipeline from one shared operating surface.</h1>
+            <p data-i18n="home_hub.hero_copy">DocketMint keeps matters, deadlines, communications, payment follow-up, and escalation history inside one workspace so work does not leak between separate systems.</p>
+            <p class="micro-note" data-i18n="home_hub.hero_note">Choose the operating environment that matches the job in front of you, while keeping the underlying record trail shared.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" data-i18n="home_hub.hero_open_recovery" href="/app/recovery/">Open Recovery Pipeline</a>
+              <a class="btn btn-secondary" data-i18n="home_hub.hero_open_legal" href="/app/legal/">Open Legal Workflow</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="panel-eyebrow" data-i18n="home_hub.overview_eyebrow">Platform overview</div>
+            <h2 data-i18n="home_hub.overview_title">Shared context, separate operating modes</h2>
+            <div class="stack-list" data-hub-overview></div>
+          </div>
+        </section>
+
+        <section class="workspace-panel">
+          <div class="subsection-header subsection-header--tight">
+            <div>
+              <div class="eyebrow" data-i18n="home_hub.environments_eyebrow">Operating environments</div>
+              <h2 data-i18n="home_hub.environments_title">Choose the right engine for the work</h2>
+              <p class="micro-note" data-i18n="home_hub.environments_copy">Legal handles matters, deadlines, and court-facing execution. Recovery handles outreach, payment follow-up, settlement movement, and escalation readiness.</p>
+            </div>
+          </div>
+          <div class="environment-switch-grid" data-hub-environments></div>
+        </section>
+
+        <section class="app-grid app-grid-2">
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow" data-i18n="home_hub.quick_actions_eyebrow">Quick actions</div>
+                <h2 data-i18n="home_hub.quick_actions_title">Start clean without losing context</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-hub-quick-actions></div>
+          </section>
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow" data-i18n="home_hub.urgent_eyebrow">Urgent work</div>
+                <h2 data-i18n="home_hub.urgent_title">What needs attention now</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-hub-urgent></div>
+          </section>
+        </section>
+
+        <section class="app-grid app-grid-2">
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow" data-i18n="home_hub.shared_records_eyebrow">Shared records</div>
+                <h2 data-i18n="home_hub.shared_records_title">Recent matters and recovery records</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-hub-records></div>
+          </section>
+          <section class="workspace-panel">
+            <div class="subsection-header subsection-header--tight">
+              <div>
+                <div class="eyebrow" data-i18n="home_hub.activity_eyebrow">Recent activity</div>
+                <h2 data-i18n="home_hub.activity_title">Recent workspace movement</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-hub-activity></div>
+          </section>
+        </section>
+
+        <section class="workspace-panel" data-home-commercial>
+          <div class="subsection-header subsection-header--tight">
+            <div>
+              <div class="eyebrow" data-i18n="home_hub.commercial_eyebrow">Plan and usage</div>
+              <h2 data-i18n="home_hub.commercial_title">Commercial visibility for the active workspace</h2>
+            </div>
+          </div>
+          <div class="stack-list" data-hub-commercial></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="app-overlay" data-app-overlay hidden></div>
+  <script src="/assets/js/runtime-config.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/api-client.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/platform-services.js"></script>
+  <script src="/assets/js/app-shell.js"></script>
+  <script src="/assets/js/home-hub.js"></script>
+</body>
+</html>

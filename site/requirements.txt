@@ -1,0 +1,15 @@
+# Legacy archive-only Python service dependencies.
+# The canonical public DocketMint web target is the Node/Next app in
+# tmp_deadline_v10_validation, not the repo-root FastAPI stack.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+python-multipart>=0.0.9
+python-docx>=1.1
+openpyxl>=3.1
+pypdf>=4.2
+
+reportlab>=4.0
+
+requests>=2.31
+beautifulsoup4>=4.12

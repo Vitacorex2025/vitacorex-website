@@ -1,0 +1,3 @@
+{"recorded_at": "2026-03-19T07:01:02.231095+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Source invalidation", "plaintiff_name": "Client Company", "defendant_name": "Counterparty"}}
+{"recorded_at": "2026-03-19T07:01:02.285193+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "1e343659ef69", "filename": "Counterparty LLC.pdf", "sha256": "020dcafe4e7b7398904c1195bacba01b39a6797543d4628ffd4c4b0da028bc9d"}}
+{"recorded_at": "2026-03-19T07:01:02.405326+00:00", "event_type": "source_file.removed", "payload": {"file_id": "1e343659ef69"}}

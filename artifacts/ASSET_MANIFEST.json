@@ -1,0 +1,4971 @@
+{
+  "summary": {
+    "asset_refs": 720,
+    "missing_assets": 0,
+    "by_extension": {
+      ".css": 95,
+      ".js": 310,
+      ".png": 182,
+      ".webmanifest": 49
+    }
+  },
+  "missing_assets": [],
+  "refs": [
+    {
+      "page": "/about.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/about.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/additional-services.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ai-intake.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ai-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ai-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ai-intake.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ai-intake.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/camera-intake.js",
+      "resolved": "assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/js/action-center.js",
+      "resolved": "assets/js/action-center.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/action-center/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/activity-status/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/js/contract-session.js",
+      "resolved": "assets/js/contract-session.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/best-contract-builder/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/js/case-intake.js",
+      "resolved": "assets/js/case-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/case-intake/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/js/contract-session.js",
+      "resolved": "assets/js/contract-session.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/contract-intelligence/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/damages-calculator/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/js/dealer-contract-check.js",
+      "resolved": "assets/js/dealer-contract-check.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/dealer-contract-check/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/downloads.js",
+      "resolved": "assets/js/downloads.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/downloads/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-check/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/entity-verification/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/evidence-audit/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/exports/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/forms-autofill/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/generate-packet/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/js/home-hub.js",
+      "resolved": "assets/js/home-hub.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/home/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/operator-platform-services.js",
+      "resolved": "assets/js/operator-platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/home.js",
+      "resolved": "assets/js/home.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/intake-router.js",
+      "resolved": "assets/js/intake-router.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/js/camera-intake.js",
+      "resolved": "assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/home/operator-home.html",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/human-review/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/js/immigration-forms.js",
+      "resolved": "assets/js/immigration-forms.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/immigration-forms/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/js/invoice-recovery.js",
+      "resolved": "assets/js/invoice-recovery.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/invoice-recovery/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/js/irs-notice.js",
+      "resolved": "assets/js/irs-notice.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/irs-notice/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/js/legal-dashboard.js",
+      "resolved": "assets/js/legal-dashboard.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/legal/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/js/my-cases.js",
+      "resolved": "assets/js/my-cases.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/my-cases/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/camera-intake.js",
+      "resolved": "assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/workspace.js",
+      "resolved": "assets/js/workspace.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/new-case/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/camera-intake.js",
+      "resolved": "assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/workspace.js",
+      "resolved": "assets/js/workspace.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/operator-platform-services.js",
+      "resolved": "assets/js/operator-platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/new-case/operator-new-case.html",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/ocr-source-mapping/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/pre-suit-demand/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/home.js",
+      "resolved": "assets/js/home.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/intake-router.js",
+      "resolved": "assets/js/intake-router.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/js/camera-intake.js",
+      "resolved": "assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/recovery/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/review-data/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/js/services-page.js",
+      "resolved": "assets/js/services-page.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/services/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/operator-platform-services.js",
+      "resolved": "assets/js/operator-platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/js/operator-services-page.js",
+      "resolved": "assets/js/operator-services-page.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/services/operator-services.html",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/js/settings.js",
+      "resolved": "assets/js/settings.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/settings/",
+      "ref": "/assets/css/settings-shell.css",
+      "resolved": "assets/css/settings-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/runtime-config.js",
+      "resolved": "app/settings-support/../../assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/config.js",
+      "resolved": "app/settings-support/../../assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/api-client.js",
+      "resolved": "app/settings-support/../../assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/platform-services.js",
+      "resolved": "app/settings-support/../../assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/app-shell.js",
+      "resolved": "app/settings-support/../../assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "../../assets/js/workspace.js",
+      "resolved": "app/settings-support/../../assets/js/workspace.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/settings-support/",
+      "ref": "/assets/css/settings-shell.css",
+      "resolved": "assets/css/settings-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/js/sign-in.js",
+      "resolved": "assets/js/sign-in.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/sign-in/",
+      "ref": "/assets/css/settings-shell.css",
+      "resolved": "assets/css/settings-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/js/sign-up.js",
+      "resolved": "assets/js/sign-up.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/sign-up/",
+      "ref": "/assets/css/settings-shell.css",
+      "resolved": "assets/css/settings-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/template-library/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/uploaded-files/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/runtime-config.js",
+      "resolved": "assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/config.js",
+      "resolved": "assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/api-client.js",
+      "resolved": "assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/i18n.js",
+      "resolved": "assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/auth.js",
+      "resolved": "assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/platform-services.js",
+      "resolved": "assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/app-shell.js",
+      "resolved": "assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/js/service-module.js",
+      "resolved": "assets/js/service-module.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/venue-engine/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/runtime-config.js",
+      "resolved": "app/workspace/../../assets/js/runtime-config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/config.js",
+      "resolved": "app/workspace/../../assets/js/config.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/api-client.js",
+      "resolved": "app/workspace/../../assets/js/api-client.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/i18n.js",
+      "resolved": "app/workspace/../../assets/js/i18n.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/auth.js",
+      "resolved": "app/workspace/../../assets/js/auth.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/camera-intake.js",
+      "resolved": "app/workspace/../../assets/js/camera-intake.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/workspace.js",
+      "resolved": "app/workspace/../../assets/js/workspace.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/platform-services.js",
+      "resolved": "app/workspace/../../assets/js/platform-services.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "../../assets/js/app-shell.js",
+      "resolved": "app/workspace/../../assets/js/app-shell.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/app/workspace/",
+      "ref": "/assets/css/app-shell.css",
+      "resolved": "assets/css/app-shell.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/app.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/auto-purchase.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/auto-purchase.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/auto-purchase.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/auto-purchase.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/auto-purchase.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/business-plans.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/business-plans.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/business-plans.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/business-plans.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/careers.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contact.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contracts.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/contracts.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/contracts.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/contracts.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/cookie-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-legal-file-control.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-paralegal.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/corporate-paralegal.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/corporate-paralegal.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/corporate-paralegal.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/about.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/additional-services.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/careers.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/contact.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/cookie-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/corporate-legal-file-control.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/industries.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/privacy-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/resources.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/revenue-recovery-workflow.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/solutions.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/structured-case-intake.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/terms-of-use.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/es/thank-you.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/immigration-documents.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/immigration-documents.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/immigration-documents.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/immigration-documents.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/industries.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/net-recovery.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/net-recovery.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/net-recovery.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/net-recovery.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/privacy-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/resources.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/revenue-recovery-workflow.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/about.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/additional-services.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/careers.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/contact.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/cookie-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/corporate-legal-file-control.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/industries.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/privacy-policy.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/resources.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/revenue-recovery-workflow.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/solutions.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/structured-case-intake.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/terms-of-use.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/ru/thank-you.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/solutions.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/structured-case-intake.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/terms-of-use.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/thank-you.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/v51_institutional_blocks.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/v51_institutional_blocks.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/v51_institutional_blocks.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/v51_institutional_blocks.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/assets/js/vitacorex-public.js",
+      "resolved": "assets/js/vitacorex-public.js",
+      "type": "script",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "img",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+      "type": "link",
+      "external": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/assets/img/logo.png",
+      "resolved": "assets/img/logo.png",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/manifest.webmanifest",
+      "resolved": "manifest.webmanifest",
+      "type": "link",
+      "exists": true
+    },
+    {
+      "page": "/vitacorex-landing.html",
+      "ref": "/assets/css/vitacorex-public.css",
+      "resolved": "assets/css/vitacorex-public.css",
+      "type": "link",
+      "exists": true
+    }
+  ]
+}

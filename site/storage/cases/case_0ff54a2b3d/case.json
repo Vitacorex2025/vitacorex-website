@@ -1,0 +1,689 @@
+{
+  "id": "case_0ff54a2b3d",
+  "workspace_id": "ws_ce0868f9c025",
+  "created_by_user_id": "usr_2c3369265006",
+  "environment_tag": "development",
+  "reference": null,
+  "title": "Sprint 2 multi-entity workbook",
+  "status": "blocked",
+  "current_extraction_version": 0,
+  "workflow_slug": null,
+  "issue_category": "unknown",
+  "intake_channel": "web",
+  "current_stage": "classified",
+  "urgency_level": "medium",
+  "recommended_paths": [
+    "review_matter",
+    "upload_supporting_documents",
+    "build_action_summary"
+  ],
+  "deadlines": [],
+  "official_contacts": [],
+  "source_map": [
+    {
+      "label": "multi-debtor-aging.xlsx",
+      "value": "FileType.INVOICE_EXCEL",
+      "source_file": "multi-debtor-aging.xlsx",
+      "source_excerpt": null,
+      "confidence": 0.5
+    }
+  ],
+  "action_packet_status": "not_built",
+  "action_packet_outputs": [],
+  "workflow_payload": {},
+  "source_files": [
+    {
+      "id": "f9ea27d06ce0",
+      "filename": "f9ea27d06ce0_multi-debtor-aging.xlsx",
+      "original_filename": "multi-debtor-aging.xlsx",
+      "workspace_id": "ws_ce0868f9c025",
+      "matter_id": "case_0ff54a2b3d",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_type": "invoice_excel",
+      "storage_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_0ff54a2b3d\\source_files\\f9ea27d06ce0_multi-debtor-aging.xlsx",
+      "size_bytes": 5054,
+      "extraction_version": 0,
+      "extraction_quality_score": 0.35,
+      "extraction_status": "failed",
+      "extraction_method": "xlsx_parser",
+      "extraction_report": {
+        "worksheet_count": 1,
+        "selected_worksheet_count": 1,
+        "ignored_worksheet_count": 0,
+        "selected_worksheets": [
+          "Aging Report"
+        ],
+        "ignored_worksheets": [],
+        "selected_row_count": 2,
+        "multi_entity_conflict": true,
+        "status": "failed",
+        "score": 0.35,
+        "method": "xlsx_parser"
+      },
+      "extracted_text": null,
+      "parsed_payload": {
+        "source_filename": "f9ea27d06ce0_multi-debtor-aging.xlsx",
+        "invoice_count": 2,
+        "total_original_amount": "0.00",
+        "total_balance_due": "250.00",
+        "math_verified": true,
+        "warnings": [
+          "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+          "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+          "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing."
+        ],
+        "conflicts": [],
+        "line_items": [
+          {
+            "organization": "Cube Systems LLC",
+            "company": "Single Matter LLC",
+            "owner_name": null,
+            "company_email": null,
+            "company_number": null,
+            "company_address": null,
+            "county": null,
+            "invoice_number": "INV-100",
+            "invoice_date": "2025-02-20",
+            "due_date": "2025-03-01",
+            "customer_name": "Single Matter LLC",
+            "original_amount": "0.00",
+            "balance_due": "100.00",
+            "raw_original_amount_text": null,
+            "raw_balance_due_text": "100.00",
+            "parse_confidence": 1.0,
+            "parse_warning": "Amount field is blank.",
+            "included_in_total": true,
+            "currency": "USD",
+            "source_sheet": "Aging Report"
+          },
+          {
+            "organization": "Cube Systems LLC",
+            "company": "Other Debtor LLC",
+            "owner_name": null,
+            "company_email": null,
+            "company_number": null,
+            "company_address": null,
+            "county": null,
+            "invoice_number": "INV-200",
+            "invoice_date": "2025-02-21",
+            "due_date": "2025-03-02",
+            "customer_name": "Other Debtor LLC",
+            "original_amount": "0.00",
+            "balance_due": "150.00",
+            "raw_original_amount_text": null,
+            "raw_balance_due_text": "150.00",
+            "parse_confidence": 1.0,
+            "parse_warning": "Amount field is blank.",
+            "included_in_total": true,
+            "currency": "USD",
+            "source_sheet": "Aging Report"
+          }
+        ],
+        "debtor_entities": [
+          "Other Debtor LLC",
+          "Single Matter LLC"
+        ],
+        "plaintiff_entities": [
+          "Cube Systems LLC"
+        ],
+        "guarantor_entities": [],
+        "excluded_low_confidence_rows": 0,
+        "worksheet_report": [
+          {
+            "title": "Aging Report",
+            "selected": true,
+            "selection_reason": "Worksheet contains usable aging rows.",
+            "matched_headers": [
+              "balance_due",
+              "company",
+              "due_date",
+              "invoice_date",
+              "invoice_number",
+              "organization",
+              "owner_name"
+            ],
+            "row_count": 2,
+            "parsed_row_count": 2,
+            "usable_row_count": 2,
+            "excluded_low_confidence_rows": 0,
+            "debtor_entities": [
+              "Other Debtor LLC",
+              "Single Matter LLC"
+            ],
+            "plaintiff_entities": [
+              "Cube Systems LLC"
+            ],
+            "warnings": [
+              "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+              "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+              "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing."
+            ]
+          }
+        ],
+        "selected_worksheets": [
+          "Aging Report"
+        ],
+        "ignored_worksheets": [],
+        "parser_report": {
+          "worksheet_count": 1,
+          "selected_worksheet_count": 1,
+          "ignored_worksheet_count": 0,
+          "selected_worksheets": [
+            "Aging Report"
+          ],
+          "ignored_worksheets": [],
+          "selected_row_count": 2,
+          "multi_entity_conflict": true,
+          "status": "blocked"
+        }
+      },
+      "normalized_evidence": {
+        "schema_version": "2026-03-19",
+        "document_type": "aging_report",
+        "source_filename": "multi-debtor-aging.xlsx",
+        "parties": {
+          "plaintiffs": [
+            "Cube Systems LLC"
+          ],
+          "debtors": [
+            "Other Debtor LLC",
+            "Single Matter LLC"
+          ],
+          "guarantors": []
+        },
+        "facts": [
+          {
+            "field": "selected_worksheets",
+            "value": "Aging Report",
+            "confidence": 0.95,
+            "uncertain": false,
+            "source": "workbook_parser"
+          }
+        ],
+        "amounts": [
+          {
+            "field": "balance_due",
+            "value": "100.00",
+            "currency": "USD",
+            "confidence": 1.0,
+            "uncertain": false,
+            "source": "Aging Report",
+            "invoice_number": "INV-100"
+          },
+          {
+            "field": "balance_due",
+            "value": "150.00",
+            "currency": "USD",
+            "confidence": 1.0,
+            "uncertain": false,
+            "source": "Aging Report",
+            "invoice_number": "INV-200"
+          }
+        ],
+        "dates": [
+          {
+            "field": "invoice_date",
+            "value": "2025-02-20",
+            "confidence": 0.85,
+            "uncertain": false,
+            "source": "Aging Report",
+            "invoice_number": "INV-100"
+          },
+          {
+            "field": "invoice_date",
+            "value": "2025-02-21",
+            "confidence": 0.85,
+            "uncertain": false,
+            "source": "Aging Report",
+            "invoice_number": "INV-200"
+          }
+        ],
+        "identifiers": {
+          "invoice_numbers": [
+            "INV-100",
+            "INV-200"
+          ]
+        },
+        "worksheet_report": [
+          {
+            "title": "Aging Report",
+            "selected": true,
+            "selection_reason": "Worksheet contains usable aging rows.",
+            "matched_headers": [
+              "balance_due",
+              "company",
+              "due_date",
+              "invoice_date",
+              "invoice_number",
+              "organization",
+              "owner_name"
+            ],
+            "row_count": 2,
+            "parsed_row_count": 2,
+            "usable_row_count": 2,
+            "excluded_low_confidence_rows": 0,
+            "debtor_entities": [
+              "Other Debtor LLC",
+              "Single Matter LLC"
+            ],
+            "plaintiff_entities": [
+              "Cube Systems LLC"
+            ],
+            "warnings": [
+              "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+              "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+              "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing."
+            ]
+          }
+        ],
+        "parser_report": {
+          "worksheet_count": 1,
+          "selected_worksheet_count": 1,
+          "ignored_worksheet_count": 0,
+          "selected_worksheets": [
+            "Aging Report"
+          ],
+          "ignored_worksheets": [],
+          "selected_row_count": 2,
+          "multi_entity_conflict": true,
+          "status": "blocked"
+        },
+        "uncertain_fields": [
+          {
+            "field": "balance_due",
+            "reason": "Amount field is blank.",
+            "confidence": 1.0,
+            "invoice_number": "INV-100",
+            "source": "Aging Report"
+          },
+          {
+            "field": "balance_due",
+            "reason": "Amount field is blank.",
+            "confidence": 1.0,
+            "invoice_number": "INV-200",
+            "source": "Aging Report"
+          },
+          {
+            "field": "balance_due",
+            "reason": "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+            "confidence": 0.0,
+            "source": "workbook_parser"
+          },
+          {
+            "field": "balance_due",
+            "reason": "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+            "confidence": 0.0,
+            "source": "workbook_parser"
+          }
+        ],
+        "conflicts": [
+          "Workbook 'multi-debtor-aging.xlsx' contains multiple debtor entities."
+        ],
+        "summary": {
+          "invoice_count": 2,
+          "selected_worksheet_count": 1,
+          "total_balance_due": "250.00"
+        }
+      },
+      "warnings": [
+        "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+        "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+        "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing.",
+        "Single matter only. Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies and cannot be treated as one case."
+      ],
+      "uploaded_at": "2026-03-19T19:49:45.607581Z",
+      "template_slot": null,
+      "sha256": "330f3afc11d80d70a4e67148af72316fef6bc27a136fc7a3ad701c2f448c172c",
+      "excluded_from_active_matter": false,
+      "exclusion_reason": null,
+      "scope_type": "matter",
+      "service_scope": null
+    }
+  ],
+  "template_files": [],
+  "extracted_case_data": {
+    "plaintiff": {
+      "party_name": "Cube Systems LLC",
+      "entity_type": "Limited Liability Company",
+      "party_role": "plaintiff",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": []
+    },
+    "defendant_entity": {
+      "party_name": "Other Debtor LLC",
+      "entity_type": "Limited Liability Company",
+      "party_role": "defendant_entity",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": [
+        "a limited liability company"
+      ]
+    },
+    "personal_guarantor": null,
+    "venue": {
+      "venue_clause": null,
+      "venue_state": null,
+      "venue_county": null,
+      "source_document_type": null,
+      "selection_source": null,
+      "selection_confidence": null,
+      "venue_paragraph": null
+    },
+    "county_candidates": [],
+    "invoice_summary": {
+      "source_filename": "multi-debtor-aging.xlsx",
+      "source_priority_used": "invoice_excel",
+      "invoice_count": 1,
+      "total_original_amount": "0.00",
+      "total_balance_due": "150.00",
+      "math_verified": true,
+      "warnings": [
+        "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+        "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+        "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing."
+      ],
+      "conflicts": [],
+      "line_items": [
+        {
+          "invoice_number": "INV-200",
+          "invoice_date": "2025-02-21",
+          "due_date": "2025-03-02",
+          "customer_name": "Other Debtor LLC",
+          "original_amount": "0.00",
+          "balance_due": "150.00",
+          "raw_original_amount_text": null,
+          "raw_balance_due_text": "150.00",
+          "parse_confidence": 1.0,
+          "parse_warning": "Amount field is blank.",
+          "included_in_total": true,
+          "currency": "USD",
+          "source_sheet": "Aging Report",
+          "source_filename": "multi-debtor-aging.xlsx",
+          "source_kind": "invoice_excel"
+        }
+      ]
+    },
+    "amount_in_controversy": "150.00",
+    "florida_court": {
+      "court_level": "county_civil",
+      "court_division_label": "County Court",
+      "amount_in_controversy": "150.00",
+      "venue_county": null,
+      "reasoning": [
+        "Amount in controversy does not exceed $50,000; County Court selected."
+      ]
+    },
+    "governing_law": null,
+    "payment_terms": null,
+    "default_terms": null,
+    "interest_terms": null,
+    "service_address": null,
+    "business_address": null,
+    "contract_execution_location": null,
+    "separate_summons_required": false,
+    "contract_evidence": [],
+    "guaranty_evidence": [],
+    "legal_counts": [
+      {
+        "code": "breach_of_contract",
+        "label": "Count I – Breach of Contract",
+        "supported": false,
+        "reason": "No contract evidence extracted."
+      },
+      {
+        "code": "account_stated",
+        "label": "Count II – Account Stated",
+        "supported": true,
+        "reason": "Invoice or statement delivery evidence supports account stated."
+      },
+      {
+        "code": "breach_of_personal_guaranty",
+        "label": "Count III – Breach of Personal Guaranty",
+        "supported": false,
+        "reason": "No guaranty-supported individual liability evidence was extracted."
+      },
+      {
+        "code": "unjust_enrichment",
+        "label": "Count IV – Unjust Enrichment (Alternative)",
+        "supported": true,
+        "reason": "Alternative quasi-contract count retained for review."
+      }
+    ],
+    "source_conflicts": [],
+    "missing_required_facts": [
+      "venue.venue_county",
+      "matter_consistency"
+    ],
+    "review_flags": [
+      "needs_review:matter_consistency",
+      "needs_review:venue_county",
+      "needs_review:governing_law"
+    ],
+    "warnings": [
+      "No Florida county could be resolved from the uploaded single-matter source set.",
+      "Amount in controversy is based on spreadsheet balances only.",
+      "This upload contains multiple debtor matters. Split them into separate cases.",
+      "Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies (Other Debtor LLC, Single Matter LLC).",
+      "Governing law was not confidently extracted from the uploaded files.",
+      "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+      "Payment terms were not confidently extracted from the uploaded files.",
+      "Interest language was not confidently extracted from the uploaded files."
+    ],
+    "matter_consistency": {
+      "status": "blocked",
+      "anchor_plaintiff_name": "Cube Systems LLC",
+      "anchor_debtor_name": "Other Debtor LLC",
+      "detected_debtor_entities": [
+        "Other Debtor LLC",
+        "Single Matter LLC"
+      ],
+      "detected_plaintiff_entities": [
+        "Cube Systems LLC"
+      ],
+      "detected_guarantors": [],
+      "source_set_used": [
+        "multi-debtor-aging.xlsx (matching rows only)"
+      ],
+      "excluded_sources": [
+        "multi-debtor-aging.xlsx (contains unrelated debtors)"
+      ],
+      "blockers": [
+        "This upload contains multiple debtor matters. Split them into separate cases.",
+        "Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies (Other Debtor LLC, Single Matter LLC)."
+      ],
+      "warnings": [],
+      "conflicts": [
+        {
+          "source_filename": "multi-debtor-aging.xlsx",
+          "conflict_type": "multi_debtor_workbook",
+          "entities": [
+            "Other Debtor LLC",
+            "Single Matter LLC"
+          ]
+        }
+      ]
+    },
+    "amount_reconciliation": {
+      "status": "pass",
+      "spreadsheet_total": "150.00",
+      "invoice_pdf_total": "0.00",
+      "approved_total": "150.00",
+      "spreadsheet_invoice_count": 1,
+      "invoice_pdf_count": 0,
+      "used_invoice_count": 1,
+      "excluded_low_confidence_rows": 0,
+      "warnings": [
+        "Amount in controversy is based on spreadsheet balances only."
+      ],
+      "blockers": [],
+      "source_pdf_total": "0.00",
+      "source_spreadsheet_total": "150.00",
+      "approved_reconciled_total": "150.00",
+      "case_summary_total": "150.00",
+      "review_approved": false,
+      "excluded_sources": [
+        "multi-debtor-aging.xlsx (contains unrelated debtors)"
+      ]
+    },
+    "source_set_used": [
+      "multi-debtor-aging.xlsx (matching rows only)"
+    ],
+    "processed_at": "2026-03-19T19:49:45.671789Z"
+  },
+  "sunbiz_lookup": null,
+  "entity_verification": null,
+  "jurisdiction_analysis": {
+    "recommended_forum": {
+      "forum_state": null,
+      "forum_county": null,
+      "label": "Undetermined",
+      "rank": 1,
+      "confidence_score": 0.2,
+      "reasons": [
+        "Uploaded sources did not provide enough reliable forum evidence."
+      ],
+      "blockers": [
+        "Jurisdiction remains review required."
+      ],
+      "service_method_notes": [],
+      "state_pack_available": false
+    },
+    "alternate_forum": null,
+    "ranked_forums": [
+      {
+        "forum_state": null,
+        "forum_county": null,
+        "label": "Undetermined",
+        "rank": 1,
+        "confidence_score": 0.2,
+        "reasons": [
+          "Uploaded sources did not provide enough reliable forum evidence."
+        ],
+        "blockers": [
+          "Jurisdiction remains review required."
+        ],
+        "service_method_notes": [],
+        "state_pack_available": false
+      }
+    ],
+    "reason_summary": [
+      "Uploaded sources did not provide enough reliable forum evidence."
+    ],
+    "blockers": [
+      "No reliable jurisdiction path could be ranked from the uploaded materials."
+    ],
+    "service_notes": [],
+    "arbitration_override": false,
+    "generated_at": "2026-03-19T19:49:45.672229Z"
+  },
+  "contract_review": null,
+  "forms_engine": [],
+  "client_snapshot": {
+    "case_id": "case_0ff54a2b3d",
+    "matter_label": "Sprint 2 multi-entity workbook",
+    "selected_matter": "Sprint 2 multi-entity workbook",
+    "mode": "case",
+    "source_file_count": 1,
+    "source_set_count": 1,
+    "plaintiff_name": "Cube Systems LLC",
+    "defendant_name": "Other Debtor LLC",
+    "guarantor_name": null,
+    "plaintiff": "Cube Systems LLC",
+    "defendant": "Other Debtor LLC",
+    "guarantor": null,
+    "governing_law": null,
+    "venue_county": null,
+    "court_level": "County Court",
+    "draft_amount": "150.00",
+    "extracted_amount": "150.00",
+    "approved_amount": "150.00",
+    "display_amount": "150.00",
+    "status": "blocked",
+    "readiness": "needs_review",
+    "next_action": "Split the uploaded stack into child matters, then re-process each clean debtor matter separately.",
+    "blocker_count": 6,
+    "warning_count": 14,
+    "blockers": [
+      "venue.venue_county",
+      "matter_consistency",
+      "This upload contains multiple debtor matters. Split them into separate cases.",
+      "Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies (Other Debtor LLC, Single Matter LLC).",
+      "Matter consistency is unresolved.",
+      "No reliable jurisdiction path could be ranked from the uploaded materials."
+    ],
+    "warnings": [
+      "No Florida county could be resolved from the uploaded single-matter source set.",
+      "Amount in controversy is based on spreadsheet balances only.",
+      "This upload contains multiple debtor matters. Split them into separate cases.",
+      "Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies (Other Debtor LLC, Single Matter LLC).",
+      "Governing law was not confidently extracted from the uploaded files.",
+      "No controlling Florida venue clause was confidently extracted from the uploaded single-matter source set.",
+      "Payment terms were not confidently extracted from the uploaded files.",
+      "Interest language was not confidently extracted from the uploaded files.",
+      "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 2: Amount field is blank.",
+      "f9ea27d06ce0_multi-debtor-aging.xlsx Aging Report!row 3: Amount field is blank.",
+      "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing.",
+      "No reliable jurisdiction path could be ranked from the uploaded materials.",
+      "Single matter only. Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies and cannot be treated as one case.",
+      "SunBiz verification is still recommended before generating Florida registered-agent service documents."
+    ],
+    "sunbiz_state": "not_run",
+    "generated_documents": [],
+    "generated_document_count": 0,
+    "has_zip": false,
+    "packet_generation_allowed": false,
+    "verification_required": true,
+    "verification_report_available": false,
+    "recent_activity": [
+      {
+        "recorded_at": "2026-03-19T19:49:45.610844+00:00",
+        "event_type": "matter.consistency.failed",
+        "payload": {
+          "filename": "multi-debtor-aging.xlsx",
+          "warning": "Single matter only. Workbook 'multi-debtor-aging.xlsx' contains multiple debtor companies and cannot be treated as one case."
+        }
+      },
+      {
+        "recorded_at": "2026-03-19T19:49:45.609481+00:00",
+        "event_type": "matter.consistency.failed",
+        "payload": {
+          "filename": "multi-debtor-aging.xlsx",
+          "warning": "Worksheet 'Aging Report' contains multiple debtor companies and should be split before single-matter processing."
+        }
+      },
+      {
+        "recorded_at": "2026-03-19T19:49:45.608401+00:00",
+        "event_type": "source_file.uploaded",
+        "payload": {
+          "file_id": "f9ea27d06ce0",
+          "filename": "multi-debtor-aging.xlsx",
+          "sha256": "330f3afc11d80d70a4e67148af72316fef6bc27a136fc7a3ad701c2f448c172c"
+        }
+      },
+      {
+        "recorded_at": "2026-03-19T19:49:45.551193+00:00",
+        "event_type": "case.created",
+        "payload": {
+          "reference": null,
+          "title": "Sprint 2 multi-entity workbook",
+          "plaintiff_name": "Cube Systems LLC",
+          "defendant_name": "Single Matter LLC"
+        }
+      }
+    ]
+  },
+  "packet_generation": null,
+  "generation_progress": null,
+  "download_ledger": [],
+  "notes": [],
+  "is_test": false,
+  "is_fixture": false,
+  "is_internal_diagnostic": false,
+  "archived_at": null,
+  "deleted_at": null,
+  "created_at": "2026-03-19T19:49:45.544050Z",
+  "updated_at": "2026-03-19T19:49:45.677523Z"
+}

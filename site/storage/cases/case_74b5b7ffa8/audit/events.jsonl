@@ -1,0 +1,7 @@
+{"recorded_at": "2026-03-20T17:06:22.392838+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Sprint 2 upload QA", "environment_tag": "recovery", "record_type": "recovery_record", "plaintiff_name": "Cube Systems LLC", "defendant_name": "Single Matter LLC"}}
+{"recorded_at": "2026-03-20T17:06:22.472783+00:00", "event_type": "usage.upload_started", "payload": {"file_count": 4}}
+{"recorded_at": "2026-03-20T17:06:22.477317+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "3f558f4429bc", "filename": "master-services-agreement.pdf", "sha256": "d225350b1b68424b53daf29bf65f2956bd9c5f9c2b4829defe511ece65b9fa60"}}
+{"recorded_at": "2026-03-20T17:06:22.483104+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "9eabb61fbeba", "filename": "invoice-100.pdf", "sha256": "3ba7bd1db708897468c20c043c6559101c173917af48e1c7f888ba018ba12995"}}
+{"recorded_at": "2026-03-20T17:06:22.487458+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "4a657ea0f783", "filename": "personal-guaranty.pdf", "sha256": "2a658036cb17a4ce929ee483b819fb032be5b0cf6d32427dc80fe918718c4b9b"}}
+{"recorded_at": "2026-03-20T17:06:22.496263+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "aab696034b1c", "filename": "aging-report.xlsx", "sha256": "e5f1aabe92f74da58915979bc362018e381374d6615031e716b86dde7eec4a42"}}
+{"recorded_at": "2026-03-20T17:06:22.507430+00:00", "event_type": "usage.upload_completed", "payload": {"file_count": 4, "stored_file_count": 4, "duplicate_skipped_count": 0}}

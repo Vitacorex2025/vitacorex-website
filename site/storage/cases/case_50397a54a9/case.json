@@ -1,0 +1,233 @@
+{
+  "id": "case_50397a54a9",
+  "workspace_id": "ws_d2bda263b004",
+  "created_by_user_id": "usr_d35befa6024b",
+  "environment_tag": "development",
+  "reference": null,
+  "title": "Xpress mixed debtor upload - Aruma Transport LLC",
+  "status": "uploaded",
+  "current_extraction_version": 0,
+  "source_files": [
+    {
+      "id": "f1eda745338a",
+      "filename": "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx",
+      "original_filename": "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx",
+      "workspace_id": "ws_d2bda263b004",
+      "matter_id": "case_50397a54a9",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_type": "invoice_excel",
+      "storage_path": "C:\\Users\\sergz\\OneDrive\\Desktop\\VITACOREX docketmint.app\\сайт и арр\\30\\storage\\cases\\case_50397a54a9\\source_files\\f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx",
+      "size_bytes": 5113,
+      "extraction_version": 0,
+      "extracted_text": null,
+      "parsed_payload": {
+        "source_filename": "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx",
+        "invoice_count": 1,
+        "total_original_amount": "0.00",
+        "total_balance_due": "5438.75",
+        "math_verified": true,
+        "warnings": [
+          "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx Sheet1!row 2: Amount field is blank."
+        ],
+        "conflicts": [],
+        "line_items": [
+          {
+            "organization": "TSS Technology LLC",
+            "company": "Aruma Transport LLC",
+            "owner_name": "Mario Magarin",
+            "company_email": "mario@arumatransport.com",
+            "company_number": "14694502971",
+            "company_address": "6246 Rufe Snow Dr Suite 280 box 315, Watauga, TX",
+            "county": "Tarant County",
+            "invoice_number": "INV-788256",
+            "invoice_date": "2025-01-12",
+            "due_date": null,
+            "customer_name": "Aruma Transport LLC",
+            "original_amount": "0.00",
+            "balance_due": "5438.75",
+            "raw_original_amount_text": null,
+            "raw_balance_due_text": "5438.75",
+            "parse_confidence": 1.0,
+            "parse_warning": "Amount field is blank.",
+            "included_in_total": true,
+            "currency": "USD",
+            "source_sheet": "Sheet1"
+          }
+        ],
+        "debtor_entities": [
+          "Aruma Transport LLC"
+        ],
+        "plaintiff_entities": [
+          "TSS Technology LLC"
+        ],
+        "guarantor_entities": [
+          "Mario Magarin"
+        ],
+        "excluded_low_confidence_rows": 0
+      },
+      "warnings": [
+        "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx Sheet1!row 2: Amount field is blank."
+      ],
+      "uploaded_at": "2026-03-17T19:30:40.525313Z",
+      "template_slot": null,
+      "sha256": null,
+      "excluded_from_active_matter": false,
+      "exclusion_reason": null
+    }
+  ],
+  "template_files": [],
+  "extracted_case_data": {
+    "plaintiff": {
+      "party_name": null,
+      "entity_type": null,
+      "party_role": "plaintiff",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": []
+    },
+    "defendant_entity": {
+      "party_name": null,
+      "entity_type": null,
+      "party_role": "defendant_entity",
+      "address": null,
+      "email": null,
+      "phone": null,
+      "source_evidence": []
+    },
+    "personal_guarantor": null,
+    "venue": {
+      "venue_clause": null,
+      "venue_state": null,
+      "venue_county": null,
+      "source_document_type": null,
+      "selection_source": null,
+      "selection_confidence": null,
+      "venue_paragraph": null
+    },
+    "county_candidates": [],
+    "invoice_summary": {
+      "source_filename": null,
+      "source_priority_used": null,
+      "invoice_count": 0,
+      "total_original_amount": "0.00",
+      "total_balance_due": "0.00",
+      "math_verified": false,
+      "warnings": [],
+      "conflicts": [],
+      "line_items": []
+    },
+    "amount_in_controversy": "0.00",
+    "florida_court": {
+      "court_level": "undetermined",
+      "court_division_label": null,
+      "amount_in_controversy": "0.00",
+      "venue_county": null,
+      "reasoning": []
+    },
+    "governing_law": null,
+    "payment_terms": null,
+    "default_terms": null,
+    "interest_terms": null,
+    "service_address": null,
+    "business_address": null,
+    "contract_execution_location": null,
+    "separate_summons_required": false,
+    "contract_evidence": [],
+    "guaranty_evidence": [],
+    "legal_counts": [],
+    "source_conflicts": [],
+    "missing_required_facts": [],
+    "review_flags": [],
+    "warnings": [],
+    "matter_consistency": {
+      "status": "pending",
+      "anchor_plaintiff_name": null,
+      "anchor_debtor_name": null,
+      "detected_debtor_entities": [],
+      "detected_plaintiff_entities": [],
+      "detected_guarantors": [],
+      "source_set_used": [],
+      "excluded_sources": [],
+      "blockers": [],
+      "warnings": [],
+      "conflicts": []
+    },
+    "amount_reconciliation": {
+      "status": "pending",
+      "spreadsheet_total": "0.00",
+      "invoice_pdf_total": "0.00",
+      "approved_total": "0.00",
+      "spreadsheet_invoice_count": 0,
+      "invoice_pdf_count": 0,
+      "used_invoice_count": 0,
+      "excluded_low_confidence_rows": 0,
+      "warnings": [],
+      "blockers": [],
+      "source_pdf_total": "0.00",
+      "source_spreadsheet_total": "0.00",
+      "approved_reconciled_total": "0.00",
+      "case_summary_total": "0.00",
+      "review_approved": false,
+      "excluded_sources": []
+    },
+    "source_set_used": [],
+    "processed_at": null
+  },
+  "sunbiz_lookup": null,
+  "entity_verification": null,
+  "jurisdiction_analysis": null,
+  "contract_review": null,
+  "forms_engine": [],
+  "client_snapshot": {
+    "case_id": "case_50397a54a9",
+    "matter_label": "Xpress mixed debtor upload - Aruma Transport LLC",
+    "selected_matter": "Xpress mixed debtor upload - Aruma Transport LLC",
+    "mode": "case",
+    "source_file_count": 1,
+    "source_set_count": 0,
+    "plaintiff_name": null,
+    "defendant_name": null,
+    "guarantor_name": null,
+    "plaintiff": null,
+    "defendant": null,
+    "guarantor": null,
+    "governing_law": null,
+    "venue_county": null,
+    "court_level": null,
+    "draft_amount": "0",
+    "extracted_amount": "0",
+    "approved_amount": "0.00",
+    "display_amount": "0.00",
+    "status": "uploaded",
+    "readiness": "ready_to_process",
+    "next_action": "Start processing after the source set is complete.",
+    "blocker_count": 1,
+    "warning_count": 1,
+    "blockers": [
+      "Matter has not been processed into a canonical snapshot."
+    ],
+    "warnings": [
+      "f1eda745338a_Cases to Steven TSS_ARUMA_TRANSPORT.xlsx Sheet1!row 2: Amount field is blank."
+    ],
+    "sunbiz_state": "not_run",
+    "generated_documents": [],
+    "generated_document_count": 0,
+    "has_zip": false,
+    "packet_generation_allowed": false,
+    "verification_required": false,
+    "verification_report_available": false,
+    "recent_activity": []
+  },
+  "packet_generation": null,
+  "generation_progress": null,
+  "download_ledger": [],
+  "notes": [],
+  "is_test": false,
+  "is_fixture": false,
+  "is_internal_diagnostic": false,
+  "archived_at": null,
+  "deleted_at": null,
+  "created_at": "2026-03-17T19:30:40.508862Z",
+  "updated_at": "2026-03-17T19:30:57.797827Z"
+}

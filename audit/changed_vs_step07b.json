@@ -1,0 +1,621 @@
+{
+  "count": 154,
+  "changed": [
+    {
+      "path": ".pytest_cache/.gitignore",
+      "status": "added"
+    },
+    {
+      "path": ".pytest_cache/CACHEDIR.TAG",
+      "status": "added"
+    },
+    {
+      "path": ".pytest_cache/README.md",
+      "status": "added"
+    },
+    {
+      "path": ".pytest_cache/v/cache/nodeids",
+      "status": "added"
+    },
+    {
+      "path": "about.html",
+      "status": "modified"
+    },
+    {
+      "path": "additional-services.html",
+      "status": "modified"
+    },
+    {
+      "path": "ai-intake.html",
+      "status": "modified"
+    },
+    {
+      "path": "app.html",
+      "status": "modified"
+    },
+    {
+      "path": "assets/briefs/vitacorex-executive-brief.pdf",
+      "status": "modified"
+    },
+    {
+      "path": "assets/briefs/vitacorex-file-control-sample.pdf",
+      "status": "modified"
+    },
+    {
+      "path": "assets/briefs/vitacorex-pilot-structure.pdf",
+      "status": "modified"
+    },
+    {
+      "path": "assets/css/vitacorex-public.css",
+      "status": "modified"
+    },
+    {
+      "path": "assets/js/dealer-contract-check.js",
+      "status": "modified"
+    },
+    {
+      "path": "assets/js/service-module.js",
+      "status": "modified"
+    },
+    {
+      "path": "assets/js/vitacorex-public.js",
+      "status": "modified"
+    },
+    {
+      "path": "auto-purchase.html",
+      "status": "modified"
+    },
+    {
+      "path": "backend/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/__pycache__/main.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/__pycache__/vitacorex_runtime.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/auth.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/cases.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/contract_intelligence.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/contract_review.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/dealer_contract_check.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/downloads.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/entity_registry.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/generate.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/immigration_forms.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/me.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/platform.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/recovery_intake.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/sunbiz.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/templates.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/api/routes/__pycache__/upload.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/core/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/core/__pycache__/config.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/core/__pycache__/errors.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/core/__pycache__/logging.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/models/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/models/__pycache__/auth_schema.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/models/__pycache__/case_schema.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/__init__.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/action_packet_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/amount_parser.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/audit_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/auth_security.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/auth_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/auth_store.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/canonical_snapshot.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/case_extractor.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/case_state.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/case_store.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/contract_intelligence_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/contract_review_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/deadline_extractor.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/dealer_contract_check_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/document_issue_classifier.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/docx_extractor.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/docx_generator.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/download_ledger.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/entitlements_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/entity_registry_router.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/excel_parser.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/export_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/file_classifier.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/file_guard.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/file_ingestion.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/generation_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/immigration_forms_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/invoice_balance_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/invoice_recovery_parser.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/irs_notice_parser.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/jurisdiction_engine.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/matter_validator.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/official_contacts_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/pdf_extractor.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/platform_history.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/platform_services.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/recommended_path_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/recovery_intake_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/recovery_routing_engine.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/recovery_workspace_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/retention_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/source_capture.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/sunbiz_adapter.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/sunbiz_lookup.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/sunbiz_pdf.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/sunbiz_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/template_registry.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/validation_service.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/vehicle_market_sources.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/vitacorex_lead_store.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/workflow_registry.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/workspace_usage_store.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/__pycache__/zip_builder.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/services/vitacorex_lead_store.py",
+      "status": "modified"
+    },
+    {
+      "path": "backend/tests/__pycache__/test_vitacorex_public_release.cpython-314-pytest-9.0.2.pyc",
+      "status": "added"
+    },
+    {
+      "path": "backend/tests/test_vitacorex_public_release.py",
+      "status": "modified"
+    },
+    {
+      "path": "business-plans.html",
+      "status": "modified"
+    },
+    {
+      "path": "careers.html",
+      "status": "modified"
+    },
+    {
+      "path": "contact.html",
+      "status": "modified"
+    },
+    {
+      "path": "contracts.html",
+      "status": "modified"
+    },
+    {
+      "path": "cookie-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "corporate-legal-file-control.html",
+      "status": "modified"
+    },
+    {
+      "path": "corporate-paralegal.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/about.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/additional-services.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/careers.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/contact.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/cookie-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/corporate-legal-file-control.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/index.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/industries.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/privacy-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/resources.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/revenue-recovery-workflow.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/solutions.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/structured-case-intake.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/terms-of-use.html",
+      "status": "modified"
+    },
+    {
+      "path": "es/thank-you.html",
+      "status": "modified"
+    },
+    {
+      "path": "immigration-documents.html",
+      "status": "modified"
+    },
+    {
+      "path": "index.html",
+      "status": "modified"
+    },
+    {
+      "path": "industries.html",
+      "status": "modified"
+    },
+    {
+      "path": "net-recovery.html",
+      "status": "modified"
+    },
+    {
+      "path": "privacy-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "resources.html",
+      "status": "modified"
+    },
+    {
+      "path": "revenue-recovery-workflow.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/about.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/additional-services.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/careers.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/contact.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/cookie-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/corporate-legal-file-control.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/index.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/industries.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/privacy-policy.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/resources.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/revenue-recovery-workflow.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/solutions.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/structured-case-intake.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/terms-of-use.html",
+      "status": "modified"
+    },
+    {
+      "path": "ru/thank-you.html",
+      "status": "modified"
+    },
+    {
+      "path": "scripts/__pycache__/vitacorex_public_translations.cpython-314.pyc",
+      "status": "added"
+    },
+    {
+      "path": "scripts/build_vitacorex_public_release.py",
+      "status": "modified"
+    },
+    {
+      "path": "solutions.html",
+      "status": "modified"
+    },
+    {
+      "path": "storage/vitacorex_leads/audit/submissions.jsonl",
+      "status": "modified"
+    },
+    {
+      "path": "storage/vitacorex_leads/vcx-20260329-1e81d57536/lead.json",
+      "status": "added"
+    },
+    {
+      "path": "structured-case-intake.html",
+      "status": "modified"
+    },
+    {
+      "path": "terms-of-use.html",
+      "status": "modified"
+    },
+    {
+      "path": "thank-you.html",
+      "status": "modified"
+    },
+    {
+      "path": "v51_institutional_blocks.html",
+      "status": "modified"
+    },
+    {
+      "path": "vitacorex-landing.html",
+      "status": "modified"
+    }
+  ]
+}

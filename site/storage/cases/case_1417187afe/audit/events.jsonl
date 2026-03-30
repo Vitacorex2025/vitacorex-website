@@ -1,0 +1,7 @@
+{"recorded_at": "2026-03-20T18:11:47.167306+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Sprint 2 csv truth engine", "environment_tag": "recovery", "record_type": "recovery_record", "plaintiff_name": "Cube Systems LLC", "defendant_name": "Single Matter LLC"}}
+{"recorded_at": "2026-03-20T18:11:47.231012+00:00", "event_type": "usage.upload_started", "payload": {"file_count": 3}}
+{"recorded_at": "2026-03-20T18:11:47.236118+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "9a76a9202bea", "filename": "master-services-agreement.pdf", "sha256": "b73d54b3aac5e3ed9cf8bf97e5079314c0a36fae804305d39d65c73524bfaf20"}}
+{"recorded_at": "2026-03-20T18:11:47.241033+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "9efad3bbf45d", "filename": "invoice-100.pdf", "sha256": "9d44e9d212e76f704ef2a938f8f7eb543124c5893b47dece5b56e954b82fa477"}}
+{"recorded_at": "2026-03-20T18:11:47.245240+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "93574799c152", "filename": "aging-report.csv", "sha256": "d3e55af6965c619bf90b674203033f7bef131377c0fa817b0685dd7f9039d3d5"}}
+{"recorded_at": "2026-03-20T18:11:47.254701+00:00", "event_type": "usage.upload_completed", "payload": {"file_count": 3, "stored_file_count": 3, "duplicate_skipped_count": 0}}
+{"recorded_at": "2026-03-20T18:11:47.345327+00:00", "event_type": "case.processed", "payload": {"status": "ready_for_verification", "active_source_file_count": 3, "template_file_count": 0, "blocker_count": 0, "sunbiz_triggered": false}}

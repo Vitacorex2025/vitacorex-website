@@ -1,0 +1,71 @@
+services:
+  - type: web
+    name: docketmint-web
+    runtime: node
+    rootDir: tmp_deadline_v10_validation
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    buildFilter:
+      paths:
+        - tmp_deadline_v10_validation/**
+        - render.yaml
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_APP_NAME
+        value: DocketMint
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://docketmint.app
+      - key: NEXT_PUBLIC_APP_STAGE
+        value: production
+      - key: APP_ENV_NAME
+        value: production
+      - key: RUNTIME_MONITORING_ENABLED
+        value: "true"
+      - key: AUTH_CODE_TTL_MINUTES
+        value: "15"
+      - key: AUTH_SESSION_DAYS
+        value: "14"
+      - key: AUTH_REMEMBER_ME_DAYS
+        value: "30"
+      - key: AUTH_SESSION_COOKIE_NAME
+        value: docketmint_session
+      - key: STRIPE_WEBHOOK_TOLERANCE_SECONDS
+        value: "300"
+      - key: SMS_PROVIDER
+        value: dev
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: NOTIFICATION_CRON_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_PRO_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_PREMIUM_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_TEAM_MONTHLY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_MESSAGING_SERVICE_SID
+        sync: false
+      - key: TWILIO_FROM_NUMBER
+        sync: false

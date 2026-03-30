@@ -1,0 +1,9 @@
+{"recorded_at": "2026-03-20T16:13:56.357052+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Synthetic mismatch", "environment_tag": "recovery", "record_type": "recovery_record", "plaintiff_name": "Cube Systems LLC", "defendant_name": "Single Matter LLC"}}
+{"recorded_at": "2026-03-20T16:13:56.439835+00:00", "event_type": "usage.upload_started", "payload": {"file_count": 2}}
+{"recorded_at": "2026-03-20T16:13:56.447868+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "455066695a2b", "filename": "synthetic.xlsx", "sha256": "9edeece7564095a41452435730f293713a05d07a45c346566800771c7d60f727"}}
+{"recorded_at": "2026-03-20T16:13:56.451765+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "d86de0d21007", "filename": "synthetic invoice.pdf", "sha256": "1bfb1d2553dfbbe2b942b874243429dcaf9a60cd8f2ff04db276b016190e0344"}}
+{"recorded_at": "2026-03-20T16:13:56.460669+00:00", "event_type": "usage.upload_completed", "payload": {"file_count": 2, "stored_file_count": 2, "duplicate_skipped_count": 0}}
+{"recorded_at": "2026-03-20T16:13:56.540838+00:00", "event_type": "amount.reconciliation.mismatch", "payload": {"blockers": ["Invoice PDF totals (120.00) do not match spreadsheet balances (100.00)."]}}
+{"recorded_at": "2026-03-20T16:13:56.542070+00:00", "event_type": "usage.extraction_blocked", "payload": {"blocker_count": 1, "blockers": ["Invoice PDF totals (120.00) do not match spreadsheet balances (100.00)."]}}
+{"recorded_at": "2026-03-20T16:13:56.542928+00:00", "event_type": "case.processed", "payload": {"status": "blocked", "active_source_file_count": 2, "template_file_count": 0, "blocker_count": 2, "sunbiz_triggered": false}}
+{"recorded_at": "2026-03-20T16:13:56.617599+00:00", "event_type": "case.review.saved", "payload": {"status": "blocked", "venue_county": "Orange", "amount_in_controversy": "120.00"}}

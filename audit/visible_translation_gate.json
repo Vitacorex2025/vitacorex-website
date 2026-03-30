@@ -1,0 +1,175 @@
+{
+  "ok": true,
+  "audited_pages": 28,
+  "issues": [],
+  "results": [
+    {
+      "file": "index.html",
+      "lang": "en",
+      "visible_strings": 145,
+      "forbidden_hits": []
+    },
+    {
+      "file": "corporate-legal-file-control.html",
+      "lang": "en",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "revenue-recovery-workflow.html",
+      "lang": "en",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "structured-case-intake.html",
+      "lang": "en",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "resources.html",
+      "lang": "en",
+      "visible_strings": 138,
+      "forbidden_hits": []
+    },
+    {
+      "file": "additional-services.html",
+      "lang": "en",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "careers.html",
+      "lang": "en",
+      "visible_strings": 92,
+      "forbidden_hits": []
+    },
+    {
+      "file": "contact.html",
+      "lang": "en",
+      "visible_strings": 180,
+      "forbidden_hits": []
+    },
+    {
+      "file": "thank-you.html",
+      "lang": "en",
+      "visible_strings": 62,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/index.html",
+      "lang": "ru",
+      "visible_strings": 145,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/corporate-legal-file-control.html",
+      "lang": "ru",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/revenue-recovery-workflow.html",
+      "lang": "ru",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/structured-case-intake.html",
+      "lang": "ru",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/resources.html",
+      "lang": "ru",
+      "visible_strings": 138,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/additional-services.html",
+      "lang": "ru",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/careers.html",
+      "lang": "ru",
+      "visible_strings": 92,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/contact.html",
+      "lang": "ru",
+      "visible_strings": 180,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ru/thank-you.html",
+      "lang": "ru",
+      "visible_strings": 62,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/index.html",
+      "lang": "es",
+      "visible_strings": 145,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/corporate-legal-file-control.html",
+      "lang": "es",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/revenue-recovery-workflow.html",
+      "lang": "es",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/structured-case-intake.html",
+      "lang": "es",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/resources.html",
+      "lang": "es",
+      "visible_strings": 138,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/additional-services.html",
+      "lang": "es",
+      "visible_strings": 139,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/careers.html",
+      "lang": "es",
+      "visible_strings": 92,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/contact.html",
+      "lang": "es",
+      "visible_strings": 180,
+      "forbidden_hits": []
+    },
+    {
+      "file": "es/thank-you.html",
+      "lang": "es",
+      "visible_strings": 62,
+      "forbidden_hits": []
+    },
+    {
+      "file": "ai-intake.html",
+      "lang": "en",
+      "visible_strings": 6,
+      "forbidden_hits": []
+    }
+  ]
+}

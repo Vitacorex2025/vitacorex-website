@@ -1,0 +1,3 @@
+{"recorded_at": "2026-03-17T15:48:30.658318+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Synthetic mismatch", "plaintiff_name": "Cube Systems LLC", "defendant_name": "Single Matter LLC"}}
+{"recorded_at": "2026-03-17T15:48:30.700213+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "9b37659788da", "filename": "synthetic.xlsx", "sha256": "b4d88f2a217f3a77834e3e57692aff9854bc2a98c28628f2b4688e252a5abf69"}}
+{"recorded_at": "2026-03-17T15:48:30.705745+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "da694e6735f2", "filename": "synthetic invoice.pdf", "sha256": "8cc0583dfb0117ff98b1135a91a01b89b46b3319eeb52ff07e300bef414a8ff4"}}

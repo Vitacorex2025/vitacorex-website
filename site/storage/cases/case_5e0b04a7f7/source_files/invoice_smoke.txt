@@ -1,0 +1,7 @@
+Invoice INV-1001
+Balance Due $11,250.00
+Payment terms net 30
+Attorneys fees
+Venue Miami-Dade
+Agreement between parties
+Work completed and accepted within 15 days.
