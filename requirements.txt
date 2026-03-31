@@ -1,3 +1,6 @@
+# VitaCoreX runtime dependencies.
+# Entry point: main_vitacorex.py → backend/vitacorex_runtime.py
+# Start command: uvicorn backend.vitacorex_runtime:app --host 0.0.0.0 --port $PORT
 fastapi>=0.110
 uvicorn[standard]>=0.29
 pydantic>=2.6
@@ -10,3 +13,6 @@ reportlab>=4.0
 
 requests>=2.31
 beautifulsoup4>=4.12
+stripe>=8.0
+Pillow>=10.0
+pytesseract>=0.3.10

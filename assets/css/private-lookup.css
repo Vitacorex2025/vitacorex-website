@@ -1,0 +1,1773 @@
+/* ============================================================
+   VitaCoreX Private Lookup — private-lookup.css
+   Requires: vitacorex-public.css loaded first
+   ============================================================ */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --vcx-navy:           #07131f;
+  --vcx-navy-mid:       #0d1f30;
+  --vcx-navy-card:      #111e2d;
+  --vcx-gold:           #c9a84c;
+  --vcx-gold-light:     #e8c97a;
+  --vcx-white:          #ffffff;
+  --vcx-text:           #e8edf2;
+  --vcx-text-muted:     #8fa3b8;
+  --vcx-border:         rgba(201,168,76,0.18);
+  --vcx-border-subtle:  rgba(255,255,255,0.08);
+  --vcx-green:          #2ecc71;
+  --vcx-red:            #e74c3c;
+  --vcx-blue:           #3498db;
+  --vcx-amber:          #f39c12;
+  --vcx-radius:         8px;
+  --vcx-radius-lg:      14px;
+  --vcx-shadow:         0 4px 24px rgba(0,0,0,0.35);
+  --vcx-shadow-card:    0 2px 12px rgba(0,0,0,0.25);
+  --vcx-transition:     0.18s ease;
+}
+
+/* ── Base reset for lookup context ──────────────────────────── */
+[data-vcx-private-lookup] *,
+[data-vcx-private-lookup] *::before,
+[data-vcx-private-lookup] *::after {
+  box-sizing: border-box;
+}
+
+[data-vcx-private-lookup] {
+  font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+  color: var(--vcx-text);
+  background-color: var(--vcx-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Hidden utility (complement to [hidden]) ─────────────────── */
+[data-vcx-private-lookup] .vcx-hidden {
+  display: none !important;
+}
+
+/* ============================================================
+   1. HERO SECTION
+   ============================================================ */
+.vcx-lookup-hero {
+  background: linear-gradient(
+    160deg,
+    #07131f 0%,
+    #0d1f30 45%,
+    #0a1a28 100%
+  );
+  padding: 56px 20px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-lookup-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    rgba(201,168,76,0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.vcx-lookup-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vcx-gold);
+  margin-bottom: 16px;
+}
+
+.vcx-lookup-hero__heading {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--vcx-white);
+  margin: 0 auto 16px;
+  max-width: 680px;
+}
+
+.vcx-lookup-hero__heading span {
+  color: var(--vcx-gold-light);
+}
+
+.vcx-lookup-hero__subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--vcx-text-muted);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.65;
+}
+
+.vcx-lookup-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vcx-lookup-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid var(--vcx-border);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--vcx-gold-light);
+  letter-spacing: 0.03em;
+}
+
+.vcx-lookup-hero__badge svg,
+.vcx-lookup-hero__badge .vcx-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .vcx-lookup-hero {
+    padding: 72px 40px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vcx-lookup-hero {
+    padding: 88px 60px 72px;
+  }
+}
+
+/* ============================================================
+   2. PAYMENT GATE
+   ============================================================ */
+.vcx-lookup-gate {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.vcx-gate-card {
+  background: var(--vcx-navy-card);
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius-lg);
+  padding: 36px 32px;
+  box-shadow:
+    var(--vcx-shadow),
+    0 0 48px rgba(201,168,76,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-gate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--vcx-gold) 35%,
+    var(--vcx-gold-light) 50%,
+    var(--vcx-gold) 65%,
+    transparent 100%
+  );
+}
+
+.vcx-gate-card__header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.vcx-gate-card__icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--vcx-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vcx-gold);
+}
+
+.vcx-gate-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--vcx-white);
+  margin: 0 0 8px;
+}
+
+.vcx-gate-card__subtitle {
+  font-size: 0.9rem;
+  color: var(--vcx-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.vcx-gate-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin: 24px 0;
+}
+
+.vcx-gate-price__currency {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--vcx-gold-light);
+  line-height: 1;
+}
+
+.vcx-gate-price__amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--vcx-white);
+  line-height: 1;
+}
+
+.vcx-gate-price__label {
+  font-size: 0.85rem;
+  color: var(--vcx-text-muted);
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
+.vcx-gate-features {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vcx-gate-features__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--vcx-text);
+  line-height: 1.45;
+}
+
+.vcx-gate-features__item::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232ecc71'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;
+  margin-top: 1px;
+}
+
+.vcx-gate-divider {
+  border: none;
+  border-top: 1px solid var(--vcx-border-subtle);
+  margin: 24px 0;
+}
+
+.vcx-gate-stripe-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  background: linear-gradient(135deg, var(--vcx-gold) 0%, var(--vcx-gold-light) 100%);
+  color: #0a1218;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: var(--vcx-radius);
+  cursor: pointer;
+  transition: opacity var(--vcx-transition), transform var(--vcx-transition), box-shadow var(--vcx-transition);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  text-decoration: none;
+}
+
+.vcx-gate-stripe-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(201,168,76,0.42);
+}
+
+.vcx-gate-stripe-btn:active {
+  transform: translateY(0);
+  opacity: 0.88;
+}
+
+.vcx-gate-stripe-btn:disabled,
+.vcx-gate-stripe-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.vcx-gate-stripe-btn--loading {
+  pointer-events: none;
+}
+
+.vcx-gate-stripe-btn--loading .vcx-btn-text {
+  opacity: 0;
+}
+
+.vcx-gate-stripe-btn .vcx-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(10,18,24,0.3);
+  border-top-color: #0a1218;
+  border-radius: 50%;
+  animation: vcx-spin 0.65s linear infinite;
+}
+
+.vcx-gate-stripe-btn--loading .vcx-spinner {
+  display: block;
+}
+
+.vcx-gate-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--vcx-text-muted);
+}
+
+.vcx-gate-trust svg {
+  width: 14px;
+  height: 14px;
+  color: var(--vcx-green);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .vcx-lookup-gate {
+    padding: 40px 20px;
+  }
+  .vcx-gate-card {
+    padding: 44px 44px;
+  }
+}
+
+/* ============================================================
+   3. MAIN TOOL WRAPPER
+   ============================================================ */
+.vcx-lookup-tool {
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.vcx-lookup-tool[data-unlocked] {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .vcx-lookup-tool {
+    padding: 36px 32px 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vcx-lookup-tool {
+    padding: 44px 40px 100px;
+  }
+}
+
+/* ============================================================
+   4. TAB NAV
+   ============================================================ */
+.vcx-tab-nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  border-bottom: 2px solid var(--vcx-border-subtle);
+  margin-bottom: 28px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vcx-tab-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   5. TAB BUTTON
+   ============================================================ */
+.vcx-tab-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 18px 13px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  color: var(--vcx-text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--vcx-transition), border-color var(--vcx-transition);
+  white-space: nowrap;
+  position: relative;
+}
+
+.vcx-tab-btn:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--vcx-text);
+}
+
+.vcx-tab-btn[aria-selected="true"],
+.vcx-tab-btn.is-active {
+  color: var(--vcx-gold-light);
+  border-bottom-color: var(--vcx-gold);
+  font-weight: 600;
+}
+
+.vcx-tab-btn:disabled,
+.vcx-tab-btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.vcx-tab-btn svg,
+.vcx-tab-btn .vcx-tab-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.vcx-tab-btn:focus-visible {
+  outline: 2px solid var(--vcx-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .vcx-tab-btn {
+    font-size: 0.93rem;
+    padding: 12px 22px 14px;
+  }
+}
+
+/* ============================================================
+   6. TAB PANEL
+   ============================================================ */
+.vcx-tab-panel {
+  display: none;
+}
+
+.vcx-tab-panel.is-active,
+.vcx-tab-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* ============================================================
+   7. FORM GRID
+   ============================================================ */
+.vcx-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 640px) {
+  .vcx-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vcx-form-grid .vcx-field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vcx-form-grid {
+    gap: 22px;
+  }
+}
+
+/* ============================================================
+   8-10. FORM FIELDS
+   ============================================================ */
+.vcx-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vcx-field__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vcx-text-muted);
+}
+
+.vcx-field__label abbr {
+  text-decoration: none;
+  color: var(--vcx-gold);
+  margin-left: 2px;
+}
+
+.vcx-field input,
+.vcx-field select,
+.vcx-field textarea {
+  width: 100%;
+  background: rgba(13,31,48,0.8);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+  padding: 11px 14px;
+  color: var(--vcx-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.93rem;
+  transition:
+    border-color var(--vcx-transition),
+    box-shadow var(--vcx-transition),
+    background-color var(--vcx-transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.vcx-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238fa3b8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.vcx-field textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.55;
+}
+
+.vcx-field input::placeholder,
+.vcx-field textarea::placeholder {
+  color: rgba(143,163,184,0.55);
+}
+
+.vcx-field input:hover,
+.vcx-field select:hover,
+.vcx-field textarea:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(13,31,48,0.95);
+}
+
+.vcx-field input:focus,
+.vcx-field select:focus,
+.vcx-field textarea:focus {
+  outline: none;
+  border-color: var(--vcx-gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.18);
+  background: rgba(13,31,48,1);
+}
+
+/* Error state */
+.vcx-field.is-error input,
+.vcx-field.is-error select,
+.vcx-field.is-error textarea {
+  border-color: var(--vcx-red);
+  box-shadow: 0 0 0 3px rgba(231,76,60,0.15);
+}
+
+.vcx-field-error {
+  font-size: 0.78rem;
+  color: var(--vcx-red);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.vcx-field-error::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e74c3c'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* ============================================================
+   11. CONSENT BLOCK
+   ============================================================ */
+.vcx-consent-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(201,168,76,0.04);
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius);
+  margin-top: 8px;
+}
+
+.vcx-consent-block input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 1px;
+  accent-color: var(--vcx-gold);
+  cursor: pointer;
+}
+
+.vcx-consent-block__label {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--vcx-text-muted);
+  cursor: pointer;
+}
+
+.vcx-consent-block__label a {
+  color: var(--vcx-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.vcx-consent-block__label a:hover {
+  color: var(--vcx-white);
+}
+
+.vcx-consent-block.is-error {
+  border-color: var(--vcx-red);
+  background: rgba(231,76,60,0.05);
+}
+
+/* ============================================================
+   12. UPLOAD ZONE
+   ============================================================ */
+.vcx-upload-zone {
+  border: 2px dashed rgba(201,168,76,0.25);
+  border-radius: var(--vcx-radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color var(--vcx-transition),
+    background-color var(--vcx-transition);
+  background: rgba(13,31,48,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-upload-zone:hover {
+  border-color: rgba(201,168,76,0.5);
+  background: rgba(13,31,48,0.65);
+}
+
+.vcx-upload-zone:focus-within {
+  border-color: var(--vcx-gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  outline: none;
+}
+
+/* 13. Drag-over state */
+.vcx-upload-zone.dragover {
+  border-color: var(--vcx-gold);
+  background: rgba(201,168,76,0.07);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+}
+
+.vcx-upload-zone__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  color: var(--vcx-gold);
+  opacity: 0.8;
+}
+
+.vcx-upload-zone__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--vcx-text);
+  margin: 0 0 6px;
+}
+
+.vcx-upload-zone__hint {
+  font-size: 0.8rem;
+  color: var(--vcx-text-muted);
+  margin: 0 0 18px;
+}
+
+.vcx-upload-zone__actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vcx-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius);
+  background: rgba(201,168,76,0.08);
+  color: var(--vcx-gold-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--vcx-transition), border-color var(--vcx-transition);
+}
+
+.vcx-upload-btn:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.4);
+}
+
+.vcx-upload-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.vcx-upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.vcx-upload-zone--loading {
+  pointer-events: none;
+}
+
+.vcx-upload-zone--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(7,19,31,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 14. Upload preview */
+.vcx-upload-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(13,31,48,0.8);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+  margin-top: 12px;
+}
+
+.vcx-upload-preview__thumb {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 6px;
+  background: rgba(201,168,76,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.vcx-upload-preview__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vcx-upload-preview__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vcx-upload-preview__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vcx-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vcx-upload-preview__size {
+  font-size: 0.75rem;
+  color: var(--vcx-text-muted);
+  margin-top: 2px;
+}
+
+.vcx-upload-preview__remove {
+  background: transparent;
+  border: none;
+  color: var(--vcx-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color var(--vcx-transition);
+  line-height: 0;
+}
+
+.vcx-upload-preview__remove:hover {
+  color: var(--vcx-red);
+}
+
+/* ============================================================
+   15. EXTRACTION CONFIRM
+   ============================================================ */
+.vcx-extraction-confirm {
+  background: var(--vcx-navy-card);
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius-lg);
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.vcx-extraction-confirm__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.vcx-extraction-confirm__icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: rgba(46,204,113,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vcx-green);
+}
+
+.vcx-extraction-confirm__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--vcx-white);
+  margin: 0;
+}
+
+.vcx-extraction-confirm__subtitle {
+  font-size: 0.8rem;
+  color: var(--vcx-text-muted);
+  margin: 2px 0 0;
+}
+
+.vcx-extraction-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.vcx-extraction-field-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(7,19,31,0.5);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+}
+
+.vcx-extraction-field-row input[type="checkbox"] {
+  accent-color: var(--vcx-gold);
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  cursor: pointer;
+}
+
+.vcx-extraction-field-row__key {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vcx-text-muted);
+  min-width: 110px;
+}
+
+.vcx-extraction-field-row__value {
+  font-size: 0.88rem;
+  color: var(--vcx-gold-light);
+  font-weight: 500;
+  flex: 1;
+}
+
+.vcx-extraction-confirm__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vcx-extraction-use-btn {
+  padding: 9px 20px;
+  background: linear-gradient(135deg, var(--vcx-gold) 0%, var(--vcx-gold-light) 100%);
+  color: #0a1218;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: none;
+  border-radius: var(--vcx-radius);
+  cursor: pointer;
+  transition: opacity var(--vcx-transition);
+}
+
+.vcx-extraction-use-btn:hover {
+  opacity: 0.88;
+}
+
+.vcx-extraction-dismiss-btn {
+  padding: 9px 20px;
+  background: transparent;
+  color: var(--vcx-text-muted);
+  font-size: 0.88rem;
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+  cursor: pointer;
+  transition: border-color var(--vcx-transition), color var(--vcx-transition);
+}
+
+.vcx-extraction-dismiss-btn:hover {
+  border-color: rgba(255,255,255,0.18);
+  color: var(--vcx-text);
+}
+
+/* ============================================================
+   16. SUBMIT BUTTON
+   ============================================================ */
+.vcx-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 380px;
+  margin: 28px auto 0;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, var(--vcx-gold) 0%, var(--vcx-gold-light) 100%);
+  color: #0a1218;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: var(--vcx-radius);
+  cursor: pointer;
+  transition:
+    opacity var(--vcx-transition),
+    transform var(--vcx-transition),
+    box-shadow var(--vcx-transition);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-submit-btn:hover:not(:disabled) {
+  opacity: 0.91;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(201,168,76,0.42);
+}
+
+.vcx-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  opacity: 0.87;
+}
+
+.vcx-submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.vcx-submit-btn .vcx-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(10,18,24,0.3);
+  border-top-color: #0a1218;
+  border-radius: 50%;
+  animation: vcx-spin 0.65s linear infinite;
+}
+
+.vcx-submit-btn.is-loading {
+  pointer-events: none;
+}
+
+.vcx-submit-btn.is-loading .vcx-btn-text {
+  opacity: 0;
+}
+
+.vcx-submit-btn.is-loading .vcx-spinner {
+  display: block;
+  position: absolute;
+}
+
+@media (min-width: 640px) {
+  .vcx-submit-btn {
+    width: auto;
+    display: inline-flex;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================
+   17. RESULT AREA
+   ============================================================ */
+.vcx-result-area {
+  margin-top: 32px;
+}
+
+.vcx-result-area__heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vcx-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vcx-result-area__heading span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201,168,76,0.12);
+  color: var(--vcx-gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.vcx-result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================================
+   18. LOADING STATE
+   ============================================================ */
+.vcx-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 24px;
+}
+
+.vcx-loading-state__spinner-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.vcx-loading-spinner {
+  width: 52px;
+  height: 52px;
+  border: 3px solid rgba(201,168,76,0.15);
+  border-top-color: var(--vcx-gold);
+  border-radius: 50%;
+  animation: vcx-spin 0.9s linear infinite;
+}
+
+.vcx-loading-state__text {
+  font-size: 0.92rem;
+  color: var(--vcx-text-muted);
+  text-align: center;
+}
+
+.vcx-skeleton-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vcx-skeleton-card {
+  background: var(--vcx-navy-card);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius-lg);
+  padding: 20px 22px;
+  overflow: hidden;
+}
+
+.vcx-skeleton-line {
+  height: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.09) 50%,
+    rgba(255,255,255,0.04) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: vcx-shimmer 1.6s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+
+.vcx-skeleton-line:last-child {
+  margin-bottom: 0;
+  width: 60%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vcx-skeleton-line,
+  .vcx-loading-spinner,
+  .vcx-spinner {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   19-25. RESULT CARDS
+   ============================================================ */
+.vcx-result-card {
+  background: var(--vcx-navy-card);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius-lg);
+  padding: 22px 24px 20px;
+  box-shadow: var(--vcx-shadow-card);
+  border-top: 3px solid rgba(255,255,255,0.1);
+  transition: box-shadow var(--vcx-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-result-card:hover {
+  box-shadow: var(--vcx-shadow);
+}
+
+/* 20. Found */
+.vcx-result-card--found {
+  border-top-color: var(--vcx-green);
+}
+.vcx-result-card--found::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46,204,113,0.25), transparent);
+}
+
+/* 21. Empty */
+.vcx-result-card--empty {
+  border-top-color: rgba(143,163,184,0.4);
+  opacity: 0.75;
+}
+
+/* 22. Blocked */
+.vcx-result-card--blocked {
+  border-top-color: var(--vcx-amber);
+}
+.vcx-result-card--blocked::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243,156,18,0.25), transparent);
+}
+
+/* 23. Error */
+.vcx-result-card--error {
+  border-top-color: var(--vcx-red);
+}
+.vcx-result-card--error::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(231,76,60,0.25), transparent);
+}
+
+/* 24. Official handoff */
+.vcx-result-card--official-handoff {
+  border-top-color: var(--vcx-blue);
+}
+.vcx-result-card--official-handoff::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(52,152,219,0.25), transparent);
+}
+
+/* 25. Official routing */
+.vcx-result-card--official-routing {
+  border-top-color: var(--vcx-blue);
+  background: linear-gradient(135deg, var(--vcx-navy-card) 0%, rgba(52,152,219,0.04) 100%);
+}
+
+.vcx-result-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.vcx-result-card__header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.vcx-result-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vcx-white);
+  margin: 0;
+}
+
+.vcx-result-card__body {
+  border-top: 1px solid var(--vcx-border-subtle);
+  padding-top: 14px;
+}
+
+/* ============================================================
+   26. STATUS PILL
+   ============================================================ */
+.vcx-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vcx-status-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.vcx-status-pill--found {
+  background: rgba(46,204,113,0.12);
+  color: #2ecc71;
+  border: 1px solid rgba(46,204,113,0.25);
+}
+
+.vcx-status-pill--not_found,
+.vcx-status-pill--empty {
+  background: rgba(143,163,184,0.1);
+  color: var(--vcx-text-muted);
+  border: 1px solid rgba(143,163,184,0.15);
+}
+
+.vcx-status-pill--blocked {
+  background: rgba(243,156,18,0.12);
+  color: var(--vcx-amber);
+  border: 1px solid rgba(243,156,18,0.25);
+}
+
+.vcx-status-pill--error {
+  background: rgba(231,76,60,0.1);
+  color: var(--vcx-red);
+  border: 1px solid rgba(231,76,60,0.22);
+}
+
+.vcx-status-pill--official_handoff,
+.vcx-status-pill--official_routing {
+  background: rgba(52,152,219,0.12);
+  color: var(--vcx-blue);
+  border: 1px solid rgba(52,152,219,0.25);
+}
+
+/* ============================================================
+   27. SOURCE BADGE
+   ============================================================ */
+.vcx-source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--vcx-text-muted);
+}
+
+/* ============================================================
+   28. RESULT META
+   ============================================================ */
+.vcx-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.vcx-result-meta__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vcx-result-meta__key {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--vcx-text-muted);
+}
+
+.vcx-result-meta__value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vcx-text);
+}
+
+.vcx-result-meta__value--amount {
+  color: var(--vcx-gold-light);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   29. RESULT SUMMARY
+   ============================================================ */
+.vcx-result-summary {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--vcx-text-muted);
+  margin: 0 0 16px;
+}
+
+/* ============================================================
+   30-33. RESULT ACTION BUTTONS
+   ============================================================ */
+.vcx-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* 31. Official link */
+.vcx-official-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius);
+  color: var(--vcx-gold-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--vcx-transition),
+    border-color var(--vcx-transition),
+    color var(--vcx-transition);
+}
+
+.vcx-official-link:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.4);
+  color: var(--vcx-white);
+}
+
+.vcx-official-link svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* 32. Pay link */
+.vcx-pay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid rgba(46,204,113,0.3);
+  border-radius: var(--vcx-radius);
+  color: var(--vcx-green);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--vcx-transition),
+    border-color var(--vcx-transition);
+}
+
+.vcx-pay-link:hover {
+  background: rgba(46,204,113,0.08);
+  border-color: rgba(46,204,113,0.5);
+}
+
+.vcx-pay-link svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* 33. Consult button */
+.vcx-consult-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, var(--vcx-gold) 0%, var(--vcx-gold-light) 100%);
+  color: #0a1218;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--vcx-radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--vcx-transition), transform var(--vcx-transition);
+  box-shadow: 0 3px 12px rgba(201,168,76,0.25);
+}
+
+.vcx-consult-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.vcx-consult-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ============================================================
+   34-35. UPSELL STRIP
+   ============================================================ */
+.vcx-upsell-strip {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--vcx-border-subtle);
+}
+
+.vcx-upsell-strip__heading {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vcx-text-muted);
+  margin: 0 0 16px;
+}
+
+.vcx-upsell-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 600px) {
+  .vcx-upsell-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .vcx-upsell-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.vcx-upsell-card {
+  background: var(--vcx-navy-card);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+  padding: 18px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color var(--vcx-transition), box-shadow var(--vcx-transition);
+}
+
+.vcx-upsell-card:hover {
+  border-color: var(--vcx-border);
+  box-shadow: var(--vcx-shadow-card);
+}
+
+.vcx-upsell-card__icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(201,168,76,0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vcx-gold);
+}
+
+.vcx-upsell-card__title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--vcx-white);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.vcx-upsell-card__price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--vcx-gold-light);
+}
+
+.vcx-upsell-card__price span {
+  font-size: 0.75rem;
+  color: var(--vcx-text-muted);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.vcx-upsell-card__desc {
+  font-size: 0.78rem;
+  color: var(--vcx-text-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.vcx-upsell-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius);
+  background: transparent;
+  color: var(--vcx-gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--vcx-transition),
+    border-color var(--vcx-transition);
+  margin-top: auto;
+}
+
+.vcx-upsell-card__cta:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.4);
+}
+
+/* ============================================================
+   36. DISCLAIMER BLOCK
+   ============================================================ */
+.vcx-disclaimer-block {
+  margin-top: 40px;
+  padding: 22px 24px;
+  background: rgba(7,19,31,0.6);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+}
+
+.vcx-disclaimer-block__heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vcx-text-muted);
+  margin: 0 0 12px;
+}
+
+.vcx-disclaimer-block__list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: decimal;
+}
+
+.vcx-disclaimer-block__list li {
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: rgba(143,163,184,0.75);
+}
+
+.vcx-disclaimer-block__list a {
+  color: var(--vcx-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.vcx-disclaimer-block__list a:hover {
+  color: var(--vcx-text);
+}
+
+/* ============================================================
+   37. SESSION INFO BAR
+   ============================================================ */
+.vcx-session-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(13,31,48,0.7);
+  border: 1px solid var(--vcx-border-subtle);
+  border-radius: var(--vcx-radius);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.vcx-session-info__counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--vcx-text-muted);
+}
+
+.vcx-session-info__count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vcx-gold-light);
+}
+
+.vcx-session-info__count--low {
+  color: var(--vcx-amber);
+}
+
+.vcx-session-info__count--zero {
+  color: var(--vcx-red);
+}
+
+.vcx-session-info__label {
+  font-size: 0.78rem;
+  color: var(--vcx-text-muted);
+}
+
+/* ============================================================
+   38. NEW SEARCH BUTTON
+   ============================================================ */
+.vcx-new-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: transparent;
+  border: 1px solid var(--vcx-border);
+  border-radius: var(--vcx-radius);
+  color: var(--vcx-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color var(--vcx-transition),
+    color var(--vcx-transition),
+    background-color var(--vcx-transition);
+}
+
+.vcx-new-search-btn:hover {
+  border-color: rgba(201,168,76,0.4);
+  color: var(--vcx-gold-light);
+  background: rgba(201,168,76,0.06);
+}
+
+.vcx-new-search-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes vcx-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vcx-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes vcx-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vcx-result-card {
+  animation: vcx-fade-in 0.25s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vcx-result-card {
+    animation: none;
+  }
+  .vcx-gate-stripe-btn,
+  .vcx-submit-btn,
+  .vcx-official-link,
+  .vcx-pay-link,
+  .vcx-consult-btn,
+  .vcx-upsell-card,
+  .vcx-new-search-btn {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   FOCUS VISIBLE — global within lookup context
+   ============================================================ */
+[data-vcx-private-lookup] :focus-visible {
+  outline: 2px solid var(--vcx-gold);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   RESPONSIVE — 1440px+
+   ============================================================ */
+@media (min-width: 1440px) {
+  .vcx-lookup-tool {
+    max-width: 980px;
+  }
+  .vcx-lookup-hero {
+    padding: 104px 80px 88px;
+  }
+}
