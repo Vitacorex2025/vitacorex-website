@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /app/
-Disallow: /.layer67_guard_runtime/
-Disallow: /vitacorex_fix/
-
-Sitemap: https://vitacorexllc.com/sitemap.xml

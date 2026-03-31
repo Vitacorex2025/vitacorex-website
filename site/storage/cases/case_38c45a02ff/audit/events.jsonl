@@ -1,4 +1,0 @@
-{"recorded_at": "2026-03-17T17:20:18.170796+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "registry probe", "plaintiff_name": "Client Company LLC", "defendant_name": "Counterparty LLC"}}
-{"recorded_at": "2026-03-17T17:20:18.190383+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "d578a8467b67", "filename": "Counterparty LLC.pdf", "sha256": "020dcafe4e7b7398904c1195bacba01b39a6797543d4628ffd4c4b0da028bc9d"}}
-{"recorded_at": "2026-03-17T17:20:18.196742+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "2a122660703d", "filename": "Counterparty LLC Invoices.xlsx", "sha256": "0293187bbcd5941cc7f9240720d673be56f17f0ed616b3001f4d523fcd12270a"}}
-{"recorded_at": "2026-03-17T17:20:18.245575+00:00", "event_type": "case.processed", "payload": {"status": "ready_for_verification", "active_source_file_count": 2, "template_file_count": 0, "blocker_count": 0, "sunbiz_triggered": false}}

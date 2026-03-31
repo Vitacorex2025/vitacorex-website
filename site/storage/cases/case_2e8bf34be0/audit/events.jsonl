@@ -1,1 +1,0 @@
-{"recorded_at": "2026-03-20T16:43:16.297367+00:00", "event_type": "case.created", "payload": {"reference": "LEG-001", "title": "Legal matter", "environment_tag": "legal", "record_type": "legal_matter", "plaintiff_name": null, "defendant_name": null}}

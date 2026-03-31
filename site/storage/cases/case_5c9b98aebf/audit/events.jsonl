@@ -1,6 +1,0 @@
-{"recorded_at": "2026-03-20T01:07:34.504933+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Synthetic mismatch", "plaintiff_name": "Cube Systems LLC", "defendant_name": "Single Matter LLC"}}
-{"recorded_at": "2026-03-20T01:07:34.571836+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "0daabf979022", "filename": "synthetic.xlsx", "sha256": "28bca141aafbdfd48e77e6ca574bf6558968659d1644580a33a789fa6b4fedee"}}
-{"recorded_at": "2026-03-20T01:07:34.575816+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "19b9cf2e9bf9", "filename": "synthetic invoice.pdf", "sha256": "97fb3499ba402e60dbd2514dc42122c47a003701aed245ded377b0b436c2db0a"}}
-{"recorded_at": "2026-03-20T01:07:34.659570+00:00", "event_type": "amount.reconciliation.mismatch", "payload": {"blockers": ["Invoice PDF totals (120.00) do not match spreadsheet balances (100.00)."]}}
-{"recorded_at": "2026-03-20T01:07:34.660444+00:00", "event_type": "case.processed", "payload": {"status": "blocked", "active_source_file_count": 2, "template_file_count": 0, "blocker_count": 2, "sunbiz_triggered": false}}
-{"recorded_at": "2026-03-20T01:07:34.740985+00:00", "event_type": "case.review.saved", "payload": {"status": "blocked", "venue_county": "Orange", "amount_in_controversy": "120.00"}}

@@ -1,2 +1,0 @@
-{"recorded_at": "2026-03-19T05:34:26.769703+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Upload invalidation response", "plaintiff_name": null, "defendant_name": null}}
-{"recorded_at": "2026-03-19T05:34:26.865134+00:00", "event_type": "source_file.uploaded", "payload": {"file_id": "a2fb617a60bf", "filename": "Counterparty LLC.pdf", "sha256": "020dcafe4e7b7398904c1195bacba01b39a6797543d4628ffd4c4b0da028bc9d"}}

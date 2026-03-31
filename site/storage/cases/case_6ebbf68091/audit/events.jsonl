@@ -1,4 +1,0 @@
-{"recorded_at": "2026-03-21T02:20:34.799266+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Layer 4 workspace state", "environment_tag": "recovery", "record_type": "recovery_record", "plaintiff_name": null, "defendant_name": null}}
-{"recorded_at": "2026-03-21T02:20:34.873686+00:00", "event_type": "communications.note.saved", "payload": {"entry_type": "manual_note", "channel": "phone_call"}}
-{"recorded_at": "2026-03-21T02:20:34.944054+00:00", "event_type": "settlement.tracker.saved", "payload": {"entry_id": "9d4c9a7cb0f9", "status": "proposed", "proposal_type": "payment_plan"}}
-{"recorded_at": "2026-03-21T02:20:34.945747+00:00", "event_type": "usage.payment_plan_created", "payload": {"entry_id": "9d4c9a7cb0f9", "status": "proposed"}}

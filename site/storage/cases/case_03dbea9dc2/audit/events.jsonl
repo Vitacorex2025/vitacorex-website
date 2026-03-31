@@ -1,2 +1,0 @@
-{"recorded_at": "2026-03-20T04:35:41.433949+00:00", "event_type": "case.created", "payload": {"reference": null, "title": "Deadline override workspace", "plaintiff_name": null, "defendant_name": null}}
-{"recorded_at": "2026-03-20T04:35:41.550114+00:00", "event_type": "deadline.override.saved", "payload": {"label": "Counsel response due", "date": "2026-04-15", "actor": "Test User"}}
