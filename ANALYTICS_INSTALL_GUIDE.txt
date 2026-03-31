@@ -1,95 +1,140 @@
-VitaCoreX Analytics & Tracking Install Guide
-===========================================
+VitaCoreX Analytics Installation Guide
+=====================================
 
-Included in this package
-------------------------
-1. Google Analytics 4 is prefilled with:
-   GA4 Measurement ID: G-E08EE1KSQQ
+Live stack in this package
+--------------------------
+1. Google Analytics 4
+2. Microsoft Clarity
+3. Meta Pixel
+4. LinkedIn Insight Tag
+5. Consent-aware loading
+6. Attribution persistence for UTM and click IDs
 
-2. Apollo website tracker is prefilled with:
-   Apollo App ID: 69a7b325debb1e000d36d253
+Current defaults
+----------------
+The shared analytics layer now lives in:
 
-3. Consent-aware scaffolding is included for:
-   - Google Tag Manager
-   - Microsoft Clarity
-   - Hotjar
-   - Meta Pixel
-   - LinkedIn Insight Tag
+assets/js/site.js
 
-4. Event tracking added:
-   - consultation_click
-   - form_submit
-   - contact_form_submit
-   - consultation_request
-   - pdf_download
-   - revenue_calculator_use
-   - dso_calculator_use
-   - roi_calculator_use
+The default configuration object is:
 
-Where to edit IDs
------------------
-Every HTML page contains this config near the bottom before assets/js/site.js:
+VCX_TRACKING_DEFAULTS
 
-window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{
-  ga4:"G-E08EE1KSQQ",
-  gtm:"",
-  clarity:"",
-  hotjarSiteId:"",
-  hotjarVersion:6,
-  metaPixel:"",
-  linkedInPartner:"",
-  apolloAppId:"69a7b325debb1e000d36d253"
+Current GA4 default:
+- ga4: G-E08EE1KSQQ
+
+Other vendor IDs are blank until you add production values:
+- clarity
+- metaPixel
+- linkedInPartner
+
+How to set IDs
+--------------
+Option 1: Edit the shared defaults in assets/js/site.js.
+
+Option 2: Define a runtime override before assets/js/site.js loads:
+
+window.VCX_TRACKING_IDS = {
+  ga4: "G-XXXXXXXXXX",
+  clarity: "CLARITY_PROJECT_ID",
+  metaPixel: "123456789012345",
+  linkedInPartner: "123456",
+  linkedInConversions: {
+    confidential_review_click: "111111",
+    company_intake_submit: "222222",
+    executive_brief_submit: "333333",
+    individual_service_request_submit: "444444",
+    careers_submit: "555555"
+  }
 };
 
-Only GA4 and Apollo are already active.
-To activate the others, paste your real IDs in the empty quotes.
+LinkedIn note
+-------------
+The Insight base tag supports audience building and remarketing once linkedInPartner is present.
 
-Recommended install steps
--------------------------
-1. Unzip this package.
-2. Upload all files to your hosting, replacing the old files.
-3. Open the website once in an incognito/private window.
-4. Accept the cookie banner for analytics/marketing.
-5. Verify tools.
+If you want event-level LinkedIn conversion tracking, provide conversion IDs inside:
 
-How to verify GA4
------------------
-1. Open Google Analytics.
-2. Go to Reports -> Realtime.
-3. Visit your website on phone or desktop.
-4. You should see at least 1 active user.
+linkedInConversions
 
-How to verify Apollo
+If no conversion IDs are provided, the site still loads the Insight tag after full consent, but custom LinkedIn conversion events remain safely disabled.
+
+Consent behavior
+----------------
+- Essential only: no analytics or marketing vendors load.
+- Analytics only: GA4 and Clarity load.
+- Accept all: GA4, Clarity, Meta Pixel, and LinkedIn Insight Tag load.
+
+No vendor script should be installed separately in the HTML if you are using this shared layer.
+Do not add duplicate GA4, Meta Pixel, or LinkedIn snippets outside assets/js/site.js.
+
+Attribution captured
 --------------------
-1. Open the site in a private/incognito tab.
-2. Visit a few pages.
-3. Check Apollo website visitor tracking dashboard for activity.
+The shared form and analytics layer persists and forwards:
+- page path
+- page URL
+- page title
+- language
+- route key
+- service line
+- client type
+- asset requested
+- referrer
+- first referrer
+- landing page
+- landing URL
+- first touch timestamp
+- last touch timestamp
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_term
+- utm_content
+- gclid
+- fbclid
+- msclkid
+- li_fat_id
+- session ID
 
-How to activate other trackers
-------------------------------
-Google Tag Manager:
-- Put your GTM container ID into gtm:"GTM-XXXXXXX"
+Tracked business events
+-----------------------
+- hero_primary_cta_click
+- confidential_review_click
+- executive_brief_unlock_open
+- executive_brief_submit
+- company_intake_submit
+- individual_service_request_submit
+- careers_submit
+- contact_director_click
+- phone_click
+- email_click
+- language_switch
 
-Microsoft Clarity:
-- Put your project ID into clarity:"YOUR_CLARITY_ID"
+Additional supporting events
+----------------------------
+- page_view
+- strategy_call_click
+- pdf_download
+- revenue_calculator_use
+- dso_calculator_use
+- roi_calculator_use
 
-Hotjar:
-- Put your numeric site ID into hotjarSiteId:"1234567"
+Validation checklist
+--------------------
+1. Open the site in a fresh private window.
+2. Confirm the consent banner appears before any optional vendors load.
+3. Accept Analytics only and verify:
+   - GA4 loads
+   - Clarity loads
+   - Meta and LinkedIn do not load
+4. Accept all and verify:
+   - GA4 loads
+   - Clarity loads
+   - Meta Pixel loads
+   - LinkedIn Insight loads
+5. Trigger the main CTA, executive brief gate, and form submissions.
+6. Confirm the events appear in the relevant vendor tools.
 
-Meta Pixel:
-- Put your pixel ID into metaPixel:"1234567890"
-
-LinkedIn Insight:
-- Put your partner ID into linkedInPartner:"123456"
-
-Important consent behavior
---------------------------
-- Essential only: no analytics/marketing scripts load.
-- Analytics: loads GA4, Apollo, Clarity, Hotjar, and GTM.
-- All cookies: additionally loads Meta Pixel and LinkedIn Insight.
-
-Extra notes
------------
-- If you use GTM, avoid duplicating GA4 inside both GTM and direct gtag unless you intend to.
-- Apollo is being loaded from the provided snippet, but routed through the same consent system.
-- Events are sent when visitors click consultation CTAs, submit forms, download PDFs, and interact with calculators.
+Implementation notes
+--------------------
+- Apollo, Hotjar, and GTM were removed from the live tracking path in this rebuild to avoid duplicate firing and reduce vendor sprawl.
+- Missing IDs fail safely: the site will not throw errors if any vendor ID is blank.

@@ -38,6 +38,70 @@
     body.setAttribute('data-vcx-viewport', window.innerWidth <= 900 ? 'mobile' : 'desktop');
   }
 
+  function initMobileComfort(){
+    const body = doc.body;
+    if(!body) return;
+
+    if(doc.querySelector('#intakeForm, #careersForm')){
+      body.setAttribute('data-vcx-has-primary-form', '1');
+    }
+
+    const editableSelector = 'input:not([type="hidden"]):not([disabled]), textarea:not([disabled]), select:not([disabled])';
+    const isEditable = (el)=> el instanceof Element && el.matches(editableSelector);
+    let blurTimer = 0;
+
+    function syncFocusState(){
+      body.setAttribute('data-vcx-form-active', isEditable(doc.activeElement) ? '1' : '0');
+    }
+
+    function syncKeyboardState(){
+      if(!window.visualViewport){
+        body.setAttribute('data-vcx-keyboard', window.innerWidth <= 900 && body.getAttribute('data-vcx-form-active') === '1' ? '1' : '0');
+        return;
+      }
+
+      const viewport = window.visualViewport;
+      const obscured = window.innerHeight - (viewport.height + viewport.offsetTop);
+      body.setAttribute('data-vcx-keyboard', window.innerWidth <= 900 && obscured > 120 ? '1' : '0');
+    }
+
+    safeOn(doc, 'focusin', (event)=>{
+      if(!isEditable(event.target)) return;
+      clearTimeout(blurTimer);
+      body.setAttribute('data-vcx-form-active', '1');
+      syncKeyboardState();
+      if(window.innerWidth <= 900 && event.target instanceof Element){
+        window.setTimeout(()=>{
+          try{
+            event.target.scrollIntoView({behavior:'smooth', block:'center', inline:'nearest'});
+          } catch(_error){
+          }
+        }, 180);
+      }
+    });
+
+    safeOn(doc, 'focusout', ()=>{
+      clearTimeout(blurTimer);
+      blurTimer = window.setTimeout(()=>{
+        syncFocusState();
+        syncKeyboardState();
+      }, 120);
+    });
+
+    safeOn(window, 'resize', ()=>{
+      applyViewportState();
+      syncKeyboardState();
+    }, {passive:true});
+
+    if(window.visualViewport){
+      safeOn(window.visualViewport, 'resize', syncKeyboardState, {passive:true});
+      safeOn(window.visualViewport, 'scroll', syncKeyboardState, {passive:true});
+    }
+
+    syncFocusState();
+    syncKeyboardState();
+  }
+
   function initClocks(){
     const fmt = (date, tz) => new Intl.DateTimeFormat([], {
       hour:'2-digit',
@@ -318,7 +382,14 @@
       if(fill) fill.style.width = `${score}%`;
       if(out1) out1.textContent = `${Math.round(score)}%`;
       if(out2){
-        out2.textContent = score >= 80 ? 'Litigation-ready' : score >= 65 ? 'Structured but improvable' : 'Needs file reconstruction';
+        const shellLang = doc.documentElement.lang || 'en';
+        const readinessCopy = {
+          en: { ready:'Litigation-ready', mid:'Structured but improvable', low:'Needs file reconstruction' },
+          ru: { ready:'Готово к правовой передаче', mid:'Структура есть, но её нужно усилить', low:'Нужна реконструкция файла' },
+          es: { ready:'Listo para handoff legal', mid:'Hay estructura, pero debe fortalecerse', low:'Necesita reconstruccion del expediente' }
+        };
+        const copy = readinessCopy[shellLang] || readinessCopy.en;
+        out2.textContent = score >= 80 ? copy.ready : score >= 65 ? copy.mid : copy.low;
       }
     });
   }
@@ -354,6 +425,7 @@
 
   function init(){
     applyViewportState();
+    initMobileComfort();
     initClocks();
     initMobileMenu();
     initHeaderScroll();
