@@ -12,6 +12,28 @@
 <link href="/assets/css/styles.css" rel="stylesheet"/>
 <link href="/assets/css/ui-shell.css" rel="stylesheet"/>
 <link href="/assets/css/premium-fixes.css" rel="stylesheet"/>
+<style>
+/* Tool page readability overrides — dark surface */
+body[data-vcx-page="auto-deal-check"]{
+  background:#07131f !important;
+  color:#e8eff7;
+}
+body[data-vcx-page="auto-deal-check"] label,
+body[data-vcx-page="auto-deal-check"] .field label{
+  color:#1a2e42 !important;
+}
+body[data-vcx-page="auto-deal-check"] .glass label,
+body[data-vcx-page="auto-deal-check"] #vcxUploadCard label{
+  color:#e0eaf4 !important;
+}
+body[data-vcx-page="auto-deal-check"] .glass p,
+body[data-vcx-page="auto-deal-check"] #vcxUploadCard p{
+  color:#3a5470 !important;
+}
+body[data-vcx-page="auto-deal-check"] [data-tx="tool_disc"]{
+  color:rgba(255,255,255,.80) !important;
+}
+</style>
 <script>
 window.SITE_I18N = {
   "en": {
@@ -368,8 +390,8 @@ async function vcxRunDealCheck(){
   }
 
   // Add-ons block — advisor checklist
-  document.getElementById('vcxAddOnsBlock').style.display='block';
-  var addons=document.getElementById('vcxAddOnsList'); addons.innerHTML='';
+  document.getElementById('vcxAddonsBlock').style.display='block';
+  var addons=document.getElementById('vcxAddonsList'); addons.innerHTML='';
   var flagItems=[
     t('adv_dealer_addons')||'Dealer-installed add-ons (tint, protection packages) — often marked up 400%+',
     t('adv_gap')||'GAP insurance: verify cost vs. market rate (typically $200\u2013$400, not $800+)',

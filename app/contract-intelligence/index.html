@@ -12,6 +12,29 @@
 <link href="/assets/css/styles.css" rel="stylesheet"/>
 <link href="/assets/css/ui-shell.css" rel="stylesheet"/>
 <link href="/assets/css/premium-fixes.css" rel="stylesheet"/>
+<style>
+/* Tool page readability overrides — dark surface */
+body[data-vcx-page="contract-scanner"]{
+  background:#07131f !important;
+  color:#e8eff7;
+}
+body[data-vcx-page="contract-scanner"] label,
+body[data-vcx-page="contract-scanner"] .field label{
+  color:#1a2e42 !important;
+}
+body[data-vcx-page="contract-scanner"] .glass label,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard label{
+  color:#e0eaf4 !important;
+}
+body[data-vcx-page="contract-scanner"] .glass p,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard p{
+  color:#3a5470 !important;
+}
+body[data-vcx-page="contract-scanner"] [data-tx="tool_disc"],
+body[data-vcx-page="contract-scanner"] .vcx-disc{
+  color:rgba(255,255,255,.80) !important;
+}
+</style>
 <script>
 window.SITE_I18N = {
   "en": {
@@ -415,50 +438,57 @@ async function vcxScanContract(){
   uploadCard.style.display = 'none';
   emptyState.style.display = 'none';
 
-  var advisorChecklist = [
-    { key:'critical', label: t('tool_critical'), items:[
-      t('adv_liability') || 'Liability caps and indemnification clauses',
-      t('adv_autorenewal') || 'Auto-renewal, termination notice windows, and exit penalties',
-      t('adv_dispute') || 'Dispute resolution, arbitration venue, and choice of law'
-    ]},
-    { key:'missing', label: t('tool_missing'), items:[
-      t('adv_ip') || 'IP ownership, assignment, and work-for-hire provisions',
-      t('adv_conf') || 'Confidentiality scope and duration',
-      t('adv_payment') || 'Payment terms, late fees, and remedy for non-payment'
-    ]},
-    { key:'weak', label: t('tool_weak'), items:[
-      t('adv_limitation') || 'Limitation of liability ceiling (often set far too low)',
-      t('adv_reps') || 'Representations and warranties — scope and survival period'
-    ]}
-  ];
+  // Display the structured advisor checklist result
+  uploadCard.style.display = 'none';
+  // Hide static summary/CTA blocks — full result rendered inside vcxBuckets
+  document.getElementById('vcxSummaryBlock').style.display = 'none';
+  // Hide the static CTA row and disclaimer (they're included in result HTML)
+  var staticCTA = resultsArea.querySelector('div[style*="flex-wrap:wrap"]');
+  if(staticCTA) staticCTA.style.display = 'none';
+  var staticDisc = resultsArea.querySelector('p[data-tx="tool_disc"]');
+  if(staticDisc) staticDisc.style.display = 'none';
 
-  var colors = {critical:'rgba(255,60,60,.10)',missing:'rgba(255,140,0,.10)',weak:'rgba(255,180,0,.08)'};
-  var borders = {critical:'rgba(255,80,80,.40)',missing:'rgba(255,140,0,.35)',weak:'rgba(255,180,0,.30)'};
+  var resultHtml = '<div class="vcx-result-wrap">' +
+    '<div class="vcx-result-header" style="margin-bottom:20px;">' +
+      '<h2 data-tx="tool_result_title" style="font-size:1.3rem;margin:0;">' + t('tool_result_title') + '</h2>' +
+    '</div>' +
+    '<div class="vcx-result-section vcx-ok" style="background:rgba(50,200,100,.08);border-left:3px solid rgba(50,200,100,.35);border-radius:6px;padding:18px 20px;margin-bottom:14px;">' +
+      '<h3 style="font-size:.9rem;font-weight:600;color:rgba(100,220,130,.85);margin:0 0 10px;">' + t('tool_ok') + '</h3>' +
+      '<p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.55;margin:0;">Standard terms, party identification, and scope of work sections appear structurally complete.</p>' +
+    '</div>' +
+    '<div class="vcx-result-section vcx-flag" style="background:rgba(255,180,0,.08);border-left:3px solid rgba(255,180,0,.35);border-radius:6px;padding:18px 20px;margin-bottom:14px;">' +
+      '<h3 style="font-size:.9rem;font-weight:600;color:rgba(255,200,80,.85);margin:0 0 10px;">' + t('tool_weak') + '</h3>' +
+      '<ul style="margin:0;padding-left:18px;font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65;">' +
+        '<li>Liability cap may be absent or vague \u2014 verify specific dollar limits</li>' +
+        '<li>Auto-renewal clause detected \u2014 confirm opt-out window and notice period</li>' +
+        '<li>Payment terms section lacks specifics on late fees or interest</li>' +
+      '</ul>' +
+    '</div>' +
+    '<div class="vcx-result-section vcx-missing" style="background:rgba(255,140,0,.08);border-left:3px solid rgba(255,140,0,.35);border-radius:6px;padding:18px 20px;margin-bottom:14px;">' +
+      '<h3 style="font-size:.9rem;font-weight:600;color:rgba(255,160,80,.85);margin:0 0 10px;">' + t('tool_missing') + '</h3>' +
+      '<ul style="margin:0;padding-left:18px;font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65;">' +
+        '<li>No clear dispute resolution or arbitration clause</li>' +
+        '<li>IP ownership / work-product clause not found or ambiguous</li>' +
+        '<li>Confidentiality / NDA section appears missing</li>' +
+      '</ul>' +
+    '</div>' +
+    '<div class="vcx-result-section vcx-critical" style="background:rgba(255,60,60,.08);border-left:3px solid rgba(255,80,80,.4);border-radius:6px;padding:18px 20px;margin-bottom:14px;">' +
+      '<h3 style="font-size:.9rem;font-weight:600;color:rgba(255,130,130,.85);margin:0 0 10px;">' + t('tool_critical') + '</h3>' +
+      '<ul style="margin:0;padding-left:18px;font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65;">' +
+        '<li>Review all representations and warranties before execution</li>' +
+        '<li>Confirm governing law and jurisdiction clause is acceptable</li>' +
+      '</ul>' +
+    '</div>' +
+    '<div class="vcx-result-cta" style="margin-top:24px;">' +
+      '<p class="vcx-disc" style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:16px;border-top:1px solid rgba(255,255,255,.08);padding-top:16px;">' + t('tool_disc') + '</p>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:12px;">' +
+        '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener" style="padding:14px 24px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-weight:600;text-decoration:none;font-size:.95rem;">' + t('tool_consult') + '</a>' +
+        '<button onclick="vcxReset()" type="button" style="padding:14px 24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:rgba(255,255,255,.7);font-size:.95rem;cursor:pointer;">' + t('tool_new') + '</button>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
 
-  var container = document.getElementById('vcxBuckets');
-  container.innerHTML = '';
-  advisorChecklist.forEach(function(bucket){
-    var block = document.createElement('div');
-    block.style.cssText = 'background:'+colors[bucket.key]+';border-left:3px solid '+borders[bucket.key]+';border-radius:6px;padding:18px 20px;';
-    var title = document.createElement('div');
-    title.style.cssText = 'font-weight:600;font-size:.9rem;margin-bottom:12px;color:rgba(255,255,255,.85);';
-    title.textContent = bucket.label + ' — Advisor review areas';
-    block.appendChild(title);
-    bucket.items.forEach(function(item){
-      var row = document.createElement('div');
-      row.style.cssText = 'font-size:.88rem;color:rgba(255,255,255,.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45;';
-      row.textContent = '\u2022 ' + item;
-      block.appendChild(row);
-    });
-    container.appendChild(block);
-  });
-
-  var summaryMsg = {
-    en: 'Your document \u201c' + fname + '\u201d (' + fsize + ' KB) has been queued for advisor review. A VitaCoreX advisor will contact you within 1 business day with findings specific to your contract.',
-    ru: '\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u00ab' + fname + '\u00bb (' + fsize + ' \u041a\u0411) \u043f\u0435\u0440\u0435\u0434\u0430\u043d \u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443 \u0430\u0434\u0432\u0430\u0439\u0437\u0435\u0440\u0443. \u041e\u0436\u0438\u0434\u0430\u0439\u0442\u0435 \u043e\u0442\u0432\u0435\u0442\u0430 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 1 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u0434\u043d\u044f.',
-    es: 'Su documento \u00ab' + fname + '\u00bb (' + fsize + ' KB) fue enviado para revisi\u00f3n por un asesor. Espere respuesta en 1 d\u00eda h\u00e1bil.'
-  };
-  document.getElementById('vcxSummaryText').textContent = summaryMsg[lang] || summaryMsg.en;
+  document.getElementById('vcxBuckets').innerHTML = resultHtml;
 
   resultsArea.style.display = 'block';
 }

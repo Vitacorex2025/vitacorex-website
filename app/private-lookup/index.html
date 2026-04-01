@@ -19,13 +19,89 @@
 <link rel="stylesheet" href="/assets/css/ui-shell.css">
 <link rel="stylesheet" href="/assets/css/premium-fixes.css">
 <link rel="stylesheet" href="/assets/css/private-lookup.css">
+<style>
+/* Readability fixes for private-lookup tool section (light background area) */
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool label,
+body[data-vcx-private-lookup="true"] .vcx-lookup-form label {
+  color: #1a2e42 !important;
+}
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool .vcx-form-intro,
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool p:not(.vcx-hero-subtitle) {
+  color: #3a5470;
+}
+body[data-vcx-private-lookup="true"] .vcx-lookup-hero .vcx-boundary-note {
+  color: rgba(255,255,255,.80);
+}
+body[data-vcx-private-lookup="true"] .vcx-disclaimer-block p,
+body[data-vcx-private-lookup="true"] .vcx-disclaimer-block li {
+  color: #2e4a63;
+}
+</style>
 <script>
 window.SITE_I18N = window.SITE_I18N || {};
 window.SITE_I18N.en = window.SITE_I18N.en || {};
-Object.assign(window.SITE_I18N.en || {}, {
+Object.assign(window.SITE_I18N.en, {
   brand_tag:"Private revenue recovery and legal-file advisory",
-  clock_vcx:"VitaCoreX Time", clock_local:"Your Time", clock_local_sub:"Local"
+  clock_vcx:"VitaCoreX Time", clock_local:"Your Time", clock_local_sub:"Local",
+  hero_eyebrow:"Private Client Services",
+  hero_title:"Private Obligation Lookup",
+  hero_subtitle:"Check Florida toll obligations, traffic citations, and public court records.",
+  gate_label:"Private Session Access",
+  gate_free:"Free",
+  gate_note:"Free access during testing phase.",
+  gate_btn:"Start Private Lookup",
+  session_active:"Private session active",
+  session_remaining:"lookups remaining",
+  tab_tolls:"Unpaid Tolls",
+  tab_traffic:"Traffic / Fines",
+  tab_courts:"Court Cases",
+  tab_upload:"Upload Notice",
+  disc:"VitaCoreX is not a law firm and does not process government payments. Results are informational only."
 });
+window.SITE_I18N.ru = window.SITE_I18N.ru || {};
+Object.assign(window.SITE_I18N.ru, {
+  brand_tag:"\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438",
+  clock_vcx:"\u0412\u0440\u0435\u043c\u044f VitaCoreX", clock_local:"\u0412\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f", clock_local_sub:"\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e",
+  hero_eyebrow:"\u0423\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+  hero_title:"\u041f\u043e\u0438\u0441\u043a \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432",
+  hero_subtitle:"\u041f\u0440\u043e\u0432\u0435\u0440\u044c\u0442\u0435 \u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0435 \u0441\u0431\u043e\u0440\u044b, \u0448\u0442\u0440\u0430\u0444\u044b \u0438 \u0441\u0443\u0434\u0435\u0431\u043d\u044b\u0435 \u0437\u0430\u043f\u0438\u0441\u0438 \u0424\u043b\u043e\u0440\u0438\u0434\u044b.",
+  gate_label:"\u0414\u043e\u0441\u0442\u0443\u043f \u043a \u0447\u0430\u0441\u0442\u043d\u043e\u0439 \u0441\u0435\u0441\u0441\u0438\u0438",
+  gate_free:"\u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e",
+  gate_note:"\u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u0434\u043e\u0441\u0442\u0443\u043f \u0432 \u043f\u0435\u0440\u0438\u043e\u0434 \u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f.",
+  gate_btn:"\u041d\u0430\u0447\u0430\u0442\u044c \u043f\u043e\u0438\u0441\u043a",
+  session_active:"\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u0441\u0435\u0441\u0441\u0438\u044f \u0430\u043a\u0442\u0438\u0432\u043d\u0430",
+  session_remaining:"\u0437\u0430\u043f\u0440\u043e\u0441\u043e\u0432 \u043e\u0441\u0442\u0430\u043b\u043e\u0441\u044c",
+  tab_tolls:"\u041d\u0435\u043e\u043f\u043b\u0430\u0447\u0435\u043d\u043d\u044b\u0435 \u0441\u0431\u043e\u0440\u044b",
+  tab_traffic:"\u0428\u0442\u0440\u0430\u0444\u044b / \u041d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u044f",
+  tab_courts:"\u0421\u0443\u0434\u0435\u0431\u043d\u044b\u0435 \u0434\u0435\u043b\u0430",
+  tab_upload:"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435",
+  disc:"VitaCoreX \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u043e\u0439 \u0438 \u043d\u0435 \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442 \u0433\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u043f\u043b\u0430\u0442\u0435\u0436\u0438."
+});
+window.SITE_I18N.es = window.SITE_I18N.es || {};
+Object.assign(window.SITE_I18N.es, {
+  brand_tag:"Infraestructura ejecutiva de recuperaci\u00f3n de ingresos y control documental",
+  clock_vcx:"VitaCoreX Time", clock_local:"Tu hora", clock_local_sub:"Local",
+  hero_eyebrow:"Servicios para clientes privados",
+  hero_title:"B\u00fasqueda de obligaciones privadas",
+  hero_subtitle:"Consulta peajes, multas de tr\u00e1fico y registros judiciales de Florida.",
+  gate_label:"Acceso a sesi\u00f3n privada",
+  gate_free:"Gratis",
+  gate_note:"Acceso gratuito durante la fase de prueba.",
+  gate_btn:"Iniciar b\u00fasqueda",
+  session_active:"Sesi\u00f3n privada activa",
+  session_remaining:"consultas restantes",
+  tab_tolls:"Peajes impagados",
+  tab_traffic:"Multas de tr\u00e1fico",
+  tab_courts:"Casos judiciales",
+  tab_upload:"Subir aviso",
+  disc:"VitaCoreX no es un bufete de abogados y no procesa pagos gubernamentales."
+});
+(function(){
+  var lang=(localStorage.getItem('vcx_lang')||'en');
+  if(!['en','ru','es'].includes(lang)) lang='en';
+  document.documentElement.lang=lang;
+  window._vcxLang=lang;
+})();
 </script>
 </head>
 <body data-api-base="/api" data-surface="dark" data-vcx-private-lookup="true" data-shell-lang="en">
@@ -116,9 +192,9 @@ Object.assign(window.SITE_I18N.en || {}, {
       </nav>
       <div class="vcx-hero-grid">
         <div class="vcx-hero-copy">
-          <p class="eyebrow">Private Client Services</p>
-          <h1>Private Obligation Lookup</h1>
-          <p class="vcx-hero-subtitle">Check Florida toll obligations, traffic citations, and public court records in one private session. Results are session-only, not indexed, and not stored.</p>
+          <p class="eyebrow" data-tx="hero_eyebrow">Private Client Services</p>
+          <h1 data-tx="hero_title">Private Obligation Lookup</h1>
+          <p class="vcx-hero-subtitle" data-tx="hero_subtitle">Check Florida toll obligations, traffic citations, and public court records in one private session. Results are session-only, not indexed, and not stored.</p>
           <ul class="vcx-feature-list">
             <li>Unpaid toll lookup via SunPass / Florida toll system</li>
             <li>Traffic citation status and county clerk routing</li>
@@ -126,15 +202,15 @@ Object.assign(window.SITE_I18N.en || {}, {
             <li>Upload a notice or document to extract fields automatically</li>
             <li>All results link to official government sources</li>
           </ul>
-          <p class="vcx-boundary-note">VitaCoreX is not a law firm and does not process government payments. Results are informational only.</p>
+          <p class="vcx-boundary-note" data-tx="disc">VitaCoreX is not a law firm and does not process government payments. Results are informational only.</p>
         </div>
 
         <!-- Payment gate card (shown until unlocked) -->
         <div class="vcx-lookup-gate" id="vcx-gate" aria-live="polite">
           <div class="vcx-gate-header">
-            <p class="vcx-gate-label">Private Session Access</p>
+            <p class="vcx-gate-label" data-tx="gate_label">Private Session Access</p>
             <div class="vcx-gate-price">
-              <span class="vcx-price-amount" id="vcx-price-display">Free</span>
+              <span class="vcx-price-amount" id="vcx-price-display" data-tx="gate_free">Free</span>
               <span class="vcx-price-note">testing phase access</span>
             </div>
           </div>
@@ -144,10 +220,10 @@ Object.assign(window.SITE_I18N.en || {}, {
             <li>Official source links for every result</li>
             <li>Consultation CTA available after every result</li>
           </ul>
-          <button class="vcx-unlock-btn" id="vcxPayBtn" type="button">
+          <button class="vcx-unlock-btn" id="vcxPayBtn" type="button" data-tx="gate_btn">
             Start Private Lookup
           </button>
-          <p class="vcx-gate-note">Free access during the current testing phase. Government payments go to official portals only.</p>
+          <p class="vcx-gate-note" data-tx="gate_note">Free access during the current testing phase. Government payments go to official portals only.</p>
           <!-- Dev mode notice (hidden in prod) -->
           <p class="vcx-dev-notice" id="vcx-dev-notice" hidden>Development mode — access without payment</p>
           <!-- Loading state -->
@@ -165,7 +241,7 @@ Object.assign(window.SITE_I18N.en || {}, {
 
       <!-- Session info bar -->
       <div class="vcx-session-info" id="vcx-session-info" aria-live="polite">
-        <span class="vcx-session-label">Private session active</span>
+        <span class="vcx-session-label" data-tx="session_active">Private session active</span>
         <span class="vcx-lookups-counter">
           <span id="vcx-lookups-remaining">3</span> lookup<span id="vcx-lookups-plural">s</span> remaining
         </span>
@@ -173,16 +249,16 @@ Object.assign(window.SITE_I18N.en || {}, {
 
       <!-- Tab navigation -->
       <nav class="vcx-tab-nav" role="tablist" aria-label="Lookup type">
-        <button class="vcx-tab-btn active" role="tab" aria-selected="true" aria-controls="vcx-panel-tolls" data-tab="tolls" id="vcx-tab-tolls">
+        <button class="vcx-tab-btn active" role="tab" aria-selected="true" aria-controls="vcx-panel-tolls" data-tab="tolls" id="vcx-tab-tolls" data-tx="tab_tolls">
           Unpaid Tolls
         </button>
-        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-traffic" data-tab="traffic" id="vcx-tab-traffic">
+        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-traffic" data-tab="traffic" id="vcx-tab-traffic" data-tx="tab_traffic">
           Traffic / Fines
         </button>
-        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-courts" data-tab="courts" id="vcx-tab-courts">
+        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-courts" data-tab="courts" id="vcx-tab-courts" data-tx="tab_courts">
           Court Cases
         </button>
-        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-upload" data-tab="upload" id="vcx-tab-upload">
+        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-upload" data-tab="upload" id="vcx-tab-upload" data-tx="tab_upload">
           Upload Notice
         </button>
       </nav>
@@ -491,7 +567,47 @@ Object.assign(window.SITE_I18N.en || {}, {
 </div>
 
 <script>
-// Mobile menu for lookup page — ui-shell.js handles .vcx-menu-btn class automatically
+// i18n + lang switcher for private-lookup page
+(function(){
+  function t(key){
+    var lang=(localStorage.getItem('vcx_lang')||'en');
+    var si=window.SITE_I18N;
+    return (si&&si[lang]&&si[lang][key])||(si&&si.en&&si.en[key])||key;
+  }
+  function applyTranslations(){
+    document.querySelectorAll('[data-tx]').forEach(function(el){
+      var k=el.getAttribute('data-tx');
+      var v=t(k); if(v&&v!==k) el.textContent=v;
+    });
+    document.querySelectorAll('[data-common]').forEach(function(el){
+      var k=el.getAttribute('data-common');
+      var v=t(k); if(v&&v!==k) el.textContent=v;
+    });
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var lang=btn.getAttribute('data-lang');
+      window._vcxLang=lang;
+      try{localStorage.setItem('vcx_lang',lang);}catch(e){}
+      document.documentElement.lang=lang;
+      applyTranslations();
+    });
+  });
+  // Mobile menu
+  var menuBtn=document.querySelector('.vcx-menu-btn');
+  var mobileNav=document.getElementById('vcxLookupMobileNav');
+  if(menuBtn&&mobileNav){
+    menuBtn.addEventListener('click',function(){
+      var o=mobileNav.hasAttribute('hidden');
+      mobileNav.toggleAttribute('hidden',!o);
+      menuBtn.setAttribute('aria-expanded',o?'true':'false');
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applyTranslations);
+  } else { applyTranslations(); }
+})();
+
 // Clocks update for lookup page header
 (function(){
   function pad(n){return String(n).padStart(2,'0');}
