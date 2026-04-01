@@ -298,100 +298,105 @@ body.vcx-premium-polish .metric-card{
 }
 
 
-/* v263 repair: print/PDF and hero background stability */
-body.vcx-premium-polish .hero{
-  background:
-    linear-gradient(180deg, rgba(10,28,48,.18) 0%, rgba(16,42,70,.08) 38%, rgba(241,246,251,.78) 100%),
-    #f2f6fb;
-  isolation:isolate;
-}
-body.vcx-premium-polish .hero-video{
-  z-index:0;
-}
-body.vcx-premium-polish .hero-inner,
-body.vcx-premium-polish .hero-orb,
-body.vcx-premium-polish .hero-copy,
-body.vcx-premium-polish .hero-side{
-  position:relative;
-  z-index:2;
-}
-body.vcx-premium-polish .hero-copy,
-body.vcx-premium-polish .problem-item,
-body.vcx-premium-polish .authority-card,
-body.vcx-premium-polish .widget-card,
-body.vcx-premium-polish .engine-card,
-body.vcx-premium-polish .card,
-body.vcx-premium-polish .glass{
-  background:linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.76)) !important;
+/* ── PREMIUM HERO — remove scale stretch, pure CSS animated background ─── */
+
+/* 1) Kill the scale(1.1) stretch that ships in styles.css line 234 */
+body.vcx-premium-polish .hero-video video,
+body.vcx-premium-polish .hero-video img{
+  transform:none !important;
+  display:none !important;
 }
 
-@media print {
-  html, body {
-    background:#ffffff !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .hero {
-    min-height:auto !important;
-    background:
-      linear-gradient(180deg, rgba(11,31,52,.26) 0%, rgba(17,44,73,.16) 45%, rgba(241,246,251,.82) 100%),
-      url('assets/img/sky-poster.jpg') center top / cover no-repeat !important;
-    border-bottom:1px solid rgba(14,32,54,.08) !important;
-  }
-  .hero-video video {
-    display:none !important;
-  }
-  .hero-video img {
-    display:block !important;
-    opacity:1 !important;
-  }
-  .hero::before,
-  .hero-video::after {
-    opacity:1 !important;
-  }
-  .reveal,
-  .reveal.visible,
-  .bar-fill,
-  [data-count-to] {
-    opacity:1 !important;
-    transform:none !important;
+/* 2) Deep navy gradient base for .hero-video element itself */
+body.vcx-premium-polish .hero-video{
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -5%,  rgba(44,94,141,.28) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 42% at 12% 44%,  rgba(191,150,80,.08) 0%, transparent 52%),
+    radial-gradient(ellipse 46% 36% at 86% 26%,  rgba(30,68,108,.18) 0%, transparent 50%),
+    linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
+  overflow:hidden;
+}
+
+/* 3) Animated orb layer — ONLY on ::before, never touch ::after (white fade) */
+body.vcx-premium-polish .hero-video::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 68% 52% at 22% 36%, rgba(191,150,80,.10) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 42% at 76% 20%,  rgba(44,94,141,.14)  0%, transparent 52%),
+    radial-gradient(ellipse 72% 58% at 50% 88%,  rgba(28,72,118,.12)  0%, transparent 56%);
+  animation: vcxOrbBreath 22s ease-in-out infinite alternate;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* 4) PRESERVE the white-fade text overlay from styles.css — restate it with higher specificity */
+body.vcx-premium-polish .hero-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg,
+    rgba(12,26,44,.30) 0%,
+    rgba(13,28,47,.36) 38%,
+    rgba(235,243,250,.82) 100%
+  ) !important;
+  pointer-events:none;
+  z-index:1;
+}
+
+@keyframes vcxOrbBreath{
+  0%   { opacity:.8;  transform:translate3d(0,    0,    0) scale(1);     }
+  33%  { opacity:1;   transform:translate3d(1.8%, 1.2%, 0) scale(1.03);  }
+  66%  { opacity:.85; transform:translate3d(-1.2%,1.8%, 0) scale(.978);  }
+  100% { opacity:.95; transform:translate3d(.9%, -1.2%, 0) scale(1.015); }
+}
+
+@media (prefers-reduced-motion:reduce){
+  body.vcx-premium-polish .hero-video::before{
     animation:none !important;
-    transition:none !important;
+    opacity:.9;
   }
-  .hero-copy,
-  .glass,
-  .card,
-  .problem-item,
-  .authority-card,
-  .impact-card,
-  .widget-card,
-  .engine-card,
-  .audience-card,
-  .proof-band,
-  .cta-banner,
-  .output-panel,
-  .kpi-tile {
-    box-shadow:none !important;
-    backdrop-filter:none !important;
-    -webkit-backdrop-filter:none !important;
-    background:rgba(255,255,255,.92) !important;
-  }
-  .hero,
-  .section,
-  .band,
-  .card,
-  .glass,
-  .problem-item,
-  .authority-card,
-  .impact-card,
-  .widget-card,
-  .engine-card,
-  .audience-card,
-  .proof-band,
-  .cta-banner,
-  .output-panel,
-  .kpi-tile {
-    break-inside:avoid;
-    page-break-inside:avoid;
-  }
+}
+
+/* ── TEXT READABILITY FIXES ─────────────────────────────────────────────── */
+
+/* Fix: clock label — too light on glass */
+body.vcx-premium-polish .clock-label,
+body.vcx-premium-polish .vcx-time-label,
+body.vcx-premium-polish .vcx-time-sub{
+  color:#3a5470 !important;
+}
+
+/* Fix: proof-pill text too light */
+body.vcx-premium-polish .proof-pill{
+  color:#1e3d5c !important;
+}
+
+/* Fix: general body text contrast */
+body.vcx-premium-polish p,
+body.vcx-premium-polish .card p,
+body.vcx-premium-polish .section-intro{
+  color:#2e4a63 !important;
+}
+
+/* Fix: stat card and muted text */
+body.vcx-premium-polish .stat-card .top,
+body.vcx-premium-polish .metric-label{
+  color:#3d5a72 !important;
+}
+
+/* Ensure section headings are fully dark and readable */
+body.vcx-premium-polish h2,
+body.vcx-premium-polish .section-head h2{
+  color:#0c2035 !important;
+}
+
+/* Fix hero copy text visibility on the gradient background */
+body.vcx-premium-polish .hero-copy h1{
+  color:#0d1f32 !important;
+}
+body.vcx-premium-polish .hero-copy .lead,
+body.vcx-premium-polish .hero-copy p{
+  color:#25405a !important;
 }

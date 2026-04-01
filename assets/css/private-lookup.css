@@ -26,6 +26,22 @@
   --vcx-transition:     0.18s ease;
 }
 
+/* Lookup tool page — uses main site styles.css + ui-shell.css for shell */
+/* Tool-specific overrides for dark navy theme */
+body[data-vcx-private-lookup="true"] main{
+  background: linear-gradient(180deg, #f4f8fb 0%, #eef4fa 100%);
+  min-height: 80vh;
+}
+body[data-vcx-private-lookup="true"] .vcx-lookup-hero{
+  background: linear-gradient(160deg, #0c1f32 0%, #0e2438 60%, #132d46 100%);
+  padding: 52px 0 60px;
+  color: #e8edf2;
+}
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
+  background: transparent;
+  padding: 40px 0 80px;
+}
+
 /* ── Base reset for lookup context ──────────────────────────── */
 [data-vcx-private-lookup] *,
 [data-vcx-private-lookup] *::before,
