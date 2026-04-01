@@ -130,7 +130,8 @@ function applyText(){
  
 }
 applyText();
-$$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
+// B1 FIX: lang switching disabled for public release
+// $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
 const menuBtn=$('.menu-btn'), mobileNav=$('.mobile-nav');
 if(menuBtn && mobileNav){
   menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open'));
@@ -142,10 +143,8 @@ function onScrollCompact(){
   if(!header) return;
   const current=window.scrollY||0;
   header.classList.toggle('header-compact', current>26);
-  const shouldHide=current>140 && current>lastScrollY+6;
-  const shouldShow=current<72 || current<lastScrollY-10;
-  if(shouldHide) header.classList.add('header-hidden');
-  if(shouldShow) header.classList.remove('header-hidden');
+  // B2 FIX: Header hide-on-scroll disabled to prevent layout gap on page load
+  // header.classList.remove('header-hidden'); // never hide header
   lastScrollY=current;
 }
 onScrollCompact(); window.addEventListener('scroll', onScrollCompact, {passive:true});
@@ -841,14 +840,15 @@ improveMobileFileInput();
   }
 
   function bindLangRefresh(){
-    document.querySelectorAll('.lang-btn').forEach(btn=>{
+    // B1 FIX: lang click wiring disabled for public release
+/* document.querySelectorAll('.lang-btn').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         setTimeout(()=>{
           applyHardCopy();
           ensureTradingViewFallback();
         }, 20);
       });
-    });
+    }); */
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
@@ -1053,9 +1053,10 @@ function initV52ImpactCalc(){
   document.addEventListener('DOMContentLoaded', ()=>{
     applyV52Copy();
     initV52ImpactCalc();
-    document.querySelectorAll('.lang-btn').forEach(btn=>{
+    // B1 FIX: lang click wiring disabled for public release
+/* document.querySelectorAll('.lang-btn').forEach(btn=>{
       btn.addEventListener('click', ()=>setTimeout(applyV52Copy,20));
-    });
+    }); */
   });
 
   initFloatingDockBehavior();

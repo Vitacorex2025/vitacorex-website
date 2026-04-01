@@ -343,7 +343,10 @@ function renderOfficialResults(type, data){
   html += '<div style="margin-top:14px;"><button class="vcx-btn-secondary" id="vcxNewSearch" style="font-size:.85rem;">New search</button></div>';
   resultArea.innerHTML = html;
   resultArea.removeAttribute('hidden');
+  resultArea.setAttribute('aria-live', 'polite');
+  resultArea.setAttribute('tabindex', '-1');
   resultArea.scrollIntoView({behavior:'smooth', block:'start'});
+  resultArea.focus();
 
   var ns = el('vcxNewSearch');
   if(ns) ns.addEventListener('click', function(){
@@ -438,6 +441,27 @@ function setStatus(html){
   }
 }
 
+// ── Tab keyboard navigation ────────────────────────────────────────────────
+function initTabKeyboard() {
+  var tabs = document.querySelectorAll('.vcx-tab-btn[role="tab"]');
+  tabs.forEach(function(tab, index) {
+    tab.addEventListener('keydown', function(e) {
+      var next;
+      if(e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        next = tabs[index + 1] || tabs[0];
+        next.focus(); next.click(); e.preventDefault();
+      } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        next = tabs[index - 1] || tabs[tabs.length - 1];
+        next.focus(); next.click(); e.preventDefault();
+      } else if(e.key === 'Home') {
+        tabs[0].focus(); tabs[0].click(); e.preventDefault();
+      } else if(e.key === 'End') {
+        tabs[tabs.length-1].focus(); tabs[tabs.length-1].click(); e.preventDefault();
+      }
+    });
+  });
+}
+
 // ── Event bindings ─────────────────────────────────────────────────────────
 document.querySelectorAll('.vcx-tab-btn').forEach(function(b){
   b.addEventListener('click', function(){ switchTab(b.dataset.tab); });
@@ -464,6 +488,7 @@ if(el('vcx-submit-courts'))  el('vcx-submit-courts').addEventListener('click', f
 async function init(){
   fireEvent('private_tool_view', {tab: 'gate'});
   checkConsentGates();
+  initTabKeyboard();
 }
 
 if(document.readyState === 'loading'){

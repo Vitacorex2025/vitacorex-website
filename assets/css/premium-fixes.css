@@ -673,3 +673,233 @@ body.vcx-premium-polish section.band {
   border-top: 1px solid rgba(191,150,80,.08) !important;
   border-bottom: 1px solid rgba(191,150,80,.08) !important;
 }
+
+/* ============================================================
+   VCX PREMIUM OVERRIDES — Uses token system from vcx-tokens.css
+   Applied via body.vcx-premium-polish (added by premium-fixes.js)
+   ============================================================ */
+
+body.vcx-premium-polish {
+  background-color: var(--bg-canvas, #F6F2EA);
+}
+
+/* Typography */
+body.vcx-premium-polish h1,
+body.vcx-premium-polish h2 {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  letter-spacing: -0.025em;
+  color: var(--ink-strong, #0F1B2D);
+}
+body.vcx-premium-polish h3,
+body.vcx-premium-polish h4 {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 600;
+  color: var(--ink-strong, #0F1B2D);
+}
+body.vcx-premium-polish .eyebrow,
+body.vcx-premium-polish [class*="eyebrow"] {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.13em !important;
+  text-transform: uppercase !important;
+  color: var(--accent-gold, #B08A57) !important;
+}
+body.vcx-premium-polish p,
+body.vcx-premium-polish li {
+  color: var(--ink-body, #243548);
+  line-height: 1.70;
+}
+body.vcx-premium-polish .lead { color: var(--ink-body, #243548); }
+
+/* Clock/header chips */
+body.vcx-premium-polish .vcx-time-label,
+body.vcx-premium-polish .vcx-time-sub,
+body.vcx-premium-polish .clock-label { color: var(--ink-muted, #5E6C7B) !important; }
+
+/* Nav */
+body.vcx-premium-polish .vcx-header {
+  background: rgba(251,248,243,.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--line-gold, rgba(176,138,87,.22)) !important;
+  box-shadow: 0 1px 8px rgba(15,27,45,.05) !important;
+}
+body.vcx-premium-polish .vcx-main-nav a {
+  color: var(--ink-body, #243548) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+}
+body.vcx-premium-polish .vcx-main-nav a:hover,
+body.vcx-premium-polish .vcx-main-nav a.active { color: var(--brand-primary, #173A63) !important; }
+
+/* Cards */
+body.vcx-premium-polish .card,
+body.vcx-premium-polish .service-card,
+body.vcx-premium-polish .proof-card {
+  background: var(--bg-elevated, #fff) !important;
+  border: 1px solid var(--line-soft, rgba(15,27,45,.10)) !important;
+  border-radius: var(--radius-md, 10px) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+body.vcx-premium-polish .card:hover,
+body.vcx-premium-polish .service-card:hover {
+  box-shadow: var(--shadow-raised) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* CTAs — navy, not gold */
+body.vcx-premium-polish .btn-primary,
+body.vcx-premium-polish .cta-btn,
+body.vcx-premium-polish .vcx-cta-btn,
+body.vcx-premium-polish a.btn,
+body.vcx-premium-polish button.btn-primary {
+  background: var(--brand-primary, #173A63) !important;
+  color: #EEE9DE !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-sm, 6px) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  padding: 11px 24px !important;
+  transition: all 160ms cubic-bezier(.16,1,.3,1) !important;
+}
+body.vcx-premium-polish .btn-primary:hover,
+body.vcx-premium-polish .cta-btn:hover,
+body.vcx-premium-polish .vcx-cta-btn:hover {
+  background: var(--brand-hover, #0F2A4D) !important;
+  box-shadow: 0 4px 16px rgba(15,27,45,.18) !important;
+}
+
+/* Proof pills */
+body.vcx-premium-polish .proof-pill {
+  background: rgba(176,138,87,.10) !important;
+  color: var(--accent-gold-dk, #8F6B3E) !important;
+  border: 1px solid rgba(176,138,87,.22) !important;
+  border-radius: var(--radius-pill, 100px) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  padding: 3px 10px !important;
+}
+
+/* Footer */
+body.vcx-premium-polish footer,
+body.vcx-premium-polish .site-footer,
+body.vcx-premium-polish .vcx-footer {
+  background: var(--bg-ink, #0F1B2D) !important;
+  color: var(--ink-muted, #5E6C7B) !important;
+}
+body.vcx-premium-polish .site-footer a,
+body.vcx-premium-polish .vcx-footer a { color: #7A8EA0 !important; }
+body.vcx-premium-polish .site-footer a:hover,
+body.vcx-premium-polish .vcx-footer a:hover { color: var(--accent-gold, #B08A57) !important; }
+
+/* Section backgrounds */
+body.vcx-premium-polish section,
+body.vcx-premium-polish .section { background-color: var(--bg-canvas, #F6F2EA); }
+body.vcx-premium-polish .section-alt,
+body.vcx-premium-polish .section--alt { background-color: var(--bg-surface, #FBF8F3); }
+
+/* Status colors (used in deal check, contract scanner) */
+body.vcx-premium-polish .vcx-flag-high   { border-left: 3px solid var(--status-danger, #8B4348); }
+body.vcx-premium-polish .vcx-flag-medium { border-left: 3px solid var(--status-warning, #9A6A20); }
+body.vcx-premium-polish .vcx-flag-ok     { border-left: 3px solid var(--status-success, #2F6B57); }
+body.vcx-premium-polish .vcx-flag-info   { border-left: 3px solid var(--status-info, #355E8A); }
+
+/* ============================================================
+   MOBILE RESPONSIVENESS & SAFE AREA — Step 5 additions
+   ============================================================ */
+
+/* iPhone notch / Dynamic Island safe area */
+@supports (padding: max(0px)) {
+  .vcx-header {
+    padding-left:  max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .vcx-mobile-nav {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* Prevent horizontal overflow */
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+table { max-width: 100%; }
+
+/* Responsive tables */
+.data-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.data-table { min-width: 500px; }
+
+/* Mobile form controls */
+@media (max-width: 480px) {
+  .form-input, input, select, textarea {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+  .vcx-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .vcx-tab-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none;
+  }
+  .vcx-tab-nav::-webkit-scrollbar { display: none; }
+  .vcx-tab-btn { white-space: nowrap; flex-shrink: 0; }
+}
+
+/* Viewport units fix for iOS — svh = small viewport height, fixes iOS toolbar */
+.vcx-lookup-hero, .hero {
+  min-height: 100svh;
+}
+
+/* Touch targets — minimum 44×44px (WCAG 2.5.5) */
+.btn, .vcx-tab-btn, .lang-btn, .vcx-submit-btn {
+  min-height: 44px;
+  min-width: 44px;
+}
+.vcx-menu-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ================================================================
+   BLOCKER 1: Hide language switchers on public English-only release
+   ================================================================ */
+.vcx-lang-toggle, .lang-switcher, [data-lang-toggle], .vcx-lang-btn,
+button[onclick*="vcxSetLang"], .language-selector,
+.vcx-lang-switch, .vcx-lang-switcher, .vcx-lang-mobile,
+.lang-btn, [data-lang]:not(html),
+.lang-row { display: none !important; }
+
+/* ================================================================
+   BLOCKER 2: Fix .reveal initial state - force visible 
+   Prevents empty gap from elements hidden before IntersectionObserver
+   ================================================================ */
+.reveal, [data-reveal], .vcx-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* Also ensure header-hidden is never applied on load */
+.site-header.header-hidden {
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* B2 FIX: Prevent vcx-header is-hidden from hiding header on load */
+.vcx-header.is-hidden {
+  transform: none !important;
+  opacity: 1 !important;
+}

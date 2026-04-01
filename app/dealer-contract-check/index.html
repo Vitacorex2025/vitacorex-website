@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -6,10 +6,12 @@
 <title>Auto Deal Check | VitaCoreX</title>
 <meta name="robots" content="noindex,nofollow"/>
 <meta name="description" content="Upload your dealer contract or enter a VIN and get a plain-language auto deal review from VitaCoreX."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
-<link href="/assets/css/styles.css" rel="stylesheet"/>
+
+
+
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+    <link rel="stylesheet" href="/assets/css/vcx-base.css">
+    <link href="/assets/css/styles.css" rel="stylesheet"/>
 <link href="/assets/css/ui-shell.css" rel="stylesheet"/>
 <link href="/assets/css/premium-fixes.css" rel="stylesheet"/>
 <style>
@@ -317,7 +319,7 @@ window.SITE_I18N = {
   if(dz){dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(212,175,55,.7)';});dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(212,175,55,.35)';});dz.addEventListener('drop',function(e){e.preventDefault();dz.style.borderColor='rgba(212,175,55,.35)';var f=e.dataTransfer.files[0];if(f){var inp=document.getElementById('vcxDealFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}});}
   // ?service= deep-link handler
   var sp=new URLSearchParams(window.location.search);
-  if(sp.get('service')==='auto'){var sw=document.getElementById('vcx-service-welcome');if(sw)sw.removeAttribute('hidden');}
+  if(sp.get('service')==='auto'){var sw=document.getElementById('vcx-service-welcome');if(sw){sw.textContent='You were routed here from Structured Intake for auto deal review.';sw.removeAttribute('hidden');}}
 })();
 
 function el(id){return document.getElementById(id);}
@@ -424,6 +426,7 @@ function vcxReset(){
 }
 
 </script>
+<script src="/assets/js/vcx-i18n.js"></script>
 <script src="/assets/js/premium-fixes.js"></script>
 </body>
 </html>

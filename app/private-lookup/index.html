@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-vcx-shell="ready">
 <head>
 <meta charset="utf-8">
@@ -6,16 +6,18 @@
 <title>Private Obligation Lookup | VitaCoreX</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#07131f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
+
+
 <link rel="icon" href="/assets/img/logo.png">
 <link rel="apple-touch-icon" href="/assets/img/logo.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{"ga4":"G-E08EE1KSQQ","gtm":"","clarity":"","hotjarSiteId":"","hotjarVersion":6,"metaPixel":"","linkedInPartner":"","apolloAppId":"69a7b325debb1e000d36d253"};window.VCX_CONTACT=window.VCX_CONTACT||{"booking_url":"https://calendly.com/vitacorex2025/30min","phone_display":"(888) 794-8292","phone_href":"tel:+18887948292"};</script>
 <style>body.vcx-menu-open{overflow:hidden;}</style>
 <script>(function(){var root=document.documentElement;var localeKey='vcx_lang';var saved;try{saved=window.localStorage.getItem(localeKey);}catch(e){}var current=(['en','ru','es'].indexOf(saved)!==-1)?saved:'en';window.__VCX_PUBLIC_BOOT__=window.__VCX_PUBLIC_BOOT__||{};root.setAttribute('data-vcx-shell','ready');try{window.localStorage.setItem(localeKey,current);}catch(error){}})();</script>
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+    <link rel="stylesheet" href="/assets/css/vcx-base.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/ui-shell.css">
 <link rel="stylesheet" href="/assets/css/premium-fixes.css">
 <link rel="stylesheet" href="/assets/css/private-lookup.css">
@@ -152,12 +154,12 @@ Object.assign(window.SITE_I18N.es, {
 <img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
 <span>VitaCoreX</span>
 </a>
-<button aria-controls="vcxLookupMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button">
+<button aria-controls="vcxMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button">
 <span aria-hidden="true" class="vcx-menu-icon">&#9776;</span>
 <span class="vcx-menu-text">Menu</span>
 </button>
 </div>
-<nav class="vcx-mobile-nav" hidden id="vcxLookupMobileNav">
+<nav class="vcx-mobile-nav" hidden id="vcxMobileNav">
 <a href="/index.html">Home</a>
 <a href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
 <a href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
@@ -196,7 +198,7 @@ Object.assign(window.SITE_I18N.es, {
             <li>Unpaid toll lookup via SunPass / Florida toll system</li>
             <li>Traffic citation status and county clerk routing</li>
             <li>Florida appellate and county court case search</li>
-            <li>Upload a notice or document to extract fields automatically</li>
+            <!-- B4 FIX: removed stale upload/extraction reference -->
             <li>All results link to official government sources</li>
           </ul>
           <p class="vcx-boundary-note" data-tx="disc">VitaCoreX is not a law firm and does not process government payments. Results are informational only.</p>
@@ -554,7 +556,7 @@ Object.assign(window.SITE_I18N.es, {
   });
   // Mobile menu
   var menuBtn=document.querySelector('.vcx-menu-btn');
-  var mobileNav=document.getElementById('vcxLookupMobileNav');
+  var mobileNav=document.getElementById('vcxMobileNav');
   if(menuBtn&&mobileNav){
     menuBtn.addEventListener('click',function(){
       var o=mobileNav.hasAttribute('hidden');
@@ -583,6 +585,7 @@ Object.assign(window.SITE_I18N.es, {
   } else { updateClocks(); setInterval(updateClocks,30000); }
 })();
 </script>
+<script src="/assets/js/vcx-i18n.js"></script>
 <script src="/assets/js/site.js"></script>
 <script src="/assets/js/ui-shell.js"></script>
 <script src="/assets/js/premium-fixes.js"></script>
