@@ -2,23 +2,6 @@
 (function(){
 const $=(s,e=document)=>e.querySelector(s), $$=(s,e=document)=>Array.from(e.querySelectorAll(s));
 const common=window.SITE_I18N||{}; const page=window.PAGE_DATA||{};
-const CONTACT_EMAIL='vitacorexllc@gmail.com';
-window.VCX_TRACKING_IDS = {};
-let lastOutput = null;
-function syncCareerMailto(){}
-function updateOutputLanguage(){}
-function loadApolloTracker(){}
-function hasActiveTrackers(){
-  const ids = window.VCX_TRACKING_IDS || {};
-  return Object.values(ids).some(v => v !== '' && v !== null && v !== undefined && v !== 0);
-}
-function buildMailtoLink(subject, lines){
-  const body = lines.filter(Boolean).join('\n');
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-function openMailtoDraft(subject, lines){
-  window.location.href = buildMailtoLink(subject, lines);
-}
 const extra={
  en:{
   intake_docs_status_label:'Core documents status',
@@ -489,106 +472,9 @@ function initClientMode(){
   });
   setMode(modeInput && modeInput.value==='company' ? 'company' : 'individual');
 }
-
 initClientMode();
 
-function applyIntakeQueryPrefill(){
-  const form=$('#intakeForm');
-  if(!form) return;
-  const params=new URLSearchParams(window.location.search||'');
-  const service=params.get('service');
-  if(!service) return;
-  const serviceField=form.querySelector('[name="service_type"]');
-  const messageField=form.querySelector('[name="message"]');
-  const companyBtn=form.querySelector('.client-mode-btn[data-mode="company"]');
-  const individualBtn=form.querySelector('.client-mode-btn[data-mode="individual"]');
-  const templates={
-    contracts:'Private-client review request: Contracts & Documentation.',
-    immigration:'Private-client review request: Immigration Packet Organization.',
-    auto:'Private-client review request: Auto Purchase & Launch Support.'
-  };
-  if(serviceField && ['contracts','immigration','auto'].includes(service)){
-    if(individualBtn) individualBtn.click();
-    serviceField.value='Services for Individuals';
-    if(messageField && !messageField.value) messageField.value = templates[service] || messageField.value;
-  }
-  const focus=params.get('focus');
-  if(focus && messageField && !messageField.value){
-    messageField.value = focus;
-  }
-}
-applyIntakeQueryPrefill();
-
-function attachMailtoSubmitHandlers(){
-  const intakeForm = $('#intakeForm');
-  if(intakeForm && !intakeForm.dataset.vcxMailtoBound){
-    intakeForm.dataset.vcxMailtoBound='1';
-    intakeForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      if(!intakeForm.checkValidity()){
-        intakeForm.reportValidity();
-        setStatus($('#intakeFormStatus'),'error',statusText('intake_validation','Please complete all fields before submitting.'));
-        return;
-      }
-      const fd = new FormData(intakeForm);
-      const fileInput = intakeForm.querySelector('[name="attachment"]');
-      const file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : '';
-      const lines = [
-        'Structured Intake Request',
-        '',
-        'Full name: ' + String(fd.get('full_name')||'').trim(),
-        'Client type: ' + String(fd.get('client_type')||'').trim(),
-        'Company / portfolio: ' + String(fd.get('company')||'').trim(),
-        'Phone: ' + String(fd.get('phone')||'').trim(),
-        'Email: ' + String(fd.get('email')||'').trim(),
-        'State: ' + String(fd.get('state')||'').trim(),
-        'Urgency: ' + String(fd.get('urgency')||'').trim(),
-        'Service type: ' + String(fd.get('service_type')||'').trim(),
-        'Message: ' + String(fd.get('message')||'').trim(),
-        'Company size: ' + String(fd.get('company_size')||'').trim(),
-        'Annual revenue range: ' + String(fd.get('annual_revenue')||'').trim(),
-        'Accounts receivable / portfolio size: ' + String(fd.get('accounts_receivable')||'').trim(),
-        'Current agency usage: ' + String(fd.get('agency_usage')||'').trim(),
-        'Selected file: ' + (file || 'No file selected'),
-        '',
-        'Note: if you need to send files, attach them manually in your email reply.'
-      ];
-      setStatus($('#intakeFormStatus'),'success','Opening your email draft…');
-      openMailtoDraft('Structured Intake Request', lines);
-      fillOutputFromIntake(intakeForm);
-    }, true);
-  }
-
-  const careersForm = $('#careersForm');
-  if(careersForm && !careersForm.dataset.vcxMailtoBound){
-    careersForm.dataset.vcxMailtoBound='1';
-    careersForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      if(!careersForm.checkValidity()){
-        careersForm.reportValidity();
-        setStatus($('#careersFormStatus'),'error',statusText('careers_failure','Submission failed. Please try again.'));
-        return;
-      }
-      const fd = new FormData(careersForm);
-      const lines = [
-        'Careers Application',
-        '',
-        'Full name: ' + String(fd.get('full_name')||'').trim(),
-        'Email: ' + String(fd.get('email')||'').trim(),
-        'Phone: ' + String(fd.get('phone')||'').trim(),
-        'LinkedIn: ' + String(fd.get('linkedin')||'').trim(),
-        'Role: ' + String(fd.get('role')||'').trim(),
-        'Background: ' + String(fd.get('background')||'').trim()
-      ];
-      setStatus($('#careersFormStatus'),'success','Opening your email draft…');
-      openMailtoDraft('VitaCoreX Careers Application', lines);
-    }, true);
-  }
-}
-attachMailtoSubmitHandlers();
-
 function buildCookieBanner(){
-  if(!hasActiveTrackers()) return;
   if(document.querySelector('.cookie-banner')) return;
   const saved=localStorage.getItem('vcx_cookie_consent');
   if(saved) return applyConsent(saved);
@@ -617,7 +503,6 @@ function loadScript(src){
   s.src=src; s.async=true; document.head.appendChild(s);
 }
 function applyConsent(consent){
-  if(!hasActiveTrackers()) return;
   const ids=window.VCX_TRACKING_IDS||{};
   window.dataLayer=window.dataLayer||[];
   window.vcxConsent=consent;
@@ -814,7 +699,7 @@ improveMobileFileInput();
 
 
 (function(){
-  function vcxCurrentLang(){ return (localStorage.getItem('vcx_lang') || document.documentElement.getAttribute('lang') || 'en').toLowerCase(); }
+  function vcxCurrentLang(){ return 'en'; }
 
   const hardCopy = {
     en: {

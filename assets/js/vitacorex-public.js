@@ -11,7 +11,7 @@
     return;
   }
 
-  var LOCALE_KEY = 'docketmint.locale';
+  var LOCALE_KEY = 'vcx_lang';
   var CONSENT_KEY = 'vitacorex-consent';
   var ATTRIBUTION_KEY = 'vitacorex.attribution';
   var SUPPORTED_LOCALES = ['en', 'ru', 'es'];

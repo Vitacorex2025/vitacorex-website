@@ -1,164 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contract Risk Scanner | DocketMint</title>
-  <meta name="theme-color" content="#F4F7FA"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="/assets/css/app-shell.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contract Scanner | VitaCoreX</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Upload a contract and get a plain-language risk review from VitaCoreX."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<link href="/assets/css/ui-shell.css" rel="stylesheet"/>
+<script>
+window.SITE_I18N = {
+  "en": {
+    "brand_tag": "Private revenue recovery and legal-file advisory",
+    "home": "Home", "file": "Corporate Legal File Control",
+    "recovery": "Revenue Recovery Infrastructure", "intake": "Structured Case Intake",
+    "resources": "Executive Briefs & Proof", "additional": "Private Client Services",
+    "careers": "Careers", "contact": "Private Consultation",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Your Time", "clock_local_sub": "Local",
+    "footer_est": "Established 2025", "footer_phone": "Private consultation line: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. Legal strategy and legal advice remain the responsibility of licensed counsel.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. All rights reserved.",
+    "tool_eyebrow": "Private Client Tool",
+    "tool_title": "Contract Scanner",
+    "tool_subtitle": "Upload a contract or agreement. Get a plain-language risk review — strong points, weak points, missing protections, and items to flag before signing.",
+    "tool_upload_label": "Upload your contract",
+    "tool_upload_hint": "PDF, Word, or text file. Or take a photo of a printed contract.",
+    "tool_upload_btn": "Choose file or take photo",
+    "tool_scan_btn": "Scan contract",
+    "tool_scanning": "Scanning your contract\u2026",
+    "tool_result_title": "Your contract review",
+    "tool_ok": "Solid clauses",
+    "tool_weak": "Weak points",
+    "tool_missing": "Missing protections",
+    "tool_critical": "Items to flag before signing",
+    "tool_summary_label": "Summary",
+    "tool_empty": "Upload a contract above to see your review.",
+    "tool_error": "Could not scan the contract. Please try again or contact support.",
+    "tool_consult": "Book a private consultation",
+    "tool_new": "Scan another contract",
+    "tool_disc": "This review is for informational purposes only. It is not legal advice. Review findings with a licensed attorney before signing any agreement.",
+    "tool_back": "\u2190 Private Client Services"
+  },
+  "ru": {
+    "brand_tag": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438",
+    "home": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f", "file": "\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442\u0430",
+    "recovery": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438",
+    "intake": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0435\u0440\u0432\u0438\u0447\u043d\u044b\u0439 \u0440\u0430\u0437\u0431\u043e\u0440",
+    "resources": "\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b \u0434\u043b\u044f \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u0430",
+    "additional": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438",
+    "careers": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e", "contact": "\u0417\u0430\u043f\u0440\u043e\u0441\u0438\u0442\u044c \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e",
+    "clock_vcx": "\u0412\u0440\u0435\u043c\u044f VitaCoreX", "clock_local": "\u0412\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f", "clock_local_sub": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e",
+    "footer_est": "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u0441 2025 \u0433\u043e\u0434\u0430",
+    "footer_phone": "\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u043b\u0438\u043d\u0438\u044f: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u0438\u0432\u043d\u0443\u044e, \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u0443\u044e \u0438 \u0431\u0438\u0437\u043d\u0435\u0441-\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443. \u041d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u043e\u0439.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.",
+    "tool_eyebrow": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    "tool_title": "\u0421\u043a\u0430\u043d\u0435\u0440 \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0430",
+    "tool_subtitle": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0438\u043b\u0438 \u0441\u043e\u0433\u043b\u0430\u0448\u0435\u043d\u0438\u0435 \u2014 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0430\u043d\u0430\u043b\u0438\u0437 \u0440\u0438\u0441\u043a\u043e\u0432 \u043d\u0430 \u043f\u043e\u043d\u044f\u0442\u043d\u043e\u043c \u044f\u0437\u044b\u043a\u0435.",
+    "tool_upload_label": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0432\u0430\u0448 \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_upload_hint": "PDF, Word \u0438\u043b\u0438 \u0442\u0435\u043a\u0441\u0442\u043e\u0432\u044b\u0439 \u0444\u0430\u0439\u043b. \u0418\u043b\u0438 \u0441\u0444\u043e\u0442\u043e\u0433\u0440\u0430\u0444\u0438\u0440\u0443\u0439\u0442\u0435 \u0440\u0430\u0441\u043f\u0435\u0447\u0430\u0442\u0430\u043d\u043d\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440.",
+    "tool_upload_btn": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e",
+    "tool_scan_btn": "\u041f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_scanning": "\u0410\u043d\u0430\u043b\u0438\u0437 \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0430\u2026",
+    "tool_result_title": "\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438",
+    "tool_ok": "\u041d\u0430\u0434\u0451\u0436\u043d\u044b\u0435 \u043f\u0443\u043d\u043a\u0442\u044b",
+    "tool_weak": "\u0421\u043b\u0430\u0431\u044b\u0435 \u043c\u0435\u0441\u0442\u0430",
+    "tool_missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0435 \u0437\u0430\u0449\u0438\u0442\u044b",
+    "tool_critical": "\u041f\u0443\u043d\u043a\u0442\u044b \u0434\u043b\u044f \u043e\u0431\u0441\u0443\u0436\u0434\u0435\u043d\u0438\u044f \u043f\u0435\u0440\u0435\u0434 \u043f\u043e\u0434\u043f\u0438\u0441\u0430\u043d\u0438\u0435\u043c",
+    "tool_summary_label": "\u041a\u0440\u0430\u0442\u043a\u043e\u0435 \u0440\u0435\u0437\u044e\u043c\u0435",
+    "tool_empty": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0432\u044b\u0448\u0435, \u0447\u0442\u043e\u0431\u044b \u0443\u0432\u0438\u0434\u0435\u0442\u044c \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442.",
+    "tool_error": "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u0440\u043e\u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0434\u043e\u0433\u043e\u0432\u043e\u0440. \u041f\u043e\u0432\u0442\u043e\u0440\u0438\u0442\u0435 \u043f\u043e\u043f\u044b\u0442\u043a\u0443 \u0438\u043b\u0438 \u0441\u0432\u044f\u0436\u0438\u0442\u0435\u0441\u044c \u0441 \u043d\u0430\u043c\u0438.",
+    "tool_consult": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u043d\u0430 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e",
+    "tool_new": "\u041f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0434\u0440\u0443\u0433\u043e\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_disc": "\u042d\u0442\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u043d\u043e\u0441\u0438\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440 \u0438 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0435\u0439.",
+    "tool_back": "\u2190 \u0423\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432"
+  },
+  "es": {
+    "brand_tag": "Infraestructura ejecutiva de recuperaci\u00f3n de ingresos y control documental",
+    "home": "Inicio", "file": "Control de archivos legales corporativos",
+    "recovery": "Infraestructura de recuperaci\u00f3n de ingresos", "intake": "Evaluaci\u00f3n inicial estructurada",
+    "resources": "Material ejecutivo y respaldo documental", "additional": "Servicios adicionales",
+    "careers": "Carreras", "contact": "Solicitar consulta",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Tu hora", "clock_local_sub": "Local",
+    "footer_est": "Establecida en 2025", "footer_phone": "L\u00ednea privada: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC ofrece soporte administrativo, documental y de negocio. No es un bufete jur\u00eddico.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. Todos los derechos reservados.",
+    "tool_eyebrow": "Herramienta para clientes privados",
+    "tool_title": "Esc\u00e1ner de contratos",
+    "tool_subtitle": "Suba un contrato o acuerdo y obtenga un an\u00e1lisis de riesgos en lenguaje sencillo.",
+    "tool_upload_label": "Suba su contrato",
+    "tool_upload_hint": "PDF, Word o archivo de texto. O tome una foto de un contrato impreso.",
+    "tool_upload_btn": "Elegir archivo o tomar foto",
+    "tool_scan_btn": "Escanear contrato",
+    "tool_scanning": "Analizando su contrato\u2026",
+    "tool_result_title": "Su revisi\u00f3n del contrato",
+    "tool_ok": "Cl\u00e1usulas s\u00f3lidas",
+    "tool_weak": "Puntos d\u00e9biles",
+    "tool_missing": "Protecciones faltantes",
+    "tool_critical": "\u00cdtems a revisar antes de firmar",
+    "tool_summary_label": "Resumen",
+    "tool_empty": "Suba un contrato arriba para ver su revisi\u00f3n.",
+    "tool_error": "No se pudo analizar el contrato. Int\u00e9ntelo de nuevo o cont\u00e1ctenos.",
+    "tool_consult": "Reservar una consulta privada",
+    "tool_new": "Escanear otro contrato",
+    "tool_disc": "Esta revisi\u00f3n es solo informativa. No constituye asesoramiento legal.",
+    "tool_back": "\u2190 Servicios para clientes privados"
+  }
+};
+(function(){
+  var lang = (function(){ var s=localStorage.getItem('vcx_lang'); return ['en','ru','es'].includes(s)?s:'en'; })();
+  document.documentElement.lang = lang;
+  window._vcxLang = lang;
+})();
+</script>
 </head>
-<body data-app-screen="contract-intelligence" data-page="contract-intelligence" data-contract-mode="analysis" data-i18n-title-key="service.contract_intelligence.name">
-  <a class="skip-link" href="#contractSessionMain">Skip to contract intelligence</a>
-  <div class="app-shell">
-    <aside class="app-sidebar" data-app-sidebar>
-      <div class="sidebar-brand-wrap">
-        <a aria-label="DocketMint platform" class="sidebar-brand" href="/app/home/">
-          <div class="brand-mark"><img alt="" src="/assets/img/logo.png"/></div>
-          <div class="brand-copy">
-            <div class="brand-title">DocketMint</div>
-            <div class="brand-subtitle" data-i18n="nav.platform">Recovery OS</div>
-          </div>
-        </a>
-      </div>
-      <div class="app-nav-group">
-        <div class="sidebar-section-title" data-i18n="nav.primary">Primary</div>
-        <nav aria-label="Primary navigation" class="sidebar-nav"></nav>
-      </div>
-      <section class="sidebar-service-center">
-        <div class="service-nav-header">
-          <div class="eyebrow" data-i18n="nav.service_domains">Workflows</div>
-          <h3 data-i18n="nav.working_modules">Active workflows</h3>
-          <p data-i18n="nav.working_modules.copy">Recommended workflows stay closest to the active matter. Related tools remain available without crowding the main rail.</p>
-        </div>
-        <div class="service-sidebar-list" data-services-sidebar></div>
-      </section>
-      <div class="sidebar-footer">
-        <a class="sidebar-utility-link" href="/app/settings/"><span data-i18n="common.settings">Settings</span></a>
-      </div>
-    </aside>
-    <div class="app-main">
-      <header class="app-topbar">
-        <div class="topbar-heading">
-          <button aria-label="Toggle navigation" class="sidebar-toggle" data-sidebar-toggle type="button">
-            <span></span><span></span><span></span>
-          </button>
-          <div>
-            <div class="topbar-kicker" data-i18n="domain.contracts_risk">Contracts &amp; Risk</div>
-            <h1 data-i18n="service.contract_intelligence.name">Contract Risk Scanner</h1>
-            <p data-i18n="module.contract_intelligence.subtitle">Upload a contract package, review strong, weak, missing, and dangerous clauses, and decide what to fix before signing.</p>
-          </div>
-        </div>
-        <div class="topbar-actions"></div>
-      </header>
-      <main class="app-content" id="contractSessionMain">
-        <section class="page-header">
-          <div class="page-header-copy">
-            <div class="page-kicker" data-i18n="domain.contracts_risk">Contracts &amp; Risk</div>
-            <h1 data-i18n="service.contract_intelligence.name">Contract Risk Scanner</h1>
-            <p data-i18n="module.contract_intelligence.detail_copy">This standalone workflow extracts clause findings from uploaded contract files and turns them into actionable risk commentary.</p>
-          </div>
-          <div class="page-header-actions">
-            <a class="btn btn-secondary" href="/app/best-contract-builder/" data-i18n="service.best_contract_builder.name">Best Contract Builder</a>
-          </div>
-        </section>
+<body data-vcx-page="contract-scanner">
 
-        <section class="workspace-panel service-guide">
-          <div class="subhead">
-            <h2>How to use this service</h2>
-            <span class="micro-note">Upload the contract, add supporting drafts if needed, run the scanner, and review the findings before negotiating or signing. Nothing is sent automatically.</span>
-          </div>
-          <div class="service-guide-grid">
-            <div><strong>What to upload</strong><p>Contract, guaranty, master service agreement, SOW, addendum, or other agreement files.</p></div>
-            <div><strong>Optional files</strong><p>Redlines, prior drafts, counterparty comments, or supporting notes that help explain the business deal.</p></div>
-            <div><strong>What we check</strong><p>Strong clauses, weak clauses, missing protections, dangerous clauses, and practical drafting risk.</p></div>
-            <div><strong>What you receive</strong><p>Expanded commentary, fallback wording, legal-commercial rationale, and state-specific cautions where law can vary.</p></div>
-            <div><strong>Important limits</strong><p>This is a structured drafting review, not a guarantee that every clause is enforceable in every state or fact pattern.</p></div>
-            <div><strong>Next step</strong><p>Use the stronger-contract workflow if you want a revised stronger draft and a detailed change memo.</p></div>
-          </div>
-        </section>
+<!-- ── HEADER (matches additional-services.html) ─────────────────────── -->
+<header class="vcx-header">
+<div class="wrap">
+<div class="vcx-header-shell">
+<div class="vcx-header-desktop">
+<div class="vcx-header-top">
+<a aria-label="VitaCoreX home" class="vcx-brand" href="/index.html">
+<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
+<div class="vcx-brand-copy">
+<strong>VitaCoreX LLC</strong>
+<span data-common="brand_tag">Private revenue recovery and legal-file advisory</span>
+</div>
+</a>
+<div class="vcx-header-meta">
+<div class="vcx-time-chip">
+<div class="vcx-time-label"><span data-common="clock_vcx">VitaCoreX Time</span><span class="vcx-time-sub">Tampa, FL</span></div>
+<div class="vcx-time-value clock-vcx">00:00</div>
+</div>
+<div class="vcx-time-chip">
+<div class="vcx-time-label"><span data-common="clock_local">Your Time</span><span class="vcx-time-sub" data-common="clock_local_sub">Local</span></div>
+<div class="vcx-time-value clock-local">00:00</div>
+</div>
+</div>
+</div>
+<div class="vcx-header-navrow">
+<nav class="vcx-main-nav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-switcher" aria-label="Language">
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="ru">RU</button>
+<button class="lang-btn" data-lang="es">ES</button>
+</div>
+</div>
+</div>
+<div class="vcx-header-mobile">
+<div class="vcx-mobile-row">
+<a aria-label="VitaCoreX home" class="vcx-mobile-brand" href="/index.html">
+<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
+<span>VitaCoreX</span>
+</a>
+<button aria-controls="vcxMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button">
+<span aria-hidden="true" class="vcx-menu-icon">☰</span>
+<span class="vcx-menu-text">Menu</span>
+</button>
+</div>
+<nav class="vcx-mobile-nav" hidden id="vcxMobileNav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-mobile" aria-label="Language">
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="ru">RU</button>
+<button class="lang-btn" data-lang="es">ES</button>
+</div>
+</div>
+</div>
+</div>
+</header>
 
-        <section class="workspace-panel">
-          <div class="subsection-header subsection-header--tight">
-            <div>
-              <div class="eyebrow" data-i18n="contract.section.upload_kicker">Upload</div>
-              <h2 data-i18n="contract.section.upload">Upload contract files</h2>
-            </div>
-          </div>
-          <form class="stack-form" data-contract-upload-form>
-            <div class="form-grid two">
-              <label class="field">
-                <span data-i18n="contract.field.contract_files">Contract, guaranty, or agreement files</span>
-                <input accept=".pdf,.docx,.txt,.md" data-contract-files multiple type="file"/>
-              </label>
-              <label class="field">
-                <span data-i18n="contract.field.support_files">Supporting files (optional)</span>
-                <input accept=".pdf,.docx,.txt,.md" data-support-files multiple type="file"/>
-              </label>
-            </div>
-            <div class="inline-actions">
-              <button class="btn btn-primary" type="submit" data-i18n="contract.action.create">Create session</button>
-              <button class="btn btn-secondary" data-contract-analyze type="button" data-i18n="contract.action.analyze">Analyze clauses</button>
-              <button class="btn btn-secondary" data-contract-generate type="button">Generate stronger version</button>
-            </div>
-            <p class="micro-note" data-contract-runtime-status data-i18n="contract.status.awaiting">Upload a contract and run the analysis.</p>
-          </form>
-        </section>
+<!-- ── MAIN TOOL ───────────────────────────────────────────────────────── -->
+<main id="vcxContractMain" style="padding:40px 0 80px;">
+<div class="wrap" style="max-width:780px;">
 
-        <section class="workspace-panel">
-          <div class="subsection-header subsection-header--tight">
-            <div>
-              <div class="eyebrow" data-i18n="contract.section.summary_kicker">Session</div>
-              <h2 data-i18n="contract.section.summary">Standalone session summary</h2>
-              <p data-contract-session-status data-i18n="contract.status.awaiting">Upload a contract and run the analysis.</p>
-            </div>
-          </div>
-          <div data-contract-session-summary></div>
-        </section>
+<!-- Back link -->
+<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(212,175,55,.8);text-decoration:none;">&larr; Private Client Services</a>
 
-        <section class="app-grid app-grid-2">
-          <section class="workspace-panel">
-            <div class="subsection-header subsection-header--tight">
-              <div>
-                <div class="eyebrow" data-i18n="contract.section.files_kicker">Files</div>
-                <h2 data-i18n="contract.section.files">Uploaded contract files</h2>
-              </div>
-            </div>
-            <div class="stack-list" data-contract-session-files></div>
-          </section>
-          <section class="workspace-panel">
-            <div class="subsection-header subsection-header--tight">
-              <div>
-                <div class="eyebrow" data-i18n="contract.section.outputs_kicker">Outputs</div>
-                <h2 data-i18n="contract.section.outputs">Draft outputs</h2>
-              </div>
-            </div>
-            <div data-contract-session-outputs></div>
-          </section>
-        </section>
+<!-- Hero -->
+<div class="reveal" style="margin-bottom:36px;">
+<span class="eyebrow" data-tx="tool_eyebrow">Private Client Tool</span>
+<h1 data-tx="tool_title" style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4em 0 .5em;">Contract Scanner</h1>
+<p style="font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.6;max-width:560px;" data-tx="tool_subtitle">Upload a contract or agreement. Get a plain-language risk review — strong points, weak points, missing protections, and items to flag before signing.</p>
+</div>
 
-        <section class="workspace-panel">
-          <div class="subsection-header subsection-header--tight">
-            <div>
-              <div class="eyebrow" data-i18n="contract.section.findings_kicker">Findings</div>
-              <h2 data-i18n="contract.section.findings">Clause findings</h2>
-            </div>
-          </div>
-          <div class="stack-list" data-contract-session-findings></div>
-        </section>
-      </main>
-    </div>
-  </div>
-  <div class="app-overlay" data-app-overlay hidden></div>
-  <script src="/assets/js/runtime-config.js"></script>
-  <script src="/assets/js/config.js"></script>
-  <script src="/assets/js/api-client.js"></script>
-  <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/auth.js"></script>
-  <script src="/assets/js/platform-services.js"></script>
-  <script src="/assets/js/app-shell.js"></script>
-  <script src="/assets/js/contract-session.js"></script>
+<!-- Upload card -->
+<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:12px;margin-bottom:24px;">
+<label for="vcxContractFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:10px;">Upload your contract</label>
+<p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.55);margin:0 0 18px;">PDF, Word, or text file. Or take a photo of a printed contract.</p>
+
+<!-- Upload zone -->
+<div id="vcxDropZone" style="border:2px dashed rgba(212,175,55,.35);border-radius:8px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxContractFile').click()">
+<div style="font-size:2rem;margin-bottom:8px;">📄</div>
+<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(212,175,55,.85);font-weight:500;">Choose file or take photo</span>
+<div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
+</div>
+<input type="file" id="vcxContractFile" accept=".pdf,.doc,.docx,.txt,.md,image/*" capture="environment" style="display:none;" onchange="vcxHandleFile(this)"/>
+
+<!-- Optional second file -->
+<details style="margin-top:16px;">
+<summary style="font-size:.85rem;color:rgba(255,255,255,.45);cursor:pointer;">Add supporting document (optional)</summary>
+<div style="margin-top:10px;">
+<input type="file" id="vcxSupportFile" accept=".pdf,.doc,.docx,.txt,.md,image/*" style="width:100%;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff;font-size:.9rem;"/>
+</div>
+</details>
+
+<button id="vcxScanBtn" type="button" onclick="vcxScanContract()" disabled
+  style="margin-top:22px;width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;"
+  data-tx="tool_scan_btn">Scan contract</button>
+
+<div id="vcxScanStatus" style="display:none;text-align:center;padding:16px;font-size:.9rem;color:rgba(255,255,255,.6);" data-tx="tool_scanning">Scanning your contract&hellip;</div>
+</div>
+
+<!-- Results area -->
+<div id="vcxResultsArea" style="display:none;">
+<h2 data-tx="tool_result_title" style="font-size:1.3rem;margin-bottom:20px;">Your contract review</h2>
+
+<!-- Summary -->
+<div id="vcxSummaryBlock" style="background:rgba(255,255,255,.04);border-left:3px solid rgba(212,175,55,.5);border-radius:6px;padding:18px 20px;margin-bottom:20px;">
+<div data-tx="tool_summary_label" style="font-size:.8rem;font-weight:600;color:rgba(212,175,55,.8);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Summary</div>
+<div id="vcxSummaryText" style="font-size:.95rem;line-height:1.6;color:rgba(255,255,255,.85);"></div>
+</div>
+
+<!-- Result buckets -->
+<div id="vcxBuckets" style="display:grid;gap:16px;"></div>
+
+<!-- CTAs -->
+<div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener"
+  style="padding:14px 24px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-weight:600;text-decoration:none;font-size:.95rem;"
+  data-tx="tool_consult">Book a private consultation</a>
+<button onclick="vcxReset()" type="button"
+  style="padding:14px 24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:rgba(255,255,255,.7);font-size:.95rem;cursor:pointer;"
+  data-tx="tool_new">Scan another contract</button>
+</div>
+</div>
+
+<!-- Empty state -->
+<div id="vcxEmptyState" style="text-align:center;padding:40px;color:rgba(255,255,255,.4);" data-tx="tool_empty">Upload a contract above to see your review.</div>
+
+<!-- Error state -->
+<div id="vcxErrorState" style="display:none;padding:18px 20px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:6px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Could not scan the contract. Please try again or contact support.</div>
+
+<!-- Disclaimer -->
+<p data-tx="tool_disc" style="margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.55;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;">This review is for informational purposes only. It is not legal advice. Review findings with a licensed attorney before signing any agreement.</p>
+</div>
+</div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="vcx-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<strong>VitaCoreX LLC</strong>
+<span data-common="footer_est">Established 2025</span>
+</div>
+<div>
+<span data-common="footer_phone">Private consultation line: (888) 794-8292</span>
+<span data-common="footer_ein">EIN: 41-4399148</span>
+</div>
+</div>
+<p class="footer-disc" data-common="footer_disc">VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation.</p>
+<p class="footer-copy" data-common="footer_copy">&copy; 2026 VitaCoreX LLC. All rights reserved.</p>
+</div>
+</footer>
+
+<!-- ── GA4 ─────────────────────────────────────────────────────────────── -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E08EE1KSQQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E08EE1KSQQ');</script>
+<!-- Apollo -->
+<script>!function(e,t){if(!t.__SV){var a,r,i,n;window.analytics=t,t.methods=["identify","track","page","group","alias","reset"],t.factory=function(e){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(e),t.push(a),t}};for(var s=0;s<t.methods.length;s++)t[t.methods[s]]=t.factory(t.methods[s]);t.load=function(e){a=document.createElement("script"),a.type="text/javascript",a.async=!0,a.src="https://cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(a,r)},t.SNIPPET_VERSION="4.1.0",t.load("69a7b325debb1e000d36d253"),t.page()}}(window,window.analytics||[]);</script>
+
+<!-- ── TOOL SCRIPT ─────────────────────────────────────────────────────── -->
+<script>
+(function(){
+  // i18n
+  var I18N = window.SITE_I18N;
+  var lang = window._vcxLang || 'en';
+  function t(key){ return (I18N[lang] && I18N[lang][key]) || (I18N['en'] && I18N['en'][key]) || key; }
+
+  function applyText(){
+    document.querySelectorAll('[data-tx]').forEach(function(el){
+      var k = el.getAttribute('data-tx');
+      var v = t(k); if(v) el.textContent = v;
+    });
+    document.querySelectorAll('[data-common]').forEach(function(el){
+      var k = el.getAttribute('data-common');
+      var v = t(k); if(v) el.textContent = v;
+    });
+  }
+
+  // Language switch
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      lang = btn.getAttribute('data-lang');
+      window._vcxLang = lang;
+      try{ localStorage.setItem('vcx_lang', lang); }catch(e){}
+      document.documentElement.lang = lang;
+      applyText();
+    });
+  });
+
+  applyText();
+
+  // Mobile menu
+  var menuBtn = document.querySelector('.vcx-menu-btn');
+  var mobileNav = document.getElementById('vcxMobileNav');
+  if(menuBtn && mobileNav){
+    menuBtn.addEventListener('click', function(){
+      var open = mobileNav.hasAttribute('hidden');
+      mobileNav.toggleAttribute('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Clocks
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function updateClocks(){
+    var now = new Date();
+    var tampa = new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));
+    var th = pad(tampa.getHours()), tm = pad(tampa.getMinutes());
+    document.querySelectorAll('.clock-vcx').forEach(function(el){ el.textContent=th+':'+tm; });
+    var lh = pad(now.getHours()), lm = pad(now.getMinutes());
+    document.querySelectorAll('.clock-local').forEach(function(el){ el.textContent=lh+':'+lm; });
+  }
+  updateClocks(); setInterval(updateClocks, 30000);
+
+  // Drop zone hover
+  var dz = document.getElementById('vcxDropZone');
+  if(dz){
+    dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(212,175,55,.7)';});
+    dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(212,175,55,.35)';});
+    dz.addEventListener('drop',function(e){
+      e.preventDefault(); dz.style.borderColor='rgba(212,175,55,.35)';
+      var f = e.dataTransfer.files[0];
+      if(f){ var inp=document.getElementById('vcxContractFile'); var dt=new DataTransfer(); dt.items.add(f); inp.files=dt.files; vcxHandleFile(inp); }
+    });
+  }
+})();
+
+// File handler
+function vcxHandleFile(input){
+  var f = input.files[0];
+  var nameEl = document.getElementById('vcxFileName');
+  var scanBtn = document.getElementById('vcxScanBtn');
+  if(f){
+    nameEl.textContent = f.name + ' (' + (f.size/1024).toFixed(0) + ' KB)';
+    scanBtn.disabled = false;
+    scanBtn.style.background = 'rgba(212,175,55,.25)';
+    scanBtn.style.borderColor = 'rgba(212,175,55,.6)';
+  }
+}
+
+// Scan
+async function vcxScanContract(){
+  var fileInput = document.getElementById('vcxContractFile');
+  var supportInput = document.getElementById('vcxSupportFile');
+  var scanBtn = document.getElementById('vcxScanBtn');
+  var statusEl = document.getElementById('vcxScanStatus');
+  var resultsArea = document.getElementById('vcxResultsArea');
+  var emptyState = document.getElementById('vcxEmptyState');
+  var errorState = document.getElementById('vcxErrorState');
+  var uploadCard = document.getElementById('vcxUploadCard');
+
+  if(!fileInput.files[0]) return;
+
+  scanBtn.disabled = true;
+  statusEl.style.display = 'block';
+  errorState.style.display = 'none';
+  resultsArea.style.display = 'none';
+  emptyState.style.display = 'none';
+
+  var I18N = window.SITE_I18N;
+  var lang = window._vcxLang || 'en';
+  function t(k){ return (I18N[lang]&&I18N[lang][k])||(I18N['en']&&I18N['en'][k])||k; }
+
+  statusEl.textContent = t('tool_scanning');
+
+  try {
+    var fd = new FormData();
+    fd.append('contract_files', fileInput.files[0]);
+    if(supportInput.files[0]) fd.append('supporting_files', supportInput.files[0]);
+
+    var r1 = await fetch('/api/contract-intelligence/sessions', {method:'POST', body:fd});
+    if(!r1.ok){ throw new Error('session_create_' + r1.status); }
+    var session = await r1.json();
+    var sid = session.session_id || session.id;
+
+    var r2 = await fetch('/api/contract-intelligence/sessions/'+sid+'/analyze', {method:'POST'});
+    if(!r2.ok){ throw new Error('analyze_' + r2.status); }
+    var result = await r2.json();
+
+    statusEl.style.display = 'none';
+    uploadCard.style.display = 'none';
+    emptyState.style.display = 'none';
+    vcxRenderResults(result, t);
+    resultsArea.style.display = 'block';
+
+  } catch(err) {
+    console.error('Contract scan failed:', err);
+    statusEl.style.display = 'none';
+    errorState.style.display = 'block';
+    errorState.textContent = t('tool_error');
+    scanBtn.disabled = false;
+    emptyState.style.display = 'none';
+  }
+}
+
+function vcxRenderResults(data, t){
+  // Summary
+  var summaryText = data.summary || data.overall_summary || '';
+  document.getElementById('vcxSummaryText').textContent = summaryText || t('tool_empty');
+
+  // Buckets
+  var findings = data.findings || data.clauses || [];
+  var buckets = {strong:[], weak:[], missing:[], critical:[]};
+  findings.forEach(function(f){
+    var cat = (f.category||f.bucket||'').toLowerCase();
+    if(cat.includes('strong')||cat.includes('ok')) buckets.strong.push(f);
+    else if(cat.includes('weak')) buckets.weak.push(f);
+    else if(cat.includes('miss')) buckets.missing.push(f);
+    else if(cat.includes('danger')||cat.includes('critical')||cat.includes('flag')) buckets.critical.push(f);
+    else buckets.weak.push(f);
+  });
+
+  var colors = {strong:'rgba(50,200,100,.1)',weak:'rgba(255,180,0,.08)',missing:'rgba(255,140,0,.1)',critical:'rgba(255,60,60,.1)'};
+  var borders = {strong:'rgba(50,200,100,.35)',weak:'rgba(255,180,0,.3)',missing:'rgba(255,140,0,.35)',critical:'rgba(255,80,80,.4)'};
+  var labels = {strong:t('tool_ok'),weak:t('tool_weak'),missing:t('tool_missing'),critical:t('tool_critical')};
+
+  var container = document.getElementById('vcxBuckets');
+  container.innerHTML = '';
+  ['critical','missing','weak','strong'].forEach(function(key){
+    var items = buckets[key];
+    if(!items.length) return;
+    var block = document.createElement('div');
+    block.style.cssText = 'background:'+colors[key]+';border-left:3px solid '+borders[key]+';border-radius:6px;padding:18px 20px;';
+    var title = document.createElement('div');
+    title.style.cssText = 'font-weight:600;font-size:.9rem;margin-bottom:12px;color:rgba(255,255,255,.85);';
+    title.textContent = labels[key] + ' (' + items.length + ')';
+    block.appendChild(title);
+    items.forEach(function(f){
+      var item = document.createElement('div');
+      item.style.cssText = 'margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.05);';
+      var name = document.createElement('div');
+      name.style.cssText = 'font-size:.9rem;font-weight:500;color:rgba(255,255,255,.8);margin-bottom:3px;';
+      name.textContent = f.clause_name || f.name || f.title || '';
+      var desc = document.createElement('div');
+      desc.style.cssText = 'font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5;';
+      desc.textContent = f.commentary || f.description || f.detail || '';
+      item.appendChild(name);
+      if(desc.textContent) item.appendChild(desc);
+      block.appendChild(item);
+    });
+    container.appendChild(block);
+  });
+
+  if(!findings.length && !summaryText){
+    document.getElementById('vcxSummaryText').textContent = t('tool_empty');
+  }
+}
+
+function vcxReset(){
+  document.getElementById('vcxContractFile').value = '';
+  document.getElementById('vcxFileName').textContent = '';
+  document.getElementById('vcxScanBtn').disabled = true;
+  document.getElementById('vcxScanBtn').style.background = 'rgba(212,175,55,.15)';
+  document.getElementById('vcxScanBtn').style.borderColor = 'rgba(212,175,55,.4)';
+  document.getElementById('vcxUploadCard').style.display = 'block';
+  document.getElementById('vcxResultsArea').style.display = 'none';
+  document.getElementById('vcxEmptyState').style.display = 'block';
+  document.getElementById('vcxErrorState').style.display = 'none';
+}
+</script>
+
 </body>
 </html>

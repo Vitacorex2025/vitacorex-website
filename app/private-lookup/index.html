@@ -14,7 +14,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{"ga4":"G-E08EE1KSQQ","gtm":"","clarity":"","hotjarSiteId":"","hotjarVersion":6,"metaPixel":"","linkedInPartner":"","apolloAppId":"69a7b325debb1e000d36d253"};window.VCX_CONTACT=window.VCX_CONTACT||{"booking_url":"https://calendly.com/vitacorex2025/30min","phone_display":"(888) 794-8292","phone_href":"tel:+18887948292"};</script>
 <style>body.vcx-menu-open{overflow:hidden;}</style>
-<script>(function(){var root=document.documentElement;var localeKey='docketmint.locale';var current="en";window.__VCX_PUBLIC_BOOT__=window.__VCX_PUBLIC_BOOT__||{};root.setAttribute('data-vcx-shell','ready');try{window.localStorage.setItem(localeKey,current);}catch(error){}})();</script>
+<script>(function(){var root=document.documentElement;var localeKey='vcx_lang';var current="en";window.__VCX_PUBLIC_BOOT__=window.__VCX_PUBLIC_BOOT__||{};root.setAttribute('data-vcx-shell','ready');try{window.localStorage.setItem(localeKey,current);}catch(error){}})();</script>
 <link rel="stylesheet" href="/assets/css/vitacorex-public.css">
 <link rel="stylesheet" href="/assets/css/private-lookup.css">
 </head>
@@ -43,8 +43,8 @@
     <div class="header-actions">
       <div class="lang-switch" aria-label="Language" data-shell-switcher data-shell-aria-key="shell.language_label">
         <a href="/app/private-lookup/" data-shell-locale="en" aria-current="true">EN</a>
-        <a href="/ru/additional-services.html" data-shell-locale="ru" aria-current="false">RU</a>
-        <a href="/es/additional-services.html" data-shell-locale="es" aria-current="false">ES</a>
+        <a href="/additional-services.html" data-shell-locale="ru" aria-current="false">RU</a>
+        <a href="/additional-services.html" data-shell-locale="es" aria-current="false">ES</a>
       </div>
       <a class="btn btn-secondary" href="/app/sign-in/" data-shell-key="shell.nav.signin">Sign in</a>
       <button class="menu-toggle" type="button" data-menu-toggle data-public-menu-toggle aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu" data-shell-key="shell.menu" data-shell-aria-key="shell.menu">Menu</button>
@@ -62,8 +62,8 @@
       <a href="/app/sign-in/" data-shell-key="shell.nav.signin">Sign in</a>
       <div class="lang-switch lang-switch--mobile" aria-label="Language" data-shell-switcher data-shell-aria-key="shell.language_label">
         <a href="/app/private-lookup/" data-shell-locale="en" aria-current="true">EN</a>
-        <a href="/ru/additional-services.html" data-shell-locale="ru" aria-current="false">RU</a>
-        <a href="/es/additional-services.html" data-shell-locale="es" aria-current="false">ES</a>
+        <a href="/additional-services.html" data-shell-locale="ru" aria-current="false">RU</a>
+        <a href="/additional-services.html" data-shell-locale="es" aria-current="false">ES</a>
       </div>
     </nav>
   </div>
@@ -99,8 +99,8 @@
           <div class="vcx-gate-header">
             <p class="vcx-gate-label">Private Session Access</p>
             <div class="vcx-gate-price">
-              <span class="vcx-price-amount" id="vcx-price-display">$14</span>
-              <span class="vcx-price-note">one-time session</span>
+              <span class="vcx-price-amount" id="vcx-price-display">Free</span>
+              <span class="vcx-price-note">testing phase access</span>
             </div>
           </div>
           <ul class="vcx-gate-features">
@@ -109,10 +109,10 @@
             <li>Official source links for every result</li>
             <li>Consultation CTA available after every result</li>
           </ul>
-          <button class="vcx-unlock-btn" id="vcx-unlock-btn" type="button">
-            Unlock Private Lookup
+          <button class="vcx-unlock-btn" id="vcxPayBtn" type="button">
+            Start Private Lookup
           </button>
-          <p class="vcx-gate-note">Secure checkout via Stripe. Government payments go to official portals only.</p>
+          <p class="vcx-gate-note">Free access during the current testing phase. Government payments go to official portals only.</p>
           <!-- Dev mode notice (hidden in prod) -->
           <p class="vcx-dev-notice" id="vcx-dev-notice" hidden>Development mode — access without payment</p>
           <!-- Loading state -->

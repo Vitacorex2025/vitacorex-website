@@ -1432,16 +1432,3 @@ summary:focus-visible{
 }
 
 .cookie-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-
-
-/* v263 repair: keep reveal content visible in print/PDF */
-@media print {
-  .reveal, .reveal.visible, .bar-fill, [data-count-to] {
-    opacity:1 !important;
-    transform:none !important;
-    animation:none !important;
-    transition:none !important;
-  }
-  .hero-video video { display:none !important; }
-  .hero-video img { display:block !important; }
-}
