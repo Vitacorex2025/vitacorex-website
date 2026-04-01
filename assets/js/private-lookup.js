@@ -192,7 +192,7 @@ async function runLookup(tab){
         note:'Unpaid tolls can result in license suspension — verify here' }
     ];
   } else if(tab === 'traffic'){
-    var county  = payload.traffic.county || '';
+    var county  = payload.traffic.fl_county || '';
     var citation = payload.traffic.citation_number || '';
     var countyUrls = {
       'Hillsborough':'https://hcclerk.org/traffic/',
@@ -233,7 +233,19 @@ async function runLookup(tab){
     ];
   }
 
-  renderOfficialResults(officialResults, tab);
+  // Build typed data object for new card renderer
+  var cardData = {};
+  if(tab === 'tolls'){
+    cardData.plate   = payload.tolls.plate_number || '';
+    cardData.invoice = payload.tolls.invoice_number || '';
+  } else if(tab === 'traffic'){
+    cardData.county   = county;
+    cardData.citation = citation;
+  } else if(tab === 'courts'){
+    cardData.name    = payload.courts.full_name || '';
+    cardData.casenum = payload.courts.case_number || '';
+  }
+  renderOfficialResults(tab, cardData);
 
   setStatus('');
   isLoading = false;
@@ -241,47 +253,102 @@ async function runLookup(tab){
 }
 
 // ── Render official portal results ─────────────────────────────────────────
-function renderOfficialResults(results, tab){
-  if(resultArea){ resultArea.removeAttribute('hidden'); }
-  setStatus('');
-
-  if(!results || !results.length){
-    resultArea.innerHTML = '<div class="vcx-result-empty">No official sources found for this search. <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book a consultation</a> for manual assistance.</div>';
-    return;
-  }
+function renderOfficialResults(type, data){
+  if(!resultArea) return;
 
   var html = '';
-  html += '<p style="font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:18px;line-height:1.5;">These are official Florida government portals. VitaCoreX routes you to the authoritative source only. Results shown in this session are not stored.</p>';
+  if(type === 'tolls') {
+    var plate = (data && data.plate) ? data.plate.toUpperCase() : '';
+    var invoice = (data && data.invoice) ? data.invoice : '';
+    var ref = plate || invoice || 'your vehicle';
+    html = '<div class="vcx-result-card">' +
+      '<div class="vcx-result-header"><span class="vcx-result-icon">🔍</span>' +
+      '<h3>Toll Obligation Check — Official Sources</h3></div>' +
+      '<p class="vcx-result-intro">The official Florida toll agencies below can provide authoritative records for <strong>' + escapeHtml(ref) + '</strong>. Use these links to check and pay directly.</p>' +
+      '<div class="vcx-portal-links">' +
+      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.sunpass.com" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">SunPass — Official FL Toll Authority</span>' +
+        '<span class="vcx-portal-desc">Check account balance, unpaid tolls, and pay online</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.platepass.com" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">PlatePass — Rental Vehicle Tolls</span>' +
+        '<span class="vcx-portal-desc">For rental car toll obligations</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.cfxway.com" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">CFX — Central Florida Expressway</span>' +
+        '<span class="vcx-portal-desc">407 Express, 408, 414, 417, 429, 528</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.leewayfl.com" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Lee County DOT</span>' +
+        '<span class="vcx-portal-desc">Lee County toll facilities</span>' +
+      '</a>' +
+      '</div>' +
+      '<div class="vcx-result-cta">' +
+      '<p class="vcx-result-disc">VitaCoreX does not access toll records. These are direct links to official Florida toll agencies. For dispute assistance or documentation help, book a consultation.</p>' +
+      '<a class="vcx-cta-link" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book consultation →</a>' +
+      '</div></div>';
+  } else if(type === 'traffic') {
+    var county2 = (data && data.county) ? data.county : 'Your county';
+    var citation2 = (data && data.citation) ? data.citation : '';
+    html = '<div class="vcx-result-card">' +
+      '<div class="vcx-result-header"><span class="vcx-result-icon">🚦</span>' +
+      '<h3>Traffic Citation — Official Court Portal</h3></div>' +
+      '<p class="vcx-result-intro">Florida traffic citations are handled by county clerks. ' + escapeHtml(county2) + ' County clerk portal below.</p>' +
+      '<div class="vcx-portal-links">' +
+      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.flcourts.gov/Resources-Services/Court-Technology/eFiling-Portal" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts eFiling Portal</span>' +
+        '<span class="vcx-portal-desc">Official FL state court records and eFiling</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.flhsmv.gov/driver-licenses-id-cards/traffic-citations/" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">DHSMV — Traffic Citations</span>' +
+        '<span class="vcx-portal-desc">Florida Dept of Highway Safety & Motor Vehicles</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.flclerks.com/page/ClerkLocator" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Clerk of Courts</span>' +
+        '<span class="vcx-portal-desc">Find your county clerk and pay citations</span>' +
+      '</a>' +
+      '</div>' +
+      (citation2 ? '<p class="vcx-result-ref">Citation reference: <strong>' + escapeHtml(citation2) + '</strong></p>' : '') +
+      '<div class="vcx-result-cta">' +
+      '<p class="vcx-result-disc">For documentation support or dispute packet preparation, book a consultation.</p>' +
+      '<a class="vcx-cta-link" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book consultation →</a>' +
+      '</div></div>';
+  } else if(type === 'courts') {
+    var name2 = (data && data.name) ? data.name : '';
+    var casenum2 = (data && data.casenum) ? data.casenum : '';
+    html = '<div class="vcx-result-card">' +
+      '<div class="vcx-result-header"><span class="vcx-result-icon">⚖️</span>' +
+      '<h3>Florida Court Records — Official Sources</h3></div>' +
+      '<p class="vcx-result-intro">Florida court records are searchable through official state portals.' + (name2 ? ' Searching for: <strong>' + escapeHtml(name2) + '</strong>' : '') + '</p>' +
+      '<div class="vcx-portal-links">' +
+      '<a class="vcx-portal-link vcx-portal-primary" href="https://myeclerk.myorangeclerk.com" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts eCaseSearch</span>' +
+        '<span class="vcx-portal-desc">Search Florida circuit and county court records</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.flcourts.gov" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts — Official Site</span>' +
+        '<span class="vcx-portal-desc">Statewide court records, eFiling, and resources</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://pacer.gov" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">PACER — Federal Court Records</span>' +
+        '<span class="vcx-portal-desc">For federal court cases in Florida districts</span>' +
+      '</a>' +
+      '</div>' +
+      (casenum2 ? '<p class="vcx-result-ref">Case reference: <strong>' + escapeHtml(casenum2) + '</strong></p>' : '') +
+      '<div class="vcx-result-cta">' +
+      '<p class="vcx-result-disc">For case documentation support or packet preparation, book a consultation.</p>' +
+      '<a class="vcx-cta-link" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book consultation →</a>' +
+      '</div></div>';
+  }
 
-  results.forEach(function(r){
-    html += '<div class="vcx-result-card" style="margin-bottom:14px;">';
-    html += '<h4 style="margin:0 0 10px;font-size:1rem;">' + escapeHtml(r.obligation_type || r.source || 'Official Record') + '</h4>';
-    if(r.source) html += resultRow('Source', escapeHtml(r.source));
-    if(r.status) html += resultRow('Status', '<strong>' + escapeHtml(r.status) + '</strong>');
-    if(r.note) html += resultRow('Note', escapeHtml(r.note));
-
-    var actions = [];
-    if(r.official_url){
-      actions.push('<button class="vcx-btn-secondary" style="font-size:.85rem;" onclick="window.open(' + JSON.stringify(r.official_url) + ',\'_blank\');window.trackEvent&&window.trackEvent(\'private_tool_view_official_source\',{tab:\'' + tab + '\'});">Open official portal</button>');
-    }
-    if(r.action_url && r.action_type === 'pay' && r.action_url !== r.official_url){
-      actions.push('<button class="vcx-btn-secondary" style="font-size:.85rem;" onclick="window.open(' + JSON.stringify(r.action_url) + ',\'_blank\');">Pay officially</button>');
-    }
-    if(actions.length) html += '<div class="vcx-lookup-actions" style="margin-top:12px;flex-wrap:wrap;gap:8px;">' + actions.join('') + '</div>';
-    html += '</div>';
-  });
-
-  html += '<div style="margin-top:22px;padding:18px;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.2);border-radius:8px;">';
-  html += '<p style="font-size:.88rem;color:rgba(255,255,255,.7);margin:0 0 12px;line-height:1.5;">Need help interpreting results or navigating the official portals? A VitaCoreX advisor can review your specific situation.</p>';
-  html += '<a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener" class="vcx-btn-secondary" style="display:inline-block;font-size:.9rem;">Book private consultation</a>';
-  html += '</div>';
-
-  html += '<div class="vcx-lookup-actions" style="margin-top:14px;"><button class="vcx-btn-secondary" id="vcxNewSearch" style="font-size:.85rem;">New search</button></div>';
+  html += '<div style="margin-top:14px;"><button class="vcx-btn-secondary" id="vcxNewSearch" style="font-size:.85rem;">New search</button></div>';
   resultArea.innerHTML = html;
+  resultArea.removeAttribute('hidden');
+  resultArea.scrollIntoView({behavior:'smooth', block:'start'});
 
   var ns = el('vcxNewSearch');
   if(ns) ns.addEventListener('click', function(){
-    resultArea.style.display = 'none';
+    resultArea.setAttribute('hidden', '');
     resultArea.innerHTML = '';
     setStatus('');
     checkConsentGates();

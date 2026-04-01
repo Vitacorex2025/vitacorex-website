@@ -1,4 +1,21 @@
 
+/* ============================================================
+   VCX HERO FOUC PREVENTION — fires immediately, no JS needed
+   ============================================================ */
+.hero-video video,
+.hero-video img {
+  display: none !important;
+  visibility: hidden !important;
+}
+.hero-video {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -5%, rgba(44,94,141,.28) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 42% at 12% 44%, rgba(191,150,80,.08) 0%, transparent 52%),
+    linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
 :root{
   --vcx-ink:#0e233a;
   --vcx-muted:#445d76;
@@ -399,4 +416,260 @@ body.vcx-premium-polish .hero-copy h1{
 body.vcx-premium-polish .hero-copy .lead,
 body.vcx-premium-polish .hero-copy p{
   color:#25405a !important;
+}
+
+
+/* ==========================================================
+   CRITICAL FIX: .reveal opacity:0 -> force visible
+   IntersectionObserver never fires in static/PDF rendering.
+   Without JS, all .reveal elements stay invisible.
+   ========================================================== */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+[data-animate], .fade-in, .slide-up, .scroll-reveal, .vcx-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* PREVENT HERO VIDEO FLASH - vcx-preload class added by inline script */
+html.vcx-preload .hero-video video,
+html.vcx-preload .hero-video img {
+  display: none !important;
+  visibility: hidden !important;
+}
+html.vcx-preload .hero-video {
+  background: linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
+}
+
+/* Authority cards baseline readability (before vcx-premium-polish loads) */
+.authority-card h3, .authority-case h3, .impact-card h3, .widget-card h3 { color: #f5f8fd; }
+.authority-card p, .authority-case p, .impact-card p, .widget-card p, .authority-list li { color: #c8d8ea; }
+
+/* ========================================================
+   VCX PREMIUM DESIGN SYSTEM - LUXURY UPGRADE
+   ======================================================== */
+
+/* TYPOGRAPHY - Premium serif headings */
+body.vcx-premium-polish h1,
+body.vcx-premium-polish h2,
+body.vcx-premium-polish .hero-copy h1,
+body.vcx-premium-polish .section-h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: #0d1f32 !important;
+}
+
+body.vcx-premium-polish h3,
+body.vcx-premium-polish .card-title,
+body.vcx-premium-polish .service-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  color: #112538 !important;
+}
+
+/* EYEBROW LABELS - Gold accent */
+body.vcx-premium-polish .eyebrow,
+body.vcx-premium-polish .section-eyebrow,
+body.vcx-premium-polish .card-eyebrow {
+  color: #bf9650 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+}
+
+/* BODY TEXT - High contrast readable */
+body.vcx-premium-polish p,
+body.vcx-premium-polish li,
+body.vcx-premium-polish .section-intro,
+body.vcx-premium-polish .card p {
+  color: #1a3050 !important;
+  line-height: 1.72 !important;
+}
+
+body.vcx-premium-polish .lead,
+body.vcx-premium-polish .section-lead {
+  color: #1e3d5c !important;
+  font-size: 1.08em !important;
+}
+
+/* CARDS - Luxury white with gold border accent */
+body.vcx-premium-polish .card,
+body.vcx-premium-polish .service-card,
+body.vcx-premium-polish .proof-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(191,150,80,.18) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 24px rgba(12,26,44,.06), 0 1px 4px rgba(12,26,44,.04) !important;
+}
+
+/* BUTTONS - Premium dark navy + gold */
+body.vcx-premium-polish .btn-primary,
+body.vcx-premium-polish .cta-btn,
+body.vcx-premium-polish .vcx-cta-btn {
+  background: linear-gradient(135deg, #0d2038 0%, #162d47 100%) !important;
+  color: #e8d9bc !important;
+  border: 1px solid rgba(191,150,80,.35) !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  padding: 12px 28px !important;
+}
+
+/* SECTIONS - Subtle premium backgrounds */
+body.vcx-premium-polish .section-alt,
+body.vcx-premium-polish .section--alt,
+body.vcx-premium-polish .bg-soft {
+  background: #f6f9fc !important;
+}
+
+/* PROOF PILLS / BADGES */
+body.vcx-premium-polish .proof-pill,
+body.vcx-premium-polish .badge,
+body.vcx-premium-polish .tag {
+  background: rgba(191,150,80,.10) !important;
+  color: #7a5c20 !important;
+  border: 1px solid rgba(191,150,80,.25) !important;
+  border-radius: 100px !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  padding: 4px 12px !important;
+}
+
+/* NAVIGATION - Glass effect premium header */
+body.vcx-premium-polish .vcx-header {
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(16px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.8) !important;
+  border-bottom: 1px solid rgba(191,150,80,.15) !important;
+  box-shadow: 0 1px 12px rgba(12,26,44,.06) !important;
+}
+
+body.vcx-premium-polish .vcx-main-nav a {
+  color: #1a3050 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+body.vcx-premium-polish .vcx-main-nav a:hover,
+body.vcx-premium-polish .vcx-main-nav a.active {
+  color: #bf9650 !important;
+}
+
+/* FOOTER - Dark premium */
+body.vcx-premium-polish footer,
+body.vcx-premium-polish .site-footer,
+body.vcx-premium-polish .vcx-footer {
+  background: #0a1929 !important;
+  color: #8a9db5 !important;
+}
+
+body.vcx-premium-polish .site-footer a,
+body.vcx-premium-polish .vcx-footer a {
+  color: #8a9db5 !important;
+  text-decoration: none !important;
+}
+
+body.vcx-premium-polish .site-footer a:hover,
+body.vcx-premium-polish .vcx-footer a:hover {
+  color: #bf9650 !important;
+}
+
+/* STATS / NUMBERS */
+body.vcx-premium-polish .stat-number,
+body.vcx-premium-polish .metric-value,
+body.vcx-premium-polish .count-up {
+  font-family: 'Cormorant Garamond', serif !important;
+  color: #0d1f32 !important;
+  font-weight: 700 !important;
+}
+
+/* FORM INPUTS - Premium styling */
+body.vcx-premium-polish input[type=text],
+body.vcx-premium-polish input[type=email],
+body.vcx-premium-polish input[type=number],
+body.vcx-premium-polish select,
+body.vcx-premium-polish textarea {
+  border: 1px solid rgba(26,48,80,.2) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  color: #0d1f32 !important;
+  background: #ffffff !important;
+}
+
+body.vcx-premium-polish input:focus,
+body.vcx-premium-polish select:focus,
+body.vcx-premium-polish textarea:focus {
+  border-color: #bf9650 !important;
+  box-shadow: 0 0 0 3px rgba(191,150,80,.12) !important;
+  outline: none !important;
+}
+
+/* LINKS */
+body.vcx-premium-polish a { color: #1a5489 !important; }
+body.vcx-premium-polish a:hover { color: #bf9650 !important; }
+
+/* SCROLLBAR - Premium thin gold */
+body.vcx-premium-polish ::-webkit-scrollbar { width: 4px !important; }
+body.vcx-premium-polish ::-webkit-scrollbar-track { background: #f0f4f8 !important; }
+body.vcx-premium-polish ::-webkit-scrollbar-thumb {
+  background: rgba(191,150,80,.4) !important;
+  border-radius: 4px !important;
+}
+
+/* Authority cards keep dark theme inside premium-polish */
+body.vcx-premium-polish .authority-card,
+body.vcx-premium-polish .authority-case,
+body.vcx-premium-polish .impact-card,
+body.vcx-premium-polish .widget-card {
+  background:
+    radial-gradient(700px 220px at 100% 0%, rgba(216,186,125,.10), transparent 48%),
+    linear-gradient(180deg, #07101a 0%, #0b1522 100%) !important;
+  color: #eef4fc !important;
+}
+
+body.vcx-premium-polish .authority-card h2,
+body.vcx-premium-polish .authority-card h3,
+body.vcx-premium-polish .authority-case h2,
+body.vcx-premium-polish .authority-case h3,
+body.vcx-premium-polish .impact-card h2,
+body.vcx-premium-polish .impact-card h3,
+body.vcx-premium-polish .widget-card h2,
+body.vcx-premium-polish .widget-card h3 {
+  color: #f5f8fd !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+}
+
+body.vcx-premium-polish .authority-card p,
+body.vcx-premium-polish .authority-case p,
+body.vcx-premium-polish .impact-card p,
+body.vcx-premium-polish .widget-card p,
+body.vcx-premium-polish .authority-list li {
+  color: #c8d8ea !important;
+}
+
+body.vcx-premium-polish .chip-cloud .pill,
+body.vcx-premium-polish .authority-section .pill,
+body.vcx-premium-polish .widgets-section .pill {
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  color: #dbe5f1 !important;
+}
+
+/* Band sections - soft tint not pure white */
+body.vcx-premium-polish .section.band,
+body.vcx-premium-polish section.band {
+  background: linear-gradient(180deg, rgba(246,249,252,.96), rgba(240,245,250,.88)) !important;
+  border-top: 1px solid rgba(191,150,80,.08) !important;
+  border-bottom: 1px solid rgba(191,150,80,.08) !important;
 }

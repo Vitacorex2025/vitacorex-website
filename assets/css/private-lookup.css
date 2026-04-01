@@ -1787,3 +1787,77 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
     padding: 104px 80px 88px;
   }
 }
+
+/* ============================================================
+   RESULT CARDS — portal link style
+   ============================================================ */
+.vcx-result-card {
+  background: #fff;
+  border: 1px solid rgba(191,150,80,.2);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 24px;
+  box-shadow: 0 4px 24px rgba(12,26,44,.08);
+}
+.vcx-result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.vcx-result-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #0d1f32;
+  margin: 0;
+}
+.vcx-result-icon { font-size: 1.6rem; }
+.vcx-result-intro { color: #1a3050; margin-bottom: 20px; }
+.vcx-portal-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.vcx-portal-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+  background: #f6f9fc;
+  border: 1px solid rgba(26,48,80,.12);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.vcx-portal-link:hover {
+  background: #fff;
+  border-color: rgba(191,150,80,.35);
+  box-shadow: 0 2px 12px rgba(12,26,44,.08);
+  transform: translateX(3px);
+}
+.vcx-portal-link.vcx-portal-primary {
+  background: #0d2038;
+  border-color: rgba(191,150,80,.3);
+}
+.vcx-portal-link.vcx-portal-primary .vcx-portal-name { color: #e8d9bc; }
+.vcx-portal-link.vcx-portal-primary .vcx-portal-desc { color: rgba(232,217,188,.65); }
+.vcx-portal-link.vcx-portal-primary:hover { background: #162d47; }
+.vcx-portal-name { font-weight: 600; font-size: 14px; color: #0d1f32; }
+.vcx-portal-desc { font-size: 12px; color: #4a6785; }
+.vcx-result-ref { font-size: 13px; color: #4a6785; margin-bottom: 16px; }
+.vcx-result-disc { font-size: 12px; color: #6a8099; margin-bottom: 10px; }
+.vcx-cta-link {
+  display: inline-block;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #0d2038 0%, #162d47 100%);
+  color: #e8d9bc;
+  border: 1px solid rgba(191,150,80,.3);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.25s ease;
+}
+.vcx-cta-link:hover {
+  background: linear-gradient(135deg, #162d47 0%, #1e3d5c 100%);
+  color: #f0e4c8;
+  border-color: rgba(191,150,80,.55);
+  box-shadow: 0 4px 16px rgba(12,26,44,.2);
+}
