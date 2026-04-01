@@ -110,7 +110,7 @@ order_services:'Order Services',clock_local_sub:'Local',services_individuals_tit
   careers_mobile_button2:'Abrir formulario de solicitud',gate_success:'Acceso concedido. Abriendo el recurso.',gate_failure:'No se pudo enviar. Inténtelo otra vez o use el correo.',
   role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.',web_project_cta:'Solicitud de sitio web',web_project_title:'Solicitud de sitio web',web_project_intro:'Cuéntenos sobre su proyecto de sitio web y presupuesto. Revisaremos la solicitud y nos pondremos en contacto con usted con el siguiente paso.',web_project_field_name:'Nombre',web_project_field_company:'Empresa',web_project_field_phone:'Teléfono',web_project_field_email:'Correo electrónico',web_project_field_budget:'Presupuesto',web_project_budget_placeholder:'Seleccione presupuesto',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'Más de $40,000',web_project_notes_label:'Notas del proyecto (opcional)',web_project_notes_placeholder:'Describa brevemente el tipo de sitio web o proyecto que desea.',web_project_submit:'Enviar solicitud',web_project_success:'Gracias. Su solicitud ha sido recibida. La revisaremos y nos pondremos en contacto con usted.',web_project_error:'Algo salió mal. Por favor, inténtelo de nuevo.',web_project_validation:'Por favor, complete todos los campos obligatorios antes de enviar.'}
 };
-let lang=(localStorage.getItem('vcx_lang')||document.documentElement.getAttribute('lang')||'en').toLowerCase();
+let lang='en';
 function tr(key){return (extra[lang]&&extra[lang][key]) || (page[lang]&&page[lang][key]) || (common[lang]&&common[lang][key]) || (extra.en&&extra.en[key]) || (page.en&&page.en[key]) || (common.en&&common.en[key]) || '';}
 function statusText(key, fallback){ return tr(key) || fallback || ''; }
 function setStatus(el, type, message){
@@ -698,7 +698,7 @@ improveMobileFileInput();
 
 
 (function(){
-  function vcxCurrentLang(){ var l=localStorage.getItem('vcx_lang'); return (l==='ru'||l==='es')?l:'en'; }
+  function vcxCurrentLang(){ return 'en'; }
 
   const hardCopy = {
     en: {
@@ -861,8 +861,7 @@ improveMobileFileInput();
 
 (function(){
   function currentLang(){
-    const saved = localStorage.getItem('vcx_lang');
-    return ['en','ru','es'].includes(saved) ? saved : 'en';
+    return 'en';
   }
   const v52Copy = {
     en:{

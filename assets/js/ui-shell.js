@@ -111,7 +111,13 @@
       if(link.dataset.vcxBound) return;
       link.dataset.vcxBound = '1';
       link.addEventListener('click', ()=> setOpen(false));
-      link.addEventListener('touchend', ()=> setOpen(false), {passive:true});
+      link.addEventListener('touchend', ()=>{
+        setOpen(false);
+        // iOS: explicitly navigate — hiding nav before the synthesized click
+        // prevents the browser from following the href
+        const href = link.getAttribute('href');
+        if(href) window.location.href = href;
+      }, {passive:true});
     });
 
     safeOn(document, 'click', (event)=>{

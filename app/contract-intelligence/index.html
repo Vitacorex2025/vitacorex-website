@@ -179,7 +179,7 @@ window.SITE_I18N = {
   }
 };
 (function(){
-  var lang = (function(){ var s=localStorage.getItem('vcx_lang'); return ['en','ru','es'].includes(s)?s:'en'; })();
+  var lang = 'en';
   document.documentElement.lang = lang;
   window._vcxLang = lang;
 })();
@@ -410,7 +410,7 @@ window.SITE_I18N = {
 
 // helpers
 function el(id) { return document.getElementById(id); }
-function lang() { var l=localStorage.getItem('vcx_lang'); return(l==='ru'||l==='es')?l:'en'; }
+function lang() { return 'en'; }
 function t(k) {
   var d=window.SITE_I18N;
   if(!d) return k;

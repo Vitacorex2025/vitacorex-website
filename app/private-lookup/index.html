@@ -99,8 +99,7 @@ Object.assign(window.SITE_I18N.es, {
   disc:"VitaCoreX no es un bufete de abogados y no procesa pagos gubernamentales."
 });
 (function(){
-  var lang=(localStorage.getItem('vcx_lang')||'en');
-  if(!['en','ru','es'].includes(lang)) lang='en';
+  var lang='en';
   document.documentElement.lang=lang;
   window._vcxLang=lang;
 })();
@@ -532,7 +531,7 @@ Object.assign(window.SITE_I18N.es, {
 // i18n + lang switcher for private-lookup page
 (function(){
   function t(key){
-    var lang=(localStorage.getItem('vcx_lang')||'en');
+    var lang='en';
     var si=window.SITE_I18N;
     return (si&&si[lang]&&si[lang][key])||(si&&si.en&&si.en[key])||key;
   }

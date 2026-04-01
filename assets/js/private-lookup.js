@@ -26,7 +26,7 @@ if(!payBtn) return; // tool not on this page
 
 // ── i18n helper ──────────────────────────────────────────────────────────
 function t(key, vars){
-  var lang = (localStorage.getItem('vcx_lang') || 'en');
+  var lang = 'en';
   var val = '';
   try {
     var si = window.SITE_I18N;
@@ -403,7 +403,7 @@ function renderResults(data){
   // Re-apply translations to newly rendered buttons
   if(window.SITE_I18N){
     try {
-      var lang2 = localStorage.getItem('vcx_lang') || 'en';
+      var lang2 = 'en';
       resultArea.querySelectorAll('[data-tx]').forEach(function(e2){
         var v = window.SITE_I18N[lang2] && window.SITE_I18N[lang2][e2.dataset.tx];
         if(v) e2.textContent = v;
