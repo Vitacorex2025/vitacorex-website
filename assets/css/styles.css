@@ -994,3 +994,273 @@ body{
   outline:2px solid rgba(24,77,122,.22);
   outline-offset:2px;
 }
+
+
+/* v60 luxury standard refinement */
+:root{
+  --vcx-cream:#f5efe6;
+  --vcx-ink-deep:#0b1625;
+  --vcx-muted-deep:#4d5f74;
+  --vcx-navy-deep:#0f2035;
+  --vcx-gold-soft:#d9c29b;
+  --vcx-shadow-lux:0 28px 88px rgba(9,22,38,.12);
+}
+body{
+  background:
+    radial-gradient(1200px 540px at 15% 0%, rgba(217,194,155,.14), transparent 56%),
+    radial-gradient(960px 480px at 85% 10%, rgba(78,119,165,.10), transparent 54%),
+    linear-gradient(180deg,#eef4fa 0%,#fbf8f2 26%,#f7fafd 58%,#edf2f7 100%);
+  color:var(--vcx-ink-deep);
+}
+.hero h1,
+.section-head h2,
+.proof-band h2,
+.cta-banner h2,
+.concierge-panel h2,
+.contact-concierge h2,
+.footer-group h3{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  letter-spacing:-.02em;
+  text-wrap:balance;
+}
+h1{
+  font-size:clamp(2.8rem,4.8vw,5rem);
+  line-height:.94;
+  max-width:13ch;
+  color:var(--vcx-ink-deep);
+}
+.section-head h2,
+.proof-band h2,
+.cta-banner h2,
+.concierge-panel h2,
+.contact-concierge h2{
+  font-size:clamp(2rem,3.2vw,3.18rem);
+  line-height:.98;
+  color:var(--vcx-ink-deep);
+}
+.lead,.section-intro,p,.small-note{
+  color:var(--vcx-muted-deep);
+}
+.section{
+  padding:42px 0;
+}
+.section-head{
+  max-width:780px;
+  margin-bottom:22px;
+}
+.hero-copy,
+.lux-card,
+.audience-card,
+.pilot-panel,
+.proof-band,
+.cta-banner,
+.resource-card,
+.widget-card,
+.legal-chart-card,
+.contact-master-card,
+.contact-route-card,
+.card,
+.glass,
+.problem-item{
+  border-radius:28px;
+}
+.card,
+.glass,
+.problem-item,
+.lux-card,
+.audience-card,
+.pilot-panel,
+.proof-band,
+.cta-banner,
+.resource-card,
+.widget-card,
+.legal-chart-card,
+.contact-master-card,
+.contact-route-card,
+.premium-module{
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--vcx-shadow-lux);
+  border-color:rgba(255,255,255,.60);
+}
+.card::before,
+.glass::before,
+.problem-item::before,
+.lux-card::before,
+.audience-card::before,
+.pilot-panel::before,
+.proof-band::before,
+.cta-banner::before,
+.resource-card::before,
+.widget-card::before,
+.legal-chart-card::before,
+.contact-master-card::before,
+.contact-route-card::before,
+.premium-module::before,
+.concierge-panel::before,
+.contact-concierge::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.82),rgba(255,255,255,0));
+  pointer-events:none;
+}
+.hero-copy{
+  padding:34px;
+}
+.eyebrow{
+  letter-spacing:.14em;
+  background:rgba(255,255,255,.78);
+  color:#11253d;
+}
+.btn{
+  min-height:54px;
+  padding:0 22px;
+  letter-spacing:.01em;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#10243b,#244568);
+  box-shadow:0 18px 38px rgba(16,36,59,.20);
+}
+.btn-secondary{
+  background:rgba(255,255,255,.92);
+  border-color:rgba(13,31,52,.10);
+}
+.btn-secondary:hover,
+.btn-primary:hover{
+  box-shadow:0 22px 42px rgba(13,31,52,.18);
+}
+.proof-pill,
+.workflow-chip,
+.pill{
+  box-shadow:0 10px 24px rgba(13,31,52,.08);
+}
+.resource-card .meta,
+.cta-row{
+  row-gap:12px;
+}
+.footer{
+  position:relative;
+  padding:38px 0 50px;
+  background:linear-gradient(180deg,#0e1b2d 0%,#09111d 100%);
+  color:#edf2f7;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(900px 360px at 15% 0%, rgba(217,194,155,.12), transparent 60%);
+  pointer-events:none;
+}
+.footer .footer-grid{
+  position:relative;
+  z-index:1;
+  grid-template-columns:1.25fr .75fr;
+}
+.footer .footer-group{
+  padding:24px;
+  border-radius:26px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:none;
+}
+.footer .footer-group h3{
+  color:#f6f9fd;
+  margin:0 0 12px;
+}
+.footer .small-note,
+.footer .footer-links a{
+  color:rgba(237,242,247,.84);
+}
+.footer .footer-links a:hover,
+.footer .footer-links a:focus-visible{
+  color:#fff;
+}
+.concierge-panel,
+.contact-concierge{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:22px;
+  align-items:center;
+  padding:32px;
+  margin-top:24px;
+  background:
+    linear-gradient(135deg,#10233a 0%,#16304c 55%,#1b3959 100%),
+    radial-gradient(120% 140% at 0% 0%, rgba(217,194,155,.18), transparent 42%);
+  color:#f4f7fb;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 34px 92px rgba(7,18,30,.20);
+}
+.concierge-panel .eyebrow,
+.contact-concierge .eyebrow{
+  background:rgba(255,255,255,.12);
+  color:#f5f7fb;
+  box-shadow:none;
+}
+.concierge-panel .eyebrow::before,
+.contact-concierge .eyebrow::before{
+  background:var(--vcx-gold-soft);
+}
+.concierge-panel h2,
+.contact-concierge h2{
+  color:#f4f7fb;
+  margin:10px 0 12px;
+  max-width:16ch;
+}
+.concierge-panel p,
+.contact-concierge p,
+.concierge-panel .section-intro,
+.contact-concierge .section-intro{
+  color:rgba(236,242,248,.84);
+  margin-bottom:0;
+}
+.concierge-phone{
+  padding:22px 24px;
+  border-radius:24px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.12);
+  margin-bottom:16px;
+}
+.concierge-phone span,
+.concierge-phone small{
+  display:block;
+}
+.concierge-phone span{
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(244,247,251,.72);
+}
+.concierge-phone strong{
+  display:block;
+  margin-top:8px;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:2.45rem;
+  line-height:.96;
+  color:#fff;
+}
+.concierge-phone small{
+  margin-top:10px;
+  font-size:.86rem;
+  color:rgba(236,242,248,.70);
+}
+.contact-master-card > .grid-2 > .card,
+.contact-master-card > .contact-concierge{
+  box-shadow:0 22px 56px rgba(11,26,41,.10);
+}
+@media (max-width:1100px){
+  .section{padding:36px 0;}
+  .footer .footer-grid,
+  .concierge-panel,
+  .contact-concierge{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .hero-copy{padding:26px;}
+  .concierge-panel,
+  .contact-concierge{padding:24px;}
+  .concierge-phone strong{font-size:2rem;}
+  .footer .footer-group{padding:20px;}
+}
