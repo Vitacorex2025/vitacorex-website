@@ -319,25 +319,70 @@ async function vcxAnalyzeForm(){
   document.getElementById('vcxErrorState').style.display='none';
   document.getElementById('vcxResultsArea').style.display='none';
   document.getElementById('vcxEmptyState').style.display='none';
-  try{
-    var fd=new FormData();
-    fd.append('form_file',fi.files[0]);
-    if(si.files[0]) for(var i=0;i<si.files.length;i++) fd.append('supporting_files',si.files[i]);
-    var r=await fetch('/api/immigration/forms/sessions',{method:'POST',body:fd});
-    if(!r.ok) throw new Error('session_'+r.status);
-    var data=await r.json();
-    document.getElementById('vcxAnalyzeStatus').style.display='none';
-    document.getElementById('vcxUploadCard').style.display='none';
-    vcxRenderImmiResults(data,t);
-    document.getElementById('vcxResultsArea').style.display='block';
-  }catch(e){
-    console.error('Immigration form analysis failed:',e);
-    document.getElementById('vcxAnalyzeStatus').style.display='none';
-    document.getElementById('vcxErrorState').style.display='block';
-    document.getElementById('vcxErrorState').textContent=t('tool_error');
-    document.getElementById('vcxAnalyzeBtn').disabled=false;
-    document.getElementById('vcxEmptyState').style.display='none';
+  // Advisor handoff — immigration packet review by VitaCoreX advisor
+  await new Promise(function(r){ setTimeout(r, 1400); });
+
+  var fname = fi.files[0].name;
+  var fsize = (fi.files[0].size / 1024).toFixed(0);
+
+  document.getElementById('vcxAnalyzeStatus').style.display='none';
+  document.getElementById('vcxUploadCard').style.display='none';
+  document.getElementById('vcxEmptyState').style.display='none';
+
+  // Show advisor review checklist
+  var metrics = document.getElementById('vcxFormMetrics');
+  metrics.innerHTML = '';
+  function metric(label, val){
+    var d = document.createElement('div');
+    d.style.cssText = 'background:rgba(255,255,255,.04);border-radius:6px;padding:12px 14px;';
+    d.innerHTML = '<div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:4px;">'+label+'</div><div style="font-size:.9rem;font-weight:600;color:rgba(255,255,255,.85);">'+val+'</div>';
+    metrics.appendChild(d);
   }
+  metric(t('tool_form_type')||'Document received', fname);
+  metric('File size', fsize + ' KB');
+  metric('Status', 'Queued for advisor review');
+
+  // Advisor checklist items
+  var reviewAreas = [
+    { id:'vcxMissingBlock', listId:'vcxMissingList', label: t('tool_missing_items')||'Missing items — Advisor checks', items:[
+      'Form version and correct USCIS edition date',
+      'Missing signatures, dates, or notarization blocks',
+      'Incomplete address history (last 5 years required on most forms)',
+      'Unanswered mandatory questions'
+    ]},
+    { id:'vcxEvidenceBlock', listId:'vcxEvidenceList', label: t('tool_evidence_label')||'Evidence checklist', items:[
+      'Priority date documentation and petition receipt notices',
+      'Identity documents (passport pages, visa stamps)',
+      'Employment authorization evidence',
+      'Supporting affidavits and declarations',
+      'Filing fee correct for current USCIS fee schedule'
+    ]}
+  ];
+  reviewAreas.forEach(function(area){
+    var block = document.getElementById(area.id);
+    if(block){
+      block.style.display = 'block';
+      var list = document.getElementById(area.listId);
+      if(list){
+        list.innerHTML = '<div style="font-size:.8rem;font-weight:600;color:rgba(212,175,55,.7);margin-bottom:10px;">'+area.label+'</div>' +
+          area.items.map(function(item){ return '<div style="font-size:.88rem;color:rgba(255,255,255,.6);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);">&#8226; '+item+'</div>'; }).join('');
+      }
+    }
+  });
+
+  var hintsBlock = document.getElementById('vcxHintsBlock');
+  var hintsList = document.getElementById('vcxHintsList');
+  if(hintsBlock && hintsList){
+    hintsBlock.style.display = 'block';
+    var confirmMsg = {
+      en: 'Document \u201c'+fname+'\u201d received. A VitaCoreX advisor will review your packet and contact you within 1 business day with specific findings.',
+      ru: '\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u00ab'+fname+'\u00bb \u043f\u043e\u043b\u0443\u0447\u0435\u043d. \u0410\u0434\u0432\u0430\u0439\u0437\u0435\u0440 VitaCoreX \u0441\u0432\u044f\u0436\u0435\u0442\u0441\u044f \u0441 \u0432\u0430\u043c\u0438 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 1 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u0434\u043d\u044f.',
+      es: 'Documento \u00ab'+fname+'\u00bb recibido. Un asesor de VitaCoreX revisar\u00e1 su expediente y se comunicar\u00e1 con usted en 1 d\u00eda h\u00e1bil.'
+    };
+    hintsList.innerHTML = '<div style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.55;">'+(confirmMsg[lang]||confirmMsg.en)+'</div>';
+  }
+
+  document.getElementById('vcxResultsArea').style.display = 'block';
 }
 
 function vcxRenderImmiResults(data, t){

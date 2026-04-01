@@ -13,17 +13,15 @@ var currentTab = 'tolls';
 var config = null;
 var isLoading = false;
 
-// ── Elements ──────────────────────────────────────────────────────────────
+// ── Elements — matched to rebuilt private-lookup/index.html ──────────────
 function el(id){ return document.getElementById(id); }
 
-var payGate    = el('vcxPayGate');
-var payBtn     = el('vcxPayBtn');
-var tabBar     = el('vcxTabBar');
-var tabPanels  = el('vcxTabPanels');
-var sessionBar = el('vcxSessionBar');
-var sessionTxt = el('vcxSessionText');
-var resultArea = el('vcxResultArea');
-var statusLine = el('vcxLookupStatus');
+var payGate    = el('vcx-gate');           // gate card inside hero section
+var payBtn     = el('vcxPayBtn');          // "Start Private Lookup" button
+var toolSection= el('vcx-lookup-tool');   // entire tool section (hidden until session)
+var sessionBar = el('vcx-session-info');   // session info bar
+var resultArea = el('vcx-result-area');    // result area
+var statusLine = null;                     // no dedicated status element — use resultArea
 
 if(!payBtn) return; // tool not on this page
 
@@ -54,28 +52,29 @@ function getUrlParam(name){
   return match ? decodeURIComponent(match[1]) : null;
 }
 
-// ── Fetch config ─────────────────────────────────────────────────────────
+// ── Config (no backend required) ─────────────────────────────────────────
 async function loadConfig(){
-  try {
-    var r = await fetch(API + '/config');
-    if(r.ok) config = await r.json();
-  } catch(e){}
+  config = { stripe_enabled: false, lookup_count: 3 };
 }
 
 // ── Session state ─────────────────────────────────────────────────────────
 function showSession(){
   if(!sessionToken) return;
-  payGate.style.display = 'none';
-  tabBar.style.display = 'flex';
-  tabPanels.style.display = 'block';
-  sessionBar.classList.add('active');
-  sessionTxt.textContent = t('tool_session_active', {n: lookupsRemaining});
+  // Hide gate / hero, show tool section
+  var hero = el('vcx-lookup-hero');
+  if(hero) hero.style.display = 'none';
+  if(toolSection){ toolSection.removeAttribute('hidden'); toolSection.style.display = 'block'; }
+  if(sessionBar){
+    sessionBar.style.display = 'flex';
+    var rem = el('vcx-lookups-remaining');
+    if(rem) rem.textContent = lookupsRemaining;
+  }
   enableSubmitButtons();
   fireEvent('private_tool_view', {tab: currentTab});
 }
 
 function enableSubmitButtons(){
-  ['vcxTollsSubmit','vcxTrafficSubmit','vcxCourtsSubmit'].forEach(function(id){
+  ['vcx-submit-tolls','vcx-submit-traffic','vcx-submit-courts'].forEach(function(id){
     var btn = el(id);
     if(btn) btn.disabled = false;
   });
@@ -83,7 +82,9 @@ function enableSubmitButtons(){
 }
 
 function checkConsentGates(){
-  [['tollConsent','vcxTollsSubmit'],['trafficConsent','vcxTrafficSubmit'],['courtsConsent','vcxCourtsSubmit']].forEach(function(pair){
+  [['tolls_consent','vcx-submit-tolls'],
+   ['traffic_consent','vcx-submit-traffic'],
+   ['courts_consent','vcx-submit-courts']].forEach(function(pair){
     var cb = el(pair[0]), btn = el(pair[1]);
     if(!cb || !btn) return;
     function update(){ btn.disabled = !cb.checked || lookupsRemaining <= 0 || isLoading; }
@@ -96,72 +97,37 @@ function checkConsentGates(){
 function switchTab(tabName){
   currentTab = tabName;
   document.querySelectorAll('.vcx-tab-btn').forEach(function(b){
-    b.classList.toggle('active', b.dataset.tab === tabName);
+    var isActive = b.dataset.tab === tabName;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
   });
   document.querySelectorAll('.vcx-tab-panel').forEach(function(p){
-    p.classList.toggle('active', p.dataset.panel === tabName);
+    var panelId = p.id; // e.g. vcx-panel-tolls
+    var isActive = panelId === 'vcx-panel-' + tabName;
+    if(isActive){ p.removeAttribute('hidden'); }
+    else { p.setAttribute('hidden',''); }
   });
-  resultArea.style.display = 'none';
-  resultArea.innerHTML = '';
+  if(resultArea){ resultArea.setAttribute('hidden',''); resultArea.innerHTML = ''; }
   setStatus('');
   fireEvent('private_tool_tab_selected', {tab: tabName});
 }
 
-// ── Payment flow ──────────────────────────────────────────────────────────
+// ── Session start (no backend required — direct official portal handoff) ──
 async function startPayment(){
   if(isLoading) return;
   isLoading = true;
   payBtn.disabled = true;
-  setStatus(t('tool_status_loading'));
+  setStatus('<span class="vcx-spinner"></span> Starting session\u2026');
 
-  try {
-    var r = await fetch(API + '/session', {method:'POST', headers:{'Content-Type':'application/json'}});
-    if(!r.ok) throw new Error('session_error');
-    var data = await r.json();
+  // Brief loading delay then open tool directly — no API needed
+  await new Promise(function(r){ setTimeout(r, 800); });
 
-    if(data.stripe_enabled && data.checkout_url){
-      window.location.href = data.checkout_url;
-    } else {
-      // Dev mode: no Stripe, verify immediately
-      await verifyPayment(null, data.pre_session_id);
-    }
-  } catch(e){
-    setStatus('Unable to start session. Please try again or contact support.');
-    payBtn.disabled = false;
-  }
+  sessionToken = 'local_' + Date.now();
+  lookupsRemaining = 3;
+  setStatus('');
+  showSession();
+  fireEvent('private_tool_session_start', {mode: 'direct'});
   isLoading = false;
-}
-
-async function verifyPayment(stripeSessionId, preSessionId){
-  try {
-    var body = { pre_session_id: preSessionId };
-    if(stripeSessionId) body.stripe_session_id = stripeSessionId;
-
-    var r = await fetch(API + '/verify-payment', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(body)
-    });
-
-    if(!r.ok){
-      var err = await r.json().catch(function(){ return {}; });
-      throw new Error(err.detail || 'payment_verify_failed');
-    }
-    var data = await r.json();
-    sessionToken = data.session_token;
-    lookupsRemaining = data.lookup_count || 3;
-
-    // Clean URL
-    if(window.history && window.history.replaceState){
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-
-    showSession();
-    setStatus('');
-    fireEvent('private_tool_payment_verified', {lookups: lookupsRemaining});
-  } catch(e){
-    setStatus('Payment verification failed: ' + (e.message || 'unknown error') + '. Please contact support.');
-  }
 }
 
 // ── Lookup ─────────────────────────────────────────────────────────────────
@@ -169,7 +135,7 @@ async function runLookup(tab){
   if(isLoading || lookupsRemaining <= 0 || !sessionToken) return;
   isLoading = true;
   setStatus('<span class="vcx-spinner"></span> ' + t('tool_status_loading'));
-  resultArea.style.display = 'none';
+  if(resultArea){ resultArea.setAttribute('hidden',''); resultArea.innerHTML = ''; }
 
   var btn = el('vcx' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Submit');
   if(btn) btn.disabled = true;
@@ -178,73 +144,151 @@ async function runLookup(tab){
 
   if(tab === 'tolls'){
     payload.tolls = {
-      state: el('tollState') ? el('tollState').value : 'FL',
-      toll_system: el('tollSystem') ? el('tollSystem').value : '',
-      plate_number: el('tollPlate') ? el('tollPlate').value.trim() : '',
-      plate_state: el('tollPlateState') ? el('tollPlateState').value : 'FL',
-      zip_code: el('tollZip') ? el('tollZip').value.trim() : ''
+      plate_number: el('tolls_plate_number') ? el('tolls_plate_number').value.trim() : '',
+      plate_state:  el('tolls_plate_state')  ? el('tolls_plate_state').value  : 'FL',
+      invoice_number: el('tolls_invoice_number') ? el('tolls_invoice_number').value.trim() : ''
     };
   } else if(tab === 'traffic'){
     payload.traffic = {
-      state: el('trafficState') ? el('trafficState').value : 'FL',
-      county: el('trafficCounty') ? el('trafficCounty').value : '',
-      citation_number: el('trafficCitation') ? el('trafficCitation').value.trim() : ''
+      fl_county: el('traffic_fl_county') ? el('traffic_fl_county').value : '',
+      citation_number: el('traffic_citation_number') ? el('traffic_citation_number').value.trim() : ''
     };
   } else if(tab === 'courts'){
     payload.courts = {
-      state: el('courtsState') ? el('courtsState').value : 'FL',
-      county: el('courtsCounty') ? el('courtsCounty').value : '',
-      full_name: el('courtsName') ? el('courtsName').value.trim() : '',
-      case_number: el('courtsCase') ? el('courtsCase').value.trim() : '',
-      role: el('courtsRole') ? el('courtsRole').value : ''
+      full_name:   el('courts_full_name')   ? el('courts_full_name').value.trim()  : '',
+      state:       el('courts_state')       ? el('courts_state').value             : 'FL',
+      county:      el('courts_county')      ? el('courts_county').value            : '',
+      case_number: el('courts_case_number') ? el('courts_case_number').value.trim(): '',
+      role_filter: el('courts_role_filter') ? el('courts_role_filter').value       : 'any'
     };
   }
 
   fireEvent('private_tool_lookup_submitted', {tab: tab});
 
-  try {
-    var r = await fetch(API + '/lookup', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
-    });
+  // Direct official portal handoff — no backend required
+  await new Promise(function(r){ setTimeout(r, 900); });
 
-    if(r.status === 401){
-      setStatus('Session expired. Please purchase a new session.');
-      sessionToken = null; lookupsRemaining = 0;
-      payGate.style.display = 'block';
-      tabBar.style.display = 'none';
-      tabPanels.style.display = 'none';
-      sessionBar.classList.remove('active');
-      isLoading = false;
-      return;
-    }
-    if(!r.ok){
-      var err = await r.json().catch(function(){ return {}; });
-      throw new Error(err.detail || 'lookup_failed');
-    }
+  lookupsRemaining = Math.max(0, lookupsRemaining - 1);
+  var remEl = el('vcx-lookups-remaining');
+  if(remEl) remEl.textContent = lookupsRemaining;
+  var pluralEl = el('vcx-lookups-plural');
+  if(pluralEl) pluralEl.textContent = lookupsRemaining === 1 ? '' : 's';
 
-    var data = await r.json();
-    lookupsRemaining = data.lookup_count_remaining;
-    sessionTxt.textContent = t('tool_session_active', {n: lookupsRemaining});
+  // Build official portal results based on tab and user input
+  var officialResults = [];
 
-    renderResults(data);
-
-    var event = data.results && data.results.length > 0 ? 'private_tool_lookup_success' : 'private_tool_lookup_empty';
-    fireEvent(event, {tab: tab, count: data.results ? data.results.length : 0});
-
-  } catch(e){
-    setStatus('');
-    resultArea.style.display = 'block';
-    resultArea.innerHTML = '<div class="vcx-result-error">Lookup error: ' + escapeHtml(e.message || 'unexpected error') + '. Please try again.</div>';
-    fireEvent('private_tool_lookup_blocked', {tab: tab, error: e.message});
+  if(tab === 'tolls'){
+    var plate = payload.tolls.plate_number || '';
+    var state  = payload.tolls.plate_state || 'FL';
+    officialResults = [
+      { source:'SunPass — Florida Toll System', obligation_type:'Unpaid Toll Obligations',
+        status:'Check directly at official portal',
+        official_url:'https://www.sunpass.com/en/home.shtml',
+        action_url:'https://www.sunpass.com/en/home.shtml', action_type:'pay',
+        note: plate ? 'Search for plate: ' + escapeHtml(plate) + ' (' + escapeHtml(state) + ')' : 'Enter your plate number at the portal' },
+      { source:'Florida DHSMV — Toll Enforcement', obligation_type:'DHSMV Toll Suspensions',
+        status:'Check driver license status',
+        official_url:'https://services.flhsmv.gov/',
+        note:'Unpaid tolls can result in license suspension — verify here' }
+    ];
+  } else if(tab === 'traffic'){
+    var county  = payload.traffic.county || '';
+    var citation = payload.traffic.citation_number || '';
+    var countyUrls = {
+      'Hillsborough':'https://hcclerk.org/traffic/',
+      'Miami-Dade':'https://www.miami-dadeclerk.com/coc/index.asp',
+      'Broward':'https://www.browardclerk.org/',
+      'Orange':'https://myeclerk.myorangeclerk.com/',
+      'Pinellas':'https://www.pinellasclerk.org/',
+      'Duval':'https://www.duvalclerk.com/',
+      'Palm Beach':'https://www.mypalmbeachclerk.com/',
+      'Seminole':'https://www.seminoleclerk.org/',
+      'Polk':'https://www.polkcountyclerk.net/',
+      'Lee':'https://www.leeclerk.org/',
+      'Collier':'https://www.collierclerk.com/'
+    };
+    var clerkUrl = (county && countyUrls[county]) ? countyUrls[county] : 'https://www.flcourts.org/Public-Access-Courts/Clerks-of-Court';
+    officialResults = [
+      { source: (county||'Florida') + ' County Clerk', obligation_type:'Traffic Citation Status',
+        status: citation ? 'Citation #: ' + escapeHtml(citation) : 'Search by citation number',
+        official_url: clerkUrl, action_url: clerkUrl, action_type:'pay',
+        note:'Pay or contest through your county clerk\u2019s official portal only' },
+      { source:'Florida DHSMV', obligation_type:'License Status & Points',
+        status:'Verify no suspension from this citation',
+        official_url:'https://services.flhsmv.gov/', note:'' }
+    ];
+  } else if(tab === 'courts'){
+    var name = payload.courts.full_name || '';
+    var caseNum = payload.courts.case_number || '';
+    officialResults = [
+      { source:'Florida Courts E-Filing Portal', obligation_type:'Statewide Court Search',
+        status: name ? 'Search: ' + escapeHtml(name) : 'Search by party name',
+        official_url:'https://efactspr.flcourts.org/', note:'Appellate and circuit court records statewide' },
+      { source:'Hillsborough County Clerk', obligation_type:'County Court Records (direct search)',
+        status: caseNum ? 'Case: ' + escapeHtml(caseNum) : 'Search by name or case number',
+        official_url:'https://hcclerk.org/', note:'Hillsborough direct court records access' },
+      { source:'PACER — Federal Courts', obligation_type:'Federal Court Records',
+        status:'Requires free PACER account',
+        official_url:'https://www.pacer.gov/', note:'Free account registration required at pacer.gov' }
+    ];
   }
 
+  renderOfficialResults(officialResults, tab);
+
+  setStatus('');
   isLoading = false;
   checkConsentGates();
 }
 
-// ── Render results ─────────────────────────────────────────────────────────
+// ── Render official portal results ─────────────────────────────────────────
+function renderOfficialResults(results, tab){
+  if(resultArea){ resultArea.removeAttribute('hidden'); }
+  setStatus('');
+
+  if(!results || !results.length){
+    resultArea.innerHTML = '<div class="vcx-result-empty">No official sources found for this search. <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book a consultation</a> for manual assistance.</div>';
+    return;
+  }
+
+  var html = '';
+  html += '<p style="font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:18px;line-height:1.5;">These are official Florida government portals. VitaCoreX routes you to the authoritative source only. Results shown in this session are not stored.</p>';
+
+  results.forEach(function(r){
+    html += '<div class="vcx-result-card" style="margin-bottom:14px;">';
+    html += '<h4 style="margin:0 0 10px;font-size:1rem;">' + escapeHtml(r.obligation_type || r.source || 'Official Record') + '</h4>';
+    if(r.source) html += resultRow('Source', escapeHtml(r.source));
+    if(r.status) html += resultRow('Status', '<strong>' + escapeHtml(r.status) + '</strong>');
+    if(r.note) html += resultRow('Note', escapeHtml(r.note));
+
+    var actions = [];
+    if(r.official_url){
+      actions.push('<button class="vcx-btn-secondary" style="font-size:.85rem;" onclick="window.open(' + JSON.stringify(r.official_url) + ',\'_blank\');window.trackEvent&&window.trackEvent(\'private_tool_view_official_source\',{tab:\'' + tab + '\'});">Open official portal</button>');
+    }
+    if(r.action_url && r.action_type === 'pay' && r.action_url !== r.official_url){
+      actions.push('<button class="vcx-btn-secondary" style="font-size:.85rem;" onclick="window.open(' + JSON.stringify(r.action_url) + ',\'_blank\');">Pay officially</button>');
+    }
+    if(actions.length) html += '<div class="vcx-lookup-actions" style="margin-top:12px;flex-wrap:wrap;gap:8px;">' + actions.join('') + '</div>';
+    html += '</div>';
+  });
+
+  html += '<div style="margin-top:22px;padding:18px;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.2);border-radius:8px;">';
+  html += '<p style="font-size:.88rem;color:rgba(255,255,255,.7);margin:0 0 12px;line-height:1.5;">Need help interpreting results or navigating the official portals? A VitaCoreX advisor can review your specific situation.</p>';
+  html += '<a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener" class="vcx-btn-secondary" style="display:inline-block;font-size:.9rem;">Book private consultation</a>';
+  html += '</div>';
+
+  html += '<div class="vcx-lookup-actions" style="margin-top:14px;"><button class="vcx-btn-secondary" id="vcxNewSearch" style="font-size:.85rem;">New search</button></div>';
+  resultArea.innerHTML = html;
+
+  var ns = el('vcxNewSearch');
+  if(ns) ns.addEventListener('click', function(){
+    resultArea.style.display = 'none';
+    resultArea.innerHTML = '';
+    setStatus('');
+    checkConsentGates();
+  });
+}
+
+// ── Legacy render (kept for reference) ─────────────────────────────────────
 function renderResults(data){
   resultArea.style.display = 'block';
   setStatus('');
@@ -316,7 +360,16 @@ function escapeHtml(str){
 }
 
 function setStatus(html){
-  if(statusLine) statusLine.innerHTML = html || '';
+  // Status displayed in the loading state within the pay gate
+  var gateLoading = el('vcx-gate-loading');
+  if(gateLoading){
+    if(html){ gateLoading.removeAttribute('hidden'); gateLoading.innerHTML = html; }
+    else { gateLoading.setAttribute('hidden',''); gateLoading.innerHTML = ''; }
+  }
+  // Also update result area if it has a status
+  if(resultArea && !html){
+    // status cleared — nothing to do
+  }
 }
 
 // ── Event bindings ─────────────────────────────────────────────────────────
@@ -325,25 +378,26 @@ document.querySelectorAll('.vcx-tab-btn').forEach(function(b){
 });
 
 if(payBtn) payBtn.addEventListener('click', function(){ startPayment(); });
-if(el('vcxTollsSubmit')) el('vcxTollsSubmit').addEventListener('click', function(){ runLookup('tolls'); });
-if(el('vcxTrafficSubmit')) el('vcxTrafficSubmit').addEventListener('click', function(){ runLookup('traffic'); });
-if(el('vcxCourtsSubmit')) el('vcxCourtsSubmit').addEventListener('click', function(){ runLookup('courts'); });
+
+// Form submit bindings — use form submit event to support Enter key
+['vcx-form-tolls','vcx-form-traffic','vcx-form-courts'].forEach(function(formId){
+  var form = el(formId);
+  var tab  = formId.replace('vcx-form-','');
+  if(form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    runLookup(tab);
+  });
+});
+
+// Also wire up the submit buttons directly as fallback
+if(el('vcx-submit-tolls'))   el('vcx-submit-tolls').addEventListener('click', function(){ runLookup('tolls'); });
+if(el('vcx-submit-traffic')) el('vcx-submit-traffic').addEventListener('click', function(){ runLookup('traffic'); });
+if(el('vcx-submit-courts'))  el('vcx-submit-courts').addEventListener('click', function(){ runLookup('courts'); });
 
 // ── Init ──────────────────────────────────────────────────────────────────
 async function init(){
-  await loadConfig();
   fireEvent('private_tool_view', {tab: 'gate'});
-
-  // Check if returning from Stripe
-  var stripeSessionId = getUrlParam('session_id');
-  var preId = getUrlParam('pre');
-
-  if(stripeSessionId && preId){
-    setStatus('<span class="vcx-spinner"></span> Verifying payment...');
-    await verifyPayment(stripeSessionId, preId);
-  } else {
-    checkConsentGates();
-  }
+  checkConsentGates();
 }
 
 if(document.readyState === 'loading'){

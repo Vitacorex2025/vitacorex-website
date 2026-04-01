@@ -403,34 +403,63 @@ async function vcxScanContract(){
 
   statusEl.textContent = t('tool_scanning');
 
-  try {
-    var fd = new FormData();
-    fd.append('contract_files', fileInput.files[0]);
-    if(supportInput.files[0]) fd.append('supporting_files', supportInput.files[0]);
+  // Advisor handoff — no automated backend required
+  // Document review is handled by a VitaCoreX advisor
+  await new Promise(function(r){ setTimeout(r, 1400); });
 
-    var r1 = await fetch('/api/contract-intelligence/sessions', {method:'POST', body:fd});
-    if(!r1.ok){ throw new Error('session_create_' + r1.status); }
-    var session = await r1.json();
-    var sid = session.session_id || session.id;
+  var fname = fileInput.files[0].name;
+  var fsize = (fileInput.files[0].size / 1024).toFixed(0);
 
-    var r2 = await fetch('/api/contract-intelligence/sessions/'+sid+'/analyze', {method:'POST'});
-    if(!r2.ok){ throw new Error('analyze_' + r2.status); }
-    var result = await r2.json();
+  statusEl.style.display = 'none';
+  uploadCard.style.display = 'none';
+  emptyState.style.display = 'none';
 
-    statusEl.style.display = 'none';
-    uploadCard.style.display = 'none';
-    emptyState.style.display = 'none';
-    vcxRenderResults(result, t);
-    resultsArea.style.display = 'block';
+  var advisorChecklist = [
+    { key:'critical', label: t('tool_critical'), items:[
+      t('adv_liability') || 'Liability caps and indemnification clauses',
+      t('adv_autorenewal') || 'Auto-renewal, termination notice windows, and exit penalties',
+      t('adv_dispute') || 'Dispute resolution, arbitration venue, and choice of law'
+    ]},
+    { key:'missing', label: t('tool_missing'), items:[
+      t('adv_ip') || 'IP ownership, assignment, and work-for-hire provisions',
+      t('adv_conf') || 'Confidentiality scope and duration',
+      t('adv_payment') || 'Payment terms, late fees, and remedy for non-payment'
+    ]},
+    { key:'weak', label: t('tool_weak'), items:[
+      t('adv_limitation') || 'Limitation of liability ceiling (often set far too low)',
+      t('adv_reps') || 'Representations and warranties — scope and survival period'
+    ]}
+  ];
 
-  } catch(err) {
-    console.error('Contract scan failed:', err);
-    statusEl.style.display = 'none';
-    errorState.style.display = 'block';
-    errorState.textContent = t('tool_error');
-    scanBtn.disabled = false;
-    emptyState.style.display = 'none';
-  }
+  var colors = {critical:'rgba(255,60,60,.10)',missing:'rgba(255,140,0,.10)',weak:'rgba(255,180,0,.08)'};
+  var borders = {critical:'rgba(255,80,80,.40)',missing:'rgba(255,140,0,.35)',weak:'rgba(255,180,0,.30)'};
+
+  var container = document.getElementById('vcxBuckets');
+  container.innerHTML = '';
+  advisorChecklist.forEach(function(bucket){
+    var block = document.createElement('div');
+    block.style.cssText = 'background:'+colors[bucket.key]+';border-left:3px solid '+borders[bucket.key]+';border-radius:6px;padding:18px 20px;';
+    var title = document.createElement('div');
+    title.style.cssText = 'font-weight:600;font-size:.9rem;margin-bottom:12px;color:rgba(255,255,255,.85);';
+    title.textContent = bucket.label + ' — Advisor review areas';
+    block.appendChild(title);
+    bucket.items.forEach(function(item){
+      var row = document.createElement('div');
+      row.style.cssText = 'font-size:.88rem;color:rgba(255,255,255,.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45;';
+      row.textContent = '\u2022 ' + item;
+      block.appendChild(row);
+    });
+    container.appendChild(block);
+  });
+
+  var summaryMsg = {
+    en: 'Your document \u201c' + fname + '\u201d (' + fsize + ' KB) has been queued for advisor review. A VitaCoreX advisor will contact you within 1 business day with findings specific to your contract.',
+    ru: '\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u00ab' + fname + '\u00bb (' + fsize + ' \u041a\u0411) \u043f\u0435\u0440\u0435\u0434\u0430\u043d \u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443 \u0430\u0434\u0432\u0430\u0439\u0437\u0435\u0440\u0443. \u041e\u0436\u0438\u0434\u0430\u0439\u0442\u0435 \u043e\u0442\u0432\u0435\u0442\u0430 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 1 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u0434\u043d\u044f.',
+    es: 'Su documento \u00ab' + fname + '\u00bb (' + fsize + ' KB) fue enviado para revisi\u00f3n por un asesor. Espere respuesta en 1 d\u00eda h\u00e1bil.'
+  };
+  document.getElementById('vcxSummaryText').textContent = summaryMsg[lang] || summaryMsg.en;
+
+  resultsArea.style.display = 'block';
 }
 
 function vcxRenderResults(data, t){

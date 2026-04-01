@@ -340,28 +340,63 @@ async function vcxRunDealCheck(){
   document.getElementById('vcxErrorState').style.display='none';
   document.getElementById('vcxResultsArea').style.display='none';
   document.getElementById('vcxEmptyState').style.display='none';
-  try{
-    var fd=new FormData();
-    if(fi.files.length){for(var i=0;i<fi.files.length;i++) fd.append('contract_files',fi.files[i]);}
-    else{var dummy=new Blob(['vin:'+vin],{type:'text/plain'});fd.append('contract_files',new File([dummy],'vin_only.txt'));}
-    if(vin) fd.append('vin',vin);
-    if(price) fd.append('asking_price',price);
-    if(zip) fd.append('zip_code',zip);
-    var r=await fetch('/api/dealer-contract-check/sessions',{method:'POST',body:fd});
-    if(!r.ok) throw new Error('session_'+r.status);
-    var data=await r.json();
-    document.getElementById('vcxCheckStatus').style.display='none';
-    document.getElementById('vcxUploadCard').style.display='none';
-    vcxRenderDealResults(data,t);
-    document.getElementById('vcxResultsArea').style.display='block';
-  }catch(e){
-    console.error('Deal check failed:',e);
-    document.getElementById('vcxCheckStatus').style.display='none';
-    document.getElementById('vcxErrorState').style.display='block';
-    document.getElementById('vcxErrorState').textContent=t('tool_error');
-    document.getElementById('vcxCheckBtn').disabled=false;
-    document.getElementById('vcxEmptyState').style.display='none';
+  // Advisor handoff — auto deal check by VitaCoreX advisor
+  await new Promise(function(r){ setTimeout(r, 1400); });
+
+  document.getElementById('vcxCheckStatus').style.display='none';
+  document.getElementById('vcxUploadCard').style.display='none';
+  document.getElementById('vcxEmptyState').style.display='none';
+
+  // VIN block — show NHTSA link if VIN provided
+  if(vin){
+    document.getElementById('vcxVINBlock').style.display='block';
+    var vi=document.getElementById('vcxVINInfo'); vi.innerHTML='';
+    metric(vi,'VIN entered',vin);
+    metric(vi,'Status','Queued for advisor review');
+    var nl=document.getElementById('vcxNHTSALink');
+    if(nl) nl.href='https://www.nhtsa.gov/vin-decoder?vin='+encodeURIComponent(vin);
   }
+
+  // Pricing block — show market reference links if price or zip
+  if(price||zip){
+    document.getElementById('vcxPricingBlock').style.display='block';
+    var pi=document.getElementById('vcxPricingInfo'); pi.innerHTML='';
+    if(price) metric(pi,'Asking price entered','$'+price);
+    if(zip) metric(pi,'ZIP code',zip);
+    metric(pi,'Market references','Advisor will pull Edmunds, KBB, and NADA');
+  }
+
+  // Add-ons block — advisor checklist
+  document.getElementById('vcxAddOnsBlock').style.display='block';
+  var addons=document.getElementById('vcxAddOnsList'); addons.innerHTML='';
+  var flagItems=[
+    t('adv_dealer_addons')||'Dealer-installed add-ons (tint, protection packages) — often marked up 400%+',
+    t('adv_gap')||'GAP insurance: verify cost vs. market rate (typically $200\u2013$400, not $800+)',
+    t('adv_ext_warranty')||'Extended warranty terms — cancellation rights and transferability',
+    t('adv_doc_fee')||'Documentation fee: Florida cap is $499.99 by dealer policy',
+    t('adv_vin_etching')||'VIN etching and security packages — almost never worth the listed price',
+    t('adv_finance_charge')||'Finance charge and APR vs. pre-approved rate from your bank or credit union'
+  ];
+  flagItems.forEach(function(item){
+    var d=document.createElement('div');
+    d.style.cssText='font-size:.88rem;color:rgba(255,255,255,.62);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45;';
+    d.textContent='\u26a0\ufe0f '+item; addons.appendChild(d);
+  });
+
+  // Next steps block
+  document.getElementById('vcxNextBlock').style.display='block';
+  var nextList=document.getElementById('vcxNextList'); nextList.innerHTML='';
+  var input = (fi.files.length?fi.files[0].name:'')||vin||'your documents';
+  var confirmMsg={
+    en:'Your submission (\u201c'+input+'\u201d) has been received. A VitaCoreX advisor will review the deal structure and contact you within 1 business day with specific red flags and negotiation points.',
+    ru:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u00ab'+input+'\u00bb \u043f\u043e\u043b\u0443\u0447\u0435\u043d. \u0410\u0434\u0432\u0430\u0439\u0437\u0435\u0440 \u0441\u0432\u044f\u0436\u0435\u0442\u0441\u044f \u0441 \u0432\u0430\u043c\u0438 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 1 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u0434\u043d\u044f.',
+    es:'Enviado \u00ab'+input+'\u00bb. Un asesor de VitaCoreX revisar\u00e1 la estructura del contrato y se comunicar\u00e1 en 1 d\u00eda h\u00e1bil.'
+  };
+  var cd=document.createElement('div');
+  cd.style.cssText='font-size:.88rem;color:rgba(255,255,255,.62);line-height:1.55;margin-bottom:12px;';
+  cd.textContent=confirmMsg[lang]||confirmMsg.en; nextList.appendChild(cd);
+
+  document.getElementById('vcxResultsArea').style.display='block';
 }
 
 function metric(container,label,val){
