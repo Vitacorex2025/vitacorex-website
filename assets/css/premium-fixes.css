@@ -869,37 +869,3 @@ table { max-width: 100%; }
   align-items: center;
   justify-content: center;
 }
-
-
-/* ================================================================
-   BLOCKER 1: Hide language switchers on public English-only release
-   ================================================================ */
-.vcx-lang-toggle, .lang-switcher, [data-lang-toggle], .vcx-lang-btn,
-button[onclick*="vcxSetLang"], .language-selector,
-.vcx-lang-switch, .vcx-lang-switcher, .vcx-lang-mobile,
-.lang-btn, [data-lang]:not(html),
-.lang-row { display: none !important; }
-
-/* ================================================================
-   BLOCKER 2: Fix .reveal initial state - force visible 
-   Prevents empty gap from elements hidden before IntersectionObserver
-   ================================================================ */
-.reveal, [data-reveal], .vcx-reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
-}
-
-/* Also ensure header-hidden is never applied on load */
-.site-header.header-hidden {
-  transform: none !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* B2 FIX: Prevent vcx-header is-hidden from hiding header on load */
-.vcx-header.is-hidden {
-  transform: none !important;
-  opacity: 1 !important;
-}
