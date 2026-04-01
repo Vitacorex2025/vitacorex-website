@@ -1,0 +1,498 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Immigration Form Helper | VitaCoreX</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Upload a USCIS form or immigration document and get guided field review from VitaCoreX."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+    <link rel="stylesheet" href="/assets/css/vcx-base.css">
+    <link href="/assets/css/styles.css" rel="stylesheet"/>
+<link href="/assets/css/ui-shell.css" rel="stylesheet"/>
+<link href="/assets/css/premium-fixes.css" rel="stylesheet"/>
+<style>
+/* Tool page readability overrides — dark surface */
+body[data-vcx-page="immigration-helper"]{
+  background:#07131f !important;
+  color:#e8eff7;
+}
+body[data-vcx-page="immigration-helper"] label,
+body[data-vcx-page="immigration-helper"] .field label{
+  color:#1a2e42 !important;
+}
+body[data-vcx-page="immigration-helper"] .glass label,
+body[data-vcx-page="immigration-helper"] #vcxUploadCard label{
+  color:#e0eaf4 !important;
+}
+body[data-vcx-page="immigration-helper"] .glass p,
+body[data-vcx-page="immigration-helper"] #vcxUploadCard p{
+  color:#3a5470 !important;
+}
+body[data-vcx-page="immigration-helper"] [data-tx="tool_disc"],
+body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
+  color:rgba(255,255,255,.80) !important;
+}
+.vcx-analysis-result { max-width: 720px; }
+.vcx-result-summary { display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; border-radius: 10px; margin-bottom: 24px; }
+.vcx-summary-high { background: rgba(139,67,72,.08); border: 1px solid rgba(139,67,72,.2); }
+.vcx-summary-medium { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); }
+.vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
+.vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
+.vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #0F1B2D; margin-bottom: 4px; }
+.vcx-summary-meta { font-size: 0.8125rem; color: #5E6C7B; }
+.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(15,27,45,.08); border-radius: 8px; }
+.vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+.vcx-section-title.vcx-found { color: #2F6B57; }
+.vcx-section-title.vcx-critical { color: #8B4348; }
+.vcx-section-title.vcx-flag { color: #9A6A20; }
+.vcx-section-note { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 12px; }
+.vcx-clause-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.vcx-clause-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; padding: 6px 0; }
+.vcx-clause-dot { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.vcx-clause-found .vcx-clause-dot { background: rgba(47,107,87,.12); color: #2F6B57; }
+.vcx-clause-missing .vcx-clause-dot { background: rgba(139,67,72,.12); color: #8B4348; }
+.vcx-clause-verify .vcx-clause-dot { background: rgba(154,106,32,.12); color: #9A6A20; }
+.vcx-result-notice { padding: 14px 18px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; }
+.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #355E8A; }
+.vcx-notice-warning { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); color: #9A6A20; }
+.vcx-notice-success { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); color: #2F6B57; }
+.vcx-file-notice { padding: 8px 14px; border-radius: 6px; font-size: 0.8125rem; margin-top: 8px; }
+.vcx-result-lead { font-size: 0.9375rem; color: #243548; margin-bottom: 16px; }
+.vcx-result-cta { margin-top: 20px; }
+.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
+.vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(15,27,45,.08); }
+</style>
+
+<script>
+window.SITE_I18N = {
+  "en": {
+    "brand_tag": "Private revenue recovery and legal-file advisory",
+    "home": "Home", "file": "Corporate Legal File Control",
+    "recovery": "Revenue Recovery Infrastructure", "intake": "Structured Case Intake",
+    "resources": "Executive Briefs & Proof", "additional": "Private Client Services",
+    "careers": "Careers", "contact": "Private Consultation",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Your Time", "clock_local_sub": "Local",
+    "footer_est": "Established 2025", "footer_phone": "Private consultation line: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. Legal strategy and legal advice remain the responsibility of licensed counsel.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. All rights reserved.",
+    "tool_eyebrow": "Private Client Tool",
+    "tool_title": "Immigration Form Helper",
+    "tool_subtitle": "Upload a USCIS form PDF or a photo of an immigration notice. We will identify the form, show detected fields, highlight what may be missing, and give you a checklist of documents to gather.",
+    "tool_upload_label": "Upload your form or notice",
+    "tool_upload_hint": "USCIS PDF form, immigration notice, or a photo of a printed document.",
+    "tool_upload_btn": "Choose file or take photo",
+    "tool_support_label": "Supporting documents (optional)",
+    "tool_support_hint": "Passport copy, prior notices, civil documents \u2014 used to suggest field values.",
+    "tool_submit_btn": "Submit for Advisor Review",
+    "tool_confirm_title": "Intake Captured",
+    "tool_confirm_lead": "Your immigration intake has been recorded. An advisor will review within 1 business day.",
+    "tool_form_type_label": "Form type",
+    "tool_stage_label": "Stage",
+    "tool_concerns_label": "Primary concerns",
+    "tool_deadline_label": "Filing deadline (optional)",
+    "tool_empty": "Select a file or check at least one concern to begin.",
+    "tool_error": "Please select a file or check at least one concern before submitting.",
+    "tool_consult": "Schedule immigration review call",
+    "tool_new": "Submit another form",
+    "tool_disc": "This review identifies form fields and evidence gaps. It does not constitute legal advice and does not determine immigration eligibility. Always review findings with a licensed immigration attorney before filing.",
+    "tool_back": "\u2190 Private Client Services",
+    "tool_not_legal": "Not legal advice. Not a filing service. For document organization only.",
+    "tool_scan_btn": "Analyze packet",
+    "tool_scanning": "Checking\u2026",
+    "tool_no_file": "Please select a file first."
+  },
+  "ru": {
+    "brand_tag": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438",
+    "home": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f", "file": "\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442\u0430",
+    "recovery": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438",
+    "intake": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0435\u0440\u0432\u0438\u0447\u043d\u044b\u0439 \u0440\u0430\u0437\u0431\u043e\u0440",
+    "resources": "\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b \u0434\u043b\u044f \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u0430",
+    "additional": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438",
+    "careers": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e", "contact": "\u0417\u0430\u043f\u0440\u043e\u0441\u0438\u0442\u044c \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e",
+    "clock_vcx": "\u0412\u0440\u0435\u043c\u044f VitaCoreX", "clock_local": "\u0412\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f", "clock_local_sub": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e",
+    "footer_est": "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u0441 2025 \u0433\u043e\u0434\u0430",
+    "footer_phone": "\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u043b\u0438\u043d\u0438\u044f: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u0438\u0432\u043d\u0443\u044e \u0438 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u0443\u044e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443. \u041d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u043e\u0439.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.",
+    "tool_eyebrow": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    "tool_title": "\u041f\u043e\u043c\u043e\u0449\u043d\u0438\u043a \u043f\u043e \u0438\u043c\u043c\u0438\u0433\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u043c \u0444\u043e\u0440\u043c\u0430\u043c",
+    "tool_subtitle": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0444\u043e\u0440\u043c\u0443 USCIS \u0438\u043b\u0438 \u0444\u043e\u0442\u043e \u0438\u043c\u043c\u0438\u0433\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u043e\u0433\u043e \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f.",
+    "tool_upload_label": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0432\u0430\u0448\u0443 \u0444\u043e\u0440\u043c\u0443 \u0438\u043b\u0438 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435",
+    "tool_upload_hint": "\u0424\u043e\u0440\u043c\u0430 USCIS (PDF), \u0438\u043c\u043c\u0438\u0433\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u043e\u0435 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u0438\u043b\u0438 \u0444\u043e\u0442\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430.",
+    "tool_upload_btn": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e",
+    "tool_support_label": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
+    "tool_support_hint": "\u041a\u043e\u043f\u0438\u044f \u043f\u0430\u0441\u043f\u043e\u0440\u0442\u0430, \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0435 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f.",
+    "tool_submit_btn": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443",
+    "tool_confirm_title": "\u0417\u0430\u043f\u0440\u043e\u0441 \u043f\u0440\u0438\u043d\u044f\u0442",
+    "tool_confirm_lead": "\u0412\u0430\u0448 \u0437\u0430\u043f\u0440\u043e\u0441 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d.",
+    "tool_form_type_label": "\u0422\u0438\u043f \u0444\u043e\u0440\u043c\u044b",
+    "tool_stage_label": "\u042d\u0442\u0430\u043f",
+    "tool_concerns_label": "\u041e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043e\u043f\u0430\u0441\u0435\u043d\u0438\u044f",
+    "tool_deadline_label": "\u0421\u0440\u043e\u043a \u043f\u043e\u0434\u0430\u0447\u0438 (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
+    "tool_empty": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u043e\u0442\u043c\u0435\u0442\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u0443.",
+    "tool_error": "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u043e\u0442\u043c\u0435\u0442\u044c\u0442\u0435 \u043e\u043f\u0430\u0441\u0435\u043d\u0438\u0435.",
+    "tool_consult": "\u0417\u0430\u043f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0432\u043e\u043d\u043e\u043a",
+    "tool_new": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0435\u0449\u0451 \u043e\u0434\u043d\u0443 \u0444\u043e\u0440\u043c\u0443",
+    "tool_disc": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0435\u0442 \u043f\u043e\u043b\u044f \u0444\u043e\u0440\u043c\u044b.",
+    "tool_back": "\u2190 \u0423\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    "tool_not_legal": "\u041d\u0435 \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044f.",
+    "tool_scan_btn": "\u041f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u043f\u0430\u043a\u0435\u0442",
+    "tool_scanning": "\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430\u2026",
+    "tool_no_file": "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b."
+  },
+  "es": {
+    "brand_tag": "Infraestructura ejecutiva de recuperaci\u00f3n de ingresos y control documental",
+    "home": "Inicio", "file": "Control de archivos legales corporativos",
+    "recovery": "Infraestructura de recuperaci\u00f3n de ingresos", "intake": "Evaluaci\u00f3n inicial estructurada",
+    "resources": "Material ejecutivo y respaldo documental", "additional": "Servicios adicionales",
+    "careers": "Carreras", "contact": "Solicitar consulta",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Tu hora", "clock_local_sub": "Local",
+    "footer_est": "Establecida en 2025", "footer_phone": "L\u00ednea privada: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC ofrece soporte administrativo, documental y de negocio. No es un bufete jur\u00eddico.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. Todos los derechos reservados.",
+    "tool_eyebrow": "Herramienta para clientes privados",
+    "tool_title": "Asistente de formularios de inmigraci\u00f3n",
+    "tool_subtitle": "Suba un formulario USCIS o foto de un aviso migratorio.",
+    "tool_upload_label": "Suba su formulario o aviso",
+    "tool_upload_hint": "Formulario USCIS (PDF), aviso migratorio, o foto.",
+    "tool_upload_btn": "Elegir archivo o tomar foto",
+    "tool_support_label": "Documentos de soporte (opcional)",
+    "tool_support_hint": "Copia de pasaporte, avisos anteriores.",
+    "tool_submit_btn": "Enviar para revisi\u00f3n",
+    "tool_confirm_title": "Solicitud capturada",
+    "tool_confirm_lead": "Su solicitud ha sido registrada. Un asesor revisar\u00e1 en 1 d\u00eda h\u00e1bil.",
+    "tool_form_type_label": "Tipo de formulario",
+    "tool_stage_label": "Etapa",
+    "tool_concerns_label": "Preocupaciones principales",
+    "tool_deadline_label": "Fecha l\u00edmite (opcional)",
+    "tool_empty": "Seleccione un archivo o marque al menos una preocupaci\u00f3n.",
+    "tool_error": "Seleccione un archivo o marque al menos una preocupaci\u00f3n antes de enviar.",
+    "tool_consult": "Programar llamada de revisi\u00f3n",
+    "tool_new": "Enviar otro formulario",
+    "tool_disc": "Esta revisi\u00f3n identifica campos y documentos faltantes. No es asesoramiento legal.",
+    "tool_back": "\u2190 Servicios para clientes privados",
+    "tool_not_legal": "No es asesoramiento legal. Solo organizaci\u00f3n documental.",
+    "tool_scan_btn": "Analizar paquete",
+    "tool_scanning": "Verificando\u2026",
+    "tool_no_file": "Por favor, seleccione un archivo."
+  }
+};
+(function(){
+  var lang=(function(){var s=localStorage.getItem('vcx_lang');return['en','ru','es'].includes(s)?s:'en';})();
+  document.documentElement.lang=lang; window._vcxLang=lang;
+})();
+</script>
+</head>
+<body data-vcx-page="immigration-helper">
+
+<header class="vcx-header">
+<div class="wrap"><div class="vcx-header-shell">
+<div class="vcx-header-desktop">
+<div class="vcx-header-top">
+<a aria-label="VitaCoreX home" class="vcx-brand" href="/index.html">
+<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
+<div class="vcx-brand-copy"><strong>VitaCoreX LLC</strong><span data-common="brand_tag">Private revenue recovery and legal-file advisory</span></div>
+</a>
+<div class="vcx-header-meta">
+<div class="vcx-time-chip"><div class="vcx-time-label"><span data-common="clock_vcx">VitaCoreX Time</span><span class="vcx-time-sub">Tampa, FL</span></div><div class="vcx-time-value clock-vcx">00:00</div></div>
+<div class="vcx-time-chip"><div class="vcx-time-label"><span data-common="clock_local">Your Time</span><span class="vcx-time-sub" data-common="clock_local_sub">Local</span></div><div class="vcx-time-value clock-local">00:00</div></div>
+</div>
+</div>
+<div class="vcx-header-navrow">
+<nav class="vcx-main-nav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-switcher" aria-label="Language"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ru">RU</button><button class="lang-btn" data-lang="es">ES</button></div>
+</div>
+</div>
+<div class="vcx-header-mobile">
+<div class="vcx-mobile-row">
+<a aria-label="VitaCoreX home" class="vcx-mobile-brand" href="/index.html"><img alt="VitaCoreX logo" src="/assets/img/logo.png"/><span>VitaCoreX</span></a>
+<button aria-controls="vcxMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button"><span aria-hidden="true" class="vcx-menu-icon">&#9776;</span><span class="vcx-menu-text">Menu</span></button>
+</div>
+<nav class="vcx-mobile-nav" hidden id="vcxMobileNav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-mobile" aria-label="Language"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ru">RU</button><button class="lang-btn" data-lang="es">ES</button></div>
+</div>
+</div></div>
+</header>
+
+<main id="vcxImmiMain" style="padding:40px 0 80px;">
+<div class="wrap" style="max-width:780px;">
+
+<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(212,175,55,.8);text-decoration:none;">&larr; Private Client Services</a>
+
+<!-- Compliance banner -->
+<div style="background:rgba(255,180,0,.06);border:1px solid rgba(255,180,0,.2);border-radius:8px;padding:12px 16px;margin-bottom:28px;font-size:.85rem;color:rgba(255,200,100,.75);" data-tx="tool_not_legal">
+Not legal advice. Not a filing service. For document organization only.
+</div>
+
+<div class="reveal" style="margin-bottom:36px;">
+<span class="eyebrow" data-tx="tool_eyebrow">Private Client Tool</span>
+<h1 data-tx="tool_title" style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4em 0 .5em;">Immigration Form Helper</h1>
+<p style="font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.6;max-width:580px;" data-tx="tool_subtitle">Upload a USCIS form PDF or a photo of an immigration notice. We will identify the form, show detected fields, highlight what may be missing, and give you a checklist of documents to gather.</p>
+</div>
+
+<!-- Upload card -->
+<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:12px;margin-bottom:24px;">
+<label for="vcxFormFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:8px;">Upload your form or notice</label>
+<p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.5);margin:0 0 16px;">USCIS PDF form, immigration notice, or a photo of a printed document.</p>
+
+<div id="vcxDropZone" style="border:2px dashed rgba(212,175,55,.35);border-radius:8px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxFormFile').click()">
+<div style="font-size:2rem;margin-bottom:8px;">📋</div>
+<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(212,175,55,.85);font-weight:500;">Choose file or take photo</span>
+<div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
+</div>
+<input type="file" id="vcxFormFile" accept=".pdf,application/pdf,image/*" capture="environment" style="display:none;" onchange="vcxHandleFile(this)"/>
+
+<details style="margin-top:16px;">
+<summary style="font-size:.85rem;color:rgba(255,255,255,.45);cursor:pointer;" data-tx="tool_support_label">Supporting documents (optional)</summary>
+<p style="font-size:.82rem;color:rgba(255,255,255,.4);margin:8px 0;" data-tx="tool_support_hint">Passport copy, prior notices, civil documents — used to suggest field values.</p>
+<input type="file" id="vcxSupportFile" accept=".pdf,.docx,.txt,image/*" multiple style="width:100%;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff;font-size:.9rem;"/>
+</details>
+
+<button id="vcxAnalyzeBtn" type="button" onclick="vcxAnalyzeForm()" disabled
+  style="margin-top:22px;width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;"
+  data-tx="tool_analyze_btn">Review form</button>
+
+<div id="vcxAnalyzeStatus" style="display:none;text-align:center;padding:16px;font-size:.9rem;color:rgba(255,255,255,.6);" data-tx="tool_analyzing">Reviewing your form&hellip;</div>
+</div>
+
+<!-- Results -->
+<div id="vcxResultsArea" hidden></div>
+
+<div id="vcxEmptyState" style="text-align:center;padding:40px;color:rgba(255,255,255,.4);" data-tx="tool_empty">Upload a form or notice above to see your review.</div>
+<div id="vcxErrorState" style="display:none;padding:18px 20px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:6px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Could not review the form.</div>
+
+<p data-tx="tool_disc" style="margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.55;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;">This review identifies form fields and evidence gaps. It does not constitute legal advice and does not determine immigration eligibility.</p>
+</div>
+</div>
+</main>
+
+<footer class="vcx-footer"><div class="wrap">
+<div class="footer-grid">
+<div><strong>VitaCoreX LLC</strong><span data-common="footer_est">Established 2025</span></div>
+<div><span data-common="footer_phone">Private consultation line: (888) 794-8292</span><span data-common="footer_ein">EIN: 41-4399148</span></div>
+</div>
+<p class="footer-disc" data-common="footer_disc">VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm.</p>
+<p class="footer-copy" data-common="footer_copy">&copy; 2026 VitaCoreX LLC. All rights reserved.</p>
+</div></footer>
+
+
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E08EE1KSQQ');</script>
+<script>!function(e,t){if(!t.__SV){window.analytics=t,t.methods=["identify","track","page","group","alias","reset"],t.factory=function(e){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(e),t.push(a),t}};for(var s=0;s<t.methods.length;s++)t[t.methods[s]]=t.factory(t.methods[s]);t.load=function(e){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(a,r)};t.SNIPPET_VERSION="4.1.0";t.load("69a7b325debb1e000d36d253");t.page()}}(window,window.analytics||[]);</script>
+
+
+<script>
+(function(){
+'use strict';
+function el(id){return document.getElementById(id);}
+
+// i18n + header shell
+(function(){
+  var I18N=window.SITE_I18N;
+  var uiLang=window._vcxLang||'en';
+  function tui(k){return(I18N[uiLang]&&I18N[uiLang][k])||(I18N['en']&&I18N['en'][k])||k;}
+  function applyText(){
+    document.querySelectorAll('[data-tx]').forEach(function(el){var k=el.getAttribute('data-tx');var v=tui(k);if(v&&v!==k)el.textContent=v;});
+    document.querySelectorAll('[data-common]').forEach(function(el){var k=el.getAttribute('data-common');var v=tui(k);if(v&&v!==k)el.textContent=v;});
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){uiLang=btn.getAttribute('data-lang');window._vcxLang=uiLang;try{localStorage.setItem('vcx_lang',uiLang);}catch(e){}document.documentElement.lang=uiLang;applyText();});
+  });
+  applyText();
+  var menuBtn=document.querySelector('.vcx-menu-btn');var mobileNav=document.getElementById('vcxMobileNav');
+  if(menuBtn&&mobileNav){menuBtn.addEventListener('click',function(){var o=mobileNav.hasAttribute('hidden');mobileNav.toggleAttribute('hidden',!o);menuBtn.setAttribute('aria-expanded',o?'true':'false');});}
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){var now=new Date();var tampa=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));document.querySelectorAll('.clock-vcx').forEach(function(el){el.textContent=pad(tampa.getHours())+':'+pad(tampa.getMinutes());});document.querySelectorAll('.clock-local').forEach(function(el){el.textContent=pad(now.getHours())+':'+pad(now.getMinutes());});}
+  tick();setInterval(tick,30000);
+  document.addEventListener('DOMContentLoaded',function(){
+    var params=new URLSearchParams(window.location.search);
+    if(params.get('service')){var sw=document.getElementById('vcx-service-welcome');if(sw)sw.hidden=false;}
+  });
+})();
+
+// USCIS form patterns
+var FORM_PATTERNS = [
+  {id:'I-485', label:'I-485 (Adjustment of Status)',       patterns:[/i[\s-]?485/i,/adjustment.*status/i,/permanent.*resident/i]},
+  {id:'I-130', label:'I-130 (Petition for Alien Relative)', patterns:[/i[\s-]?130/i,/petition.*alien.*relative/i,/petitioner/i]},
+  {id:'I-765', label:'I-765 (Employment Authorization)',   patterns:[/i[\s-]?765/i,/employment.*authorization/i,/ead/i,/work.*permit/i]},
+  {id:'I-131', label:'I-131 (Travel Document)',            patterns:[/i[\s-]?131/i,/advance.*parole/i,/reentry.*permit/i,/travel.*document/i]},
+  {id:'I-90',  label:'I-90 (Green Card Renewal)',          patterns:[/i[\s-]?90/i,/green.*card.*renew/i,/replace.*permanent.*resident/i]},
+  {id:'N-400', label:'N-400 (Naturalization)',             patterns:[/n[\s-]?400/i,/naturali[sz]/i,/citizenship/i]},
+  {id:'I-864', label:'I-864 (Affidavit of Support)',       patterns:[/i[\s-]?864/i,/affidavit.*support/i,/sponsor/i]},
+  {id:'I-693', label:'I-693 (Medical Examination)',        patterns:[/i[\s-]?693/i,/medical.*examination/i,/civil.*surgeon/i]}
+];
+
+var FIELD_PATTERNS = [
+  {key:'signature',   label:'Signature',           patterns:[/signature/i,/sign.*date/i,/applicant.*sign/i]},
+  {key:'date',        label:'Dates completed',     patterns:[/date.*completed/i,/date.*signed/i,/\d{1,2}\/\d{1,2}\/\d{4}/]},
+  {key:'a_number',    label:'A-Number / Receipt',  patterns:[/a[\s-]?number/i,/alien.*number/i,/uscis.*number/i,/receipt.*number/i]},
+  {key:'address',     label:'Address history',     patterns:[/address.*5.*year/i,/residence.*history/i,/address.*history/i,/prior.*address/i]},
+  {key:'employment',  label:'Employment info',     patterns:[/employer/i,/occupation/i,/employment.*history/i]},
+  {key:'evidence',    label:'Evidence listed',     patterns:[/evidence/i,/supporting.*doc/i,/exhibit/i,/attachment/i,/initial.*evidence/i]},
+  {key:'fee',         label:'Fee information',     patterns:[/filing.*fee/i,/payment.*amount/i,/fee.*waiver/i]},
+  {key:'interpreter', label:'Interpreter cert.',   patterns:[/interpreter/i,/translation/i,/certif.*interpret/i]}
+];
+
+var selectedFile2 = null;
+
+function detectFormType(text) {
+  for(var i=0;i<FORM_PATTERNS.length;i++){
+    var f=FORM_PATTERNS[i];
+    if(f.patterns.some(function(p){return p.test(text);})) return f;
+  }
+  return null;
+}
+
+function checkFields(text) {
+  var found=[],missing=[];
+  FIELD_PATTERNS.forEach(function(f){
+    if(f.patterns.some(function(p){return p.test(text);})) found.push(f);
+    else missing.push(f);
+  });
+  return {found:found,missing:missing};
+}
+
+function analyzeImmigration(text,filename) {
+  var wordCount=text.split(/\s+/).filter(Boolean).length;
+  var hasText=wordCount>30;
+  var formType=hasText?detectFormType(text):null;
+  var fields=hasText?checkFields(text):{found:[],missing:FIELD_PATTERNS.slice()};
+  return {formType:formType,fields:fields,wordCount:wordCount,hasText:hasText,filename:filename};
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function renderImmigrationResults(r) {
+  var html='<div class="vcx-analysis-result">';
+  html+='<div class="vcx-result-summary '+(r.formType?'vcx-summary-low':'vcx-summary-medium')+'">';
+  html+='<div class="vcx-summary-icon">'+(r.formType?'&#10003;':'?')+'</div>';
+  html+='<div><h2 class="vcx-summary-title">'+(r.formType?'Form identified: '+escHtml(r.formType.label):'Form type not detected automatically')+'</h2>';
+  html+='<p class="vcx-summary-meta">File: <strong>'+escHtml(r.filename)+'</strong> &middot; '+r.wordCount.toLocaleString()+' words extracted</p></div></div>';
+
+  if(!r.hasText){
+    html+='<div class="vcx-result-notice vcx-notice-warning"><strong>Limited text extracted.</strong> The file may be a scanned image or encrypted PDF. Text-based analysis requires selectable/readable text.</div>';
+  }
+
+  if(r.fields.found.length>0){
+    html+='<div class="vcx-result-section">';
+    html+='<h3 class="vcx-section-title vcx-found">Fields / indicators detected ('+r.fields.found.length+')</h3>';
+    html+='<ul class="vcx-clause-list">';
+    r.fields.found.forEach(function(f){html+='<li class="vcx-clause-item vcx-clause-found"><span class="vcx-clause-dot">&#10003;</span>'+escHtml(f.label)+'</li>';});
+    html+='</ul></div>';
+  }
+
+  if(r.fields.missing.length>0){
+    html+='<div class="vcx-result-section">';
+    html+='<h3 class="vcx-section-title vcx-flag">Not detected &#8212; verify completeness ('+r.fields.missing.length+')</h3>';
+    html+='<p class="vcx-section-note">These elements were not found in the extracted text. Verify they are present, even if using different wording.</p>';
+    html+='<ul class="vcx-clause-list">';
+    r.fields.missing.forEach(function(f){html+='<li class="vcx-clause-item vcx-clause-verify"><span class="vcx-clause-dot">&#8594;</span>'+escHtml(f.label)+'</li>';});
+    html+='</ul></div>';
+  }
+
+  html+='<div class="vcx-result-section">';
+  html+='<h3 class="vcx-section-title vcx-flag">Standard packet checklist</h3>';
+  html+='<p class="vcx-section-note">Regardless of form type, verify your packet includes:</p>';
+  html+='<ul class="vcx-clause-list">';
+  ['Government-issued photo ID copy','Birth certificate (and certified translation if not English)','Two passport-style photos (if required)','Filing fee or fee waiver','All required supporting evidence per form instructions','Completed G-1145 for e-notification (optional)'].forEach(function(item){
+    html+='<li class="vcx-clause-item vcx-clause-verify"><span class="vcx-clause-dot">&#9633;</span>'+item+'</li>';
+  });
+  html+='</ul></div>';
+
+  html+='<div class="vcx-result-cta">';
+  html+='<p class="vcx-result-lead">This is a pattern-based pre-check only. USCIS requirements change frequently and vary by case. An advisor review ensures packet completeness before filing.</p>';
+  html+='<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule packet review call &#8594;</a>';
+  html+='</div>';
+  html+='<p class="vcx-disc">Pattern detection only &#8212; not legal advice. USCIS requirements vary by case. Consult a qualified immigration attorney before filing.</p>';
+  html+='</div>';
+  return html;
+}
+
+function vcxHandleFile(input){
+  var file=input.files&&input.files[0]; if(!file) return;
+  selectedFile2=file;
+  var nameEl=el('vcxFileName'); if(nameEl) nameEl.textContent=file.name+' ('+(file.size/1024).toFixed(1)+' KB)';
+  var btn=el('vcxAnalyzeBtn'); if(btn) btn.disabled=false;
+  var prev=el('vcxFilePreview'); if(prev) prev.hidden=false;
+}
+window.vcxHandleFile=vcxHandleFile;
+
+function vcxAnalyzeForm(){
+  if(!selectedFile2){alert('Please select a file first.');return;}
+  var btn=el('vcxAnalyzeBtn'); var area=el('vcxResultsArea'); if(!area) return;
+  if(btn){btn.disabled=true;btn.textContent='Checking\u2026';}
+
+  var ext=selectedFile2.name.split('.').pop().toLowerCase();
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var raw=e.target.result||'';
+    var text=(['txt','md','text'].indexOf(ext)>=0)?raw:raw.replace(/[^\x20-\x7E\u00A0-\uFFFF\n\r\t]/g,' ').replace(/\s{3,}/g,' ');
+    var analysis=analyzeImmigration(text,selectedFile2.name);
+    area.innerHTML=renderImmigrationResults(analysis);
+    area.hidden=false;
+    area.scrollIntoView({behavior:'smooth',block:'start'});
+    if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
+  };
+  reader.onerror=function(){
+    area.innerHTML='<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
+    area.hidden=false;
+    if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
+  };
+  if(['txt','md','text'].indexOf(ext)>=0) reader.readAsText(selectedFile2);
+  else reader.readAsBinaryString(selectedFile2);
+}
+window.vcxAnalyzeForm=vcxAnalyzeForm;
+
+function vcxSubmitImmIntake(){
+  vcxAnalyzeForm();
+}
+window.vcxSubmitImmIntake=vcxSubmitImmIntake;
+
+function vcxReset(){
+  selectedFile2=null;
+  var fi=el('vcxFormFile');if(fi)fi.value='';
+  var fn=el('vcxFileName');if(fn)fn.textContent='';
+  document.querySelectorAll('input[name="vcxStage"],input[name="vcxImmConcern"]').forEach(function(c){c.checked=false;});
+  var ft=el('vcxFormType');if(ft)ft.value='';
+  var fd=el('vcxFilingDeadline');if(fd)fd.value='';
+  var prev=el('vcxFilePreview');if(prev)prev.hidden=true;
+  var ra=el('vcxResultsArea');if(ra){ra.innerHTML='';ra.setAttribute('hidden','');}
+  var uc=el('vcxUploadCard');if(uc)uc.style.display='block';
+  var err=el('vcxErrorState');if(err)err.style.display='none';
+  var btn=el('vcxAnalyzeBtn');if(btn){btn.disabled=true;}
+}
+window.vcxReset=vcxReset;
+
+document.addEventListener('DOMContentLoaded',function(){var b=el('vcxAnalyzeBtn');if(b)b.disabled=true;});
+
+})();
+
+</script>
+<script src="/assets/js/vcx-i18n.js"></script>
+<script src="/assets/js/premium-fixes.js"></script>
+</body>
+</html>

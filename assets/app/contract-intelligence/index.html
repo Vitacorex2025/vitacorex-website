@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contract Scanner | VitaCoreX</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Upload a contract and get a plain-language risk review from VitaCoreX."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+    <link rel="stylesheet" href="/assets/css/vcx-base.css">
+    <link href="/assets/css/styles.css" rel="stylesheet"/>
+<link href="/assets/css/ui-shell.css" rel="stylesheet"/>
+<link href="/assets/css/premium-fixes.css" rel="stylesheet"/>
+<style>
+/* Tool page readability overrides — dark surface */
+body[data-vcx-page="contract-scanner"]{
+  background:#07131f !important;
+  color:#e8eff7;
+}
+body[data-vcx-page="contract-scanner"] label,
+body[data-vcx-page="contract-scanner"] .field label{
+  color:#1a2e42 !important;
+}
+body[data-vcx-page="contract-scanner"] .glass label,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard label{
+  color:#e0eaf4 !important;
+}
+body[data-vcx-page="contract-scanner"] .glass p,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard p{
+  color:#3a5470 !important;
+}
+body[data-vcx-page="contract-scanner"] [data-tx="tool_disc"],
+body[data-vcx-page="contract-scanner"] .vcx-disc{
+  color:rgba(255,255,255,.80) !important;
+}
+
+.vcx-analysis-result { max-width: 720px; }
+.vcx-result-summary { display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; border-radius: 10px; margin-bottom: 24px; }
+.vcx-summary-high { background: rgba(139,67,72,.08); border: 1px solid rgba(139,67,72,.2); }
+.vcx-summary-medium { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); }
+.vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
+.vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
+.vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #0F1B2D; margin-bottom: 4px; }
+.vcx-summary-meta { font-size: 0.8125rem; color: #5E6C7B; }
+.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(15,27,45,.08); border-radius: 8px; }
+.vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+.vcx-section-title.vcx-found { color: #2F6B57; }
+.vcx-section-title.vcx-critical { color: #8B4348; }
+.vcx-section-title.vcx-flag { color: #9A6A20; }
+.vcx-section-note { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 12px; }
+.vcx-clause-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.vcx-clause-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; padding: 6px 0; }
+.vcx-clause-dot { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.vcx-clause-found .vcx-clause-dot { background: rgba(47,107,87,.12); color: #2F6B57; }
+.vcx-clause-missing .vcx-clause-dot { background: rgba(139,67,72,.12); color: #8B4348; }
+.vcx-clause-verify .vcx-clause-dot { background: rgba(154,106,32,.12); color: #9A6A20; }
+.vcx-result-notice { padding: 14px 18px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; }
+.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #355E8A; }
+.vcx-notice-warning { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); color: #9A6A20; }
+.vcx-notice-success { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); color: #2F6B57; }
+.vcx-file-notice { padding: 8px 14px; border-radius: 6px; font-size: 0.8125rem; margin-top: 8px; }
+.vcx-result-lead { font-size: 0.9375rem; color: #243548; margin-bottom: 16px; }
+.vcx-result-cta { margin-top: 20px; }
+.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
+.vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(15,27,45,.08); }
+</style>
+<script>
+window.SITE_I18N = {
+  "en": {
+    "brand_tag": "Private revenue recovery and legal-file advisory",
+    "home": "Home", "file": "Corporate Legal File Control",
+    "recovery": "Revenue Recovery Infrastructure", "intake": "Structured Case Intake",
+    "resources": "Executive Briefs & Proof", "additional": "Private Client Services",
+    "careers": "Careers", "contact": "Private Consultation",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Your Time", "clock_local_sub": "Local",
+    "footer_est": "Established 2025", "footer_phone": "Private consultation line: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. Legal strategy and legal advice remain the responsibility of licensed counsel.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. All rights reserved.",
+    "tool_eyebrow": "Private Client Tool",
+    "tool_title": "Contract Scanner",
+    "tool_subtitle": "Upload a contract or agreement. Get a plain-language risk review — strong points, weak points, missing protections, and items to flag before signing.",
+    "tool_upload_label": "Upload your contract",
+    "tool_upload_hint": "PDF, Word, or text file. Or take a photo of a printed contract.",
+    "tool_upload_btn": "Choose file or take photo",
+    "tool_submit_btn": "Submit for Advisor Review",
+    "tool_confirm_title": "Intake Captured",
+    "tool_confirm_lead": "Your contract intake has been recorded. An advisor will review within 1 business day.",
+    "tool_contract_type": "Contract type",
+    "tool_concerns": "Primary concerns",
+    "tool_negotiated": "Have you negotiated any terms?",
+    "tool_deadline": "Deadline to sign (optional)",
+    "tool_empty": "Select a file or check at least one concern to begin.",
+    "tool_error": "Please select a file or check at least one concern before submitting.",
+    "tool_consult": "Schedule contract review call",
+    "tool_new": "Submit another contract",
+    "tool_disc": "This review is for informational purposes only. It is not legal advice. Review findings with a licensed attorney before signing any agreement.",
+    "tool_back": "\u2190 Private Client Services",
+    "tool_scan_btn": "Analyze contract",
+    "tool_scanning": "Analyzing\u2026",
+    "tool_no_file": "Please select a file first."
+  },
+  "ru": {
+    "brand_tag": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438",
+    "home": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f", "file": "\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442\u0430",
+    "recovery": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438",
+    "intake": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0435\u0440\u0432\u0438\u0447\u043d\u044b\u0439 \u0440\u0430\u0437\u0431\u043e\u0440",
+    "resources": "\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b \u0434\u043b\u044f \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u0430",
+    "additional": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438",
+    "careers": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e", "contact": "\u0417\u0430\u043f\u0440\u043e\u0441\u0438\u0442\u044c \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e",
+    "clock_vcx": "\u0412\u0440\u0435\u043c\u044f VitaCoreX", "clock_local": "\u0412\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f", "clock_local_sub": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e",
+    "footer_est": "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u0441 2025 \u0433\u043e\u0434\u0430",
+    "footer_phone": "\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u043b\u0438\u043d\u0438\u044f: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u0438\u0432\u043d\u0443\u044e, \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u0443\u044e \u0438 \u0431\u0438\u0437\u043d\u0435\u0441-\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443. \u041d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u043e\u0439.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.",
+    "tool_eyebrow": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    "tool_title": "\u0421\u043a\u0430\u043d\u0435\u0440 \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0430",
+    "tool_subtitle": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0438\u043b\u0438 \u0441\u043e\u0433\u043b\u0430\u0448\u0435\u043d\u0438\u0435 \u2014 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0430\u043d\u0430\u043b\u0438\u0437 \u0440\u0438\u0441\u043a\u043e\u0432 \u043d\u0430 \u043f\u043e\u043d\u044f\u0442\u043d\u043e\u043c \u044f\u0437\u044b\u043a\u0435.",
+    "tool_upload_label": "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0432\u0430\u0448 \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_upload_hint": "PDF, Word \u0438\u043b\u0438 \u0442\u0435\u043a\u0441\u0442\u043e\u0432\u044b\u0439 \u0444\u0430\u0439\u043b. \u0418\u043b\u0438 \u0441\u0444\u043e\u0442\u043e\u0433\u0440\u0430\u0444\u0438\u0440\u0443\u0439\u0442\u0435 \u0440\u0430\u0441\u043f\u0435\u0447\u0430\u0442\u0430\u043d\u043d\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440.",
+    "tool_upload_btn": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e",
+    "tool_submit_btn": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443",
+    "tool_confirm_title": "\u0417\u0430\u043f\u0440\u043e\u0441 \u043f\u0440\u0438\u043d\u044f\u0442",
+    "tool_confirm_lead": "\u0412\u0430\u0448 \u0437\u0430\u043f\u0440\u043e\u0441 \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d. \u0410\u0434\u0432\u0430\u0439\u0437\u0435\u0440 \u043e\u0442\u0432\u0435\u0442\u0438\u0442 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 1 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u0434\u043d\u044f.",
+    "tool_contract_type": "\u0422\u0438\u043f \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0430",
+    "tool_concerns": "\u041e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043e\u043f\u0430\u0441\u0435\u043d\u0438\u044f",
+    "tool_negotiated": "\u0412\u044b \u0443\u0436\u0435 \u043e\u0431\u0441\u0443\u0436\u0434\u0430\u043b\u0438 \u0443\u0441\u043b\u043e\u0432\u0438\u044f?",
+    "tool_deadline": "\u0421\u0440\u043e\u043a \u043f\u043e\u0434\u043f\u0438\u0441\u0430\u043d\u0438\u044f (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
+    "tool_empty": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u043e\u0442\u043c\u0435\u0442\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u0443.",
+    "tool_error": "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b \u0438\u043b\u0438 \u043e\u0442\u043c\u0435\u0442\u044c\u0442\u0435 \u043e\u043f\u0430\u0441\u0435\u043d\u0438\u0435.",
+    "tool_consult": "\u0417\u0430\u043f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0432\u043e\u043d\u043e\u043a \u043f\u043e \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0443",
+    "tool_new": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0435\u0449\u0451 \u043e\u0434\u0438\u043d \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_disc": "\u042d\u0442\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u043d\u043e\u0441\u0438\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440 \u0438 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0435\u0439.",
+    "tool_back": "\u2190 \u0423\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    "tool_scan_btn": "\u0410\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+    "tool_scanning": "\u0410\u043d\u0430\u043b\u0438\u0437\u2026",
+    "tool_no_file": "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b."
+  },
+  "es": {
+    "brand_tag": "Infraestructura ejecutiva de recuperaci\u00f3n de ingresos y control documental",
+    "home": "Inicio", "file": "Control de archivos legales corporativos",
+    "recovery": "Infraestructura de recuperaci\u00f3n de ingresos", "intake": "Evaluaci\u00f3n inicial estructurada",
+    "resources": "Material ejecutivo y respaldo documental", "additional": "Servicios adicionales",
+    "careers": "Carreras", "contact": "Solicitar consulta",
+    "clock_vcx": "VitaCoreX Time", "clock_local": "Tu hora", "clock_local_sub": "Local",
+    "footer_est": "Establecida en 2025", "footer_phone": "L\u00ednea privada: (888) 794-8292",
+    "footer_ein": "EIN: 41-4399148",
+    "footer_disc": "VitaCoreX LLC ofrece soporte administrativo, documental y de negocio. No es un bufete jur\u00eddico.",
+    "footer_copy": "\u00a9 2026 VitaCoreX LLC. Todos los derechos reservados.",
+    "tool_eyebrow": "Herramienta para clientes privados",
+    "tool_title": "Esc\u00e1ner de contratos",
+    "tool_subtitle": "Suba un contrato o acuerdo y obtenga un an\u00e1lisis de riesgos en lenguaje sencillo.",
+    "tool_upload_label": "Suba su contrato",
+    "tool_upload_hint": "PDF, Word o archivo de texto. O tome una foto de un contrato impreso.",
+    "tool_upload_btn": "Elegir archivo o tomar foto",
+    "tool_submit_btn": "Enviar para revisi\u00f3n",
+    "tool_confirm_title": "Solicitud capturada",
+    "tool_confirm_lead": "Su solicitud ha sido registrada. Un asesor revisar\u00e1 en 1 d\u00eda h\u00e1bil.",
+    "tool_contract_type": "Tipo de contrato",
+    "tool_concerns": "Preocupaciones principales",
+    "tool_negotiated": "\u00bfHa negociado alguna condici\u00f3n?",
+    "tool_deadline": "Fecha l\u00edmite para firmar (opcional)",
+    "tool_empty": "Seleccione un archivo o marque al menos una preocupaci\u00f3n.",
+    "tool_error": "Seleccione un archivo o marque al menos una preocupaci\u00f3n antes de enviar.",
+    "tool_consult": "Programar llamada de revisi\u00f3n",
+    "tool_new": "Enviar otro contrato",
+    "tool_disc": "Esta revisi\u00f3n es solo informativa. No constituye asesoramiento legal.",
+    "tool_back": "\u2190 Servicios para clientes privados",
+    "tool_scan_btn": "Analizar contrato",
+    "tool_scanning": "Analizando\u2026",
+    "tool_no_file": "Por favor, seleccione un archivo."
+  }
+};
+(function(){
+  var lang = (function(){ var s=localStorage.getItem('vcx_lang'); return ['en','ru','es'].includes(s)?s:'en'; })();
+  document.documentElement.lang = lang;
+  window._vcxLang = lang;
+})();
+</script>
+</head>
+<body data-vcx-page="contract-scanner">
+
+<!-- ── HEADER (matches additional-services.html) ─────────────────────── -->
+<header class="vcx-header">
+<div class="wrap">
+<div class="vcx-header-shell">
+<div class="vcx-header-desktop">
+<div class="vcx-header-top">
+<a aria-label="VitaCoreX home" class="vcx-brand" href="/index.html">
+<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
+<div class="vcx-brand-copy">
+<strong>VitaCoreX LLC</strong>
+<span data-common="brand_tag">Private revenue recovery and legal-file advisory</span>
+</div>
+</a>
+<div class="vcx-header-meta">
+<div class="vcx-time-chip">
+<div class="vcx-time-label"><span data-common="clock_vcx">VitaCoreX Time</span><span class="vcx-time-sub">Tampa, FL</span></div>
+<div class="vcx-time-value clock-vcx">00:00</div>
+</div>
+<div class="vcx-time-chip">
+<div class="vcx-time-label"><span data-common="clock_local">Your Time</span><span class="vcx-time-sub" data-common="clock_local_sub">Local</span></div>
+<div class="vcx-time-value clock-local">00:00</div>
+</div>
+</div>
+</div>
+<div class="vcx-header-navrow">
+<nav class="vcx-main-nav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-switcher" aria-label="Language">
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="ru">RU</button>
+<button class="lang-btn" data-lang="es">ES</button>
+</div>
+</div>
+</div>
+<div class="vcx-header-mobile">
+<div class="vcx-mobile-row">
+<a aria-label="VitaCoreX home" class="vcx-mobile-brand" href="/index.html">
+<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
+<span>VitaCoreX</span>
+</a>
+<button aria-controls="vcxMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button">
+<span aria-hidden="true" class="vcx-menu-icon">☰</span>
+<span class="vcx-menu-text">Menu</span>
+</button>
+</div>
+<nav class="vcx-mobile-nav" hidden id="vcxMobileNav">
+<a data-common="home" href="/index.html">Home</a>
+<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
+<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
+<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
+<a data-common="resources" href="/resources.html">Executive Briefs &amp; Proof</a>
+<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
+<a data-common="careers" href="/careers.html">Careers</a>
+<a data-common="contact" href="/contact.html">Private Consultation</a>
+</nav>
+<div class="vcx-lang-mobile" aria-label="Language">
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="ru">RU</button>
+<button class="lang-btn" data-lang="es">ES</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- ── MAIN TOOL ───────────────────────────────────────────────────────── -->
+<main id="vcxContractMain" style="padding:40px 0 80px;">
+<div class="wrap" style="max-width:780px;">
+
+<!-- Back link -->
+<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(212,175,55,.8);text-decoration:none;">&larr; Private Client Services</a>
+
+<!-- Hero -->
+<div class="reveal" style="margin-bottom:36px;">
+<span class="eyebrow" data-tx="tool_eyebrow">Private Client Tool</span>
+<h1 data-tx="tool_title" style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4em 0 .5em;">Contract Scanner</h1>
+<p style="font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.6;max-width:560px;" data-tx="tool_subtitle">Upload a contract or agreement. Get a plain-language risk review — strong points, weak points, missing protections, and items to flag before signing.</p>
+</div>
+
+<!-- Intake card -->
+<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:12px;margin-bottom:24px;">
+
+<!-- File upload -->
+<label for="vcxContractFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:8px;">Upload your contract</label>
+<p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.55);margin:0 0 14px;">PDF, Word, or text file. Or take a photo of a printed contract.</p>
+<div id="vcxDropZone" style="border:2px dashed rgba(212,175,55,.35);border-radius:8px;padding:28px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxContractFile').click()">
+<div style="font-size:2rem;margin-bottom:8px;">&#128196;</div>
+<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(212,175,55,.85);font-weight:500;">Choose file or take photo</span>
+<div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
+</div>
+<input type="file" id="vcxContractFile" accept=".pdf,.doc,.docx,.txt,.md,image/*" capture="environment" style="display:none;" onchange="vcxHandleFile(this)"/>
+<div id="vcxFileNotice" hidden class="vcx-file-notice"></div>
+<div id="vcxFilePreview" hidden style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
+
+<!-- Pre-check questionnaire -->
+<div style="margin-top:24px;">
+
+<div style="margin-bottom:18px;">
+<label for="vcxContractType" data-tx="tool_contract_type" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Contract type</label>
+<select id="vcxContractType" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;">
+<option value="">Select type</option>
+<option value="Employment">Employment</option>
+<option value="Service">Service</option>
+<option value="NDA">NDA</option>
+<option value="Lease">Lease</option>
+<option value="Purchase">Purchase</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<div style="margin-bottom:18px;">
+<p style="font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin:0 0 8px;" data-tx="tool_concerns">Primary concerns</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Liability cap" style="accent-color:#d4af37;"> Liability cap</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Auto-renewal" style="accent-color:#d4af37;"> Auto-renewal</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Payment terms" style="accent-color:#d4af37;"> Payment terms</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="IP ownership" style="accent-color:#d4af37;"> IP ownership</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Dispute resolution" style="accent-color:#d4af37;"> Dispute resolution</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Termination rights" style="accent-color:#d4af37;"> Termination rights</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Other" style="accent-color:#d4af37;"> Other</label>
+</div>
+</div>
+
+<div style="margin-bottom:18px;">
+<label for="vcxNegotiated" data-tx="tool_negotiated" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Have you negotiated any terms?</label>
+<select id="vcxNegotiated" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;">
+<option value="">Select</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+<option value="Not yet">Not yet</option>
+</select>
+</div>
+
+<div style="margin-bottom:22px;">
+<label for="vcxDeadline" data-tx="tool_deadline" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Deadline to sign (optional)</label>
+<input type="date" id="vcxDeadline" style="padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;"/>
+</div>
+
+</div><!-- end questionnaire -->
+
+<button id="vcxScanBtn" type="button" onclick="vcxScanContract()"
+  style="width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;"
+  data-tx="tool_submit_btn">Submit for Advisor Review</button>
+</div>
+
+<!-- id=vcx-service-welcome: shown when arriving with ?service=contracts -->
+<div id="vcx-service-welcome" hidden style="background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(212,175,55,.85);">
+  Welcome — you were routed here for contract review. Complete the intake below to reach an advisor.
+</div>
+
+<!-- Confirmation panel (shown on submit) -->
+<div id="vcxResultsArea" hidden></div>
+
+<!-- Error state -->
+<div id="vcxErrorState" style="display:none;padding:14px 18px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:6px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Please select a file or check at least one concern before submitting.</div>
+
+</div>
+</div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="vcx-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<strong>VitaCoreX LLC</strong>
+<span data-common="footer_est">Established 2025</span>
+</div>
+<div>
+<span data-common="footer_phone">Private consultation line: (888) 794-8292</span>
+<span data-common="footer_ein">EIN: 41-4399148</span>
+</div>
+</div>
+<p class="footer-disc" data-common="footer_disc">VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation.</p>
+<p class="footer-copy" data-common="footer_copy">&copy; 2026 VitaCoreX LLC. All rights reserved.</p>
+</div>
+</footer>
+
+<!-- ── GA4 ─────────────────────────────────────────────────────────────── -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E08EE1KSQQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E08EE1KSQQ');</script>
+<!-- Apollo -->
+<script>!function(e,t){if(!t.__SV){var a,r,i,n;window.analytics=t,t.methods=["identify","track","page","group","alias","reset"],t.factory=function(e){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(e),t.push(a),t}};for(var s=0;s<t.methods.length;s++)t[t.methods[s]]=t.factory(t.methods[s]);t.load=function(e){a=document.createElement("script"),a.type="text/javascript",a.async=!0,a.src="https://cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(a,r)},t.SNIPPET_VERSION="4.1.0",t.load("69a7b325debb1e000d36d253"),t.page()}}(window,window.analytics||[]);</script>
+
+<!-- ── TOOL SCRIPT ────────────────────────────────────────────────────────── -->
+<script>
+(function() {
+'use strict';
+
+// helpers
+function el(id) { return document.getElementById(id); }
+function lang() { var l=localStorage.getItem('vcx_lang'); return(l==='ru'||l==='es')?l:'en'; }
+function t(k) {
+  var d=window.SITE_I18N;
+  if(!d) return k;
+  return (d[lang()]&&d[lang()][k]) || (d.en&&d.en[k]) || k;
+}
+
+// i18n + header shell (lang switcher, clocks, mobile menu)
+(function(){
+  var I18N = window.SITE_I18N;
+  var uiLang = window._vcxLang || 'en';
+  function tui(key){ return (I18N[uiLang]&&I18N[uiLang][key])||(I18N['en']&&I18N['en'][key])||key; }
+  function applyText(){
+    document.querySelectorAll('[data-tx]').forEach(function(el){var k=el.getAttribute('data-tx');var v=tui(k);if(v)el.textContent=v;});
+    document.querySelectorAll('[data-common]').forEach(function(el){var k=el.getAttribute('data-common');var v=tui(k);if(v)el.textContent=v;});
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      uiLang=btn.getAttribute('data-lang');
+      window._vcxLang=uiLang;
+      try{localStorage.setItem('vcx_lang',uiLang);}catch(e){}
+      document.documentElement.lang=uiLang;
+      applyText();
+    });
+  });
+  applyText();
+  var menuBtn=document.querySelector('.vcx-menu-btn');
+  var mobileNav=document.getElementById('vcxMobileNav');
+  if(menuBtn&&mobileNav){
+    menuBtn.addEventListener('click',function(){
+      var open=mobileNav.hasAttribute('hidden');
+      mobileNav.toggleAttribute('hidden',!open);
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  function pad(n){return String(n).padStart(2,'0');}
+  function updateClocks(){
+    var now=new Date();
+    var tampa=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));
+    document.querySelectorAll('.clock-vcx').forEach(function(el){el.textContent=pad(tampa.getHours())+':'+pad(tampa.getMinutes());});
+    document.querySelectorAll('.clock-local').forEach(function(el){el.textContent=pad(now.getHours())+':'+pad(now.getMinutes());});
+  }
+  updateClocks(); setInterval(updateClocks,30000);
+  var dz=document.getElementById('vcxDropZone');
+  if(dz){
+    dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(212,175,55,.7)';});
+    dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(212,175,55,.35)';});
+    dz.addEventListener('drop',function(e){
+      e.preventDefault();dz.style.borderColor='rgba(212,175,55,.35)';
+      var f=e.dataTransfer.files[0];
+      if(f){var inp=document.getElementById('vcxContractFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}
+    });
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var params=new URLSearchParams(window.location.search);
+    if(params.get('service')){var sw=document.getElementById('vcx-service-welcome');if(sw)sw.hidden=false;}
+  });
+})();
+
+// Contract clause patterns
+var CLAUSES = [
+  { key:'payment_terms',   label:'Payment Terms',          patterns:[/payment\s+term/i,/net\s*\d+/i,/invoice/i,/billing\s+cycle/i,/due\s+date/i] },
+  { key:'auto_renewal',    label:'Auto-Renewal',           patterns:[/auto.?renew/i,/automatic.*renew/i,/evergreen/i,/renew.*automatically/i,/unless.*cancel/i] },
+  { key:'termination',     label:'Termination',            patterns:[/terminat/i,/cancell?ation/i,/notice.*period/i,/\d+\s+days.*notice/i] },
+  { key:'liability_cap',   label:'Limitation of Liability',patterns:[/limit.*liabilit/i,/liabilit.*limit/i,/cap.*damage/i,/aggregate.*liabilit/i,/not.*exceed/i] },
+  { key:'indemnity',       label:'Indemnification',        patterns:[/indemnif/i,/hold.*harmless/i,/defend.*against/i] },
+  { key:'ip_ownership',    label:'IP / Work Product',      patterns:[/intellectual.*property/i,/work.*product/i,/ownership.*rights/i,/assigns.*all.*right/i,/moral.*right/i] },
+  { key:'confidentiality', label:'Confidentiality / NDA',  patterns:[/confidential/i,/non.?disclos/i,/proprietary.*information/i,/trade.*secret/i] },
+  { key:'dispute',         label:'Dispute Resolution',     patterns:[/arbitrat/i,/mediat/i,/dispute.*resolution/i,/governing.*law/i,/jurisdiction/i,/venue/i] },
+  { key:'warranty',        label:'Warranty / Disclaimer',  patterns:[/warrant/i,/as.?is/i,/disclaimer/i,/no.*warrant/i] },
+  { key:'assignment',      label:'Assignment',             patterns:[/assign/i,/transfer.*right/i,/delegate/i] },
+  { key:'notice',          label:'Notice Requirements',    patterns:[/notice.*shall/i,/written.*notice/i,/notify/i,/days.*written/i] },
+  { key:'exclusivity',     label:'Exclusivity',            patterns:[/exclusiv/i,/non.?exclusiv/i,/exclusive.*right/i] },
+  { key:'late_fees',       label:'Late Fees / Interest',   patterns:[/late.*fee/i,/interest.*past\s+due/i,/overdue/i,/penalty/i] },
+  { key:'governing_law',   label:'Governing Law',          patterns:[/governed.*laws?\s+of/i,/laws\s+of\s+the\s+state/i,/choice\s+of\s+law/i] }
+];
+
+var HIGH_RISK = ['auto_renewal','liability_cap','indemnity','ip_ownership'];
+var IMPORTANT = ['payment_terms','termination','dispute','confidentiality'];
+
+// Analyze extracted text
+function analyzeText(text) {
+  var found = {}, missing = [];
+  var wordCount = text.split(/\s+/).filter(Boolean).length;
+  CLAUSES.forEach(function(clause) {
+    var matched = clause.patterns.some(function(p) { return p.test(text); });
+    if(matched) { found[clause.key] = clause; }
+    else { missing.push(clause); }
+  });
+  return { found:found, missing:missing, wordCount:wordCount, hasText: wordCount > 50 };
+}
+
+// Render results
+function renderResults(analysis, filename) {
+  var foundKeys = Object.keys(analysis.found);
+  var highRiskMissing = analysis.missing.filter(function(c){return HIGH_RISK.indexOf(c.key)>=0;});
+  var importantMissing = analysis.missing.filter(function(c){return IMPORTANT.indexOf(c.key)>=0;});
+
+  var html = '<div class="vcx-analysis-result" role="region" aria-label="Contract analysis">';
+  var severity = highRiskMissing.length > 0 ? 'high' : importantMissing.length > 0 ? 'medium' : 'low';
+  var summaryText = {
+    high: highRiskMissing.length + ' high-priority clause' + (highRiskMissing.length>1?'s':'')+' not detected',
+    medium: importantMissing.length + ' clause' + (importantMissing.length>1?'s':'')+' to verify',
+    low: 'No major gaps detected'
+  };
+  html += '<div class="vcx-result-summary vcx-summary-'+severity+'">';
+  html += '<div class="vcx-summary-icon">'+(severity==='high'?'&#9888;':severity==='medium'?'&#8594;':'&#10003;')+'</div>';
+  html += '<div><h2 class="vcx-summary-title">'+summaryText[severity]+'</h2>';
+  html += '<p class="vcx-summary-meta">Analyzed: <strong>'+escHtml(filename)+'</strong> &middot; '+analysis.wordCount.toLocaleString()+' words &middot; '+foundKeys.length+'/'+CLAUSES.length+' key clauses detected</p></div></div>';
+
+  if(foundKeys.length > 0) {
+    html += '<div class="vcx-result-section">';
+    html += '<h3 class="vcx-section-title vcx-found">Detected clauses ('+foundKeys.length+')</h3>';
+    html += '<ul class="vcx-clause-list">';
+    foundKeys.forEach(function(k){
+      html += '<li class="vcx-clause-item vcx-clause-found"><span class="vcx-clause-dot">&#10003;</span>'+escHtml(analysis.found[k].label)+'</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  if(highRiskMissing.length > 0) {
+    html += '<div class="vcx-result-section">';
+    html += '<h3 class="vcx-section-title vcx-critical">High-priority &#8212; not detected ('+highRiskMissing.length+')</h3>';
+    html += '<p class="vcx-section-note">These clauses are not present or may be worded unusually. Review with counsel before signing.</p>';
+    html += '<ul class="vcx-clause-list">';
+    highRiskMissing.forEach(function(c){
+      html += '<li class="vcx-clause-item vcx-clause-missing"><span class="vcx-clause-dot">!</span>'+escHtml(c.label)+'</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  if(importantMissing.length > 0) {
+    html += '<div class="vcx-result-section">';
+    html += '<h3 class="vcx-section-title vcx-flag">Important &#8212; verify ('+importantMissing.length+')</h3>';
+    html += '<ul class="vcx-clause-list">';
+    importantMissing.forEach(function(c){
+      html += '<li class="vcx-clause-item vcx-clause-verify"><span class="vcx-clause-dot">&#8594;</span>'+escHtml(c.label)+'</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  if(!analysis.hasText) {
+    html += '<div class="vcx-result-notice vcx-notice-info"><strong>Limited text extracted.</strong> This file may be image-based, scanned, or encrypted. Text analysis requires readable/selectable text. For scanned contracts, use the manual review route below.</div>';
+  }
+
+  html += '<div class="vcx-result-cta">';
+  html += '<p class="vcx-result-lead">This is a pattern-based pre-check. Findings depend on clause wording and document quality. An advisor review provides full interpretation.</p>';
+  html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';
+  html += '</div>';
+  html += '<p class="vcx-disc">Pattern-based detection only &#8212; not legal advice. Clauses may be present but worded differently. Review all findings with licensed counsel before signing.</p>';
+  html += '</div>';
+  return html;
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// File handling
+var selectedFile = null;
+
+function vcxHandleFile(input) {
+  var file = input.files && input.files[0];
+  if(!file) return;
+  selectedFile = file;
+
+  var nameEl = el('vcxFileName');
+  if(nameEl) nameEl.textContent = file.name + ' (' + (file.size/1024).toFixed(1) + ' KB)';
+
+  var previewZone = el('vcxFilePreview');
+  if(previewZone) { previewZone.hidden = false; }
+
+  var scanBtn = el('vcxScanBtn');
+  if(scanBtn) { scanBtn.disabled = false; scanBtn.style.opacity = '1'; }
+
+  var ext = file.name.split('.').pop().toLowerCase();
+  var noticeEl = el('vcxFileNotice');
+  if(noticeEl) {
+    if(['txt','md','text'].indexOf(ext) >= 0) {
+      noticeEl.textContent = 'Text file detected \u2014 full clause analysis available.';
+      noticeEl.className = 'vcx-file-notice vcx-notice-success';
+    } else if(['pdf'].indexOf(ext) >= 0) {
+      noticeEl.textContent = 'PDF detected. Analysis works on text-based PDFs. Scanned PDFs will have limited results.';
+      noticeEl.className = 'vcx-file-notice vcx-notice-info';
+    } else if(['doc','docx'].indexOf(ext) >= 0) {
+      noticeEl.textContent = 'Word file detected. Full text extraction for .docx requires additional parsing \u2014 some clauses may be missed.';
+      noticeEl.className = 'vcx-file-notice vcx-notice-info';
+    } else {
+      noticeEl.textContent = 'File format: ' + ext.toUpperCase() + '. For best results, use .txt or text-based PDF.';
+      noticeEl.className = 'vcx-file-notice vcx-notice-warning';
+    }
+    noticeEl.hidden = false;
+  }
+}
+window.vcxHandleFile = vcxHandleFile;
+
+function vcxScanContract() {
+  if(!selectedFile) {
+    alert(t('tool_no_file') || 'Please select a file first.');
+    return;
+  }
+  var scanBtn = el('vcxScanBtn');
+  var resultsArea = el('vcxResultsArea');
+  if(!resultsArea) return;
+
+  if(scanBtn) { scanBtn.disabled = true; scanBtn.textContent = t('tool_scanning') || 'Analyzing\u2026'; }
+
+  var ext = selectedFile.name.split('.').pop().toLowerCase();
+
+  if(['txt','md','text','csv'].indexOf(ext) >= 0) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var text = e.target.result || '';
+      var analysis = analyzeText(text);
+      resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
+      resultsArea.hidden = false;
+      resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
+      if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
+    };
+    reader.onerror = function() {
+      showReadError(resultsArea, selectedFile.name);
+      if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
+    };
+    reader.readAsText(selectedFile);
+  } else {
+    var reader2 = new FileReader();
+    reader2.onload = function(e) {
+      var raw = e.target.result || '';
+      var text = raw.replace(/[^\x20-\x7E\u00A0-\uFFFF\n\r\t]/g,' ').replace(/\s{3,}/g,' ');
+      var analysis = analyzeText(text);
+      resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
+      resultsArea.hidden = false;
+      resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
+      if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
+    };
+    reader2.onerror = function() {
+      showReadError(resultsArea, selectedFile.name);
+      if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
+    };
+    reader2.readAsBinaryString(selectedFile);
+  }
+}
+window.vcxScanContract = vcxScanContract;
+
+function showReadError(area, filename) {
+  area.innerHTML = '<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> Please try saving as .txt, or use the manual review option below.</div><div class="vcx-result-cta"><a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
+  area.hidden = false;
+}
+
+function vcxReset() {
+  selectedFile = null;
+  var fi = el('vcxContractFile');
+  if(fi) fi.value = '';
+  var ra = el('vcxResultsArea');
+  if(ra) { ra.innerHTML=''; ra.hidden=true; }
+  var preview = el('vcxFilePreview');
+  if(preview) preview.hidden = true;
+  var notice = el('vcxFileNotice');
+  if(notice) { notice.hidden=true; notice.textContent=''; }
+  var btn = el('vcxScanBtn');
+  if(btn) { btn.disabled=true; btn.style.opacity='.6'; btn.textContent=t('tool_scan_btn')||'Analyze contract'; }
+  var fn = el('vcxFileName');
+  if(fn) fn.textContent='';
+  document.querySelectorAll('input[name="vcxConcern"]').forEach(function(c){c.checked=false;});
+  var ct=el('vcxContractType'); if(ct) ct.value='';
+  var cn=el('vcxNegotiated'); if(cn) cn.value='';
+  var cd=el('vcxDeadline'); if(cd) cd.value='';
+  var uc=el('vcxUploadCard'); if(uc) uc.style.display='block';
+  var err=el('vcxErrorState'); if(err) err.style.display='none';
+}
+window.vcxReset = vcxReset;
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = el('vcxScanBtn');
+  if(btn) { btn.disabled = true; btn.style.opacity = '.6'; }
+});
+
+})();
+
+</script>
+<script src="/assets/js/vcx-i18n.js"></script>
+<script src="/assets/js/premium-fixes.js"></script>
+
+</body>
+</html>

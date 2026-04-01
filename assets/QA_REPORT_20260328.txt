@@ -1,0 +1,8 @@
+QA REPORT
+
+Broken local links/assets: 0
+Legacy phone hits: 0
+Metadata/schema issues: 0
+
+Command used
+- ./QA_VALIDATE_SITE.py

@@ -1,0 +1,28 @@
+DEPLOYMENT AND QA NOTES — 2026-03-28
+
+Pre-release checks completed
+- local link / asset integrity: passed
+- legacy phone replacement: passed
+- metadata / schema presence on public pages: passed
+- JS syntax check on assets/js/site.js: passed
+- JS syntax check on assets/js/ui-shell.js: passed
+
+Deployment reminders
+1) upload the full bundle, including new pages, sitemap.xml, and updated og-cover.png
+2) keep robots.txt at the root
+3) re-submit sitemap.xml in Search Console after deployment
+4) if analytics or marketing IDs are changed, update only window.VCX_TRACKING_IDS values
+5) verify that the contact calendar link and form submission delivery still work live
+
+Recommended live smoke test
+- homepage desktop + iPhone
+- structured-case-intake.html form submit
+- careers.html form submit
+- contact.html consultation link
+- resources.html PDF opens
+- about / industries / privacy / terms / cookie pages render correctly
+- footer links work from at least 3 pages
+- search site files for the legacy phone one more time on the live server
+
+Known structural limit
+- true production-grade multilingual SEO would still require separate localized routes and editorial QA per language

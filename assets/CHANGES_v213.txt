@@ -1,0 +1,30 @@
+v213 changes
+
+1) Removed unrequested dock buttons
+- Removed WhatsApp and Book actions from the desktop and mobile dock markup on all HTML pages.
+- Bug fixed: extra dock buttons were appearing even though they were not requested.
+
+2) Reduced and rebalanced long navigation labels
+- Reduced nav font sizing and allowed long header labels to wrap in a controlled balanced block.
+- Applied long-label handling to:
+  - Corporate Legal File Control
+  - Revenue Recovery Infrastructure
+  - Structured Case Intake
+  - Executive Briefs & Proof
+  - Services for Individuals
+  - Request Consultation
+- Bug fixed: Revenue Recovery Infrastructure and similar labels were too large and visually heavy.
+
+3) Restored calculator behavior with a new final-layer initializer
+- Added a robust calculator recovery layer in assets/js/ui-shell.js that re-binds:
+  - Revenue leakage calculator
+  - DSO impact simulator
+  - 90-day pilot economics
+  - CFO calculator (#cfoCalc) when present
+- This layer runs after the legacy site script and also refreshes after language changes.
+- Bug fixed: calculators no longer depend on earlier fragile initialization order.
+
+4) Tightened dock proportions without redesign
+- Reduced dock icon box size, icon size, chip height, label size, and shell padding.
+- Updated desktop dock grid after removing extra buttons so spacing stays balanced.
+- Bug fixed: dock was still too large and visually loose.

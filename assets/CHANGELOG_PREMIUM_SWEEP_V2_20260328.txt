@@ -1,0 +1,93 @@
+VITACOREX PREMIUM SWEEP V2 — 2026-03-28
+
+Primary objective
+- finish a full production sweep beyond the first luxury refresh
+- preserve existing tracking hooks, GA4 / Apollo bootstrap, form IDs, and current analytics logic
+- keep the phone replacement complete and consistent
+
+What changed
+1) Positioning and rhetoric
+- tightened homepage headline and lead around one dominant category: revenue recovery design + documentation control
+- added buyer-fit filtering on the homepage so the best-fit and not-fit cases are explicit
+- added first-engagement outputs to make the offer feel more concrete and forwardable internally
+- kept private-client support secondary and visually quieter
+
+2) Information architecture
+- added about.html
+- added solutions.html
+- added industries.html
+- added 4 industry landing pages:
+  * industry-healthcare-dental.html
+  * industry-subscription-recurring.html
+  * industry-fleet-logistics.html
+  * industry-contract-services.html
+- added visible policy / governance pages:
+  * privacy-policy.html
+  * terms-of-use.html
+  * cookie-policy.html
+
+3) Trust and compliance
+- expanded privacy / file-handling language around the public forms
+- added public governance links in the footer across the site
+- added explicit public-site boundaries:
+  * not a law firm
+  * not licensed collections activity
+  * public forms are not for highly sensitive regulated records without secure coordination
+
+4) Forms, routing, and analytics safety
+- preserved current form IDs and JS submission flow
+- preserved current tracker bootstrap:
+  * window.VCX_TRACKING_IDS
+  * GA4 slot
+  * Apollo slot
+  * tracking hooks in site.js / ui-shell.js
+- added attribution capture to forms:
+  * utm_source
+  * utm_medium
+  * utm_campaign
+  * utm_term
+  * utm_content
+  * gclid / fbclid / msclkid / li_fat_id
+  * landing page
+  * referrer
+  * consent mode
+- improved iPhone/mobile form semantics with stronger autocomplete / inputmode / accept attributes
+
+5) SEO / metadata / structured data
+- standardized titles, descriptions, canonicals, robots, og:url, twitter cards, and theme color
+- added or normalized JSON-LD on public pages
+- rebuilt sitemap.xml to include the expanded public page set
+- kept noindex on redirects, thank-you, contact, private-client support, and archive-only material
+
+6) Design and mobile polish
+- extended footer into a stronger 3-column company / solutions / governance structure
+- added styles for fit cards, industry cards, policy pages, and trust modules
+- strengthened focus-visible states
+- improved reduced-motion behavior
+- optimized hero media behavior on smaller screens and reduced-motion environments
+- replaced og-cover.png with a cleaner branded social preview
+
+7) QA and release discipline
+- added QA_VALIDATE_SITE.py
+- validated:
+  * 0 broken local links / assets
+  * 0 legacy phone hits
+  * 0 metadata / schema issues
+
+Files added
+- about.html
+- solutions.html
+- industries.html
+- industry-healthcare-dental.html
+- industry-subscription-recurring.html
+- industry-fleet-logistics.html
+- industry-contract-services.html
+- privacy-policy.html
+- terms-of-use.html
+- cookie-policy.html
+- QA_VALIDATE_SITE.py
+
+Notes
+- this is still a static-site architecture, not a full CMS/component migration
+- multilingual routing was not converted into a full localized URL system in this sweep because that would require a wider architecture change and content QA pass across all pages
+- the current public form flow remains brochure-site grade rather than a fully custom backend CRM ingestion stack, but attribution capture and trust/governance visibility are materially improved
