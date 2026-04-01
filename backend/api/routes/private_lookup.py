@@ -64,6 +64,10 @@ _SESSION_TTL_SECONDS = 3600 * 4  # 4 hours
 _MAX_LOOKUPS_PER_SESSION = 3
 _STRIPE_ENABLED = bool(_STRIPE_SECRET and _STRIPE_PUB and _STRIPE_LOOKUP_PRICE_ID)
 
+# Free-mode override: set PRIVATE_LOOKUP_ACCESS_MODE=free to bypass Stripe even when keys are present
+_ACCESS_MODE = os.getenv("PRIVATE_LOOKUP_ACCESS_MODE", "paid").strip().lower()
+_FREE_MODE = _ACCESS_MODE == "free"
+
 # SAFETY: never enable assisted payment for government obligations
 ASSISTED_PAYMENT_ENABLED = False
 
@@ -138,7 +142,7 @@ async def get_config():
         lookup_price=_LOOKUP_PRICE,
         action_memo_price=_ACTION_MEMO_PRICE,
         monitoring_price=_MONITORING_PRICE,
-        stripe_enabled=_STRIPE_ENABLED,
+        stripe_enabled=_STRIPE_ENABLED and not _FREE_MODE,
         lookup_access_enabled=True,
         action_memo_checkout_enabled=True,
         reminders_subscription_enabled=os.getenv("REMINDERS_SUBSCRIPTION_ENABLED", "false").lower() == "true",
@@ -173,7 +177,7 @@ async def create_session(request: Request):
         "paid": False,
     }
 
-    if _STRIPE_ENABLED:
+    if _STRIPE_ENABLED and not _FREE_MODE:
         try:
             import stripe
             stripe.api_key = _STRIPE_SECRET
@@ -247,8 +251,8 @@ async def verify_payment(body: PaymentVerifyRequest, request: Request):
             if "InvalidRequestError" in err_type or "NotFoundError" in err_type:
                 raise HTTPException(status_code=400, detail="Invalid payment session. Please complete checkout again.")
             raise HTTPException(status_code=502, detail="Could not verify payment. Please contact support.")
-    elif not _STRIPE_ENABLED:
-        # Dev mode — grant without payment
+    elif not _STRIPE_ENABLED or _FREE_MODE:
+        # Dev/free mode — grant without payment
         paid = True
         pre["paid"] = True
 
