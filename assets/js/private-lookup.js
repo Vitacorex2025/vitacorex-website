@@ -68,6 +68,7 @@ function showSession(){
     var rem = el('vcx-lookups-remaining');
     if(rem) rem.textContent = lookupsRemaining;
   }
+  switchTab(currentTab);
   enableSubmitButtons();
   fireEvent('private_tool_view', {tab: currentTab});
 }
@@ -103,6 +104,8 @@ function switchTab(tabName){
   document.querySelectorAll('.vcx-tab-panel').forEach(function(p){
     var panelId = p.id; // e.g. vcx-panel-tolls
     var isActive = panelId === 'vcx-panel-' + tabName;
+    p.classList.toggle('is-active', isActive);
+    p.setAttribute('aria-hidden', isActive ? 'false' : 'true');
     if(isActive){ p.removeAttribute('hidden'); }
     else { p.setAttribute('hidden',''); }
   });

@@ -247,6 +247,241 @@ body[data-vcx-page="auto-deal-check"] .vcx-drop-zone:hover {
   background: rgba(176,138,87,.08) !important;
 }
 
+/* ============================================================
+   8. ADDITIONAL-SERVICES — tighten hero, kill dead zone
+   ============================================================ */
+body[data-vcx-page="individual-services"] .hero {
+  padding: 28px 0 20px !important;
+  min-height: auto !important;
+  max-height: none;
+}
+body[data-vcx-page="individual-services"] .hero-grid-composed {
+  gap: 20px;
+}
+body[data-vcx-page="individual-services"] .hero-copy {
+  padding: 24px !important;
+}
+body[data-vcx-page="individual-services"] .hero-side .problem-item {
+  padding: 18px 20px !important;
+}
+
+/* ============================================================
+   9. SITE-WIDE READABILITY — fix 23 audit failures
+   ============================================================ */
+
+/* 9a. Eyebrow text: bump from 11px to 13px, fix gold-on-light contrast */
+.eyebrow, .page-kicker, .vcx-section-label {
+  font-size: 0.8125rem !important;
+  letter-spacing: 0.08em;
+}
+/* Gold eyebrow on LIGHT pages: use darker bronze for WCAG AA */
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
+  color: #7a6234 !important;
+}
+
+/* 9b. Clock labels: bump from 11.5px to 12.5px */
+.clock-label, .vcx-time-sub {
+  font-size: 0.78rem !important;
+}
+
+/* 9c. Hero heading line-height: loosen from 0.96 to 1.15 */
+.hero-copy h1, .thankyou-card h1, .display-heading {
+  line-height: 1.15 !important;
+}
+
+/* 9d. Disclaimer/legal text: increase visibility */
+.vcx-disc, .small-note, .disclaimer-text {
+  font-size: 0.8125rem !important;
+}
+/* On light pages */
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-disc,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .small-note {
+  color: #4a5b6e !important;
+}
+
+/* 9e. Disabled button opacity: raise from 0.5 to 0.65 */
+.btn:disabled, button:disabled, [role="button"][aria-disabled="true"] {
+  opacity: 0.65 !important;
+}
+
+/* 9f. Caption / portal-desc text: bump minimum to 13px */
+.text-caption, .vcx-portal-desc, .vcx-result-disc, .metric-label {
+  font-size: max(0.8125rem, inherit) !important;
+}
+
+/* 9g. Form helper text on dark surfaces — brighten */
+body[data-vcx-private-lookup="true"] .vcx-field-error,
+body[data-vcx-private-lookup="true"] .form-note,
+body[data-vcx-private-lookup="true"] .field-note {
+  color: rgba(255,255,255,.75) !important;
+}
+
+/* ============================================================
+   10. PRIVATE LOOKUP — post-unlock form visibility + polish
+   ============================================================ */
+
+/* 10a. Tab panel: ensure active panel shows (defense against CSS/JS mismatch) */
+body[data-vcx-private-lookup="true"] .vcx-tab-panel:not([hidden]) {
+  display: block !important;
+}
+
+/* 10b. Tab buttons: fix selector (was .tab-btn, actual class is .vcx-tab-btn) */
+body[data-vcx-private-lookup="true"] .vcx-tab-btn {
+  color: #8aa0b8 !important;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  font-size: 0.9375rem;
+  padding: 10px 16px;
+}
+body[data-vcx-private-lookup="true"] .vcx-tab-btn.active,
+body[data-vcx-private-lookup="true"] .vcx-tab-btn:hover {
+  color: #f0f4f8 !important;
+  border-bottom-color: #c9a45c;
+}
+
+/* 10c. Form intro text: brighten from rgba(255,255,255,.6) to .85 */
+body[data-vcx-private-lookup="true"] .vcx-form-intro {
+  color: rgba(255,255,255,.85) !important;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 10d. Form field labels: ensure readable on both dark and light surfaces */
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool label {
+  color: #c8d6e4 !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* 10e. Form inputs on dark surface */
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool input[type="text"],
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool select {
+  background: rgba(13,31,48,.8) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: #e8eff7 !important;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+body[data-vcx-private-lookup="true"] .vcx-lookup-tool input::placeholder {
+  color: rgba(255,255,255,.4) !important;
+}
+
+/* 10f. Consent block: visible text */
+body[data-vcx-private-lookup="true"] .vcx-consent-block {
+  background: rgba(176,138,87,.06);
+  border: 1px solid rgba(176,138,87,.15);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+body[data-vcx-private-lookup="true"] .vcx-consent-label span {
+  color: rgba(255,255,255,.8) !important;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* 10g. Submit buttons inside lookup tool */
+body[data-vcx-private-lookup="true"] .vcx-submit-btn {
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
+  border: none !important;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 0.9375rem;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(176,138,87,.25);
+  margin-top: 8px;
+}
+body[data-vcx-private-lookup="true"] .vcx-submit-btn:hover {
+  box-shadow: 0 4px 20px rgba(176,138,87,.4);
+  transform: translateY(-1px);
+}
+body[data-vcx-private-lookup="true"] .vcx-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 10h. Session info bar: premium styling */
+body[data-vcx-private-lookup="true"] .vcx-session-info {
+  background: rgba(176,138,87,.1) !important;
+  border: 1px solid rgba(176,138,87,.2);
+  border-radius: 8px;
+  color: #e8eff7 !important;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+}
+
+/* 10i. Form divider labels */
+body[data-vcx-private-lookup="true"] .vcx-form-divider span {
+  color: rgba(255,255,255,.6) !important;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* 10j. Result area styling */
+body[data-vcx-private-lookup="true"] .vcx-result-area {
+  background: rgba(13,31,48,.5);
+  border: 1px solid rgba(176,138,87,.15);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+/* ============================================================
+   11. APP PAGE INLINE STYLE OVERRIDES — fix dark-on-dark labels
+   ============================================================ */
+
+/* Labels inside glass cards on dark pages: ensure visible */
+body[data-vcx-page="contract-scanner"] #vcxUploadCard label,
+body[data-vcx-page="immigration-helper"] #vcxUploadCard label,
+body[data-vcx-page="auto-deal-check"] #vcxUploadCard label {
+  color: #c8d6e4 !important;
+  font-weight: 600;
+}
+
+/* Form select/input on dark app pages */
+body[data-vcx-page="contract-scanner"] select,
+body[data-vcx-page="immigration-helper"] select,
+body[data-vcx-page="auto-deal-check"] select,
+body[data-vcx-page="contract-scanner"] input[type="text"],
+body[data-vcx-page="contract-scanner"] input[type="date"],
+body[data-vcx-page="immigration-helper"] input[type="text"],
+body[data-vcx-page="auto-deal-check"] input[type="text"],
+body[data-vcx-page="auto-deal-check"] input[type="number"] {
+  background: rgba(13,31,48,.7) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  color: #e8eff7 !important;
+  border-radius: 6px;
+}
+
+/* Checkbox labels on dark pages */
+body[data-vcx-page="contract-scanner"] label:has(input[type="checkbox"]),
+body[data-vcx-page="immigration-helper"] label:has(input[type="checkbox"]) {
+  color: rgba(255,255,255,.8) !important;
+}
+
+/* Scan/Analyze/Check buttons — ensure gold gradient on all dark pages */
+body[data-vcx-page="contract-scanner"] #vcxScanBtn,
+body[data-vcx-page="immigration-helper"] #vcxAnalyzeBtn,
+body[data-vcx-page="auto-deal-check"] #vcxCheckBtn {
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
+  border: none !important;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 0.9375rem;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(176,138,87,.25);
+}
+
 /* 6. Reduced motion: respect user preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
