@@ -47,8 +47,8 @@
   --line-gold:   rgba(176,138,87,.22);
 
   /* TYPOGRAPHY */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
   /* TYPE SCALE */
   --text-hero:  clamp(2.4rem, 4.5vw, 3.8rem);

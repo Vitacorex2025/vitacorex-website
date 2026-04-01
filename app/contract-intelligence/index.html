@@ -6,9 +6,9 @@
 <title>Contract Scanner | VitaCoreX</title>
 <meta name="robots" content="noindex,nofollow"/>
 <meta name="description" content="Upload a contract and get a plain-language risk review from VitaCoreX."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+
+
+
 <link rel="stylesheet" href="/assets/css/vcx-tokens.css">
     <link rel="stylesheet" href="/assets/css/vcx-base.css">
     <link href="/assets/css/styles.css" rel="stylesheet"/>
@@ -344,6 +344,30 @@ window.SITE_I18N = {
 
 <!-- Confirmation panel (shown on submit) -->
 <div id="vcxResultsArea" hidden></div>
+<!-- B3: ADVISOR REVIEW FORM (shown after local analysis) -->
+<div id="vcxAdvisorReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:10px;">
+<h3 style="color:#d4af37;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Advisor Review</h3>
+<p style="color:rgba(255,255,255,.7);font-size:.9rem;margin:0 0 18px;">An advisor will review your contract findings and contact you within 1 business day.</p>
+<form id="vcxAdvisorForm" method="POST" action="https://formsubmit.co/vitacorexllc@gmail.com" style="display:grid;gap:14px;">
+<input type="hidden" name="_subject" value="Contract Scanner - Advisor Review Request"/>
+<input type="hidden" name="_captcha" value="false"/>
+<input type="hidden" name="_template" value="table"/>
+<input type="hidden" name="_next" value="https://vitacorexllc.com/thank-you.html"/>
+<input type="hidden" name="analysis_summary" id="vcxAdvisorSummary" value=""/>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorName">Full Name <span style="color:#d4af37;">*</span></label>
+<input type="text" id="vcxAdvisorName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
+<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorEmail">Email <span style="color:#d4af37;">*</span></label>
+<input type="email" id="vcxAdvisorEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
+</div>
+<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorPhone">Phone (optional)</label>
+<input type="tel" id="vcxAdvisorPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
+<p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0;">This is a preliminary document review. Results require advisor verification.</p>
+<button type="submit" id="vcxAdvisorSubmitBtn" style="padding:14px 24px;background:rgba(212,175,55,.2);border:1px solid rgba(212,175,55,.5);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Advisor Review</button>
+</form>
+<div id="vcxAdvisorSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:8px;color:#2F6B57;font-size:.95rem;">Your contract summary has been submitted. An advisor will contact you within 1 business day.</div>
+<div id="vcxAdvisorError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:rgba(255,160,160,.9);font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:vitacorexllc@gmail.com" style="color:#d4af37;">vitacorexllc@gmail.com</a>.</div>
+</div>
 
 <!-- Error state -->
 <div id="vcxErrorState" style="display:none;padding:14px 18px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:6px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Please select a file or check at least one concern before submitting.</div>
@@ -484,18 +508,18 @@ function renderResults(analysis, filename) {
   var html = '<div class="vcx-analysis-result" role="region" aria-label="Contract analysis">';
   var severity = highRiskMissing.length > 0 ? 'high' : importantMissing.length > 0 ? 'medium' : 'low';
   var summaryText = {
-    high: highRiskMissing.length + ' high-priority clause' + (highRiskMissing.length>1?'s':'')+' not detected',
+    high: highRiskMissing.length + ' high-priority clause' + (highRiskMissing.length>1?'s':'')+' not found in document',
     medium: importantMissing.length + ' clause' + (importantMissing.length>1?'s':'')+' to verify',
-    low: 'No major gaps detected'
+    low: 'No major gaps identified'
   };
   html += '<div class="vcx-result-summary vcx-summary-'+severity+'">';
   html += '<div class="vcx-summary-icon">'+(severity==='high'?'&#9888;':severity==='medium'?'&#8594;':'&#10003;')+'</div>';
   html += '<div><h2 class="vcx-summary-title">'+summaryText[severity]+'</h2>';
-  html += '<p class="vcx-summary-meta">Analyzed: <strong>'+escHtml(filename)+'</strong> &middot; '+analysis.wordCount.toLocaleString()+' words &middot; '+foundKeys.length+'/'+CLAUSES.length+' key clauses detected</p></div></div>';
+  html += '<p class="vcx-summary-meta">Analyzed: <strong>'+escHtml(filename)+'</strong> &middot; '+analysis.wordCount.toLocaleString()+' words &middot; '+foundKeys.length+'/'+CLAUSES.length+' key clauses identified</p></div></div>';
 
   if(foundKeys.length > 0) {
     html += '<div class="vcx-result-section">';
-    html += '<h3 class="vcx-section-title vcx-found">Detected clauses ('+foundKeys.length+')</h3>';
+    html += '<h3 class="vcx-section-title vcx-found">Clauses identified ('+foundKeys.length+')</h3>';
     html += '<ul class="vcx-clause-list">';
     foundKeys.forEach(function(k){
       html += '<li class="vcx-clause-item vcx-clause-found"><span class="vcx-clause-dot">&#10003;</span>'+escHtml(analysis.found[k].label)+'</li>';
@@ -505,7 +529,7 @@ function renderResults(analysis, filename) {
 
   if(highRiskMissing.length > 0) {
     html += '<div class="vcx-result-section">';
-    html += '<h3 class="vcx-section-title vcx-critical">High-priority &#8212; not detected ('+highRiskMissing.length+')</h3>';
+    html += '<h3 class="vcx-section-title vcx-critical">High-priority &#8212; not found in document ('+highRiskMissing.length+')</h3>';
     html += '<p class="vcx-section-note">These clauses are not present or may be worded unusually. Review with counsel before signing.</p>';
     html += '<ul class="vcx-clause-list">';
     highRiskMissing.forEach(function(c){
@@ -562,13 +586,13 @@ function vcxHandleFile(input) {
   var noticeEl = el('vcxFileNotice');
   if(noticeEl) {
     if(['txt','md','text'].indexOf(ext) >= 0) {
-      noticeEl.textContent = 'Text file detected \u2014 full clause analysis available.';
+      noticeEl.textContent = 'Text file ready \u2014 full clause analysis available.';
       noticeEl.className = 'vcx-file-notice vcx-notice-success';
     } else if(['pdf'].indexOf(ext) >= 0) {
-      noticeEl.textContent = 'PDF detected. Analysis works on text-based PDFs. Scanned PDFs will have limited results.';
+      noticeEl.textContent = 'PDF file ready. Analysis works on text-based PDFs. Scanned PDFs will have limited results.';
       noticeEl.className = 'vcx-file-notice vcx-notice-info';
     } else if(['doc','docx'].indexOf(ext) >= 0) {
-      noticeEl.textContent = 'Word file detected. Full text extraction for .docx requires additional parsing \u2014 some clauses may be missed.';
+      noticeEl.textContent = 'Word file ready. Full text extraction for .docx requires additional parsing \u2014 some clauses may be missed.';
       noticeEl.className = 'vcx-file-notice vcx-notice-info';
     } else {
       noticeEl.textContent = 'File format: ' + ext.toUpperCase() + '. For best results, use .txt or text-based PDF.';
@@ -600,6 +624,7 @@ function vcxScanContract() {
       resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
       resultsArea.hidden = false;
       resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
+      showAdvisorReviewSection(selectedFile.name, analysis);
       if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
     };
     reader.onerror = function() {
@@ -616,6 +641,7 @@ function vcxScanContract() {
       resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
       resultsArea.hidden = false;
       resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
+      showAdvisorReviewSection(selectedFile.name, analysis);
       if(scanBtn) { scanBtn.disabled = false; scanBtn.textContent = t('tool_scan_btn') || 'Analyze contract'; }
     };
     reader2.onerror = function() {
@@ -654,6 +680,41 @@ function vcxReset() {
   var err=el('vcxErrorState'); if(err) err.style.display='none';
 }
 window.vcxReset = vcxReset;
+
+
+// B3: Advisor Review Form
+function showAdvisorReviewSection(filename, analysis) {
+  var section = document.getElementById('vcxAdvisorReviewSection');
+  if(!section) return;
+  var summary = 'File: ' + filename;
+  if(analysis) summary += ' | Words: ' + (analysis.wordCount||0) + ' | Clauses found: ' + ((analysis.found&&analysis.found.length)||0);
+  var sf = document.getElementById('vcxAdvisorSummary');
+  if(sf) sf.value = summary;
+  section.removeAttribute('hidden');
+}
+(function initAdvisorForm(){
+  var form = document.getElementById('vcxAdvisorForm');
+  if(!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = (document.getElementById('vcxAdvisorName')||{}).value||'';
+    var email = (document.getElementById('vcxAdvisorEmail')||{}).value||'';
+    if(!name.trim()||!email.trim()){ alert('Please enter your name and email.'); return; }
+    var btn = document.getElementById('vcxAdvisorSubmitBtn');
+    if(btn){ btn.disabled=true; btn.textContent='Submitting...'; }
+    fetch('https://formsubmit.co/ajax/vitacorexllc@gmail.com',{
+      method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)
+    }).then(function(r){
+      if(r.ok||r.status<400){
+        var s=document.getElementById('vcxAdvisorSuccess'); if(s) s.removeAttribute('hidden');
+        form.style.display='none';
+      } else { throw new Error('HTTP '+r.status); }
+    }).catch(function(){
+      var er=document.getElementById('vcxAdvisorError'); if(er) er.removeAttribute('hidden');
+      if(btn){ btn.disabled=false; btn.textContent='Submit for Advisor Review'; }
+    });
+  });
+})();
 
 document.addEventListener('DOMContentLoaded', function() {
   var btn = el('vcxScanBtn');

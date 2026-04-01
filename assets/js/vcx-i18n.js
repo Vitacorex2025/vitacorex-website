@@ -308,10 +308,9 @@ w.VCX_I18N = {
   }
 };
 
-/* ─── vcxCurrentLang — single canonical implementation ────── */
+/* ─── vcxCurrentLang — ENGLISH ONLY (public release) ──────── */
 w.vcxCurrentLang = function() {
-  var l = localStorage.getItem('vcx_lang');
-  return (l === 'ru' || l === 'es') ? l : 'en';
+  return 'en'; // Public release: always English, never read localStorage
 };
 
 /* ─── t() — translation lookup helper ───────────────────────
@@ -329,10 +328,10 @@ w.vcxT = function(key, fallback) {
    Call this on lang button click and on DOMContentLoaded
    ──────────────────────────────────────────────────────────── */
 w.vcxSetLang = function(lang) {
-  if(lang !== 'ru' && lang !== 'es') lang = 'en';
-  localStorage.setItem('vcx_lang', lang);
-  document.documentElement.lang = lang;
-  document.documentElement.setAttribute('lang', lang);
+  lang = 'en'; // Public release: always English, ignore lang parameter
+  // Do NOT write to localStorage on public release
+  document.documentElement.lang = 'en';
+  document.documentElement.setAttribute('lang', 'en');
 
   // Update all data-common attributes (SITE_I18N system)
   var d = (w.SITE_I18N && w.SITE_I18N[lang]) || {};
@@ -368,15 +367,9 @@ w.vcxSetLang = function(lang) {
 
 /* ─── Init on DOMContentLoaded ───────────────────────────── */
 document.addEventListener('DOMContentLoaded', function() {
-  // Wire up language buttons
-  document.querySelectorAll('.lang-btn, [data-lang]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      w.vcxSetLang(this.getAttribute('data-lang'));
-    });
-  });
-
-  // Apply current language
-  w.vcxSetLang(w.vcxCurrentLang());
+  // Public release: lang buttons are hidden via CSS; do NOT wire click handlers
+  // Always apply English
+  w.vcxSetLang('en');
 });
 
 })(window);
