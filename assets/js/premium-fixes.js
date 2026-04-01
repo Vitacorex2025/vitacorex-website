@@ -577,8 +577,10 @@
         if(poster) poster.style.display = 'block';
         return;
       }
+      if(video.style.display === 'none' || video.dataset.vcxForceHidden === '1') return;
       video.preload = 'metadata';
       const start = ()=>{
+        if(video.style.display === 'none' || video.dataset.vcxForceHidden === '1') return;
         if(video.dataset.vcxPremiumPlayed) return;
         video.dataset.vcxPremiumPlayed = '1';
         const playPromise = video.play && video.play();

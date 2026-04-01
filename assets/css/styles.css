@@ -1432,3 +1432,37 @@ summary:focus-visible{
 }
 
 .cookie-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+
+/* v263 repair: keep reveal content visible in print/PDF */
+@media print {
+  .reveal, .reveal.visible, .bar-fill, [data-count-to] {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+  .hero-video video { display:none !important; }
+  .hero-video img { display:block !important; }
+}
+
+
+/* v264 motion and hero stability repair */
+.reveal{opacity:1;transform:none}
+html.vcx-motion .reveal{opacity:0;transform:translateY(12px);transition:.45s ease}
+html.vcx-motion .reveal.visible{opacity:1;transform:none}
+.hero,
+.hero-video{overflow:hidden;isolation:isolate}
+.hero-video{background:#081521 url('../img/sky-poster.jpg') center center / cover no-repeat}
+.hero-video video,
+.hero-video img,
+.hero-cloud-layer{backface-visibility:hidden}
+.hero-video video,
+.hero-video img{transform:translateZ(0) scale(1.1)}
+.hero-cloud-layer{will-change:transform, opacity}
+@media (max-width: 900px){
+  .hero-cloud-layer.layer-2{display:none !important}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-cloud-layer{display:none !important}
+}

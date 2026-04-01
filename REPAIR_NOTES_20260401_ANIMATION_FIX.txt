@@ -1,0 +1,16 @@
+VitaCoreX animation / hero stability repair
+Date: 2026-04-01
+
+What was fixed:
+- Reveal content is now visible by default and only animates when JS motion is confirmed.
+- Added a safe fallback for browsers/environments where IntersectionObserver or motion setup fails.
+- Hero background now has a poster-image CSS fallback, so the background does not disappear if the video fails or is blocked.
+- Hero video now falls back cleanly to the poster image on video errors/stalls.
+- Removed the JS scroll-parallax transform conflict from hero cloud layers; clouds now use CSS drift only.
+- Reduced hero cloud complexity on mobile and disabled cloud layers for reduced-motion environments.
+- Kept Calendly restoration intact.
+
+Files changed:
+- assets/js/site.js
+- assets/js/premium-fixes.js
+- assets/css/styles.css
