@@ -849,3 +849,16 @@ body{padding-bottom:140px;}
   outline:2px solid rgba(24,77,122,.22);
   outline-offset:2px;
 }
+
+
+/* v263 repair: keep reveal content visible in print/PDF */
+@media print {
+  .reveal, .reveal.visible, .bar-fill, [data-count-to] {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+  .hero-video video { display:none !important; }
+  .hero-video img { display:block !important; }
+}

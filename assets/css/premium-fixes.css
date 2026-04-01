@@ -296,3 +296,102 @@ body.vcx-premium-polish .metric-card{
   body.vcx-premium-polish .hero-copy h1{max-width:none; line-height:1.02 !important;}
   body.vcx-premium-polish .vcx-header-top{flex-wrap:wrap; gap:12px;}
 }
+
+
+/* v263 repair: print/PDF and hero background stability */
+body.vcx-premium-polish .hero{
+  background:
+    linear-gradient(180deg, rgba(10,28,48,.18) 0%, rgba(16,42,70,.08) 38%, rgba(241,246,251,.78) 100%),
+    #f2f6fb;
+  isolation:isolate;
+}
+body.vcx-premium-polish .hero-video{
+  z-index:0;
+}
+body.vcx-premium-polish .hero-inner,
+body.vcx-premium-polish .hero-orb,
+body.vcx-premium-polish .hero-copy,
+body.vcx-premium-polish .hero-side{
+  position:relative;
+  z-index:2;
+}
+body.vcx-premium-polish .hero-copy,
+body.vcx-premium-polish .problem-item,
+body.vcx-premium-polish .authority-card,
+body.vcx-premium-polish .widget-card,
+body.vcx-premium-polish .engine-card,
+body.vcx-premium-polish .card,
+body.vcx-premium-polish .glass{
+  background:linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.76)) !important;
+}
+
+@media print {
+  html, body {
+    background:#ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hero {
+    min-height:auto !important;
+    background:
+      linear-gradient(180deg, rgba(11,31,52,.26) 0%, rgba(17,44,73,.16) 45%, rgba(241,246,251,.82) 100%),
+      url('assets/img/sky-poster.jpg') center top / cover no-repeat !important;
+    border-bottom:1px solid rgba(14,32,54,.08) !important;
+  }
+  .hero-video video {
+    display:none !important;
+  }
+  .hero-video img {
+    display:block !important;
+    opacity:1 !important;
+  }
+  .hero::before,
+  .hero-video::after {
+    opacity:1 !important;
+  }
+  .reveal,
+  .reveal.visible,
+  .bar-fill,
+  [data-count-to] {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+  .hero-copy,
+  .glass,
+  .card,
+  .problem-item,
+  .authority-card,
+  .impact-card,
+  .widget-card,
+  .engine-card,
+  .audience-card,
+  .proof-band,
+  .cta-banner,
+  .output-panel,
+  .kpi-tile {
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    background:rgba(255,255,255,.92) !important;
+  }
+  .hero,
+  .section,
+  .band,
+  .card,
+  .glass,
+  .problem-item,
+  .authority-card,
+  .impact-card,
+  .widget-card,
+  .engine-card,
+  .audience-card,
+  .proof-band,
+  .cta-banner,
+  .output-panel,
+  .kpi-tile {
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+}

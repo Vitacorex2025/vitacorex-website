@@ -1,0 +1,6 @@
+v263 repair summary
+- Added print/PDF-safe hero fallback background using sky-poster.jpg
+- Forced reveal elements to stay visible in print/PDF exports
+- Hid hero video and showed poster image during print/PDF
+- Added page-break safety for hero/cards to reduce blank sections in PDF capture
+- Did NOT restore external Calendly booking because the patch requirement was to avoid extra apps; book button was previously removed on purpose in v213 changes.
