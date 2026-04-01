@@ -2,6 +2,23 @@
 (function(){
 const $=(s,e=document)=>e.querySelector(s), $$=(s,e=document)=>Array.from(e.querySelectorAll(s));
 const common=window.SITE_I18N||{}; const page=window.PAGE_DATA||{};
+const CONTACT_EMAIL='vitacorexllc@gmail.com';
+window.VCX_TRACKING_IDS = {};
+let lastOutput = null;
+function syncCareerMailto(){}
+function updateOutputLanguage(){}
+function loadApolloTracker(){}
+function hasActiveTrackers(){
+  const ids = window.VCX_TRACKING_IDS || {};
+  return Object.values(ids).some(v => v !== '' && v !== null && v !== undefined && v !== 0);
+}
+function buildMailtoLink(subject, lines){
+  const body = lines.filter(Boolean).join('\n');
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+function openMailtoDraft(subject, lines){
+  window.location.href = buildMailtoLink(subject, lines);
+}
 const extra={
  en:{
   intake_docs_status_label:'Core documents status',
@@ -110,7 +127,7 @@ order_services:'Order Services',clock_local_sub:'Local',services_individuals_tit
   careers_mobile_button2:'Abrir formulario de solicitud',gate_success:'Acceso concedido. Abriendo el recurso.',gate_failure:'No se pudo enviar. Inténtelo otra vez o use el correo.',
   role_bizdocs:'Soporte de documentación comercial',attach_materials:'Adjuntar materiales',attach_helper:'Agrega contratos, facturas, capturas, anexos o borradores de paquete.',need_recovery:'Diseño del flujo de recuperación de ingresos',need_file:'Control de archivos legales corporativos',need_intake:'Evaluación inicial estructurada y armado del paquete',urgency_standard:'Estándar',urgency_high:'Alta',docs_ready:'Los documentos principales están listos',docs_partial:'Solo parte del material está lista',next_standard:'Revisaremos el intake y propondremos el primer paquete de trabajo limpio.',next_fast:'Priorizaremos el intake y primero enviaremos el memo del siguiente paso.',web_project_cta:'Solicitud de sitio web',web_project_title:'Solicitud de sitio web',web_project_intro:'Cuéntenos sobre su proyecto de sitio web y presupuesto. Revisaremos la solicitud y nos pondremos en contacto con usted con el siguiente paso.',web_project_field_name:'Nombre',web_project_field_company:'Empresa',web_project_field_phone:'Teléfono',web_project_field_email:'Correo electrónico',web_project_field_budget:'Presupuesto',web_project_budget_placeholder:'Seleccione presupuesto',web_project_budget_10000:'$10,000',web_project_budget_20000:'$20,000',web_project_budget_30000:'$30,000',web_project_budget_40000:'$40,000',web_project_budget_more:'Más de $40,000',web_project_notes_label:'Notas del proyecto (opcional)',web_project_notes_placeholder:'Describa brevemente el tipo de sitio web o proyecto que desea.',web_project_submit:'Enviar solicitud',web_project_success:'Gracias. Su solicitud ha sido recibida. La revisaremos y nos pondremos en contacto con usted.',web_project_error:'Algo salió mal. Por favor, inténtelo de nuevo.',web_project_validation:'Por favor, complete todos los campos obligatorios antes de enviar.'}
 };
-let lang=(function(){ var s=localStorage.getItem('vcx_lang'); return ['en','ru','es'].includes(s)?s:'en'; })();
+let lang=(localStorage.getItem('vcx_lang')||document.documentElement.getAttribute('lang')||'en').toLowerCase();
 function tr(key){return (extra[lang]&&extra[lang][key]) || (page[lang]&&page[lang][key]) || (common[lang]&&common[lang][key]) || (extra.en&&extra.en[key]) || (page.en&&page.en[key]) || (common.en&&common.en[key]) || '';}
 function statusText(key, fallback){ return tr(key) || fallback || ''; }
 function setStatus(el, type, message){
@@ -167,6 +184,66 @@ $$('.tilt-card').forEach(card=>{
 });
 // CFO calc
 const calc=$('#cfoCalc'); if(calc){ const out={a:$('#calcAgency'),b:$('#calcPre'),c:$('#calcLift'),d:$('#calcLiftPct')}; const recompute=()=>{ const principal=+calc.principal.value||0, gross=(+calc.gross.value||0)/100, fee=(+calc.fee.value||0)/100, accept=(+calc.accept.value||0)/100, complete=(+calc.complete.value||0)/100, recovery=(+calc.recovery.value||0)/100, setup=+calc.setup.value||0; const agency=principal*gross*(1-fee); const pre=principal*(accept*complete*recovery)+(principal*(1-accept*complete))*(gross*(1-fee))-setup; const lift=pre-agency; const pct=agency?(lift/agency*100):0; out.a.textContent='$'+agency.toLocaleString(undefined,{maximumFractionDigits:0}); out.b.textContent='$'+pre.toLocaleString(undefined,{maximumFractionDigits:0}); out.c.textContent=(lift>=0?'+':'-')+'$'+Math.abs(lift).toLocaleString(undefined,{maximumFractionDigits:0}); out.d.textContent=(pct>=0?'+':'')+pct.toLocaleString(undefined,{maximumFractionDigits:1})+'%'; }; $$('input',calc).forEach(i=>i.addEventListener('input',recompute)); recompute(); }
+
+
+function getStoredAttribution(){
+  const keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','msclkid','li_fat_id'];
+  const params=new URLSearchParams(window.location.search||'');
+  const existing=JSON.parse(localStorage.getItem('vcx_attribution')||'{}');
+  let changed=false;
+  keys.forEach((key)=>{
+    const value=params.get(key);
+    if(value){
+      existing[key]=value;
+      changed=true;
+    }
+  });
+  if(!existing.landing_page){
+    existing.landing_page=window.location.href;
+    changed=true;
+  }
+  if(document.referrer && !existing.initial_referrer){
+    existing.initial_referrer=document.referrer;
+    changed=true;
+  }
+  if(changed){
+    localStorage.setItem('vcx_attribution', JSON.stringify(existing));
+  }
+  return existing;
+}
+function injectAttributionFields(form){
+  if(!form) return;
+  const data=getStoredAttribution();
+  const baseFields={
+    'Landing page': window.location.href,
+    'Referrer': document.referrer || data.initial_referrer || '',
+    'Consent mode': window.vcxConsent || localStorage.getItem('vcx_cookie_consent') || 'unset'
+  };
+  Object.entries(baseFields).forEach(([name,value])=>upsertHidden(form,name,value));
+  Object.entries(data||{}).forEach(([name,value])=>{
+    if(value) upsertHidden(form,name, String(value));
+  });
+}
+function optimizeHeroMedia(){
+  const reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const compact=window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+  document.querySelectorAll('.hero-video video').forEach((video)=>{
+    video.setAttribute('preload','metadata');
+    video.setAttribute('aria-hidden','true');
+    const fallback=video.parentElement && video.parentElement.querySelector('img');
+    if(reduce || compact){
+      try{ video.pause(); }catch(e){}
+      video.removeAttribute('autoplay');
+      video.style.display='none';
+      if(fallback) fallback.style.display='block';
+    }else{
+      video.style.display='';
+      if(fallback && !fallback.dataset.vcxForceVisible) fallback.style.display='';
+    }
+  });
+}
+optimizeHeroMedia();
+window.addEventListener('resize', optimizeHeroMedia, {passive:true});
 
 // Intake + Careers submission
 function detectDevice(){ return navigator.userAgent || 'Unknown device'; }
@@ -287,6 +364,7 @@ function fillOutputFromIntake(form){
 function bindIntakeForm(form){
   if(!form) return;
   ensureFileNameMirror(form, 'attachment', 'Uploaded file name');
+  injectAttributionFields(form);
   const attachmentInput=form.querySelector('[name="attachment"]');
   const syncUploadMetadata=()=>{
     const file=attachmentInput && attachmentInput.files && attachmentInput.files[0];
@@ -309,6 +387,7 @@ function bindIntakeForm(form){
       return;
     }
     syncUploadMetadata();
+    injectAttributionFields(form);
     const fd=new FormData(form);
     const formName=String(fd.get('form_name') || 'Structured Intake').trim();
     const source=String(fd.get('Source') || 'structured_case_intake').trim();
@@ -334,6 +413,7 @@ bindIntakeForm($('#intakeForm'));
 
 const careersForm=$('#careersForm');
 if(careersForm){
+  injectAttributionFields(careersForm);
   const status=$('#careersFormStatus');
   const submitBtn=$('#careersSubmitBtn') || careersForm.querySelector('button[type="submit"]');
   careersForm.addEventListener('submit', e=>{
@@ -343,6 +423,7 @@ if(careersForm){
       setStatus(status,'error',statusText('careers_failure','Submission failed. Please try again.'));
       return;
     }
+    injectAttributionFields(careersForm);
     const fd=new FormData(careersForm);
     configureDirectFormSubmission(careersForm, {
       subject:'VitaCoreX Careers Application',
@@ -408,9 +489,106 @@ function initClientMode(){
   });
   setMode(modeInput && modeInput.value==='company' ? 'company' : 'individual');
 }
+
 initClientMode();
 
+function applyIntakeQueryPrefill(){
+  const form=$('#intakeForm');
+  if(!form) return;
+  const params=new URLSearchParams(window.location.search||'');
+  const service=params.get('service');
+  if(!service) return;
+  const serviceField=form.querySelector('[name="service_type"]');
+  const messageField=form.querySelector('[name="message"]');
+  const companyBtn=form.querySelector('.client-mode-btn[data-mode="company"]');
+  const individualBtn=form.querySelector('.client-mode-btn[data-mode="individual"]');
+  const templates={
+    contracts:'Private-client review request: Contracts & Documentation.',
+    immigration:'Private-client review request: Immigration Packet Organization.',
+    auto:'Private-client review request: Auto Purchase & Launch Support.'
+  };
+  if(serviceField && ['contracts','immigration','auto'].includes(service)){
+    if(individualBtn) individualBtn.click();
+    serviceField.value='Services for Individuals';
+    if(messageField && !messageField.value) messageField.value = templates[service] || messageField.value;
+  }
+  const focus=params.get('focus');
+  if(focus && messageField && !messageField.value){
+    messageField.value = focus;
+  }
+}
+applyIntakeQueryPrefill();
+
+function attachMailtoSubmitHandlers(){
+  const intakeForm = $('#intakeForm');
+  if(intakeForm && !intakeForm.dataset.vcxMailtoBound){
+    intakeForm.dataset.vcxMailtoBound='1';
+    intakeForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!intakeForm.checkValidity()){
+        intakeForm.reportValidity();
+        setStatus($('#intakeFormStatus'),'error',statusText('intake_validation','Please complete all fields before submitting.'));
+        return;
+      }
+      const fd = new FormData(intakeForm);
+      const fileInput = intakeForm.querySelector('[name="attachment"]');
+      const file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : '';
+      const lines = [
+        'Structured Intake Request',
+        '',
+        'Full name: ' + String(fd.get('full_name')||'').trim(),
+        'Client type: ' + String(fd.get('client_type')||'').trim(),
+        'Company / portfolio: ' + String(fd.get('company')||'').trim(),
+        'Phone: ' + String(fd.get('phone')||'').trim(),
+        'Email: ' + String(fd.get('email')||'').trim(),
+        'State: ' + String(fd.get('state')||'').trim(),
+        'Urgency: ' + String(fd.get('urgency')||'').trim(),
+        'Service type: ' + String(fd.get('service_type')||'').trim(),
+        'Message: ' + String(fd.get('message')||'').trim(),
+        'Company size: ' + String(fd.get('company_size')||'').trim(),
+        'Annual revenue range: ' + String(fd.get('annual_revenue')||'').trim(),
+        'Accounts receivable / portfolio size: ' + String(fd.get('accounts_receivable')||'').trim(),
+        'Current agency usage: ' + String(fd.get('agency_usage')||'').trim(),
+        'Selected file: ' + (file || 'No file selected'),
+        '',
+        'Note: if you need to send files, attach them manually in your email reply.'
+      ];
+      setStatus($('#intakeFormStatus'),'success','Opening your email draft…');
+      openMailtoDraft('Structured Intake Request', lines);
+      fillOutputFromIntake(intakeForm);
+    }, true);
+  }
+
+  const careersForm = $('#careersForm');
+  if(careersForm && !careersForm.dataset.vcxMailtoBound){
+    careersForm.dataset.vcxMailtoBound='1';
+    careersForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!careersForm.checkValidity()){
+        careersForm.reportValidity();
+        setStatus($('#careersFormStatus'),'error',statusText('careers_failure','Submission failed. Please try again.'));
+        return;
+      }
+      const fd = new FormData(careersForm);
+      const lines = [
+        'Careers Application',
+        '',
+        'Full name: ' + String(fd.get('full_name')||'').trim(),
+        'Email: ' + String(fd.get('email')||'').trim(),
+        'Phone: ' + String(fd.get('phone')||'').trim(),
+        'LinkedIn: ' + String(fd.get('linkedin')||'').trim(),
+        'Role: ' + String(fd.get('role')||'').trim(),
+        'Background: ' + String(fd.get('background')||'').trim()
+      ];
+      setStatus($('#careersFormStatus'),'success','Opening your email draft…');
+      openMailtoDraft('VitaCoreX Careers Application', lines);
+    }, true);
+  }
+}
+attachMailtoSubmitHandlers();
+
 function buildCookieBanner(){
+  if(!hasActiveTrackers()) return;
   if(document.querySelector('.cookie-banner')) return;
   const saved=localStorage.getItem('vcx_cookie_consent');
   if(saved) return applyConsent(saved);
@@ -423,7 +601,8 @@ function buildCookieBanner(){
       <button class="cookie-btn" data-consent="analytics" type="button">Analytics only</button>
       <button class="cookie-btn secondary" data-consent="essential" type="button">Essential only</button>
     </div>
-    <div class="cookie-meta">Tracker-ready slots: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.</div>`;
+    <div class="cookie-meta">Tracker-ready slots: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.</div>
+    <div class="cookie-meta"><a href="privacy-policy.html">Privacy Policy</a> · <a href="cookie-policy.html">Cookie Policy</a></div>`;
   document.body.appendChild(banner);
   banner.querySelectorAll('[data-consent]').forEach(btn=>btn.addEventListener('click',()=>{
     const consent=btn.dataset.consent;
@@ -438,6 +617,7 @@ function loadScript(src){
   s.src=src; s.async=true; document.head.appendChild(s);
 }
 function applyConsent(consent){
+  if(!hasActiveTrackers()) return;
   const ids=window.VCX_TRACKING_IDS||{};
   window.dataLayer=window.dataLayer||[];
   window.vcxConsent=consent;
@@ -634,7 +814,7 @@ improveMobileFileInput();
 
 
 (function(){
-  function vcxCurrentLang(){ return 'en'; }
+  function vcxCurrentLang(){ return (localStorage.getItem('vcx_lang') || document.documentElement.getAttribute('lang') || 'en').toLowerCase(); }
 
   const hardCopy = {
     en: {
