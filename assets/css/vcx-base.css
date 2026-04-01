@@ -330,9 +330,3 @@ textarea:focus {
 ::-webkit-scrollbar-track { background: var(--bg-canvas); }
 ::-webkit-scrollbar-thumb { background: rgba(176,138,87,.35); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
-
-/* Override hardcoded white sections to use canvas */
-.section:not(.section-dark):not([data-surface="dark"]) {
-  background-color: var(--bg-canvas);
-}
-.card, .vcx-card { background-color: var(--bg-elevated); }
