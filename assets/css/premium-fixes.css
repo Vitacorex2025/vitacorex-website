@@ -1,21 +1,4 @@
 
-/* ============================================================
-   VCX HERO FOUC PREVENTION — fires immediately, no JS needed
-   ============================================================ */
-.hero-video video,
-.hero-video img {
-  display: none !important;
-  visibility: hidden !important;
-}
-.hero-video {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -5%, rgba(44,94,141,.28) 0%, transparent 58%),
-    radial-gradient(ellipse 50% 42% at 12% 44%, rgba(191,150,80,.08) 0%, transparent 52%),
-    linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
-  position: relative;
-  overflow: hidden;
-}
-
 :root{
   --vcx-ink:#0e233a;
   --vcx-muted:#445d76;
@@ -315,591 +298,100 @@ body.vcx-premium-polish .metric-card{
 }
 
 
-/* ── PREMIUM HERO — remove scale stretch, pure CSS animated background ─── */
-
-/* 1) Kill the scale(1.1) stretch that ships in styles.css line 234 */
-body.vcx-premium-polish .hero-video video,
-body.vcx-premium-polish .hero-video img{
-  transform:none !important;
-  display:none !important;
+/* v263 repair: print/PDF and hero background stability */
+body.vcx-premium-polish .hero{
+  background:
+    linear-gradient(180deg, rgba(10,28,48,.18) 0%, rgba(16,42,70,.08) 38%, rgba(241,246,251,.78) 100%),
+    #f2f6fb;
+  isolation:isolate;
 }
-
-/* 2) Deep navy gradient base for .hero-video element itself */
 body.vcx-premium-polish .hero-video{
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -5%,  rgba(44,94,141,.28) 0%, transparent 58%),
-    radial-gradient(ellipse 50% 42% at 12% 44%,  rgba(191,150,80,.08) 0%, transparent 52%),
-    radial-gradient(ellipse 46% 36% at 86% 26%,  rgba(30,68,108,.18) 0%, transparent 50%),
-    linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
-  overflow:hidden;
-}
-
-/* 3) Animated orb layer — ONLY on ::before, never touch ::after (white fade) */
-body.vcx-premium-polish .hero-video::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 68% 52% at 22% 36%, rgba(191,150,80,.10) 0%, transparent 58%),
-    radial-gradient(ellipse 55% 42% at 76% 20%,  rgba(44,94,141,.14)  0%, transparent 52%),
-    radial-gradient(ellipse 72% 58% at 50% 88%,  rgba(28,72,118,.12)  0%, transparent 56%);
-  animation: vcxOrbBreath 22s ease-in-out infinite alternate;
-  pointer-events:none;
   z-index:0;
 }
-
-/* 4) PRESERVE the white-fade text overlay from styles.css — restate it with higher specificity */
-body.vcx-premium-polish .hero-video::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(180deg,
-    rgba(12,26,44,.30) 0%,
-    rgba(13,28,47,.36) 38%,
-    rgba(235,243,250,.82) 100%
-  ) !important;
-  pointer-events:none;
-  z-index:1;
+body.vcx-premium-polish .hero-inner,
+body.vcx-premium-polish .hero-orb,
+body.vcx-premium-polish .hero-copy,
+body.vcx-premium-polish .hero-side{
+  position:relative;
+  z-index:2;
 }
-
-@keyframes vcxOrbBreath{
-  0%   { opacity:.8;  transform:translate3d(0,    0,    0) scale(1);     }
-  33%  { opacity:1;   transform:translate3d(1.8%, 1.2%, 0) scale(1.03);  }
-  66%  { opacity:.85; transform:translate3d(-1.2%,1.8%, 0) scale(.978);  }
-  100% { opacity:.95; transform:translate3d(.9%, -1.2%, 0) scale(1.015); }
-}
-
-@media (prefers-reduced-motion:reduce){
-  body.vcx-premium-polish .hero-video::before{
-    animation:none !important;
-    opacity:.9;
-  }
-}
-
-/* ── TEXT READABILITY FIXES ─────────────────────────────────────────────── */
-
-/* Fix: clock label — too light on glass */
-body.vcx-premium-polish .clock-label,
-body.vcx-premium-polish .vcx-time-label,
-body.vcx-premium-polish .vcx-time-sub{
-  color:#3a5470 !important;
-}
-
-/* Fix: proof-pill text too light */
-body.vcx-premium-polish .proof-pill{
-  color:#1e3d5c !important;
-}
-
-/* Fix: general body text contrast */
-body.vcx-premium-polish p,
-body.vcx-premium-polish .card p,
-body.vcx-premium-polish .section-intro{
-  color:#2e4a63 !important;
-}
-
-/* Fix: stat card and muted text */
-body.vcx-premium-polish .stat-card .top,
-body.vcx-premium-polish .metric-label{
-  color:#3d5a72 !important;
-}
-
-/* Ensure section headings are fully dark and readable */
-body.vcx-premium-polish h2,
-body.vcx-premium-polish .section-head h2{
-  color:#0c2035 !important;
-}
-
-/* Fix hero copy text visibility on the gradient background */
-body.vcx-premium-polish .hero-copy h1{
-  color:#0d1f32 !important;
-}
-body.vcx-premium-polish .hero-copy .lead,
-body.vcx-premium-polish .hero-copy p{
-  color:#25405a !important;
-}
-
-
-/* ==========================================================
-   CRITICAL FIX: .reveal opacity:0 -> force visible
-   IntersectionObserver never fires in static/PDF rendering.
-   Without JS, all .reveal elements stay invisible.
-   ========================================================== */
-.reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
-}
-
-[data-animate], .fade-in, .slide-up, .scroll-reveal, .vcx-reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
-}
-
-/* PREVENT HERO VIDEO FLASH - vcx-preload class added by inline script */
-html.vcx-preload .hero-video video,
-html.vcx-preload .hero-video img {
-  display: none !important;
-  visibility: hidden !important;
-}
-html.vcx-preload .hero-video {
-  background: linear-gradient(160deg, #0c1f32 0%, #081624 40%, #0d2038 70%, #091a2c 100%) !important;
-}
-
-/* Authority cards baseline readability (before vcx-premium-polish loads) */
-.authority-card h3, .authority-case h3, .impact-card h3, .widget-card h3 { color: #f5f8fd; }
-.authority-card p, .authority-case p, .impact-card p, .widget-card p, .authority-list li { color: #c8d8ea; }
-
-/* ========================================================
-   VCX PREMIUM DESIGN SYSTEM - LUXURY UPGRADE
-   ======================================================== */
-
-/* TYPOGRAPHY - Premium serif headings */
-body.vcx-premium-polish h1,
-body.vcx-premium-polish h2,
-body.vcx-premium-polish .hero-copy h1,
-body.vcx-premium-polish .section-h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
-  color: #0d1f32 !important;
-}
-
-body.vcx-premium-polish h3,
-body.vcx-premium-polish .card-title,
-body.vcx-premium-polish .service-title {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-weight: 600 !important;
-  color: #112538 !important;
-}
-
-/* EYEBROW LABELS - Gold accent */
-body.vcx-premium-polish .eyebrow,
-body.vcx-premium-polish .section-eyebrow,
-body.vcx-premium-polish .card-eyebrow {
-  color: #bf9650 !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-}
-
-/* BODY TEXT - High contrast readable */
-body.vcx-premium-polish p,
-body.vcx-premium-polish li,
-body.vcx-premium-polish .section-intro,
-body.vcx-premium-polish .card p {
-  color: #1a3050 !important;
-  line-height: 1.72 !important;
-}
-
-body.vcx-premium-polish .lead,
-body.vcx-premium-polish .section-lead {
-  color: #1e3d5c !important;
-  font-size: 1.08em !important;
-}
-
-/* CARDS - Luxury white with gold border accent */
-body.vcx-premium-polish .card,
-body.vcx-premium-polish .service-card,
-body.vcx-premium-polish .proof-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(191,150,80,.18) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 24px rgba(12,26,44,.06), 0 1px 4px rgba(12,26,44,.04) !important;
-}
-
-/* BUTTONS - Premium dark navy + gold */
-body.vcx-premium-polish .btn-primary,
-body.vcx-premium-polish .cta-btn,
-body.vcx-premium-polish .vcx-cta-btn {
-  background: linear-gradient(135deg, #0d2038 0%, #162d47 100%) !important;
-  color: #e8d9bc !important;
-  border: 1px solid rgba(191,150,80,.35) !important;
-  border-radius: 8px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.06em !important;
-  padding: 12px 28px !important;
-}
-
-/* SECTIONS - Subtle premium backgrounds */
-body.vcx-premium-polish .section-alt,
-body.vcx-premium-polish .section--alt,
-body.vcx-premium-polish .bg-soft {
-  background: #f6f9fc !important;
-}
-
-/* PROOF PILLS / BADGES */
-body.vcx-premium-polish .proof-pill,
-body.vcx-premium-polish .badge,
-body.vcx-premium-polish .tag {
-  background: rgba(191,150,80,.10) !important;
-  color: #7a5c20 !important;
-  border: 1px solid rgba(191,150,80,.25) !important;
-  border-radius: 100px !important;
-  font-size: 11.5px !important;
-  font-weight: 600 !important;
-  padding: 4px 12px !important;
-}
-
-/* NAVIGATION - Glass effect premium header */
-body.vcx-premium-polish .vcx-header {
-  background: rgba(255,255,255,0.92) !important;
-  backdrop-filter: blur(16px) saturate(1.8) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(1.8) !important;
-  border-bottom: 1px solid rgba(191,150,80,.15) !important;
-  box-shadow: 0 1px 12px rgba(12,26,44,.06) !important;
-}
-
-body.vcx-premium-polish .vcx-main-nav a {
-  color: #1a3050 !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-}
-
-body.vcx-premium-polish .vcx-main-nav a:hover,
-body.vcx-premium-polish .vcx-main-nav a.active {
-  color: #bf9650 !important;
-}
-
-/* FOOTER - Dark premium */
-body.vcx-premium-polish footer,
-body.vcx-premium-polish .site-footer,
-body.vcx-premium-polish .vcx-footer {
-  background: #0a1929 !important;
-  color: #8a9db5 !important;
-}
-
-body.vcx-premium-polish .site-footer a,
-body.vcx-premium-polish .vcx-footer a {
-  color: #8a9db5 !important;
-  text-decoration: none !important;
-}
-
-body.vcx-premium-polish .site-footer a:hover,
-body.vcx-premium-polish .vcx-footer a:hover {
-  color: #bf9650 !important;
-}
-
-/* STATS / NUMBERS */
-body.vcx-premium-polish .stat-number,
-body.vcx-premium-polish .metric-value,
-body.vcx-premium-polish .count-up {
-  font-family: 'Cormorant Garamond', serif !important;
-  color: #0d1f32 !important;
-  font-weight: 700 !important;
-}
-
-/* FORM INPUTS - Premium styling */
-body.vcx-premium-polish input[type=text],
-body.vcx-premium-polish input[type=email],
-body.vcx-premium-polish input[type=number],
-body.vcx-premium-polish select,
-body.vcx-premium-polish textarea {
-  border: 1px solid rgba(26,48,80,.2) !important;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  color: #0d1f32 !important;
-  background: #ffffff !important;
-}
-
-body.vcx-premium-polish input:focus,
-body.vcx-premium-polish select:focus,
-body.vcx-premium-polish textarea:focus {
-  border-color: #bf9650 !important;
-  box-shadow: 0 0 0 3px rgba(191,150,80,.12) !important;
-  outline: none !important;
-}
-
-/* LINKS */
-body.vcx-premium-polish a { color: #1a5489 !important; }
-body.vcx-premium-polish a:hover { color: #bf9650 !important; }
-
-/* SCROLLBAR - Premium thin gold */
-body.vcx-premium-polish ::-webkit-scrollbar { width: 4px !important; }
-body.vcx-premium-polish ::-webkit-scrollbar-track { background: #f0f4f8 !important; }
-body.vcx-premium-polish ::-webkit-scrollbar-thumb {
-  background: rgba(191,150,80,.4) !important;
-  border-radius: 4px !important;
-}
-
-/* Authority cards keep dark theme inside premium-polish */
+body.vcx-premium-polish .hero-copy,
+body.vcx-premium-polish .problem-item,
 body.vcx-premium-polish .authority-card,
-body.vcx-premium-polish .authority-case,
-body.vcx-premium-polish .impact-card,
-body.vcx-premium-polish .widget-card {
-  background:
-    radial-gradient(700px 220px at 100% 0%, rgba(216,186,125,.10), transparent 48%),
-    linear-gradient(180deg, #07101a 0%, #0b1522 100%) !important;
-  color: #eef4fc !important;
-}
-
-body.vcx-premium-polish .authority-card h2,
-body.vcx-premium-polish .authority-card h3,
-body.vcx-premium-polish .authority-case h2,
-body.vcx-premium-polish .authority-case h3,
-body.vcx-premium-polish .impact-card h2,
-body.vcx-premium-polish .impact-card h3,
-body.vcx-premium-polish .widget-card h2,
-body.vcx-premium-polish .widget-card h3 {
-  color: #f5f8fd !important;
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-}
-
-body.vcx-premium-polish .authority-card p,
-body.vcx-premium-polish .authority-case p,
-body.vcx-premium-polish .impact-card p,
-body.vcx-premium-polish .widget-card p,
-body.vcx-premium-polish .authority-list li {
-  color: #c8d8ea !important;
-}
-
-body.vcx-premium-polish .chip-cloud .pill,
-body.vcx-premium-polish .authority-section .pill,
-body.vcx-premium-polish .widgets-section .pill {
-  background: rgba(255,255,255,.08) !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
-  color: #dbe5f1 !important;
-}
-
-/* Band sections - soft tint not pure white */
-body.vcx-premium-polish .section.band,
-body.vcx-premium-polish section.band {
-  background: linear-gradient(180deg, rgba(246,249,252,.96), rgba(240,245,250,.88)) !important;
-  border-top: 1px solid rgba(191,150,80,.08) !important;
-  border-bottom: 1px solid rgba(191,150,80,.08) !important;
-}
-
-/* ============================================================
-   VCX PREMIUM OVERRIDES — Uses token system from vcx-tokens.css
-   Applied via body.vcx-premium-polish (added by premium-fixes.js)
-   ============================================================ */
-
-body.vcx-premium-polish {
-  background-color: var(--bg-canvas, #F6F2EA);
-}
-
-/* Typography */
-body.vcx-premium-polish h1,
-body.vcx-premium-polish h2 {
-  font-family: var(--font-display, 'Cormorant Garamond', serif);
-  letter-spacing: -0.025em;
-  color: var(--ink-strong, #0F1B2D);
-}
-body.vcx-premium-polish h3,
-body.vcx-premium-polish h4 {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-weight: 600;
-  color: var(--ink-strong, #0F1B2D);
-}
-body.vcx-premium-polish .eyebrow,
-body.vcx-premium-polish [class*="eyebrow"] {
-  font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.13em !important;
-  text-transform: uppercase !important;
-  color: var(--accent-gold, #B08A57) !important;
-}
-body.vcx-premium-polish p,
-body.vcx-premium-polish li {
-  color: var(--ink-body, #243548);
-  line-height: 1.70;
-}
-body.vcx-premium-polish .lead { color: var(--ink-body, #243548); }
-
-/* Clock/header chips */
-body.vcx-premium-polish .vcx-time-label,
-body.vcx-premium-polish .vcx-time-sub,
-body.vcx-premium-polish .clock-label { color: var(--ink-muted, #5E6C7B) !important; }
-
-/* Nav */
-body.vcx-premium-polish .vcx-header {
-  background: rgba(251,248,243,.96) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid var(--line-gold, rgba(176,138,87,.22)) !important;
-  box-shadow: 0 1px 8px rgba(15,27,45,.05) !important;
-}
-body.vcx-premium-polish .vcx-main-nav a {
-  color: var(--ink-body, #243548) !important;
-  font-size: 0.8125rem !important;
-  font-weight: 500 !important;
-}
-body.vcx-premium-polish .vcx-main-nav a:hover,
-body.vcx-premium-polish .vcx-main-nav a.active { color: var(--brand-primary, #173A63) !important; }
-
-/* Cards */
+body.vcx-premium-polish .widget-card,
+body.vcx-premium-polish .engine-card,
 body.vcx-premium-polish .card,
-body.vcx-premium-polish .service-card,
-body.vcx-premium-polish .proof-card {
-  background: var(--bg-elevated, #fff) !important;
-  border: 1px solid var(--line-soft, rgba(15,27,45,.10)) !important;
-  border-radius: var(--radius-md, 10px) !important;
-  box-shadow: var(--shadow-card) !important;
-}
-body.vcx-premium-polish .card:hover,
-body.vcx-premium-polish .service-card:hover {
-  box-shadow: var(--shadow-raised) !important;
-  transform: translateY(-2px) !important;
+body.vcx-premium-polish .glass{
+  background:linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.76)) !important;
 }
 
-/* CTAs — navy, not gold */
-body.vcx-premium-polish .btn-primary,
-body.vcx-premium-polish .cta-btn,
-body.vcx-premium-polish .vcx-cta-btn,
-body.vcx-premium-polish a.btn,
-body.vcx-premium-polish button.btn-primary {
-  background: var(--brand-primary, #173A63) !important;
-  color: #EEE9DE !important;
-  border: 1px solid transparent !important;
-  border-radius: var(--radius-sm, 6px) !important;
-  font-size: 0.8125rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.04em !important;
-  padding: 11px 24px !important;
-  transition: all 160ms cubic-bezier(.16,1,.3,1) !important;
-}
-body.vcx-premium-polish .btn-primary:hover,
-body.vcx-premium-polish .cta-btn:hover,
-body.vcx-premium-polish .vcx-cta-btn:hover {
-  background: var(--brand-hover, #0F2A4D) !important;
-  box-shadow: 0 4px 16px rgba(15,27,45,.18) !important;
-}
-
-/* Proof pills */
-body.vcx-premium-polish .proof-pill {
-  background: rgba(176,138,87,.10) !important;
-  color: var(--accent-gold-dk, #8F6B3E) !important;
-  border: 1px solid rgba(176,138,87,.22) !important;
-  border-radius: var(--radius-pill, 100px) !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  padding: 3px 10px !important;
-}
-
-/* Footer */
-body.vcx-premium-polish footer,
-body.vcx-premium-polish .site-footer,
-body.vcx-premium-polish .vcx-footer {
-  background: var(--bg-ink, #0F1B2D) !important;
-  color: var(--ink-muted, #5E6C7B) !important;
-}
-body.vcx-premium-polish .site-footer a,
-body.vcx-premium-polish .vcx-footer a { color: #7A8EA0 !important; }
-body.vcx-premium-polish .site-footer a:hover,
-body.vcx-premium-polish .vcx-footer a:hover { color: var(--accent-gold, #B08A57) !important; }
-
-/* Section backgrounds */
-body.vcx-premium-polish section,
-body.vcx-premium-polish .section { background-color: var(--bg-canvas, #F6F2EA); }
-body.vcx-premium-polish .section-alt,
-body.vcx-premium-polish .section--alt { background-color: var(--bg-surface, #FBF8F3); }
-
-/* Status colors (used in deal check, contract scanner) */
-body.vcx-premium-polish .vcx-flag-high   { border-left: 3px solid var(--status-danger, #8B4348); }
-body.vcx-premium-polish .vcx-flag-medium { border-left: 3px solid var(--status-warning, #9A6A20); }
-body.vcx-premium-polish .vcx-flag-ok     { border-left: 3px solid var(--status-success, #2F6B57); }
-body.vcx-premium-polish .vcx-flag-info   { border-left: 3px solid var(--status-info, #355E8A); }
-
-/* ============================================================
-   MOBILE RESPONSIVENESS & SAFE AREA — Step 5 additions
-   ============================================================ */
-
-/* iPhone notch / Dynamic Island safe area */
-@supports (padding: max(0px)) {
-  .vcx-header {
-    padding-left:  max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
+@media print {
+  html, body {
+    background:#ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .vcx-mobile-nav {
-    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  .hero {
+    min-height:auto !important;
+    background:
+      linear-gradient(180deg, rgba(11,31,52,.26) 0%, rgba(17,44,73,.16) 45%, rgba(241,246,251,.82) 100%),
+      url('assets/img/sky-poster.jpg') center top / cover no-repeat !important;
+    border-bottom:1px solid rgba(14,32,54,.08) !important;
   }
-  body { padding-bottom: env(safe-area-inset-bottom); }
-}
-
-/* Prevent horizontal overflow */
-html, body { max-width: 100%; overflow-x: hidden; }
-img { max-width: 100%; height: auto; }
-table { max-width: 100%; }
-
-/* Responsive tables */
-.data-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.data-table { min-width: 500px; }
-
-/* Mobile form controls */
-@media (max-width: 480px) {
-  .form-input, input, select, textarea {
-    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  .hero-video video {
+    display:none !important;
   }
-  .vcx-form-grid {
-    grid-template-columns: 1fr !important;
+  .hero-video img {
+    display:block !important;
+    opacity:1 !important;
   }
-  .vcx-tab-nav {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    flex-wrap: nowrap !important;
-    scrollbar-width: none;
+  .hero::before,
+  .hero-video::after {
+    opacity:1 !important;
   }
-  .vcx-tab-nav::-webkit-scrollbar { display: none; }
-  .vcx-tab-btn { white-space: nowrap; flex-shrink: 0; }
-}
-
-/* Viewport units fix for iOS — svh = small viewport height, fixes iOS toolbar */
-.vcx-lookup-hero, .hero {
-  min-height: 100svh;
-}
-
-/* Touch targets — minimum 44×44px (WCAG 2.5.5) */
-.btn, .vcx-tab-btn, .lang-btn, .vcx-submit-btn {
-  min-height: 44px;
-  min-width: 44px;
-}
-.vcx-menu-btn {
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* ================================================================
-   BLOCKER 1: Hide language switchers on public English-only release
-   ================================================================ */
-.vcx-lang-toggle, .lang-switcher, [data-lang-toggle], .vcx-lang-btn,
-button[onclick*="vcxSetLang"], .language-selector,
-.vcx-lang-switch, .vcx-lang-switcher, .vcx-lang-mobile,
-.lang-btn, [data-lang]:not(html),
-.lang-row { display: none !important; }
-
-/* ================================================================
-   BLOCKER 2: Fix .reveal initial state - force visible 
-   Prevents empty gap from elements hidden before IntersectionObserver
-   ================================================================ */
-.reveal, [data-reveal], .vcx-reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
-}
-
-/* Also ensure header-hidden is never applied on load */
-.site-header.header-hidden {
-  transform: none !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* B2 FIX: Prevent vcx-header is-hidden from hiding header on load */
-.vcx-header.is-hidden {
-  transform: none !important;
-  opacity: 1 !important;
+  .reveal,
+  .reveal.visible,
+  .bar-fill,
+  [data-count-to] {
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+    transition:none !important;
+  }
+  .hero-copy,
+  .glass,
+  .card,
+  .problem-item,
+  .authority-card,
+  .impact-card,
+  .widget-card,
+  .engine-card,
+  .audience-card,
+  .proof-band,
+  .cta-banner,
+  .output-panel,
+  .kpi-tile {
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    background:rgba(255,255,255,.92) !important;
+  }
+  .hero,
+  .section,
+  .band,
+  .card,
+  .glass,
+  .problem-item,
+  .authority-card,
+  .impact-card,
+  .widget-card,
+  .engine-card,
+  .audience-card,
+  .proof-band,
+  .cta-banner,
+  .output-panel,
+  .kpi-tile {
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
 }

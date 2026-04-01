@@ -151,10 +151,8 @@
       }
       const goingDown = y > lastY + 8;
       const goingUp = y < lastY - 8;
-      // B2 FIX: Header hide-on-scroll disabled to prevent layout gap on page load
-      // if(y > 140 && goingDown) header.classList.add('is-hidden');
-      // if(y < 72 || goingUp) header.classList.remove('is-hidden');
-      header.classList.remove('is-hidden'); // always visible
+      if(y > 140 && goingDown) header.classList.add('is-hidden');
+      if(y < 72 || goingUp) header.classList.remove('is-hidden');
       lastY = y;
     }
 
