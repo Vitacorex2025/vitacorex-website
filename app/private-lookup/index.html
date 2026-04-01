@@ -14,7 +14,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{"ga4":"G-E08EE1KSQQ","gtm":"","clarity":"","hotjarSiteId":"","hotjarVersion":6,"metaPixel":"","linkedInPartner":"","apolloAppId":"69a7b325debb1e000d36d253"};window.VCX_CONTACT=window.VCX_CONTACT||{"booking_url":"https://calendly.com/vitacorex2025/30min","phone_display":"(888) 794-8292","phone_href":"tel:+18887948292"};</script>
 <style>body.vcx-menu-open{overflow:hidden;}</style>
-<script>(function(){var root=document.documentElement;var localeKey='vcx_lang';var saved;try{saved=window.localStorage.getItem(localeKey);}catch(e){}var current=(['en','ru','es'].indexOf(saved)!==-1)?saved:'en';window.__VCX_PUBLIC_BOOT__=window.__VCX_PUBLIC_BOOT__||{};root.setAttribute('data-vcx-shell','ready');try{window.localStorage.setItem(localeKey,current);}catch(error){}})();</script>
+<script>(function(){var root=document.documentElement;var current='en';window.__VCX_PUBLIC_BOOT__=window.__VCX_PUBLIC_BOOT__||{};root.setAttribute('data-vcx-shell','ready');try{window.localStorage.setItem('vcx_lang','en');}catch(e){}})();</script>
 <link rel="stylesheet" href="/assets/css/vcx-tokens.css">
     <link rel="stylesheet" href="/assets/css/vcx-base.css">
 <link rel="stylesheet" href="/assets/css/vcx-layout.css">
@@ -53,7 +53,7 @@ Object.assign(window.SITE_I18N.en, {
   hero_subtitle:"Check Florida toll obligations, traffic citations, and public court records.",
   gate_label:"Private Session Access",
   gate_free:"Free",
-  gate_note:"Free access during testing phase.",
+  gate_note:"No charge. Government payments go to official portals only.",
   gate_btn:"Start Private Lookup",
   session_active:"Private session active",
   session_remaining:"lookups remaining",
@@ -213,7 +213,7 @@ Object.assign(window.SITE_I18N.es, {
             <p class="vcx-gate-label" data-tx="gate_label">Private Session Access</p>
             <div class="vcx-gate-price">
               <span class="vcx-price-amount" id="vcx-price-display" data-tx="gate_free">Free</span>
-              <span class="vcx-price-note">testing phase access</span>
+              <span class="vcx-price-note">complimentary service</span>
             </div>
           </div>
           <ul class="vcx-gate-features">
@@ -225,9 +225,7 @@ Object.assign(window.SITE_I18N.es, {
           <button class="vcx-unlock-btn" id="vcxPayBtn" type="button" data-tx="gate_btn">
             Start Private Lookup
           </button>
-          <p class="vcx-gate-note" data-tx="gate_note">Free access during the current testing phase. Government payments go to official portals only.</p>
-          <!-- Dev mode notice (hidden in prod) -->
-          <p class="vcx-dev-notice" id="vcx-dev-notice" hidden>Development mode — access without payment</p>
+          <p class="vcx-gate-note" data-tx="gate_note">No charge. Government payments go to official portals only.</p>
           <!-- Loading state -->
           <div class="vcx-gate-loading" id="vcx-gate-loading" hidden>
             <span class="vcx-spinner"></span> Preparing your session&hellip;

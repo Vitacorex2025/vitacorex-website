@@ -138,7 +138,7 @@ w.VCX_I18N = {
     tool_fl_subtitle: 'Check Florida toll obligations, traffic citations, and public court records. Results link to official government sources.',
     gate_label:       'Private Session Access',
     gate_free:        'Free',
-    gate_note:        'Free access during testing phase.',
+    gate_note:        'No charge. Government payments go to official portals only.',
     gate_btn:         'Start Private Lookup',
     session_active:   'Private session active',
     session_remaining:'lookups remaining',
