@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings | DocketMint</title>
+  <meta name="theme-color" content="#F4F7FA"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/assets/css/app-shell.css" rel="stylesheet"/>
+  <link href="/assets/css/settings-shell.css" rel="stylesheet"/>
+</head>
+<body class="settings-shell" data-app-screen="settings" data-i18n-title-key="settings.title">
+  <a class="skip-link" href="#settingsMain">Skip to settings</a>
+  <div class="app-shell">
+    <aside class="app-sidebar" data-app-sidebar>
+      <div class="sidebar-brand-wrap">
+        <a class="sidebar-brand" href="/app/home/">
+          <div class="brand-mark"><img src="/assets/img/logo.png" alt=""/></div>
+          <div class="brand-copy">
+            <div class="brand-title">DocketMint</div>
+            <div class="brand-subtitle" data-i18n="nav.platform">Recovery OS</div>
+          </div>
+        </a>
+      </div>
+      <div class="app-nav-group">
+        <div class="sidebar-section-title" data-i18n="nav.primary">Primary</div>
+        <nav class="sidebar-nav" aria-label="Primary navigation"></nav>
+      </div>
+      <section class="sidebar-service-center">
+        <div class="service-nav-header">
+          <div class="eyebrow">Support</div>
+          <h3>Account and workflow help</h3>
+          <p>Use settings for profile and session control. Open support when you need route, workflow, or configuration guidance.</p>
+        </div>
+        <div class="sidebar-actions">
+          <a class="btn btn-secondary btn-sm" href="/app/settings-support/">Support</a>
+          <a class="btn btn-secondary btn-sm" href="/app/home/">Home</a>
+        </div>
+      </section>
+      <div class="sidebar-footer">
+        <a class="sidebar-utility-link active" href="/app/settings/"><span data-i18n="common.settings">Settings</span></a>
+      </div>
+    </aside>
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-heading">
+          <button class="sidebar-toggle" data-sidebar-toggle type="button" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <div class="topbar-kicker" data-i18n="common.settings">Settings</div>
+            <h1 data-i18n="settings.title">Settings</h1>
+            <p data-i18n="settings.subtitle">Manage your account profile, language, sign-out state, and support path.</p>
+          </div>
+        </div>
+        <div class="topbar-actions"></div>
+      </header>
+      <main class="app-content" id="settingsMain">
+        <div class="settings-grid">
+          <section class="settings-card">
+            <div>
+              <div class="eyebrow" data-i18n="settings.profile">Profile</div>
+              <h2 data-i18n="settings.profile">Profile</h2>
+              <p data-i18n="settings.profile.copy">Update your display name and preferred language for this account.</p>
+            </div>
+            <form class="stack-form" data-settings-form>
+              <label>
+                <span data-i18n="auth.first_name">First name</span>
+                <input name="first_name" type="text"/>
+              </label>
+              <label>
+                <span data-i18n="auth.last_name">Last name</span>
+                <input name="last_name" type="text"/>
+              </label>
+              <label>
+                <span data-i18n="auth.title">Title</span>
+                <input name="title" type="text"/>
+              </label>
+              <label>
+                <span data-i18n="settings.language">Preferred language</span>
+                <select name="preferred_language">
+                  <option value="en" data-i18n="common.english">English</option>
+                  <option value="ru" data-i18n="common.russian">Russian</option>
+                  <option value="es" data-i18n="common.spanish">Spanish</option>
+                </select>
+              </label>
+              <div class="settings-actions">
+                <button class="btn btn-primary" type="submit" data-i18n="common.save_changes">Save changes</button>
+              </div>
+              <p class="micro-note" data-settings-status></p>
+            </form>
+          </section>
+          <section class="settings-card">
+            <div>
+              <div class="eyebrow" data-i18n="settings.account_scope">Account isolation</div>
+              <h2 data-i18n="settings.account_scope">Account isolation</h2>
+              <p data-i18n="settings.account_scope.copy">Your cases, uploads, generated files, and service sessions are scoped to this account.</p>
+            </div>
+            <div class="stack-form">
+              <label>
+                <span data-i18n="settings.account_name">Account</span>
+                <input data-settings-account-name type="text" readonly/>
+              </label>
+              <label>
+                <span data-i18n="settings.account_email">Email</span>
+                <input data-settings-email type="text" readonly/>
+              </label>
+              <label>
+                <span data-i18n="settings.account_workspace">Workspace</span>
+                <input data-settings-workspace type="text" readonly/>
+              </label>
+              <div class="settings-actions">
+                <button class="btn btn-secondary" data-settings-logout type="button" data-i18n="settings.sign_out">Sign out</button>
+              </div>
+            </div>
+          </section>
+          <section class="settings-card" data-settings-commercial hidden>
+            <div>
+              <div class="eyebrow">Plan</div>
+              <h2>Plan and usage</h2>
+              <p>See the current workspace plan, live usage, locked capabilities, and the next upgrade path without wiring a billing vendor yet.</p>
+            </div>
+            <div class="stack-form compact">
+              <div data-settings-plan-summary></div>
+              <div data-settings-usage-summary></div>
+              <div data-settings-lock-summary></div>
+            </div>
+          </section>
+          <section class="settings-card">
+            <div>
+              <div class="eyebrow">Support</div>
+              <h2>Help and support</h2>
+              <p>Open support controls, workflow guidance, plan visibility, and route help without leaving the logged-in shell.</p>
+            </div>
+            <div class="settings-actions">
+              <a class="btn btn-secondary" href="/app/settings-support/">Open support</a>
+              <a class="btn btn-secondary" href="/app/downloads/">Open outputs</a>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="app-overlay" data-app-overlay hidden></div>
+  <script src="/assets/js/runtime-config.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/api-client.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/platform-services.js"></script>
+  <script src="/assets/js/app-shell.js"></script>
+  <script src="/assets/js/settings.js"></script>
+</body>
+</html>
