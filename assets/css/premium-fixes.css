@@ -62,6 +62,191 @@ textarea {
   font-size: 16px;
 }
 
+/* ============================================================
+   7. DARK-SURFACE APP PAGES — contrast & premium polish
+   Targets: private-lookup, contract-scanner, immigration-helper,
+   auto-deal-check. Body bg is #07131f on all four.
+   ============================================================ */
+
+/* --- 7a. Headings: bright white with subtle gold accent --- */
+body[data-vcx-private-lookup="true"] h1,
+body[data-vcx-page="contract-scanner"] h1,
+body[data-vcx-page="immigration-helper"] h1,
+body[data-vcx-page="auto-deal-check"] h1 {
+  color: #f0f4f8 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+
+body[data-vcx-private-lookup="true"] h2,
+body[data-vcx-page="contract-scanner"] h2,
+body[data-vcx-page="immigration-helper"] h2,
+body[data-vcx-page="auto-deal-check"] h2 {
+  color: #e2e9f0 !important;
+}
+
+/* --- 7b. Subtitles, gate labels, gate notes, form intros --- */
+body[data-vcx-private-lookup="true"] .vcx-hero-subtitle,
+body[data-vcx-page="contract-scanner"] .vcx-hero-subtitle,
+body[data-vcx-page="immigration-helper"] .vcx-hero-subtitle,
+body[data-vcx-page="auto-deal-check"] .vcx-hero-subtitle,
+body[data-vcx-private-lookup="true"] .hero-lead,
+body[data-vcx-page="contract-scanner"] .hero-lead,
+body[data-vcx-page="immigration-helper"] .hero-lead,
+body[data-vcx-page="auto-deal-check"] .hero-lead {
+  color: rgba(255,255,255,.85) !important;
+}
+
+body[data-vcx-private-lookup="true"] .vcx-gate-label {
+  color: #b0c4d8 !important;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+
+body[data-vcx-private-lookup="true"] .vcx-gate-note {
+  color: rgba(176,196,216,.7) !important;
+}
+
+/* --- 7c. Body text on dark surfaces --- */
+body[data-vcx-private-lookup="true"] .vcx-form-intro,
+body[data-vcx-page="contract-scanner"] .glass p,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard p,
+body[data-vcx-page="immigration-helper"] .glass p,
+body[data-vcx-page="immigration-helper"] #vcxUploadCard p,
+body[data-vcx-page="auto-deal-check"] .glass p,
+body[data-vcx-page="auto-deal-check"] #vcxUploadCard p {
+  color: rgba(255,255,255,.6) !important;
+}
+
+/* Sub-labels "Primary concerns", "Supporting documents" */
+body[data-vcx-page="contract-scanner"] .glass > p:first-child,
+body[data-vcx-page="immigration-helper"] .glass > p:first-child {
+  color: #b0c4d8 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .7rem;
+  letter-spacing: .06em;
+}
+
+/* --- 7d. Premium card styling --- */
+body[data-vcx-private-lookup="true"] .vcx-lookup-gate,
+body[data-vcx-page="contract-scanner"] .glass,
+body[data-vcx-page="immigration-helper"] .glass,
+body[data-vcx-page="auto-deal-check"] .glass,
+body[data-vcx-page="contract-scanner"] #vcxUploadCard,
+body[data-vcx-page="immigration-helper"] #vcxUploadCard,
+body[data-vcx-page="auto-deal-check"] #vcxUploadCard {
+  border: 1px solid rgba(176,138,87,.15);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* --- 7e. Premium buttons on dark pages --- */
+body[data-vcx-private-lookup="true"] .vcx-unlock-btn,
+body[data-vcx-private-lookup="true"] .vcx-gate-btn,
+body[data-vcx-private-lookup="true"] .btn-primary,
+body[data-vcx-page="contract-scanner"] .btn-primary,
+body[data-vcx-page="immigration-helper"] .btn-primary,
+body[data-vcx-page="auto-deal-check"] .btn-primary,
+body[data-vcx-page="contract-scanner"] button[type="submit"],
+body[data-vcx-page="immigration-helper"] button[type="submit"],
+body[data-vcx-page="auto-deal-check"] button[type="submit"] {
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
+  border: none !important;
+  font-weight: 700;
+  letter-spacing: .02em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(176,138,87,.25);
+  transition: box-shadow .2s, transform .15s;
+}
+body[data-vcx-private-lookup="true"] .vcx-unlock-btn:hover,
+body[data-vcx-private-lookup="true"] .vcx-gate-btn:hover,
+body[data-vcx-private-lookup="true"] .btn-primary:hover,
+body[data-vcx-page="contract-scanner"] .btn-primary:hover,
+body[data-vcx-page="immigration-helper"] .btn-primary:hover,
+body[data-vcx-page="auto-deal-check"] .btn-primary:hover,
+body[data-vcx-page="contract-scanner"] button[type="submit"]:hover,
+body[data-vcx-page="immigration-helper"] button[type="submit"]:hover,
+body[data-vcx-page="auto-deal-check"] button[type="submit"]:hover {
+  box-shadow: 0 4px 20px rgba(176,138,87,.4);
+  transform: translateY(-1px);
+}
+
+/* Start Private Lookup button specifically */
+body[data-vcx-private-lookup="true"] .vcx-unlock-btn {
+  padding: 14px 36px;
+  font-size: 1rem;
+}
+
+/* --- 7f. Tab buttons (private-lookup) --- */
+body[data-vcx-private-lookup="true"] .tab-btn {
+  color: #8aa0b8 !important;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+body[data-vcx-private-lookup="true"] .tab-btn.active,
+body[data-vcx-private-lookup="true"] .tab-btn:hover {
+  color: #f0f4f8 !important;
+  border-bottom-color: #c9a45c;
+}
+
+/* --- 7g. Eyebrow badges on dark pages --- */
+body[data-vcx-private-lookup="true"] .eyebrow,
+body[data-vcx-page="contract-scanner"] .eyebrow,
+body[data-vcx-page="immigration-helper"] .eyebrow,
+body[data-vcx-page="auto-deal-check"] .eyebrow {
+  color: #c9a45c !important;
+  background: rgba(176,138,87,.12) !important;
+  border: 1px solid rgba(176,138,87,.25);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: .7rem;
+  letter-spacing: .1em;
+}
+
+/* --- 7h. Disclaimer/legal text visibility --- */
+body[data-vcx-private-lookup="true"] .vcx-disclaimer-block p,
+body[data-vcx-private-lookup="true"] .vcx-disclaimer-block li,
+body[data-vcx-page="contract-scanner"] .vcx-disc,
+body[data-vcx-page="contract-scanner"] [data-tx="tool_disc"],
+body[data-vcx-page="immigration-helper"] [data-tx="tool_disc"],
+body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"],
+body[data-vcx-page="auto-deal-check"] [data-tx="tool_disc"] {
+  color: rgba(255,255,255,.7) !important;
+}
+
+/* --- 7i. Back link "← Private Client Services" --- */
+body[data-vcx-page="contract-scanner"] a[href*="additional"],
+body[data-vcx-page="immigration-helper"] a[href*="additional"],
+body[data-vcx-page="auto-deal-check"] a[href*="additional"] {
+  color: #c9a45c !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .85rem;
+}
+body[data-vcx-page="contract-scanner"] a[href*="additional"]:hover,
+body[data-vcx-page="immigration-helper"] a[href*="additional"]:hover,
+body[data-vcx-page="auto-deal-check"] a[href*="additional"]:hover {
+  color: #ddb86a !important;
+}
+
+/* --- 7j. Upload drop zone premium styling --- */
+body[data-vcx-page="contract-scanner"] .vcx-drop-zone,
+body[data-vcx-page="immigration-helper"] .vcx-drop-zone,
+body[data-vcx-page="auto-deal-check"] .vcx-drop-zone {
+  border-color: rgba(176,138,87,.35) !important;
+  background: rgba(176,138,87,.04) !important;
+  border-radius: 10px;
+}
+body[data-vcx-page="contract-scanner"] .vcx-drop-zone:hover,
+body[data-vcx-page="immigration-helper"] .vcx-drop-zone:hover,
+body[data-vcx-page="auto-deal-check"] .vcx-drop-zone:hover {
+  border-color: rgba(176,138,87,.55) !important;
+  background: rgba(176,138,87,.08) !important;
+}
+
 /* 6. Reduced motion: respect user preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
