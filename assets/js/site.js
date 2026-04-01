@@ -699,7 +699,7 @@ improveMobileFileInput();
 
 
 (function(){
-  function vcxCurrentLang(){ return 'en'; }
+  function vcxCurrentLang(){ var l=localStorage.getItem('vcx_lang'); return (l==='ru'||l==='es')?l:'en'; }
 
   const hardCopy = {
     en: {

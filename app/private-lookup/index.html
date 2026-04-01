@@ -55,7 +55,6 @@ Object.assign(window.SITE_I18N.en, {
   tab_tolls:"Unpaid Tolls",
   tab_traffic:"Traffic / Fines",
   tab_courts:"Court Cases",
-  tab_upload:"Upload Notice",
   disc:"VitaCoreX is not a law firm and does not process government payments. Results are informational only."
 });
 window.SITE_I18N.ru = window.SITE_I18N.ru || {};
@@ -74,7 +73,6 @@ Object.assign(window.SITE_I18N.ru, {
   tab_tolls:"\u041d\u0435\u043e\u043f\u043b\u0430\u0447\u0435\u043d\u043d\u044b\u0435 \u0441\u0431\u043e\u0440\u044b",
   tab_traffic:"\u0428\u0442\u0440\u0430\u0444\u044b / \u041d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u044f",
   tab_courts:"\u0421\u0443\u0434\u0435\u0431\u043d\u044b\u0435 \u0434\u0435\u043b\u0430",
-  tab_upload:"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435",
   disc:"VitaCoreX \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0438\u0440\u043c\u043e\u0439 \u0438 \u043d\u0435 \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442 \u0433\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u043f\u043b\u0430\u0442\u0435\u0436\u0438."
 });
 window.SITE_I18N.es = window.SITE_I18N.es || {};
@@ -93,7 +91,6 @@ Object.assign(window.SITE_I18N.es, {
   tab_tolls:"Peajes impagados",
   tab_traffic:"Multas de tr\u00e1fico",
   tab_courts:"Casos judiciales",
-  tab_upload:"Subir aviso",
   disc:"VitaCoreX no es un bufete de abogados y no procesa pagos gubernamentales."
 });
 (function(){
@@ -257,9 +254,6 @@ Object.assign(window.SITE_I18N.es, {
         </button>
         <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-courts" data-tab="courts" id="vcx-tab-courts" data-tx="tab_courts">
           Court Cases
-        </button>
-        <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-upload" data-tab="upload" id="vcx-tab-upload" data-tx="tab_upload">
-          Upload Notice
         </button>
       </nav>
 
@@ -434,41 +428,6 @@ Object.assign(window.SITE_I18N.es, {
             <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Searching&hellip;</span>
           </button>
         </form>
-      </div>
-
-      <!-- TAB PANEL: Upload -->
-      <div class="vcx-tab-panel" role="tabpanel" id="vcx-panel-upload" aria-labelledby="vcx-tab-upload" hidden>
-        <p class="vcx-form-intro">Upload a notice, citation, or court document. The system will attempt to extract key fields automatically.</p>
-
-        <div class="vcx-upload-zone" id="vcx-upload-zone" role="button" tabindex="0" aria-label="Upload document or click to browse">
-          <div class="vcx-upload-idle" id="vcx-upload-idle">
-            <div class="vcx-upload-icon">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            </div>
-            <p class="vcx-upload-title">Drop document here or click to browse</p>
-            <p class="vcx-upload-hint">PDF, JPEG, PNG &mdash; max 10 MB. Mobile: tap to use camera.</p>
-            <input type="file" id="vcx-file-input" accept=".pdf,.jpg,.jpeg,.png,.webp" style="position:absolute;opacity:0;width:100%;height:100%;top:0;left:0;cursor:pointer;" aria-label="Upload document">
-          </div>
-          <div class="vcx-upload-loading" id="vcx-upload-loading" hidden>
-            <span class="vcx-spinner"></span>
-            <p>Extracting fields&hellip;</p>
-          </div>
-        </div>
-
-        <!-- Extraction results -->
-        <div class="vcx-extraction-confirm" id="vcx-extraction-confirm" hidden>
-          <h3>Extracted from your document</h3>
-          <p class="vcx-extraction-note" id="vcx-extraction-message"></p>
-          <div class="vcx-extracted-fields" id="vcx-extracted-fields"></div>
-          <div class="vcx-extraction-actions">
-            <button class="vcx-submit-btn" type="button" id="vcx-use-extracted">
-              Use these values and continue
-            </button>
-            <button class="btn btn-secondary" type="button" id="vcx-discard-extracted">
-              Enter manually instead
-            </button>
-          </div>
-        </div>
       </div>
 
       <!-- RESULT AREA ─────────────────────────────────────────────────── -->

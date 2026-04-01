@@ -1,12 +1,11 @@
 /* VitaCoreX Private Lookup Tool — v1.0
-   Connects to /api/private-lookup/* (FastAPI backend)
-   Payment gate via Stripe Checkout session
-   Analytics: additive events via window.trackEvent / dataLayer
+   Client-side only. Routes users to official FL government portals.
+   No backend API. No Stripe. Analytics via dataLayer only.
 */
 (function(){
 'use strict';
 
-var API = '/api/private-lookup';
+// client-side only — no API calls made
 var sessionToken = null;
 var lookupsRemaining = 0;
 var currentTab = 'tolls';
@@ -46,7 +45,7 @@ function fireEvent(eventName, params){
   } catch(e){}
 }
 
-// ── Check for return from Stripe ─────────────────────────────────────────
+// ── URL param helper ──────────────────────────────────────────────────────
 function getUrlParam(name){
   var match = window.location.search.match(new RegExp('[?&]'+name+'=([^&]*)'));
   return match ? decodeURIComponent(match[1]) : null;
