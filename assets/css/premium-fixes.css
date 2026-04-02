@@ -180,16 +180,16 @@ body[data-vcx-private-lookup="true"] .vcx-unlock-btn {
   font-size: 1rem;
 }
 
-/* --- 7f. Tab buttons (private-lookup) --- */
+/* --- 7f. Tab buttons (private-lookup) — LIGHT tool section --- */
 body[data-vcx-private-lookup="true"] .tab-btn {
-  color: #8aa0b8 !important;
+  color: #5E6C7B !important;
   border-bottom: 2px solid transparent;
   transition: color .2s, border-color .2s;
 }
 body[data-vcx-private-lookup="true"] .tab-btn.active,
 body[data-vcx-private-lookup="true"] .tab-btn:hover {
-  color: #f0f4f8 !important;
-  border-bottom-color: #c9a45c;
+  color: #0F1B2D !important;
+  border-bottom-color: #B08A57;
 }
 
 /* --- 7g. Eyebrow badges on dark pages --- */
@@ -309,10 +309,16 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
   font-size: max(0.8125rem, inherit) !important;
 }
 
-/* 9g. Form helper text on dark surfaces — brighten */
+/* 9g. Form helper text — dark text on LIGHT tool section */
 body[data-vcx-private-lookup="true"] .vcx-field-error,
 body[data-vcx-private-lookup="true"] .form-note,
 body[data-vcx-private-lookup="true"] .field-note {
+  color: #8B4348 !important;
+}
+/* 9g-dark. Form helper text on genuinely dark surfaces */
+body[data-vcx-page="contract-scanner"] .vcx-field-error,
+body[data-vcx-page="immigration-helper"] .vcx-field-error,
+body[data-vcx-page="auto-deal-check"] .vcx-field-error {
   color: rgba(255,255,255,.75) !important;
 }
 
@@ -325,9 +331,9 @@ body[data-vcx-private-lookup="true"] .vcx-tab-panel:not([hidden]) {
   display: block !important;
 }
 
-/* 10b. Tab buttons: fix selector (was .tab-btn, actual class is .vcx-tab-btn) */
+/* 10b. Tab buttons: fix selector — LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-tab-btn {
-  color: #8aa0b8 !important;
+  color: #5E6C7B !important;
   border-bottom: 2px solid transparent;
   transition: color .2s, border-color .2s;
   font-size: 0.9375rem;
@@ -335,21 +341,21 @@ body[data-vcx-private-lookup="true"] .vcx-tab-btn {
 }
 body[data-vcx-private-lookup="true"] .vcx-tab-btn.active,
 body[data-vcx-private-lookup="true"] .vcx-tab-btn:hover {
-  color: #f0f4f8 !important;
-  border-bottom-color: #c9a45c;
+  color: #0F1B2D !important;
+  border-bottom-color: #B08A57;
 }
 
-/* 10c. Form intro text: brighten from rgba(255,255,255,.6) to .85 */
+/* 10c. Form intro text: dark for LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-form-intro {
-  color: rgba(255,255,255,.85) !important;
+  color: #3a5470 !important;
   font-size: 0.9375rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-/* 10d. Form field labels: ensure readable on both dark and light surfaces */
+/* 10d. Form field labels: dark on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-lookup-tool label {
-  color: #c8d6e4 !important;
+  color: #1a2e42 !important;
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -367,24 +373,24 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool input::placeholder {
   color: rgba(255,255,255,.4) !important;
 }
 
-/* 10f. Consent block: visible text */
+/* 10f. Consent block: dark text on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-consent-block {
-  background: rgba(176,138,87,.06);
-  border: 1px solid rgba(176,138,87,.15);
+  background: rgba(176,138,87,.08);
+  border: 1px solid rgba(176,138,87,.25);
   border-radius: 8px;
   padding: 14px 16px;
   margin: 16px 0;
 }
 body[data-vcx-private-lookup="true"] .vcx-consent-label span {
-  color: rgba(255,255,255,.8) !important;
+  color: #2e4a63 !important;
   font-size: 0.8125rem;
   line-height: 1.5;
 }
 
 /* 10g. Submit buttons inside lookup tool */
 body[data-vcx-private-lookup="true"] .vcx-submit-btn {
-  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
-  color: #0e1e30 !important;
+  background: linear-gradient(135deg, #B08A57 0%, #8a6b3e 100%) !important;
+  color: #ffffff !important;
   border: none !important;
   font-weight: 700;
   border-radius: 8px;
@@ -392,11 +398,11 @@ body[data-vcx-private-lookup="true"] .vcx-submit-btn {
   font-size: 0.9375rem;
   width: 100%;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(176,138,87,.25);
+  box-shadow: 0 2px 8px rgba(176,138,87,.3);
   margin-top: 8px;
 }
 body[data-vcx-private-lookup="true"] .vcx-submit-btn:hover {
-  box-shadow: 0 4px 20px rgba(176,138,87,.4);
+  box-shadow: 0 4px 20px rgba(176,138,87,.45);
   transform: translateY(-1px);
 }
 body[data-vcx-private-lookup="true"] .vcx-submit-btn:disabled {
@@ -406,19 +412,19 @@ body[data-vcx-private-lookup="true"] .vcx-submit-btn:disabled {
   box-shadow: none;
 }
 
-/* 10h. Session info bar: premium styling */
+/* 10h. Session info bar: dark text on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-session-info {
-  background: rgba(176,138,87,.1) !important;
-  border: 1px solid rgba(176,138,87,.2);
+  background: rgba(176,138,87,.12) !important;
+  border: 1px solid rgba(176,138,87,.3);
   border-radius: 8px;
-  color: #e8eff7 !important;
+  color: #1a2e42 !important;
   padding: 12px 20px;
   margin-bottom: 20px;
 }
 
-/* 10i. Form divider labels */
+/* 10i. Form divider labels: dark on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-form-divider span {
-  color: rgba(255,255,255,.6) !important;
+  color: #5E6C7B !important;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
