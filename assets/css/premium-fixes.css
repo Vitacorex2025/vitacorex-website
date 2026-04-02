@@ -204,7 +204,7 @@ body[data-vcx-private-lookup="true"] .vcx-unlock-btn {
 
 /* --- 7f. Tab buttons (private-lookup) — LIGHT tool section --- */
 body[data-vcx-private-lookup="true"] .tab-btn {
-  color: #5E6C7B !important;
+  color: #486279 !important;
   border-bottom: 2px solid transparent;
   transition: color .2s, border-color .2s;
 }
@@ -243,7 +243,7 @@ body[data-vcx-page="auto-deal-check"] [data-tx="tool_disc"] {
 body[data-vcx-page="contract-scanner"] a[href*="additional"],
 body[data-vcx-page="immigration-helper"] a[href*="additional"],
 body[data-vcx-page="auto-deal-check"] a[href*="additional"] {
-  color: #c9a45c !important;
+  color: #ddb86a !important;
   text-decoration: none;
   font-weight: 600;
   font-size: .85rem;
@@ -251,7 +251,7 @@ body[data-vcx-page="auto-deal-check"] a[href*="additional"] {
 body[data-vcx-page="contract-scanner"] a[href*="additional"]:hover,
 body[data-vcx-page="immigration-helper"] a[href*="additional"]:hover,
 body[data-vcx-page="auto-deal-check"] a[href*="additional"]:hover {
-  color: #ddb86a !important;
+  color: #e8cc8a !important;
 }
 
 /* --- 7j. Upload drop zone premium styling --- */
@@ -301,9 +301,14 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
   color: #6B5530 !important;
 }
 
-/* 9b. Clock labels: bump from 11.5px to 12.5px */
-.clock-label, .vcx-time-sub {
+/* 9b. Clock labels: bump size and fix contrast (#6a7d91/#70839a → #4D6070/#526A7E) */
+.clock-label, .clock-sub {
   font-size: 0.78rem !important;
+  color: #4D6070 !important;
+}
+.vcx-time-sub, .market-head span {
+  font-size: 0.78rem !important;
+  color: #526A7E !important;
 }
 
 /* 9c. Hero heading line-height: loosen from 0.96 to 1.15 */
@@ -586,7 +591,7 @@ body[data-vcx-private-lookup="true"] .vcx-tab-panel:not([hidden]) {
 
 /* 10b. Tab buttons: fix selector — LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-tab-btn {
-  color: #5E6C7B !important;
+  color: #486279 !important;
   border-bottom: 2px solid transparent;
   transition: color .2s, border-color .2s;
   font-size: 0.9375rem;
@@ -749,4 +754,89 @@ body[data-vcx-page="auto-deal-check"] #vcxCheckBtn {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* 11. iPhone responsive fixes (v282) */
+
+/* 11a. Body scroll lock — html.vcx-mobile-menu-open is toggled by ui-shell.js
+   but had no CSS overflow rule, allowing background scroll on mobile menu open */
+html.vcx-mobile-menu-open {
+  overflow: hidden !important;
+}
+html.vcx-mobile-menu-open body {
+  overflow: hidden !important;
+  position: relative;
+}
+
+/* 11b. Mobile nav link min-height — WCAG 2.5.5 requires 44px minimum target
+   ui-shell.css sets 36px, override here */
+.vcx-mobile-nav a {
+  min-height: 44px !important;
+  padding-block: 10px;
+}
+
+/* 12. Contrast audit fixes (v282) */
+
+/* 12a. Dark-section pills — global .pill override (#3D5068) fails on obsidian cards (~1.9:1)
+   Restore light pill color for dark section contexts (styles.css 542-548 sets #dbe5f1
+   but loses to premium-fixes !important) */
+.chip-cloud .pill,
+.authority-section .pill,
+.widgets-section .pill,
+.seo-authority-section .pill {
+  color: #dbe5f1 !important;
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.10);
+}
+
+/* 12b. Inline hint text on dark app pages — rgba(255,255,255,.4-.45) gives 3.0-3.3:1
+   Override to .7 for ~5.5:1 on #07131f */
+body[data-vcx-page="immigration-helper"] summary[data-tx="tool_support_label"],
+body[data-vcx-page="immigration-helper"] p[data-tx="tool_support_hint"],
+body[data-vcx-page="auto-deal-check"] p[data-tx="tool_upload_hint"],
+body[data-vcx-page="contract-scanner"] p[data-tx="tool_upload_hint"] {
+  color: rgba(255,255,255,.7) !important;
+}
+
+/* 12c. File name/preview feedback — rgba(255,255,255,.45-.5) gives 3.0-3.8:1 */
+body[data-vcx-page="contract-scanner"] #vcxFileName,
+body[data-vcx-page="contract-scanner"] #vcxFilePreview,
+body[data-vcx-page="immigration-helper"] #vcxFileName,
+body[data-vcx-page="auto-deal-check"] #vcxFileName {
+  color: rgba(255,255,255,.7) !important;
+}
+
+/* 12d. Intake output label font-size — was .68rem (10.9px), below 12px minimum */
+#intakeOutput .vcx-output-item strong {
+  font-size: 0.75rem !important;
+}
+
+/* 13. Accessibility fixes (v282) */
+
+/* 13a. Focus ring visibility — styles.css uses rgba(22,54,86,.20) = 20% opacity,
+   virtually invisible on parchment #F6F2EA. Override to visible ring. */
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #173A63 !important;
+  outline-offset: 2px;
+}
+/* Dark pages: light focus ring */
+body[data-surface="dark"] :focus-visible,
+body[data-vcx-private-lookup="true"] :focus-visible {
+  outline-color: #7EB3E0 !important;
+}
+
+/* 13b. Marketing page chrome text contrast (v282)
+   .mini-step span #6a7d91 → #4E6373 (~5.5:1 on canvas)
+   .stat-card .top #6b7c92 → #576B80 (~5.1:1 on white) */
+.mini-step span {
+  color: #4E6373 !important;
+}
+.stat-card .top {
+  color: #576B80 !important;
 }

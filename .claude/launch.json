@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vcx-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "C:\Users\sergz\AppData\Local\Temp\vcx_build_264"],
+      "port": 8765
+    }
+  ]
+}

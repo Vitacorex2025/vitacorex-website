@@ -132,38 +132,86 @@ async function startPayment(){
   isLoading = false;
 }
 
+// ── Validation helpers ────────────────────────────────────────────────────
+function showFieldError(fieldId, msg){
+  var field = el(fieldId);
+  if(!field) return;
+  var errEl = field.closest('.vcx-field');
+  if(errEl){
+    errEl.classList.add('is-error');
+    var err = errEl.querySelector('.vcx-field-error');
+    if(err) err.textContent = msg;
+  }
+}
+function clearFieldErrors(formId){
+  var form = el(formId);
+  if(!form) return;
+  form.querySelectorAll('.is-error').forEach(function(f){ f.classList.remove('is-error'); });
+  form.querySelectorAll('.vcx-field-error').forEach(function(e){ e.textContent = ''; });
+}
+
 // ── Lookup ─────────────────────────────────────────────────────────────────
 async function runLookup(tab){
   if(isLoading || lookupsRemaining <= 0 || !sessionToken) return;
+
+  var payload = { session_token: sessionToken, tab: tab };
+  var valid = true;
+
+  if(tab === 'tolls'){
+    clearFieldErrors('vcx-form-tolls');
+    var plate = el('tolls_plate_number') ? el('tolls_plate_number').value.trim() : '';
+    var invoice = el('tolls_invoice_number') ? el('tolls_invoice_number').value.trim() : '';
+    payload.tolls = {
+      plate_number: plate,
+      plate_state:  el('tolls_plate_state') ? el('tolls_plate_state').value : 'FL',
+      invoice_number: invoice
+    };
+    // Tolls: at least plate OR invoice required
+    if(!plate && !invoice){
+      showFieldError('tolls_plate_number', 'Enter a plate number or invoice number below');
+      valid = false;
+    }
+  } else if(tab === 'traffic'){
+    clearFieldErrors('vcx-form-traffic');
+    var county = el('traffic_fl_county') ? el('traffic_fl_county').value : '';
+    payload.traffic = {
+      fl_county: county,
+      citation_number: el('traffic_citation_number') ? el('traffic_citation_number').value.trim() : ''
+    };
+    // Traffic: county required for routing
+    if(!county){
+      showFieldError('traffic_fl_county', 'Select a county to find the correct clerk portal');
+      valid = false;
+    }
+  } else if(tab === 'courts'){
+    clearFieldErrors('vcx-form-courts');
+    var fullName = el('courts_full_name') ? el('courts_full_name').value.trim() : '';
+    var caseNum = el('courts_case_number') ? el('courts_case_number').value.trim() : '';
+    payload.courts = {
+      full_name:   fullName,
+      state:       el('courts_state')       ? el('courts_state').value             : 'FL',
+      county:      el('courts_county')      ? el('courts_county').value            : '',
+      case_number: caseNum,
+      role_filter: el('courts_role_filter') ? el('courts_role_filter').value       : 'any'
+    };
+    // Courts: name or case number required
+    if(!fullName && !caseNum){
+      showFieldError('courts_full_name', 'Enter a name or case number below');
+      valid = false;
+    }
+  }
+
+  if(!valid){
+    fireEvent('private_tool_validation_error', {tab: tab});
+    return;
+  }
+
   isLoading = true;
   setStatus('<span class="vcx-spinner"></span> ' + t('tool_status_loading'));
   if(resultArea){ resultArea.setAttribute('hidden',''); resultArea.innerHTML = ''; }
 
   var btn = el('vcx' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Submit');
   if(btn) btn.disabled = true;
-
-  var payload = { session_token: sessionToken, tab: tab };
-
-  if(tab === 'tolls'){
-    payload.tolls = {
-      plate_number: el('tolls_plate_number') ? el('tolls_plate_number').value.trim() : '',
-      plate_state:  el('tolls_plate_state')  ? el('tolls_plate_state').value  : 'FL',
-      invoice_number: el('tolls_invoice_number') ? el('tolls_invoice_number').value.trim() : ''
-    };
-  } else if(tab === 'traffic'){
-    payload.traffic = {
-      fl_county: el('traffic_fl_county') ? el('traffic_fl_county').value : '',
-      citation_number: el('traffic_citation_number') ? el('traffic_citation_number').value.trim() : ''
-    };
-  } else if(tab === 'courts'){
-    payload.courts = {
-      full_name:   el('courts_full_name')   ? el('courts_full_name').value.trim()  : '',
-      state:       el('courts_state')       ? el('courts_state').value             : 'FL',
-      county:      el('courts_county')      ? el('courts_county').value            : '',
-      case_number: el('courts_case_number') ? el('courts_case_number').value.trim(): '',
-      role_filter: el('courts_role_filter') ? el('courts_role_filter').value       : 'any'
-    };
-  }
 
   fireEvent('private_tool_lookup_submitted', {tab: tab});
 
@@ -232,17 +280,49 @@ async function runLookup(tab){
   } else if(tab === 'courts'){
     var name = payload.courts.full_name || '';
     var caseNum = payload.courts.case_number || '';
+    var courtsCounty = payload.courts.county || '';
+    // Reuse county clerk URL map for court records routing
+    var courtCountyUrls = {
+      'Hillsborough':'https://www.hillsclerk.com/',
+      'Miami-Dade':'https://www.miamidadeclerk.gov/',
+      'Broward':'https://www.browardclerk.org/',
+      'Orange':'https://myeclerk.myorangeclerk.com/',
+      'Pinellas':'https://www.mypinellasclerk.gov/',
+      'Duval':'https://www.duvalclerk.com/',
+      'Palm Beach':'https://www.mypalmbeachclerk.com/',
+      'Seminole':'https://www.seminoleclerk.org/',
+      'Polk':'https://www.polkclerkfl.gov/',
+      'Lee':'https://www.leeclerk.org/',
+      'Collier':'https://www.collierclerk.com/',
+      'Volusia':'https://www.clerk.org/',
+      'Brevard':'https://www.brevardclerk.us/',
+      'Pasco':'https://www.pascoclerk.com/',
+      'Sarasota':'https://www.sarasotaclerk.com/',
+      'Manatee':'https://www.manateeclerk.com/',
+      'Leon':'https://www.leoncountyfl.gov/clerk/',
+      'Alachua':'https://alachuaclerk.org/',
+      'Escambia':'https://www.escambiaclerk.com/',
+      'Hernando':'https://www.hernandoclerk.com/'
+    };
+    var courtClerkUrl = (courtsCounty && courtCountyUrls[courtsCounty]) ? courtCountyUrls[courtsCounty] : '';
     officialResults = [
       { source:'Florida Courts — Official Portal', obligation_type:'Statewide Court Search',
         status: name ? 'Search: ' + escapeHtml(name) : 'Search by party name',
-        official_url:'https://www.flcourts.gov/', note:'Statewide court information and resources' },
-      { source:'Hillsborough County Clerk', obligation_type:'County Court Records (direct search)',
-        status: caseNum ? 'Case: ' + escapeHtml(caseNum) : 'Search by name or case number',
-        official_url:'https://www.hillsclerk.com/', note:'Hillsborough County court records search' },
-      { source:'PACER — Federal Courts', obligation_type:'Federal Court Records',
-        status:'Requires free PACER account',
-        official_url:'https://pacer.uscourts.gov/', note:'Free account registration required at pacer.gov' }
+        official_url:'https://www.flcourts.gov/', note:'Statewide court information and resources' }
     ];
+    // Add county-specific clerk link if a supported county was selected
+    if(courtClerkUrl){
+      officialResults.push({ source: escapeHtml(courtsCounty) + ' County Clerk', obligation_type:'County Court Records',
+        status: caseNum ? 'Case: ' + escapeHtml(caseNum) : 'Search by name or case number',
+        official_url: courtClerkUrl, note: escapeHtml(courtsCounty) + ' County clerk of court — direct record search' });
+    } else {
+      officialResults.push({ source:'Find Your County Clerk', obligation_type:'County Court Records',
+        status:'Locate your county clerk for direct record search',
+        official_url:'https://www.flcourts.gov/Clerks-Jud-Circuits', note:'Florida Clerk of Courts directory' });
+    }
+    officialResults.push({ source:'PACER — Federal Courts', obligation_type:'Federal Court Records',
+      status:'Requires free PACER account',
+      official_url:'https://pacer.uscourts.gov/', note:'Free account registration required at pacer.gov' });
   }
 
   // Build typed data object for new card renderer
@@ -256,6 +336,7 @@ async function runLookup(tab){
   } else if(tab === 'courts'){
     cardData.name    = payload.courts.full_name || '';
     cardData.casenum = payload.courts.case_number || '';
+    cardData.county  = payload.courts.county || '';
   }
   renderOfficialResults(tab, cardData);
 
@@ -336,18 +417,55 @@ function renderOfficialResults(type, data){
   } else if(type === 'courts') {
     var name2 = (data && data.name) ? data.name : '';
     var casenum2 = (data && data.casenum) ? data.casenum : '';
+    var courtsCounty2 = (data && data.county) ? data.county : '';
+    // County clerk URL map for court records routing
+    var courtClerkUrls = {
+      'Hillsborough':'https://www.hillsclerk.com/',
+      'Miami-Dade':'https://www.miamidadeclerk.gov/',
+      'Broward':'https://www.browardclerk.org/',
+      'Orange':'https://myeclerk.myorangeclerk.com/',
+      'Pinellas':'https://www.mypinellasclerk.gov/',
+      'Duval':'https://www.duvalclerk.com/',
+      'Palm Beach':'https://www.mypalmbeachclerk.com/',
+      'Seminole':'https://www.seminoleclerk.org/',
+      'Polk':'https://www.polkclerkfl.gov/',
+      'Lee':'https://www.leeclerk.org/',
+      'Collier':'https://www.collierclerk.com/',
+      'Volusia':'https://www.clerk.org/',
+      'Brevard':'https://www.brevardclerk.us/',
+      'Pasco':'https://www.pascoclerk.com/',
+      'Sarasota':'https://www.sarasotaclerk.com/',
+      'Manatee':'https://www.manateeclerk.com/',
+      'Leon':'https://www.leoncountyfl.gov/clerk/',
+      'Alachua':'https://alachuaclerk.org/',
+      'Escambia':'https://www.escambiaclerk.com/',
+      'Hernando':'https://www.hernandoclerk.com/'
+    };
+    var courtClerkUrl2 = (courtsCounty2 && courtClerkUrls[courtsCounty2]) ? courtClerkUrls[courtsCounty2] : '';
+    // Build county-specific or generic clerk link
+    var countyClerkHtml = '';
+    if(courtClerkUrl2){
+      countyClerkHtml =
+      '<a class="vcx-portal-link vcx-portal-primary" href="' + courtClerkUrl2 + '" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">' + escapeHtml(courtsCounty2) + ' County Clerk of Court</span>' +
+        '<span class="vcx-portal-desc">Direct access to ' + escapeHtml(courtsCounty2) + ' County court records search</span>' +
+      '</a>';
+    } else {
+      countyClerkHtml =
+      '<a class="vcx-portal-link" href="https://www.flcourts.gov/Clerks-Jud-Circuits" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Find Your County Clerk</span>' +
+        '<span class="vcx-portal-desc">Florida Clerk of Courts directory — locate your county</span>' +
+      '</a>';
+    }
     html = '<div class="vcx-result-card">' +
-      '<div class="vcx-result-header"><span class="vcx-result-icon">⚖️</span>' +
+      '<div class="vcx-result-header"><span class="vcx-result-icon">\u2696\uFE0F</span>' +
       '<h3>Florida Court Records — Official Sources</h3></div>' +
       '<p class="vcx-result-intro">Florida court records are searchable through official state portals.' + (name2 ? ' Searching for: <strong>' + escapeHtml(name2) + '</strong>' : '') + '</p>' +
       '<div class="vcx-portal-links">' +
-      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.flcourts.gov/Resources-Services/Court-Fines-Fees" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Florida Courts — Records & Fees</span>' +
+      countyClerkHtml +
+      '<a class="vcx-portal-link" href="https://www.flcourts.gov/Resources-Services/Court-Fines-Fees" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts — Records &amp; Fees</span>' +
         '<span class="vcx-portal-desc">Statewide court records search and fee information</span>' +
-      '</a>' +
-      '<a class="vcx-portal-link" href="https://www.flcourts.gov" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Florida Courts — Official Site</span>' +
-        '<span class="vcx-portal-desc">Statewide court records, eFiling, and resources</span>' +
       '</a>' +
       '<a class="vcx-portal-link" href="https://pacer.uscourts.gov/" target="_blank" rel="noopener">' +
         '<span class="vcx-portal-name">PACER — Federal Court Records</span>' +
@@ -356,8 +474,8 @@ function renderOfficialResults(type, data){
       '</div>' +
       (casenum2 ? '<p class="vcx-result-ref">Case reference: <strong>' + escapeHtml(casenum2) + '</strong></p>' : '') +
       '<div class="vcx-result-cta">' +
-      '<p class="vcx-result-disc">For case documentation support or packet preparation, book a consultation.</p>' +
-      '<a class="vcx-cta-link" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book consultation →</a>' +
+      '<p class="vcx-result-disc">VitaCoreX does not access court records. These are direct links to official sources. For case documentation support, book a consultation.</p>' +
+      '<a class="vcx-cta-link" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Book consultation \u2192</a>' +
       '</div></div>';
   }
 
