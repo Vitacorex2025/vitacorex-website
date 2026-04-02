@@ -25,7 +25,7 @@ body[data-vcx-page="immigration-helper"]{
 }
 body[data-vcx-page="immigration-helper"] label,
 body[data-vcx-page="immigration-helper"] .field label{
-  color:#1a2e42 !important;
+  color:#c8d6e4 !important;
 }
 body[data-vcx-page="immigration-helper"] .glass label,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard label{
@@ -33,7 +33,7 @@ body[data-vcx-page="immigration-helper"] #vcxUploadCard label{
 }
 body[data-vcx-page="immigration-helper"] .glass p,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard p{
-  color:#3a5470 !important;
+  color:rgba(255,255,255,.75) !important;
 }
 body[data-vcx-page="immigration-helper"] [data-tx="tool_disc"],
 body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
@@ -278,7 +278,7 @@ Not legal advice. Not a filing service. For document organization only.
 
 <button id="vcxAnalyzeBtn" type="button" onclick="vcxAnalyzeForm()" disabled
   style="margin-top:22px;width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;"
-  data-tx="tool_analyze_btn">Review form</button>
+  data-tx="tool_scan_btn">Analyze packet</button>
 
 <div id="vcxAnalyzeStatus" style="display:none;text-align:center;padding:16px;font-size:.9rem;color:rgba(255,255,255,.6);" data-tx="tool_analyzing">Reviewing your form&hellip;</div>
 </div>
@@ -559,5 +559,3 @@ document.addEventListener('DOMContentLoaded',function(){var b=el('vcxAnalyzeBtn'
 <script src="/assets/js/premium-fixes.js"></script>
 </body>
 </html>
-
-<section id="vcxPacketSection" style="display:none;margin:2rem 0;padding:1.5rem;background:#FBF8F3;border:1px solid rgba(15,27,45,.10);border-radius:8px;"><h3 style="margin:0 0 .5rem;font-size:1.1rem;color:#0F1B2D;">Submit for Packet Review</h3><p style="margin:0 0 1rem;font-size:.875rem;color:#5E6C7B;">An immigration advisor will review your packet pre-check within 1 business day.</p><form id="vcxPacketForm" action="https://formsubmit.co/vitacorexllc@gmail.com" method="POST"><input type="hidden" name="_subject" value="Immigration Packet Pre-Check - Advisor Review"><input type="hidden" name="_next" value="https://vitacorexllc.com/thank-you.html"><input type="hidden" name="_captcha" value="false"><input type="hidden" id="vcxPacketSummary" name="packet_summary" value=""><div style="display:grid;gap:1rem;margin-bottom:1rem;"><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Full Name *</label><input type="text" name="full_name" required style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Email *</label><input type="email" name="email" required style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Phone (optional)</label><input type="tel" name="phone" style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div></div><button type="submit" style="padding:.75rem 1.5rem;background:#173A63;color:#fff;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;min-height:44px;">Submit for Packet Review</button><div id="vcxPacketSuccess" style="display:none;margin-top:1rem;padding:1rem;background:rgba(47,107,87,.08);border-radius:6px;color:#2F6B57;">Submitted. An advisor will contact you within 1 business day.</div><div id="vcxPacketError" style="display:none;margin-top:1rem;padding:1rem;background:rgba(139,67,72,.08);border-radius:6px;color:#8B4348;">Submission failed. Email vitacorexllc@gmail.com</div></form><p style="margin:.75rem 0 0;font-size:.75rem;color:#5E6C7B;">Preliminary pre-check only. Not legal advice.</p></section>

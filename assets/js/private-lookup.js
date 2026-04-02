@@ -167,14 +167,15 @@ async function runLookup(tab){
 
   fireEvent('private_tool_lookup_submitted', {tab: tab});
 
-  // Direct official portal handoff — no backend required
-  await new Promise(function(r){ setTimeout(r, 900); });
+  // Brief visual transition — portal routing, no data retrieval
+  await new Promise(function(r){ setTimeout(r, 300); });
 
   lookupsRemaining = Math.max(0, lookupsRemaining - 1);
   var remEl = el('vcx-lookups-remaining');
   if(remEl) remEl.textContent = lookupsRemaining;
   var pluralEl = el('vcx-lookups-plural');
   if(pluralEl) pluralEl.textContent = lookupsRemaining === 1 ? '' : 's';
+  // Note: counter tracks routing sessions, not data lookups
 
   // Build official portal results based on tab and user input
   var officialResults = [];
@@ -185,8 +186,8 @@ async function runLookup(tab){
     officialResults = [
       { source:'SunPass — Florida Toll System', obligation_type:'Unpaid Toll Obligations',
         status:'Check directly at official portal',
-        official_url:'https://www.sunpass.com/en/home.shtml',
-        action_url:'https://www.sunpass.com/en/home.shtml', action_type:'pay',
+        official_url:'https://www.sunpass.com/',
+        action_url:'https://www.sunpass.com/', action_type:'pay',
         note: plate ? 'Search for plate: ' + escapeHtml(plate) + ' (' + escapeHtml(state) + ')' : 'Enter your plate number at the portal' },
       { source:'Florida DHSMV — Toll Enforcement', obligation_type:'DHSMV Toll Suspensions',
         status:'Check driver license status',
@@ -197,19 +198,28 @@ async function runLookup(tab){
     var county  = payload.traffic.fl_county || '';
     var citation = payload.traffic.citation_number || '';
     var countyUrls = {
-      'Hillsborough':'https://hcclerk.org/traffic/',
-      'Miami-Dade':'https://www.miami-dadeclerk.com/coc/index.asp',
+      'Hillsborough':'https://www.hillsclerk.com/',
+      'Miami-Dade':'https://www.miamidadeclerk.gov/',
       'Broward':'https://www.browardclerk.org/',
       'Orange':'https://myeclerk.myorangeclerk.com/',
-      'Pinellas':'https://www.pinellasclerk.org/',
+      'Pinellas':'https://www.mypinellasclerk.gov/',
       'Duval':'https://www.duvalclerk.com/',
       'Palm Beach':'https://www.mypalmbeachclerk.com/',
       'Seminole':'https://www.seminoleclerk.org/',
-      'Polk':'https://www.polkcountyclerk.net/',
+      'Polk':'https://www.polkclerkfl.gov/',
       'Lee':'https://www.leeclerk.org/',
-      'Collier':'https://www.collierclerk.com/'
+      'Collier':'https://www.collierclerk.com/',
+      'Volusia':'https://www.clerk.org/',
+      'Brevard':'https://www.brevardclerk.us/',
+      'Pasco':'https://www.pascoclerk.com/',
+      'Sarasota':'https://www.sarasotaclerk.com/',
+      'Manatee':'https://www.manateeclerk.com/',
+      'Leon':'https://www.leoncountyfl.gov/clerk/',
+      'Alachua':'https://alachuaclerk.org/',
+      'Escambia':'https://www.escambiaclerk.com/',
+      'Hernando':'https://www.hernandoclerk.com/'
     };
-    var clerkUrl = (county && countyUrls[county]) ? countyUrls[county] : 'https://www.flcourts.org/Public-Access-Courts/Clerks-of-Court';
+    var clerkUrl = (county && countyUrls[county]) ? countyUrls[county] : 'https://www.flcourts.gov/Clerks-Jud-Circuits';
     officialResults = [
       { source: (county||'Florida') + ' County Clerk', obligation_type:'Traffic Citation Status',
         status: citation ? 'Citation #: ' + escapeHtml(citation) : 'Search by citation number',
@@ -223,15 +233,15 @@ async function runLookup(tab){
     var name = payload.courts.full_name || '';
     var caseNum = payload.courts.case_number || '';
     officialResults = [
-      { source:'Florida Courts E-Filing Portal', obligation_type:'Statewide Court Search',
+      { source:'Florida Courts — Official Portal', obligation_type:'Statewide Court Search',
         status: name ? 'Search: ' + escapeHtml(name) : 'Search by party name',
-        official_url:'https://efactspr.flcourts.org/', note:'Appellate and circuit court records statewide' },
+        official_url:'https://www.flcourts.gov/', note:'Statewide court information and resources' },
       { source:'Hillsborough County Clerk', obligation_type:'County Court Records (direct search)',
         status: caseNum ? 'Case: ' + escapeHtml(caseNum) : 'Search by name or case number',
-        official_url:'https://hcclerk.org/', note:'Hillsborough direct court records access' },
+        official_url:'https://www.hillsclerk.com/', note:'Hillsborough County court records search' },
       { source:'PACER — Federal Courts', obligation_type:'Federal Court Records',
         status:'Requires free PACER account',
-        official_url:'https://www.pacer.gov/', note:'Free account registration required at pacer.gov' }
+        official_url:'https://pacer.uscourts.gov/', note:'Free account registration required at pacer.gov' }
     ];
   }
 
@@ -280,9 +290,17 @@ function renderOfficialResults(type, data){
         '<span class="vcx-portal-name">CFX — Central Florida Expressway</span>' +
         '<span class="vcx-portal-desc">407 Express, 408, 414, 417, 429, 528</span>' +
       '</a>' +
-      '<a class="vcx-portal-link" href="https://www.leewayfl.com" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Lee County DOT</span>' +
-        '<span class="vcx-portal-desc">Lee County toll facilities</span>' +
+      '<a class="vcx-portal-link" href="https://www.leegov.com/tolls" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">LeeWay — Lee County Tolls</span>' +
+        '<span class="vcx-portal-desc">Lee County toll road accounts and payments</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://gmx-way.com/" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">GMX — Miami-Dade Expressways</span>' +
+        '<span class="vcx-portal-desc">SR 112, 836, 874, 878, 924 — Miami-Dade toll roads</span>' +
+      '</a>' +
+      '<a class="vcx-portal-link" href="https://www.tampa-xway.com/" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">THEA — Selmon Expressway</span>' +
+        '<span class="vcx-portal-desc">Tampa-Hillsborough Expressway Authority</span>' +
       '</a>' +
       '</div>' +
       '<div class="vcx-result-cta">' +
@@ -297,17 +315,17 @@ function renderOfficialResults(type, data){
       '<h3>Traffic Citation — Official Court Portal</h3></div>' +
       '<p class="vcx-result-intro">Florida traffic citations are handled by county clerks. ' + escapeHtml(county2) + ' County clerk portal below.</p>' +
       '<div class="vcx-portal-links">' +
-      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.flcourts.gov/Resources-Services/Court-Technology/eFiling-Portal" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Florida Courts eFiling Portal</span>' +
-        '<span class="vcx-portal-desc">Official FL state court records and eFiling</span>' +
+      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.flcourts.gov/" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts — Official Portal</span>' +
+        '<span class="vcx-portal-desc">Statewide court information and clerk directory</span>' +
       '</a>' +
       '<a class="vcx-portal-link" href="https://www.flhsmv.gov/driver-licenses-id-cards/traffic-citations/" target="_blank" rel="noopener">' +
         '<span class="vcx-portal-name">DHSMV — Traffic Citations</span>' +
         '<span class="vcx-portal-desc">Florida Dept of Highway Safety & Motor Vehicles</span>' +
       '</a>' +
-      '<a class="vcx-portal-link" href="https://www.flclerks.com/page/ClerkLocator" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Florida Clerk of Courts</span>' +
-        '<span class="vcx-portal-desc">Find your county clerk and pay citations</span>' +
+      '<a class="vcx-portal-link" href="https://www.flcourts.gov/Clerks-Jud-Circuits" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Find Your County Clerk</span>' +
+        '<span class="vcx-portal-desc">Locate your county clerk of court to pay citations</span>' +
       '</a>' +
       '</div>' +
       (citation2 ? '<p class="vcx-result-ref">Citation reference: <strong>' + escapeHtml(citation2) + '</strong></p>' : '') +
@@ -323,15 +341,15 @@ function renderOfficialResults(type, data){
       '<h3>Florida Court Records — Official Sources</h3></div>' +
       '<p class="vcx-result-intro">Florida court records are searchable through official state portals.' + (name2 ? ' Searching for: <strong>' + escapeHtml(name2) + '</strong>' : '') + '</p>' +
       '<div class="vcx-portal-links">' +
-      '<a class="vcx-portal-link vcx-portal-primary" href="https://myeclerk.myorangeclerk.com" target="_blank" rel="noopener">' +
-        '<span class="vcx-portal-name">Florida Courts eCaseSearch</span>' +
-        '<span class="vcx-portal-desc">Search Florida circuit and county court records</span>' +
+      '<a class="vcx-portal-link vcx-portal-primary" href="https://www.flcourts.gov/Resources-Services/Court-Fines-Fees" target="_blank" rel="noopener">' +
+        '<span class="vcx-portal-name">Florida Courts — Records & Fees</span>' +
+        '<span class="vcx-portal-desc">Statewide court records search and fee information</span>' +
       '</a>' +
       '<a class="vcx-portal-link" href="https://www.flcourts.gov" target="_blank" rel="noopener">' +
         '<span class="vcx-portal-name">Florida Courts — Official Site</span>' +
         '<span class="vcx-portal-desc">Statewide court records, eFiling, and resources</span>' +
       '</a>' +
-      '<a class="vcx-portal-link" href="https://pacer.gov" target="_blank" rel="noopener">' +
+      '<a class="vcx-portal-link" href="https://pacer.uscourts.gov/" target="_blank" rel="noopener">' +
         '<span class="vcx-portal-name">PACER — Federal Court Records</span>' +
         '<span class="vcx-portal-desc">For federal court cases in Florida districts</span>' +
       '</a>' +

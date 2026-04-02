@@ -49,18 +49,18 @@ Object.assign(window.SITE_I18N.en, {
   brand_tag:"Private revenue recovery and legal-file advisory",
   clock_vcx:"VitaCoreX Time", clock_local:"Your Time", clock_local_sub:"Local",
   hero_eyebrow:"Private Client Services",
-  hero_title:"Private Obligation Lookup",
-  hero_subtitle:"Check Florida toll obligations, traffic citations, and public court records.",
-  gate_label:"Private Session Access",
+  hero_title:"Florida Official Source Locator",
+  hero_subtitle:"We route you to the correct official Florida government portal for tolls, traffic citations, and court records. VitaCoreX does not retrieve records directly.",
+  gate_label:"Free Portal Routing Tool",
   gate_free:"Free",
-  gate_note:"No charge. Government payments go to official portals only.",
-  gate_btn:"Start Private Lookup",
-  session_active:"Private session active",
-  session_remaining:"lookups remaining",
-  tab_tolls:"Unpaid Tolls",
+  gate_note:"No charge. No records retrieved. We route you to the official source.",
+  gate_btn:"Start Portal Locator",
+  session_active:"Routing session active",
+  session_remaining:"routes remaining",
+  tab_tolls:"Toll Portals",
   tab_traffic:"Traffic / Fines",
-  tab_courts:"Court Cases",
-  disc:"VitaCoreX is not a law firm and does not process government payments. Results are informational only."
+  tab_courts:"Court Records",
+  disc:"VitaCoreX does not access government databases or retrieve records. This tool routes you to official Florida portals. It is not a law firm and does not process payments."
 });
 window.SITE_I18N.ru = window.SITE_I18N.ru || {};
 Object.assign(window.SITE_I18N.ru, {
@@ -194,14 +194,13 @@ Object.assign(window.SITE_I18N.es, {
       <div class="vcx-hero-grid">
         <div class="vcx-hero-copy">
           <p class="eyebrow" data-tx="hero_eyebrow">Private Client Services</p>
-          <h1 data-tx="hero_title">Private Obligation Lookup</h1>
-          <p class="vcx-hero-subtitle" data-tx="hero_subtitle">Check Florida toll obligations, traffic citations, and public court records in one private session. Results are session-only, not indexed, and not stored.</p>
+          <h1 data-tx="hero_title">Florida Official Source Locator</h1>
+          <p class="vcx-hero-subtitle" data-tx="hero_subtitle">We route you to the correct official Florida government portal for tolls, traffic citations, and court records. VitaCoreX does not retrieve records directly.</p>
           <ul class="vcx-feature-list">
-            <li>Unpaid toll lookup via SunPass / Florida toll system</li>
-            <li>Traffic citation status and county clerk routing</li>
-            <li>Florida appellate and county court case search</li>
-            <!-- B4 FIX: removed stale upload/extraction reference -->
-            <li>All results link to official government sources</li>
+            <li>Routes you to SunPass, CFX, and county toll portals</li>
+            <li>Routes you to county clerk portals for traffic citations</li>
+            <li>Routes you to Florida Courts and PACER for case records</li>
+            <li>Every link goes to an official government source</li>
           </ul>
           <p class="vcx-boundary-note" data-tx="disc">VitaCoreX is not a law firm and does not process government payments. Results are informational only.</p>
         </div>
@@ -209,22 +208,22 @@ Object.assign(window.SITE_I18N.es, {
         <!-- Payment gate card (shown until unlocked) -->
         <div class="vcx-lookup-gate" id="vcx-gate" aria-live="polite">
           <div class="vcx-gate-header">
-            <p class="vcx-gate-label" data-tx="gate_label">Private Session Access</p>
+            <p class="vcx-gate-label" data-tx="gate_label">Free Portal Routing Tool</p>
             <div class="vcx-gate-price">
               <span class="vcx-price-amount" id="vcx-price-display" data-tx="gate_free">Free</span>
               <span class="vcx-price-note">complimentary service</span>
             </div>
           </div>
           <ul class="vcx-gate-features">
-            <li>Up to 3 lookups in this session</li>
-            <li>Results shown in-browser only (not stored)</li>
-            <li>Official source links for every result</li>
-            <li>Consultation CTA available after every result</li>
+            <li>Up to 3 portal routes per session</li>
+            <li>No records retrieved &mdash; you search on the official site</li>
+            <li>Verified official government links only</li>
+            <li>Optional consultation booking after each route</li>
           </ul>
           <button class="vcx-unlock-btn" id="vcxPayBtn" type="button" data-tx="gate_btn">
-            Start Private Lookup
+            Start Portal Locator
           </button>
-          <p class="vcx-gate-note" data-tx="gate_note">No charge. Government payments go to official portals only.</p>
+          <p class="vcx-gate-note" data-tx="gate_note">No charge. No records retrieved. We route you to the official source.</p>
           <!-- Loading state -->
           <div class="vcx-gate-loading" id="vcx-gate-loading" hidden>
             <span class="vcx-spinner"></span> Preparing your session&hellip;
@@ -240,16 +239,16 @@ Object.assign(window.SITE_I18N.es, {
 
       <!-- Session info bar -->
       <div class="vcx-session-info" id="vcx-session-info" aria-live="polite">
-        <span class="vcx-session-label" data-tx="session_active">Private session active</span>
+        <span class="vcx-session-label" data-tx="session_active">Routing session active</span>
         <span class="vcx-lookups-counter">
-          <span id="vcx-lookups-remaining">3</span> lookup<span id="vcx-lookups-plural">s</span> remaining
+          <span id="vcx-lookups-remaining">3</span> route<span id="vcx-lookups-plural">s</span> remaining
         </span>
       </div>
 
       <!-- Tab navigation -->
       <nav class="vcx-tab-nav" role="tablist" aria-label="Lookup type">
         <button class="vcx-tab-btn active" role="tab" aria-selected="true" aria-controls="vcx-panel-tolls" data-tab="tolls" id="vcx-tab-tolls" data-tx="tab_tolls">
-          Unpaid Tolls
+          Toll Portals
         </button>
         <button class="vcx-tab-btn" role="tab" aria-selected="false" aria-controls="vcx-panel-traffic" data-tab="traffic" id="vcx-tab-traffic" data-tx="tab_traffic">
           Traffic / Fines
@@ -262,7 +261,7 @@ Object.assign(window.SITE_I18N.es, {
       <!-- TAB PANEL: Tolls -->
       <div class="vcx-tab-panel" role="tabpanel" id="vcx-panel-tolls" aria-labelledby="vcx-tab-tolls">
         <form class="vcx-lookup-form" id="vcx-form-tolls" novalidate data-lookup-form="tolls">
-          <p class="vcx-form-intro">Enter your Florida license plate or SunPass invoice number to check unpaid toll obligations.</p>
+          <p class="vcx-form-intro">Enter your details below. We will route you to the correct official Florida toll portal where you can search and pay directly. VitaCoreX does not access toll records.</p>
 
           <div class="vcx-form-divider">
             <span>Option A &mdash; By plate</span>
@@ -305,14 +304,14 @@ Object.assign(window.SITE_I18N.es, {
           <div class="vcx-consent-block">
             <label class="vcx-consent-label">
               <input type="checkbox" id="tolls_consent" name="consent_acknowledged" required>
-              <span>I understand this lookup searches public Florida toll records. Results are informational and not legal advice. Results are shown in this session only and are not stored by VitaCoreX.</span>
+              <span>I understand VitaCoreX does not retrieve records. This tool routes me to official Florida portals where I search directly. No data is stored by VitaCoreX.</span>
             </label>
             <span class="vcx-field-error" id="tolls-consent-error" role="alert"></span>
           </div>
 
           <button class="vcx-submit-btn" type="submit" id="vcx-submit-tolls">
-            <span class="vcx-btn-text">Check Toll Obligations</span>
-            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Checking&hellip;</span>
+            <span class="vcx-btn-text">Find Official Toll Portals</span>
+            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Routing&hellip;</span>
           </button>
         </form>
       </div>
@@ -320,7 +319,7 @@ Object.assign(window.SITE_I18N.es, {
       <!-- TAB PANEL: Traffic -->
       <div class="vcx-tab-panel" role="tabpanel" id="vcx-panel-traffic" aria-labelledby="vcx-tab-traffic" hidden>
         <form class="vcx-lookup-form" id="vcx-form-traffic" novalidate data-lookup-form="traffic">
-          <p class="vcx-form-intro">Enter your Florida traffic citation number and county to check status and get the official payment route.</p>
+          <p class="vcx-form-intro">Enter your county and citation number. We will route you to the correct county clerk portal where you can search, pay, or contest directly. VitaCoreX does not access citation records.</p>
           <div class="vcx-form-grid">
             <div class="vcx-field">
               <label for="traffic_fl_county">Florida County</label>
@@ -360,14 +359,14 @@ Object.assign(window.SITE_I18N.es, {
           <div class="vcx-consent-block">
             <label class="vcx-consent-label">
               <input type="checkbox" id="traffic_consent" name="consent_acknowledged" required>
-              <span>I understand this lookup routes me to official county clerk records. Results are informational and not legal advice. Results are shown in this session only and are not stored by VitaCoreX.</span>
+              <span>I understand VitaCoreX does not retrieve citation records. This tool routes me to official county clerk portals where I search directly. No data is stored.</span>
             </label>
             <span class="vcx-field-error" id="traffic-consent-error" role="alert"></span>
           </div>
 
           <button class="vcx-submit-btn" type="submit" id="vcx-submit-traffic">
-            <span class="vcx-btn-text">Check Citation Status</span>
-            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Checking&hellip;</span>
+            <span class="vcx-btn-text">Find County Clerk Portal</span>
+            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Routing&hellip;</span>
           </button>
         </form>
       </div>
@@ -375,7 +374,7 @@ Object.assign(window.SITE_I18N.es, {
       <!-- TAB PANEL: Courts -->
       <div class="vcx-tab-panel" role="tabpanel" id="vcx-panel-courts" aria-labelledby="vcx-tab-courts" hidden>
         <form class="vcx-lookup-form" id="vcx-form-courts" novalidate data-lookup-form="courts">
-          <p class="vcx-form-intro">Search Florida appellate, Hillsborough County, and federal PACER court records by party name.</p>
+          <p class="vcx-form-intro">Enter a name or case number. We will route you to official Florida Courts, county clerk, and federal PACER portals where you search directly. VitaCoreX does not access court records.</p>
           <div class="vcx-form-grid">
             <div class="vcx-field vcx-field--full">
               <label for="courts_full_name">Full Legal Name</label>
@@ -420,14 +419,14 @@ Object.assign(window.SITE_I18N.es, {
           <div class="vcx-consent-block">
             <label class="vcx-consent-label">
               <input type="checkbox" id="courts_consent" name="consent_acknowledged" required>
-              <span>I understand this lookup searches public court records. Results are informational and not legal advice. Results are shown in this session only and are not stored by VitaCoreX.</span>
+              <span>I understand VitaCoreX does not retrieve court records. This tool routes me to official court portals where I search directly. No data is stored.</span>
             </label>
             <span class="vcx-field-error" id="courts-consent-error" role="alert"></span>
           </div>
 
           <button class="vcx-submit-btn" type="submit" id="vcx-submit-courts">
-            <span class="vcx-btn-text">Search Court Records</span>
-            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Searching&hellip;</span>
+            <span class="vcx-btn-text">Find Court Record Portals</span>
+            <span class="vcx-btn-loading" hidden><span class="vcx-spinner"></span> Routing&hellip;</span>
           </button>
         </form>
       </div>
@@ -435,14 +434,14 @@ Object.assign(window.SITE_I18N.es, {
       <!-- RESULT AREA ─────────────────────────────────────────────────── -->
       <div class="vcx-result-area" id="vcx-result-area" hidden aria-live="polite" aria-atomic="false">
         <div class="vcx-result-header">
-          <h2 class="vcx-result-title">Lookup Results</h2>
+          <h2 class="vcx-result-title">Official Source Routes</h2>
           <button class="vcx-new-search-btn" type="button" id="vcx-new-search">
-            Start New Search
+            New Route
           </button>
         </div>
         <div class="vcx-loading-state" id="vcx-loading-state" hidden>
           <div class="vcx-spinner vcx-spinner--lg"></div>
-          <p>Checking official sources&hellip;</p>
+          <p>Finding official portals&hellip;</p>
         </div>
         <div class="vcx-results-list" id="vcx-results-list"></div>
         <div class="vcx-upsell-strip" id="vcx-upsell-strip" hidden></div>

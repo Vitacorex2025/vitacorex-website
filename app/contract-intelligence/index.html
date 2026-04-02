@@ -69,6 +69,30 @@ body[data-vcx-page="contract-scanner"] .vcx-disc{
 .vcx-result-cta { margin-top: 20px; }
 .vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
 .vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(15,27,45,.08); }
+
+/* Stronger Clauses Generation Results */
+.vcx-gen-results { max-width: 720px; margin-top: 24px; }
+.vcx-gen-quality-banner { padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.vcx-gen-quality-high { background: rgba(47,107,87,.1); border: 1px solid rgba(47,107,87,.3); color: #2F6B57; }
+.vcx-gen-quality-medium { background: rgba(154,106,32,.1); border: 1px solid rgba(154,106,32,.3); color: #9A6A20; }
+.vcx-gen-quality-low { background: rgba(139,67,72,.1); border: 1px solid rgba(139,67,72,.3); color: #8B4348; }
+.vcx-gen-quality-icon { font-size: 1.25rem; flex-shrink: 0; }
+.vcx-gen-section { margin-bottom: 16px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(15,27,45,.08); border-radius: 8px; }
+.vcx-gen-clause-card { padding: 16px 20px; margin-bottom: 14px; border-radius: 8px; background: #fff; border: 1px solid rgba(15,27,45,.08); }
+.vcx-gen-clause-card.vcx-gen-strengthen { border-left: 4px solid #B08A57; }
+.vcx-gen-clause-card.vcx-gen-add { border-left: 4px solid #2F6B57; }
+.vcx-gen-clause-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.vcx-gen-clause-label { font-size: 0.9375rem; font-weight: 600; color: #0F1B2D; }
+.vcx-gen-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.vcx-gen-badge-strengthen { background: rgba(176,138,87,.12); color: #B08A57; }
+.vcx-gen-badge-add { background: rgba(47,107,87,.12); color: #2F6B57; }
+.vcx-gen-clause-text { font-family: 'Menlo', 'Consolas', 'Courier New', monospace; font-size: 0.8125rem; line-height: 1.7; color: #243548; background: rgba(15,27,45,.03); border: 1px solid rgba(15,27,45,.06); border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; white-space: pre-wrap; word-break: break-word; }
+.vcx-gen-explanation { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 10px; line-height: 1.5; }
+.vcx-gen-copy-btn { display: inline-block; padding: 6px 14px; background: rgba(15,27,45,.04); border: 1px solid rgba(15,27,45,.12); border-radius: 5px; color: #243548; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all .2s; }
+.vcx-gen-copy-btn:hover { background: rgba(15,27,45,.08); }
+.vcx-gen-footer { margin-top: 20px; padding: 16px 20px; background: rgba(53,94,138,.06); border: 1px solid rgba(53,94,138,.15); border-radius: 8px; font-size: 0.8125rem; color: #355E8A; line-height: 1.6; }
+.vcx-gen-download-btn { display: inline-block; padding: 12px 24px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: 0.9rem; cursor: pointer; margin-top: 14px; transition: all .2s; }
+.vcx-gen-download-btn:hover { background: rgba(212,175,55,.25); }
 </style>
 <script>
 window.SITE_I18N = {
@@ -490,6 +514,293 @@ var CLAUSES = [
 var HIGH_RISK = ['auto_renewal','liability_cap','indemnity','ip_ownership'];
 var IMPORTANT = ['payment_terms','termination','dispute','confidentiality'];
 
+// Stronger clause suggestion library
+var STRONGER_CLAUSES = {
+  payment_terms: {
+    label: 'Payment Terms',
+    strongerText: 'Payment shall be due within thirty (30) days of invoice date. Late payments shall accrue interest at the lesser of 1.5% per month or the maximum rate permitted by applicable law. Client shall reimburse all reasonable collection costs, including attorneys\' fees, incurred in collecting overdue amounts. All fees are non-refundable except as expressly stated herein.',
+    explanation: 'Adds late payment interest, collection cost recovery, clear due date, and non-refundable fee language.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  auto_renewal: {
+    label: 'Auto-Renewal Protection',
+    strongerText: 'This Agreement shall automatically renew for successive one (1) year terms unless either party provides written notice of non-renewal at least sixty (60) days prior to the expiration of the then-current term. Renewal terms shall be subject to the same terms and conditions unless modified by mutual written agreement. Any fee adjustments for renewal terms must be communicated in writing at least ninety (90) days before the renewal date.',
+    explanation: 'Adds 60-day notice requirement, prevents silent material changes on renewal, and requires advance fee adjustment notice.',
+    types: ['Service','NDA','Lease','Other']
+  },
+  termination: {
+    label: 'Termination',
+    strongerText: 'Either party may terminate this Agreement for cause upon thirty (30) days\' written notice if the other party: (a) materially breaches any provision of this Agreement and fails to cure such breach within thirty (30) days after receipt of written notice specifying the breach; (b) becomes insolvent, files for bankruptcy, or has a receiver appointed for a substantial part of its assets; or (c) ceases to conduct business in the normal course. Either party may terminate for convenience upon ninety (90) days\' prior written notice. Upon termination, all accrued obligations and payment liabilities shall survive.',
+    explanation: 'Adds 30-day cure period, specific cause events including insolvency, convenience termination with 90-day notice, and survival of accrued obligations.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  liability_cap: {
+    label: 'Limitation of Liability',
+    strongerText: 'Except for breaches of confidentiality obligations, indemnification obligations, and liability arising from gross negligence or willful misconduct, neither party\'s aggregate liability under this Agreement shall exceed the total fees paid or payable during the twelve (12) month period immediately preceding the event giving rise to such liability. In no event shall either party be liable for indirect, incidental, special, consequential, or punitive damages, including lost profits or lost data, regardless of the theory of liability.',
+    explanation: 'Caps liability at 12 months of fees with carve-outs for gross negligence, willful misconduct, confidentiality breaches, and indemnification. Excludes consequential damages.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  indemnity: {
+    label: 'Indemnification',
+    strongerText: 'Each party (the "Indemnifying Party") shall indemnify, defend, and hold harmless the other party and its officers, directors, employees, and agents (collectively, "Indemnified Parties") from and against any third-party claims, losses, damages, liabilities, costs, and expenses (including reasonable attorneys\' fees) arising out of or relating to: (a) the Indemnifying Party\'s breach of this Agreement; (b) the Indemnifying Party\'s negligence or willful misconduct; or (c) any violation of applicable law by the Indemnifying Party. The Indemnifying Party shall maintain commercially reasonable insurance coverage sufficient to meet its indemnification obligations hereunder.',
+    explanation: 'Provides mutual indemnification, includes defense obligations and attorneys\' fees, covers breach and negligence, and requires insurance coverage.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  ip_ownership: {
+    label: 'IP / Work Product',
+    strongerText: 'All work product, deliverables, and materials created by Provider in performance of this Agreement shall be considered "work made for hire" as defined under U.S. copyright law. To the extent any work product does not qualify as work made for hire, Provider hereby irrevocably assigns to Client all right, title, and interest in and to such work product, including all intellectual property rights therein. Provider retains ownership of all pre-existing intellectual property and general knowledge, tools, and methodologies that exist prior to or are developed independently of this Agreement ("Pre-Existing IP"). Provider grants Client a non-exclusive, perpetual, royalty-free license to use any Pre-Existing IP incorporated into the deliverables.',
+    explanation: 'Establishes clear work-for-hire ownership, includes assignment of rights as backup, explicitly excludes pre-existing IP with license grant for incorporated elements.',
+    types: ['Service','Employment','NDA','Purchase','Other']
+  },
+  confidentiality: {
+    label: 'Confidentiality / NDA',
+    strongerText: 'Each party agrees to hold in strict confidence all Confidential Information of the other party for a period of three (3) years following disclosure. Confidential Information shall not be disclosed to any third party without prior written consent, except to employees and contractors with a need to know who are bound by confidentiality obligations no less restrictive than those herein. Upon termination or expiration of this Agreement, or upon written request, the Receiving Party shall promptly return or destroy all Confidential Information and certify such return or destruction in writing. Each party acknowledges that a breach of this section may cause irreparable harm for which monetary damages would be inadequate, and the Disclosing Party shall be entitled to seek injunctive relief without the necessity of posting bond.',
+    explanation: 'Adds 3-year confidentiality term, injunctive relief remedy, return/destroy obligations with written certification, and extends to employees and contractors.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  dispute: {
+    label: 'Dispute Resolution',
+    strongerText: 'Any dispute arising out of or relating to this Agreement shall first be submitted to good-faith mediation administered by a mutually agreed mediator for a period not to exceed thirty (30) days. If mediation is unsuccessful, the dispute shall be resolved by binding arbitration administered by the American Arbitration Association in accordance with its Commercial Arbitration Rules. The arbitration shall take place in [City, State]. The prevailing party in any arbitration or litigation shall be entitled to recover its reasonable attorneys\' fees and costs from the non-prevailing party. Nothing in this section shall prevent either party from seeking injunctive or equitable relief in a court of competent jurisdiction.',
+    explanation: 'Establishes mandatory mediation before arbitration, specifies venue, awards prevailing party fees, and preserves right to seek injunctive relief in court.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  warranty: {
+    label: 'Warranty / Disclaimer',
+    strongerText: 'Provider warrants that all services shall be performed in a professional and workmanlike manner consistent with generally accepted industry standards for a period of twelve (12) months from the date of delivery ("Warranty Period"). If Client notifies Provider of a warranty deficiency during the Warranty Period, Provider shall promptly re-perform the deficient services at no additional cost. If Provider fails to cure the deficiency within thirty (30) days, Client shall be entitled to a proportional refund. Except as expressly set forth herein, all services are provided "AS IS" and Provider disclaims all other warranties, express or implied, including warranties of merchantability and fitness for a particular purpose.',
+    explanation: 'Provides 12-month warranty period, prompt cure obligation, refund remedy if cure fails, and clear disclaimer of other warranties.',
+    types: ['Service','Employment','Purchase','Other']
+  },
+  assignment: {
+    label: 'Assignment',
+    strongerText: 'Neither party may assign, delegate, or otherwise transfer any of its rights or obligations under this Agreement without the prior written consent of the other party, which consent shall not be unreasonably withheld or delayed; provided, however, that either party may assign this Agreement without consent to an affiliate or in connection with a merger, acquisition, or sale of all or substantially all of its assets, so long as the assignee assumes all obligations hereunder in writing. Any purported assignment in violation of this section shall be null and void.',
+    explanation: 'Requires written consent for assignment with reasonableness standard, includes affiliate and M&A exception, voids unauthorized assignments.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  notice: {
+    label: 'Notice Requirements',
+    strongerText: 'All notices required or permitted under this Agreement shall be in writing and shall be deemed effective upon: (a) personal delivery; (b) the second business day after deposit with a nationally recognized overnight courier; or (c) the fifth business day after deposit in the U.S. mail, certified, return receipt requested. Notices shall be sent to the addresses set forth in this Agreement or to such other address as a party may designate by written notice. Email notice is permitted as a supplement (not a replacement) to the foregoing methods, provided that the sender receives electronic confirmation of delivery.',
+    explanation: 'Specifies multiple delivery methods with deemed-effective dates, requires specific addresses, permits email with delivery confirmation as supplemental notice.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  },
+  exclusivity: {
+    label: 'Exclusivity',
+    strongerText: 'This Agreement is non-exclusive. Nothing in this Agreement shall restrict either party from engaging with other clients, vendors, or service providers in the same or similar markets. Each party retains the right to develop, market, and provide products or services that may be competitive with those of the other party, provided that no Confidential Information of the other party is used in connection therewith. Any exclusivity arrangement must be set forth in a separate written addendum executed by both parties.',
+    explanation: 'Establishes non-exclusive relationship with clear carve-outs, preserves competitive rights subject to confidentiality, and requires separate written agreement for any exclusivity.',
+    types: ['Service','Employment','NDA','Purchase','Other']
+  },
+  late_fees: {
+    label: 'Late Fees / Interest',
+    strongerText: 'Any amount not paid when due shall bear interest at the rate of 1.5% per month (18% per annum), or the maximum rate permitted by applicable law, whichever is less, compounding monthly from the due date until paid in full. A late payment fee of $50.00 or 5% of the overdue amount (whichever is greater) shall be assessed on any payment not received within fifteen (15) days of the due date. Notwithstanding the foregoing, Provider shall provide written notice of any overdue amount and a ten (10) business day cure period before assessing late fees.',
+    explanation: 'Specifies interest rate with legal cap, includes compounding, sets late fee with minimum threshold, and provides 10-day cure period with written notice before fees apply.',
+    types: ['Service','Employment','Lease','Purchase','Other']
+  },
+  governing_law: {
+    label: 'Governing Law',
+    strongerText: 'This Agreement shall be governed by and construed in accordance with the laws of the State of [State], without regard to its conflict of laws principles. The parties irrevocably submit to the exclusive jurisdiction and venue of the state and federal courts located in [County], [State] for any legal action arising out of this Agreement. EACH PARTY HEREBY IRREVOCABLY WAIVES ANY RIGHT TO A TRIAL BY JURY in any action, proceeding, or counterclaim arising out of or relating to this Agreement.',
+    explanation: 'Specifies governing state law, establishes exclusive jurisdiction and venue, and includes jury trial waiver for more predictable dispute outcomes.',
+    types: ['Service','Employment','NDA','Lease','Purchase','Other']
+  }
+};
+
+// Module-level variable to store the last analysis result
+var _vcxLastAnalysis = null;
+var _vcxLastFilename = null;
+
+// Quality gate: assess extraction confidence
+function assessExtractionQuality(analysis) {
+  var foundCount = Object.keys(analysis.found).length;
+  var totalWords = analysis.wordCount;
+
+  if(totalWords < 50) return { level: 'low', reason: 'Insufficient text extracted. Document may be image-based or encrypted.' };
+  if(totalWords < 200) return { level: 'medium', reason: 'Limited text extracted. Some clauses may be missed.' };
+  if(foundCount < 3) return { level: 'medium', reason: 'Few clauses detected. Document may use non-standard language.' };
+  return { level: 'high', reason: 'Good extraction quality. ' + foundCount + ' of 14 standard clauses detected.' };
+}
+
+// Generate stronger clause suggestions
+function generateStrongerClauses(analysis, contractType) {
+  var quality = assessExtractionQuality(analysis);
+  var suggestions = [];
+
+  // For FOUND clauses: suggest stronger versions
+  Object.keys(analysis.found).forEach(function(key) {
+    if(STRONGER_CLAUSES[key]) {
+      var sc = STRONGER_CLAUSES[key];
+      if(!contractType || sc.types.indexOf(contractType) >= 0 || sc.types.indexOf('Other') >= 0) {
+        suggestions.push({
+          key: key,
+          label: sc.label,
+          status: 'strengthen',
+          text: sc.strongerText,
+          explanation: sc.explanation
+        });
+      }
+    }
+  });
+
+  // For MISSING clauses: suggest adding them
+  analysis.missing.forEach(function(clause) {
+    if(STRONGER_CLAUSES[clause.key]) {
+      var sc = STRONGER_CLAUSES[clause.key];
+      if(!contractType || sc.types.indexOf(contractType) >= 0 || sc.types.indexOf('Other') >= 0) {
+        suggestions.push({
+          key: clause.key,
+          label: sc.label,
+          status: 'add',
+          text: sc.strongerText,
+          explanation: 'This clause was not found in your document. Consider adding it.'
+        });
+      }
+    }
+  });
+
+  return { quality: quality, suggestions: suggestions, contractType: contractType || 'General' };
+}
+
+// Render generation results
+function renderGenerationResults(result) {
+  var html = '<div class="vcx-gen-results" id="vcxGenResults" role="region" aria-label="Stronger clause suggestions">';
+
+  // Quality assessment banner
+  var qClass = 'vcx-gen-quality-' + result.quality.level;
+  var qIcon = result.quality.level === 'high' ? '&#10003;' : result.quality.level === 'medium' ? '&#9888;' : '&#10007;';
+  html += '<div class="vcx-gen-quality-banner ' + qClass + '">';
+  html += '<span class="vcx-gen-quality-icon">' + qIcon + '</span>';
+  html += '<span>Extraction Quality: <strong>' + result.quality.level.toUpperCase() + '</strong> &mdash; ' + escHtml(result.quality.reason) + '</span>';
+  html += '</div>';
+
+  // If quality is LOW: warning + manual review route only
+  if(result.quality.level === 'low') {
+    html += '<div class="vcx-gen-section">';
+    html += '<p style="color:#8B4348;font-weight:600;margin:0 0 10px;">Unable to generate reliable suggestions.</p>';
+    html += '<p style="color:#5E6C7B;font-size:0.875rem;margin:0 0 14px;">The extracted text is insufficient for accurate clause analysis. This typically occurs with image-based PDFs, scanned documents, or encrypted files. Please use the manual review route below for a thorough assessment.</p>';
+    html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule manual contract review &#8594;</a>';
+    html += '</div>';
+    html += '</div>';
+    return html;
+  }
+
+  // Contract type label
+  html += '<div style="margin-bottom:16px;font-size:0.875rem;color:#5E6C7B;">Contract Type: <strong style="color:#0F1B2D;">' + escHtml(result.contractType) + '</strong> &middot; ' + result.suggestions.length + ' suggestion' + (result.suggestions.length !== 1 ? 's' : '') + '</div>';
+
+  // Suggestions
+  if(result.suggestions.length > 0) {
+    html += '<div class="vcx-gen-section">';
+    result.suggestions.forEach(function(s, i) {
+      var cardClass = s.status === 'add' ? 'vcx-gen-add' : 'vcx-gen-strengthen';
+      var badgeClass = s.status === 'add' ? 'vcx-gen-badge-add' : 'vcx-gen-badge-strengthen';
+      var badgeText = s.status === 'add' ? 'ADD NEW' : 'STRENGTHEN';
+
+      html += '<div class="vcx-gen-clause-card ' + cardClass + '">';
+      html += '<div class="vcx-gen-clause-header">';
+      html += '<span class="vcx-gen-clause-label">' + escHtml(s.label) + '</span>';
+      html += '<span class="vcx-gen-badge ' + badgeClass + '">' + badgeText + '</span>';
+      html += '</div>';
+      html += '<div class="vcx-gen-clause-text" id="vcxClauseText_' + i + '">' + escHtml(s.text) + '</div>';
+      html += '<p class="vcx-gen-explanation"><strong>Why:</strong> ' + escHtml(s.explanation) + '</p>';
+      html += '<button class="vcx-gen-copy-btn" type="button" onclick="vcxCopyClause(' + i + ', this)">Copy clause</button>';
+      html += '</div>';
+    });
+    html += '</div>';
+  } else {
+    html += '<div class="vcx-gen-section"><p style="color:#5E6C7B;font-size:0.875rem;">No suggestions available for the selected contract type.</p></div>';
+  }
+
+  // Footer disclaimer
+  html += '<div class="vcx-gen-footer">';
+  html += '<strong>Disclaimer:</strong> These are template suggestions based on common commercial practice. They are not legal advice. Review all language with licensed counsel before use.';
+  html += '</div>';
+
+  // Download button
+  if(result.suggestions.length > 0) {
+    html += '<button class="vcx-gen-download-btn" type="button" onclick="vcxDownloadSuggestions()">Download all suggestions as .txt</button>';
+  }
+
+  html += '</div>';
+  return html;
+}
+
+// Copy clause text to clipboard
+function vcxCopyClause(index, btnEl) {
+  var textEl = document.getElementById('vcxClauseText_' + index);
+  if(!textEl) return;
+  var text = textEl.textContent || textEl.innerText;
+  if(navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btnEl.textContent = 'Copied!';
+      setTimeout(function(){ btnEl.textContent = 'Copy clause'; }, 2000);
+    }).catch(function() {
+      vcxFallbackCopy(text, btnEl);
+    });
+  } else {
+    vcxFallbackCopy(text, btnEl);
+  }
+}
+function vcxFallbackCopy(text, btnEl) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); btnEl.textContent = 'Copied!'; setTimeout(function(){ btnEl.textContent = 'Copy clause'; }, 2000); }
+  catch(e) { btnEl.textContent = 'Copy failed'; setTimeout(function(){ btnEl.textContent = 'Copy clause'; }, 2000); }
+  document.body.removeChild(ta);
+}
+window.vcxCopyClause = vcxCopyClause;
+
+// Download all suggestions as .txt
+var _vcxLastGenResult = null;
+function downloadSuggestions(result) {
+  var text = 'STRONGER CLAUSE SUGGESTIONS\n';
+  text += 'Contract Type: ' + result.contractType + '\n';
+  text += 'Generated: ' + new Date().toLocaleDateString() + '\n';
+  text += 'Extraction Quality: ' + result.quality.level.toUpperCase() + '\n\n';
+  text += '---\n\n';
+  text += 'DISCLAIMER: These are template suggestions based on common commercial practice.\n';
+  text += 'They are NOT legal advice. Review all language with licensed counsel before use.\n\n';
+  text += '===\n\n';
+  result.suggestions.forEach(function(s, i) {
+    text += (i+1) + '. ' + s.label + ' [' + (s.status === 'add' ? 'ADD NEW' : 'STRENGTHEN') + ']\n\n';
+    text += s.text + '\n\n';
+    text += 'Why: ' + s.explanation + '\n\n';
+    text += '---\n\n';
+  });
+  var blob = new Blob([text], {type: 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'stronger-clauses-' + new Date().toISOString().slice(0,10) + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function vcxDownloadSuggestions() {
+  if(_vcxLastGenResult) downloadSuggestions(_vcxLastGenResult);
+}
+window.vcxDownloadSuggestions = vcxDownloadSuggestions;
+
+// Main entry point for Generate Stronger Clauses button
+function vcxGenerateStronger() {
+  if(!_vcxLastAnalysis) { alert('Please analyze a contract first.'); return; }
+  var contractTypeEl = document.getElementById('vcxContractType');
+  var contractType = contractTypeEl ? contractTypeEl.value : '';
+  var result = generateStrongerClauses(_vcxLastAnalysis, contractType);
+  _vcxLastGenResult = result;
+  var container = document.getElementById('vcxGenContainer');
+  if(!container) {
+    container = document.createElement('div');
+    container.id = 'vcxGenContainer';
+    var resultsArea = document.getElementById('vcxResultsArea');
+    if(resultsArea) resultsArea.parentNode.insertBefore(container, resultsArea.nextSibling);
+  }
+  container.innerHTML = renderGenerationResults(result);
+  var genResults = document.getElementById('vcxGenResults');
+  if(genResults) genResults.scrollIntoView({behavior:'smooth', block:'start'});
+}
+window.vcxGenerateStronger = vcxGenerateStronger;
+
 // Analyze extracted text
 function analyzeText(text) {
   var found = {}, missing = [];
@@ -558,6 +869,10 @@ function renderResults(analysis, filename) {
   html += '<div class="vcx-result-cta">';
   html += '<p class="vcx-result-lead">This is a pattern-based pre-check. Findings depend on clause wording and document quality. An advisor review provides full interpretation.</p>';
   html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';
+  if(analysis.hasText) {
+    html += '<br style="display:block;content:\'\';margin-top:12px;">';
+    html += '<button class="vcx-cta-btn" type="button" onclick="vcxGenerateStronger()" style="margin-top:12px;cursor:pointer;">Generate Stronger Clauses &#8594;</button>';
+  }
   html += '</div>';
   html += '<p class="vcx-disc">Pattern-based detection only &#8212; not legal advice. Clauses may be present but worded differently. Review all findings with licensed counsel before signing.</p>';
   html += '</div>';
@@ -624,6 +939,8 @@ function vcxScanContract() {
     reader.onload = function(e) {
       var text = e.target.result || '';
       var analysis = analyzeText(text);
+      _vcxLastAnalysis = analysis;
+      _vcxLastFilename = selectedFile.name;
       resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
       resultsArea.hidden = false;
       resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
@@ -641,6 +958,8 @@ function vcxScanContract() {
       var raw = e.target.result || '';
       var text = raw.replace(/[^\x20-\x7E\u00A0-\uFFFF\n\r\t]/g,' ').replace(/\s{3,}/g,' ');
       var analysis = analyzeText(text);
+      _vcxLastAnalysis = analysis;
+      _vcxLastFilename = selectedFile.name;
       resultsArea.innerHTML = renderResults(analysis, selectedFile.name);
       resultsArea.hidden = false;
       resultsArea.scrollIntoView({behavior:'smooth', block:'start'});
@@ -663,6 +982,11 @@ function showReadError(area, filename) {
 
 function vcxReset() {
   selectedFile = null;
+  _vcxLastAnalysis = null;
+  _vcxLastFilename = null;
+  _vcxLastGenResult = null;
+  var gc = el('vcxGenContainer');
+  if(gc) gc.innerHTML = '';
   var fi = el('vcxContractFile');
   if(fi) fi.value = '';
   var ra = el('vcxResultsArea');
@@ -690,7 +1014,7 @@ function showAdvisorReviewSection(filename, analysis) {
   var section = document.getElementById('vcxAdvisorReviewSection');
   if(!section) return;
   var summary = 'File: ' + filename;
-  if(analysis) summary += ' | Words: ' + (analysis.wordCount||0) + ' | Clauses found: ' + ((analysis.found&&analysis.found.length)||0);
+  if(analysis) summary += ' | Words: ' + (analysis.wordCount||0) + ' | Clauses found: ' + ((analysis.found&&Object.keys(analysis.found).length)||0);
   var sf = document.getElementById('vcxAdvisorSummary');
   if(sf) sf.value = summary;
   section.removeAttribute('hidden');
@@ -732,5 +1056,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
-<section id="vcxAdvisorSection" style="display:none;margin:2rem 0;padding:1.5rem;background:#FBF8F3;border:1px solid rgba(15,27,45,.10);border-radius:8px;"><h3 style="margin:0 0 .5rem;font-size:1.1rem;color:#0F1B2D;">Submit for Advisor Review</h3><p style="margin:0 0 1rem;font-size:.875rem;color:#5E6C7B;">An advisor will review your document pre-check results within 1 business day.</p><form id="vcxAdvisorForm" action="https://formsubmit.co/vitacorexllc@gmail.com" method="POST"><input type="hidden" name="_subject" value="Contract Pre-Check - Advisor Review"><input type="hidden" name="_next" value="https://vitacorexllc.com/thank-you.html"><input type="hidden" name="_captcha" value="false"><input type="hidden" id="vcxAnalysisSummary" name="analysis_summary" value=""><div style="display:grid;gap:1rem;margin-bottom:1rem;"><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Full Name *</label><input type="text" name="full_name" required style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Email *</label><input type="email" name="email" required style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div><div><label style="display:block;font-size:.875rem;font-weight:600;margin-bottom:.25rem;">Phone (optional)</label><input type="tel" name="phone" style="width:100%;padding:.625rem .75rem;font-size:16px;border:1.5px solid rgba(15,27,45,.16);border-radius:6px;background:#fff;box-sizing:border-box;"></div></div><button type="submit" style="padding:.75rem 1.5rem;background:#173A63;color:#fff;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;min-height:44px;">Submit for Advisor Review</button><div id="vcxAdvisorSuccess" style="display:none;margin-top:1rem;padding:1rem;background:rgba(47,107,87,.08);border-radius:6px;color:#2F6B57;">Submitted. An advisor will contact you within 1 business day.</div><div id="vcxAdvisorError" style="display:none;margin-top:1rem;padding:1rem;background:rgba(139,67,72,.08);border-radius:6px;color:#8B4348;">Submission failed. Email vitacorexllc@gmail.com</div></form><p style="margin:.75rem 0 0;font-size:.75rem;color:#5E6C7B;">Preliminary pre-check only. Requires advisor verification.</p></section>

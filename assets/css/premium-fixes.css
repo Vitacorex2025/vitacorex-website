@@ -1,4 +1,26 @@
 /* ============================================================
+   PREMIUM DESIGN TOKENS — Restrained Advisory Palette
+   ============================================================ */
+:root {
+  --vcx-bg-canvas: #F6F2EA;
+  --vcx-bg-surface: #FBF8F3;
+  --vcx-bg-elevated: #FFFFFF;
+  --vcx-ink-strong: #0F1B2D;
+  --vcx-ink-body: #243548;
+  --vcx-ink-muted: #5E6C7B;
+  --vcx-brand-primary: #173A63;
+  --vcx-brand-secondary: #58707E;
+  --vcx-accent-premium: #B08A57;
+  --vcx-accent-premium-2: #8F6B3E;
+  --vcx-line-soft: rgba(15,27,45,.10);
+  --vcx-line-strong: rgba(15,27,45,.16);
+  --vcx-success: #2F6B57;
+  --vcx-warning: #9A6A20;
+  --vcx-danger: #8B4348;
+  --vcx-info: #355E8A;
+}
+
+/* ============================================================
    PREMIUM-FIXES.CSS — Essential behavioral overrides ONLY
    NO design changes. NO !important wars. NO hero/card/button redesign.
    Just fix the 5 specific behavioral issues.
@@ -105,7 +127,7 @@ body[data-vcx-private-lookup="true"] .vcx-gate-label {
 }
 
 body[data-vcx-private-lookup="true"] .vcx-gate-note {
-  color: rgba(176,196,216,.7) !important;
+  color: rgba(176,196,216,.85) !important;
 }
 
 /* --- 7c. Body text on dark surfaces --- */
@@ -116,7 +138,7 @@ body[data-vcx-page="immigration-helper"] .glass p,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard p,
 body[data-vcx-page="auto-deal-check"] .glass p,
 body[data-vcx-page="auto-deal-check"] #vcxUploadCard p {
-  color: rgba(255,255,255,.6) !important;
+  color: rgba(255,255,255,.75) !important;
 }
 
 /* Sub-labels "Primary concerns", "Supporting documents" */
@@ -125,7 +147,7 @@ body[data-vcx-page="immigration-helper"] .glass > p:first-child {
   color: #b0c4d8 !important;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: .7rem;
+  font-size: 0.8rem;
   letter-spacing: .06em;
 }
 
@@ -197,12 +219,12 @@ body[data-vcx-private-lookup="true"] .eyebrow,
 body[data-vcx-page="contract-scanner"] .eyebrow,
 body[data-vcx-page="immigration-helper"] .eyebrow,
 body[data-vcx-page="auto-deal-check"] .eyebrow {
-  color: #c9a45c !important;
+  color: #ddb86a !important;
   background: rgba(176,138,87,.12) !important;
   border: 1px solid rgba(176,138,87,.25);
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: .7rem;
+  font-size: 0.8rem;
   letter-spacing: .1em;
 }
 
@@ -276,7 +298,7 @@ body[data-vcx-page="individual-services"] .hero-side .problem-item {
 }
 /* Gold eyebrow on LIGHT pages: use darker bronze for WCAG AA */
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
-  color: #7a6234 !important;
+  color: #6B5530 !important;
 }
 
 /* 9b. Clock labels: bump from 11.5px to 12.5px */
@@ -293,10 +315,241 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 .vcx-disc, .small-note, .disclaimer-text {
   font-size: 0.8125rem !important;
 }
-/* On light pages */
+/* On light pages — non-footer disclaimer/small text only.
+   Footer has its own dark-bg rules in 9d-footer below. */
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-disc,
-body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .small-note {
-  color: #4a5b6e !important;
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) :not(footer):not(.footer-meta):not(.footer-group):not(.footer-company) > .small-note {
+  color: #374E63 !important;
+}
+
+/* 9d-footer. Footer text: LIGHT text on dark gradient footer
+   Footer bg: linear-gradient(#0E1B2D, #09111D) on ALL pages
+   Must use high-specificity selectors to override 9d generic rules */
+footer.footer .small-note,
+footer .footer-meta .small-note,
+footer .footer-meta p,
+footer.footer .footer-disc,
+footer.footer .footer-copy,
+footer.footer p.small-note {
+  color: #A8B8C8 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.65 !important;
+}
+footer.footer p,
+footer .footer-group p {
+  color: #A8B8C8 !important;
+}
+footer.footer h3,
+footer .footer-group h3 {
+  color: #E8EEF3 !important;
+}
+footer.footer .footer-links a {
+  color: #C5D1DC !important;
+}
+footer.footer .footer-links a:hover {
+  color: #FFFFFF !important;
+}
+
+/* 9d-pills. Fit card pill labels: ensure strong contrast */
+.pill {
+  color: #3D5068 !important;
+  font-weight: 700;
+  font-size: 0.8125rem !important;
+}
+.fit-card li,
+.fit-card .authority-list li {
+  color: #243548 !important;
+  line-height: 1.6;
+}
+
+/* Contract scanner result disclaimers — strengthen */
+.vcx-disc {
+  color: #5E6C7B !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.6 !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result .vcx-disc,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result .vcx-disc {
+  color: #5E6C7B !important;
+}
+
+/* --- Result cards on dark pages: LIGHT bg cards need DARK text --- */
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result {
+  color: #243548 !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result h2,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result h2 {
+  color: #0F1B2D !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result .vcx-clause-item,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result .vcx-clause-item {
+  color: #243548 !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result .vcx-result-notice,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result .vcx-result-notice {
+  color: inherit;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result .vcx-summary-title,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result .vcx-summary-title {
+  color: #0F1B2D !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-analysis-result .vcx-result-lead,
+body[data-vcx-page="immigration-helper"] .vcx-analysis-result .vcx-result-lead {
+  color: #243548 !important;
+}
+/* Generation results (contract scanner) also light-bg cards */
+body[data-vcx-page="contract-scanner"] .vcx-gen-results {
+  color: #243548 !important;
+}
+body[data-vcx-page="contract-scanner"] .vcx-gen-results h2,
+body[data-vcx-page="contract-scanner"] .vcx-gen-results h3 {
+  color: #0F1B2D !important;
+}
+
+/* 9j-cta. CTA button contrast fix — gold text on gold bg fails at 2.1:1 */
+.vcx-cta-btn {
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
+  border: none !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(176,138,87,.25);
+}
+.vcx-cta-btn:hover {
+  box-shadow: 0 4px 16px rgba(176,138,87,.4);
+  transform: translateY(-1px);
+}
+.vcx-gen-download-btn {
+  background: rgba(23,58,99,.08) !important;
+  border: 1px solid rgba(23,58,99,.2) !important;
+  color: #173A63 !important;
+  font-weight: 600 !important;
+}
+.vcx-gen-download-btn:hover {
+  background: rgba(23,58,99,.14) !important;
+}
+
+/* 9j-eyebrow-dark. Dark page eyebrow — #c9a45c at 4.1:1 fails AA. Bump to #ddb86a (~5.5:1) */
+body[data-vcx-private-lookup="true"] .eyebrow,
+body[data-vcx-page="contract-scanner"] .eyebrow,
+body[data-vcx-page="immigration-helper"] .eyebrow,
+body[data-vcx-page="auto-deal-check"] .eyebrow {
+  color: #ddb86a !important;
+}
+
+/* 9j-welcome. Service welcome box text — gold on gold fails at 2.4:1 */
+#vcx-service-welcome {
+  color: #243548 !important;
+  background: rgba(176,138,87,.08) !important;
+  border-color: rgba(176,138,87,.25) !important;
+}
+
+/* ============================================================
+   9k. SITE-WIDE: --ink-softer (#9FB0C5) override for light pages
+   Original dark-theme token: #9FB0C5 — fails on light backgrounds (~2.2:1)
+   Override to #4A5B6E (6.1:1 on #FBF8F3) for all light-background contexts
+   ============================================================ */
+.authority-list,
+.authority-list li,
+.authority-card p,
+.authority-card li,
+.authority-case p,
+.authority-case li,
+.impact-card p,
+.impact-card li,
+.widget-card p,
+.metric-card span,
+.benefit-kicker,
+.widget-head p {
+  color: #4A5B6E !important;
+}
+/* Dark app pages: keep light text */
+body[data-vcx-private-lookup="true"] .authority-list li,
+body[data-vcx-page="contract-scanner"] .authority-list li,
+body[data-vcx-page="immigration-helper"] .authority-list li,
+body[data-vcx-page="auto-deal-check"] .authority-list li {
+  color: #b0c4d8 !important;
+}
+/* 9k-fitcard. Restore fit-card list text to #243548 (overrides 9k generic #4A5B6E) */
+.fit-card li,
+.fit-card .authority-list,
+.fit-card .authority-list li {
+  color: #243548 !important;
+  line-height: 1.6;
+}
+
+/* 9l. Footer text — reinforcement (same light colors, higher specificity)
+   Repeats 9d-footer with even more specificity to win any cascade fight */
+body footer.footer .footer-meta .small-note,
+body footer.footer .footer-meta p.small-note,
+body footer.footer p {
+  color: #A8B8C8 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.65 !important;
+}
+body footer.footer h3,
+body footer .footer-group h3 {
+  color: #E8EEF3 !important;
+}
+body footer.footer .footer-links a {
+  color: #C5D1DC !important;
+}
+body footer.footer .footer-links a:hover {
+  color: #FFFFFF !important;
+}
+
+/* 9l-app. App page footer (.vcx-footer on dark bg #07131F)
+   These app pages use a different footer structure than marketing pages.
+   .footer-disc and .footer-copy inherit a dark color — override to readable. */
+footer.vcx-footer .footer-disc,
+footer.vcx-footer .footer-copy,
+footer.vcx-footer p.footer-disc,
+footer.vcx-footer p.footer-copy {
+  color: #8A9DB2 !important;
+}
+
+/* 9m. Service card description text — strengthen from #4D5F74 */
+.service-card p,
+.card p,
+.problem-item p {
+  color: #374E63 !important;
+  line-height: 1.6;
+}
+
+/* Auto deal check: result card text readability */
+body[data-vcx-page="auto-deal-check"] .vcx-flag-high div,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-medium div,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-ok div,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-info div {
+  color: #e8eff7 !important;
+}
+body[data-vcx-page="auto-deal-check"] .vcx-flag-high div:first-child,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-medium div:first-child,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-ok div:first-child,
+body[data-vcx-page="auto-deal-check"] .vcx-flag-info div:first-child {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* 9d-upload. Dark-page upload/hint/disclaimer text — inline rgba too faint.
+   Affects all dark app pages with inline rgba(255,255,255,.35-.45) text. */
+body[data-vcx-page="auto-deal-check"] [data-tx="tool_upload_hint"],
+body[data-vcx-page="auto-deal-check"] #vcxFileName,
+body[data-vcx-page="contract-scanner"] [data-tx="tool_upload_hint"],
+body[data-vcx-page="contract-scanner"] #vcxFileName,
+body[data-vcx-page="immigration-helper"] [data-tx="tool_support_label"],
+body[data-vcx-page="immigration-helper"] [data-tx="tool_support_hint"],
+body[data-vcx-page="immigration-helper"] #vcxEmptyState,
+body[data-vcx-page="immigration-helper"] [data-tx="tool_disc"] {
+  color: rgba(255,255,255,.65) !important;
+}
+
+/* 9d-advisor. Advisor submit buttons on dark app pages — gold-on-gold-transparent is poor contrast */
+#vcxAdvisorSubmitBtn,
+#vcxPacketSubmitBtn {
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
+  border: none !important;
 }
 
 /* 9e. Disabled button opacity: raise from 0.5 to 0.65 */
@@ -370,7 +623,7 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool select {
   padding: 10px 12px;
 }
 body[data-vcx-private-lookup="true"] .vcx-lookup-tool input::placeholder {
-  color: rgba(255,255,255,.4) !important;
+  color: rgba(255,255,255,.5) !important;
 }
 
 /* 10f. Consent block: dark text on LIGHT tool section background */
@@ -389,8 +642,8 @@ body[data-vcx-private-lookup="true"] .vcx-consent-label span {
 
 /* 10g. Submit buttons inside lookup tool */
 body[data-vcx-private-lookup="true"] .vcx-submit-btn {
-  background: linear-gradient(135deg, #B08A57 0%, #8a6b3e 100%) !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
+  color: #0e1e30 !important;
   border: none !important;
   font-weight: 700;
   border-radius: 8px;
