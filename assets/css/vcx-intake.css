@@ -1,0 +1,116 @@
+/* ==========================================================
+   VCX Intake Dashboard  --  vcx-intake.css
+   Scoped to body[data-vcx-page="vcx-intake"]
+   ========================================================== */
+
+body[data-vcx-page="vcx-intake"] {
+  background: var(--vcx-bg-canvas, #F6F2EA);
+  color: var(--vcx-ink-body, #243548);
+}
+
+/* --- 3-column card grid ---------------------------------- */
+.vi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vcx-space-lg, 24px);
+  padding: var(--vcx-space-lg, 24px) 0;
+}
+
+@media (max-width: 768px) {
+  .vi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Card ------------------------------------------------ */
+.vi-card {
+  padding: var(--vcx-space-lg, 24px);
+  border: 1px solid var(--vcx-border-light, #D9D2C5);
+  border-radius: var(--vcx-radius-md, 8px);
+  background: var(--vcx-bg-surface, #FFFFFF);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.vi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(36, 53, 72, 0.12);
+}
+
+/* --- Card icon ------------------------------------------- */
+.vi-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--vcx-brand-primary, #B8860B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  margin-bottom: var(--vcx-space-md, 16px);
+}
+
+/* --- Pipeline (step indicators) -------------------------- */
+.vi-pipeline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  margin: var(--vcx-space-lg, 24px) 0;
+}
+
+/* --- Step ------------------------------------------------ */
+.vi-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.vi-step::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: calc(-50% + 14px);
+  right: calc(50% + 14px);
+  height: 2px;
+  background: var(--vcx-border-light, #D9D2C5);
+}
+
+.vi-step:first-child::before {
+  display: none;
+}
+
+.vi-step .vi-step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--vcx-border-light, #D9D2C5);
+  background: var(--vcx-bg-surface, #FFFFFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vcx-ink-muted, #8896A4);
+  position: relative;
+  z-index: 1;
+}
+
+.vi-step .vi-step-label {
+  margin-top: var(--vcx-space-xs, 6px);
+  font-size: 12px;
+  color: var(--vcx-ink-muted, #8896A4);
+}
+
+/* --- Active step ----------------------------------------- */
+.vi-step.is-active .vi-step-circle {
+  background: var(--vcx-brand-primary, #B8860B);
+  border-color: var(--vcx-brand-primary, #B8860B);
+  color: #FFFFFF;
+}
+
+.vi-step.is-active .vi-step-label {
+  color: var(--vcx-ink-body, #243548);
+  font-weight: 600;
+}

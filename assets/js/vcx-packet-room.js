@@ -1,0 +1,474 @@
+/* ==========================================================
+   VCX Packet Room  --  vcx-packet-room.js
+   Auth-gated client portal: matters, timeline, docs, comments.
+   Phase 3: Wired to /api/portal endpoints with session auth.
+   ========================================================== */
+(function () {
+  'use strict';
+
+  var API_BASE = window.VCX_API_BASE || '';
+
+  // --- Internal state --------------------------------------
+  var authToken = null;
+  var contactInfo = null;
+  var activeMatterId = null;
+
+  // --- DOM refs (match HTML element IDs) -------------------
+  var authGate     = document.getElementById('vcxPortalAuth');
+  var tokenInput   = document.getElementById('vcxPortalToken');
+  var accessBtn    = document.getElementById('vcxPortalAccessBtn');
+  var dashboard    = document.getElementById('vcxPortalDashboard');
+  var matterList   = document.getElementById('vcxMatterList');
+  var matterDetail = document.getElementById('vcxMatterDetail');
+  var timeline     = document.getElementById('vcxMatterTimeline');
+  var documents    = document.getElementById('vcxMatterDocuments');
+  var comments     = document.getElementById('vcxMatterComments');
+  var deliverables = document.getElementById('vcxMatterDeliverables');
+
+  // --- Auth flow -------------------------------------------
+  if (accessBtn) {
+    accessBtn.addEventListener('click', function () {
+      var token = tokenInput ? tokenInput.value.trim() : '';
+      if (!token) {
+        showAuthError('Please enter your access token or email.');
+        return;
+      }
+
+      // Determine if token or email
+      if (token.indexOf('@') > -1) {
+        lookupByEmail(token);
+      } else {
+        verifyToken(token);
+      }
+    });
+  }
+
+  // Handle Enter key in token input
+  if (tokenInput) {
+    tokenInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (accessBtn) accessBtn.click();
+      }
+    });
+  }
+
+  // Check URL for token param (magic link landing)
+  function checkUrlToken() {
+    var params = new URLSearchParams(window.location.search);
+    var token = params.get('token');
+    if (token) {
+      if (tokenInput) tokenInput.value = token;
+      verifyToken(token);
+    }
+  }
+
+  function verifyToken(token) {
+    setLoading(true);
+
+    fetch(API_BASE + '/api/portal/magic-link/' + encodeURIComponent(token))
+      .then(function (res) {
+        if (!res.ok) throw new Error('Invalid or expired access link');
+        return res.json();
+      })
+      .then(function (data) {
+        authToken = data.token || token;
+        contactInfo = data.contact || null;
+        onAuthenticated(data.matters || []);
+      })
+      .catch(function (err) {
+        showAuthError(err.message);
+      })
+      .finally(function () {
+        setLoading(false);
+      });
+  }
+
+  function lookupByEmail(email) {
+    setLoading(true);
+
+    fetch(API_BASE + '/api/portal/lookup-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Lookup failed');
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.matters_found > 0) {
+          showAuthMessage('Access link has been sent to your email. Please check your inbox.');
+        } else {
+          showAuthMessage(data.message || 'No active matters found for this email.');
+        }
+      })
+      .catch(function (err) {
+        showAuthError(err.message);
+      })
+      .finally(function () {
+        setLoading(false);
+      });
+  }
+
+  function onAuthenticated(matters) {
+    if (authGate)  authGate.style.display = 'none';
+    if (dashboard) dashboard.style.display = 'block';
+
+    // Show welcome
+    if (contactInfo && contactInfo.name) {
+      var welcome = document.createElement('div');
+      welcome.style.cssText = 'background:var(--vcx-brand-primary,#173A63);color:#fff;border-radius:8px;padding:14px 20px;margin-bottom:20px;font-size:.9rem;';
+      welcome.innerHTML = 'Welcome, <strong>' + escapeHtml(contactInfo.name) + '</strong>';
+      dashboard.insertBefore(welcome, dashboard.firstChild);
+    }
+
+    renderMatterList(matters);
+  }
+
+  function showAuthError(msg) {
+    var el = authGate && authGate.querySelector('.vcx-auth-error');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'vcx-auth-error';
+      el.style.cssText = 'color:var(--vcx-status-danger,#E63757);font-size:.88rem;margin-top:12px;';
+      if (authGate) {
+        var inner = authGate.querySelector('div') || authGate;
+        inner.appendChild(el);
+      }
+    }
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  function showAuthMessage(msg) {
+    var el = authGate && authGate.querySelector('.vcx-auth-message');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'vcx-auth-message';
+      el.style.cssText = 'color:var(--vcx-brand-primary,#173A63);font-size:.88rem;margin-top:12px;';
+      if (authGate) {
+        var inner = authGate.querySelector('div') || authGate;
+        inner.appendChild(el);
+      }
+    }
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  function setLoading(loading) {
+    if (accessBtn) {
+      accessBtn.disabled = loading;
+      accessBtn.textContent = loading ? 'Verifying...' : 'Access Portal';
+    }
+  }
+
+  // --- Load matters ----------------------------------------
+  function loadMatters() {
+    fetch(API_BASE + '/api/portal/matters', {
+      headers: { 'Authorization': 'Bearer ' + authToken }
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Failed to load matters');
+        return res.json();
+      })
+      .then(function (data) {
+        renderMatterList(data.matters || []);
+      })
+      .catch(function (err) {
+        if (matterList) {
+          matterList.innerHTML =
+            '<p style="color:var(--vcx-status-danger,#E63757);font-size:.9rem;">' +
+            escapeHtml(err.message) + '</p>';
+        }
+      });
+  }
+
+  function renderMatterList(matters) {
+    if (!matterList) return;
+
+    if (matters.length === 0) {
+      matterList.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">No matters found for this account.</p>';
+      return;
+    }
+
+    var html = '';
+    matters.forEach(function (m) {
+      var statusColor = m.status === 'intake_received' ? '#F5A623'
+                      : m.status === 'in_review' ? '#173A63'
+                      : m.status === 'complete' ? '#38B249'
+                      : '#5E6C7B';
+
+      html +=
+        '<div class="vcx-matter-card" data-matter-id="' + escapeAttr(m.id) + '" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid rgba(15,27,45,.08);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:background .15s;"' +
+        ' onmouseover="this.style.background=\'rgba(15,27,45,.03)\'" onmouseout="this.style.background=\'#fff\'">';
+      html += '<div>';
+      html += '<span style="font-size:.88rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);">' + escapeHtml(m.id.substring(0, 8)) + '...</span>';
+      html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);margin-left:10px;">' + escapeHtml((m.service_type || '').replace(/_/g, ' ')) + '</span>';
+      html += '</div>';
+      html += '<div>';
+      html += '<span style="font-size:.72rem;font-weight:600;color:' + statusColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml((m.status || '').replace(/_/g, ' ')) + '</span>';
+      html += '</div>';
+      html += '</div>';
+    });
+
+    matterList.innerHTML = html;
+
+    // Bind click handlers
+    var cards = matterList.querySelectorAll('.vcx-matter-card');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', function () {
+        var id = this.getAttribute('data-matter-id');
+        if (id) loadMatterPacket(id);
+      });
+    }
+  }
+
+  // --- Load matter packet ----------------------------------
+  function loadMatterPacket(matterId) {
+    activeMatterId = matterId;
+
+    // Show loading in all sections
+    if (matterDetail) matterDetail.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading matter details...</p>';
+    if (timeline) timeline.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading timeline...</p>';
+    if (documents) documents.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading documents...</p>';
+    if (comments) comments.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading comments...</p>';
+    if (deliverables) deliverables.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading deliverables...</p>';
+
+    // Highlight active card
+    var cards = matterList ? matterList.querySelectorAll('.vcx-matter-card') : [];
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].style.borderColor = cards[i].getAttribute('data-matter-id') === matterId
+        ? 'var(--vcx-brand-primary,#173A63)' : 'rgba(15,27,45,.08)';
+    }
+
+    fetch(API_BASE + '/api/portal/matters/' + encodeURIComponent(matterId) + '/packet', {
+      headers: { 'Authorization': 'Bearer ' + authToken }
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Failed to load matter packet');
+        return res.json();
+      })
+      .then(function (data) {
+        renderMatterOverview(data);
+        renderTimeline(data.timeline || []);
+        renderDocuments(data.documents || []);
+        renderChecklist(data.checklist || []);
+        renderComments(data.comments || []);
+        renderDeliverables(data.deliverables || []);
+      })
+      .catch(function (err) {
+        if (matterDetail) {
+          matterDetail.innerHTML = '<p style="color:var(--vcx-status-danger,#E63757);font-size:.9rem;">' + escapeHtml(err.message) + '</p>';
+        }
+      });
+  }
+
+  // --- Render sections -------------------------------------
+  function renderMatterOverview(data) {
+    if (!matterDetail) return;
+    var html = '';
+    html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;">';
+    html += detailCard('Matter ID', (data.matter_id || '').substring(0, 12) + '...');
+    html += detailCard('Service', (data.service_type || '').replace(/_/g, ' '));
+    html += detailCard('Status', (data.status || '').replace(/_/g, ' '));
+    html += '</div>';
+    matterDetail.innerHTML = html;
+  }
+
+  function renderTimeline(items) {
+    if (!timeline) return;
+    if (items.length === 0) {
+      timeline.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No timeline events yet.</p>';
+      return;
+    }
+    var html = '';
+    items.forEach(function (item) {
+      html += '<div style="display:flex;gap:12px;margin-bottom:14px;">';
+      html += '<div style="width:8px;min-height:8px;border-radius:50%;background:var(--vcx-brand-primary,#173A63);margin-top:6px;flex-shrink:0;"></div>';
+      html += '<div>';
+      html += '<strong style="font-size:.85rem;">' + escapeHtml(item.title || '') + '</strong>';
+      if (item.description) html += '<p style="font-size:.82rem;margin:2px 0 0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(item.description) + '</p>';
+      html += '<small style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(item.date || '') + '</small>';
+      html += '</div></div>';
+    });
+    timeline.innerHTML = html;
+  }
+
+  function renderDocuments(docs) {
+    if (!documents) return;
+    if (docs.length === 0) {
+      documents.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No documents uploaded yet.</p>';
+      return;
+    }
+    var html = '';
+    docs.forEach(function (doc) {
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+      html += '<span style="font-size:.85rem;color:var(--vcx-ink-body,#243548);">' + escapeHtml(doc.name || '') + '</span>';
+      html += '<div style="display:flex;gap:12px;font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);">';
+      html += '<span>' + escapeHtml(doc.size || '') + '</span>';
+      html += '<span>' + escapeHtml(doc.date || '') + '</span>';
+      html += '</div></div>';
+    });
+    documents.innerHTML = html;
+  }
+
+  function renderChecklist(items) {
+    // Render inside matterDetail below overview
+    if (!items || items.length === 0) return;
+    if (!matterDetail) return;
+
+    var html = '<h3 style="font-size:.95rem;margin:20px 0 10px;color:var(--vcx-brand-primary,#173A63);">Checklist</h3>';
+    items.forEach(function (item) {
+      var icon = item.is_complete ? '&#9745;' : '&#9744;';
+      var style = item.is_complete ? 'color:var(--vcx-ink-muted,#5E6C7B);text-decoration:line-through;' : '';
+      html += '<div style="font-size:.85rem;padding:4px 0;' + style + '">';
+      html += '<span>' + icon + '</span> ' + escapeHtml(item.label || '');
+      html += '</div>';
+    });
+    matterDetail.innerHTML += html;
+  }
+
+  function renderComments(cmts) {
+    if (!comments) return;
+
+    var html = '';
+    if (cmts.length > 0) {
+      cmts.forEach(function (c) {
+        html += '<div style="padding:12px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+        html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">';
+        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);">' + escapeHtml(c.author || 'Client') + '</span>';
+        html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(c.timestamp || '') + '</span>';
+        html += '</div>';
+        html += '<p style="font-size:.85rem;margin:0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(c.content || '') + '</p>';
+        html += '</div>';
+      });
+    } else {
+      html += '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);margin-bottom:12px;">No comments yet.</p>';
+    }
+
+    // Comment form
+    html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(15,27,45,.08);">';
+    html += '<textarea id="vcxNewComment" placeholder="Add a comment..." style="width:100%;padding:10px 12px;border:1px solid rgba(15,27,45,.15);border-radius:6px;font-size:.88rem;min-height:60px;resize:vertical;box-sizing:border-box;margin-bottom:8px;font-family:inherit;"></textarea>';
+    html += '<button type="button" id="vcxPostComment" style="background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:.85rem;cursor:pointer;">Post Comment</button>';
+    html += '</div>';
+
+    comments.innerHTML = html;
+
+    // Bind comment button
+    var postBtn = document.getElementById('vcxPostComment');
+    if (postBtn) {
+      postBtn.addEventListener('click', function () {
+        var textarea = document.getElementById('vcxNewComment');
+        var content = textarea ? textarea.value.trim() : '';
+        if (!content || !activeMatterId) return;
+        postComment(activeMatterId, content);
+      });
+    }
+  }
+
+  function renderDeliverables(items) {
+    if (!deliverables) return;
+    if (items.length === 0) {
+      deliverables.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No deliverables yet.</p>';
+      return;
+    }
+    var html = '';
+    items.forEach(function (d) {
+      var statusColor = d.status === 'delivered' ? '#38B249'
+                      : d.status === 'in_progress' ? '#F5A623'
+                      : '#5E6C7B';
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+      html += '<div>';
+      html += '<span style="font-size:.85rem;font-weight:600;color:var(--vcx-ink-body,#243548);">' + escapeHtml(d.name || '') + '</span>';
+      if (d.description) html += '<p style="font-size:.78rem;margin:2px 0 0;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(d.description) + '</p>';
+      html += '</div>';
+      html += '<span style="font-size:.72rem;font-weight:600;color:' + statusColor + ';text-transform:uppercase;">' + escapeHtml((d.status || '').replace(/_/g, ' ')) + '</span>';
+      html += '</div>';
+    });
+    deliverables.innerHTML = html;
+  }
+
+  // --- Post comment ----------------------------------------
+  function postComment(matterId, content) {
+    var postBtn = document.getElementById('vcxPostComment');
+    if (postBtn) {
+      postBtn.disabled = true;
+      postBtn.textContent = 'Posting...';
+    }
+
+    fetch(
+      API_BASE + '/api/portal/matters/' + encodeURIComponent(matterId) + '/comments',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + authToken
+        },
+        body: JSON.stringify({ content: content })
+      }
+    )
+      .then(function (res) {
+        if (!res.ok) throw new Error('Failed to post comment');
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.comments) renderComments(data.comments);
+      })
+      .catch(function (err) {
+        if (comments) {
+          var errDiv = document.createElement('p');
+          errDiv.style.cssText = 'color:var(--vcx-status-danger,#E63757);font-size:.85rem;margin-top:8px;';
+          errDiv.textContent = 'Failed to post: ' + err.message;
+          comments.appendChild(errDiv);
+        }
+      })
+      .finally(function () {
+        if (postBtn) {
+          postBtn.disabled = false;
+          postBtn.textContent = 'Post Comment';
+        }
+      });
+  }
+
+  // --- Helpers ---------------------------------------------
+  function detailCard(label, value) {
+    return '<div style="background:rgba(15,27,45,.03);border-radius:6px;padding:12px 14px;text-align:center;">' +
+      '<div style="font-size:.95rem;font-weight:700;color:var(--vcx-brand-primary,#173A63);margin-bottom:2px;text-transform:capitalize;">' + escapeHtml(String(value)) + '</div>' +
+      '<div style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(label) + '</div>' +
+    '</div>';
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function escapeAttr(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  // --- Boot ------------------------------------------------
+  function init() {
+    checkUrlToken();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // --- Public namespace ------------------------------------
+  window.VCX_PacketRoom = {
+    loadMatters: loadMatters,
+    loadMatterPacket: loadMatterPacket,
+    postComment: postComment
+  };
+})();

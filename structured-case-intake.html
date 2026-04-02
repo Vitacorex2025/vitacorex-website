@@ -178,6 +178,9 @@
 <input name="_next" type="hidden" value="https://vitacorexllc.com/thank-you.html"/>
 <input name="_subject" type="hidden" value="VitaCoreX Case Intake"/>
 </form>
+<!-- VCX Phase 2: API intake result panel -- START -->
+<div id="intakeResult" class="card reveal" style="display:none;margin-top:18px;padding:28px 24px;"></div>
+<!-- VCX Phase 2: API intake result panel -- END -->
 <!-- P1-2: Private client self-service deep-links -->
 <div class="card reveal vcx-self-service-card" style="margin-top:18px;padding:22px 24px;background:rgba(176,138,87,.07);border:1px solid rgba(176,138,87,.2);border-radius:10px;">
 <p style="font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#8F6B3E;margin:0 0 10px;">Private Client Self-Service Tools</p>
@@ -186,6 +189,7 @@
 <a href="/app/contract-intelligence/?service=contracts" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Contract review &rarr;</a>
 <a href="/app/immigration-forms/?service=immigration" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Immigration help &rarr;</a>
 <a href="/app/dealer-contract-check/?service=auto" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Auto deal check &rarr;</a>
+<a href="/app/legal-assistant/" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Legal assistant &rarr;</a>
 </div>
 </div>
 <div class="form-side-stack"><div class="output-panel reveal">
@@ -263,6 +267,8 @@
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js"></script>
 <script src="assets/js/site.js"></script><script src="assets/js/ui-shell.js"></script><script src="assets/js/premium-fixes.js"></script>
+<!-- VCX Phase 2: intake API client -->
+<script src="/assets/js/vcx-intake-api.js"></script>
 <script>
 (function(){
   var params = new URLSearchParams(window.location.search);

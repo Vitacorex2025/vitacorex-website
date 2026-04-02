@@ -1,0 +1,14 @@
+# VCX Backend exclusions
+vcx-api/data/
+vcx-api/uploads/
+vcx-api/.env
+vcx-api/__pycache__/
+vcx-api/app/__pycache__/
+vcx-api/app/routers/__pycache__/
+vcx-api/app/services/__pycache__/
+vcx-api/app/legal_chat/__pycache__/
+vcx-api/app/models/__pycache__/
+*.pyc
+*.db
+*.db-shm
+*.db-wal

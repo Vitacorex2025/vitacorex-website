@@ -1,0 +1,142 @@
+/* ==========================================================
+   VCX Contract Review  --  vcx-contract-review.css
+   Scoped to body[data-vcx-page="vcx-contract-review"]
+   ========================================================== */
+
+body[data-vcx-page="vcx-contract-review"] {
+  background: var(--vcx-bg-canvas, #F6F2EA);
+  color: var(--vcx-ink-body, #243548);
+}
+
+/* --- Tier grid ------------------------------------------- */
+.cr-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vcx-space-lg, 24px);
+  padding: var(--vcx-space-lg, 24px) 0;
+}
+
+@media (max-width: 768px) {
+  .cr-tiers {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Tier card ------------------------------------------- */
+.cr-tier-card {
+  background: var(--vcx-bg-surface, #FFFFFF);
+  border: 1px solid var(--vcx-border-light, #D9D2C5);
+  border-radius: var(--vcx-radius-md, 8px);
+  padding: var(--vcx-space-lg, 24px);
+  border-top: 4px solid var(--vcx-ink-muted, #8896A4);
+  transition: box-shadow 0.2s ease;
+}
+
+.cr-tier-card:hover {
+  box-shadow: 0 4px 16px rgba(36, 53, 72, 0.1);
+}
+
+.cr-tier-card--info {
+  border-top-color: var(--vcx-status-info, #2C7BE5);
+}
+
+.cr-tier-card--warning {
+  border-top-color: var(--vcx-status-warning, #F5A623);
+}
+
+.cr-tier-card--success {
+  border-top-color: var(--vcx-status-success, #00D97E);
+}
+
+.cr-tier-card .cr-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vcx-ink-heading, #1A2A3A);
+  margin: var(--vcx-space-md, 16px) 0;
+}
+
+/* --- Upload zone ----------------------------------------- */
+.cr-upload-zone {
+  border: 2px dashed var(--vcx-border-light, #D9D2C5);
+  border-radius: var(--vcx-radius-md, 8px);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--vcx-bg-surface, #FFFFFF);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  color: var(--vcx-ink-muted, #8896A4);
+  font-size: 14px;
+}
+
+.cr-upload-zone:hover {
+  border-color: var(--vcx-brand-primary, #B8860B);
+}
+
+.cr-upload-zone.is-dragover {
+  border-color: var(--vcx-brand-gold, #DAA520);
+  background: rgba(218, 165, 32, 0.06);
+}
+
+/* --- Results panel --------------------------------------- */
+.cr-results {
+  background: var(--vcx-bg-surface, #FFFFFF);
+  border: 1px solid var(--vcx-border-light, #D9D2C5);
+  border-radius: var(--vcx-radius-md, 8px);
+  padding: var(--vcx-space-lg, 24px);
+  margin-top: var(--vcx-space-lg, 24px);
+}
+
+/* --- Clause row ------------------------------------------ */
+.cr-clause {
+  display: flex;
+  align-items: center;
+  gap: var(--vcx-space-md, 16px);
+  padding: var(--vcx-space-sm, 12px) 0;
+  border-bottom: 1px solid var(--vcx-border-light, #D9D2C5);
+}
+
+.cr-clause:last-child {
+  border-bottom: none;
+}
+
+.cr-clause .cr-type-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--vcx-radius-sm, 4px);
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--vcx-bg-muted, #EDE8DF);
+  color: var(--vcx-ink-body, #243548);
+  white-space: nowrap;
+}
+
+.cr-clause .cr-excerpt {
+  flex: 1;
+  font-size: 14px;
+  color: var(--vcx-ink-body, #243548);
+}
+
+/* --- Risk indicators ------------------------------------- */
+.cr-risk-safe {
+  color: var(--vcx-status-success, #00D97E);
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.cr-risk-caution {
+  color: var(--vcx-status-warning, #F5A623);
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.cr-risk-high {
+  color: var(--vcx-status-danger, #E63757);
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}

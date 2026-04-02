@@ -1,0 +1,174 @@
+/* VCX Legal Assistant — chat page styles */
+
+body[data-vcx-page="legal-assistant"] {
+  background: var(--vcx-bg-canvas, #F6F2EA);
+  color: var(--vcx-ink-body, #243548);
+}
+
+.assistant-grid,
+.assistant-escalation-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.assistant-intro {
+  padding: 28px 24px;
+}
+
+.assistant-chat-shell {
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.assistant-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: .8rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+.assistant-messages {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid rgba(15, 27, 45, .08);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--vcx-bg-surface, #FBF8F3);
+  min-height: 320px;
+  max-height: 480px;
+}
+
+/* Messages */
+.la-message {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  max-width: 90%;
+  white-space: pre-wrap;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.la-message-user {
+  margin-left: auto;
+  background: rgba(23, 58, 99, .06);
+  border: 1px solid rgba(23, 58, 99, .1);
+}
+
+.la-message-assistant {
+  background: rgba(184, 153, 99, .08);
+  border: 1px solid rgba(184, 153, 99, .15);
+}
+
+.la-message-meta {
+  display: block;
+  margin-bottom: 6px;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+.la-message-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.la-message-sources {
+  margin-top: 10px;
+  font-size: .75rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+/* Form within chat */
+.assistant-form label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.assistant-form span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.assistant-form input,
+.assistant-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 27, 45, .12);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  color: var(--vcx-ink-body, #243548);
+  font-size: .9rem;
+  font-family: inherit;
+}
+
+.assistant-form input:focus,
+.assistant-form textarea:focus {
+  outline: none;
+  border-color: var(--vcx-brand-primary, #173A63);
+  box-shadow: 0 0 0 3px rgba(23, 58, 99, .12);
+}
+
+.assistant-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* Topic chips */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.topic-chip,
+.suggestion-chip {
+  appearance: none;
+  border: 1px solid rgba(15, 27, 45, .12);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  color: var(--vcx-ink-body, #243548);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: .8rem;
+  font-family: inherit;
+  transition: border-color .2s, background .2s;
+}
+
+.topic-chip:hover,
+.suggestion-chip:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .04);
+}
+
+.topic-chip.is-active {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .08);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .assistant-grid,
+  .assistant-escalation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-chat-shell {
+    min-height: unset;
+  }
+}

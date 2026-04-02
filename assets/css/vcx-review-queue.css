@@ -1,0 +1,100 @@
+/* VCX Review Queue — admin dashboard styles */
+
+body[data-vcx-page="review-queue"] {
+  background: var(--vcx-bg-canvas, #F6F2EA);
+  color: var(--vcx-ink-body, #243548);
+}
+
+.rq-filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rq-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 27, 45, .08);
+  background: #fff;
+}
+
+.rq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+
+.rq-table th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  border-bottom: 2px solid rgba(15, 27, 45, .08);
+  white-space: nowrap;
+}
+
+.rq-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(15, 27, 45, .04);
+  vertical-align: middle;
+}
+
+.rq-table tr:hover td {
+  background: rgba(23, 58, 99, .02);
+}
+
+.rq-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.rq-action-btn {
+  appearance: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--vcx-brand-primary, #173A63);
+  background: transparent;
+  color: var(--vcx-brand-primary, #173A63);
+  font-size: .8rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.rq-action-btn:hover {
+  background: rgba(23, 58, 99, .06);
+}
+
+.rq-page-btn {
+  appearance: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(15, 27, 45, .12);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  cursor: pointer;
+  font-size: .8rem;
+}
+
+.rq-page-btn.is-active {
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  border-color: var(--vcx-brand-primary, #173A63);
+}
+
+@media (max-width: 768px) {
+  .rq-table {
+    font-size: .78rem;
+  }
+
+  .rq-table th,
+  .rq-table td {
+    padding: 10px 10px;
+  }
+}
