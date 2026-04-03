@@ -1,0 +1,620 @@
+/* ── Phase 7A: Floating Chat Launcher ─────────────────────────────────
+ * All rules scoped under .vcx-cw-* (chat widget) namespace.
+ * Conservative, premium styling native to the VCX shell.
+ * z-index: launcher 98, panel 99 (below modals at 120).
+ * ──────────────────────────────────────────────────────────────────── */
+
+/* ── Launcher FAB ─────────────────────────────────────────────────── */
+
+.vcx-cw-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 98;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(23, 58, 99, .18);
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(14, 32, 54, .18);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  appearance: none;
+  font-family: inherit;
+  padding: 0;
+}
+
+.vcx-cw-launcher:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(14, 32, 54, .24);
+}
+
+.vcx-cw-launcher:active {
+  transform: scale(.97);
+}
+
+.vcx-cw-launcher svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: opacity .15s ease;
+}
+
+.vcx-cw-launcher .vcx-cw-icon-close {
+  display: none;
+}
+
+.vcx-cw-launcher.vcx-cw-open .vcx-cw-icon-chat {
+  display: none;
+}
+
+.vcx-cw-launcher.vcx-cw-open .vcx-cw-icon-close {
+  display: block;
+}
+
+/* ── Panel ────────────────────────────────────────────────────────── */
+
+.vcx-cw-panel {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  z-index: 99;
+  width: 380px;
+  height: min(560px, calc(100vh - 140px));
+  background: var(--vcx-bg-surface, #FBF8F3);
+  border: 1px solid rgba(15, 27, 45, .10);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(14, 32, 54, .14), 0 1px 4px rgba(14, 32, 54, .08);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.vcx-cw-panel.vcx-cw-visible {
+  display: flex;
+  animation: vcxCwSlideUp .2s ease;
+}
+
+@keyframes vcxCwSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Panel Header ─────────────────────────────────────────────────── */
+
+.vcx-cw-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.vcx-cw-header-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ADE80;
+  flex-shrink: 0;
+}
+
+.vcx-cw-header-title {
+  flex: 1;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.vcx-cw-header-close {
+  appearance: none;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, .7);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .15s ease;
+}
+
+.vcx-cw-header-close:hover {
+  color: #fff;
+}
+
+.vcx-cw-header-close svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ── Messages Area ────────────────────────────────────────────────── */
+
+.vcx-cw-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+.vcx-cw-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vcx-cw-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vcx-cw-messages::-webkit-scrollbar-thumb {
+  background: rgba(15, 27, 45, .12);
+  border-radius: 4px;
+}
+
+/* ── Message Bubbles ──────────────────────────────────────────────── */
+
+.vcx-cw-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: .84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.vcx-cw-bubble-bot {
+  align-self: flex-start;
+  background: rgba(184, 153, 99, .08);
+  border: 1px solid rgba(184, 153, 99, .14);
+}
+
+.vcx-cw-bubble-user {
+  align-self: flex-end;
+  background: rgba(23, 58, 99, .06);
+  border: 1px solid rgba(23, 58, 99, .10);
+}
+
+.vcx-cw-bubble-meta {
+  display: block;
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  margin-bottom: 4px;
+}
+
+/* ── Mode Badge ───────────────────────────────────────────────────── */
+
+.vcx-cw-mode-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.vcx-cw-mode-legal {
+  background: rgba(23, 58, 99, .10);
+  color: var(--vcx-brand-primary, #173A63);
+}
+
+.vcx-cw-mode-routing {
+  background: rgba(184, 153, 99, .14);
+  color: #7A6430;
+}
+
+.vcx-cw-mode-escalate {
+  background: rgba(139, 67, 72, .10);
+  color: #8B4348;
+}
+
+/* ── Boundary / Escalation Message ────────────────────────────────── */
+
+.vcx-cw-bubble-boundary {
+  background: rgba(139, 67, 72, .04);
+  border-color: rgba(139, 67, 72, .14);
+}
+
+/* ── Escalation Links ─────────────────────────────────────────────── */
+
+.vcx-cw-escalation-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.vcx-cw-escalation-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(23, 58, 99, .10);
+  background: rgba(23, 58, 99, .02);
+  text-decoration: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.vcx-cw-escalation-link:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .05);
+}
+
+.vcx-cw-escalation-label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--vcx-brand-primary, #173A63);
+}
+
+.vcx-cw-escalation-desc {
+  display: block;
+  font-size: .68rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  margin-top: 1px;
+}
+
+/* ── Suggestion Chips ─────────────────────────────────────────────── */
+
+.vcx-cw-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.vcx-cw-suggestion {
+  appearance: none;
+  border: 1px solid rgba(15, 27, 45, .10);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  color: var(--vcx-ink-body, #243548);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: .72rem;
+  font-family: inherit;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.vcx-cw-suggestion:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .04);
+}
+
+/* ── Sources / Next Step ──────────────────────────────────────────── */
+
+.vcx-cw-sources {
+  margin-top: 6px;
+  font-size: .68rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+/* ── File Pill ────────────────────────────────────────────────────── */
+
+.vcx-cw-file-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(23, 58, 99, .04);
+  border: 1px solid rgba(23, 58, 99, .10);
+  font-size: .72rem;
+  color: var(--vcx-ink-body, #243548);
+  margin-top: 4px;
+}
+
+.vcx-cw-file-pill svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--vcx-ink-muted, #5E6C7B);
+  flex-shrink: 0;
+}
+
+/* ── Phase 7B: Image Preview Thumbnail ────────────────────────────── */
+
+.vcx-cw-img-preview-wrap {
+  margin-top: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 200px;
+  border: 1px solid rgba(15, 27, 45, .10);
+}
+
+.vcx-cw-img-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ── Phase 7B: File Category Badge ───────────────────────────────── */
+
+.vcx-cw-file-category {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.vcx-cw-cat-document {
+  background: rgba(23, 58, 99, .08);
+  color: var(--vcx-brand-primary, #173A63);
+}
+
+.vcx-cw-cat-image {
+  background: rgba(74, 222, 128, .12);
+  color: #1A6B3C;
+}
+
+/* ── Typing Indicator ─────────────────────────────────────────────── */
+
+.vcx-cw-typing {
+  align-self: flex-start;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(184, 153, 99, .08);
+  border: 1px solid rgba(184, 153, 99, .14);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.vcx-cw-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vcx-ink-muted, #5E6C7B);
+  animation: vcxCwPulse 1.2s ease-in-out infinite;
+}
+
+.vcx-cw-typing-dot:nth-child(2) { animation-delay: .2s; }
+.vcx-cw-typing-dot:nth-child(3) { animation-delay: .4s; }
+
+@keyframes vcxCwPulse {
+  0%, 60%, 100% { opacity: .3; transform: scale(.85); }
+  30%           { opacity: 1;  transform: scale(1); }
+}
+
+/* ── Input Bar ────────────────────────────────────────────────────── */
+
+.vcx-cw-input-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(15, 27, 45, .08);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  flex-shrink: 0;
+}
+
+.vcx-cw-attach-group {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.vcx-cw-btn-attach,
+.vcx-cw-btn-camera {
+  appearance: none;
+  background: none;
+  border: 1px solid rgba(15, 27, 45, .08);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.vcx-cw-btn-attach:hover,
+.vcx-cw-btn-camera:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-brand-primary, #173A63);
+}
+
+.vcx-cw-btn-attach svg,
+.vcx-cw-btn-camera svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.vcx-cw-input-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.vcx-cw-input {
+  width: 100%;
+  border: 1px solid rgba(15, 27, 45, .10);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: .84rem;
+  font-family: inherit;
+  color: var(--vcx-ink-body, #243548);
+  background: #fff;
+  resize: none;
+  line-height: 1.45;
+  max-height: 80px;
+  outline: none;
+  transition: border-color .15s ease;
+}
+
+.vcx-cw-input:focus {
+  border-color: var(--vcx-brand-primary, #173A63);
+  box-shadow: 0 0 0 2px rgba(23, 58, 99, .08);
+}
+
+.vcx-cw-input::placeholder {
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+.vcx-cw-btn-send {
+  appearance: none;
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .15s ease;
+}
+
+.vcx-cw-btn-send:hover {
+  background: #1E4A7A;
+}
+
+.vcx-cw-btn-send:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.vcx-cw-btn-send svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ── Upload Progress ──────────────────────────────────────────────── */
+
+.vcx-cw-upload-status {
+  padding: 6px 14px;
+  font-size: .72rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  border-top: 1px solid rgba(15, 27, 45, .06);
+  background: rgba(23, 58, 99, .02);
+  flex-shrink: 0;
+}
+
+/* ── Intake CTA (escalation → intake conversion) ─────────────────── */
+
+.vcx-cw-intake-cta {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: rgba(47, 107, 87, .05);
+  border: 1px solid rgba(47, 107, 87, .14);
+  border-radius: 8px;
+}
+
+.vcx-cw-intake-cta p {
+  margin: 0 0 8px;
+  font-size: .76rem;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.vcx-cw-intake-btn {
+  appearance: none;
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--vcx-brand-primary, #173A63);
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  border-radius: 6px;
+  font-size: .76rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.vcx-cw-intake-btn:hover {
+  background: #1E4A7A;
+}
+
+.vcx-cw-intake-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* ── Hidden inputs for file/camera ────────────────────────────────── */
+
+.vcx-cw-file-input {
+  display: none !important;
+}
+
+/* ── Responsive: Mobile ───────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .vcx-cw-launcher {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .vcx-cw-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    border-radius: 16px 16px 0 0;
+    max-height: none;
+  }
+
+  .vcx-cw-panel.vcx-cw-visible {
+    animation: vcxCwSlideUpMobile .25s ease;
+  }
+
+  @keyframes vcxCwSlideUpMobile {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .vcx-cw-input {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}
+
+@media (max-width: 380px) {
+  .vcx-cw-panel {
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+/* ── Suppress widget when full legal-assistant page is active ─────── */
+
+body[data-vcx-page="legal-assistant"] .vcx-cw-launcher,
+body[data-vcx-page="legal-assistant"] .vcx-cw-panel {
+  display: none !important;
+}
+
+/* ── Suppress floating-contact-dock if present when widget active ── */
+
+.vcx-cw-active .floating-contact-dock {
+  display: none;
+}

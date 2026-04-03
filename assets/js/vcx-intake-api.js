@@ -154,6 +154,63 @@
     return d.innerHTML;
   }
 
+  // ── Phase 6A: Chat-to-Intake Prefill ──────────────────────────────
+
+  function prefillFromChat() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('vcx_from') !== 'chat') return;
+
+    var fieldMap = {
+      'vcx_name':    '[name="full_name"]',
+      'vcx_email':   '[name="email"]',
+      'vcx_phone':   '[name="phone"]',
+      'vcx_state':   '[name="state"]',
+      'vcx_service': '[name="service_type"]',
+      'vcx_urgency': '[name="urgency"]',
+      'vcx_summary': '[name="message"]',
+    };
+
+    var filled = 0;
+    for (var param in fieldMap) {
+      var value = params.get(param);
+      if (!value) continue;
+
+      var el = document.querySelector(fieldMap[param]);
+      if (!el) continue;
+
+      if (el.tagName === 'SELECT') {
+        for (var i = 0; i < el.options.length; i++) {
+          if (el.options[i].value === value || el.options[i].textContent.trim() === value) {
+            el.selectedIndex = i;
+            filled++;
+            break;
+          }
+        }
+      } else {
+        el.value = value;
+        filled++;
+      }
+    }
+
+    // Show prefill notice above the form
+    if (filled > 0) {
+      var form = document.getElementById('intakeForm');
+      if (form) {
+        var notice = document.createElement('div');
+        notice.style.cssText =
+          'margin-bottom:16px;padding:14px 18px;background:rgba(47,107,87,.07);' +
+          'border:1px solid rgba(47,107,87,.2);border-radius:10px;font-size:.85rem;' +
+          'color:#243548;line-height:1.5;';
+        notice.innerHTML =
+          '<strong>Pre-filled from your chat session.</strong> ' +
+          'Review and edit before submitting.';
+        form.insertBefore(notice, form.firstChild);
+      }
+    }
+  }
+
+  prefillFromChat();
+
   // Expose for site.js integration
   window.VCX_IntakeAPI = {
     submit: submitIntake,

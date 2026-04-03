@@ -1,5 +1,425 @@
 # VCX Changelog
 
+## [Phase 7 QA Review] - 2026-04-03
+
+### Review Scope
+- Shell drift check: PASS (all frozen files untouched, no Phase 7 markers)
+- Homepage/nav/header/footer check: PASS (index.html: only 1-line script tag change)
+- Site-wide launcher presence: PASS (39/39 HTML files, hidden on legal-assistant)
+- Conservative styling: PASS (brand colors, subtle shadow, minimal animation)
+- File upload: PASS (client + server validation, storage, acknowledgment)
+- Image upload: PASS (thumbnail preview, category badge, honest fallback)
+- Mobile camera capture: PASS (accept="image/*" capture="environment")
+- Unsupported analysis: PASS (no fake analysis, asks user to describe)
+- Routing: PASS (intake, contract review, phone fallback all verified)
+- Python compile: 34/34 clean
+- Internal links: 1449 checked, 0 broken
+
+### Files Changed (QA)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `docs/VCX_PHASE7_QA.md` | Created |
+| 2 | `docs/VCX_CHANGELOG.md` | Updated |
+
+---
+
+## [Phase 7B -- Chat Attachment and Image Handling] - 2026-04-03
+
+### Attachment Classification
+- Files classified as "document" or "image" by extension/MIME type
+- Human-readable type labels (e.g., "PDF document", "JPEG image")
+- Category badge displayed on file pill in chat
+
+### Image Upload Support
+- Image thumbnail preview rendered inline in chat bubble
+- Camera capture on mobile via `capture="environment"` attribute (wired in 7A, enhanced in 7B)
+- Honest acknowledgment: "I cannot analyze images directly. Please describe what it shows."
+
+### Document Upload Support
+- Document icon with category badge in chat bubble
+- Honest acknowledgment: "I cannot read document contents in chat. Consider Contract Review."
+- Links to Contract Review service for detailed analysis
+
+### Enhanced Validation
+- Specific error messages: no extension, unsupported type, empty file, too large
+- Client-side validation runs before upload for immediate feedback
+- Server error details (400/413) shown to user
+
+### Backend Changes
+- New service: `chat_attachments.py` (classify, list, summarize, acknowledge)
+- New endpoint: `GET /api/legal-chat/attachments/{session_id}` (list session files)
+- Upload response enriched with `category`, `type_label`, `acknowledgment`
+- Convert-to-intake now includes attachment summary in `doc_hint`
+
+### Files Changed
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/services/chat_attachments.py` | Created (attachment service) |
+| 2 | `vcx-api/app/models/chat.py` | Enhanced ChatUploadResponse; added ChatAttachment, ChatAttachmentsResponse |
+| 3 | `vcx-api/app/routers/chat.py` | Enhanced upload; added attachments endpoint; wired into convert-to-intake |
+| 4 | `assets/js/vcx-chat-launcher.js` | Image preview, category badges, enhanced validation |
+| 5 | `assets/css/vcx-chat-launcher.css` | Image thumbnail and category badge styles |
+| 6 | `docs/VCX_CHAT_ATTACHMENTS.md` | Created (architecture doc) |
+| 7 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Frozen Files — NOT MODIFIED
+styles.css, ui-shell.css, site.js, ui-shell.js, premium-fixes.js, premium-fixes.css
+
+---
+
+## [Phase 7A -- Floating Chat Launcher] - 2026-04-03
+
+### Site-Wide Chat Widget
+- Circular FAB button (bottom-right, z-index 98) on all 39 site pages
+- Conservative drawer panel (380px desktop, bottom-sheet mobile, z-index 99)
+- Reuses existing legal-assistant backend: message, escalate, convert-to-intake
+- Self-contained: `vcx-chat-launcher.js` (~290 lines) + `vcx-chat-launcher.css` (~350 lines)
+- All CSS rules scoped under `.vcx-cw-*` namespace
+- Widget hidden on `/app/legal-assistant/` (full chat already present)
+
+### Chat Capabilities
+- Text conversation with typing indicator
+- File upload (25MB, same allowlist as intake: PDF, DOC, DOCX, TXT, images, etc.)
+- Camera capture on mobile via `capture="environment"` attribute
+- Escalation CTA with convert-to-intake flow (prefilled redirect)
+- Session persistence in sessionStorage (survives same-tab navigation)
+
+### New Backend Endpoint
+- `POST /api/legal-chat/upload` (10/min) for chat-context file uploads
+- Files stored in `uploads/chat/{session_id}/` with UUID prefix
+- Same validation as intake uploads (upload_validator.py)
+
+### Files Changed
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `assets/js/vcx-chat-launcher.js` | Created (widget JS) |
+| 2 | `assets/css/vcx-chat-launcher.css` | Created (widget CSS) |
+| 3 | 39 HTML files | +1 line each (script tag before `</body>`) |
+| 4 | `vcx-api/app/routers/chat.py` | Added upload endpoint (+45 lines) |
+| 5 | `vcx-api/app/models/chat.py` | Added ChatUploadResponse (+8 lines) |
+| 6 | `docs/VCX_PHASE7_FLOATING_CHAT.md` | Created (architecture doc) |
+| 7 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Frozen Files — NOT MODIFIED
+styles.css, ui-shell.css, site.js, ui-shell.js, premium-fixes.js, premium-fixes.css
+
+---
+
+## [Phase 6 QA Review] - 2026-04-03
+
+### Review Scope
+- Shell drift check: PASS (all frozen files untouched)
+- Global file audit: site.js only (Phase 2, documented, minimal)
+- Chat-to-intake flow: PASS (endpoint chain, data flow, fallback)
+- Prefill coherence: PASS (6A populates, 6B enhances, notice deduped)
+- Matter-status handoff: PASS (magic link, triage, checklist, email)
+- Transcript privacy: PASS (HMAC auth, admin-only tokens, no raw transcript in URL)
+- Python compile: 13/13 clean
+- Internal links: 1449 checked, 0 broken
+
+### Regression Fixed
+- Duplicate prefill notice when arriving from chat (6A simple notice + 6B review panel both appeared). Fixed: 6B script now removes 6A notice after inserting richer panel.
+
+### Files Changed (QA)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `structured-case-intake.html` | Fixed duplicate notice (4 lines added to 6B script) |
+| 2 | `docs/VCX_PHASE6_QA.md` | Created |
+| 3 | `docs/VCX_CHANGELOG.md` | Updated |
+
+---
+
+## [Phase 6B -- Prefill Quality and Handoff Clarity] - 2026-04-03
+
+### Smarter Field Inference
+- Urgency inferred from timeline keywords: "deadline tomorrow" -> "Same day / urgent"; "filing deadline" -> "48 hours"
+- State extracted from message text when session state is empty (all 50 US states + DC)
+- Timeline phrases extracted and displayed: deadlines, hearing dates, expiration notices
+- Full documents-needed list pulled from Phase 5B structured blocks (not just a single hint)
+- Case type passed as separate URL param for frontend display
+- Summary restructured with clear sections: Topic, Jurisdiction, Timeline, Key Facts
+
+### Enhanced Chat-Side CTA
+- "Continue to Structured Intake" button now shows detected topic + jurisdiction as context tags
+- 3-step preview (Review -> Upload -> Submit) displayed before the button
+- Clearer call-to-action copy
+
+### Structured Review Panel on Intake Form
+- Rich review panel replaces simple "Pre-filled" notice when arriving from chat
+- Detected context shown as pill tags (topic, case type, state, urgency)
+- Timeline notice displayed when a deadline was mentioned
+- Full documents-to-prepare checklist from structured blocks
+- "What happens next" 4-step guide (review, upload, submit, reviewer follow-up)
+- Prefilled form fields highlighted with subtle green left border
+
+### Files Changed (Phase 6B)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/services/intake_handoff.py` | Created (urgency, timeline, state, documents, enhance_handoff) |
+| 2 | `vcx-api/app/routers/chat.py` | Enhanced (calls enhance_handoff after build_intake_summary) |
+| 3 | `assets/js/vcx-legal-assistant.js` | Enhanced (CTA context tags, 3-step preview) |
+| 4 | `assets/css/vcx-legal-assistant.css` | Added (detected-tag and step-indicator styles) |
+| 5 | `structured-case-intake.html` | Added (inline script for review panel + field highlighting) |
+| 6 | `docs/VCX_PHASE6B_PREFILL_QUALITY.md` | Created |
+| 7 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Files NOT modified
+- Homepage, global CSS/JS, shell files (visual freeze preserved)
+- models/chat.py, policy.py, intakes.py (unchanged)
+- schema.sql (no schema changes)
+- All acquisition pages, header/footer/nav preserved
+
+### Verification
+- 13/13 Python files compile clean
+- No global CSS/JS modified
+- No schema changes
+- No visual shell drift
+
+---
+
+## [Phase 6A -- Chat-to-Matter Handoff] - 2026-04-03
+
+### Chat-to-Intake Pipeline
+- New endpoint: POST /api/legal-chat/convert-to-intake (10/min rate limit)
+- Reads user messages from chat session, builds structured summary (user words only, max 500 chars)
+- Maps chat topic to intake service_type (contracts/immigration -> Structured Case Intake & Packet Build; auto/florida/other -> Services for Individuals)
+- Returns prefill URL for redirect to structured-case-intake form
+- Document hint detection: suggests relevant uploads based on keywords mentioned in chat
+
+### Frontend: Chat Side
+- "Continue to Structured Intake" CTA appears after escalation form submission
+- Calls convert-to-intake API, redirects to prefilled intake form
+- Fallback: if API unreachable, redirects with client-side data only
+
+### Frontend: Intake Side
+- Intake form reads vcx_* URL params on page load (prefillFromChat)
+- Populates: full_name, email, phone, state, service_type, urgency, message
+- Shows notice: "Pre-filled from your chat session. Review and edit before submitting."
+- User reviews and submits through existing POST /api/intakes pipeline (unchanged)
+
+### Privacy Preserved
+- Summary contains only user-authored messages (no assistant responses, no events)
+- No full transcript in URL -- only structured summary (500 char max)
+- User can edit all prefilled fields before submitting
+- Session ID reference allows admin transcript retrieval via existing secured endpoint
+
+### Models Added
+- IntakeHandoffRequest (session_id, name, email, phone, urgency)
+- IntakeHandoffResponse (session_id, name, email, phone, topic, service_type, state, urgency, summary, doc_hint, recommended_next_step, prefill_url)
+
+### Files Changed (Phase 6A)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/models/chat.py` | Added IntakeHandoffRequest, IntakeHandoffResponse |
+| 2 | `vcx-api/app/legal_chat/policy.py` | Added build_intake_summary(), TOPIC_TO_SERVICE, doc hint logic |
+| 3 | `vcx-api/app/routers/chat.py` | Added POST /api/legal-chat/convert-to-intake endpoint |
+| 4 | `assets/js/vcx-legal-assistant.js` | Added intake CTA + convert API call + fallback redirect |
+| 5 | `assets/js/vcx-intake-api.js` | Added prefillFromChat() URL param prefill |
+| 6 | `assets/css/vcx-legal-assistant.css` | Added scoped .la-intake-cta button styles |
+| 7 | `docs/VCX_PHASE6_CHAT_TO_MATTER.md` | Created |
+| 8 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Files NOT modified
+- Homepage, global CSS/JS, shell files (visual freeze preserved)
+- structured-case-intake.html (HTML unchanged; JS reads params)
+- vcx-api/app/schema.sql (no schema changes)
+- vcx-api/app/routers/intakes.py (existing pipeline unchanged)
+- All acquisition pages, header/footer/nav preserved
+
+### Verification
+- All Python files compile clean
+- No global CSS/JS modified
+- No schema changes
+- No intake pipeline duplication
+
+---
+
+## [Phase 5B — Legal Quality Upgrade] - 2026-04-03
+
+### Structured Legal Responses
+- Every legal-mode answer now includes three sections: "WHAT MATTERS", "WHAT TO CHECK", "WHAT DOCUMENTS ARE NEEDED"
+- Content is static, curated per topic and case type -- not generated
+- Knowledge base results appear above structured sections when available
+- Escalation section with context-aware "when to use" guidance
+
+### Case-Type Detection
+- Contracts: employment, service, NDA, lease, purchase (5 sub-types)
+- Immigration: family, employment, adjustment, EAD, RFE (5 sub-types)
+- Auto deals: new purchase, used purchase, lease, financing, trade-in (5 sub-types)
+- Florida sources: traffic, toll, court, DMV, business (5 sub-types)
+- Each sub-type has its own what-matters / what-to-check / documents-needed block
+
+### Fact-Gathering Sequences
+- Ordered questions per topic: jurisdiction -> case type -> stage -> timeline -> concern -> counterparty
+- Each question includes a "Why:" explanation for the user
+- Triggered when jurisdiction is missing (instead of a single "what state?" prompt)
+- 5-6 questions per topic, covering all fact-gathering needs
+
+### Stronger Escalation
+- Each topic has context-aware escalation paths with "when to use" notes
+- Contracts: Contract Scanner, Structured Intake, Contract Review Desk, Client Portal
+- Immigration: Structured Intake, Packet Room, Client Portal
+- Auto deals: Structured Intake, Client Portal
+- Florida sources: Structured Intake, Client Portal
+- Broad legal topics now ask 4 qualifying questions before routing to intake
+
+### Safety Preserved
+- Disclaimer appended to every legal response (unchanged)
+- No final legal conclusions -- language uses "flag for review", "areas to check"
+- No attorney simulation -- no "you should" statements
+- High-risk escalation still blocks criminal, emergencies, representation (unchanged)
+- All responses include at least one VCX product link
+
+### Files Changed (Phase 5B)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/legal_chat/knowledge.py` | Enhanced (case-type detection, structured blocks, fact-gathering, escalation paths) |
+| 2 | `vcx-api/app/legal_chat/policy.py` | Enhanced (structured formatting, fact-gathering handler, context-aware escalation) |
+| 3 | `docs/VCX_PHASE5_LEGAL_MODE.md` | Created |
+| 4 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Files NOT modified
+- `vcx-api/app/routers/chat.py` (unchanged)
+- `vcx-api/app/models/chat.py` (unchanged)
+- `assets/js/vcx-legal-assistant.js` (unchanged)
+- `assets/css/vcx-legal-assistant.css` (unchanged)
+- `app/legal-assistant/index.html` (unchanged)
+- All global CSS/JS (visual freeze preserved)
+- schema.sql, knowledge base markdown files
+
+### Verification
+- 10/10 case-type detection tests
+- 4/4 structured block completeness checks
+- 4/4 fact-gathering sequence checks
+- 8/8 policy engine integration tests
+- All Python files compile clean
+
+---
+
+## [Phase 5A — Broader Assistant (Controlled)] - 2026-04-03
+
+### Three-Mode Architecture
+- **general_chat** — open conversation for any topic, with legal-drift detection
+- **legal_information** — structured legal info: issue spotting, clarifying questions, checklists, jurisdiction prompting, NEVER final legal advice
+- **vcx_routing** — directs users to specific VCX products and services
+- **high_risk** — immediate escalation for criminal, emergencies, representation requests
+
+### Routing Logic
+- High-risk detection (highest priority): criminal, arrest, representation, emergencies
+- VCX routing: mentions of VitaCoreX products, intake, portal, sign-in, services
+- Legal information: core 4 topics (keyword score >= 2) + broad legal (2+ legal keywords from 70+ keyword set)
+- General chat: default for everything else
+
+### Legal Mode Enhancements (legal_information)
+- Issue spotting templates per topic — identifies key areas to flag for review
+- Clarifying questions asked before providing information (4 per topic)
+- Preparation checklists appended to legal responses (5-6 items per topic)
+- Broad legal topics (outside core 4) get orientation + Structured Intake routing
+- State/jurisdiction gate preserved from Phase 4C
+- Disclaimer appended to every legal response
+- Knowledge retrieval from markdown files preserved
+
+### General Chat Mode (general_chat)
+- Greeting detection (12 greeting patterns)
+- Open conversation with legal-drift nudge (detects single legal keywords)
+- Suggestions always point to legal mode and VCX services
+- No legal opinions in general chat mode
+
+### VCX Routing Mode (vcx_routing)
+- Keyword-based product matching (contracts, recovery, portal, intake, sign-in)
+- 7 VCX service routes with labels, URLs, and descriptions
+- Specific product matching when possible, full service menu as fallback
+
+### High-Risk Escalation
+- Narrowed from Phase 4C `detect_out_of_scope` (69 keywords) to `detect_high_risk`
+- Only blocks truly dangerous requests: criminal, emergencies, representation
+- General legal topics (bankruptcy, employment law, etc.) now routed to legal_information mode instead of blocking
+- Advice-seeking regex patterns preserved (5 patterns)
+
+### Frontend Changes (no UI redesign)
+- Mode badge on assistant messages: Legal Info (blue), Service Guide (gold), Escalation (red)
+- Mode-specific left-border tint on message bubbles
+- Broader initial greeting lists all 3 capabilities
+- 6 suggestion chips in greeting (was 4)
+- `chatState.mode` tracked for session awareness
+
+### Model Changes
+- `ChatResponse.mode: str | None` — new field: general_chat | legal_information | vcx_routing | high_risk
+
+### Files Changed (Phase 5A)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/legal_chat/knowledge.py` | Rewritten (3-mode detection, broad legal keywords, VCX routing keywords, service routes) |
+| 2 | `vcx-api/app/legal_chat/policy.py` | Rewritten (mode handlers, issue spotting, checklists, general chat, broad legal) |
+| 3 | `vcx-api/app/models/chat.py` | Modified (+mode field) |
+| 4 | `assets/js/vcx-legal-assistant.js` | Modified (mode badges, broader greeting, mode tracking) |
+| 5 | `assets/css/vcx-legal-assistant.css` | Modified (+mode badge styles, +mode border tints) |
+| 6 | `docs/VCX_CHAT_POLICY.md` | Updated (Phase 5A architecture section) |
+| 7 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Files NOT modified
+- `app/legal-assistant/index.html` (HTML unchanged — no UI redesign)
+- `vcx-api/app/routers/chat.py` (unchanged — transcript security fix preserved)
+- All global CSS/JS (visual freeze preserved)
+- `index.html` (homepage unchanged)
+- schema.sql (no schema changes)
+- Knowledge base markdown files (unchanged)
+
+### Verification
+- 16/16 mode routing tests passed
+- 6/6 policy engine integration tests passed
+- 4 Python files compile clean
+
+---
+
+## [Phase 4 Fix — Transcript Security] - 2026-04-02
+
+### Problem
+- `GET /api/legal-chat/transcript/{session_id}` was publicly accessible with UUID only
+- Flagged as Open Risk #4 in Phase 4 Review
+
+### Fix
+- Transcript endpoint now returns **403** without valid credentials
+- Two auth methods accepted:
+  1. `X-Admin-Token` header (same env var as `/api/review/*`)
+  2. Signed HMAC token via `?token=…` query parameter (time-limited, session-scoped)
+- Added `POST /api/legal-chat/transcript-token/{session_id}` — admin-only endpoint to generate time-limited tokens (1-1440 min, default 60)
+- HMAC-SHA256 signature with constant-time comparison (`hmac.compare_digest`)
+- Token payload: `base64url(session_id:expires_unix).hex_signature`
+
+### Env Vars Added
+- `VCX_TRANSCRIPT_SECRET` — HMAC signing key (falls back to `VCX_ADMIN_TOKEN`)
+- `VCX_TRANSCRIPT_TOKEN_TTL` — default token lifetime in minutes (default `60`)
+
+### Files Changed (Phase 4 Fix)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | `vcx-api/app/services/transcript_auth.py` | Created (HMAC token gen + verify) |
+| 2 | `vcx-api/app/routers/chat.py` | Modified (auth gate + token endpoint) |
+| 3 | `docs/VCX_CHAT_POLICY.md` | Created (transcript security doc) |
+| 4 | `docs/VCX_CHANGELOG.md` | Updated |
+
+### Files NOT modified
+- All frontend files (no UI changes)
+- schema.sql (no schema changes)
+- All other routers, services, models
+- Global CSS/JS (visual freeze preserved)
+
+### Verification
+- 6 unit tests: valid round-trip, tampered signature, expired token, garbage input, empty input, None input — all pass
+- Both Python files compile clean
+
+---
+
 ## [Phase 4 — Regression & Visual-Freeze Review] - 2026-04-02
 
 ### Review Scope

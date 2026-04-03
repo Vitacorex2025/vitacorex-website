@@ -292,4 +292,116 @@
   }
 })();
 </script>
-</body></html>
+<!-- Phase 6B: Enhanced chat-to-intake review panel -->
+<script>
+(function(){
+  'use strict';
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('vcx_from') !== 'chat') return;
+
+  var caseType   = params.get('vcx_case_type') || '';
+  var timeline   = params.get('vcx_timeline') || '';
+  var docHint    = params.get('vcx_doc_hint') || '';
+  var docsNeeded = params.get('vcx_docs_needed') || '';
+  var topic      = params.get('vcx_topic') || '';
+  var state      = params.get('vcx_state') || '';
+  var urgency    = params.get('vcx_urgency') || '';
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = s || '';
+    return d.innerHTML;
+  }
+
+  /* ── Build structured review panel ─────────────────────────── */
+  var html = '';
+
+  /* Detected context */
+  var tags = [];
+  var topicLabels = {
+    contracts: 'Contract Review', immigration_packets: 'Immigration Packet',
+    auto_deal_review: 'Auto Deal Review', florida_official_sources: 'Florida Portal'
+  };
+  if (topic) tags.push(topicLabels[topic] || topic);
+  if (caseType) tags.push(caseType);
+  if (state) tags.push(state);
+  if (urgency && urgency !== 'Standard') tags.push(urgency);
+
+  if (tags.length) {
+    html += '<div style="margin-bottom:10px;">';
+    html += '<span style="font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--vcx-ink-muted,#5E6C7B);">Detected from chat</span><br>';
+    tags.forEach(function(t) {
+      html += '<span style="display:inline-block;margin:4px 6px 4px 0;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600;background:rgba(23,58,99,.08);color:var(--vcx-brand-primary,#173A63);">' + esc(t) + '</span>';
+    });
+    html += '</div>';
+  }
+
+  /* Timeline notice */
+  if (timeline) {
+    html += '<p style="font-size:.83rem;color:#8F6B3E;margin:0 0 8px;"><strong>Timeline:</strong> ' + esc(timeline) + '</p>';
+  }
+
+  /* Documents to prepare */
+  var docsList = docsNeeded ? docsNeeded.split('|').filter(Boolean) : [];
+  if (docsList.length) {
+    html += '<div style="margin:10px 0;">';
+    html += '<span style="font-size:.78rem;font-weight:600;color:var(--vcx-ink-body,#243548);">Documents to prepare:</span>';
+    html += '<ul style="margin:4px 0 0 16px;padding:0;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.6;">';
+    docsList.forEach(function(d) { html += '<li>' + esc(d) + '</li>'; });
+    html += '</ul></div>';
+  } else if (docHint) {
+    html += '<p style="font-size:.83rem;color:var(--vcx-ink-muted,#5E6C7B);margin:6px 0;">' + esc(docHint) + '</p>';
+  }
+
+  /* What happens next */
+  html += '<div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(15,27,45,.06);">';
+  html += '<span style="font-size:.78rem;font-weight:600;color:var(--vcx-ink-body,#243548);">What happens next:</span>';
+  html += '<ol style="margin:4px 0 0 16px;padding:0;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.7;">';
+  html += '<li>Review and edit the prefilled fields below</li>';
+  html += '<li>Attach any relevant documents (contracts, forms, notices)</li>';
+  html += '<li>Submit &#8212; you will receive a <strong>matter ID</strong> and a <strong>secure status page</strong> link</li>';
+  html += '<li>A reviewer will follow up within the response window</li>';
+  html += '</ol></div>';
+
+  /* Wrap in notice container */
+  var notice = document.createElement('div');
+  notice.style.cssText =
+    'margin-bottom:18px;padding:16px 20px;background:rgba(47,107,87,.06);' +
+    'border:1px solid rgba(47,107,87,.18);border-radius:10px;line-height:1.5;';
+  notice.innerHTML =
+    '<p style="margin:0 0 8px;font-size:.88rem;font-weight:600;color:var(--vcx-ink-body,#243548);">' +
+    'Pre-filled from your chat session</p>' + html;
+
+  /* Insert before the form (replaces 6A simple notice) */
+  var form = document.getElementById('intakeForm');
+  if (form && form.parentNode) {
+    form.parentNode.insertBefore(notice, form);
+    /* Remove the 6A simple notice that was inserted inside the form
+       by vcx-intake-api.js prefillFromChat() — avoids double notice */
+    var fc = form.firstElementChild;
+    if (fc && fc.tagName === 'DIV' && fc.textContent.indexOf('Pre-filled') !== -1) {
+      fc.remove();
+    }
+  }
+
+  /* ── Highlight prefilled fields with subtle left-border ──── */
+  var fieldMap = {
+    'vcx_name':    '[name="full_name"]',
+    'vcx_email':   '[name="email"]',
+    'vcx_phone':   '[name="phone"]',
+    'vcx_state':   '[name="state"]',
+    'vcx_service': '[name="service_type"]',
+    'vcx_urgency': '[name="urgency"]',
+    'vcx_summary': '[name="message"]',
+  };
+  for (var param in fieldMap) {
+    if (!params.get(param)) continue;
+    var el = document.querySelector(fieldMap[param]);
+    if (el) {
+      el.style.borderLeftWidth = '3px';
+      el.style.borderLeftColor = 'rgba(47,107,87,.5)';
+    }
+  }
+})();
+</script>
+<script src="/assets/js/vcx-chat-launcher.js"></script></body></html>
