@@ -2,11 +2,14 @@
    VCX Packet Room  --  vcx-packet-room.js
    Auth-gated client portal: matters, timeline, docs, comments.
    Phase 3: Wired to /api/portal endpoints with session auth.
+   Phase 4A: Added sessionStorage persistence, better error handling.
    ========================================================== */
 (function () {
   'use strict';
 
   var API_BASE = window.VCX_API_BASE || '';
+  var STORAGE_KEY = 'vcx_portal_token';
+  var STORAGE_CONTACT_KEY = 'vcx_portal_contact';
 
   // --- Internal state --------------------------------------
   var authToken = null;
@@ -24,6 +27,38 @@
   var documents    = document.getElementById('vcxMatterDocuments');
   var comments     = document.getElementById('vcxMatterComments');
   var deliverables = document.getElementById('vcxMatterDeliverables');
+
+  // --- Session persistence ---------------------------------
+  function saveSession() {
+    try {
+      if (authToken) sessionStorage.setItem(STORAGE_KEY, authToken);
+      if (contactInfo) sessionStorage.setItem(STORAGE_CONTACT_KEY, JSON.stringify(contactInfo));
+    } catch (e) { /* sessionStorage unavailable */ }
+  }
+
+  function restoreSession() {
+    try {
+      var saved = sessionStorage.getItem(STORAGE_KEY);
+      var savedContact = sessionStorage.getItem(STORAGE_CONTACT_KEY);
+      if (saved) {
+        authToken = saved;
+        if (savedContact) {
+          try { contactInfo = JSON.parse(savedContact); } catch (e) {}
+        }
+        return true;
+      }
+    } catch (e) { /* sessionStorage unavailable */ }
+    return false;
+  }
+
+  function clearSession() {
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(STORAGE_CONTACT_KEY);
+    } catch (e) {}
+    authToken = null;
+    contactInfo = null;
+  }
 
   // --- Auth flow -------------------------------------------
   if (accessBtn) {
@@ -60,24 +95,35 @@
     if (token) {
       if (tokenInput) tokenInput.value = token;
       verifyToken(token);
+      return true;
     }
+    return false;
   }
 
   function verifyToken(token) {
     setLoading(true);
+    hideAuthMessages();
 
     fetch(API_BASE + '/api/portal/magic-link/' + encodeURIComponent(token))
       .then(function (res) {
-        if (!res.ok) throw new Error('Invalid or expired access link');
+        if (res.status === 404) throw makeAuthError('Token not found. Please check your access link.');
+        if (res.status === 429) throw makeAuthError('Too many attempts. Please wait a moment and try again.');
+        if (!res.ok) throw makeAuthError('Invalid or expired access link.');
         return res.json();
       })
       .then(function (data) {
         authToken = data.token || token;
         contactInfo = data.contact || null;
+        saveSession();
         onAuthenticated(data.matters || []);
       })
       .catch(function (err) {
-        showAuthError(err.message);
+        if (err.name === 'TypeError') {
+          // Network error (fetch failed entirely)
+          showAuthError('Cannot reach server. Please check your connection and try again.');
+        } else {
+          showAuthError(err.userMessage || err.message);
+        }
       })
       .finally(function () {
         setLoading(false);
@@ -86,6 +132,7 @@
 
   function lookupByEmail(email) {
     setLoading(true);
+    hideAuthMessages();
 
     fetch(API_BASE + '/api/portal/lookup-email', {
       method: 'POST',
@@ -93,7 +140,8 @@
       body: JSON.stringify({ email: email })
     })
       .then(function (res) {
-        if (!res.ok) throw new Error('Lookup failed');
+        if (res.status === 429) throw makeAuthError('Too many attempts. Please wait a moment and try again.');
+        if (!res.ok) throw makeAuthError('Lookup failed. Please try again.');
         return res.json();
       })
       .then(function (data) {
@@ -104,11 +152,21 @@
         }
       })
       .catch(function (err) {
-        showAuthError(err.message);
+        if (err.name === 'TypeError') {
+          showAuthError('Cannot reach server. Please check your connection and try again.');
+        } else {
+          showAuthError(err.userMessage || err.message);
+        }
       })
       .finally(function () {
         setLoading(false);
       });
+  }
+
+  function makeAuthError(msg) {
+    var err = new Error(msg);
+    err.userMessage = msg;
+    return err;
   }
 
   function onAuthenticated(matters) {
@@ -156,6 +214,13 @@
     el.style.display = 'block';
   }
 
+  function hideAuthMessages() {
+    var err = authGate && authGate.querySelector('.vcx-auth-error');
+    var msg = authGate && authGate.querySelector('.vcx-auth-message');
+    if (err) err.style.display = 'none';
+    if (msg) msg.style.display = 'none';
+  }
+
   function setLoading(loading) {
     if (accessBtn) {
       accessBtn.disabled = loading;
@@ -169,11 +234,18 @@
       headers: { 'Authorization': 'Bearer ' + authToken }
     })
       .then(function (res) {
+        if (res.status === 401) {
+          clearSession();
+          if (authGate) authGate.style.display = '';
+          if (dashboard) dashboard.style.display = 'none';
+          showAuthError('Your session has expired. Please enter your token or email to continue.');
+          return null;
+        }
         if (!res.ok) throw new Error('Failed to load matters');
         return res.json();
       })
       .then(function (data) {
-        renderMatterList(data.matters || []);
+        if (data) renderMatterList(data.matters || []);
       })
       .catch(function (err) {
         if (matterList) {
@@ -246,10 +318,18 @@
       headers: { 'Authorization': 'Bearer ' + authToken }
     })
       .then(function (res) {
+        if (res.status === 401) {
+          clearSession();
+          if (authGate) authGate.style.display = '';
+          if (dashboard) dashboard.style.display = 'none';
+          showAuthError('Your session has expired. Please request a new access link.');
+          return null;
+        }
         if (!res.ok) throw new Error('Failed to load matter packet');
         return res.json();
       })
       .then(function (data) {
+        if (!data) return;
         renderMatterOverview(data);
         renderTimeline(data.timeline || []);
         renderDocuments(data.documents || []);
@@ -409,11 +489,18 @@
       }
     )
       .then(function (res) {
+        if (res.status === 401) {
+          clearSession();
+          if (authGate) authGate.style.display = '';
+          if (dashboard) dashboard.style.display = 'none';
+          showAuthError('Your session has expired. Please request a new access link.');
+          return null;
+        }
         if (!res.ok) throw new Error('Failed to post comment');
         return res.json();
       })
       .then(function (data) {
-        if (data.comments) renderComments(data.comments);
+        if (data && data.comments) renderComments(data.comments);
       })
       .catch(function (err) {
         if (comments) {
@@ -456,7 +543,14 @@
 
   // --- Boot ------------------------------------------------
   function init() {
-    checkUrlToken();
+    // Phase 4A: Try URL token first, then sessionStorage restore
+    if (!checkUrlToken()) {
+      if (restoreSession()) {
+        // Have a saved session — try loading matters directly
+        onAuthenticated([]);
+        loadMatters();
+      }
+    }
   }
 
   if (document.readyState === 'loading') {

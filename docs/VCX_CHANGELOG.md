@@ -1,5 +1,273 @@
 # VCX Changelog
 
+## [Phase 4 — Regression & Visual-Freeze Review] - 2026-04-02
+
+### Review Scope
+- Full regression audit across Phase 4A, 4B, 4C
+- No new features added — review only
+
+### Results
+- **Homepage:** ZERO DIFF — `index.html` completely unchanged
+- **Global CSS:** ZERO DIFF — `styles.css`, `ui-shell.css`, `premium-fixes.css`
+- **Design System CSS:** ZERO DIFF — `vcx-tokens.css` through `vcx-utilities.css`
+- **Global JS:** ZERO DIFF — `ui-shell.js`, `premium-fixes.js`
+- **Internal Links:** 483 checked across 16 HTML files — zero broken
+- **Boundary Markers:** All tracked-file insertions wrapped in `<!-- VCX Phase N START/END -->`
+- **Page-Scoped CSS:** All new CSS uses `body[data-vcx-page]` scoping — no global leakage
+- **API Pattern:** `window.VCX_API_BASE || ''` present in all API-calling scripts
+- **Documented Deviations:** sign-in rewrite recorded in `GUARDRAIL_DEVIATIONS.md`
+- **Schema:** `schema.sql` unchanged across all Phase 4 sub-phases
+
+### Open Risks (from review)
+1. Transcript endpoint (`GET /api/legal-chat/transcript/{id}`) lacks auth — session UUIDs are unguessable but production should add auth
+2. Legal assistant 69 out-of-scope keywords may produce edge-case false positives
+3. Email service requires SMTP config — missing config = silent no-op (by design)
+
+### Files Created
+| # | File | Purpose |
+|---|------|---------|
+| 1 | `docs/VCX_PHASE4_REVIEW.md` | This review report |
+
+### Files Modified
+| # | File | Change |
+|---|------|--------|
+| 1 | `docs/VCX_CHANGELOG.md` | Added Phase 4 review section |
+
+---
+
+## [Phase 4C — Legal Assistant Hardening] - 2026-04-02
+
+### Tighter Topic Routing
+- Expanded `TOPIC_KEYWORDS` per topic with additional synonyms and variations (e.g., "signing", "breach", "green card", "visa", "buyer's order", "dmv")
+- Added topic validation gate in policy.py — rejects topics not in `ALLOWED_TOPICS`
+- Stronger "no topic detected" response with numbered list of exactly 4 supported areas
+- New status types: `out_of_scope`, `no_topic` (previously only `escalate`, `need_more_info`, `answered`)
+
+### Stronger Unsupported-Topic Handling
+- Expanded `OUT_OF_SCOPE_KEYWORDS` from 14 to 55+ keywords covering: criminal/emergency, family/domestic, housing, financial, immigration emergencies, litigation, medical/PI, estate/tax, employment litigation, general legal advice seeking
+- Added `_ADVICE_SEEKING_PATTERNS` — 6 regex patterns detecting phrases like "should I sue", "what are my legal rights", "represent me", "give me legal advice"
+- Out-of-scope responses now explicitly list what the assistant cannot help with and provide actionable product routing links
+
+### Better Escalation Linking
+- Created `TOPIC_PRODUCT_ROUTES` mapping in knowledge.py — maps each topic to specific VCX product pages with labels, URLs, and descriptions
+- Created `DEFAULT_PRODUCT_ROUTES` — fallback routes for out-of-scope/unmatched topics (Structured Intake, Private Consultation, Client Portal Sign-In)
+- New `get_product_routes(topic)` function returns the appropriate product links per topic
+- Every ChatResponse now includes `escalation_links[]` — clickable product routes rendered in the UI
+- Topic-specific routing: contracts → Contract Scanner + Structured Intake, immigration → Structured Intake, auto deal → Structured Intake, Florida sources → Structured Intake
+- Next-step text updated with specific product names and actions
+
+### Transcript/Event Logging
+- Added `_log_event()` in chat.py router — saves policy decisions to the messages table with role='event' and JSON content
+- Events logged: `answered`, `out_of_scope`, `no_topic`, `invalid_topic`, `no_knowledge_match`, `need_state`, `escalation_submitted`
+- Added `event_type` field to ChatResponse model for structured logging
+- Added GET /api/legal-chat/transcript/{session_id} endpoint — returns full session transcript including user messages, assistant responses, and policy events (rate-limited 30/min)
+
+### Frontend Improvements (vcx-legal-assistant.js + vcx-legal-assistant.css)
+- Escalation links rendered as styled cards with label + description (`.la-escalation-link`)
+- Boundary responses (out_of_scope, escalate, no_topic) get visual treatment (`.la-message-boundary` — red-tinted background)
+- Improved initial greeting: explicitly lists 4 supported topics with numbered descriptions, includes Structured Intake link for out-of-scope matters
+- Better error handling: 429 rate limit shows fallback link to Structured Intake, network error shows phone number + intake link
+- All CSS scoped to `body[data-vcx-page="legal-assistant"]` existing page scope
+
+### Model Updates
+- `ChatResponse.escalation_links: list[EscalationLink]` — new field with `EscalationLink(label, url, description)` model
+- `ChatResponse.event_type: str | None` — policy decision type for logging
+- `ChatResponse.status` expanded: `out_of_scope | no_topic | need_more_info | answered | escalate`
+
+### Files Changed (Phase 4C)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | vcx-api/app/legal_chat/knowledge.py | Enhanced (expanded keywords + product routes + advice patterns) |
+| 2 | vcx-api/app/legal_chat/policy.py | Enhanced (tighter routing + escalation links + event types) |
+| 3 | vcx-api/app/models/chat.py | Enhanced (EscalationLink model + event_type + escalation_links) |
+| 4 | vcx-api/app/routers/chat.py | Enhanced (event logging + transcript endpoint) |
+| 5 | assets/js/vcx-legal-assistant.js | Enhanced (escalation link rendering + boundary UX + improved greeting) |
+| 6 | assets/css/vcx-legal-assistant.css | Enhanced (escalation link styles + boundary message styles) |
+| 7 | docs/VCX_CHANGELOG.md | Updated |
+| 8 | docs/VCX_PHASE4C_QA.md | Created |
+
+### Files NOT modified
+- index.html (homepage)
+- app/legal-assistant/index.html (HTML structure unchanged)
+- Header/footer shell (ui-shell.css, ui-shell.js)
+- Global styles (styles.css, premium-fixes.css, premium-fixes.js)
+- Design system CSS (vcx-tokens through vcx-utilities)
+- site.js, vcx-i18n.js, shell-i18n.js
+- structured-case-intake.html
+- All Phase 4A/4B files
+- schema.sql (no schema changes)
+- vcx-api/knowledge/*.md (knowledge base content unchanged)
+- _references/ directory
+
+---
+
+## [Phase 4B — Contract Intelligence Server Wiring] - 2026-04-02
+
+### Server-Side Text Extraction
+- Added `pdfplumber>=0.11.0` and `python-docx>=1.1.0` to requirements.txt
+- Enhanced `vcx-api/app/services/contract_analyzer.py`:
+  - `_extract_pdf()`: pdfplumber-based text extraction with page-level concatenation
+  - `_extract_docx()`: python-docx paragraph extraction
+  - Safe fallback: ImportError or extraction failure returns None (graceful degradation)
+  - `extract_text_from_bytes()` now routes .pdf → pdfplumber, .docx → python-docx, .txt/.md → UTF-8 decode
+
+### Enhanced Contract Analysis (Phase 4B additions to contract_analyzer.py)
+- `detect_missing_protections(clauses, contract_type)`: identifies commonly expected clauses not found, per-contract-type expected clause maps (Employment, Service, NDA, Lease, Purchase, Other)
+- `generate_suggested_questions(clauses, missing_protections)`: context-specific questions for counsel based on found clauses and missing protections
+- `generate_issue_buckets(clauses, missing_protections)`: groups findings into priority buckets — Immediate Attention (high_risk + high-severity missing), Review Recommended (caution + medium-severity missing), Standard Provisions (neutral)
+
+### Enhanced API Response (contracts.py + contract.py models)
+- POST /api/contracts/analyze now accepts optional form fields: contract_type, concerns, negotiated, deadline (questionnaire context)
+- Response model extended with: extraction_method, word_count, missing_protections[], suggested_questions[], issue_buckets[], questionnaire{}, disclaimer
+- New Pydantic models: MissingProtection, SuggestedQuestion, IssueBucketItem, IssueBucket, QuestionnaireContext
+
+### Frontend API Bridge
+- Created `assets/js/vcx-contract-intelligence.js`: external script that overrides window.vcxScanContract to use POST /api/contracts/analyze
+  - Sends file + questionnaire via FormData
+  - Renders enriched server results: issue buckets, missing protections, suggested questions for counsel, extraction quality notice, escalation CTAs
+  - Falls back to original client-side analysis on API failure (TypeError/network error)
+  - Overrides window.vcxHandleFile to update file notices (PDF/DOCX now show success notices)
+  - Bridges server response to client-side analysis format for stronger clause suggestions compatibility
+  - Error differentiation: 429 (rate limited), 413 (file too large), 400 (validation), server errors
+
+### Contract Intelligence Page (additive modifications)
+- `app/contract-intelligence/index.html`:
+  - Added `window._vcxSetAnalysis` bridge setter in IIFE (2 lines, boundary-marked)
+  - Added `<script src="/assets/js/vcx-contract-intelligence.js">` before vcx-i18n.js (boundary-marked)
+  - Updated upload hint i18n text in EN/RU/ES to reflect server-side PDF/DOCX support
+  - Updated inline upload hint paragraph
+- No visual design changes. Existing CSS classes reused for server results rendering.
+
+### Escalation Path
+- Server results include dual CTAs: "Schedule contract review call" (Calendly) + "Submit to Structured Intake" (with ?service=contract-review parameter)
+- Review reference ID shown in results for advisor follow-up
+- Advisor review form summary now includes risk score, review ID, missing protections count
+
+### Documentation
+- Updated `docs/VCX_CHANGELOG.md`: Phase 4B section
+- Updated `docs/VCX_ROADMAP_30_60_90.md`: checked off completed items
+- Created `docs/VCX_PHASE4B_QA.md`: full QA checklist and rollback notes
+
+### Files Changed (Phase 4B)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | vcx-api/requirements.txt | Modified (+pdfplumber, +python-docx) |
+| 2 | vcx-api/app/services/contract_analyzer.py | Enhanced (PDF/DOCX extraction + missing protections + questions + buckets) |
+| 3 | vcx-api/app/models/contract.py | Enhanced (6 new Pydantic models + extended response) |
+| 4 | vcx-api/app/routers/contracts.py | Enhanced (questionnaire form fields + enriched response) |
+| 5 | assets/js/vcx-contract-intelligence.js | Created (API bridge with fallback) |
+| 6 | app/contract-intelligence/index.html | Modified (3 additive insertions + i18n text updates) |
+| 7 | docs/VCX_CHANGELOG.md | Updated |
+| 8 | docs/VCX_ROADMAP_30_60_90.md | Updated |
+| 9 | docs/VCX_PHASE4B_QA.md | Created |
+
+### Files NOT modified
+- index.html (homepage)
+- Header/footer shell (ui-shell.css, ui-shell.js)
+- Global styles (styles.css, premium-fixes.css, premium-fixes.js)
+- Design system CSS (vcx-tokens, vcx-base, vcx-layout, vcx-components, vcx-utilities)
+- site.js, vcx-i18n.js, shell-i18n.js
+- structured-case-intake.html
+- All Phase 4A files (upload_validator, email_service, rate_limit, sign-in)
+- schema.sql (no schema changes needed)
+- _references/ directory
+- All other app pages
+
+---
+
+## [Phase 4A — Visual-Freeze Hardening] - 2026-04-02
+
+### Upload Validation
+- Created `vcx-api/app/services/upload_validator.py`: extension allowlist (.pdf, .doc, .docx, .txt, .md, .jpg, .jpeg, .png, .gif, .csv, .xlsx, .xls), blocked extensions (.exe, .bat, .cmd, .sh, .ps1, .js, .html, .php, .py, etc.), 25MB size limit (VCX_MAX_UPLOAD_MB env var), filename sanitization (path separators, control chars, truncation)
+- Wired to: intakes.py (attachment), uploads.py (all files), contracts.py (upload + analyze)
+
+### Rate Limiting
+- Added `slowapi>=0.1.9` dependency
+- Created `vcx-api/app/rate_limit.py`: shared limiter configuration with VCX_RATE_LIMIT_ENABLED env var
+- Rate limits per endpoint: intakes 10/min, uploads 20/min, contracts 10/min, recovery 10/min, chat 30/min, portal magic-link 5/min, portal request-access 5/min, portal lookup-email 5/min, review queue 30/min, review update 20/min, escalate 10/min
+- 429 Too Many Requests response on limit exceeded
+
+### Email Notifications
+- Created `vcx-api/app/services/email_service.py`: SMTP-based, fire-and-forget (background thread)
+- 4 email functions: send_client_intake_confirmation(), send_admin_intake_notification(), send_status_change_notification(), send_portal_access_link()
+- Env vars: VCX_SMTP_HOST, VCX_SMTP_PORT, VCX_SMTP_USER, VCX_SMTP_PASS, VCX_ADMIN_EMAIL, VCX_FROM_EMAIL
+- Missing SMTP config = warning log, no failure (graceful degradation)
+- Wired to: intakes.py (client + admin email on submission), review.py (client email on status change), portal.py (access link email)
+
+### CORS Tightening
+- Improved main.py CORS parsing: whitespace stripping after comma split
+- Added optional env vars: VCX_CORS_ALLOW_CREDENTIALS, VCX_CORS_ALLOW_METHODS, VCX_CORS_ALLOW_HEADERS
+
+### Sign-In → Portal Auth Flow
+- Rewrote `app/sign-in/index.html` from redirect stub to functional sign-in form with v284 canonical shell (header, footer, nav, i18n, clocks)
+- Created `assets/js/vcx-sign-in.js`: form handler POSTs to /api/portal/request-access, shows success/error/dev-link
+- Created `assets/css/vcx-sign-in.css`: minimal styles scoped to body[data-vcx-page="vcx-sign-in"]
+- Added POST /api/portal/request-access endpoint: creates portal session, sends magic link email (or returns link in dev mode)
+- Added sessionStorage persistence to vcx-packet-room.js: saves/restores auth token across page refresh
+- Added sessionStorage persistence to vcx-matter-status.js: saves/restores matter token across page refresh
+
+### Error Handling Improvements
+- vcx-intake-api.js: differentiates 422 (validation), 429 (rate limited), 413 (file too large), 400 (bad request), 500 (server error), network error
+- vcx-packet-room.js: differentiates expired session (401), invalid token (404), rate limited (429), network error; auto-clears session on 401
+- vcx-matter-status.js: improved expired-link message with "Request new access link" button, portal link, session cleanup
+- vcx-review-queue.js: added 15s fetch timeout (AbortController), retry on timeout, rate limit messaging, session expired detection
+
+### Security Fixes
+- review.py: admin token comparison changed from `!=` to `secrets.compare_digest()` (prevents timing attacks)
+- portal.py: timezone handling fixed — uses `datetime.now(timezone.utc)` consistently, handles naive datetimes as UTC
+
+### Documentation
+- Created `vcx-api/.env.example`: all env vars with defaults and descriptions
+- Created `docs/VCX_PHASE4A_QA.md`: full QA checklist, rollback notes, done definition
+- Updated `docs/VCX_CHANGELOG.md`: Phase 4A section
+- Updated `docs/VCX_ROADMAP_30_60_90.md`: checked off completed items
+- Updated `docs/GUARDRAIL_DEVIATIONS.md`: sign-in page rewrite
+
+### Files Changed (Phase 4A)
+
+| # | File | Action |
+|---|------|--------|
+| 1 | vcx-api/app/services/upload_validator.py | Created |
+| 2 | vcx-api/app/services/email_service.py | Created |
+| 3 | vcx-api/app/rate_limit.py | Created |
+| 4 | vcx-api/app/main.py | Modified (rate limiting + CORS) |
+| 5 | vcx-api/requirements.txt | Modified (+slowapi) |
+| 6 | vcx-api/.env.example | Rewritten (comprehensive) |
+| 7 | vcx-api/app/routers/intakes.py | Modified (validation + email + rate limit) |
+| 8 | vcx-api/app/routers/uploads.py | Modified (validation + rate limit) |
+| 9 | vcx-api/app/routers/review.py | Modified (email + rate limit + secrets) |
+| 10 | vcx-api/app/routers/contracts.py | Modified (validation + rate limit) |
+| 11 | vcx-api/app/routers/recovery.py | Modified (rate limit) |
+| 12 | vcx-api/app/routers/chat.py | Modified (rate limit) |
+| 13 | vcx-api/app/routers/portal.py | Modified (rate limit + request-access + timezone) |
+| 14 | assets/js/vcx-intake-api.js | Modified (error handling) |
+| 15 | assets/js/vcx-packet-room.js | Modified (session persistence + errors) |
+| 16 | assets/js/vcx-matter-status.js | Modified (session persistence + errors) |
+| 17 | assets/js/vcx-review-queue.js | Modified (timeout + errors) |
+| 18 | assets/js/vcx-sign-in.js | Created |
+| 19 | assets/css/vcx-sign-in.css | Created |
+| 20 | app/sign-in/index.html | Rewritten (stub → functional) |
+| 21 | docs/VCX_CHANGELOG.md | Updated |
+| 22 | docs/VCX_ROADMAP_30_60_90.md | Updated |
+| 23 | docs/GUARDRAIL_DEVIATIONS.md | Updated |
+| 24 | docs/VCX_PHASE4A_QA.md | Created |
+
+### Files NOT modified
+- index.html (homepage)
+- Header/footer shell (ui-shell.css, ui-shell.js)
+- Global styles (styles.css, premium-fixes.css, premium-fixes.js)
+- Design system CSS (vcx-tokens, vcx-base, vcx-layout, vcx-components, vcx-utilities)
+- site.js (no changes needed for Phase 4A)
+- structured-case-intake.html
+- Existing app pages (legal-assistant, matter-status, review, vcx-intake, vcx-contract-review, vcx-recovery-pilot, vcx-packet-room HTML)
+- schema.sql (no schema changes needed)
+- All Phase 1/2/3 backend services (contract_analyzer, recovery_engine, triage, checklist, magic_link)
+- _references/ directory
+
+---
+
 ## [Phase 3 — Product Build Step] - 2026-04-02
 
 ### Product 2: Contract Review Desk — fully functional

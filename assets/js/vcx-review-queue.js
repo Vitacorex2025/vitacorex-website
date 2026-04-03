@@ -1,11 +1,14 @@
 /**
  * VCX Review Queue — Admin dashboard for matter triage and review.
  * Authenticates via X-Admin-Token, fetches from /api/review/queue.
+ *
+ * Phase 4A: Added fetch timeout, improved error messages.
  */
 (function () {
   'use strict';
 
   var API_BASE = window.VCX_API_BASE || '';
+  var FETCH_TIMEOUT = 15000; // 15 seconds
   var adminToken = '';
   var currentPage = 1;
 
@@ -36,6 +39,21 @@
     return d.innerHTML;
   }
 
+  /**
+   * Phase 4A: Fetch with timeout wrapper.
+   */
+  function fetchWithTimeout(url, options) {
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function () { controller.abort(); }, FETCH_TIMEOUT);
+
+    options = options || {};
+    options.signal = controller.signal;
+
+    return fetch(url, options).finally(function () {
+      clearTimeout(timeoutId);
+    });
+  }
+
   // Auth
   if (authForm) {
     authForm.addEventListener('submit', async function (e) {
@@ -43,16 +61,23 @@
       adminToken = tokenInput.value.trim();
       if (!adminToken) { authError.textContent = 'Token required.'; return; }
       try {
-        var res = await fetch(API_BASE + '/api/review/queue?per_page=1', {
+        var res = await fetchWithTimeout(API_BASE + '/api/review/queue?per_page=1', {
           headers: { 'X-Admin-Token': adminToken },
         });
-        if (res.status === 403) { authError.textContent = 'Invalid token.'; return; }
-        if (!res.ok) throw new Error('Server error');
+        if (res.status === 403) { authError.textContent = 'Invalid admin token.'; return; }
+        if (res.status === 429) { authError.textContent = 'Too many attempts. Please wait and try again.'; return; }
+        if (!res.ok) throw new Error('Server error ' + res.status);
         authGate.style.display = 'none';
         dashboard.style.display = 'block';
         loadQueue();
       } catch (err) {
-        authError.textContent = 'Cannot reach API: ' + err.message;
+        if (err.name === 'AbortError') {
+          authError.textContent = 'Request timed out. Please check your connection and try again.';
+        } else if (err.name === 'TypeError') {
+          authError.textContent = 'Cannot reach server. Please check your connection.';
+        } else {
+          authError.textContent = 'Cannot reach API: ' + err.message;
+        }
       }
     });
   }
@@ -68,12 +93,28 @@
     queueList.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading...</p>';
 
     try {
-      var res = await fetch(url, { headers: { 'X-Admin-Token': adminToken } });
+      var res = await fetchWithTimeout(url, { headers: { 'X-Admin-Token': adminToken } });
+      if (res.status === 403) {
+        authGate.style.display = '';
+        dashboard.style.display = 'none';
+        authError.textContent = 'Session expired. Please enter your admin token again.';
+        return;
+      }
+      if (res.status === 429) {
+        queueList.innerHTML = '<p style="color:#9A6A20;">Rate limited. Please wait a moment and refresh.</p>';
+        return;
+      }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       var data = await res.json();
       renderQueue(data);
     } catch (err) {
-      queueList.innerHTML = '<p style="color:#8B4348;">Failed to load queue: ' + esc(err.message) + '</p>';
+      if (err.name === 'AbortError') {
+        queueList.innerHTML = '<p style="color:#8B4348;">Request timed out. <button onclick="loadQueue(' + page + ')" style="color:#173A63;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
+      } else if (err.name === 'TypeError') {
+        queueList.innerHTML = '<p style="color:#8B4348;">Cannot reach server. Check your connection. <button onclick="loadQueue(' + page + ')" style="color:#173A63;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
+      } else {
+        queueList.innerHTML = '<p style="color:#8B4348;">Failed to load queue: ' + esc(err.message) + '</p>';
+      }
     }
   }
 
@@ -93,11 +134,11 @@
       html += '<tr>';
       html += '<td style="font-weight:600;">' + esc(m.matter_id) + '</td>';
       html += '<td><span class="rq-badge" style="background:' + st.bg + ';">' + esc(st.label) + '</span></td>';
-      html += '<td style="font-weight:600;">' + (m.triage_score || '—') + '</td>';
-      html += '<td>' + esc(m.service_type || '—') + '</td>';
-      html += '<td>' + esc(m.urgency || '—') + '</td>';
-      html += '<td>' + esc(m.contact_name || '—') + '</td>';
-      html += '<td style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.created_at || '—') + '</td>';
+      html += '<td style="font-weight:600;">' + (m.triage_score || '\u2014') + '</td>';
+      html += '<td>' + esc(m.service_type || '\u2014') + '</td>';
+      html += '<td>' + esc(m.urgency || '\u2014') + '</td>';
+      html += '<td>' + esc(m.contact_name || '\u2014') + '</td>';
+      html += '<td style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.created_at || '\u2014') + '</td>';
       html += '<td><button class="rq-action-btn" data-matter="' + esc(m.matter_id) + '" data-token="' + esc(m.magic_token || '') + '">View</button></td>';
       html += '</tr>';
     });
@@ -138,14 +179,24 @@
     detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     try {
-      var res = await fetch(API_BASE + '/api/matters/' + encodeURIComponent(matterId), {
+      var res = await fetchWithTimeout(API_BASE + '/api/matters/' + encodeURIComponent(matterId), {
         headers: { Authorization: 'Bearer ' + matterToken },
       });
+      if (res.status === 429) {
+        detailPanel.innerHTML = '<p style="color:#9A6A20;">Rate limited. Please wait a moment and try again.</p>';
+        return;
+      }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       var m = await res.json();
       renderMatterDetail(m);
     } catch (err) {
-      detailPanel.innerHTML = '<p style="color:#8B4348;">Failed to load matter: ' + esc(err.message) + '</p>';
+      if (err.name === 'AbortError') {
+        detailPanel.innerHTML = '<p style="color:#8B4348;">Request timed out. Please try again.</p>';
+      } else if (err.name === 'TypeError') {
+        detailPanel.innerHTML = '<p style="color:#8B4348;">Cannot reach server. Check your connection.</p>';
+      } else {
+        detailPanel.innerHTML = '<p style="color:#8B4348;">Failed to load matter: ' + esc(err.message) + '</p>';
+      }
     }
   }
 
@@ -248,17 +299,26 @@
         if (assignTo) body.assigned_to = assignTo;
         if (note) body.triage_notes = note;
 
-        var res = await fetch(API_BASE + '/api/review/matters/' + encodeURIComponent(m.matter_id), {
+        var res = await fetchWithTimeout(API_BASE + '/api/review/matters/' + encodeURIComponent(m.matter_id), {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken },
           body: JSON.stringify(body),
         });
+        if (res.status === 429) {
+          statusEl.textContent = 'Rate limited. Please wait and try again.';
+          statusEl.style.color = '#9A6A20';
+          return;
+        }
         if (!res.ok) throw new Error('HTTP ' + res.status);
         statusEl.textContent = 'Updated successfully.';
         statusEl.style.color = 'var(--vcx-success,#2F6B57)';
         setTimeout(function () { loadQueue(currentPage); }, 500);
       } catch (err) {
-        statusEl.textContent = 'Update failed: ' + err.message;
+        if (err.name === 'AbortError') {
+          statusEl.textContent = 'Update timed out. Please try again.';
+        } else {
+          statusEl.textContent = 'Update failed: ' + err.message;
+        }
         statusEl.style.color = '#8B4348';
       }
     });
@@ -274,4 +334,7 @@
   // Bind filter & refresh
   if (statusFilter) statusFilter.addEventListener('change', function () { loadQueue(1); });
   if (refreshBtn) refreshBtn.addEventListener('click', function () { loadQueue(currentPage); });
+
+  // Expose loadQueue for retry buttons
+  window.loadQueue = loadQueue;
 })();

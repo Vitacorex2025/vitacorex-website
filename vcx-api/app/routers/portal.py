@@ -1,23 +1,33 @@
 """Packet Room / Client Portal -- authenticated client access.
 
 Phase 3: Wired to DB. Magic-link token auth via matters table.
+Phase 4A: Added rate limiting, request-access endpoint, timezone fix.
 Session-based access to matter timeline, documents, comments, deliverables.
 """
 
-import json
+import os
 import secrets
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-from fastapi import APIRouter, HTTPException, Header, Body
+from fastapi import APIRouter, HTTPException, Header, Body, Request
 
 from ..db import get_conn
 from ..models.portal import MatterComment
+from ..rate_limit import limiter
+from ..services.email_service import send_portal_access_link
 
 router = APIRouter(prefix="/api/portal")
 
+BASE_URL = os.getenv("VCX_BASE_URL", "https://vitacorexllc.com")
+
 
 # ── Helpers ─────────────────────────────────────────────────────────
+
+def _utcnow() -> datetime:
+    """Consistent UTC timestamp for all portal operations."""
+    return datetime.now(timezone.utc)
+
 
 def _verify_bearer(authorization: str) -> dict:
     """Extract and verify Bearer token against portal_sessions.
@@ -39,10 +49,25 @@ def _verify_bearer(authorization: str) -> dict:
     if not session:
         raise HTTPException(status_code=401, detail="Invalid or expired session.")
 
-    # Check expiration
+    # Phase 4A: Fixed timezone — compare both as UTC ISO strings
     expires = session["expires_at"]
-    if expires and datetime.fromisoformat(expires) < datetime.utcnow():
-        raise HTTPException(status_code=401, detail="Session expired. Please re-authenticate.")
+    if expires:
+        try:
+            exp_dt = datetime.fromisoformat(expires)
+            # If naive (no tzinfo), treat as UTC
+            if exp_dt.tzinfo is None:
+                exp_dt = exp_dt.replace(tzinfo=timezone.utc)
+            if exp_dt < _utcnow():
+                raise HTTPException(
+                    status_code=401,
+                    detail="Session expired. Please request a new access link.",
+                )
+        except ValueError:
+            # If expires_at is not parseable, reject
+            raise HTTPException(
+                status_code=401,
+                detail="Session expired. Please request a new access link.",
+            )
 
     return dict(session)
 
@@ -63,7 +88,8 @@ def _get_contact_matters(contact_id: str) -> list[dict]:
 # ── Auth: verify magic link ────────────────────────────────────────
 
 @router.get("/magic-link/{token}")
-def verify_magic_link(token: str):
+@limiter.limit("5/minute")
+def verify_magic_link(request: Request, token: str):
     """Verify a magic-link token against the matters table.
 
     If valid, create a portal_session (24h TTL) and return
@@ -95,10 +121,10 @@ def verify_magic_link(token: str):
             session_token = existing["magic_token"]
             session_id = existing["id"]
         else:
-            # Create a new portal session
+            # Create a new portal session (Phase 4A: use timezone-aware UTC)
             session_id = str(uuid.uuid4())
             session_token = secrets.token_urlsafe(32)
-            expires_at = (datetime.utcnow() + timedelta(hours=24)).isoformat()
+            expires_at = (_utcnow() + timedelta(hours=24)).isoformat()
 
             conn.execute(
                 """INSERT INTO portal_sessions (id, contact_id, magic_token, expires_at, created_at)
@@ -128,15 +154,93 @@ def verify_magic_link(token: str):
 
 
 @router.post("/magic-link/{token}")
-def verify_magic_link_post(token: str):
+@limiter.limit("5/minute")
+def verify_magic_link_post(request: Request, token: str):
     """POST variant for frontend compatibility. Delegates to GET logic."""
-    return verify_magic_link(token)
+    return verify_magic_link(request, token)
+
+
+# ── Request access (sign-in flow) ─────────────────────────────────
+
+@router.post("/request-access")
+@limiter.limit("5/minute")
+def request_access(request: Request, email: str = Body(..., embed=True)):
+    """Request portal access by email.
+
+    If the email matches a contact with active matters, create a portal
+    session and send a magic link via email. If SMTP is not configured,
+    return the link in the JSON response (dev mode).
+    """
+    if not email or "@" not in email:
+        raise HTTPException(status_code=400, detail="Please enter a valid email address.")
+
+    clean_email = email.strip().lower()
+
+    with get_conn() as conn:
+        contact = conn.execute(
+            "SELECT id, full_name FROM contacts WHERE email = ?", (clean_email,)
+        ).fetchone()
+
+    if not contact:
+        # Don't reveal whether email exists — return generic success
+        return {
+            "ok": True,
+            "message": "If this email is associated with an active matter, you will receive an access link shortly.",
+        }
+
+    contact_id = contact["id"]
+    matters = _get_contact_matters(contact_id)
+
+    if not matters:
+        return {
+            "ok": True,
+            "message": "If this email is associated with an active matter, you will receive an access link shortly.",
+        }
+
+    # Create portal session
+    with get_conn() as conn:
+        # Check for existing active session
+        existing = conn.execute(
+            """SELECT * FROM portal_sessions
+               WHERE contact_id = ? AND expires_at > datetime('now')
+               ORDER BY created_at DESC LIMIT 1""",
+            (contact_id,),
+        ).fetchone()
+
+        if existing:
+            session_token = existing["magic_token"]
+        else:
+            session_id = str(uuid.uuid4())
+            session_token = secrets.token_urlsafe(32)
+            expires_at = (_utcnow() + timedelta(hours=24)).isoformat()
+            conn.execute(
+                """INSERT INTO portal_sessions (id, contact_id, magic_token, expires_at, created_at)
+                   VALUES (?, ?, ?, ?, datetime('now'))""",
+                (session_id, contact_id, session_token, expires_at),
+            )
+
+    portal_link = f"{BASE_URL}/app/vcx-packet-room/?token={session_token}"
+
+    # Send email (fire-and-forget — if SMTP not configured, link logged)
+    send_portal_access_link(to_email=clean_email, portal_link=portal_link)
+
+    # In dev mode (no SMTP), include link in response for testing
+    from ..services.email_service import _smtp_configured
+    response = {
+        "ok": True,
+        "message": "If this email is associated with an active matter, you will receive an access link shortly.",
+    }
+    if not _smtp_configured():
+        response["dev_link"] = portal_link
+
+    return response
 
 
 # ── Email-based lookup ──────────────────────────────────────────────
 
 @router.post("/lookup-email")
-def lookup_by_email(email: str = Body(..., embed=True)):
+@limiter.limit("5/minute")
+def lookup_by_email(request: Request, email: str = Body(..., embed=True)):
     """Look up matters by client email. Returns matter IDs (no sensitive data)
     so the client can request a magic link be sent."""
     if not email or "@" not in email:

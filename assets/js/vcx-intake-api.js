@@ -2,6 +2,8 @@
  * VCX Intake API Client
  * Replaces FormSubmit.co for the structured-case-intake form.
  * Sends to POST /api/intakes and renders the matter result inline.
+ *
+ * Phase 4A: Improved error handling with status-code differentiation.
  */
 (function () {
   'use strict';
@@ -21,7 +23,7 @@
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.classList.add('is-loading');
-      submitBtn.textContent = 'Submitting…';
+      submitBtn.textContent = 'Submitting\u2026';
     }
     if (statusEl) statusEl.textContent = '';
 
@@ -33,8 +35,7 @@
       });
 
       if (!res.ok) {
-        var errText = await res.text();
-        throw new Error('Server error ' + res.status + ': ' + errText);
+        throw await buildError(res);
       }
 
       var data = await res.json();
@@ -51,8 +52,7 @@
     } catch (err) {
       console.error('[VCX Intake]', err);
       if (statusEl) {
-        statusEl.textContent =
-          'Submission failed. Please email vitacorexllc@gmail.com or call (888) 794-8292.';
+        statusEl.textContent = err.userMessage || 'Submission failed. Please email vitacorexllc@gmail.com or call (888) 794-8292.';
         statusEl.style.color = '#8B4348';
       }
       if (submitBtn) {
@@ -61,6 +61,49 @@
         submitBtn.textContent = 'Request structured intake';
       }
     }
+  }
+
+  /**
+   * Build a user-friendly error from the fetch response.
+   */
+  async function buildError(res) {
+    var err = new Error('Server error ' + res.status);
+
+    // Phase 4A: Differentiate error types for user-actionable guidance
+    if (res.status === 422) {
+      // Validation error
+      try {
+        var body = await res.json();
+        var detail = body.detail;
+        if (Array.isArray(detail)) {
+          var fields = detail.map(function (d) { return d.loc ? d.loc[d.loc.length - 1] : ''; }).filter(Boolean);
+          err.userMessage = 'Please check these fields: ' + fields.join(', ') + '.';
+        } else if (typeof detail === 'string') {
+          err.userMessage = detail;
+        } else {
+          err.userMessage = 'Please check the form fields and try again.';
+        }
+      } catch (e) {
+        err.userMessage = 'Please check the form fields and try again.';
+      }
+    } else if (res.status === 429) {
+      err.userMessage = 'Too many requests. Please wait a moment and try again.';
+    } else if (res.status === 400) {
+      try {
+        var body400 = await res.json();
+        err.userMessage = body400.detail || 'Invalid submission. Please review and try again.';
+      } catch (e) {
+        err.userMessage = 'Invalid submission. Please review and try again.';
+      }
+    } else if (res.status === 413) {
+      err.userMessage = 'Attachment is too large. Maximum file size is 25 MB.';
+    } else if (res.status >= 500) {
+      err.userMessage = 'The server encountered an error. Please try again shortly, or email vitacorexllc@gmail.com.';
+    } else {
+      err.userMessage = 'Submission failed (error ' + res.status + '). Please email vitacorexllc@gmail.com or call (888) 794-8292.';
+    }
+
+    return err;
   }
 
   /**

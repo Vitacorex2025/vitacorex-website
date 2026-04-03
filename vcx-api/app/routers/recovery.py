@@ -1,13 +1,14 @@
 """Recovery Pilot Studio -- multi-step wizard with deterministic models.
 
 Phase 3: Wired to DB + recovery_engine service.
+Phase 4A: Added rate limiting.
 All calculations are deterministic. No LLM calls.
 """
 
 import json
 import uuid
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 
 from ..db import get_conn
 from ..models.recovery import (
@@ -16,6 +17,7 @@ from ..models.recovery import (
     PilotDetailResponse,
     PilotUpdateRequest,
 )
+from ..rate_limit import limiter
 from ..services.recovery_engine import (
     assemble_brief_data,
     compute_baseline,
@@ -27,7 +29,8 @@ router = APIRouter(prefix="/api/recovery")
 
 
 @router.post("/pilot", status_code=201, response_model=PilotCreateResponse)
-def create_pilot(req: PilotCreateRequest):
+@limiter.limit("10/minute")
+def create_pilot(request: Request, req: PilotCreateRequest):
     """Create a new recovery pilot assessment."""
     pilot_id = str(uuid.uuid4())
 
@@ -50,7 +53,8 @@ def create_pilot(req: PilotCreateRequest):
 
 
 @router.patch("/pilot/{pilot_id}", response_model=PilotCreateResponse)
-def update_pilot(pilot_id: str, req: PilotUpdateRequest):
+@limiter.limit("20/minute")
+def update_pilot(request: Request, pilot_id: str, req: PilotUpdateRequest):
     """Update pilot data for the current wizard step."""
     with get_conn() as conn:
         row = conn.execute(
@@ -122,7 +126,8 @@ def get_pilot(pilot_id: str):
 
 
 @router.post("/pilot/{pilot_id}/brief")
-def generate_brief(pilot_id: str):
+@limiter.limit("10/minute")
+def generate_brief(request: Request, pilot_id: str):
     """Generate executive brief data for the pilot."""
     with get_conn() as conn:
         row = conn.execute(

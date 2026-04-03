@@ -1,6 +1,9 @@
 """Contract Review Desk -- upload, analyze, and report endpoints.
 
 Phase 3: Wired to DB + contract_analyzer service.
+Phase 4A: Added upload validation + rate limiting.
+Phase 4B: Enhanced analyze endpoint — PDF/DOCX extraction, missing protections,
+          suggested questions, issue buckets, questionnaire context.
 Analysis is pattern-based (regex), not LLM-driven.
 """
 
@@ -8,38 +11,53 @@ import os
 import uuid
 from pathlib import Path
 
-from fastapi import APIRouter, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 
 from ..db import get_conn
 from ..models.contract import (
     ClauseItem,
     ContractAnalysisResponse,
     ContractUploadResponse,
+    IssueBucket,
+    IssueBucketItem,
+    MissingProtection,
+    QuestionnaireContext,
+    SuggestedQuestion,
 )
+from ..rate_limit import limiter
 from ..services.contract_analyzer import (
     compute_risk_score,
     detect_clauses,
+    detect_missing_protections,
     extract_text_from_bytes,
+    generate_issue_buckets,
     generate_risk_summary,
+    generate_suggested_questions,
 )
+from ..services.upload_validator import sanitize_filename, validate_file
 
 router = APIRouter(prefix="/api/contracts")
 UPLOADS_DIR = Path(os.getenv("VCX_UPLOADS_DIR", "uploads"))
 
 
 @router.post("/upload", status_code=201, response_model=ContractUploadResponse)
+@limiter.limit("10/minute")
 async def upload_contract(
+    request: Request,
     file: UploadFile = File(...),
     matter_id: str = Form(None),
 ):
     """Upload a contract document for later analysis."""
+    # Phase 4A: Validate file before processing
+    content = await file.read()
+    validate_file(file.filename, len(content), file.content_type)
+
     review_id = str(uuid.uuid4())
     review_dir = UPLOADS_DIR / "contracts" / review_id
     review_dir.mkdir(parents=True, exist_ok=True)
     file_id = str(uuid.uuid4())
-    safe_name = f"{file_id}_{file.filename}"
+    safe_name = f"{file_id}_{sanitize_filename(file.filename)}"
     file_path = review_dir / safe_name
-    content = await file.read()
     file_path.write_bytes(content)
 
     with get_conn() as conn:
@@ -60,20 +78,57 @@ async def upload_contract(
 
 
 @router.post("/analyze", response_model=ContractAnalysisResponse)
+@limiter.limit("10/minute")
 async def analyze_contract(
+    request: Request,
     file: UploadFile = File(...),
+    contract_type: str = Form(None),
+    concerns: str = Form(None),
+    negotiated: str = Form(None),
+    deadline: str = Form(None),
 ):
-    """One-shot upload + analyze: extract text, detect clauses, score risk."""
-    review_id = str(uuid.uuid4())
+    """One-shot upload + analyze with optional questionnaire context.
+
+    Phase 4B: Accepts questionnaire fields, returns enriched analysis with
+    missing protections, suggested questions, and issue buckets.
+    """
+    # Phase 4A: Validate file before processing
     content = await file.read()
+    validate_file(file.filename, len(content), file.content_type)
+
+    review_id = str(uuid.uuid4())
 
     # Save file
     review_dir = UPLOADS_DIR / "contracts" / review_id
     review_dir.mkdir(parents=True, exist_ok=True)
     file_id = str(uuid.uuid4())
-    safe_name = f"{file_id}_{file.filename}"
+    safe_name = f"{file_id}_{sanitize_filename(file.filename)}"
     file_path = review_dir / safe_name
     file_path.write_bytes(content)
+
+    # Build questionnaire context
+    concerns_list = (
+        [c.strip() for c in concerns.split(",") if c.strip()]
+        if concerns else None
+    )
+    questionnaire = QuestionnaireContext(
+        contract_type=contract_type or None,
+        concerns=concerns_list,
+        negotiated=negotiated or None,
+        deadline=deadline or None,
+    )
+
+    # Determine extraction method
+    lower = file.filename.lower() if file.filename else ""
+    extraction_method = None
+    if lower.endswith(".txt") or lower.endswith(".md"):
+        extraction_method = "text"
+    elif lower.endswith(".pdf"):
+        extraction_method = "pdf"
+    elif lower.endswith(".docx"):
+        extraction_method = "docx"
+    elif lower.endswith(".doc"):
+        extraction_method = "doc_legacy"
 
     # Try text extraction
     text = extract_text_from_bytes(content, file.filename)
@@ -86,7 +141,7 @@ async def analyze_contract(
                    VALUES (?, 'uploaded', 'free', ?, datetime('now'))""",
                 (review_id,
                  "Text extraction for this file format is not yet supported. "
-                 "Upload a .txt file for instant analysis, or request manual review."),
+                 "Upload a .txt or .docx file for instant analysis, or request manual review."),
             )
         return ContractAnalysisResponse(
             ok=True,
@@ -97,15 +152,36 @@ async def analyze_contract(
             risk_score=None,
             risk_summary=(
                 "Text extraction for this file format is not yet supported. "
-                "Upload a .txt file for instant analysis, or submit via "
-                "structured intake for manual review."
+                "Upload a .txt, .docx, or text-layer PDF for instant analysis, "
+                "or submit via structured intake for manual review."
             ),
+            extraction_method=extraction_method,
+            word_count=0,
+            questionnaire=questionnaire,
         )
 
     # Run clause detection
     raw_clauses = detect_clauses(text)
     risk_score = compute_risk_score(raw_clauses)
     risk_summary = generate_risk_summary(raw_clauses, risk_score)
+
+    # Phase 4B: Missing protections
+    missing_protections_raw = detect_missing_protections(
+        raw_clauses, contract_type
+    )
+
+    # Phase 4B: Suggested questions
+    suggested_questions_raw = generate_suggested_questions(
+        raw_clauses, missing_protections_raw
+    )
+
+    # Phase 4B: Issue buckets
+    issue_buckets_raw = generate_issue_buckets(
+        raw_clauses, missing_protections_raw
+    )
+
+    # Word count
+    word_count = len(text.split()) if text else 0
 
     # Persist to DB
     with get_conn() as conn:
@@ -146,6 +222,23 @@ async def analyze_contract(
         ],
         risk_score=risk_score,
         risk_summary=risk_summary,
+        extraction_method=extraction_method,
+        word_count=word_count,
+        missing_protections=[
+            MissingProtection(**mp) for mp in missing_protections_raw
+        ],
+        suggested_questions=[
+            SuggestedQuestion(**sq) for sq in suggested_questions_raw
+        ],
+        issue_buckets=[
+            IssueBucket(
+                bucket=ib["bucket"],
+                severity=ib["severity"],
+                items=[IssueBucketItem(**item) for item in ib["items"]],
+            )
+            for ib in issue_buckets_raw
+        ],
+        questionnaire=questionnaire,
     )
 
 

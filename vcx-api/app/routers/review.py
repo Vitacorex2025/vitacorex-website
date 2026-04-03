@@ -1,12 +1,15 @@
 """Internal review queue — admin endpoints (X-Admin-Token auth)."""
 
 import os
+import secrets
 from datetime import datetime
 
-from fastapi import APIRouter, HTTPException, Header, Query
+from fastapi import APIRouter, HTTPException, Header, Query, Request
 
 from ..db import get_conn
 from ..models.matter import MatterPatch, QueueItem, QueueResponse
+from ..rate_limit import limiter
+from ..services.email_service import send_status_change_notification
 
 router = APIRouter(prefix="/api/review")
 
@@ -14,12 +17,15 @@ ADMIN_TOKEN = os.getenv("VCX_ADMIN_TOKEN", "change-me")
 
 
 def _check_admin(token: str):
-    if token != ADMIN_TOKEN:
+    # Phase 4A: Use constant-time comparison to prevent timing attacks
+    if not secrets.compare_digest(token, ADMIN_TOKEN):
         raise HTTPException(status_code=403, detail="Unauthorized")
 
 
 @router.get("/queue", response_model=QueueResponse)
+@limiter.limit("30/minute")
 def get_queue(
+    request: Request,
     status: str = Query(None),
     page: int = Query(1, ge=1),
     per_page: int = Query(25, ge=1, le=100),
@@ -71,7 +77,9 @@ def get_queue(
 
 
 @router.patch("/matters/{matter_id}")
+@limiter.limit("20/minute")
 def update_matter(
+    request: Request,
     matter_id: str,
     body: MatterPatch,
     x_admin_token: str = Header(...),
@@ -80,12 +88,13 @@ def update_matter(
 
     with get_conn() as conn:
         matter = conn.execute(
-            "SELECT id, status FROM matters WHERE id=?", (matter_id,)
+            "SELECT id, status, contact_id FROM matters WHERE id=?", (matter_id,)
         ).fetchone()
         if not matter:
             raise HTTPException(status_code=404, detail="Matter not found")
 
         old_status = matter["status"]
+        contact_id = matter["contact_id"]
         updates = []
         params = []
 
@@ -115,5 +124,21 @@ def update_matter(
             conn.execute(
                 f"UPDATE matters SET {', '.join(updates)} WHERE id=?", params
             )
+
+        # Phase 4A: Send email notification on status change
+        if body.status and body.status != old_status and contact_id:
+            contact = conn.execute(
+                "SELECT full_name, email FROM contacts WHERE id=?",
+                (contact_id,),
+            ).fetchone()
+            if contact and contact["email"]:
+                send_status_change_notification(
+                    to_email=contact["email"],
+                    client_name=contact["full_name"] or "Client",
+                    matter_id=matter_id,
+                    old_status=old_status,
+                    new_status=body.status,
+                    note=body.triage_notes or "",
+                )
 
     return {"ok": True, "matter_id": matter_id, "status": body.status or old_status}

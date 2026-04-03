@@ -5,13 +5,19 @@ import uuid
 from datetime import datetime
 from pathlib import Path
 
-from fastapi import APIRouter, File, Form, UploadFile
+from fastapi import APIRouter, File, Form, Request, UploadFile
 
 from ..db import get_conn
 from ..models.intake import IntakeResponse
+from ..rate_limit import limiter
 from ..services.checklist import generate_initial_checklist
+from ..services.email_service import (
+    send_admin_intake_notification,
+    send_client_intake_confirmation,
+)
 from ..services.magic_link import build_magic_link, generate_token
 from ..services.triage import compute_triage_score, generate_matter_id
+from ..services.upload_validator import validate_file
 
 router = APIRouter()
 
@@ -27,7 +33,9 @@ def _next_step_text(urgency: str) -> str:
 
 
 @router.post("/api/intakes", status_code=201, response_model=IntakeResponse)
+@limiter.limit("10/minute")
 async def create_intake(
+    request: Request,
     full_name: str = Form(...),
     email: str = Form(...),
     phone: str = Form(...),
@@ -43,6 +51,14 @@ async def create_intake(
     agency_usage: str = Form(None),
     attachment: UploadFile = File(None),
 ):
+    # Phase 4A: Validate attachment before processing
+    attachment_content = None
+    if attachment is not None and attachment.filename:
+        attachment_content = await attachment.read()
+        validate_file(
+            attachment.filename, len(attachment_content), attachment.content_type
+        )
+
     with get_conn() as conn:
         # 1. Organization (if company)
         org_id = None
@@ -81,9 +97,9 @@ async def create_intake(
         # 3. Matter
         matter_id = generate_matter_id(conn)
         magic_token = generate_token()
-        has_attachment = attachment is not None and attachment.filename
+        has_attachment = attachment_content is not None
         triage_score = compute_triage_score(
-            urgency, service_type, bool(has_attachment), client_type
+            urgency, service_type, has_attachment, client_type
         )
 
         conn.execute(
@@ -112,15 +128,15 @@ async def create_intake(
             "UPDATE matters SET status='triage' WHERE id=?", (matter_id,)
         )
 
-        # 5. File upload
+        # 5. File upload (already validated + read above)
         if has_attachment:
             matter_dir = UPLOADS_DIR / matter_id
             matter_dir.mkdir(parents=True, exist_ok=True)
             file_id = str(uuid.uuid4())
-            safe_name = f"{file_id}_{attachment.filename}"
+            from ..services.upload_validator import sanitize_filename
+            safe_name = f"{file_id}_{sanitize_filename(attachment.filename)}"
             file_path = matter_dir / safe_name
-            content = await attachment.read()
-            file_path.write_bytes(content)
+            file_path.write_bytes(attachment_content)
 
             conn.execute(
                 """INSERT INTO documents
@@ -128,12 +144,12 @@ async def create_intake(
                     size_bytes, storage_path)
                    VALUES (?,?,?,?,?,?,?)""",
                 (file_id, matter_id, safe_name, attachment.filename,
-                 attachment.content_type, len(content), str(file_path)),
+                 attachment.content_type, len(attachment_content), str(file_path)),
             )
 
         # 6. Checklist
         checklist_items = generate_initial_checklist(
-            service_type, bool(has_attachment), client_type
+            service_type, has_attachment, client_type
         )
         checklist_out = []
         for item in checklist_items:
@@ -153,6 +169,23 @@ async def create_intake(
             })
 
     magic_link = build_magic_link(matter_id, magic_token)
+    next_step = _next_step_text(urgency)
+
+    # Phase 4A: Fire-and-forget email notifications (never fail intake on email error)
+    send_client_intake_confirmation(
+        to_email=email,
+        client_name=full_name,
+        matter_id=matter_id,
+        magic_link=magic_link,
+        next_step=next_step,
+    )
+    send_admin_intake_notification(
+        client_name=full_name,
+        client_email=email,
+        matter_id=matter_id,
+        service_type=service_type,
+        triage_score=triage_score,
+    )
 
     return IntakeResponse(
         ok=True,
@@ -161,5 +194,5 @@ async def create_intake(
         status="triage",
         triage_score=triage_score,
         checklist=checklist_out,
-        next_step=_next_step_text(urgency),
+        next_step=next_step,
     )

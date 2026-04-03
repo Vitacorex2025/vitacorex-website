@@ -14,11 +14,16 @@
 - [x] Documentation (implementation plan, API map, data model, changelog)
 
 ### Remaining (Day 0-30)
-- [ ] Email notifications on intake submission (SMTP or SendGrid)
-- [ ] Email notification on status change
-- [ ] Basic rate limiting on public endpoints
-- [ ] CORS tightening for production domain
-- [ ] .env.example documentation for all new env vars
+- [x] Email notifications on intake submission (SMTP, fire-and-forget)
+- [x] Email notification on status change
+- [x] Basic rate limiting on public endpoints (slowapi, per-IP)
+- [x] CORS tightening for production domain (env-driven allowlist)
+- [x] .env.example documentation for all new env vars
+- [x] Upload validation (extension allowlist, size limit, filename sanitization)
+- [x] Sign-in page wired to portal auth flow
+- [x] Session persistence (sessionStorage) for portal and matter-status
+- [x] Admin token timing-safe comparison (secrets.compare_digest)
+- [x] Error handling improvements across intake, portal, review queue
 
 ## Day 31-60: Product 2 (Contract Review Desk) + Product 3 (Recovery Pilot Studio)
 
@@ -28,9 +33,9 @@
 - [x] Summary generation (template-based risk summary with disclaimer)
 - [x] Monetization ladder UI: free pre-check / paid review / premium memo tiers shown
 - [x] Frontend: risk score bar, clause cards, full report view
-- [ ] Text extraction from PDF (pdfplumber or PyMuPDF)
-- [ ] Text extraction from DOCX (python-docx)
-- [ ] Wire existing /app/contract-intelligence/ as free tier entry point
+- [x] Text extraction from PDF (pdfplumber)
+- [x] Text extraction from DOCX (python-docx)
+- [x] Wire existing /app/contract-intelligence/ as free tier entry point
 
 ### Recovery Pilot Studio
 - [x] Wizard step validation (required fields per step)
@@ -55,10 +60,11 @@
 - [x] Email-based lookup (privacy-safe matter count response)
 - [x] URL token auto-login (magic link landing support)
 - [ ] Packet export (PDF with cover page, TOC, timeline, documents)
-- [ ] Wire /app/sign-in/ to portal auth flow
+- [x] Wire /app/sign-in/ to portal auth flow
 
 ### Hardening
-- [ ] Security audit (input validation, file type restrictions, token entropy)
+- [x] Security audit: input validation (upload validator), file type restrictions, token entropy
+- [x] Rate limiting on all public endpoints (slowapi per-IP)
 - [ ] HTTPS enforcement and security headers
 - [ ] SQLite backup/restore automation
 - [ ] Error monitoring and logging
@@ -67,7 +73,7 @@
 
 ## Day 90+: Growth
 - [ ] LLM integration for contract analysis (Claude API)
-- [ ] PDF/DOCX text extraction for Contract Review Desk
+- [x] PDF/DOCX text extraction for Contract Review Desk
 - [ ] Payment integration (Stripe invoice or per-matter billing)
 - [ ] Multi-language support for Products 2-4
 - [ ] Webhook integrations (CRM, Slack notifications)

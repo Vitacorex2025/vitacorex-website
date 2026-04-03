@@ -1,11 +1,14 @@
 /**
  * VCX Matter Status Page — Client-facing status viewer.
  * Reads ?matter=X&token=Y from the URL, fetches matter detail, renders status.
+ *
+ * Phase 4A: Added sessionStorage persistence, improved expired-link message.
  */
 (function () {
   'use strict';
 
   var API_BASE = window.VCX_API_BASE || '';
+  var STORAGE_KEY_PREFIX = 'vcx_matter_';
   var params = new URLSearchParams(window.location.search);
   var matterId = params.get('matter');
   var token = params.get('token');
@@ -13,10 +16,25 @@
   var root = document.getElementById('vcxMatterRoot');
   if (!root) return;
 
+  // Phase 4A: Try sessionStorage if URL params missing
+  if (matterId && !token) {
+    try {
+      token = sessionStorage.getItem(STORAGE_KEY_PREFIX + matterId);
+    } catch (e) {}
+  }
+
   if (!matterId || !token) {
-    root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">No matter ID or token provided. Check your link.</div>';
+    root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">' +
+      '<p style="font-weight:600;margin-bottom:8px;">No matter ID or token provided.</p>' +
+      '<p>Please check your link, or <a href="/app/sign-in/" style="color:var(--vcx-brand-primary,#173A63);font-weight:600;">sign in to your client portal</a> to access your matters.</p>' +
+      '</div>';
     return;
   }
+
+  // Phase 4A: Save token to sessionStorage for page refresh
+  try {
+    sessionStorage.setItem(STORAGE_KEY_PREFIX + matterId, token);
+  } catch (e) {}
 
   // Status badge colors
   var STATUS_COLORS = {
@@ -29,21 +47,37 @@
   };
 
   async function loadMatter() {
-    root.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading matter…</p>';
+    root.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading matter\u2026</p>';
 
     try {
       var res = await fetch(API_BASE + '/api/matters/' + matterId, {
         headers: { Authorization: 'Bearer ' + token },
       });
-      if (res.status === 403) {
-        root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">Invalid or expired link. Contact VitaCoreX for a new status link.</div>';
+
+      if (res.status === 403 || res.status === 401) {
+        // Phase 4A: More helpful expired-link message
+        try { sessionStorage.removeItem(STORAGE_KEY_PREFIX + matterId); } catch (e) {}
+        root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">' +
+          '<p style="font-weight:600;margin-bottom:8px;">This link has expired or is invalid.</p>' +
+          '<p>For security, access links expire after a period of time.</p>' +
+          '<p style="margin-top:12px;"><a href="/app/sign-in/" style="display:inline-block;padding:10px 24px;background:var(--vcx-brand-primary,#173A63);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">Request a new access link</a></p>' +
+          '<p style="margin-top:12px;font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);">Or contact VitaCoreX at (888) 794-8292 for assistance.</p>' +
+          '</div>';
+        return;
+      }
+      if (res.status === 429) {
+        root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">Too many requests. Please wait a moment and refresh the page.</div>';
         return;
       }
       if (!res.ok) throw new Error('Server error ' + res.status);
       var data = await res.json();
       renderMatter(data);
     } catch (err) {
-      root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">Could not load matter. ' + esc(err.message) + '</div>';
+      if (err.name === 'TypeError') {
+        root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">Cannot reach server. Please check your connection and try again.</div>';
+      } else {
+        root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">Could not load matter. ' + esc(err.message) + '</div>';
+      }
     }
   }
 
@@ -138,6 +172,9 @@
     // Created date
     html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:16px;">Created: ' + esc(m.created_at) + '</p>';
 
+    // Portal link
+    html += '<p style="margin-top:20px;"><a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#173A63);font-size:.88rem;font-weight:600;">Open full client portal &rarr;</a></p>';
+
     root.innerHTML = html;
   }
 
@@ -148,7 +185,7 @@
   }
 
   function formatBytes(b) {
-    if (!b) return '—';
+    if (!b) return '\u2014';
     if (b < 1024) return b + ' B';
     if (b < 1048576) return (b / 1024).toFixed(0) + ' KB';
     return (b / 1048576).toFixed(1) + ' MB';
@@ -182,13 +219,22 @@
       for (var i = 0; i < input.files.length; i++) {
         fd.append('files', input.files[i]);
       }
-      if (statusEl) statusEl.textContent = 'Uploading…';
+      if (statusEl) statusEl.textContent = 'Uploading\u2026';
       try {
         var res = await fetch(API_BASE + '/api/uploads/' + matterId, {
           method: 'POST',
           headers: { Authorization: 'Bearer ' + token },
           body: fd,
         });
+        if (res.status === 400 || res.status === 413) {
+          var errBody = await res.json().catch(function () { return {}; });
+          if (statusEl) statusEl.textContent = errBody.detail || 'File rejected. Check file type and size.';
+          return;
+        }
+        if (res.status === 429) {
+          if (statusEl) statusEl.textContent = 'Too many uploads. Please wait and try again.';
+          return;
+        }
         if (!res.ok) throw new Error('Upload failed');
         var data = await res.json();
         if (statusEl) statusEl.textContent = data.documents.length + ' file(s) uploaded.';
@@ -196,7 +242,11 @@
         // Reload to show updated document list
         setTimeout(loadMatter, 500);
       } catch (err) {
-        if (statusEl) statusEl.textContent = 'Upload failed: ' + err.message;
+        if (err.name === 'TypeError') {
+          if (statusEl) statusEl.textContent = 'Cannot reach server. Check your connection.';
+        } else {
+          if (statusEl) statusEl.textContent = 'Upload failed: ' + err.message;
+        }
       }
     },
   };

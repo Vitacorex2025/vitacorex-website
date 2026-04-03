@@ -161,6 +161,49 @@ body[data-vcx-page="legal-assistant"] {
   font-weight: 600;
 }
 
+/* Phase 4C: Boundary / out-of-scope message treatment */
+.la-message-boundary {
+  background: rgba(139, 67, 72, .05);
+  border-color: rgba(139, 67, 72, .15);
+}
+
+/* Phase 4C: Escalation link cards */
+.la-escalation-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.la-escalation-link {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(23, 58, 99, .12);
+  background: rgba(23, 58, 99, .03);
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+
+.la-escalation-link:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .06);
+}
+
+.la-escalation-label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--vcx-brand-primary, #173A63);
+}
+
+.la-escalation-desc {
+  display: block;
+  font-size: .75rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  margin-top: 2px;
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .assistant-grid,

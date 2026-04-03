@@ -5,28 +5,43 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 # Load env before anything else
 load_dotenv()
 
 from .db import init_db
+from .rate_limit import limiter
 from .routers import chat, contracts, intakes, matters, portal, recovery, review, uploads
 
 app = FastAPI(
     title="VCX Intake OS",
-    version="1.0.0",
+    version="1.1.0",
     docs_url="/api/docs",
     redoc_url=None,
 )
 
-# CORS
-origins = os.getenv("VCX_ALLOWED_ORIGINS", "http://localhost:8765").split(",")
+# Rate limiting
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS — env-driven with whitespace stripping
+origins_raw = os.getenv("VCX_ALLOWED_ORIGINS", "http://localhost:8765")
+origins = [o.strip() for o in origins_raw.split(",") if o.strip()]
+
+cors_credentials = os.getenv("VCX_CORS_ALLOW_CREDENTIALS", "true").lower() == "true"
+cors_methods_raw = os.getenv("VCX_CORS_ALLOW_METHODS", "*")
+cors_methods = [m.strip() for m in cors_methods_raw.split(",") if m.strip()]
+cors_headers_raw = os.getenv("VCX_CORS_ALLOW_HEADERS", "*")
+cors_headers = [h.strip() for h in cors_headers_raw.split(",") if h.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[o.strip() for o in origins],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=origins,
+    allow_credentials=cors_credentials,
+    allow_methods=cors_methods,
+    allow_headers=cors_headers,
 )
 
 # Initialize database on startup
@@ -37,7 +52,7 @@ def startup():
 # Health check
 @app.get("/healthz")
 def healthz():
-    return {"ok": True, "service": "VCX Intake OS", "version": "1.0.0"}
+    return {"ok": True, "service": "VCX Intake OS", "version": "1.1.0"}
 
 # Mount routers
 app.include_router(intakes.router)

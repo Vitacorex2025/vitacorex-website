@@ -1,6 +1,10 @@
 /**
  * VCX Legal Assistant — Chat UI for the public legal-topic assistant.
  * Posts to /api/legal-chat/message and /api/legal-chat/escalate.
+ *
+ * Phase 1: Initial chat UI with topic chips and escalation form.
+ * Phase 4C: Escalation link rendering, stronger boundary UX,
+ *           improved error handling, out-of-scope visual treatment.
  */
 (() => {
   'use strict';
@@ -39,13 +43,37 @@
       .replaceAll("'", '&#039;');
   }
 
+  // Phase 4C: Determine if response is a boundary/escalation response
+  function isBoundaryResponse(status) {
+    return status === 'out_of_scope' || status === 'escalate' || status === 'no_topic';
+  }
+
   function appendMessage(role, text, payload) {
     payload = payload || {};
     const wrapper = document.createElement('div');
     wrapper.className = 'la-message la-message-' + role;
 
+    // Phase 4C: Add boundary class for out-of-scope / escalation responses
+    if (role === 'assistant' && isBoundaryResponse(payload.status)) {
+      wrapper.classList.add('la-message-boundary');
+    }
+
     let html = '<span class="la-message-meta">' + (role === 'assistant' ? 'Assistant' : 'You') + '</span>';
     html += '<div>' + esc(text).replaceAll('\n', '<br>') + '</div>';
+
+    // Phase 4C: Render escalation links as actionable buttons
+    if (payload.escalation_links && payload.escalation_links.length) {
+      html += '<div class="la-escalation-links">';
+      payload.escalation_links.forEach(function (link) {
+        html += '<a class="la-escalation-link" href="' + esc(link.url) + '">';
+        html += '<span class="la-escalation-label">' + esc(link.label) + '</span>';
+        if (link.description) {
+          html += '<span class="la-escalation-desc">' + esc(link.description) + '</span>';
+        }
+        html += '</a>';
+      });
+      html += '</div>';
+    }
 
     if (payload.suggestions && payload.suggestions.length) {
       html += '<div class="la-message-suggestions">';
@@ -86,6 +114,17 @@
         body: JSON.stringify(payload),
       });
 
+      // Phase 4C: Better error differentiation
+      if (res.status === 429) {
+        appendMessage('assistant', 'Too many requests. Please wait a moment before sending another message.', {
+          status: 'rate_limited',
+          escalation_links: [
+            { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your question directly instead.' }
+          ]
+        });
+        return;
+      }
+
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
       const data = await res.json();
@@ -96,7 +135,13 @@
       jurisdictionStateEl.textContent = data.state || stateInput.value.trim() || 'not set';
       appendMessage('assistant', data.answer, data);
     } catch (err) {
-      appendMessage('assistant', 'The assistant API is not responding. Please try again or use structured intake.', {});
+      appendMessage('assistant', 'The assistant is not responding. You can submit your question through Structured Intake instead.', {
+        status: 'error',
+        escalation_links: [
+          { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
+          { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
+        ]
+      });
       console.error('[VCX Legal Assistant]', err);
     }
   }
@@ -168,10 +213,20 @@
     });
   }
 
-  // Initial greeting
+  // Phase 4C: Improved initial greeting with clear scope boundaries
   appendMessage(
     'assistant',
-    'Tell me which area you need: contracts, immigration packet organization, auto deal review, or Florida official-source routing.',
-    { suggestions: ['Contract question', 'Immigration packet question', 'Auto deal question', 'Florida portal question'] }
+    'Welcome. This assistant handles four specific topics only:\n\n' +
+    '1. Contracts — clause review, document checklists, signing questions\n' +
+    '2. Immigration packets — form organization, evidence categories\n' +
+    '3. Auto deal review — fee verification, APR check, dealer sheets\n' +
+    '4. Florida official sources — toll portals, traffic citations, court records\n\n' +
+    'Select a topic below or type your question. If your matter falls outside these areas, use Structured Intake for private review.',
+    {
+      suggestions: ['Contract question', 'Immigration packet question', 'Auto deal question', 'Florida portal question'],
+      escalation_links: [
+        { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'For matters outside these four topics.' }
+      ]
+    }
   );
 })();

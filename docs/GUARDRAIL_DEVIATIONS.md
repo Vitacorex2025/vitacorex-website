@@ -47,6 +47,35 @@ AGENTS.md defines the VCX guardrails for safe development. This document records
 
 ---
 
+## Deviation 4: sign-in page rewrite (Phase 4A)
+
+| Field | Value |
+|-------|-------|
+| **File** | `app/sign-in/index.html` |
+| **Guardrail** | AGENTS.md: "Prefer additive changes over rewrites. Do not delete or replace existing pages." |
+| **Change** | Replaced the redirect stub (`<meta http-equiv="refresh" content="0; url=/">`) with a functional sign-in form using the v284 canonical shell template. |
+| **Why necessary** | The sign-in page was a non-functional redirect — it served no purpose. The rewrite connects clients to the portal auth flow (POST /api/portal/request-access), completing the lead-to-matter-to-portal pipeline. |
+| **Shell compliance** | YES. Page uses identical v284 shell: vcx-header, full i18n en/ru/es, metric bar, lang switcher, dual clock chips, mobile nav, footer-grid-extended. Copied from app/vcx-packet-room/index.html. |
+| **CSS scoping** | All new CSS rules are scoped to `body[data-vcx-page="vcx-sign-in"]`. Zero global style leakage. |
+| **data-vcx-page** | `vcx-sign-in` |
+| **Introduced** | Phase 4A (2026-04-02) |
+
+---
+
+## Deviation 5: contract-intelligence/index.html modifications (Phase 4B)
+
+| Field | Value |
+|-------|-------|
+| **File** | `app/contract-intelligence/index.html` |
+| **Guardrail** | AGENTS.md: "Prefer additive changes over rewrites." |
+| **Changes** | Four additive modifications: (1) `window._vcxSetAnalysis` bridge setter (2 lines inside IIFE), (2) `<script src="/assets/js/vcx-contract-intelligence.js">` before vcx-i18n.js, (3) Updated upload hint i18n strings in EN/RU/ES from "limited support" to "Supports .txt, .pdf, and .docx", (4) Updated inline upload hint paragraph. |
+| **Compliance** | The bridge setter is a 2-line additive insertion. The script tag is an additive insertion. The i18n text changes are string value updates (not structural). No existing HTML was deleted or restructured. |
+| **Boundary markers** | `// VCX Phase 4B: Bridge setter -- START/END` on the setter, `<!-- VCX Phase 4B: ... -- START/END -->` on the script tag. |
+| **Fallback preserved** | YES. If `vcx-contract-intelligence.js` is not loaded (script 404 or removed), the original client-side analysis runs unchanged. The `_vcxSetAnalysis` setter is never called and has no side effects. |
+| **Introduced** | Phase 4B (2026-04-02) |
+
+---
+
 ## Non-deviations (confirmed)
 
 | Guardrail | Status |

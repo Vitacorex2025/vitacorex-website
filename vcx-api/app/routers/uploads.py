@@ -4,11 +4,13 @@ import os
 import uuid
 from pathlib import Path
 
-from fastapi import APIRouter, File, Header, HTTPException, UploadFile
+from fastapi import APIRouter, File, Header, HTTPException, Request, UploadFile
 
 from ..db import get_conn
 from ..models.intake import UploadResponse
+from ..rate_limit import limiter
 from ..services.magic_link import validate_token
+from ..services.upload_validator import sanitize_filename, validate_file
 
 router = APIRouter()
 
@@ -16,7 +18,9 @@ UPLOADS_DIR = Path(os.getenv("VCX_UPLOADS_DIR", "uploads"))
 
 
 @router.post("/api/uploads/{matter_id}", status_code=201, response_model=UploadResponse)
+@limiter.limit("20/minute")
 async def upload_documents(
+    request: Request,
     matter_id: str,
     files: list[UploadFile] = File(...),
     authorization: str = Header(...),
@@ -32,10 +36,13 @@ async def upload_documents(
 
         docs = []
         for f in files:
-            file_id = str(uuid.uuid4())
-            safe_name = f"{file_id}_{f.filename}"
-            file_path = matter_dir / safe_name
+            # Phase 4A: Validate each file before saving
             content = await f.read()
+            safe_original = validate_file(f.filename, len(content), f.content_type)
+
+            file_id = str(uuid.uuid4())
+            safe_name = f"{file_id}_{sanitize_filename(f.filename)}"
+            file_path = matter_dir / safe_name
             file_path.write_bytes(content)
 
             conn.execute(
