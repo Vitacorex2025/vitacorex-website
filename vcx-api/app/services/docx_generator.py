@@ -1,0 +1,210 @@
+"""DOCX document generator — creates contract documents from templates.
+
+Phase 8: Contract Generator — uses python-docx to build professional
+DOCX files from the clause library in contract_templates.py.
+
+All generated documents include a prominent legal disclaimer and
+"DRAFT — NOT LEGAL ADVICE" watermark header.
+"""
+
+import io
+import logging
+from typing import Optional
+
+logger = logging.getLogger("vcx.docx_generator")
+
+# python-docx imports — guarded for environments where not installed
+try:
+    from docx import Document
+    from docx.shared import Inches, Pt, RGBColor
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.enum.section import WD_ORIENT
+    _DOCX_AVAILABLE = True
+except ImportError:
+    _DOCX_AVAILABLE = False
+    logger.warning("python-docx not installed — DOCX generation unavailable.")
+
+from .contract_templates import (
+    CONTRACT_TYPES,
+    DISCLAIMER_TEXT,
+    build_contract_sections,
+)
+
+
+def is_available() -> bool:
+    """Check if DOCX generation is available (python-docx installed)."""
+    return _DOCX_AVAILABLE
+
+
+def generate_contract_docx(
+    contract_type: str,
+    params: dict,
+    include_disclaimer: bool = True,
+) -> bytes:
+    """Generate a DOCX contract document and return as bytes.
+
+    Args:
+        contract_type: Key from CONTRACT_TYPES (e.g., "nda", "service")
+        params: Questionnaire answers dict
+        include_disclaimer: Whether to include the legal disclaimer page
+
+    Returns:
+        DOCX file content as bytes
+
+    Raises:
+        RuntimeError: If python-docx is not installed
+        ValueError: If contract_type is unknown
+    """
+    if not _DOCX_AVAILABLE:
+        raise RuntimeError(
+            "python-docx is not installed. Run: pip install python-docx"
+        )
+
+    spec = CONTRACT_TYPES.get(contract_type)
+    if not spec:
+        raise ValueError(f"Unknown contract type: {contract_type}")
+
+    doc = Document()
+
+    # ── Page setup ──────────────────────────────────────────────────
+    section = doc.sections[0]
+    section.top_margin = Inches(1)
+    section.bottom_margin = Inches(1)
+    section.left_margin = Inches(1.25)
+    section.right_margin = Inches(1.25)
+
+    # ── Default font ────────────────────────────────────────────────
+    style = doc.styles["Normal"]
+    font = style.font
+    font.name = "Calibri"
+    font.size = Pt(11)
+    font.color.rgb = RGBColor(0x1A, 0x1A, 0x1A)
+
+    # ── Draft watermark header ──────────────────────────────────────
+    _add_draft_header(doc)
+
+    # ── Disclaimer page (if enabled) ────────────────────────────────
+    if include_disclaimer:
+        _add_disclaimer_page(doc)
+
+    # ── Title ───────────────────────────────────────────────────────
+    title = doc.add_heading(spec["label"], level=0)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for run in title.runs:
+        run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)  # VCX brand navy
+
+    # ── Build sections from template ────────────────────────────────
+    sections = build_contract_sections(contract_type, params)
+
+    section_number = 0
+    for heading_text, body_text in sections:
+        # Special handling for preamble and signatures (no numbering)
+        if heading_text in ("Agreement", "Recitals", "Signatures"):
+            _add_section_unnumbered(doc, heading_text, body_text)
+        else:
+            section_number += 1
+            _add_section_numbered(doc, section_number, heading_text, body_text)
+
+    # ── Footer disclaimer ───────────────────────────────────────────
+    _add_footer_disclaimer(doc)
+
+    # ── Serialize to bytes ──────────────────────────────────────────
+    buffer = io.BytesIO()
+    doc.save(buffer)
+    buffer.seek(0)
+    return buffer.read()
+
+
+def _add_draft_header(doc: Document) -> None:
+    """Add a 'DRAFT — NOT LEGAL ADVICE' header to all pages."""
+    section = doc.sections[0]
+    header = section.header
+    para = header.paragraphs[0] if header.paragraphs else header.add_paragraph()
+    para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = para.add_run("DRAFT — NOT LEGAL ADVICE — FOR REFERENCE ONLY")
+    run.font.size = Pt(8)
+    run.font.color.rgb = RGBColor(0xCC, 0x33, 0x33)
+    run.font.bold = True
+
+
+def _add_disclaimer_page(doc: Document) -> None:
+    """Add a full disclaimer page before the contract content."""
+    heading = doc.add_heading("Important Legal Notice", level=1)
+    heading.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for run in heading.runs:
+        run.font.color.rgb = RGBColor(0xCC, 0x33, 0x33)
+
+    disclaimer_para = doc.add_paragraph()
+    disclaimer_para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    run = disclaimer_para.add_run(DISCLAIMER_TEXT)
+    run.font.size = Pt(11)
+    run.font.italic = True
+
+    doc.add_paragraph()  # spacer
+
+    note = doc.add_paragraph()
+    note.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = note.add_run(
+        "Generated by VitaCoreX Contract Generator\n"
+        "This document should be reviewed by licensed counsel before use."
+    )
+    run.font.size = Pt(10)
+    run.font.color.rgb = RGBColor(0x66, 0x66, 0x66)
+
+    # Page break after disclaimer
+    doc.add_page_break()
+
+
+def _add_section_unnumbered(doc: Document, heading: str, body: str) -> None:
+    """Add an unnumbered section (preamble, recitals, signatures)."""
+    h = doc.add_heading(heading, level=2)
+    for run in h.runs:
+        run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)
+
+    # Split body by double newline into paragraphs
+    for chunk in body.split("\n\n"):
+        para = doc.add_paragraph()
+        para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        # Handle single newlines within a chunk as line breaks
+        lines = chunk.split("\n")
+        for i, line in enumerate(lines):
+            run = para.add_run(line)
+            run.font.size = Pt(11)
+            if i < len(lines) - 1:
+                run.add_break()
+
+
+def _add_section_numbered(
+    doc: Document,
+    number: int,
+    heading: str,
+    body: str,
+) -> None:
+    """Add a numbered section (Article N: Heading)."""
+    h = doc.add_heading(f"Article {number}. {heading}", level=2)
+    for run in h.runs:
+        run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)
+
+    for chunk in body.split("\n\n"):
+        para = doc.add_paragraph()
+        para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        lines = chunk.split("\n")
+        for i, line in enumerate(lines):
+            # Detect sub-numbering (lines starting with digits or letters)
+            run = para.add_run(line)
+            run.font.size = Pt(11)
+            if i < len(lines) - 1:
+                run.add_break()
+
+
+def _add_footer_disclaimer(doc: Document) -> None:
+    """Add a small disclaimer to the page footer."""
+    section = doc.sections[0]
+    footer = section.footer
+    para = footer.paragraphs[0] if footer.paragraphs else footer.add_paragraph()
+    para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = para.add_run(
+        "Generated by VitaCoreX — Not legal advice — Consult licensed counsel"
+    )
+    run.font.size = Pt(7)
+    run.font.color.rgb = RGBColor(0x99, 0x99, 0x99)

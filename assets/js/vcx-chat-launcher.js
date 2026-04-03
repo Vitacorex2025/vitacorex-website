@@ -15,11 +15,23 @@
   if (document.body && document.body.getAttribute('data-vcx-page') === 'legal-assistant') return;
 
   /* ── Config ──────────────────────────────────────────────────────── */
-  var API_BASE = window.VCX_API_BASE || '';
+  /**
+   * API_BASE resolution order:
+   *  1. window.VCX_API_BASE (explicit override via inline script)
+   *  2. Auto-detect: if frontend runs on port 8080, API is on 8787
+   *  3. Same-origin fallback (empty string — for reverse-proxy setups)
+   */
+  var API_BASE = (function () {
+    if (window.VCX_API_BASE) return window.VCX_API_BASE;
+    var port = location.port;
+    if (port === '8080') return 'http://' + location.hostname + ':8787';
+    return '';
+  })();
   var STORAGE_KEY = 'vcx_cw_session';
   var STATE_KEY = 'vcx_cw_open';
   var ALLOWED_EXT = ['.pdf','.doc','.docx','.txt','.md','.jpg','.jpeg','.png','.gif','.csv','.xlsx','.xls'];
   var MAX_FILE_MB = 25;
+  var HEALTHZ_TIMEOUT = 4000; /* ms — backend readiness timeout */
 
   /* ── SVG Icons (inline, no external assets) ─────────────────────── */
   var ICON_CHAT = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>';
@@ -53,6 +65,7 @@
     escalation: null,
     attachments: [],
     messageCount: 0,
+    backendReady: false,  /* Phase 8: set true after /healthz success */
   };
 
   /* Restore session from sessionStorage */
@@ -94,6 +107,51 @@
   function fileExtension(name) {
     var dot = name.lastIndexOf('.');
     return dot > 0 ? name.substring(dot).toLowerCase() : '';
+  }
+
+  /**
+   * Phase 8: Backend readiness check.
+   * Pings /healthz on init. Sets state.backendReady = true on success.
+   * Returns a promise that resolves to true/false.
+   */
+  function checkBackend() {
+    return new Promise(function (resolve) {
+      var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = setTimeout(function () {
+        if (controller) controller.abort();
+        resolve(false);
+      }, HEALTHZ_TIMEOUT);
+
+      fetch(API_BASE + '/healthz', {
+        method: 'GET',
+        signal: controller ? controller.signal : undefined,
+      })
+        .then(function (res) {
+          clearTimeout(timer);
+          if (res.ok) { state.backendReady = true; resolve(true); }
+          else { resolve(false); }
+        })
+        .catch(function () {
+          clearTimeout(timer);
+          resolve(false);
+        });
+    });
+  }
+
+  /**
+   * Phase 8: Classify a fetch error for user-visible diagnostics.
+   * Only shows detail in dev; production shows generic message.
+   */
+  function diagnoseFetchError(err, url) {
+    var isDev = (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+    if (!isDev) return null; /* production: use default message */
+    if (err && err.name === 'TypeError' && /Failed to fetch|NetworkError/i.test(err.message)) {
+      return 'Connection failed — the API server at ' + API_BASE + ' may be down or blocked by CORS. Check the browser console for details.';
+    }
+    if (err && err.message && err.message.indexOf('HTTP ') === 0) {
+      return 'Server returned ' + err.message + ' for ' + url + '. Verify the API is running.';
+    }
+    return 'Request failed: ' + (err && err.message ? err.message : 'unknown error') + '.';
   }
 
   /* ── Self-inject CSS ─────────────────────────────────────────────── */
@@ -342,14 +400,18 @@
 
       } catch (err) {
         hideTyping();
-        appendMessage('bot', 'The assistant is not responding. You can submit your question through Structured Intake instead.', {
+        var diagnostic = diagnoseFetchError(err, API_BASE + '/api/legal-chat/message');
+        var errorMsg = diagnostic
+          ? diagnostic + '\n\nYou can submit your question through Structured Intake instead.'
+          : 'The assistant is not responding. You can submit your question through Structured Intake instead.';
+        appendMessage('bot', errorMsg, {
           status: 'error',
           escalation_links: [
             { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
             { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
           ]
         });
-        console.error('[VCX Chat Widget]', err);
+        console.error('[VCX Chat Widget] sendMessage failed:', err, '| API_BASE:', API_BASE);
       }
     }
 
@@ -533,15 +595,16 @@
       } catch (err) {
         hideTyping();
         /* Graceful degradation: file upload might not be available yet */
-        appendMessage('bot',
-          'Upload could not be completed right now. You can attach this file on the intake form instead.',
-          {
-            escalation_links: [
-              { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Upload and submit with your intake.' }
-            ]
-          }
-        );
-        console.warn('[VCX Chat Widget] Upload failed:', err.message);
+        var uploadDiag = diagnoseFetchError(err, API_BASE + '/api/legal-chat/upload');
+        var uploadMsg = uploadDiag
+          ? uploadDiag + '\n\nYou can attach this file on the intake form instead.'
+          : 'Upload could not be completed right now. You can attach this file on the intake form instead.';
+        appendMessage('bot', uploadMsg, {
+          escalation_links: [
+            { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Upload and submit with your intake.' }
+          ]
+        });
+        console.warn('[VCX Chat Widget] Upload failed:', err.message, '| API_BASE:', API_BASE);
       }
     }
 
@@ -576,7 +639,7 @@
           return;
         }
       } catch (err) {
-        console.warn('[VCX Chat Widget] Convert failed, falling back:', err.message);
+        console.warn('[VCX Chat Widget] Convert failed, falling back:', err.message, '| API_BASE:', API_BASE);
       }
 
       /* Fallback redirect */
@@ -612,6 +675,19 @@
         ]
       }
     );
+
+    /* ── Phase 8: Backend readiness check on init ────────────────── */
+    checkBackend().then(function (ready) {
+      if (!ready) {
+        var dot = panel.querySelector('.vcx-cw-header-dot');
+        if (dot) dot.classList.add('vcx-cw-dot-offline');
+        console.warn('[VCX Chat Widget] Backend not reachable at', API_BASE + '/healthz');
+      } else {
+        var dot = panel.querySelector('.vcx-cw-header-dot');
+        if (dot) dot.classList.add('vcx-cw-dot-online');
+        console.info('[VCX Chat Widget] Backend ready at', API_BASE);
+      }
+    });
 
     /* ── Restore open state if previously open ────────────────────── */
     try {

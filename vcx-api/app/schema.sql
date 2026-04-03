@@ -165,6 +165,17 @@ CREATE TABLE IF NOT EXISTS contract_clauses (
 );
 CREATE INDEX IF NOT EXISTS idx_contract_clauses_review ON contract_clauses(review_id);
 
+-- Contract Generator (Phase 8)
+-- ===========================================
+CREATE TABLE IF NOT EXISTS generated_contracts (
+    id              TEXT PRIMARY KEY,
+    contract_type   TEXT NOT NULL,
+    filename        TEXT NOT NULL,
+    file_path       TEXT NOT NULL,
+    size_bytes      INTEGER,
+    created_at      TEXT DEFAULT (datetime('now'))
+);
+
 -- Recovery Pilot Studio (Product 3)
 -- ===========================================
 CREATE TABLE IF NOT EXISTS recovery_pilots (

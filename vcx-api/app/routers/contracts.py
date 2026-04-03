@@ -1,17 +1,21 @@
-"""Contract Review Desk -- upload, analyze, and report endpoints.
+"""Contract Review Desk -- upload, analyze, report, generate, and download.
 
 Phase 3: Wired to DB + contract_analyzer service.
 Phase 4A: Added upload validation + rate limiting.
 Phase 4B: Enhanced analyze endpoint — PDF/DOCX extraction, missing protections,
           suggested questions, issue buckets, questionnaire context.
+Phase 8: Contract Generator — generate + download endpoints.
 Analysis is pattern-based (regex), not LLM-driven.
+Generation uses clause templates + python-docx.
 """
 
+import logging
 import os
 import uuid
 from pathlib import Path
 
 from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
+from fastapi.responses import Response
 
 from ..db import get_conn
 from ..models.contract import (
@@ -24,6 +28,12 @@ from ..models.contract import (
     QuestionnaireContext,
     SuggestedQuestion,
 )
+from ..models.contract_generator import (
+    ContractGenerationRequest,
+    ContractGenerationResponse,
+    ContractTypeInfo,
+    ContractTypesResponse,
+)
 from ..rate_limit import limiter
 from ..services.contract_analyzer import (
     compute_risk_score,
@@ -34,10 +44,15 @@ from ..services.contract_analyzer import (
     generate_risk_summary,
     generate_suggested_questions,
 )
+from ..services.contract_templates import CONTRACT_TYPES, get_contract_types
+from ..services.docx_generator import generate_contract_docx, is_available as docx_available
 from ..services.upload_validator import sanitize_filename, validate_file
+
+logger = logging.getLogger("vcx.contracts")
 
 router = APIRouter(prefix="/api/contracts")
 UPLOADS_DIR = Path(os.getenv("VCX_UPLOADS_DIR", "uploads"))
+GENERATED_DIR = UPLOADS_DIR / "generated"
 
 
 @router.post("/upload", status_code=201, response_model=ContractUploadResponse)
@@ -283,3 +298,123 @@ def get_report(review_id: str):
             "these findings."
         ),
     }
+
+
+# ── Phase 8: Contract Generator endpoints ────────────────────────────
+
+
+@router.get("/types", response_model=ContractTypesResponse)
+def list_contract_types(request: Request):
+    """List available contract types for the generation questionnaire."""
+    return ContractTypesResponse(
+        types=[ContractTypeInfo(**t) for t in get_contract_types()]
+    )
+
+
+@router.post("/generate", response_model=ContractGenerationResponse, status_code=201)
+@limiter.limit("10/minute")
+def generate_contract(request: Request, req: ContractGenerationRequest):
+    """Generate a contract document from questionnaire answers.
+
+    Phase 8: Accepts a ContractGenerationRequest with contract type
+    and questionnaire parameters. Returns metadata with a download URL.
+
+    The generated DOCX is stored on disk and downloadable via
+    GET /api/contracts/{contract_id}/download.
+    """
+    # Validate contract type
+    if req.contract_type not in CONTRACT_TYPES:
+        valid_types = ", ".join(CONTRACT_TYPES.keys())
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown contract type: '{req.contract_type}'. "
+                   f"Valid types: {valid_types}",
+        )
+
+    # Check python-docx availability
+    if not docx_available():
+        raise HTTPException(
+            status_code=503,
+            detail="DOCX generation is not available. "
+                   "The server needs python-docx installed.",
+        )
+
+    # Build params dict from request model
+    params = req.model_dump(exclude={"contract_type"}, exclude_none=True)
+
+    # Generate DOCX
+    try:
+        docx_bytes = generate_contract_docx(req.contract_type, params)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.error("DOCX generation failed: %s", exc)
+        raise HTTPException(
+            status_code=500,
+            detail="Contract generation failed. Please try again.",
+        ) from exc
+
+    # Store on disk
+    contract_id = str(uuid.uuid4())
+    gen_dir = GENERATED_DIR / contract_id
+    gen_dir.mkdir(parents=True, exist_ok=True)
+
+    spec = CONTRACT_TYPES[req.contract_type]
+    safe_label = spec["label"].replace(" ", "_").replace("(", "").replace(")", "")
+    filename = f"VCX_{safe_label}_{contract_id[:8]}.docx"
+    file_path = gen_dir / filename
+    file_path.write_bytes(docx_bytes)
+
+    # Persist metadata to DB
+    try:
+        with get_conn() as conn:
+            conn.execute(
+                """INSERT INTO generated_contracts
+                   (id, contract_type, filename, file_path, size_bytes, created_at)
+                   VALUES (?, ?, ?, ?, ?, datetime('now'))""",
+                (contract_id, req.contract_type, filename,
+                 str(file_path), len(docx_bytes)),
+            )
+    except Exception as exc:
+        # DB table may not exist yet — log but don't fail the generation
+        logger.warning("Could not persist generated contract to DB: %s", exc)
+
+    download_url = f"/api/contracts/{contract_id}/download"
+
+    return ContractGenerationResponse(
+        contract_id=contract_id,
+        contract_type=req.contract_type,
+        contract_label=spec["label"],
+        filename=filename,
+        size_bytes=len(docx_bytes),
+        download_url=download_url,
+    )
+
+
+@router.get("/{contract_id}/download")
+def download_contract(contract_id: str):
+    """Download a generated contract DOCX file.
+
+    Phase 8: Serves the DOCX file from uploads/generated/{contract_id}/.
+    Returns 404 if the contract_id does not exist or the file is missing.
+    """
+    gen_dir = GENERATED_DIR / contract_id
+    if not gen_dir.exists():
+        raise HTTPException(status_code=404, detail="Contract not found.")
+
+    # Find the DOCX file in the directory
+    docx_files = list(gen_dir.glob("*.docx"))
+    if not docx_files:
+        raise HTTPException(status_code=404, detail="Contract file not found.")
+
+    file_path = docx_files[0]
+    content = file_path.read_bytes()
+
+    return Response(
+        content=content,
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        headers={
+            "Content-Disposition": f'attachment; filename="{file_path.name}"',
+            "Content-Length": str(len(content)),
+        },
+    )

@@ -104,8 +104,18 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ADE80;
+  background: #94A3B8; /* default: neutral gray until healthz resolves */
   flex-shrink: 0;
+  transition: background .3s ease;
+}
+
+/* Phase 8: Backend readiness indicators */
+.vcx-cw-header-dot.vcx-cw-dot-online {
+  background: #4ADE80; /* green — backend reachable */
+}
+
+.vcx-cw-header-dot.vcx-cw-dot-offline {
+  background: #F87171; /* red — backend unreachable */
 }
 
 .vcx-cw-header-title {
