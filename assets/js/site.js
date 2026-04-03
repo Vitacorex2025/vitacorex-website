@@ -361,44 +361,35 @@ function bindIntakeForm(form){
   }
   const status=form.querySelector('#intakeFormStatus') || form.querySelector('.form-status');
   const submitBtn=form.querySelector('#intakeSubmitBtn') || form.querySelector('button[type="submit"]');
-  // VCX Phase 2: modified bindIntakeForm -- START
-  // Delegates to VCX_IntakeAPI.submit() when the API client is loaded,
-  // otherwise falls back to the original FormSubmit.co email path.
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
+  form.addEventListener('submit', e=>{
     if(!form.checkValidity()){
+      e.preventDefault();
       form.reportValidity();
       setStatus(status,'error',statusText('intake_validation','Please complete all fields before submitting.'));
       return;
     }
     syncUploadMetadata();
     injectAttributionFields(form);
-    if(window.VCX_IntakeAPI && window.VCX_IntakeAPI.submit){
-      window.VCX_IntakeAPI.submit(form);
-    } else {
-      const fd=new FormData(form);
-      const formName=String(fd.get('form_name') || 'Structured Intake').trim();
-      const source=String(fd.get('Source') || 'structured_case_intake').trim();
-      configureDirectFormSubmission(form, {
-        endpoint: FILE_UPLOAD_NOTIFICATION_ENDPOINT,
-        subject:`New Website File Upload Submission — ${formName}`,
-        replyTo:String(fd.get('email')||'').trim(),
-        enctype:'multipart/form-data',
-        extraFields:{
-          'Form': formName,
-          'Source': source,
-          'Submission type': 'website_file_upload_submission',
-          'Has file upload': 'Yes',
-          'File field name': 'attachment',
-          'File uploaded': String(fd.get('Uploaded file name')||'').trim() && String(fd.get('Uploaded file name')).trim()!=='No file attached' ? 'Yes' : 'No'
-        }
-      });
-      if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
-      setStatus(status,'success','Submitting request…');
-      form.submit();
-    }
+    const fd=new FormData(form);
+    const formName=String(fd.get('form_name') || 'Structured Intake').trim();
+    const source=String(fd.get('Source') || 'structured_case_intake').trim();
+    configureDirectFormSubmission(form, {
+      endpoint: FILE_UPLOAD_NOTIFICATION_ENDPOINT,
+      subject:`New Website File Upload Submission — ${formName}`,
+      replyTo:String(fd.get('email')||'').trim(),
+      enctype:'multipart/form-data',
+      extraFields:{
+        'Form': formName,
+        'Source': source,
+        'Submission type': 'website_file_upload_submission',
+        'Has file upload': 'Yes',
+        'File field name': 'attachment',
+        'File uploaded': String(fd.get('Uploaded file name')||'').trim() && String(fd.get('Uploaded file name')).trim()!=='No file attached' ? 'Yes' : 'No'
+      }
+    });
+    if(submitBtn){ submitBtn.disabled=true; submitBtn.classList.add('is-loading'); }
+    setStatus(status,'success','Submitting request…');
   });
-  // VCX Phase 2: modified bindIntakeForm -- END
 }
 bindIntakeForm($('#intakeForm'));
 
