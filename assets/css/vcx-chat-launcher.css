@@ -1,7 +1,8 @@
 /* ── Phase 7A: Floating Chat Launcher ─────────────────────────────────
  * All rules scoped under .vcx-cw-* (chat widget) namespace.
  * Conservative, premium styling native to the VCX shell.
- * z-index: launcher 98, panel 99 (below modals at 120).
+ * z-index: launcher 10099, panel 10100 (above vcx-header 120 / vcx-dock 110).
+ * Phase 8: Mobile safe-area, 44px touch targets, overscroll containment.
  * ──────────────────────────────────────────────────────────────────── */
 
 /* ── Launcher FAB ─────────────────────────────────────────────────── */
@@ -10,7 +11,7 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 98;
+  z-index: 10099;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -64,7 +65,7 @@
   position: fixed;
   bottom: 92px;
   right: 24px;
-  z-index: 99;
+  z-index: 10100;
   width: 380px;
   height: min(560px, calc(100vh - 140px));
   background: var(--vcx-bg-surface, #FBF8F3);
@@ -74,6 +75,7 @@
   display: none;
   flex-direction: column;
   overflow: hidden;
+  overscroll-behavior: contain;
   font-family: Inter, system-ui, -apple-system, sans-serif;
   color: var(--vcx-ink-body, #243548);
 }
@@ -131,12 +133,15 @@
   border: none;
   color: rgba(255, 255, 255, .7);
   cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
+  padding: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color .15s ease;
+  min-width: 44px;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .vcx-cw-header-close:hover {
@@ -144,8 +149,8 @@
 }
 
 .vcx-cw-header-close svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
 }
 
@@ -154,11 +159,14 @@
 .vcx-cw-messages {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .vcx-cw-messages::-webkit-scrollbar {
@@ -184,6 +192,7 @@
   line-height: 1.55;
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .vcx-cw-bubble-bot {
@@ -296,11 +305,13 @@
   background: var(--vcx-bg-surface, #FBF8F3);
   color: var(--vcx-ink-body, #243548);
   border-radius: 999px;
-  padding: 5px 12px;
+  padding: 10px 14px;
+  min-height: 44px;
   cursor: pointer;
   font-size: .72rem;
   font-family: inherit;
   transition: border-color .15s ease, background .15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .vcx-cw-suggestion:hover {
@@ -435,13 +446,16 @@
   background: none;
   border: 1px solid rgba(15, 27, 45, .08);
   border-radius: 8px;
-  padding: 6px;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
   color: var(--vcx-ink-muted, #5E6C7B);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: border-color .15s ease, color .15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .vcx-cw-btn-attach:hover,
@@ -493,14 +507,17 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  width: 34px;
-  height: 34px;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   transition: background .15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .vcx-cw-btn-send:hover {
@@ -579,7 +596,7 @@
 
 @media (max-width: 640px) {
   .vcx-cw-launcher {
-    bottom: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     right: 16px;
     width: 52px;
     height: 52px;
@@ -591,7 +608,7 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    height: calc(100dvh - 70px);
+    height: calc(100dvh - 70px - env(safe-area-inset-bottom, 0px));
     border-radius: 16px 16px 0 0;
     max-height: none;
   }
@@ -608,11 +625,29 @@
   .vcx-cw-input {
     font-size: 16px; /* Prevent iOS zoom on focus */
   }
+
+  .vcx-cw-input-bar {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media (max-width: 380px) {
   .vcx-cw-panel {
     border-radius: 12px 12px 0 0;
+  }
+}
+
+/* ── Suppress overlapping elements when chat panel is open ──────── */
+/* JS toggles .vcx-cw-panel-open on <body> only while drawer is visible. */
+
+@media (max-width: 640px) {
+  body.vcx-cw-panel-open {
+    overflow: hidden; /* Prevent background scroll on mobile */
+  }
+
+  body.vcx-cw-panel-open .vcx-dock,
+  body.vcx-cw-panel-open .floating-contact-dock {
+    display: none;
   }
 }
 
@@ -627,4 +662,12 @@ body[data-vcx-page="legal-assistant"] .vcx-cw-panel {
 
 .vcx-cw-active .floating-contact-dock {
   display: none;
+}
+
+/* ── iOS keyboard visual-viewport compensation ──────────────────── */
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .vcx-cw-panel {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }

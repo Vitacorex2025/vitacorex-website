@@ -3,6 +3,8 @@
 Phase 8: Contract Generator — questionnaire request and generation response.
 """
 
+from typing import Literal
+
 from pydantic import BaseModel
 
 
@@ -15,7 +17,7 @@ class ContractGenerationRequest(BaseModel):
     All other fields are optional and will use sensible defaults or
     placeholder text if not provided.
     """
-    contract_type: str
+    contract_type: Literal["nda", "service", "employment", "contractor"]
 
     # Party information
     party_a_name: str | None = None

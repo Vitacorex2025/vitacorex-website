@@ -34,13 +34,16 @@ body[data-vcx-page="legal-assistant"] {
 
 .assistant-messages {
   flex: 1;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid rgba(15, 27, 45, .08);
   border-radius: 14px;
   padding: 16px;
   background: var(--vcx-bg-surface, #FBF8F3);
   min-height: 320px;
   max-height: 480px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* Messages */
@@ -309,6 +312,113 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
   white-space: nowrap;
 }
 
+/* ── Phase 10: Backend status indicator ──────────────────────────── */
+
+.la-backend-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .75rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+.la-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #999;
+  flex-shrink: 0;
+}
+
+.la-status-dot.la-status-online {
+  background: #2F6B57;
+}
+
+.la-status-dot.la-status-offline {
+  background: #8B4348;
+}
+
+/* ── Phase 10: Attach / camera buttons ──────────────────────────── */
+
+.la-attach-btn {
+  appearance: none;
+  border: 1px solid rgba(15, 27, 45, .12);
+  background: var(--vcx-bg-surface, #FBF8F3);
+  color: var(--vcx-ink-body, #243548);
+  border-radius: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s;
+  flex-shrink: 0;
+}
+
+.la-attach-btn:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .04);
+}
+
+.la-attach-btn:active {
+  background: rgba(23, 58, 99, .08);
+}
+
+/* ── Phase 10: Upload status bar ────────────────────────────────── */
+
+.la-upload-status {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
+.la-upload-ok {
+  background: rgba(47, 107, 87, .08);
+  color: #2F6B57;
+  border: 1px solid rgba(47, 107, 87, .15);
+}
+
+.la-upload-error {
+  background: rgba(139, 67, 72, .08);
+  color: #8B4348;
+  border: 1px solid rgba(139, 67, 72, .15);
+}
+
+/* ── Phase 10: Typing indicator ─────────────────────────────────── */
+
+.la-typing-dots {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.la-typing-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(15, 27, 45, .25);
+  animation: laTypingBounce 1.2s ease-in-out infinite;
+}
+
+.la-typing-dots span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.la-typing-dots span:nth-child(3) {
+  animation-delay: .3s;
+}
+
+@keyframes laTypingBounce {
+  0%, 60%, 100% { opacity: .3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .assistant-grid,
@@ -318,5 +428,53 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
 
   .assistant-chat-shell {
     min-height: unset;
+  }
+}
+
+/* ── Phase 8: Mobile / iPhone fixes ──────────────────────────────── */
+
+@media (max-width: 640px) {
+  .assistant-messages {
+    max-height: calc(100dvh - 320px);
+    max-height: calc(100vh - 320px);
+  }
+
+  .assistant-form input,
+  .assistant-form textarea {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+
+  .topic-chip,
+  .suggestion-chip {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  .la-escalation-link {
+    min-height: 44px;
+    padding: 12px 14px;
+  }
+
+  body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  .la-attach-btn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .la-upload-status {
+    font-size: .78rem;
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 640px) {
+    body[data-vcx-page="legal-assistant"] .assistant-chat-shell {
+      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    }
   }
 }

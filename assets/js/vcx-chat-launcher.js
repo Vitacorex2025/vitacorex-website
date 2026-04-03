@@ -242,6 +242,7 @@
       isOpen = true;
       panel.classList.add('vcx-cw-visible');
       fab.classList.add('vcx-cw-open');
+      document.body.classList.add('vcx-cw-panel-open');
       fab.setAttribute('aria-label', 'Close chat');
       input.focus();
       try { sessionStorage.setItem(STATE_KEY, '1'); } catch (e) { /* */ }
@@ -251,6 +252,7 @@
       isOpen = false;
       panel.classList.remove('vcx-cw-visible');
       fab.classList.remove('vcx-cw-open');
+      document.body.classList.remove('vcx-cw-panel-open');
       fab.setAttribute('aria-label', 'Open chat');
       try { sessionStorage.setItem(STATE_KEY, '0'); } catch (e) { /* */ }
     }

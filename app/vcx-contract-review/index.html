@@ -103,15 +103,63 @@ Upload contracts for server-side analysis. The system extracts key clauses, flag
 
 </div>
 
+<div class="cr-mode-tabs" id="vcxModeTabs">
+<button type="button" class="cr-mode-tab cr-mode-tab--active" data-mode="analyze">Analyze Existing Contract</button>
+<button type="button" class="cr-mode-tab" data-mode="generate">Generate New Contract</button>
+</div>
+
+<div id="vcxAnalyzeSection">
 <div id="vcxContractUpload" style="background:#fff;border:2px dashed rgba(15,27,45,.12);border-radius:10px;padding:32px;text-align:center;margin-bottom:24px;">
 <p style="font-size:.95rem;margin:0 0 16px;color:var(--vcx-ink-body,#243548);">Upload a contract to begin analysis</p>
 <input type="file" id="vcxContractFile" accept=".txt,.md,.pdf,.doc,.docx" style="margin-bottom:16px;"/>
-<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 12px;">Supported for instant analysis: .txt, .md files. PDF and DOCX support coming soon.</p>
+<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 12px;">Supported formats: .txt, .md, .pdf, .docx</p>
 <br/>
 <button type="button" id="vcxContractAnalyzeBtn" style="background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:6px;padding:10px 28px;font-size:.95rem;cursor:pointer;">Analyze Contract</button>
 </div>
-
 <div id="vcxContractResult" style="display:none;background:#fff;border:1px solid rgba(15,27,45,.08);border-radius:10px;padding:24px;margin-bottom:24px;">
+</div>
+</div>
+
+<div id="vcxGenerateSection" style="display:none;">
+
+<div class="cr-gen-intro">
+<p style="font-size:.95rem;line-height:1.6;color:var(--vcx-ink-body,#243548);margin:0 0 8px;">
+Select a contract type and fill in the details below. The system will generate a professional Word document with standard clauses, clearly marked as an editable draft for attorney review.</p>
+<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 24px;">All generated documents include review disclaimers and are intended as starting points only.</p>
+</div>
+
+<div class="cr-gen-type-picker" id="vcxTypePicker">
+<label style="font-size:.85rem;font-weight:600;color:var(--vcx-ink-body,#243548);display:block;margin-bottom:10px;">Contract Type</label>
+<div class="cr-gen-type-grid" id="vcxTypeGrid">
+<div class="cr-gen-type-card" data-type="nda">
+<strong>NDA</strong>
+<span>Non-Disclosure Agreement</span>
+</div>
+<div class="cr-gen-type-card" data-type="service">
+<strong>Service Agreement</strong>
+<span>Professional services contract</span>
+</div>
+<div class="cr-gen-type-card" data-type="employment">
+<strong>Employment Agreement</strong>
+<span>Employee engagement terms</span>
+</div>
+<div class="cr-gen-type-card" data-type="contractor">
+<strong>Contractor Agreement</strong>
+<span>Independent contractor engagement</span>
+</div>
+</div>
+</div>
+
+<form id="vcxGenForm" style="display:none;" autocomplete="off">
+<div class="cr-gen-fields" id="vcxGenFields"></div>
+<div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+<button type="submit" class="cr-gen-submit" id="vcxGenBtn">Generate Contract</button>
+<button type="button" class="cr-gen-back" id="vcxGenBackBtn">Change Type</button>
+</div>
+</form>
+
+<div id="vcxGenResult" style="display:none;"></div>
+
 </div>
 
 <p style="margin-top:40px;font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.55;border-top:1px solid rgba(15,27,45,.08);padding-top:20px;">

@@ -11,7 +11,12 @@
 (() => {
   'use strict';
 
-  const API_BASE = window.VCX_API_BASE || '';
+  const API_BASE = (function () {
+    if (window.VCX_API_BASE) return window.VCX_API_BASE;
+    var port = location.port;
+    if (port === '8080') return 'http://' + location.hostname + ':8787';
+    return '';
+  })();
 
   const messagesEl = document.getElementById('messages');
   const chatForm = document.getElementById('chatForm');
@@ -23,13 +28,41 @@
   const leadResultEl = document.getElementById('leadResult');
   const topicChips = Array.from(document.querySelectorAll('.topic-chip'));
 
+  // ── Session persistence (Phase 10) ─────────────────────────────────
+  const SESSION_KEY = 'vcx_la_session';
+
+  function loadSession() {
+    try {
+      var raw = sessionStorage.getItem(SESSION_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  function saveSession() {
+    try {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+        sessionId: chatState.sessionId,
+        topic: chatState.topic,
+        jurisdiction: chatState.jurisdiction,
+        mode: chatState.mode
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  var restored = loadSession();
+
   const chatState = {
-    sessionId: null,
-    topic: null,
-    jurisdiction: null,
-    mode: null, // Phase 5A: track current mode
-    escalation: null, // Phase 6A: { name, email, phone } from escalation form
+    sessionId: restored ? restored.sessionId : null,
+    topic: restored ? restored.topic : null,
+    jurisdiction: restored ? restored.jurisdiction : null,
+    mode: restored ? restored.mode : null,
+    escalation: null,
   };
+
+  // Restore UI state from session
+  if (chatState.sessionId && sessionStateEl) sessionStateEl.textContent = chatState.sessionId;
+  if (chatState.jurisdiction && jurisdictionStateEl) jurisdictionStateEl.textContent = chatState.jurisdiction;
 
   function setTopic(topic) {
     chatState.topic = topic;
@@ -37,6 +70,9 @@
       chip.classList.toggle('is-active', chip.dataset.topic === topic);
     });
   }
+
+  // Restore topic chip highlight if session had one
+  if (chatState.topic) setTopic(chatState.topic);
 
   function esc(value) {
     return String(value)
@@ -121,8 +157,24 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  // ── Typing indicator ───────────────────────────────────────────────
+  function showTyping() {
+    var el = document.createElement('div');
+    el.className = 'la-message la-message-assistant la-typing-indicator';
+    el.id = 'laTypingIndicator';
+    el.innerHTML = '<span class="la-message-meta">Assistant</span><div class="la-typing-dots"><span></span><span></span><span></span></div>';
+    messagesEl.appendChild(el);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function hideTyping() {
+    var el = document.getElementById('laTypingIndicator');
+    if (el) el.remove();
+  }
+
   async function sendMessage(message) {
     appendMessage('user', message);
+    showTyping();
 
     var payload = {
       session_id: chatState.sessionId,
@@ -138,6 +190,8 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+
+      hideTyping();
 
       // Phase 4C: Better error differentiation
       if (res.status === 429) {
@@ -159,16 +213,22 @@
       if (data.state) chatState.jurisdiction = data.state;
       sessionStateEl.textContent = chatState.sessionId || 'new';
       jurisdictionStateEl.textContent = data.state || stateInput.value.trim() || 'not set';
+      saveSession();
       appendMessage('assistant', data.answer, data);
     } catch (err) {
-      appendMessage('assistant', 'The assistant is not responding. You can submit your question through Structured Intake instead.', {
+      hideTyping();
+      var errDetail = '';
+      if (err instanceof TypeError) {
+        errDetail = ' (Network unreachable — is the backend running on port 8787?)';
+      }
+      appendMessage('assistant', 'The assistant is not responding' + errDetail + '. You can submit your question through Structured Intake instead.', {
         status: 'error',
         escalation_links: [
           { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
           { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
         ]
       });
-      console.error('[VCX Legal Assistant]', err);
+      console.error('[VCX Legal Assistant] sendMessage error:', err, '| API_BASE:', API_BASE);
     }
   }
 
@@ -237,9 +297,10 @@
 
         escalationForm.reset();
       } catch (err) {
-        leadResultEl.textContent = 'Could not submit. Please try again or call (888) 794-8292.';
+        var escDetail = (err instanceof TypeError) ? ' Network unreachable.' : '';
+        leadResultEl.textContent = 'Could not submit.' + escDetail + ' Please try again or call (888) 794-8292.';
         leadResultEl.style.color = '#8B4348';
-        console.error('[VCX Legal Assistant]', err);
+        console.error('[VCX Legal Assistant] escalate error:', err, '| API_BASE:', API_BASE);
       }
     });
   }
@@ -332,6 +393,117 @@
       if (chatState.jurisdiction) params.set('vcx_state', chatState.jurisdiction);
       window.location.href = '/structured-case-intake.html?' + params.toString();
     }
+  }
+
+  // ── Phase 10: Backend readiness check ───────────────────────────────
+  var backendDot = document.getElementById('backendDot');
+  var backendLabel = document.getElementById('backendLabel');
+
+  function checkBackend() {
+    fetch(API_BASE + '/healthz', { method: 'GET', signal: AbortSignal.timeout ? AbortSignal.timeout(4000) : undefined })
+      .then(function (r) {
+        if (r.ok) {
+          if (backendDot) backendDot.classList.add('la-status-online');
+          if (backendDot) backendDot.classList.remove('la-status-offline');
+          if (backendLabel) backendLabel.textContent = 'Online';
+        } else { throw new Error('not ok'); }
+      })
+      .catch(function () {
+        if (backendDot) backendDot.classList.add('la-status-offline');
+        if (backendDot) backendDot.classList.remove('la-status-online');
+        if (backendLabel) backendLabel.textContent = 'Offline';
+      });
+  }
+
+  checkBackend();
+  setInterval(checkBackend, 30000);
+
+  // ── Phase 10: File / image upload ─────────────────────────────────
+  var ALLOWED_EXT = ['pdf','doc','docx','txt','md','jpg','jpeg','png','gif','csv','xlsx','xls'];
+  var MAX_FILE_MB = 25;
+
+  var laAttachBtn = document.getElementById('laAttachBtn');
+  var laCameraBtn = document.getElementById('laCameraBtn');
+  var laFileInput = document.getElementById('laFileInput');
+  var laCameraInput = document.getElementById('laCameraInput');
+  var laUploadStatus = document.getElementById('laUploadStatus');
+
+  if (laAttachBtn && laFileInput) {
+    laAttachBtn.addEventListener('click', function () { laFileInput.click(); });
+  }
+  if (laCameraBtn && laCameraInput) {
+    laCameraBtn.addEventListener('click', function () { laCameraInput.click(); });
+  }
+  if (laFileInput) {
+    laFileInput.addEventListener('change', function () {
+      if (laFileInput.files && laFileInput.files[0]) handleFileUpload(laFileInput.files[0]);
+      laFileInput.value = '';
+    });
+  }
+  if (laCameraInput) {
+    laCameraInput.addEventListener('change', function () {
+      if (laCameraInput.files && laCameraInput.files[0]) handleFileUpload(laCameraInput.files[0]);
+      laCameraInput.value = '';
+    });
+  }
+
+  function showUploadStatus(msg, isError) {
+    if (!laUploadStatus) return;
+    laUploadStatus.textContent = msg;
+    laUploadStatus.hidden = false;
+    laUploadStatus.className = 'la-upload-status ' + (isError ? 'la-upload-error' : 'la-upload-ok');
+    if (!isError) { setTimeout(function () { laUploadStatus.hidden = true; }, 5000); }
+  }
+
+  function handleFileUpload(file) {
+    // Client-side validation
+    var parts = file.name.split('.');
+    var ext = parts.length > 1 ? parts.pop().toLowerCase() : '';
+    if (!ext || ALLOWED_EXT.indexOf(ext) === -1) {
+      showUploadStatus('File type .' + ext + ' is not supported. Allowed: ' + ALLOWED_EXT.join(', '), true);
+      return;
+    }
+    if (file.size === 0) {
+      showUploadStatus('File is empty.', true);
+      return;
+    }
+    if (file.size > MAX_FILE_MB * 1024 * 1024) {
+      showUploadStatus('File exceeds ' + MAX_FILE_MB + ' MB limit.', true);
+      return;
+    }
+
+    // Show uploading indicator
+    showUploadStatus('Uploading ' + file.name + '...', false);
+    appendMessage('user', 'Uploading: ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)');
+
+    var fd = new FormData();
+    fd.append('file', file);
+    fd.append('session_id', chatState.sessionId || '');
+
+    fetch(API_BASE + '/api/legal-chat/upload', { method: 'POST', body: fd })
+      .then(function (res) {
+        if (res.status === 413) { throw new Error('File too large for server.'); }
+        if (res.status === 400) { return res.json().then(function (d) { throw new Error(d.detail || 'Invalid file.'); }); }
+        if (!res.ok) { throw new Error('Upload failed (HTTP ' + res.status + ')'); }
+        return res.json();
+      })
+      .then(function (data) {
+        showUploadStatus('Uploaded ' + file.name, false);
+        if (data.session_id) chatState.sessionId = data.session_id;
+        saveSession();
+        var ackText = data.acknowledgment || ('File "' + file.name + '" received.');
+        appendMessage('assistant', ackText, { mode: data.mode || 'vcx_routing' });
+      })
+      .catch(function (err) {
+        showUploadStatus('Upload failed: ' + err.message, true);
+        appendMessage('assistant', 'Could not upload file: ' + err.message + '. You can attach documents later through Structured Intake.', {
+          status: 'error',
+          escalation_links: [
+            { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit documents through the intake form.' }
+          ]
+        });
+        console.error('[VCX Legal Assistant] Upload error:', err, '| API_BASE:', API_BASE);
+      });
   }
 
   // Phase 5A: Broader greeting — assistant can handle any topic

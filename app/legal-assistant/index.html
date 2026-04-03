@@ -102,6 +102,7 @@ immigration packet organization, auto-deal review, and Florida official-source r
 <div class="assistant-meta">
 <div><strong>Session</strong> <span id="sessionState">new</span></div>
 <div><strong>Jurisdiction</strong> <span id="jurisdictionState">not set</span></div>
+<div class="la-backend-status" id="backendStatus"><span class="la-status-dot" id="backendDot"></span> <span id="backendLabel">Checking...</span></div>
 </div>
 
 <div id="messages" class="assistant-messages" aria-live="polite"></div>
@@ -117,8 +118,13 @@ immigration packet organization, auto-deal review, and Florida official-source r
 </label>
 <div class="assistant-actions">
 <button type="submit" class="vcx-btn" style="background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.9rem;cursor:pointer;">Send</button>
+<button type="button" class="la-attach-btn" id="laAttachBtn" aria-label="Attach file" title="Attach file">&#128206;</button>
+<button type="button" class="la-attach-btn" id="laCameraBtn" aria-label="Take photo" title="Take photo">&#128247;</button>
 <a class="vcx-btn" href="/structured-case-intake.html" style="display:inline-block;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid var(--vcx-brand-primary,#173A63);color:var(--vcx-brand-primary,#173A63);text-decoration:none;">Open structured intake</a>
 </div>
+<input type="file" id="laFileInput" hidden accept=".pdf,.doc,.docx,.txt,.md,.jpg,.jpeg,.png,.gif,.csv,.xlsx,.xls"/>
+<input type="file" id="laCameraInput" hidden accept="image/*" capture="environment"/>
+<div id="laUploadStatus" class="la-upload-status" hidden></div>
 </form>
 </div>
 </section>

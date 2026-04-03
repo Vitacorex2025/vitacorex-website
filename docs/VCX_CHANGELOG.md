@@ -1,5 +1,189 @@
 # VCX Changelog
 
+## [Phase 12 -- Final QA & Regression Pass] - 2026-04-03
+
+### Scope
+- Full 8-scope regression pass covering Phases 1-11 cumulative
+- 100+ verification items across shell, desktop, mobile, chat, products, generator, encoding, backend
+
+### Results
+- **0 regressions detected** across all scopes
+- Pre-existing issues documented (index.html mojibake, security findings, site.js frozen file violation)
+- Product completeness: 4/5 COMPLETE, 1 PARTIAL (Packet Room -- by design)
+
+### Documentation Created
+- `docs/VCX_FINAL_QA.md` (v2) -- 88-item regression checklist
+- `docs/VCX_MOBILE_QA.md` (v2) -- 25-item mobile test checklist
+- `_codex_final_qa.md` (v2) -- codex output summary
+- Updated `docs/VCX_CHANGELOG.md` (this entry)
+
+### Verdict: READY FOR STAGING
+
+---
+
+## [Phase 11 -- Contract Generator Completion Pass] - 2026-04-03
+
+### Contract Review Desk -- Analyzer (CRITICAL FIX)
+- renderResults() now renders all 3 previously-ignored backend response fields:
+  - **issue_buckets** -- severity-tiered grouping (Immediate / Review / Standard)
+  - **missing_protections** -- per-contract gap detection with recommendations
+  - **suggested_questions** -- context-specific questions for counsel, grouped by category
+- Added 60s fetch timeout on analyze API call
+
+### Contract Review Desk -- Generator Improvements
+- Added client-side form validation (party names required, positive number checks)
+- Number fields now send proper integers in JSON payload (not strings)
+- Added CSS loading spinner on "Generate" button during API call
+- Added 30s fetch timeout on generate API call
+- "Generate Another" now fully resets to type picker (clears form + deselects cards)
+
+### DOCX Output Quality (Word Compatibility)
+- Added document core properties (title, author, comments) for Word metadata
+- Added paragraph line spacing (1.15x) on Normal style for readability
+- Added space-after (6pt) on all body paragraphs
+- Added space-before (18pt) and space-after (8pt) on all section headings
+- Added space-after (24pt) on contract title for visual separation
+- Documents now open cleaner in Microsoft Word with proper spacing
+
+### Backend Model Validation
+- contract_type field now uses Literal["nda", "service", "employment", "contractor"]
+  (rejects invalid types at Pydantic level before hitting router logic)
+
+### CSS Additions
+- Form validation highlight on required fields
+- Loading spinner animation (.cr-gen-submit--loading)
+- Mobile 44px touch targets for tabs, cards, and buttons (640px breakpoint)
+
+### Files Modified
+- `assets/js/vcx-contract-review.js` -- renderResults() 3 fields, validation, timeouts, loading state, reset
+- `assets/css/vcx-contract-review.css` -- validation states, spinner, mobile targets
+- `vcx-api/app/services/docx_generator.py` -- paragraph spacing, doc properties, heading spacing
+- `vcx-api/app/models/contract_generator.py` -- Literal type for contract_type
+
+### Documentation
+- Updated docs/VCX_CONTRACT_GENERATOR.md (Phase 11 section)
+- Updated docs/VCX_CONTRACT_GENERATOR_QA.md (Phase 11 checklist)
+- Updated docs/VCX_CHANGELOG.md (this entry)
+
+### Shell Impact: NONE
+- Zero frozen files modified
+- All changes in namespaced vcx-* files and vcx-api/ backend
+
+---
+
+## [Phase 10 -- Chat & Legal Assistant Stabilization] - 2026-04-03
+
+### Legal Assistant Runtime
+- Added sessionStorage persistence for chat state (session ID, topic, jurisdiction, mode) -- survives page refresh
+- Added backend readiness indicator (green/red dot + "Online"/"Offline" label) with 30s auto-refresh
+- Added typing indicator (animated dots) during API response wait
+- Added file/image upload support (attach + camera buttons) matching floating widget capability
+- Added client-side file validation (type, size, empty file checks) with visible error messages
+- Added upload status bar with success/error states
+
+### Files Modified
+- `assets/js/vcx-legal-assistant.js` -- session persistence, backend check, typing indicator, file upload
+- `assets/css/vcx-legal-assistant.css` -- backend status dot, attach buttons, upload status bar, typing animation
+- `app/legal-assistant/index.html` -- backend status element, file input elements, attach/camera buttons
+
+### Documentation
+- Updated docs/VCX_CHAT_RUNTIME_FIXES.md
+- Updated docs/VCX_MOBILE_CHAT_FIXES.md
+- Updated docs/VCX_CHANGELOG.md (this entry)
+
+### Shell Impact: NONE
+- Zero frozen files modified
+- All changes in namespaced vcx-* files and app/legal-assistant/
+
+---
+
+## [Final QA & Regression Pass] - 2026-04-03
+
+### Verification
+- 90 QA items checked across shell, mobile, chat, 5 products, generator, backend
+- 0 regressions detected
+- All frozen files confirmed untouched
+- All 5 products confirmed intact (Intake, Contract Review, Recovery Pilot, Packet Room, Legal Assistant)
+- All 8 backend routers confirmed mounted
+- 17 database tables confirmed present
+- 36 Python files confirmed syntactically clean
+
+### Documentation
+- Created docs/VCX_FINAL_QA.md (comprehensive QA report)
+- Created docs/VCX_MOBILE_QA.md (42-item mobile verification)
+- Updated docs/VCX_CHANGELOG.md (this entry)
+
+### Production Readiness: READY FOR STAGING
+
+---
+
+## [Phase 9 -- Contract Generator Frontend] - 2026-04-03
+
+### Contract Generator UI
+- Added mode tab bar to Contract Review Desk page (Analyze / Generate)
+- Added 4-type contract picker (NDA, Service, Employment, Contractor)
+- Added dynamic questionnaire form with type-specific fields
+- Wired form to POST /api/contracts/generate backend endpoint
+- Wired download to GET /api/contracts/{id}/download endpoint
+- Added download result panel with DOCX download button
+- Added "Generate Another" flow for consecutive generation
+
+### UX Details
+- Conservative card-based type selector matching site design
+- Dynamic two-column form grid (single column on mobile)
+- iOS zoom prevention (16px font-size on mobile inputs)
+- All interactive elements meet 44px touch target minimum
+- Clear disclaimer messaging throughout (not legal advice)
+- Existing analyzer mode fully preserved (tab switch)
+- API_BASE auto-detection added to contract review JS
+
+### Documentation
+- Created docs/VCX_CONTRACT_GENERATOR.md (product doc)
+- Created docs/VCX_CONTRACT_GENERATOR_QA.md (QA report)
+- Updated docs/VCX_CHANGELOG.md (this file)
+
+### Files Modified
+| File | Changes |
+|------|---------|
+| app/vcx-contract-review/index.html | Mode tabs, generate section with type picker + form + result panel |
+| assets/js/vcx-contract-review.js | API_BASE auto-detect, tab switching, type selection, form builder, generation + download |
+| assets/css/vcx-contract-review.css | Tab styles, type cards, form fields, buttons, result/download panel, mobile responsive |
+
+---
+
+## [Phase 8 -- Chat & Mobile Stabilization] - 2026-04-03
+
+### Chat Runtime Fixes
+- vcx-legal-assistant.js: Added API_BASE auto-detection IIFE (port 8080 -> 8787 redirect)
+- vcx-legal-assistant.js: Added TypeError-aware error diagnostics in sendMessage + escalation
+- vcx-chat-launcher.js: Added vcx-cw-panel-open body class toggle on panel open/close
+
+### Mobile / iPhone Fixes
+- z-index: Raised chat FAB 98->10099, panel 99->10100 (above header 120 / dock 110)
+- Safe-area: Added env(safe-area-inset-bottom) to FAB, panel height, input-bar, chat shell
+- Touch targets: Send (34->44px), attach/camera (~28->44px), chips (->44px min-height)
+- Scroll containment: overscroll-behavior: contain on panel + messages, body lock on mobile
+- Background scroll: body.vcx-cw-panel-open overflow: hidden on mobile
+- Dock suppression: vcx-dock hidden on mobile when panel open
+- iOS input zoom: font-size 16px on legal assistant form inputs
+- Legal assistant mobile: 640px breakpoint with touch targets, dynamic height, safe-area
+
+### Documentation
+- Created docs/VCX_CHAT_RUNTIME_FIXES.md
+- Created docs/VCX_MOBILE_CHAT_FIXES.md
+- Updated docs/VCX_CHANGELOG.md (this file)
+- Created _codex_chat_and_mobile_fix.md (output report)
+
+### Files Modified
+| File | Changes |
+|------|---------|
+| assets/css/vcx-chat-launcher.css | z-index, safe-area, 44px targets, overscroll, dock suppression |
+| assets/css/vcx-legal-assistant.css | Scroll containment, mobile breakpoint, safe-area |
+| assets/js/vcx-legal-assistant.js | API_BASE auto-detect, error diagnostics |
+| assets/js/vcx-chat-launcher.js | Body class toggle for panel state |
+
+---
+
 ## [Phase 7 QA Review] - 2026-04-03
 
 ### Review Scope

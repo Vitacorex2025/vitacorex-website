@@ -80,6 +80,10 @@ def generate_contract_docx(
     font.size = Pt(11)
     font.color.rgb = RGBColor(0x1A, 0x1A, 0x1A)
 
+    # ── Paragraph spacing for readability ──────────────────────────
+    style.paragraph_format.space_after = Pt(6)
+    style.paragraph_format.line_spacing = 1.15
+
     # ── Draft watermark header ──────────────────────────────────────
     _add_draft_header(doc)
 
@@ -87,11 +91,17 @@ def generate_contract_docx(
     if include_disclaimer:
         _add_disclaimer_page(doc)
 
+    # ── Document properties (Word metadata) ─────────────────────────
+    doc.core_properties.title = spec["label"]
+    doc.core_properties.author = "VitaCoreX Contract Generator"
+    doc.core_properties.comments = "Draft document — not legal advice"
+
     # ── Title ───────────────────────────────────────────────────────
     title = doc.add_heading(spec["label"], level=0)
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     for run in title.runs:
         run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)  # VCX brand navy
+    title.paragraph_format.space_after = Pt(24)
 
     # ── Build sections from template ────────────────────────────────
     sections = build_contract_sections(contract_type, params)
@@ -160,11 +170,14 @@ def _add_section_unnumbered(doc: Document, heading: str, body: str) -> None:
     h = doc.add_heading(heading, level=2)
     for run in h.runs:
         run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)
+    h.paragraph_format.space_before = Pt(18)
+    h.paragraph_format.space_after = Pt(8)
 
     # Split body by double newline into paragraphs
     for chunk in body.split("\n\n"):
         para = doc.add_paragraph()
         para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        para.paragraph_format.space_after = Pt(6)
         # Handle single newlines within a chunk as line breaks
         lines = chunk.split("\n")
         for i, line in enumerate(lines):
@@ -184,13 +197,15 @@ def _add_section_numbered(
     h = doc.add_heading(f"Article {number}. {heading}", level=2)
     for run in h.runs:
         run.font.color.rgb = RGBColor(0x17, 0x3A, 0x63)
+    h.paragraph_format.space_before = Pt(18)
+    h.paragraph_format.space_after = Pt(8)
 
     for chunk in body.split("\n\n"):
         para = doc.add_paragraph()
         para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        para.paragraph_format.space_after = Pt(6)
         lines = chunk.split("\n")
         for i, line in enumerate(lines):
-            # Detect sub-numbering (lines starting with digits or letters)
             run = para.add_run(line)
             run.font.size = Pt(11)
             if i < len(lines) - 1:

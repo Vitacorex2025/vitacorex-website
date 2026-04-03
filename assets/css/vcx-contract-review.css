@@ -140,3 +140,352 @@ body[data-vcx-page="vcx-contract-review"] {
   font-size: 13px;
   white-space: nowrap;
 }
+
+/* ── Phase 9: Mode tabs (Analyze / Generate) ─────────────── */
+
+.cr-mode-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border-bottom: 2px solid rgba(15, 27, 45, .08);
+}
+
+.cr-mode-tab {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: 12px 24px;
+  font-size: .9rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cr-mode-tab:hover {
+  color: var(--vcx-ink-body, #243548);
+}
+
+.cr-mode-tab--active {
+  color: var(--vcx-brand-primary, #173A63);
+  border-bottom-color: var(--vcx-brand-primary, #173A63);
+}
+
+@media (max-width: 480px) {
+  .cr-mode-tab {
+    padding: 10px 14px;
+    font-size: .82rem;
+  }
+}
+
+/* ── Phase 9: Generator intro ────────────────────────────── */
+
+.cr-gen-intro {
+  margin-bottom: 8px;
+}
+
+/* ── Phase 9: Contract type picker grid ──────────────────── */
+
+.cr-gen-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cr-gen-type-card {
+  background: #fff;
+  border: 1px solid rgba(15, 27, 45, .10);
+  border-radius: 10px;
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cr-gen-type-card strong {
+  font-size: .88rem;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.cr-gen-type-card span {
+  font-size: .76rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+.cr-gen-type-card:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  box-shadow: 0 2px 8px rgba(14, 32, 54, .08);
+}
+
+.cr-gen-type-card--selected {
+  border-color: var(--vcx-brand-primary, #173A63);
+  background: rgba(23, 58, 99, .03);
+  box-shadow: 0 0 0 2px rgba(23, 58, 99, .12);
+}
+
+/* ── Phase 9: Questionnaire form fields ──────────────────── */
+
+.cr-gen-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+@media (max-width: 640px) {
+  .cr-gen-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cr-gen-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cr-gen-field--full {
+  grid-column: 1 / -1;
+}
+
+.cr-gen-field label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.cr-gen-field input,
+.cr-gen-field textarea,
+.cr-gen-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(15, 27, 45, .12);
+  border-radius: 8px;
+  font-size: .88rem;
+  font-family: inherit;
+  color: var(--vcx-ink-body, #243548);
+  background: #fff;
+  transition: border-color .15s ease;
+}
+
+.cr-gen-field input:focus,
+.cr-gen-field textarea:focus,
+.cr-gen-field select:focus {
+  outline: none;
+  border-color: var(--vcx-brand-primary, #173A63);
+  box-shadow: 0 0 0 2px rgba(23, 58, 99, .08);
+}
+
+.cr-gen-field textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.cr-gen-field .cr-gen-hint {
+  font-size: .72rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+@media (max-width: 640px) {
+  .cr-gen-field input,
+  .cr-gen-field textarea,
+  .cr-gen-field select {
+    font-size: 16px; /* prevent iOS zoom */
+  }
+}
+
+/* ── Phase 9: Generate / back buttons ────────────────────── */
+
+.cr-gen-submit {
+  appearance: none;
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: .92rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cr-gen-submit:hover {
+  background: #1E4A7A;
+}
+
+.cr-gen-submit:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.cr-gen-back {
+  appearance: none;
+  background: none;
+  border: 1px solid rgba(15, 27, 45, .12);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: .85rem;
+  font-family: inherit;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.cr-gen-back:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-ink-body, #243548);
+}
+
+/* ── Phase 9: Generation result / download panel ─────────── */
+
+.cr-gen-result {
+  background: #fff;
+  border: 1px solid rgba(15, 27, 45, .08);
+  border-radius: 10px;
+  padding: 28px 24px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.cr-gen-result-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.cr-gen-result h3 {
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+  color: var(--vcx-ink-body, #243548);
+}
+
+.cr-gen-result p {
+  font-size: .88rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  margin: 0 0 20px;
+  line-height: 1.55;
+}
+
+.cr-gen-download-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--vcx-brand-primary, #173A63);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: .95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+
+.cr-gen-download-btn:hover {
+  background: #1E4A7A;
+}
+
+.cr-gen-download-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.cr-gen-disclaimer {
+  font-size: .75rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.cr-gen-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.cr-gen-another {
+  appearance: none;
+  background: none;
+  border: 1px solid rgba(15, 27, 45, .12);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: .85rem;
+  font-family: inherit;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.cr-gen-another:hover {
+  border-color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-ink-body, #243548);
+}
+
+/* ── Phase 11: Form validation ──────────────────────────────── */
+
+.cr-gen-field input:required:invalid:not(:placeholder-shown) {
+  border-color: rgba(230, 55, 87, .5);
+}
+
+.cr-gen-submit:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* ── Phase 11: Loading spinner on generate button ──────────── */
+
+.cr-gen-submit--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.cr-gen-submit--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, .3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: crSpinner .6s linear infinite;
+}
+
+@keyframes crSpinner {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Phase 11: Mobile touch targets for mode tabs ─────────── */
+
+@media (max-width: 640px) {
+  .cr-mode-tab {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+  .cr-gen-type-card {
+    min-height: 44px;
+    padding: 14px 16px;
+  }
+  .cr-gen-submit,
+  .cr-gen-back,
+  .cr-gen-another,
+  .cr-gen-download-btn {
+    min-height: 44px;
+  }
+}
