@@ -1,0 +1,1251 @@
+/* ================================================================
+   VCX REDESIGN OVERLAY  v1.0
+   Premium visual layer for VitaCoreX legal/advisory platform
+   ----------------------------------------------------------------
+   ADDITIVE ONLY — sits on top of styles.css + ui-shell.css
+   Does NOT replace any existing file in the design system
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   0. REDESIGN TOKENS
+   Extend the palette with deeper, more atmospheric values
+   ---------------------------------------------------------------- */
+:root {
+  /* Core redesign palette — Mint-Birch */
+  --vcx-r-navy-deep:    #1A2F2A;           /* deep forest */
+  --vcx-r-navy-mid:     #243D36;           /* birch shadow */
+  --vcx-r-navy-soft:    #2E4F46;           /* soft evergreen */
+  --vcx-r-gold:         #5BBAA7;           /* mint primary */
+  --vcx-r-gold-light:   #8DD4C5;           /* light mint */
+  --vcx-r-gold-muted:   rgba(91,186,167,0.15);  /* mint tint */
+  --vcx-r-gold-glow:    rgba(91,186,167,0.35);  /* mint glow */
+  --vcx-r-warm-white:   #F5FAF8;           /* birch white */
+  --vcx-r-parchment:    #EDF5F2;           /* birch cream */
+
+  /* Birch-bark accent for warm contrast */
+  --vcx-r-birch:        #D4C4A8;           /* birch bark */
+  --vcx-r-birch-light:  #E8DFC9;           /* light bark */
+  --vcx-r-sage:         #7BAE9E;           /* sage green */
+
+  /* Glass layers */
+  --vcx-r-glass:        rgba(255, 255, 255, 0.06);
+  --vcx-r-glass-border: rgba(91, 186, 167, 0.12);
+  --vcx-r-glass-light:  rgba(255, 255, 255, 0.72);
+  --vcx-r-glass-frost:  rgba(245, 250, 248, 0.50);
+
+  /* Shadows — natural depth */
+  --vcx-r-shadow-sm:    0 2px 8px rgba(26, 47, 42, 0.06);
+  --vcx-r-shadow-md:    0 8px 32px rgba(26, 47, 42, 0.10);
+  --vcx-r-shadow-lg:    0 20px 60px rgba(26, 47, 42, 0.14);
+  --vcx-r-shadow-gold:  0 8px 32px rgba(91, 186, 167, 0.20);
+
+  /* Transitions */
+  --vcx-r-ease:         cubic-bezier(0.22, 1, 0.36, 1);
+  --vcx-r-ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --vcx-r-dur:          0.4s;
+  --vcx-r-dur-slow:     0.7s;
+}
+
+
+/* ----------------------------------------------------------------
+   1. ENHANCED HERO
+   Deeper mood, atmospheric gradient, glowing heading, bold CTAs
+   ---------------------------------------------------------------- */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 47, 42, 0.12) 0%,
+    rgba(26, 47, 42, 0.06) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero h1 {
+  position: relative;
+  text-shadow: 0 0 80px rgba(91, 186, 167, 0.08);
+}
+
+.hero h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--vcx-r-gold), transparent);
+  opacity: 0.7;
+}
+
+.hero .btn-primary {
+  padding: 0 28px;
+  min-height: 54px;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 14px 28px rgba(26, 47, 42, 0.20),
+    0 0 0 0 rgba(91, 186, 167, 0);
+  transition:
+    transform 0.24s var(--vcx-r-ease),
+    box-shadow 0.32s var(--vcx-r-ease),
+    background 0.24s ease;
+}
+
+.hero .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 36px rgba(26, 47, 42, 0.24),
+    0 0 24px rgba(91, 186, 167, 0.12);
+}
+
+
+/* ----------------------------------------------------------------
+   2. SOCIAL PROOF / TRUST BAR
+   Institutional metrics strip — dark navy with gold counters
+   ---------------------------------------------------------------- */
+.vcx-trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding: 28px 24px;
+  background: linear-gradient(135deg, var(--vcx-r-navy-deep), var(--vcx-r-navy-mid));
+  border-top: 1px solid rgba(91, 186, 167, 0.12);
+  border-bottom: 1px solid rgba(91, 186, 167, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-trust-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 200px at 20% 50%, rgba(91, 186, 167, 0.06), transparent),
+    radial-gradient(ellipse 600px 200px at 80% 50%, rgba(91, 186, 167, 0.04), transparent);
+  pointer-events: none;
+}
+
+.vcx-trust-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.vcx-trust-stat strong {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--vcx-r-gold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.vcx-trust-stat span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(238, 233, 222, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+}
+
+.vcx-trust-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 48px);
+  padding: 20px 24px;
+  opacity: 0.5;
+  filter: grayscale(1) brightness(1.6);
+  transition: opacity var(--vcx-r-dur) var(--vcx-r-ease);
+}
+
+.vcx-trust-logo:hover {
+  opacity: 0.75;
+}
+
+.vcx-trust-logo img {
+  height: 28px;
+  width: auto;
+}
+
+
+/* ----------------------------------------------------------------
+   3. SCROLL REVEAL ANIMATIONS
+   Progressive entrance — elements surface as user scrolls
+   ---------------------------------------------------------------- */
+.vcx-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity var(--vcx-r-dur-slow) var(--vcx-r-ease),
+    transform var(--vcx-r-dur-slow) var(--vcx-r-ease);
+  will-change: opacity, transform;
+}
+
+.vcx-reveal.vcx-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vcx-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity var(--vcx-r-dur-slow) var(--vcx-r-ease),
+    transform var(--vcx-r-dur-slow) var(--vcx-r-ease);
+  will-change: opacity, transform;
+}
+
+.vcx-reveal-left.vcx-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vcx-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity var(--vcx-r-dur-slow) var(--vcx-r-ease),
+    transform var(--vcx-r-dur-slow) var(--vcx-r-ease);
+  will-change: opacity, transform;
+}
+
+.vcx-reveal-right.vcx-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered delays for grouped items */
+.vcx-stagger-1 { transition-delay: 0.08s; }
+.vcx-stagger-2 { transition-delay: 0.16s; }
+.vcx-stagger-3 { transition-delay: 0.24s; }
+.vcx-stagger-4 { transition-delay: 0.32s; }
+.vcx-stagger-5 { transition-delay: 0.40s; }
+.vcx-stagger-6 { transition-delay: 0.48s; }
+
+
+/* ----------------------------------------------------------------
+   4. ENHANCED CARDS
+   Elevated surfaces with refined depth and gold accents
+   ---------------------------------------------------------------- */
+
+/* Lux card upgrade — gradient border on hover */
+.lux-card {
+  position: relative;
+  transition:
+    transform 0.32s var(--vcx-r-ease),
+    box-shadow 0.32s var(--vcx-r-ease),
+    border-color 0.32s ease;
+}
+
+.lux-card:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: var(--vcx-r-shadow-lg);
+  border-color: rgba(91, 186, 167, 0.22);
+}
+
+/* Service card — gold accent line on top */
+.service-card-lux {
+  position: relative;
+  border-top: none;
+}
+
+.service-card-lux::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, transparent, var(--vcx-r-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.32s var(--vcx-r-ease);
+}
+
+.service-card-lux:hover::before {
+  opacity: 1;
+}
+
+/* Authority card — enhanced glass effect */
+.authority-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(248, 252, 255, 0.60)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  transition:
+    transform 0.32s var(--vcx-r-ease),
+    box-shadow 0.32s var(--vcx-r-ease);
+}
+
+.authority-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    var(--vcx-r-shadow-lg),
+    0 0 0 1px rgba(91, 186, 167, 0.12);
+}
+
+/* Card shimmer effect — subtle shine on hover */
+.vcx-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 55%
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.vcx-card-shine:hover::after {
+  opacity: 1;
+  animation: vcxShine 0.8s ease forwards;
+}
+
+@keyframes vcxShine {
+  0%   { left: -60%; }
+  100% { left: 130%; }
+}
+
+
+/* ----------------------------------------------------------------
+   5. TESTIMONIALS SECTION
+   Client voices in refined glass cards with gold accents
+   ---------------------------------------------------------------- */
+.vcx-testimonials {
+  padding: 56px 0;
+  position: relative;
+}
+
+.vcx-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.vcx-testimonial-card {
+  padding: 28px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(248, 252, 255, 0.72)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(14, 32, 54, 0.07);
+  box-shadow: var(--vcx-r-shadow-sm);
+  position: relative;
+  transition:
+    transform 0.32s var(--vcx-r-ease),
+    box-shadow 0.32s var(--vcx-r-ease);
+}
+
+.vcx-testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--vcx-r-shadow-md);
+}
+
+.vcx-quote-mark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--vcx-r-gold);
+  opacity: 0.55;
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.vcx-testimonial-text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: var(--ink-body, #243548);
+  margin: 12px 0 20px;
+  font-style: italic;
+}
+
+.vcx-testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.vcx-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vcx-r-navy-soft), var(--vcx-r-navy-mid));
+  border: 2px solid var(--vcx-r-glass-frost);
+  flex-shrink: 0;
+}
+
+.vcx-testimonial-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vcx-testimonial-name {
+  font-size: 0.90rem;
+  font-weight: 700;
+  color: var(--ink-strong, #0F1B2D);
+}
+
+.vcx-testimonial-role {
+  font-size: 0.78rem;
+  color: var(--ink-muted, #5E6C7B);
+}
+
+.vcx-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.vcx-star {
+  width: 14px;
+  height: 14px;
+  color: var(--vcx-r-gold);
+}
+
+.vcx-star::before {
+  content: '\2605';
+  font-size: 14px;
+}
+
+
+/* ----------------------------------------------------------------
+   6. METRICS / IMPACT SECTION
+   Dark navy panel with large gold counters
+   ---------------------------------------------------------------- */
+.vcx-impact-section {
+  background: linear-gradient(
+    170deg,
+    var(--vcx-r-navy-deep) 0%,
+    var(--vcx-r-navy-mid) 100%
+  );
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-impact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 400px at 10% 80%, rgba(91, 186, 167, 0.06), transparent),
+    radial-gradient(ellipse 600px 300px at 90% 20%, rgba(91, 186, 167, 0.04), transparent);
+  pointer-events: none;
+}
+
+.vcx-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.vcx-impact-item {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.vcx-impact-number {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--vcx-r-gold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
+}
+
+.vcx-impact-number::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--vcx-r-gold), transparent);
+  margin: 12px auto 0;
+}
+
+.vcx-impact-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(238, 233, 222, 0.60);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+
+/* ----------------------------------------------------------------
+   7. PREMIUM CTA ENHANCEMENTS
+   Von Restorff effect — primary buttons that pop
+   ---------------------------------------------------------------- */
+
+/* Primary button shimmer on hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  z-index: 1;
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-primary:hover::before {
+  animation: vcxBtnShimmer 0.7s ease forwards;
+}
+
+@keyframes vcxBtnShimmer {
+  0%   { left: -100%; }
+  100% { left: 150%; }
+}
+
+/* Gold glow on hover */
+.btn-primary:hover {
+  box-shadow:
+    0 14px 28px rgba(26, 47, 42, 0.22),
+    0 0 20px rgba(91, 186, 167, 0.10);
+}
+
+/* Secondary button — gold border on hover */
+.btn-secondary:hover {
+  border-color: var(--vcx-r-gold);
+  color: var(--vcx-r-navy-deep);
+}
+
+/* Full-width CTA section */
+.vcx-cta-section {
+  padding: 56px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--vcx-r-navy-deep) 0%,
+    var(--vcx-r-navy-mid) 50%,
+    var(--vcx-r-navy-soft) 100%
+  );
+  text-align: center;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vcx-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 400px at 30% 60%, rgba(91, 186, 167, 0.08), transparent),
+    radial-gradient(circle 300px at 70% 30%, rgba(91, 186, 167, 0.05), transparent);
+  pointer-events: none;
+}
+
+.vcx-cta-section h2 {
+  color: var(--vcx-r-warm-white);
+  position: relative;
+  z-index: 1;
+  max-width: 20ch;
+  margin: 0 auto 12px;
+}
+
+.vcx-cta-section p {
+  color: rgba(238, 233, 222, 0.70);
+  position: relative;
+  z-index: 1;
+  max-width: 48ch;
+  margin: 0 auto 24px;
+}
+
+.vcx-cta-section .btn-primary {
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle pulse for attention-critical CTAs */
+.vcx-pulse-cta {
+  animation: vcxPulseCta 2.8s ease-in-out infinite;
+}
+
+@keyframes vcxPulseCta {
+  0%, 100% { box-shadow: 0 14px 28px rgba(26, 47, 42, 0.20), 0 0 0 0 rgba(91, 186, 167, 0); }
+  50%      { box-shadow: 0 14px 28px rgba(26, 47, 42, 0.20), 0 0 0 8px rgba(91, 186, 167, 0.08); }
+}
+
+
+/* ----------------------------------------------------------------
+   8. SECTION SEPARATORS & VISUAL FLOW
+   Elegant dividers and alternating section depth
+   ---------------------------------------------------------------- */
+.vcx-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.vcx-divider::before,
+.vcx-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(91, 186, 167, 0.25),
+    transparent
+  );
+}
+
+.vcx-divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--vcx-r-gold);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Gold accent on section tops */
+.vcx-section-accent {
+  position: relative;
+}
+
+.vcx-section-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(120px, 20%);
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, transparent, var(--vcx-r-gold), transparent);
+}
+
+/* Alternating section depth for visual rhythm */
+.vcx-section-alt:nth-child(even) {
+  background: linear-gradient(
+    180deg,
+    rgba(245, 240, 230, 0.30),
+    rgba(245, 240, 230, 0.10)
+  );
+}
+
+/* Gradient section transitions */
+.vcx-section-gradient {
+  position: relative;
+}
+
+.vcx-section-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, rgba(246, 242, 234, 0.40));
+  pointer-events: none;
+}
+
+
+/* ----------------------------------------------------------------
+   9. TYPOGRAPHY ENHANCEMENTS
+   Premium weight, gold accents, refined hierarchy
+   ---------------------------------------------------------------- */
+
+/* Gold gradient text for key words */
+.vcx-headline-accent {
+  background: linear-gradient(
+    135deg,
+    var(--vcx-r-gold) 0%,
+    var(--vcx-r-gold-light) 50%,
+    var(--vcx-r-gold) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Premium eyebrow — refined tracking and icon alignment */
+.vcx-eyebrow-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vcx-r-gold);
+  padding: 6px 0;
+}
+
+.vcx-eyebrow-premium::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--vcx-r-gold);
+  flex-shrink: 0;
+}
+
+/* Heading hover — subtle warmth on interaction */
+.vcx-heading-glow:hover {
+  text-shadow: 0 0 40px rgba(91, 186, 167, 0.10);
+  transition: text-shadow 0.4s ease;
+}
+
+
+/* ----------------------------------------------------------------
+   10. FLOATING ELEMENTS & MICRO-INTERACTIONS
+   Gentle motion that conveys life without distraction
+   ---------------------------------------------------------------- */
+
+/* Gentle float — up and down 6px */
+.vcx-float {
+  animation: vcxFloat 5s ease-in-out infinite;
+}
+
+@keyframes vcxFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Subtle pulse for attention markers */
+.vcx-pulse {
+  animation: vcxPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes vcxPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.70; }
+}
+
+/* Ambient glow for premium markers */
+.vcx-glow {
+  box-shadow: 0 0 24px rgba(91, 186, 167, 0.12);
+  transition: box-shadow 0.4s var(--vcx-r-ease);
+}
+
+.vcx-glow:hover {
+  box-shadow: 0 0 40px rgba(91, 186, 167, 0.22);
+}
+
+/* Accessible focus ring */
+.vcx-focus-ring:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--vcx-r-warm-white),
+    0 0 0 4px var(--vcx-r-gold);
+  border-radius: inherit;
+}
+
+
+/* ----------------------------------------------------------------
+   11. MOBILE RESPONSIVE
+   Graceful degradation with touch-friendly targets
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .vcx-impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vcx-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Stack everything to single column */
+  .vcx-trust-bar {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px 16px;
+  }
+
+  .vcx-trust-stat strong {
+    font-size: 1.5rem;
+  }
+
+  .vcx-impact-grid,
+  .vcx-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .vcx-impact-section {
+    padding: 40px 0;
+  }
+
+  .vcx-impact-number {
+    font-size: 2rem;
+  }
+
+  .vcx-testimonial-card {
+    padding: 22px;
+  }
+
+  .vcx-cta-section {
+    padding: 40px 18px;
+    border-radius: 22px;
+  }
+
+  .vcx-divider {
+    margin: 28px 0;
+  }
+
+  .vcx-exclusive-badge {
+    font-size: 0.68rem;
+    padding: 8px 14px;
+    right: 12px;
+    top: auto;
+    bottom: 18px;
+  }
+
+  /* Touch-friendly minimum tap targets */
+  .vcx-trust-stat,
+  .vcx-testimonial-card,
+  .vcx-impact-item {
+    min-height: 48px;
+  }
+
+  /* Reduce floating animation amplitude on small screens */
+  @keyframes vcxFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .vcx-reveal,
+  .vcx-reveal-left,
+  .vcx-reveal-right {
+    transition-duration: 0.01ms;
+    opacity: 1;
+    transform: none;
+  }
+
+  .vcx-float,
+  .vcx-pulse,
+  .vcx-pulse-cta {
+    animation: none;
+  }
+
+  .vcx-card-shine::after,
+  .btn-primary::before {
+    animation: none;
+    display: none;
+  }
+
+  .lux-card,
+  .service-card-lux,
+  .authority-card,
+  .vcx-testimonial-card {
+    transition-duration: 0.01ms;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   12. EXCLUSIVE BADGE
+   "Private Advisory" floating indicator of scarcity
+   ---------------------------------------------------------------- */
+.vcx-exclusive-badge {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 100px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(26, 47, 42, 0.88),
+    rgba(19, 45, 79, 0.82)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(91, 186, 167, 0.30);
+  box-shadow:
+    0 8px 28px rgba(26, 47, 42, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--vcx-r-gold-light);
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  opacity: 0.90;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.vcx-exclusive-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vcx-r-gold);
+  box-shadow: 0 0 8px rgba(91, 186, 167, 0.50);
+  flex-shrink: 0;
+}
+
+/* Horizontal variant for mobile / inline use */
+.vcx-exclusive-badge--inline {
+  position: static;
+  writing-mode: horizontal-tb;
+  text-orientation: initial;
+  transform: none;
+}
+
+
+/* ----------------------------------------------------------------
+   UTILITY: GOLD GRADIENT BORDER (for any container)
+   ---------------------------------------------------------------- */
+.vcx-border-gold {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.vcx-border-gold::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(91, 186, 167, 0.30),
+    rgba(91, 186, 167, 0.08),
+    rgba(91, 186, 167, 0.20)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+/* ================================================================
+   13. GLOBAL PALETTE OVERRIDE — Navy → Mint-Birch
+   Overrides the base site tokens so the entire platform shifts
+   from dark-navy to a fresh mint-birch aesthetic.
+   ================================================================ */
+
+/* --- Root token overrides --- */
+:root {
+  /* Primary brand shift */
+  --navy:       #1A2F2A;
+  --ink:        #1A2F2A;
+  --accent:     #5BBAA7;
+  --bg:         #F5FAF8;
+  --bg2:        #EDF5F2;
+  --muted:      #4A6B62;
+
+  /* Premium-fixes tokens */
+  --vcx-brand-primary:  #2E4F46;
+  --vcx-brand-accent:   #5BBAA7;
+  --vcx-ink:            #1A2F2A;
+  --vcx-ink-muted:      #4A6B62;
+  --vcx-bg-warm:        #F5FAF8;
+  --vcx-bg-cream:       #EDF5F2;
+}
+
+/* --- Header & navigation --- */
+.vcx-header,
+.vcx-topbar,
+header {
+  background: linear-gradient(180deg, #1A2F2A 0%, #243D36 100%) !important;
+}
+
+.vcx-header .logo-text,
+.vcx-topbar a {
+  color: #E8F5F1 !important;
+}
+
+/* --- Navigation links --- */
+nav a,
+.vcx-nav a,
+.footer-links a {
+  color: #2E4F46;
+}
+
+nav a:hover,
+.vcx-nav a:hover,
+.footer-links a:hover {
+  color: #5BBAA7;
+}
+
+/* --- Buttons: primary → mint gradient --- */
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+  background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 28px rgba(46, 79, 70, 0.20) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3D6B5E, #5BBAA7) !important;
+  box-shadow:
+    0 18px 36px rgba(46, 79, 70, 0.26),
+    0 0 20px rgba(91, 186, 167, 0.15) !important;
+}
+
+/* --- Buttons: secondary → mint border --- */
+.btn-secondary,
+a.btn-secondary {
+  border-color: rgba(46, 79, 70, 0.15) !important;
+  color: #2E4F46 !important;
+}
+
+.btn-secondary:hover {
+  border-color: #5BBAA7 !important;
+  color: #2E4F46 !important;
+  background: rgba(91, 186, 167, 0.06) !important;
+}
+
+/* --- Eyebrow badges --- */
+.eyebrow,
+.vcx-eyebrow-premium {
+  color: #2E4F46 !important;
+}
+
+.eyebrow::before {
+  background: #5BBAA7 !important;
+}
+
+/* --- Section headings --- */
+h1, h2, h3 {
+  color: #1A2F2A;
+}
+
+/* --- Pills and chips --- */
+.pill {
+  background: rgba(91, 186, 167, 0.10);
+  color: #2E4F46;
+}
+
+.workflow-chip {
+  background: rgba(91, 186, 167, 0.12) !important;
+  color: #2E4F46 !important;
+  border-color: rgba(91, 186, 167, 0.20) !important;
+}
+
+/* --- Cards: subtle mint accent on top --- */
+.lux-card,
+.service-card-lux,
+.authority-card,
+.card {
+  border-color: rgba(91, 186, 167, 0.10);
+}
+
+.lux-card:hover,
+.service-card-lux:hover {
+  border-color: rgba(91, 186, 167, 0.25);
+  box-shadow: 0 12px 40px rgba(91, 186, 167, 0.10);
+}
+
+/* --- Number icons in leak cards --- */
+.lux-icon {
+  background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important;
+  color: #fff !important;
+}
+
+/* --- Service index numbers --- */
+.service-index {
+  color: #5BBAA7 !important;
+}
+
+/* --- Audience badge colors --- */
+.audience-badge {
+  background: #2E4F46 !important;
+  color: #E8F5F1 !important;
+}
+
+.audience-badge-light {
+  background: rgba(91, 186, 167, 0.12) !important;
+  color: #2E4F46 !important;
+}
+
+/* --- Band sections --- */
+.band {
+  background: #EDF5F2 !important;
+}
+
+/* --- Footer --- */
+.footer {
+  background: #1A2F2A !important;
+  color: #C5DDD6 !important;
+}
+
+.footer h3 {
+  color: #E8F5F1 !important;
+}
+
+.footer a {
+  color: #8DD4C5 !important;
+}
+
+.footer a:hover {
+  color: #5BBAA7 !important;
+}
+
+.footer .small-note {
+  color: #7BAE9E !important;
+}
+
+/* --- Timeline dots --- */
+.timeline-dot {
+  background: #5BBAA7 !important;
+  box-shadow: 0 0 0 4px rgba(91, 186, 167, 0.20) !important;
+}
+
+/* --- Glass cards with mint tint --- */
+.glass {
+  background: rgba(245, 250, 248, 0.72) !important;
+  border-color: rgba(91, 186, 167, 0.10) !important;
+}
+
+/* --- CTA banner --- */
+.cta-banner {
+  background: rgba(245, 250, 248, 0.80) !important;
+  border-color: rgba(91, 186, 167, 0.15) !important;
+}
+
+/* --- Concierge panel --- */
+.concierge-phone strong {
+  color: #2E4F46 !important;
+}
+
+/* --- Proof band counters --- */
+.proof-points strong {
+  color: #5BBAA7 !important;
+}
+
+/* --- Diagnostic form --- */
+.mini-form select {
+  border-color: rgba(91, 186, 167, 0.20);
+}
+
+.mini-form select:focus {
+  border-color: #5BBAA7;
+  box-shadow: 0 0 0 3px rgba(91, 186, 167, 0.15);
+}
+
+/* --- Resource cards PDF pill --- */
+.resource-card .pill {
+  background: rgba(91, 186, 167, 0.12);
+  color: #2E4F46;
+}
+
+/* --- Scrollbar accent --- */
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 186, 167, 0.30);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 186, 167, 0.50);
+}
+
+/* --- Selection color --- */
+::selection {
+  background: rgba(91, 186, 167, 0.25);
+  color: #1A2F2A;
+}
+
+/* --- Link color override --- */
+a {
+  color: #2E4F46;
+}
+
+a:hover {
+  color: #5BBAA7;
+}
+
+/* --- Menu button --- */
+.vcx-menu-btn {
+  color: #2E4F46 !important;
+}
+
+/* --- Cookie banner match --- */
+.cookie-banner,
+.consent-banner {
+  background: #1A2F2A !important;
+}
+
+.cookie-btn.primary {
+  background: #5BBAA7 !important;
+  color: #1A2F2A !important;
+}
