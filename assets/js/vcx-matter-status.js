@@ -26,7 +26,7 @@
   if (!matterId || !token) {
     root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">' +
       '<p style="font-weight:600;margin-bottom:8px;">No matter ID or token provided.</p>' +
-      '<p>Please check your link, or <a href="/app/sign-in/" style="color:var(--vcx-brand-primary,#173A63);font-weight:600;">sign in to your client portal</a> to access your matters.</p>' +
+      '<p>Please check your link, or <a href="/app/sign-in/" style="color:var(--vcx-brand-primary,#2E4F46);font-weight:600;">sign in to your client portal</a> to access your matters.</p>' +
       '</div>';
     return;
   }
@@ -40,7 +40,7 @@
   var STATUS_COLORS = {
     intake_received: { bg: '#355E8A', label: 'Intake Received' },
     triage: { bg: '#9A6A20', label: 'In Triage' },
-    under_review: { bg: '#173A63', label: 'Under Review' },
+    under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
     closed: { bg: '#5E6C7B', label: 'Closed' },
@@ -60,7 +60,7 @@
         root.innerHTML = '<div class="vcx-result-notice vcx-notice-warning">' +
           '<p style="font-weight:600;margin-bottom:8px;">This link has expired or is invalid.</p>' +
           '<p>For security, access links expire after a period of time.</p>' +
-          '<p style="margin-top:12px;"><a href="/app/sign-in/" style="display:inline-block;padding:10px 24px;background:var(--vcx-brand-primary,#173A63);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">Request a new access link</a></p>' +
+          '<p style="margin-top:12px;"><a href="/app/sign-in/" style="display:inline-block;padding:10px 24px;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">Request a new access link</a></p>' +
           '<p style="margin-top:12px;font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);">Or contact VitaCoreX at (888) 794-8292 for assistance.</p>' +
           '</div>';
         return;
@@ -97,8 +97,8 @@
     if (m.triage_score != null) {
       html += '<div style="margin-bottom:24px;">';
       html += '<p style="font-size:.8rem;font-weight:600;margin-bottom:6px;">Priority Score: ' + m.triage_score + '/100</p>';
-      html += '<div style="background:rgba(15,27,45,.06);border-radius:6px;height:8px;overflow:hidden;">';
-      html += '<div style="width:' + m.triage_score + '%;height:100%;background:linear-gradient(90deg,#173A63,#2F6B57);border-radius:6px;"></div>';
+      html += '<div style="background:rgba(26,47,42,.06);border-radius:6px;height:8px;overflow:hidden;">';
+      html += '<div style="width:' + m.triage_score + '%;height:100%;background:linear-gradient(90deg,#2E4F46,#2F6B57);border-radius:6px;"></div>';
       html += '</div></div>';
     }
 
@@ -122,7 +122,7 @@
       html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Timeline</h3>';
       m.status_events.forEach(function (e) {
         var est = STATUS_COLORS[e.new_status] || { bg: '#5E6C7B', label: e.new_status };
-        html += '<div style="display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+        html += '<div style="display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<div style="width:8px;height:8px;border-radius:50%;background:' + est.bg + ';margin-top:6px;flex-shrink:0;"></div>';
         html += '<div>';
         html += '<p style="font-size:.85rem;font-weight:600;margin:0;">' + esc(est.label) + '</p>';
@@ -138,7 +138,7 @@
       html += '<div class="card" style="margin-bottom:20px;padding:20px 24px;">';
       html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Documents (' + m.documents.length + ')</h3>';
       m.documents.forEach(function (d) {
-        html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(15,27,45,.06);font-size:.85rem;">';
+        html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,47,42,.06);font-size:.85rem;">';
         html += '<span>' + esc(d.original_name) + '</span>';
         html += '<span style="color:var(--vcx-ink-muted,#5E6C7B);">' + formatBytes(d.size_bytes) + '</span>';
         html += '</div>';
@@ -150,7 +150,7 @@
     html += '<div class="card" style="margin-bottom:20px;padding:20px 24px;">';
     html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Upload Additional Documents</h3>';
     html += '<input type="file" id="vcxStatusUpload" multiple style="margin-bottom:10px;">';
-    html += '<button onclick="window.VCX_Matter.uploadFiles()" style="padding:10px 20px;background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;">Upload</button>';
+    html += '<button onclick="window.VCX_Matter.uploadFiles()" style="padding:10px 20px;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;">Upload</button>';
     html += '<div id="vcxUploadStatus" style="margin-top:8px;font-size:.85rem;"></div>';
     html += '</div>';
 
@@ -160,7 +160,7 @@
       html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Deliverables</h3>';
       m.deliverables.forEach(function (d) {
         var dst = d.status === 'ready' || d.status === 'delivered' ? '#2F6B57' : '#9A6A20';
-        html += '<div style="padding:10px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+        html += '<div style="padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<span style="font-weight:600;font-size:.9rem;">' + esc(d.title) + '</span>';
         html += ' <span style="font-size:.75rem;padding:3px 8px;border-radius:10px;background:' + dst + ';color:#fff;">' + esc(d.status) + '</span>';
         if (d.description) html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin:4px 0 0;">' + esc(d.description) + '</p>';
@@ -173,7 +173,7 @@
     html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:16px;">Created: ' + esc(m.created_at) + '</p>';
 
     // Portal link
-    html += '<p style="margin-top:20px;"><a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#173A63);font-size:.88rem;font-weight:600;">Open full client portal &rarr;</a></p>';
+    html += '<p style="margin-top:20px;"><a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#2E4F46);font-size:.88rem;font-weight:600;">Open full client portal &rarr;</a></p>';
 
     root.innerHTML = html;
   }

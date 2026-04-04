@@ -13,7 +13,7 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--brand-primary, #173A63);
+  background: var(--brand-primary, #2E4F46);
   color: #fff;
   padding: 8px 16px;
   z-index: 9999;
@@ -31,7 +31,7 @@
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--accent-gold, #B08A57);
+  color: var(--accent-gold, #5BBAA7);
   margin-bottom: 12px;
 }
 

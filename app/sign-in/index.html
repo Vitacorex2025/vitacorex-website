@@ -76,14 +76,14 @@
 <main style="padding:40px 0 80px;">
 <div class="wrap" style="max-width:520px;">
 
-<div id="vcxSignInPanel" style="background:#fff;border:1px solid rgba(15,27,45,.08);border-radius:10px;padding:40px;text-align:center;">
+<div id="vcxSignInPanel" style="background:#fff;border:1px solid rgba(26,47,42,.08);border-radius:10px;padding:40px;text-align:center;">
 <h1 style="font-size:1.75rem;margin:0 0 8px;">Client Portal</h1>
 <p style="font-size:1.05rem;line-height:1.6;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 28px;">Enter the email address associated with your matter to receive a secure access link.</p>
 
 <form id="vcxSignInForm" style="max-width:380px;margin:0 auto;">
 <label for="vcxSignInEmail" style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;text-align:left;">Email Address</label>
-<input type="email" id="vcxSignInEmail" name="email" placeholder="you@company.com" required autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid rgba(15,27,45,.15);border-radius:6px;font-size:.95rem;margin-bottom:16px;box-sizing:border-box;"/>
-<button type="submit" id="vcxSignInBtn" style="width:100%;background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:6px;padding:12px 28px;font-size:.95rem;cursor:pointer;font-weight:600;">Send Access Link</button>
+<input type="email" id="vcxSignInEmail" name="email" placeholder="you@company.com" required autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid rgba(26,47,42,.15);border-radius:6px;font-size:.95rem;margin-bottom:16px;box-sizing:border-box;"/>
+<button type="submit" id="vcxSignInBtn" style="width:100%;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border:none;border-radius:6px;padding:12px 28px;font-size:.95rem;cursor:pointer;font-weight:600;">Send Access Link</button>
 </form>
 
 <div id="vcxSignInStatus" style="margin-top:16px;"></div>
@@ -91,12 +91,12 @@
 
 <div style="margin-top:24px;text-align:center;">
 <p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">Already have an access token?
-<a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#173A63);font-weight:600;">Open Packet Room</a></p>
+<a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#2E4F46);font-weight:600;">Open Packet Room</a></p>
 <p style="font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:8px;">Need to submit a new matter?
-<a href="/structured-case-intake.html" style="color:var(--vcx-brand-primary,#173A63);font-weight:600;">Start Structured Intake</a></p>
+<a href="/structured-case-intake.html" style="color:var(--vcx-brand-primary,#2E4F46);font-weight:600;">Start Structured Intake</a></p>
 </div>
 
-<p style="margin-top:40px;font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.55;border-top:1px solid rgba(15,27,45,.08);padding-top:20px;">
+<p style="margin-top:40px;font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.55;border-top:1px solid rgba(26,47,42,.08);padding-top:20px;">
 VitaCoreX LLC provides administrative and documentation support only. It is not a law firm and does not provide legal representation.</p>
 </div>
 </main>
@@ -141,5 +141,6 @@ VitaCoreX LLC provides administrative and documentation support only. It is not 
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js"></script>
 <script src="/assets/js/site.js"></script><script src="/assets/js/ui-shell.js"></script><script src="/assets/js/premium-fixes.js"></script>
 <script src="/assets/js/vcx-sign-in.js"></script>
+<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <script src="/assets/js/vcx-chat-launcher.js"></script><script src="/assets/js/vcx-redesign.js"></script>
 </body></html>

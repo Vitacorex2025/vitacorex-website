@@ -83,9 +83,9 @@
 <form id="rqAuthForm">
 <label style="display:block;margin-bottom:14px;">
 <span style="display:block;font-size:.8rem;font-weight:600;margin-bottom:6px;">Admin Token</span>
-<input id="rqTokenInput" type="password" placeholder="Enter admin token" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(15,27,45,.12);background:var(--vcx-bg-surface,#FBF8F3);font-size:.9rem;"/>
+<input id="rqTokenInput" type="password" placeholder="Enter admin token" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(26,47,42,.12);background:var(--vcx-bg-surface,#FBF8F3);font-size:.9rem;"/>
 </label>
-<button type="submit" style="padding:12px 24px;background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.9rem;">Authenticate</button>
+<button type="submit" style="padding:12px 24px;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.9rem;">Authenticate</button>
 <p id="rqAuthError" style="margin-top:8px;font-size:.85rem;color:#8B4348;"></p>
 </form>
 </div>
@@ -98,7 +98,7 @@
 <h1 style="font-size:clamp(1.3rem,3vw,1.8rem);margin:.2em 0 0;">Review Queue</h1>
 </div>
 <div class="rq-filters">
-<select id="rqStatusFilter" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(15,27,45,.12);background:var(--vcx-bg-surface,#FBF8F3);font-size:.85rem;">
+<select id="rqStatusFilter" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(26,47,42,.12);background:var(--vcx-bg-surface,#FBF8F3);font-size:.85rem;">
 <option value="">All statuses</option>
 <option value="intake_received">Intake Received</option>
 <option value="triage" selected>In Triage</option>
@@ -107,7 +107,7 @@
 <option value="deliverable_ready">Deliverable Ready</option>
 <option value="closed">Closed</option>
 </select>
-<button id="rqRefresh" style="padding:8px 16px;border-radius:8px;border:1px solid rgba(15,27,45,.12);background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Refresh</button>
+<button id="rqRefresh" style="padding:8px 16px;border-radius:8px;border:1px solid rgba(26,47,42,.12);background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Refresh</button>
 </div>
 </div>
 
@@ -160,5 +160,6 @@
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js"></script>
 <script src="/assets/js/site.js"></script><script src="/assets/js/ui-shell.js"></script><script src="/assets/js/premium-fixes.js"></script>
 <script src="/assets/js/vcx-review-queue.js"></script>
+<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <script src="/assets/js/vcx-chat-launcher.js"></script><script src="/assets/js/vcx-redesign.js"></script>
 </body></html>

@@ -5,9 +5,9 @@
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --vcx-navy:           #07131f;
-  --vcx-navy-mid:       #0d1f30;
-  --vcx-navy-card:      #111e2d;
+  --vcx-navy:           #1A2F2A;
+  --vcx-navy-mid:       #1A2F2A;
+  --vcx-navy-card:      #1A2F2A;
   --vcx-gold:           #c9a84c;
   --vcx-gold-light:     #e8c97a;
   --vcx-white:          #ffffff;
@@ -33,7 +33,7 @@ body[data-vcx-private-lookup="true"] main{
   min-height: 80vh;
 }
 body[data-vcx-private-lookup="true"] .vcx-lookup-hero{
-  background: linear-gradient(160deg, #0c1f32 0%, #0e2438 60%, #132d46 100%);
+  background: linear-gradient(160deg, #1A2F2A 0%, #1A2F2A 60%, #243D36 100%);
   padding: 52px 0 60px;
   color: #e8edf2;
 }
@@ -68,9 +68,9 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
 .vcx-lookup-hero {
   background: linear-gradient(
     160deg,
-    #07131f 0%,
-    #0d1f30 45%,
-    #0a1a28 100%
+    #1A2F2A 0%,
+    #1A2F2A 45%,
+    #1A2F2A 100%
   );
   padding: 56px 20px 48px;
   text-align: center;
@@ -1808,11 +1808,11 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
 .vcx-result-header h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
-  color: #0d1f32;
+  color: #1A2F2A;
   margin: 0;
 }
 .vcx-result-icon { font-size: 1.6rem; }
-.vcx-result-intro { color: #1a3050; margin-bottom: 20px; }
+.vcx-result-intro { color: #243D36; margin-bottom: 20px; }
 .vcx-portal-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .vcx-portal-link {
   display: flex;
@@ -1832,20 +1832,20 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
   transform: translateX(3px);
 }
 .vcx-portal-link.vcx-portal-primary {
-  background: #0d2038;
+  background: #1A2F2A;
   border-color: rgba(191,150,80,.3);
 }
 .vcx-portal-link.vcx-portal-primary .vcx-portal-name { color: #e8d9bc; }
 .vcx-portal-link.vcx-portal-primary .vcx-portal-desc { color: rgba(232,217,188,.65); }
-.vcx-portal-link.vcx-portal-primary:hover { background: #162d47; }
-.vcx-portal-name { font-weight: 600; font-size: 14px; color: #0d1f32; }
+.vcx-portal-link.vcx-portal-primary:hover { background: #243D36; }
+.vcx-portal-name { font-weight: 600; font-size: 14px; color: #1A2F2A; }
 .vcx-portal-desc { font-size: 12px; color: #4a6785; }
 .vcx-result-ref { font-size: 13px; color: #4a6785; margin-bottom: 16px; }
 .vcx-result-disc { font-size: 12px; color: #6a8099; margin-bottom: 10px; }
 .vcx-cta-link {
   display: inline-block;
   padding: 10px 22px;
-  background: linear-gradient(135deg, #0d2038 0%, #162d47 100%);
+  background: linear-gradient(135deg, #1A2F2A 0%, #243D36 100%);
   color: #e8d9bc;
   border: 1px solid rgba(191,150,80,.3);
   border-radius: 8px;
@@ -1856,7 +1856,7 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool{
   transition: all 0.25s ease;
 }
 .vcx-cta-link:hover {
-  background: linear-gradient(135deg, #162d47 0%, #1e3d5c 100%);
+  background: linear-gradient(135deg, #243D36 0%, #2E4F46 100%);
   color: #f0e4c8;
   border-color: rgba(191,150,80,.55);
   box-shadow: 0 4px 16px rgba(12,26,44,.2);

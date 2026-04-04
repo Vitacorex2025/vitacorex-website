@@ -182,14 +182,14 @@
 <div id="intakeResult" class="card reveal" style="display:none;margin-top:18px;padding:28px 24px;"></div>
 <!-- VCX Phase 2: API intake result panel -- END -->
 <!-- P1-2: Private client self-service deep-links -->
-<div class="card reveal vcx-self-service-card" style="margin-top:18px;padding:22px 24px;background:rgba(176,138,87,.07);border:1px solid rgba(176,138,87,.2);border-radius:10px;">
-<p style="font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#8F6B3E;margin:0 0 10px;">Private Client Self-Service Tools</p>
+<div class="card reveal vcx-self-service-card" style="margin-top:18px;padding:22px 24px;background:rgba(91,186,167,.07);border:1px solid rgba(91,186,167,.2);border-radius:10px;">
+<p style="font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#5BBAA7;margin:0 0 10px;">Private Client Self-Service Tools</p>
 <p style="font-size:.88rem;color:#5E6C7B;margin:0 0 14px;line-height:1.5;">Need a quick analysis before you submit? Use one of these tools first — results are instant and stay in your browser.</p>
 <div style="display:flex;flex-wrap:wrap;gap:10px;">
-<a href="/app/contract-intelligence/?service=contracts" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Contract review &rarr;</a>
-<a href="/app/immigration-forms/?service=immigration" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Immigration help &rarr;</a>
-<a href="/app/dealer-contract-check/?service=auto" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Auto deal check &rarr;</a>
-<a href="/app/legal-assistant/" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(23,58,99,.06);border:1px solid rgba(23,58,99,.18);border-radius:7px;color:#173A63;font-size:.87rem;text-decoration:none;font-weight:600;">Legal assistant &rarr;</a>
+<a href="/app/contract-intelligence/?service=contracts" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(46,79,70,.06);border:1px solid rgba(46,79,70,.18);border-radius:7px;color:#2E4F46;font-size:.87rem;text-decoration:none;font-weight:600;">Contract review &rarr;</a>
+<a href="/app/immigration-forms/?service=immigration" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(46,79,70,.06);border:1px solid rgba(46,79,70,.18);border-radius:7px;color:#2E4F46;font-size:.87rem;text-decoration:none;font-weight:600;">Immigration help &rarr;</a>
+<a href="/app/dealer-contract-check/?service=auto" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(46,79,70,.06);border:1px solid rgba(46,79,70,.18);border-radius:7px;color:#2E4F46;font-size:.87rem;text-decoration:none;font-weight:600;">Auto deal check &rarr;</a>
+<a href="/app/legal-assistant/" class="vcx-tool-link" style="display:inline-block;padding:10px 18px;background:rgba(46,79,70,.06);border:1px solid rgba(46,79,70,.18);border-radius:7px;color:#2E4F46;font-size:.87rem;text-decoration:none;font-weight:600;">Legal assistant &rarr;</a>
 </div>
 </div>
 <div class="form-side-stack"><div class="output-panel reveal">
@@ -331,14 +331,14 @@
     html += '<div style="margin-bottom:10px;">';
     html += '<span style="font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--vcx-ink-muted,#5E6C7B);">Detected from chat</span><br>';
     tags.forEach(function(t) {
-      html += '<span style="display:inline-block;margin:4px 6px 4px 0;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600;background:rgba(23,58,99,.08);color:var(--vcx-brand-primary,#173A63);">' + esc(t) + '</span>';
+      html += '<span style="display:inline-block;margin:4px 6px 4px 0;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600;background:rgba(46,79,70,.08);color:var(--vcx-brand-primary,#2E4F46);">' + esc(t) + '</span>';
     });
     html += '</div>';
   }
 
   /* Timeline notice */
   if (timeline) {
-    html += '<p style="font-size:.83rem;color:#8F6B3E;margin:0 0 8px;"><strong>Timeline:</strong> ' + esc(timeline) + '</p>';
+    html += '<p style="font-size:.83rem;color:#5BBAA7;margin:0 0 8px;"><strong>Timeline:</strong> ' + esc(timeline) + '</p>';
   }
 
   /* Documents to prepare */
@@ -354,7 +354,7 @@
   }
 
   /* What happens next */
-  html += '<div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(15,27,45,.06);">';
+  html += '<div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(26,47,42,.06);">';
   html += '<span style="font-size:.78rem;font-weight:600;color:var(--vcx-ink-body,#243548);">What happens next:</span>';
   html += '<ol style="margin:4px 0 0 16px;padding:0;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);line-height:1.7;">';
   html += '<li>Review and edit the prefilled fields below</li>';
@@ -404,5 +404,6 @@
   }
 })();
 </script>
+<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <script src="/assets/js/vcx-chat-launcher.js"></script><script src="/assets/js/vcx-redesign.js"></script>
 </body></html>

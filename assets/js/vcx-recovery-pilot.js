@@ -47,13 +47,13 @@
     for (var j = 0; j < indicators.length; j++) {
       var stepNum = parseInt(indicators[j].getAttribute('data-step'), 10);
       if (stepNum === n) {
-        indicators[j].style.background = 'var(--vcx-brand-primary,#173A63)';
+        indicators[j].style.background = 'var(--vcx-brand-primary,#2E4F46)';
         indicators[j].style.color = '#fff';
       } else if (stepNum < n) {
-        indicators[j].style.background = 'var(--vcx-accent-gold,#B08A57)';
+        indicators[j].style.background = 'var(--vcx-accent-gold,#5BBAA7)';
         indicators[j].style.color = '#fff';
       } else {
-        indicators[j].style.background = 'rgba(15,27,45,.06)';
+        indicators[j].style.background = 'rgba(26,47,42,.06)';
         indicators[j].style.color = 'var(--vcx-ink-muted,#5E6C7B)';
       }
     }
@@ -247,7 +247,7 @@
     var html = '';
 
     // Baseline KPIs
-    html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#173A63);">Current Baseline KPIs</h3>';
+    html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#2E4F46);">Current Baseline KPIs</h3>';
     html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:28px;">';
     html += kpiCard('AR Outstanding', '$' + formatNum(b.ar_outstanding));
     html += kpiCard('AR Over 90 Days', '$' + formatNum(b.ar_over_90));
@@ -261,18 +261,18 @@
     html += '</div>';
 
     // Projections
-    html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#173A63);">Recovery Projections</h3>';
+    html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#2E4F46);">Recovery Projections</h3>';
     html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:16px;">';
 
     var scenarios = ['conservative', 'moderate', 'aggressive'];
     var labels = { conservative: 'Conservative', moderate: 'Moderate', aggressive: 'Aggressive' };
-    var colors = { conservative: '#5E6C7B', moderate: '#173A63', aggressive: '#B08A57' };
+    var colors = { conservative: '#5E6C7B', moderate: '#2E4F46', aggressive: '#5BBAA7' };
 
     for (var i = 0; i < scenarios.length; i++) {
       var key = scenarios[i];
       var s = p[key];
       if (!s) continue;
-      html += '<div style="background:rgba(15,27,45,.03);border:1px solid rgba(15,27,45,.08);border-radius:8px;padding:16px;">';
+      html += '<div style="background:rgba(26,47,42,.03);border:1px solid rgba(26,47,42,.08);border-radius:8px;padding:16px;">';
       html += '<h4 style="font-size:.9rem;margin:0 0 10px;color:' + colors[key] + ';">' + labels[key] + '</h4>';
       html += '<div style="font-size:.82rem;line-height:1.7;color:var(--vcx-ink-body,#243548);">';
       html += 'Recovery Rate: <strong>' + s.new_recovery_rate_pct + '%</strong><br/>';
@@ -281,7 +281,7 @@
       html += 'Incremental Recovery: <strong>$' + formatNum(s.incremental_recovery) + '</strong><br/>';
       html += 'Net Annual Benefit: <strong>$' + formatNum(s.net_annual_benefit) + '</strong><br/>';
       html += 'DSO Cash Freed: <strong>$' + formatNum(s.dso_cash_freed) + '</strong><br/>';
-      html += '<span style="font-weight:700;color:var(--vcx-brand-primary,#173A63);">Total Year 1 Impact: $' + formatNum(s.total_first_year_impact) + '</span>';
+      html += '<span style="font-weight:700;color:var(--vcx-brand-primary,#2E4F46);">Total Year 1 Impact: $' + formatNum(s.total_first_year_impact) + '</span>';
       html += '</div></div>';
     }
     html += '</div>';
@@ -307,7 +307,7 @@
     var html = '';
 
     // Company header
-    html += '<div style="background:var(--vcx-brand-primary,#173A63);color:#fff;border-radius:8px;padding:20px 24px;margin-bottom:24px;">';
+    html += '<div style="background:var(--vcx-brand-primary,#2E4F46);color:#fff;border-radius:8px;padding:20px 24px;margin-bottom:24px;">';
     html += '<h3 style="font-size:1.1rem;margin:0 0 4px;">Recovery Pilot Brief</h3>';
     html += '<p style="font-size:.9rem;margin:0;opacity:.85;">' + escapeHtml(company.name || 'Your Company') + '</p>';
     if (company.industry) html += '<p style="font-size:.82rem;margin:4px 0 0;opacity:.7;">' + escapeHtml(company.industry) + '</p>';
@@ -324,10 +324,10 @@
 
     // Phases
     if (phases.length > 0) {
-      html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#173A63);">Engagement Phases</h3>';
+      html += '<h3 style="font-size:1rem;margin:0 0 16px;color:var(--vcx-brand-primary,#2E4F46);">Engagement Phases</h3>';
       for (var i = 0; i < phases.length; i++) {
         var phase = phases[i];
-        html += '<div style="background:rgba(15,27,45,.03);border-left:3px solid var(--vcx-brand-primary,#173A63);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:12px;">';
+        html += '<div style="background:rgba(26,47,42,.03);border-left:3px solid var(--vcx-brand-primary,#2E4F46);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:12px;">';
         html += '<h4 style="font-size:.92rem;margin:0 0 4px;">' + escapeHtml(phase.name || '') + ' <span style="font-weight:400;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);">(Weeks ' + escapeHtml(phase.weeks || '') + ')</span></h4>';
         html += '<p style="font-size:.85rem;margin:0 0 8px;color:var(--vcx-ink-body,#243548);">' + escapeHtml(phase.focus || '') + '</p>';
         if (phase.deliverables && phase.deliverables.length > 0) {
@@ -342,15 +342,15 @@
     }
 
     // Disclaimer
-    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:20px;padding-top:16px;border-top:1px solid rgba(15,27,45,.08);">' + escapeHtml(brief.disclaimer || 'This executive brief contains estimates based on client-provided data. Actual results may vary.') + '</p>';
+    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:20px;padding-top:16px;border-top:1px solid rgba(26,47,42,.08);">' + escapeHtml(brief.disclaimer || 'This executive brief contains estimates based on client-provided data. Actual results may vary.') + '</p>';
 
     briefPanel.innerHTML = html;
   }
 
   // --- Helpers ---------------------------------------------
   function kpiCard(label, value) {
-    return '<div style="background:#fff;border:1px solid rgba(15,27,45,.08);border-radius:8px;padding:14px 16px;text-align:center;">' +
-      '<div style="font-size:1.15rem;font-weight:700;color:var(--vcx-brand-primary,#173A63);margin-bottom:4px;">' + escapeHtml(String(value)) + '</div>' +
+    return '<div style="background:#fff;border:1px solid rgba(26,47,42,.08);border-radius:8px;padding:14px 16px;text-align:center;">' +
+      '<div style="font-size:1.15rem;font-weight:700;color:var(--vcx-brand-primary,#2E4F46);margin-bottom:4px;">' + escapeHtml(String(value)) + '</div>' +
       '<div style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(label) + '</div>' +
     '</div>';
   }

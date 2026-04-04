@@ -26,7 +26,7 @@
   function handleDragOver(e) {
     e.preventDefault();
     e.stopPropagation();
-    if (uploadZone) uploadZone.style.borderColor = 'var(--vcx-brand-primary,#173A63)';
+    if (uploadZone) uploadZone.style.borderColor = 'var(--vcx-brand-primary,#2E4F46)';
   }
 
   function handleDragLeave(e) {
@@ -126,7 +126,7 @@
     var html = '';
 
     // Status header
-    var statusColor = data.status === 'reviewed' ? 'var(--vcx-accent-gold,#B08A57)' : 'var(--vcx-ink-muted,#5E6C7B)';
+    var statusColor = data.status === 'reviewed' ? 'var(--vcx-accent-gold,#5BBAA7)' : 'var(--vcx-ink-muted,#5E6C7B)';
     html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px;">';
     html += '<div>';
     html += '<span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:' + statusColor + ';font-weight:600;">' + escapeHtml(data.status || 'unknown') + '</span>';
@@ -145,7 +145,7 @@
       html += '<span style="font-size:.85rem;font-weight:600;">Risk Score</span>';
       html += '<span style="font-size:1.1rem;font-weight:700;color:' + scoreColor + ';">' + data.risk_score + '/100</span>';
       html += '</div>';
-      html += '<div style="height:8px;background:rgba(15,27,45,.06);border-radius:4px;overflow:hidden;">';
+      html += '<div style="height:8px;background:rgba(26,47,42,.06);border-radius:4px;overflow:hidden;">';
       html += '<div style="height:100%;width:' + Math.min(data.risk_score, 100) + '%;background:' + scoreColor + ';border-radius:4px;transition:width .5s;"></div>';
       html += '</div>';
       html += '</div>';
@@ -153,7 +153,7 @@
 
     // Risk summary
     if (data.risk_summary) {
-      html += '<div style="background:rgba(15,27,45,.03);border-radius:8px;padding:16px;margin-bottom:24px;font-size:.88rem;line-height:1.6;color:var(--vcx-ink-body,#243548);">';
+      html += '<div style="background:rgba(26,47,42,.03);border-radius:8px;padding:16px;margin-bottom:24px;font-size:.88rem;line-height:1.6;color:var(--vcx-ink-body,#243548);">';
       html += escapeHtml(data.risk_summary);
       html += '</div>';
     }
@@ -161,11 +161,11 @@
     // Clause list
     var clauses = data.clauses || [];
     if (clauses.length > 0) {
-      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#173A63);">Detected Clauses (' + clauses.length + ')</h3>';
+      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Detected Clauses (' + clauses.length + ')</h3>';
 
       for (var i = 0; i < clauses.length; i++) {
         var c = clauses[i];
-        var riskBg = 'rgba(15,27,45,.04)';
+        var riskBg = 'rgba(26,47,42,.04)';
         var riskColor = 'var(--vcx-ink-muted,#5E6C7B)';
         var riskLabel = c.risk_level || 'neutral';
 
@@ -181,9 +181,9 @@
           riskLabel = 'STANDARD';
         }
 
-        html += '<div style="background:' + riskBg + ';border:1px solid rgba(15,27,45,.06);border-radius:8px;padding:14px 16px;margin-bottom:10px;">';
+        html += '<div style="background:' + riskBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:14px 16px;margin-bottom:10px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px;">';
-        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);text-transform:capitalize;">' + escapeHtml((c.clause_type || '').replace(/_/g, ' ')) + '</span>';
+        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);text-transform:capitalize;">' + escapeHtml((c.clause_type || '').replace(/_/g, ' ')) + '</span>';
         html += '<span style="font-size:.72rem;font-weight:700;color:' + riskColor + ';text-transform:uppercase;letter-spacing:.08em;">' + riskLabel + '</span>';
         html += '</div>';
         if (c.excerpt) {
@@ -205,12 +205,12 @@
     var buckets = data.issue_buckets || [];
     if (buckets.length > 0) {
       html += '<div style="margin-top:28px;">';
-      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#173A63);">Issue Summary</h3>';
+      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Issue Summary</h3>';
       for (var b = 0; b < buckets.length; b++) {
         var bkt = buckets[b];
         var bktColor = bkt.severity === 'high' ? '#E63757' : bkt.severity === 'medium' ? '#F5A623' : 'var(--vcx-ink-muted,#5E6C7B)';
-        var bktBg = bkt.severity === 'high' ? 'rgba(230,55,87,.06)' : bkt.severity === 'medium' ? 'rgba(245,166,35,.06)' : 'rgba(15,27,45,.03)';
-        html += '<div style="background:' + bktBg + ';border:1px solid rgba(15,27,45,.06);border-radius:8px;padding:16px;margin-bottom:12px;">';
+        var bktBg = bkt.severity === 'high' ? 'rgba(230,55,87,.06)' : bkt.severity === 'medium' ? 'rgba(245,166,35,.06)' : 'rgba(26,47,42,.03)';
+        html += '<div style="background:' + bktBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:16px;margin-bottom:12px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
         html += '<span style="font-size:.88rem;font-weight:700;color:var(--vcx-ink-body,#243548);">' + escapeHtml(bkt.bucket) + '</span>';
         html += '<span style="font-size:.72rem;font-weight:700;color:' + bktColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml(bkt.severity) + '</span>';
@@ -218,7 +218,7 @@
         var bItems = bkt.items || [];
         for (var bi = 0; bi < bItems.length; bi++) {
           var bItem = bItems[bi];
-          html += '<div style="padding:8px 0;' + (bi > 0 ? 'border-top:1px solid rgba(15,27,45,.06);' : '') + '">';
+          html += '<div style="padding:8px 0;' + (bi > 0 ? 'border-top:1px solid rgba(26,47,42,.06);' : '') + '">';
           html += '<div style="font-size:.82rem;font-weight:600;color:var(--vcx-ink-body,#243548);margin-bottom:3px;">' + escapeHtml(bItem.label) + '</div>';
           if (bItem.excerpt) {
             html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 3px;font-style:italic;">&ldquo;' + escapeHtml(bItem.excerpt.substring(0, 150)) + '&rdquo;</p>';
@@ -237,14 +237,14 @@
     var missingProt = data.missing_protections || [];
     if (missingProt.length > 0) {
       html += '<div style="margin-top:28px;">';
-      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#173A63);">Missing Protections (' + missingProt.length + ')</h3>';
+      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Missing Protections (' + missingProt.length + ')</h3>';
       for (var mp = 0; mp < missingProt.length; mp++) {
         var prot = missingProt[mp];
         var protColor = prot.severity === 'high' ? '#E63757' : '#F5A623';
         var protBg = prot.severity === 'high' ? 'rgba(230,55,87,.06)' : 'rgba(245,166,35,.06)';
-        html += '<div style="background:' + protBg + ';border:1px solid rgba(15,27,45,.06);border-radius:8px;padding:14px 16px;margin-bottom:10px;">';
+        html += '<div style="background:' + protBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:14px 16px;margin-bottom:10px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px;">';
-        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);">' + escapeHtml(prot.label) + '</span>';
+        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);">' + escapeHtml(prot.label) + '</span>';
         html += '<span style="font-size:.72rem;font-weight:700;color:' + protColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml(prot.severity) + '</span>';
         html += '</div>';
         if (prot.recommendation) {
@@ -259,8 +259,8 @@
     var suggestedQ = data.suggested_questions || [];
     if (suggestedQ.length > 0) {
       html += '<div style="margin-top:28px;">';
-      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#173A63);">Questions for Counsel (' + suggestedQ.length + ')</h3>';
-      html += '<div style="background:rgba(23,58,99,.03);border:1px solid rgba(15,27,45,.06);border-radius:8px;padding:16px;">';
+      html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Questions for Counsel (' + suggestedQ.length + ')</h3>';
+      html += '<div style="background:rgba(46,79,70,.03);border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:16px;">';
       var prevCat = '';
       for (var qi = 0; qi < suggestedQ.length; qi++) {
         var sq = suggestedQ[qi];
@@ -280,8 +280,8 @@
 
     // View full report link
     if (lastReviewId) {
-      html += '<div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(15,27,45,.08);text-align:center;">';
-      html += '<button type="button" id="vcxViewReport" style="background:none;border:1px solid var(--vcx-brand-primary,#173A63);color:var(--vcx-brand-primary,#173A63);border-radius:6px;padding:8px 20px;font-size:.85rem;cursor:pointer;">View Full Report</button>';
+      html += '<div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(26,47,42,.08);text-align:center;">';
+      html += '<button type="button" id="vcxViewReport" style="background:none;border:1px solid var(--vcx-brand-primary,#2E4F46);color:var(--vcx-brand-primary,#2E4F46);border-radius:6px;padding:8px 20px;font-size:.85rem;cursor:pointer;">View Full Report</button>';
       html += '</div>';
     }
 

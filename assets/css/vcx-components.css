@@ -3,9 +3,9 @@
 .vcx-btn--primary{background:var(--brand-primary);color:#fff;border-color:var(--brand-primary)}
 .vcx-btn--primary:hover{background:var(--brand-hover);border-color:var(--brand-hover)}
 .vcx-btn--secondary{background:transparent;color:var(--brand-primary);border-color:var(--brand-primary)}
-.vcx-btn--secondary:hover{background:rgba(23,58,99,.06)}
+.vcx-btn--secondary:hover{background:rgba(46,79,70,.06)}
 .vcx-btn--ghost{background:transparent;color:var(--ink-body);border-color:var(--line-strong)}
-.vcx-btn--ghost:hover{background:rgba(15,27,45,.04)}
+.vcx-btn--ghost:hover{background:rgba(26,47,42,.04)}
 .vcx-btn--gold{background:var(--accent-gold);color:#fff;border-color:var(--accent-gold)}
 .vcx-btn--gold:hover{background:var(--accent-gold-dk);border-color:var(--accent-gold-dk)}
 .vcx-btn:disabled,.vcx-btn[disabled]{opacity:.5;cursor:not-allowed;pointer-events:none}
@@ -17,11 +17,11 @@
 .vcx-form-group{display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-4)}
 .vcx-label{font-size:var(--text-body-sm);font-weight:600;color:var(--ink-strong);letter-spacing:.01em}
 .vcx-input,.vcx-select,.vcx-textarea{width:100%;padding:var(--sp-3) var(--sp-4);font-family:var(--font-body);font-size:16px;line-height:var(--lh-body);color:var(--ink-strong);background:var(--bg-elevated);border:1.5px solid var(--line-strong);border-radius:var(--radius);transition:border-color var(--transition-fast),box-shadow var(--transition-fast);appearance:none;min-height:44px}
-.vcx-input:focus,.vcx-select:focus,.vcx-textarea:focus{outline:none;border-color:var(--accent-gold);box-shadow:0 0 0 3px rgba(176,138,87,.18)}
+.vcx-input:focus,.vcx-select:focus,.vcx-textarea:focus{outline:none;border-color:var(--accent-gold);box-shadow:0 0 0 3px rgba(91,186,167,.18)}
 .vcx-input::placeholder,.vcx-textarea::placeholder{color:var(--ink-muted)}
 .vcx-textarea{resize:vertical;min-height:120px}
 .vcx-file-input{display:block;padding:var(--sp-5) var(--sp-4);border:1.5px dashed var(--line-strong);border-radius:var(--radius);background:var(--bg-surface);text-align:center;cursor:pointer;color:var(--ink-muted);font-size:var(--text-body-sm);transition:border-color var(--transition-fast),background var(--transition-fast)}
-.vcx-file-input:hover{border-color:var(--accent-gold);background:rgba(176,138,87,.04)}
+.vcx-file-input:hover{border-color:var(--accent-gold);background:rgba(91,186,167,.04)}
 .vcx-field-error{font-size:var(--text-caption);color:var(--status-danger);margin-top:var(--sp-1)}
 .vcx-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line-soft);border-radius:var(--radius)}
 .vcx-table{width:100%;border-collapse:collapse;font-size:var(--text-body-sm)}
@@ -30,13 +30,13 @@
 .vcx-table th.num,.vcx-table td.num{text-align:right;font-variant-numeric:tabular-nums}
 .vcx-table td{padding:var(--sp-3) var(--sp-4);border-bottom:1px solid var(--line-soft);color:var(--ink-body);vertical-align:top;line-height:var(--lh-tight)}
 .vcx-table tbody tr:last-child td{border-bottom:none}
-.vcx-table tbody tr:hover td{background:rgba(15,27,45,.025)}
+.vcx-table tbody tr:hover td{background:rgba(26,47,42,.025)}
 .vcx-badge{display:inline-flex;align-items:center;gap:var(--sp-1);padding:2px var(--sp-2);border-radius:100px;font-size:var(--text-caption);font-weight:600;letter-spacing:.02em;line-height:1.4;white-space:nowrap}
 .vcx-badge--success{background:var(--status-success-bg);color:var(--status-success)}
 .vcx-badge--warning{background:var(--status-warning-bg);color:var(--status-warning)}
 .vcx-badge--danger{background:var(--status-danger-bg);color:var(--status-danger)}
 .vcx-badge--info{background:var(--status-info-bg);color:var(--status-info)}
-.vcx-badge--muted{background:rgba(15,27,45,.06);color:var(--ink-muted)}
+.vcx-badge--muted{background:rgba(26,47,42,.06);color:var(--ink-muted)}
 .vcx-alert{padding:var(--sp-4) var(--sp-5);border-radius:var(--radius);border-left:3px solid currentColor;font-size:var(--text-body-sm);line-height:var(--lh-body)}
 .vcx-alert--success{background:var(--status-success-bg);color:var(--status-success)}
 .vcx-alert--warning{background:var(--status-warning-bg);color:var(--status-warning)}

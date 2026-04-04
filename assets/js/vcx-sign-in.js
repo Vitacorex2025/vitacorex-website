@@ -99,8 +99,8 @@
     if (!statusDiv) return;
     statusDiv.innerHTML +=
       '<div style="margin-top:12px;padding:14px 20px;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.25);border-radius:8px;">' +
-      '<p style="margin:0 0 6px;font-size:.82rem;font-weight:600;color:var(--vcx-accent-gold,#B08A57);">Dev Mode: SMTP not configured</p>' +
-      '<a href="' + escapeHtml(link) + '" style="color:var(--vcx-brand-primary,#173A63);font-size:.85rem;word-break:break-all;">' + escapeHtml(link) + '</a>' +
+      '<p style="margin:0 0 6px;font-size:.82rem;font-weight:600;color:var(--vcx-accent-gold,#5BBAA7);">Dev Mode: SMTP not configured</p>' +
+      '<a href="' + escapeHtml(link) + '" style="color:var(--vcx-brand-primary,#2E4F46);font-size:.85rem;word-break:break-all;">' + escapeHtml(link) + '</a>' +
       '</div>';
   }
 

@@ -126,8 +126,8 @@
       '<p style="font-size:.95rem;line-height:1.6;max-width:580px;margin-bottom:16px;">' +
       escHTML(data.next_step) +
       '</p>' +
-      '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(15,27,45,.08);border-radius:10px;padding:20px 24px;margin-bottom:20px;">' +
-      '<h3 style="font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;color:var(--vcx-brand-primary,#173A63);">Your Checklist</h3>' +
+      '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(26,47,42,.08);border-radius:10px;padding:20px 24px;margin-bottom:20px;">' +
+      '<h3 style="font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;color:var(--vcx-brand-primary,#2E4F46);">Your Checklist</h3>' +
       '<ul style="list-style:none;padding:0;margin:0;">' +
       items +
       '</ul>' +
@@ -137,7 +137,7 @@
       '<p style="font-size:.85rem;margin:0 0 10px;color:var(--vcx-ink-muted,#5E6C7B);">Bookmark this link to check your matter status and upload additional documents.</p>' +
       '<a href="' +
       escHTML(data.magic_link) +
-      '" style="word-break:break-all;color:var(--vcx-brand-primary,#173A63);font-size:.85rem;">' +
+      '" style="word-break:break-all;color:var(--vcx-brand-primary,#2E4F46);font-size:.85rem;">' +
       escHTML(data.magic_link) +
       '</a>' +
       '</div>' +

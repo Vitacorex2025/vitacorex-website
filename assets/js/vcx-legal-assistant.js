@@ -14,7 +14,11 @@
   const API_BASE = (function () {
     if (window.VCX_API_BASE) return window.VCX_API_BASE;
     var port = location.port;
-    if (port === '8080') return 'http://' + location.hostname + ':8787';
+    // Auto-detect backend on common dev ports
+    if (port === '8080' || port === '8765' || port === '8090' || port === '3000') {
+      return 'http://' + location.hostname + ':8787';
+    }
+    // Production: same-origin (reverse proxy handles /api/ routing)
     return '';
   })();
 

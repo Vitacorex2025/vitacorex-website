@@ -44,6 +44,73 @@
   --vcx-r-ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
   --vcx-r-dur:          0.4s;
   --vcx-r-dur-slow:     0.7s;
+
+  /* ============================================================
+     GLOBAL VARIABLE OVERRIDE — Mint-Birch palette
+     Replaces ALL navy/blue/gold CSS tokens from:
+       styles.css, vcx-tokens.css, premium-fixes.css, ui-shell.css
+     Since these base files are frozen, we override at :root level.
+     ============================================================ */
+
+  /* --- styles.css :root overrides --- */
+  --bg:      #EDF5F2;
+  --bg2:     #F5FAF8;
+  --ink:     #1A2F2A;
+  --muted:   #4A6B62;
+  --line:    rgba(26,47,42,.10);
+  --navy:    #2E4F46;
+  --gold:    #5BBAA7;
+  --glass:   rgba(245,250,248,.58);
+  --glass2:  rgba(245,250,248,.76);
+  --shadow:  0 18px 60px rgba(26,47,42,.12);
+
+  /* --- vcx-tokens.css :root overrides --- */
+  --bg-canvas:    #F5FAF8;
+  --bg-surface:   #F0F7F4;
+  --bg-elevated:  #FFFFFF;
+  --bg-ink:       #1A2F2A;
+  --bg-ink-soft:  #243D36;
+  --ink-strong:   #1A2F2A;
+  --ink-body:     #2E4F46;
+  --ink-muted:    #4A6B62;
+  --ink-faint:    #7BAE9E;
+  --brand-primary:   #2E4F46;
+  --brand-secondary: #4A6B62;
+  --brand-hover:     #1A2F2A;
+  --accent-gold:     #5BBAA7;
+  --accent-gold-dk:  #3D8E7E;
+  --accent-gold-lt:  #8DD4C5;
+  --status-info:     #3D8E7E;
+  --status-info-bg:  rgba(61,142,126,.08);
+  --line-soft:    rgba(26,47,42,.10);
+  --line-strong:  rgba(26,47,42,.16);
+  --line-gold:    rgba(91,186,167,.22);
+
+  /* --- premium-fixes.css :root overrides --- */
+  --vcx-bg-canvas:       #F5FAF8;
+  --vcx-bg-surface:      #F0F7F4;
+  --vcx-bg-elevated:     #FFFFFF;
+  --vcx-ink-strong:      #1A2F2A;
+  --vcx-ink-body:        #2E4F46;
+  --vcx-ink-muted:       #4A6B62;
+  --vcx-brand-primary:   #2E4F46;
+  --vcx-brand-secondary: #4A6B62;
+  --vcx-accent-premium:  #5BBAA7;
+  --vcx-accent-premium-2:#3D8E7E;
+  --vcx-line-soft:       rgba(26,47,42,.10);
+  --vcx-line-strong:     rgba(26,47,42,.16);
+  --vcx-success:         #2F6B57;
+  --vcx-warning:         #9A6A20;
+  --vcx-danger:          #8B4348;
+  --vcx-info:            #3D8E7E;
+
+  /* --- ui-shell.css :root overrides --- */
+  --vcx-ink:     #1A2F2A;
+  --vcx-navy:    #2E4F46;
+  --vcx-accent:  #5BBAA7;
+
+  /* --- private-lookup.css overrides --- */
+  --vcx-navy-card: #1A2F2A;
 }
 
 
@@ -422,7 +489,7 @@
 .vcx-testimonial-name {
   font-size: 0.90rem;
   font-weight: 700;
-  color: var(--ink-strong, #0F1B2D);
+  color: var(--ink-strong, #1A2F2A);
 }
 
 .vcx-testimonial-role {
@@ -1248,4 +1315,340 @@ a:hover {
 .cookie-btn.primary {
   background: #5BBAA7 !important;
   color: #1A2F2A !important;
+}
+
+/* ================================================================
+   14. DEEP BLUE ERADICATION — Override every remaining navy/blue/gold in base CSS
+   ================================================================ */
+
+/* --- Text colors --- */
+body { color: #1A2F2A !important; }
+h1, h2, h3, h4, h5, h6 { color: #1A2F2A !important; }
+p { color: #2E4F46 !important; }
+.section-intro { color: #4A6B62 !important; }
+.small-note { color: #4A6B62 !important; }
+
+/* --- Clock and language bar --- */
+.vcx-topbar, .clock-bar { background: #1A2F2A !important; color: #C5DDD6 !important; }
+.clock-label, .clock-val { color: #C5DDD6 !important; }
+.lang-btn { color: #7BAE9E !important; border-color: rgba(91,186,167,0.20) !important; }
+.lang-btn.active { background: rgba(91,186,167,0.15) !important; color: #5BBAA7 !important; }
+
+/* --- Hero overrides --- */
+.hero, .hero-video-wrap { background-color: #1A2F2A !important; }
+.hero-glass, .hero-content { color: #1A2F2A !important; }
+
+/* --- Proof pills --- */
+.proof-pill { color: #3D6B5E !important; border-color: rgba(91,186,167,0.15) !important; background: rgba(91,186,167,0.06) !important; }
+
+/* --- Lux icon numbers --- */
+.lux-icon { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; color: #E8F5F1 !important; }
+
+/* --- Audience cards --- */
+.audience-badge { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; color: #E8F5F1 !important; }
+.audience-badge-light { background: linear-gradient(135deg, rgba(91,186,167,0.15), rgba(91,186,167,0.08)) !important; color: #2E4F46 !important; }
+
+/* --- Timeline --- */
+.timeline-dot { background: linear-gradient(135deg, #5BBAA7, #8DD4C5) !important; }
+
+/* --- Authority cards --- */
+.authority-card { border-color: rgba(91,186,167,0.10) !important; }
+.authority-list li::before { color: #5BBAA7 !important; }
+
+/* --- Chip cloud --- */
+.workflow-chip { background: rgba(91,186,167,0.10) !important; color: #2E4F46 !important; border-color: rgba(91,186,167,0.18) !important; }
+
+/* --- Industry cards --- */
+.industry-card .pill { background: rgba(91,186,167,0.12) !important; color: #2E4F46 !important; }
+.industry-card h3 { color: #1A2F2A !important; }
+
+/* --- Fit cards --- */
+.fit-card .pill { background: rgba(91,186,167,0.12) !important; color: #2E4F46 !important; }
+.fit-card-muted .pill { background: rgba(91,186,167,0.06) !important; color: #4A6B62 !important; }
+
+/* --- Service cards --- */
+.service-card-lux .service-index { color: #5BBAA7 !important; opacity: 1 !important; }
+
+/* --- Buttons: all navy gradients → forest --- */
+.btn-primary, a.btn-primary, button.btn-primary,
+.cookie-btn.primary {
+  background: linear-gradient(135deg, #2E4F46 0%, #3D6B5E 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 28px rgba(46,79,70,0.20) !important;
+}
+.btn-primary:hover, a.btn-primary:hover {
+  background: linear-gradient(135deg, #3D6B5E 0%, #5BBAA7 100%) !important;
+  box-shadow: 0 18px 36px rgba(46,79,70,0.24), 0 0 20px rgba(91,186,167,0.12) !important;
+}
+.btn-secondary, a.btn-secondary {
+  border-color: rgba(46,79,70,0.15) !important;
+  color: #2E4F46 !important;
+  background: #fff !important;
+}
+.btn-secondary:hover, a.btn-secondary:hover {
+  border-color: #5BBAA7 !important;
+  background: rgba(91,186,167,0.05) !important;
+}
+
+/* --- Cookie banner --- */
+.cookie-banner, .consent-banner, [class*="cookie-bar"] {
+  background: linear-gradient(135deg, rgba(26,47,42,0.96), rgba(36,61,54,0.94)) !important;
+}
+.cookie-btn { color: #C5DDD6 !important; border-color: rgba(91,186,167,0.25) !important; }
+
+/* --- Engine/diagnostic cards --- */
+.engine-card {
+  background: rgba(245,250,248,0.95) !important;
+  border-color: rgba(91,186,167,0.12) !important;
+}
+
+/* --- KPI tiles and bars --- */
+[class*="kpi"] { color: #2E4F46 !important; }
+[class*="bar-fill"], [class*="bar-segment"] { background: #5BBAA7 !important; }
+[class*="viz-row"] { background: linear-gradient(90deg, #5BBAA7, #8DD4C5) !important; }
+
+/* --- Header deep overrides --- */
+.vcx-header, .vcx-dock, header, .site-header {
+  background: linear-gradient(180deg, #1A2F2A 0%, #243D36 100%) !important;
+}
+.vcx-header a, header a, .site-header a { color: #C5DDD6 !important; }
+.vcx-header a:hover, header a:hover { color: #5BBAA7 !important; }
+.vcx-menu-btn { color: #C5DDD6 !important; border-color: rgba(91,186,167,0.20) !important; }
+
+/* --- Nav and breadcrumbs --- */
+.vcx-nav a, nav.main-nav a { color: #2E4F46 !important; }
+.vcx-nav a:hover, nav.main-nav a:hover { color: #5BBAA7 !important; }
+.vcx-nav a.active { color: #5BBAA7 !important; border-color: #5BBAA7 !important; }
+
+/* --- Sublist markers --- */
+.sublist li::before, .premium-list li::before { color: #5BBAA7 !important; }
+
+/* --- Dock calendar/widget buttons --- */
+[class*="dock-"] { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; color: #E8F5F1 !important; }
+
+/* --- Assessment results --- */
+.assessment-result, .roi-result { border-left-color: #5BBAA7 !important; }
+
+/* --- Form inputs --- */
+select, input, textarea {
+  border-color: rgba(91,186,167,0.20) !important;
+  color: #1A2F2A !important;
+}
+select:focus, input:focus, textarea:focus {
+  border-color: #5BBAA7 !important;
+  box-shadow: 0 0 0 3px rgba(91,186,167,0.15) !important;
+  outline-color: #5BBAA7 !important;
+}
+
+/* --- Resource cards --- */
+.resource-card .meta .pill { background: rgba(91,186,167,0.10) !important; color: #2E4F46 !important; }
+
+/* --- SEO cards --- */
+.seo-card h3 { color: #1A2F2A !important; }
+
+/* --- Concierge panel --- */
+.concierge-phone strong { color: #2E4F46 !important; }
+.concierge-phone small { color: #4A6B62 !important; }
+
+/* --- Deliverable cards --- */
+.deliverable-card .pill { background: rgba(91,186,167,0.12) !important; color: #2E4F46 !important; }
+
+/* --- Box shadows global cleanup --- */
+.card, .lux-card, .glass, .service-card-lux, .authority-card, .engine-card, .seo-card, .resource-card, .industry-card, .deliverable-card {
+  box-shadow: 0 4px 24px rgba(26,47,42,0.08) !important;
+}
+.card:hover, .lux-card:hover, .service-card-lux:hover, .industry-card:hover {
+  box-shadow: 0 12px 40px rgba(91,186,167,0.12) !important;
+}
+
+/* --- Mobile menu overlay --- */
+[class*="mobile-menu"], [class*="nav-overlay"] {
+  background: rgba(26,47,42,0.95) !important;
+}
+[class*="mobile-menu"] a, [class*="nav-overlay"] a { color: #C5DDD6 !important; }
+[class*="mobile-menu"] a:hover { color: #5BBAA7 !important; }
+
+/* --- Chat launcher colors --- */
+.vcx-cw-fab { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; }
+.vcx-cw-fab:hover { background: linear-gradient(135deg, #3D6B5E, #5BBAA7) !important; }
+.vcx-cw-panel-head { background: linear-gradient(135deg, #1A2F2A, #2E4F46) !important; }
+.vcx-cw-send-btn { background: #5BBAA7 !important; color: #fff !important; }
+.vcx-cw-send-btn:hover { background: #3D8E7E !important; }
+[class*="vcx-cw-chip"] { background: rgba(91,186,167,0.10) !important; color: #2E4F46 !important; border-color: rgba(91,186,167,0.20) !important; }
+
+/* --- Contract review page colors --- */
+.cr-tab.active, [class*="cr-tab"].active {
+  color: #2E4F46 !important;
+  border-bottom-color: #5BBAA7 !important;
+}
+.cr-gen-type-card--selected { border-color: #5BBAA7 !important; box-shadow: 0 0 0 2px rgba(91,186,167,0.25) !important; }
+.cr-gen-submit { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; color: #fff !important; }
+
+/* --- Legal assistant page colors --- */
+.vcx-la-topic-btn.active { background: #5BBAA7 !important; color: #fff !important; }
+.vcx-la-send { background: #5BBAA7 !important; }
+.vcx-la-header { background: linear-gradient(135deg, #1A2F2A, #2E4F46) !important; }
+
+/* --- Sign-in page --- */
+[class*="sign-in"] .btn-primary { background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important; }
+
+/* --- Focus rings --- */
+*:focus-visible { outline-color: #5BBAA7 !important; }
+
+/* --- Link underlines --- */
+a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(91,186,167,0.30) !important; }
+
+/* --- Proof band counters --- */
+[data-count-to] { color: #5BBAA7 !important; }
+.proof-points strong { color: #5BBAA7 !important; }
+
+/* --- CTA banner --- */
+.cta-banner {
+  background: rgba(245,250,248,0.85) !important;
+  border-color: rgba(91,186,167,0.15) !important;
+}
+.cta-banner h2 { color: #1A2F2A !important; }
+
+/* --- Private lookup page overrides --- */
+[class*="lookup-card"], [class*="lookup-result"] {
+  background: rgba(245,250,248,0.95) !important;
+  border-color: rgba(91,186,167,0.12) !important;
+}
+
+/* --- Comprehensive rgba shadow replacement --- */
+.hero .btn-primary { box-shadow: 0 14px 28px rgba(46,79,70,0.22) !important; }
+
+/* ================================================================
+   15. FINAL BLUE SWEEP — Last remaining hardcoded blues from frozen CSS
+   ================================================================ */
+
+/* --- Clock / time label spans --- */
+.vcx-time-label,
+.vcx-time-label span,
+.clock-label,
+.clock-label span {
+  color: #4A6B62 !important;
+}
+
+/* --- Assessment / ROI result text --- */
+.assessment-result strong,
+.roi-result strong {
+  color: #2E4F46 !important;
+}
+
+/* --- Any stray muted-blue text from frozen styles.css --- */
+.brand-title span,
+.market-head strong,
+.market-head span,
+.stat-card .top,
+.out-row span,
+.footer-links a,
+.lead {
+  color: #4A6B62 !important;
+}
+
+/* --- Nav link colors from frozen styles.css (#36506f, #32506f) --- */
+.main-nav a,
+.mobile-nav a {
+  color: #2E4F46 !important;
+}
+.main-nav a:hover,
+.main-nav a.active,
+.mobile-nav a:hover {
+  color: #5BBAA7 !important;
+}
+
+/* --- Lang button active from frozen styles.css --- */
+.lang-btn.active {
+  background: linear-gradient(135deg, #2E4F46, #3D6B5E) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(46,79,70,0.18) !important;
+}
+
+/* --- Eyebrow dot (was var(--gold) in frozen CSS) --- */
+.eyebrow::before {
+  background: #5BBAA7 !important;
+}
+
+/* --- Bar fill gradient (was gold in frozen CSS) --- */
+.bar-fill {
+  background: linear-gradient(90deg, #5BBAA7, #8DD4C5) !important;
+}
+
+/* --- Talent item bullets (was var(--gold)) --- */
+.talent-item::before {
+  color: #5BBAA7 !important;
+}
+
+/* --- Field label (was #1a2c44 in frozen CSS) --- */
+.field label {
+  color: #1A2F2A !important;
+}
+
+/* --- Pill elements (was #eff5fb bg, #5a7088 text) --- */
+.pill {
+  background: rgba(91,186,167,0.10) !important;
+  color: #2E4F46 !important;
+}
+
+/* --- Modal overlay (was rgba(7,18,32,.45)) --- */
+.modal {
+  background: rgba(26,47,42,0.45) !important;
+}
+
+/* --- Service index numbers (was var(--navy)) --- */
+.service-index {
+  background: rgba(91,186,167,0.10) !important;
+  color: #2E4F46 !important;
+}
+
+/* --- Sublist text (was #42556c) --- */
+.sublist {
+  color: #4A6B62 !important;
+}
+
+/* --- H1/H2 in frozen CSS (was #0d1e34 / #10213a) --- */
+h1 { color: #1A2F2A !important; }
+.problem-item h3,
+.card h3 {
+  color: #1A2F2A !important;
+}
+
+/* --- Body background (frozen styles.css gradient) --- */
+body {
+  background: linear-gradient(180deg, #EDF5F2 0%, #F5FAF8 55%, #EDF5F2 100%) !important;
+}
+
+/* --- Glass cards (was rgba(255,255,255,.80)) --- */
+.glass {
+  border-color: rgba(91,186,167,0.12) !important;
+}
+
+/* --- Ensure text on dark sections is light and readable --- */
+.hero h1,
+.hero h2,
+.hero .lead,
+.hero p,
+.hero .eyebrow {
+  color: #E8F5F1 !important;
+}
+.hero .proof-pill {
+  color: #E8F5F1 !important;
+  border-color: rgba(91,186,167,0.35) !important;
+  background: rgba(91,186,167,0.12) !important;
+}
+
+/* --- Footer dark section readability --- */
+.footer,
+footer {
+  background: #1A2F2A !important;
+  color: #C5DDD6 !important;
+}
+.footer a,
+footer a {
+  color: #8DD4C5 !important;
+}
+.footer a:hover,
+footer a:hover {
+  color: #5BBAA7 !important;
 }

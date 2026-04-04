@@ -15,7 +15,7 @@
   var STATUS_COLORS = {
     intake_received: { bg: '#355E8A', label: 'Intake Received' },
     triage: { bg: '#9A6A20', label: 'In Triage' },
-    under_review: { bg: '#173A63', label: 'Under Review' },
+    under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
     closed: { bg: '#5E6C7B', label: 'Closed' },
@@ -109,9 +109,9 @@
       renderQueue(data);
     } catch (err) {
       if (err.name === 'AbortError') {
-        queueList.innerHTML = '<p style="color:#8B4348;">Request timed out. <button onclick="loadQueue(' + page + ')" style="color:#173A63;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
+        queueList.innerHTML = '<p style="color:#8B4348;">Request timed out. <button onclick="loadQueue(' + page + ')" style="color:#2E4F46;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
       } else if (err.name === 'TypeError') {
-        queueList.innerHTML = '<p style="color:#8B4348;">Cannot reach server. Check your connection. <button onclick="loadQueue(' + page + ')" style="color:#173A63;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
+        queueList.innerHTML = '<p style="color:#8B4348;">Cannot reach server. Check your connection. <button onclick="loadQueue(' + page + ')" style="color:#2E4F46;text-decoration:underline;background:none;border:none;cursor:pointer;">Retry</button></p>';
       } else {
         queueList.innerHTML = '<p style="color:#8B4348;">Failed to load queue: ' + esc(err.message) + '</p>';
       }
@@ -211,31 +211,31 @@
     html += '<span class="rq-badge" style="background:' + st.bg + ';">' + esc(st.label) + '</span>';
     html += ' <span style="font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</span>';
     html += '</div>';
-    html += '<button id="rqCloseDetail" style="padding:8px 16px;border:1px solid rgba(15,27,45,.12);border-radius:8px;background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Close</button>';
+    html += '<button id="rqCloseDetail" style="padding:8px 16px;border:1px solid rgba(26,47,42,.12);border-radius:8px;background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Close</button>';
     html += '</div>';
 
     // Triage score
     if (m.triage_score != null) {
       html += '<div style="margin-bottom:20px;">';
       html += '<p style="font-size:.8rem;font-weight:600;margin-bottom:6px;">Priority: ' + m.triage_score + '/100</p>';
-      html += '<div style="background:rgba(15,27,45,.06);border-radius:6px;height:8px;overflow:hidden;">';
-      html += '<div style="width:' + m.triage_score + '%;height:100%;background:linear-gradient(90deg,#173A63,#2F6B57);border-radius:6px;"></div>';
+      html += '<div style="background:rgba(26,47,42,.06);border-radius:6px;height:8px;overflow:hidden;">';
+      html += '<div style="width:' + m.triage_score + '%;height:100%;background:linear-gradient(90deg,#2E4F46,#2F6B57);border-radius:6px;"></div>';
       html += '</div></div>';
     }
 
     // Status update form
-    html += '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(15,27,45,.06);border-radius:10px;padding:16px 20px;margin-bottom:20px;">';
+    html += '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(26,47,42,.06);border-radius:10px;padding:16px 20px;margin-bottom:20px;">';
     html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Update Status</h3>';
     html += '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">';
-    html += '<select id="rqNewStatus" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(15,27,45,.12);font-size:.85rem;">';
+    html += '<select id="rqNewStatus" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(26,47,42,.12);font-size:.85rem;">';
     Object.keys(STATUS_COLORS).forEach(function (key) {
       var sel = key === m.status ? ' selected' : '';
       html += '<option value="' + key + '"' + sel + '>' + STATUS_COLORS[key].label + '</option>';
     });
     html += '</select>';
-    html += '<input id="rqNote" type="text" placeholder="Note (optional)" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(15,27,45,.12);font-size:.85rem;flex:1;min-width:200px;">';
-    html += '<input id="rqAssign" type="text" placeholder="Assign to" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(15,27,45,.12);font-size:.85rem;width:160px;" value="' + esc(m.assigned_to || '') + '">';
-    html += '<button id="rqUpdateBtn" style="padding:8px 20px;background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;">Update</button>';
+    html += '<input id="rqNote" type="text" placeholder="Note (optional)" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(26,47,42,.12);font-size:.85rem;flex:1;min-width:200px;">';
+    html += '<input id="rqAssign" type="text" placeholder="Assign to" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(26,47,42,.12);font-size:.85rem;width:160px;" value="' + esc(m.assigned_to || '') + '">';
+    html += '<button id="rqUpdateBtn" style="padding:8px 20px;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;">Update</button>';
     html += '</div>';
     html += '<p id="rqUpdateStatus" style="margin-top:6px;font-size:.8rem;"></p>';
     html += '</div>';
@@ -257,7 +257,7 @@
       html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Timeline</h3>';
       m.status_events.forEach(function (e) {
         var est = STATUS_COLORS[e.new_status] || { bg: '#5E6C7B', label: e.new_status };
-        html += '<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(15,27,45,.04);font-size:.85rem;">';
+        html += '<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(26,47,42,.04);font-size:.85rem;">';
         html += '<div style="width:6px;height:6px;border-radius:50%;background:' + est.bg + ';margin-top:6px;flex-shrink:0;"></div>';
         html += '<div><strong>' + esc(est.label) + '</strong>';
         if (e.note) html += ' &mdash; ' + esc(e.note);
@@ -272,7 +272,7 @@
       html += '<div style="margin-bottom:20px;">';
       html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Documents (' + m.documents.length + ')</h3>';
       m.documents.forEach(function (d) {
-        html += '<p style="font-size:.85rem;padding:4px 0;border-bottom:1px solid rgba(15,27,45,.04);">' + esc(d.original_name) + ' <span style="color:var(--vcx-ink-muted,#5E6C7B);">' + formatBytes(d.size_bytes) + '</span></p>';
+        html += '<p style="font-size:.85rem;padding:4px 0;border-bottom:1px solid rgba(26,47,42,.04);">' + esc(d.original_name) + ' <span style="color:var(--vcx-ink-muted,#5E6C7B);">' + formatBytes(d.size_bytes) + '</span></p>';
       });
       html += '</div>';
     }

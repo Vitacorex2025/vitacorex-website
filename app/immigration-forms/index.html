@@ -45,9 +45,9 @@ body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
 .vcx-summary-medium { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); }
 .vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
 .vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
-.vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #0F1B2D; margin-bottom: 4px; }
+.vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #1A2F2A; margin-bottom: 4px; }
 .vcx-summary-meta { font-size: 0.8125rem; color: #5E6C7B; }
-.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(15,27,45,.08); border-radius: 8px; }
+.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(26,47,42,.08); border-radius: 8px; }
 .vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
 .vcx-section-title.vcx-found { color: #2F6B57; }
 .vcx-section-title.vcx-critical { color: #8B4348; }
@@ -67,7 +67,7 @@ body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
 .vcx-result-lead { font-size: 0.9375rem; color: #243548; margin-bottom: 16px; }
 .vcx-result-cta { margin-top: 20px; }
 .vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
-.vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(15,27,45,.08); }
+.vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(26,47,42,.08); }
 </style>
 
 <script>
@@ -288,7 +288,7 @@ Not legal advice. Not a filing service. For document organization only.
 <!-- B3: PACKET REVIEW FORM (shown after local analysis) -->
 <div id="vcxPacketReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(47,107,87,.08);border:1px solid rgba(47,107,87,.3);border-radius:10px;">
 <h3 style="color:#2F6B57;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Packet Review</h3>
-<p style="color:rgba(15,27,45,.75);font-size:.9rem;margin:0 0 18px;">An advisor will review your immigration packet and contact you within 1 business day.</p>
+<p style="color:rgba(26,47,42,.75);font-size:.9rem;margin:0 0 18px;">An advisor will review your immigration packet and contact you within 1 business day.</p>
 <form id="vcxPacketForm" method="POST" action="https://formsubmit.co/vitacorexllc@gmail.com" style="display:grid;gap:14px;">
 <input type="hidden" name="_subject" value="Immigration Helper - Packet Review Request"/>
 <input type="hidden" name="_captcha" value="false"/>
@@ -296,14 +296,14 @@ Not legal advice. Not a filing service. For document organization only.
 <input type="hidden" name="_next" value="https://vitacorexllc.com/thank-you.html"/>
 <input type="hidden" name="analysis_summary" id="vcxPacketSummary" value=""/>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-<div><label style="display:block;font-size:.85rem;color:rgba(15,27,45,.8);margin-bottom:6px;" for="vcxPacketName">Full Name <span style="color:#2F6B57;">*</span></label>
-<input type="text" id="vcxPacketName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(15,27,45,.2);border-radius:6px;color:#0F1B2D;font-size:.9rem;box-sizing:border-box;"/></div>
-<div><label style="display:block;font-size:.85rem;color:rgba(15,27,45,.8);margin-bottom:6px;" for="vcxPacketEmail">Email <span style="color:#2F6B57;">*</span></label>
-<input type="email" id="vcxPacketEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(15,27,45,.2);border-radius:6px;color:#0F1B2D;font-size:.9rem;box-sizing:border-box;"/></div>
+<div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketName">Full Name <span style="color:#2F6B57;">*</span></label>
+<input type="text" id="vcxPacketName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
+<div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketEmail">Email <span style="color:#2F6B57;">*</span></label>
+<input type="email" id="vcxPacketEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
 </div>
-<div><label style="display:block;font-size:.85rem;color:rgba(15,27,45,.8);margin-bottom:6px;" for="vcxPacketPhone">Phone (optional)</label>
-<input type="tel" id="vcxPacketPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(15,27,45,.2);border-radius:6px;color:#0F1B2D;font-size:.9rem;box-sizing:border-box;"/></div>
-<p style="font-size:.8rem;color:rgba(15,27,45,.5);margin:0;">This is a preliminary document review. Results require advisor verification.</p>
+<div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketPhone">Phone (optional)</label>
+<input type="tel" id="vcxPacketPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
+<p style="font-size:.8rem;color:rgba(26,47,42,.5);margin:0;">This is a preliminary document review. Results require advisor verification.</p>
 <button type="submit" id="vcxPacketSubmitBtn" style="padding:14px 24px;background:rgba(47,107,87,.15);border:1px solid rgba(47,107,87,.4);border-radius:8px;color:#2F6B57;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Packet Review</button>
 </form>
 <div id="vcxPacketSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:8px;color:#2F6B57;font-size:.95rem;">Your packet summary has been submitted. An advisor will contact you within 1 business day.</div>
@@ -557,6 +557,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=el('vcxAnalyzeBtn'
 </script>
 <script src="/assets/js/vcx-i18n.js"></script>
 <script src="/assets/js/premium-fixes.js"></script>
+<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <script src="/assets/js/vcx-chat-launcher.js"></script><script src="/assets/js/vcx-redesign.js"></script>
 </body>
 </html>

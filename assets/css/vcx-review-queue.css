@@ -14,7 +14,7 @@ body[data-vcx-page="review-queue"] {
 .rq-table-wrap {
   overflow-x: auto;
   border-radius: 12px;
-  border: 1px solid rgba(15, 27, 45, .08);
+  border: 1px solid rgba(26, 47, 42, .08);
   background: #fff;
 }
 
@@ -32,18 +32,18 @@ body[data-vcx-page="review-queue"] {
   text-transform: uppercase;
   letter-spacing: .06em;
   color: var(--vcx-ink-muted, #5E6C7B);
-  border-bottom: 2px solid rgba(15, 27, 45, .08);
+  border-bottom: 2px solid rgba(26, 47, 42, .08);
   white-space: nowrap;
 }
 
 .rq-table td {
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(15, 27, 45, .04);
+  border-bottom: 1px solid rgba(26, 47, 42, .04);
   vertical-align: middle;
 }
 
 .rq-table tr:hover td {
-  background: rgba(23, 58, 99, .02);
+  background: rgba(46, 79, 70, .02);
 }
 
 .rq-badge {
@@ -60,32 +60,32 @@ body[data-vcx-page="review-queue"] {
   appearance: none;
   padding: 6px 14px;
   border-radius: 6px;
-  border: 1px solid var(--vcx-brand-primary, #173A63);
+  border: 1px solid var(--vcx-brand-primary, #2E4F46);
   background: transparent;
-  color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-brand-primary, #2E4F46);
   font-size: .8rem;
   cursor: pointer;
   transition: background .2s;
 }
 
 .rq-action-btn:hover {
-  background: rgba(23, 58, 99, .06);
+  background: rgba(46, 79, 70, .06);
 }
 
 .rq-page-btn {
   appearance: none;
   padding: 6px 12px;
   border-radius: 6px;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
   cursor: pointer;
   font-size: .8rem;
 }
 
 .rq-page-btn.is-active {
-  background: var(--vcx-brand-primary, #173A63);
+  background: var(--vcx-brand-primary, #2E4F46);
   color: #fff;
-  border-color: var(--vcx-brand-primary, #173A63);
+  border-color: var(--vcx-brand-primary, #2E4F46);
 }
 
 @media (max-width: 768px) {

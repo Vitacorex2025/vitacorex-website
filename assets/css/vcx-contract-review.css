@@ -147,7 +147,7 @@ body[data-vcx-page="vcx-contract-review"] {
   display: flex;
   gap: 0;
   margin-bottom: 28px;
-  border-bottom: 2px solid rgba(15, 27, 45, .08);
+  border-bottom: 2px solid rgba(26, 47, 42, .08);
 }
 
 .cr-mode-tab {
@@ -171,8 +171,8 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-mode-tab--active {
-  color: var(--vcx-brand-primary, #173A63);
-  border-bottom-color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-brand-primary, #2E4F46);
+  border-bottom-color: var(--vcx-brand-primary, #2E4F46);
 }
 
 @media (max-width: 480px) {
@@ -199,7 +199,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-type-card {
   background: #fff;
-  border: 1px solid rgba(15, 27, 45, .10);
+  border: 1px solid rgba(26, 47, 42, .10);
   border-radius: 10px;
   padding: 18px 16px;
   cursor: pointer;
@@ -221,14 +221,14 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-gen-type-card:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
-  box-shadow: 0 2px 8px rgba(14, 32, 54, .08);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  box-shadow: 0 2px 8px rgba(26, 47, 42, .08);
 }
 
 .cr-gen-type-card--selected {
-  border-color: var(--vcx-brand-primary, #173A63);
-  background: rgba(23, 58, 99, .03);
-  box-shadow: 0 0 0 2px rgba(23, 58, 99, .12);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  background: rgba(46, 79, 70, .03);
+  box-shadow: 0 0 0 2px rgba(46, 79, 70, .12);
 }
 
 /* ── Phase 9: Questionnaire form fields ──────────────────── */
@@ -266,7 +266,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-field select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   border-radius: 8px;
   font-size: .88rem;
   font-family: inherit;
@@ -279,8 +279,8 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-field textarea:focus,
 .cr-gen-field select:focus {
   outline: none;
-  border-color: var(--vcx-brand-primary, #173A63);
-  box-shadow: 0 0 0 2px rgba(23, 58, 99, .08);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  box-shadow: 0 0 0 2px rgba(46, 79, 70, .08);
 }
 
 .cr-gen-field textarea {
@@ -305,7 +305,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-submit {
   appearance: none;
-  background: var(--vcx-brand-primary, #173A63);
+  background: var(--vcx-brand-primary, #2E4F46);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -319,7 +319,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-gen-submit:hover {
-  background: #1E4A7A;
+  background: #3D6B5E;
 }
 
 .cr-gen-submit:disabled {
@@ -330,7 +330,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-back {
   appearance: none;
   background: none;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   border-radius: 8px;
   padding: 10px 20px;
   font-size: .85rem;
@@ -341,7 +341,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-gen-back:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
+  border-color: var(--vcx-brand-primary, #2E4F46);
   color: var(--vcx-ink-body, #243548);
 }
 
@@ -349,7 +349,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-result {
   background: #fff;
-  border: 1px solid rgba(15, 27, 45, .08);
+  border: 1px solid rgba(26, 47, 42, .08);
   border-radius: 10px;
   padding: 28px 24px;
   margin-top: 24px;
@@ -379,7 +379,7 @@ body[data-vcx-page="vcx-contract-review"] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--vcx-brand-primary, #173A63);
+  background: var(--vcx-brand-primary, #2E4F46);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -393,7 +393,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-gen-download-btn:hover {
-  background: #1E4A7A;
+  background: #3D6B5E;
 }
 
 .cr-gen-download-btn svg {
@@ -420,7 +420,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-another {
   appearance: none;
   background: none;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   border-radius: 8px;
   padding: 10px 20px;
   font-size: .85rem;
@@ -431,7 +431,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-gen-another:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
+  border-color: var(--vcx-brand-primary, #2E4F46);
   color: var(--vcx-ink-body, #243548);
 }
 

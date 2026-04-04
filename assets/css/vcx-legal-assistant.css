@@ -36,7 +36,7 @@ body[data-vcx-page="legal-assistant"] {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 1px solid rgba(15, 27, 45, .08);
+  border: 1px solid rgba(26, 47, 42, .08);
   border-radius: 14px;
   padding: 16px;
   background: var(--vcx-bg-surface, #FBF8F3);
@@ -59,8 +59,8 @@ body[data-vcx-page="legal-assistant"] {
 
 .la-message-user {
   margin-left: auto;
-  background: rgba(23, 58, 99, .06);
-  border: 1px solid rgba(23, 58, 99, .1);
+  background: rgba(46, 79, 70, .06);
+  border: 1px solid rgba(46, 79, 70, .1);
 }
 
 .la-message-assistant {
@@ -109,7 +109,7 @@ body[data-vcx-page="legal-assistant"] {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
   color: var(--vcx-ink-body, #243548);
   font-size: .9rem;
@@ -119,8 +119,8 @@ body[data-vcx-page="legal-assistant"] {
 .assistant-form input:focus,
 .assistant-form textarea:focus {
   outline: none;
-  border-color: var(--vcx-brand-primary, #173A63);
-  box-shadow: 0 0 0 3px rgba(23, 58, 99, .12);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  box-shadow: 0 0 0 3px rgba(46, 79, 70, .12);
 }
 
 .assistant-actions {
@@ -141,7 +141,7 @@ body[data-vcx-page="legal-assistant"] {
 .topic-chip,
 .suggestion-chip {
   appearance: none;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
   color: var(--vcx-ink-body, #243548);
   border-radius: 999px;
@@ -154,13 +154,13 @@ body[data-vcx-page="legal-assistant"] {
 
 .topic-chip:hover,
 .suggestion-chip:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
-  background: rgba(23, 58, 99, .04);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  background: rgba(46, 79, 70, .04);
 }
 
 .topic-chip.is-active {
-  border-color: var(--vcx-brand-primary, #173A63);
-  background: rgba(23, 58, 99, .08);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  background: rgba(46, 79, 70, .08);
   font-weight: 600;
 }
 
@@ -182,22 +182,22 @@ body[data-vcx-page="legal-assistant"] {
   display: block;
   padding: 10px 14px;
   border-radius: 8px;
-  border: 1px solid rgba(23, 58, 99, .12);
-  background: rgba(23, 58, 99, .03);
+  border: 1px solid rgba(46, 79, 70, .12);
+  background: rgba(46, 79, 70, .03);
   text-decoration: none;
   transition: border-color .2s, background .2s;
 }
 
 .la-escalation-link:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
-  background: rgba(23, 58, 99, .06);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  background: rgba(46, 79, 70, .06);
 }
 
 .la-escalation-label {
   display: block;
   font-size: .85rem;
   font-weight: 600;
-  color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-brand-primary, #2E4F46);
 }
 
 .la-escalation-desc {
@@ -221,8 +221,8 @@ body[data-vcx-page="legal-assistant"] {
 }
 
 .la-mode-legal {
-  background: rgba(23, 58, 99, .1);
-  color: var(--vcx-brand-primary, #173A63);
+  background: rgba(46, 79, 70, .1);
+  color: var(--vcx-brand-primary, #2E4F46);
 }
 
 .la-mode-routing {
@@ -237,7 +237,7 @@ body[data-vcx-page="legal-assistant"] {
 
 /* Phase 5A: Mode-specific message tints */
 .la-message-assistant.la-mode-legal-information {
-  border-left: 3px solid var(--vcx-brand-primary, #173A63);
+  border-left: 3px solid var(--vcx-brand-primary, #2E4F46);
 }
 
 .la-message-assistant.la-mode-vcx-routing {
@@ -268,8 +268,8 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
   appearance: none;
   display: inline-block;
   padding: 10px 20px;
-  border: 1px solid var(--vcx-brand-primary, #173A63);
-  background: var(--vcx-brand-primary, #173A63);
+  border: 1px solid var(--vcx-brand-primary, #2E4F46);
+  background: var(--vcx-brand-primary, #2E4F46);
   color: #fff;
   border-radius: 8px;
   font-size: .85rem;
@@ -280,8 +280,8 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
 }
 
 body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:hover {
-  background: #1E4A7A;
-  border-color: #1E4A7A;
+  background: #3D6B5E;
+  border-color: #3D6B5E;
 }
 
 body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:disabled {
@@ -296,7 +296,7 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-detected {
   margin-bottom: 10px;
   font-size: .78rem;
   font-weight: 600;
-  color: var(--vcx-brand-primary, #173A63);
+  color: var(--vcx-brand-primary, #2E4F46);
 }
 
 body[data-vcx-page="legal-assistant"] .la-intake-cta-steps {
@@ -343,7 +343,7 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
 
 .la-attach-btn {
   appearance: none;
-  border: 1px solid rgba(15, 27, 45, .12);
+  border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
   color: var(--vcx-ink-body, #243548);
   border-radius: 8px;
@@ -360,12 +360,12 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
 }
 
 .la-attach-btn:hover {
-  border-color: var(--vcx-brand-primary, #173A63);
-  background: rgba(23, 58, 99, .04);
+  border-color: var(--vcx-brand-primary, #2E4F46);
+  background: rgba(46, 79, 70, .04);
 }
 
 .la-attach-btn:active {
-  background: rgba(23, 58, 99, .08);
+  background: rgba(46, 79, 70, .08);
 }
 
 /* ── Phase 10: Upload status bar ────────────────────────────────── */
@@ -402,7 +402,7 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(15, 27, 45, .25);
+  background: rgba(26, 47, 42, .25);
   animation: laTypingBounce 1.2s ease-in-out infinite;
 }
 

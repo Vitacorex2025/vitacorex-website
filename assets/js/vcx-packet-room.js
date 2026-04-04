@@ -176,7 +176,7 @@
     // Show welcome
     if (contactInfo && contactInfo.name) {
       var welcome = document.createElement('div');
-      welcome.style.cssText = 'background:var(--vcx-brand-primary,#173A63);color:#fff;border-radius:8px;padding:14px 20px;margin-bottom:20px;font-size:.9rem;';
+      welcome.style.cssText = 'background:var(--vcx-brand-primary,#2E4F46);color:#fff;border-radius:8px;padding:14px 20px;margin-bottom:20px;font-size:.9rem;';
       welcome.innerHTML = 'Welcome, <strong>' + escapeHtml(contactInfo.name) + '</strong>';
       dashboard.insertBefore(welcome, dashboard.firstChild);
     }
@@ -204,7 +204,7 @@
     if (!el) {
       el = document.createElement('p');
       el.className = 'vcx-auth-message';
-      el.style.cssText = 'color:var(--vcx-brand-primary,#173A63);font-size:.88rem;margin-top:12px;';
+      el.style.cssText = 'color:var(--vcx-brand-primary,#2E4F46);font-size:.88rem;margin-top:12px;';
       if (authGate) {
         var inner = authGate.querySelector('div') || authGate;
         inner.appendChild(el);
@@ -267,15 +267,15 @@
     var html = '';
     matters.forEach(function (m) {
       var statusColor = m.status === 'intake_received' ? '#F5A623'
-                      : m.status === 'in_review' ? '#173A63'
+                      : m.status === 'in_review' ? '#2E4F46'
                       : m.status === 'complete' ? '#38B249'
                       : '#5E6C7B';
 
       html +=
-        '<div class="vcx-matter-card" data-matter-id="' + escapeAttr(m.id) + '" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid rgba(15,27,45,.08);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:background .15s;"' +
-        ' onmouseover="this.style.background=\'rgba(15,27,45,.03)\'" onmouseout="this.style.background=\'#fff\'">';
+        '<div class="vcx-matter-card" data-matter-id="' + escapeAttr(m.id) + '" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid rgba(26,47,42,.08);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:background .15s;"' +
+        ' onmouseover="this.style.background=\'rgba(26,47,42,.03)\'" onmouseout="this.style.background=\'#fff\'">';
       html += '<div>';
-      html += '<span style="font-size:.88rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);">' + escapeHtml(m.id.substring(0, 8)) + '...</span>';
+      html += '<span style="font-size:.88rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);">' + escapeHtml(m.id.substring(0, 8)) + '...</span>';
       html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);margin-left:10px;">' + escapeHtml((m.service_type || '').replace(/_/g, ' ')) + '</span>';
       html += '</div>';
       html += '<div>';
@@ -311,7 +311,7 @@
     var cards = matterList ? matterList.querySelectorAll('.vcx-matter-card') : [];
     for (var i = 0; i < cards.length; i++) {
       cards[i].style.borderColor = cards[i].getAttribute('data-matter-id') === matterId
-        ? 'var(--vcx-brand-primary,#173A63)' : 'rgba(15,27,45,.08)';
+        ? 'var(--vcx-brand-primary,#2E4F46)' : 'rgba(26,47,42,.08)';
     }
 
     fetch(API_BASE + '/api/portal/matters/' + encodeURIComponent(matterId) + '/packet', {
@@ -365,7 +365,7 @@
     var html = '';
     items.forEach(function (item) {
       html += '<div style="display:flex;gap:12px;margin-bottom:14px;">';
-      html += '<div style="width:8px;min-height:8px;border-radius:50%;background:var(--vcx-brand-primary,#173A63);margin-top:6px;flex-shrink:0;"></div>';
+      html += '<div style="width:8px;min-height:8px;border-radius:50%;background:var(--vcx-brand-primary,#2E4F46);margin-top:6px;flex-shrink:0;"></div>';
       html += '<div>';
       html += '<strong style="font-size:.85rem;">' + escapeHtml(item.title || '') + '</strong>';
       if (item.description) html += '<p style="font-size:.82rem;margin:2px 0 0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(item.description) + '</p>';
@@ -383,7 +383,7 @@
     }
     var html = '';
     docs.forEach(function (doc) {
-      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
       html += '<span style="font-size:.85rem;color:var(--vcx-ink-body,#243548);">' + escapeHtml(doc.name || '') + '</span>';
       html += '<div style="display:flex;gap:12px;font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);">';
       html += '<span>' + escapeHtml(doc.size || '') + '</span>';
@@ -398,7 +398,7 @@
     if (!items || items.length === 0) return;
     if (!matterDetail) return;
 
-    var html = '<h3 style="font-size:.95rem;margin:20px 0 10px;color:var(--vcx-brand-primary,#173A63);">Checklist</h3>';
+    var html = '<h3 style="font-size:.95rem;margin:20px 0 10px;color:var(--vcx-brand-primary,#2E4F46);">Checklist</h3>';
     items.forEach(function (item) {
       var icon = item.is_complete ? '&#9745;' : '&#9744;';
       var style = item.is_complete ? 'color:var(--vcx-ink-muted,#5E6C7B);text-decoration:line-through;' : '';
@@ -415,9 +415,9 @@
     var html = '';
     if (cmts.length > 0) {
       cmts.forEach(function (c) {
-        html += '<div style="padding:12px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+        html += '<div style="padding:12px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">';
-        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#173A63);">' + escapeHtml(c.author || 'Client') + '</span>';
+        html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);">' + escapeHtml(c.author || 'Client') + '</span>';
         html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(c.timestamp || '') + '</span>';
         html += '</div>';
         html += '<p style="font-size:.85rem;margin:0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(c.content || '') + '</p>';
@@ -428,9 +428,9 @@
     }
 
     // Comment form
-    html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(15,27,45,.08);">';
-    html += '<textarea id="vcxNewComment" placeholder="Add a comment..." style="width:100%;padding:10px 12px;border:1px solid rgba(15,27,45,.15);border-radius:6px;font-size:.88rem;min-height:60px;resize:vertical;box-sizing:border-box;margin-bottom:8px;font-family:inherit;"></textarea>';
-    html += '<button type="button" id="vcxPostComment" style="background:var(--vcx-brand-primary,#173A63);color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:.85rem;cursor:pointer;">Post Comment</button>';
+    html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(26,47,42,.08);">';
+    html += '<textarea id="vcxNewComment" placeholder="Add a comment..." style="width:100%;padding:10px 12px;border:1px solid rgba(26,47,42,.15);border-radius:6px;font-size:.88rem;min-height:60px;resize:vertical;box-sizing:border-box;margin-bottom:8px;font-family:inherit;"></textarea>';
+    html += '<button type="button" id="vcxPostComment" style="background:var(--vcx-brand-primary,#2E4F46);color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:.85rem;cursor:pointer;">Post Comment</button>';
     html += '</div>';
 
     comments.innerHTML = html;
@@ -458,7 +458,7 @@
       var statusColor = d.status === 'delivered' ? '#38B249'
                       : d.status === 'in_progress' ? '#F5A623'
                       : '#5E6C7B';
-      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(15,27,45,.06);">';
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
       html += '<div>';
       html += '<span style="font-size:.85rem;font-weight:600;color:var(--vcx-ink-body,#243548);">' + escapeHtml(d.name || '') + '</span>';
       if (d.description) html += '<p style="font-size:.78rem;margin:2px 0 0;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(d.description) + '</p>';
@@ -520,8 +520,8 @@
 
   // --- Helpers ---------------------------------------------
   function detailCard(label, value) {
-    return '<div style="background:rgba(15,27,45,.03);border-radius:6px;padding:12px 14px;text-align:center;">' +
-      '<div style="font-size:.95rem;font-weight:700;color:var(--vcx-brand-primary,#173A63);margin-bottom:2px;text-transform:capitalize;">' + escapeHtml(String(value)) + '</div>' +
+    return '<div style="background:rgba(26,47,42,.03);border-radius:6px;padding:12px 14px;text-align:center;">' +
+      '<div style="font-size:.95rem;font-weight:700;color:var(--vcx-brand-primary,#2E4F46);margin-bottom:2px;text-transform:capitalize;">' + escapeHtml(String(value)) + '</div>' +
       '<div style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(label) + '</div>' +
     '</div>';
   }
