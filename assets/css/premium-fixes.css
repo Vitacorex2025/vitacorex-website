@@ -862,3 +862,23 @@ body[data-vcx-private-lookup="true"] :focus-visible {
 .stat-card .top {
   color: #576B80 !important;
 }
+
+/* NUCLEAR CLOCK FIX — override ALL sources, kill grey blocks */
+.clock-widget,
+.clock-card,
+.clock-stack,
+.clock-bar {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.clock-label,
+.clock-sub,
+.clock-time,
+.clock-val,
+.vcx-time-sub {
+  color: #FFFFFF !important;
+}

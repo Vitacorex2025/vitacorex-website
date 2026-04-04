@@ -5,7 +5,7 @@
  */
 (function() {
   'use strict';
-  var isStatic = !window.VCX_API_BASE && (location.protocol === 'https:' || location.hostname.indexOf('github.io') !== -1);
+  var isStatic = !window.VCX_API_BASE && (location.protocol === 'https:' || (location.hostname.indexOf('github.io') !== -1 || location.hostname.indexOf('vitacorexllc.com') !== -1));
   if (!isStatic) return;
 
   var LK = 'dcal_data';
