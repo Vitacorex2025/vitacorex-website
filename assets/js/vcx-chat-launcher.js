@@ -31,12 +31,11 @@
     // Production: same-origin (reverse proxy handles /api/ routing)
     return '';
   })();
-  var IS_STATIC_HOSTING = !API_BASE && (location.protocol === 'https:' || location.hostname.indexOf('github.io') !== -1);
   var STORAGE_KEY = 'vcx_cw_session';
   var STATE_KEY = 'vcx_cw_open';
   var ALLOWED_EXT = ['.pdf','.doc','.docx','.txt','.md','.jpg','.jpeg','.png','.gif','.csv','.xlsx','.xls'];
   var MAX_FILE_MB = 25;
-  var HEALTHZ_TIMEOUT = 4000; /* ms — backend readiness timeout */
+  var HEALTHZ_TIMEOUT = 4000; var IS_STATIC_HOSTING = !API_BASE && (location.protocol === "https:" || location.hostname.indexOf("github.io") !== -1); /* ms — backend readiness timeout */
 
   /* ── SVG Icons (inline, no external assets) ─────────────────────── */
   var ICON_CHAT = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8" cy="10" r="1.2" fill="currentColor"/><circle cx="12" cy="10" r="1.2" fill="currentColor"/><circle cx="16" cy="10" r="1.2" fill="currentColor"/></svg>';
@@ -121,7 +120,7 @@
    */
   function checkBackend() {
     return new Promise(function (resolve) {
-      if (IS_STATIC_HOSTING) { console.info("[VCX Chat] Static mode — contact only"); resolve(true); return; }
+      if (IS_STATIC_HOSTING) { resolve(true); return; }
       var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
       var timer = setTimeout(function () {
         if (controller) controller.abort();
@@ -368,10 +367,6 @@
     async function sendMessage(text) {
       appendMessage('user', text);
       showTyping();
-
-      if (IS_STATIC_HOSTING) {
-        hideTyping();
-        appendMessage('bot', 'Thank you for your message! For immediate assistance:', { status: 'contact_mode', escalation_links: [{ label: 'Submit Structured Intake', url: '/structured-case-intake.html', description: 'Detailed case evaluation.' },{ label: 'Schedule Consultation', url: '/contact.html', description: 'Book a consultation.' },{ label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak directly.' },{ label: 'Email Us', url: 'mailto:contact@vitacorexllc.com', description: 'Send an email.' }] }); return; }
 
       var payload = {
         session_id: state.sessionId,

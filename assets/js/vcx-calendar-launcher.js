@@ -31,8 +31,8 @@
     }
     return '';
   })();
-  var IS_STATIC = !API_BASE && (location.protocol === 'https:' || location.hostname.indexOf('github.io') !== -1);
 
+  var IS_STATIC = !API_BASE && (location.protocol === "https:" || location.hostname.indexOf("github.io") !== -1);
   var CALENDAR_URL = '/app/deadline-calendar/';
   var FETCH_TIMEOUT = 5000; /* ms */
 
@@ -85,7 +85,8 @@
       if (controller) controller.abort();
     }, FETCH_TIMEOUT);
 
-    (IS_STATIC ? Promise.resolve({ok:true,json:function(){return Promise.resolve({today_count:0});}}) : fetch(API_BASE + '/api/calendar/home?owner_id=' + encodeURIComponent(ownerId), {
+    if (IS_STATIC) { /* no badge on static */ return; }
+    fetch(API_BASE + '/api/calendar/home?owner_id=' + encodeURIComponent(ownerId), {
       method: 'GET',
       signal: controller ? controller.signal : undefined,
     })
