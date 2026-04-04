@@ -4,7 +4,7 @@
     {
       "name": "vcx-site",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "-p", "8080", "-c-1", "--cors"],
+      "runtimeArgs": ["http-server", "C:/Users/sergz/OneDrive/Desktop/vitacorex-website", "-p", "8080", "-c-1", "--cors"],
       "port": 8080
     }
   ]

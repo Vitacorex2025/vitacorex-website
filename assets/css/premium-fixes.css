@@ -904,6 +904,8 @@ body[data-vcx-private-lookup="true"] :focus-visible {
 .vcx-time-chip,
 .vcx-time-chip-mobile {
   background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
