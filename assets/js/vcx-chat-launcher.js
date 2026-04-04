@@ -369,7 +369,7 @@
       showTyping();
 
       var payload = {
-        session_id: state.sessionId,
+        session_id: state.sessionId || "",
         message: text,
         topic: state.topic,
         state: state.jurisdiction,
@@ -625,7 +625,7 @@
       }
 
       var payload = {
-        session_id: state.sessionId,
+        session_id: state.sessionId || "",
         name: state.escalation ? state.escalation.name : null,
         email: state.escalation ? state.escalation.email : null,
         phone: state.escalation ? state.escalation.phone : null,
