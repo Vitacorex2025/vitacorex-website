@@ -1401,6 +1401,7 @@ p { color: #111 !important; }
 
 /* --- Clock and language bar — VERY DARK bg, WHITE text, black outline --- */
 .vcx-topbar, .clock-bar { background: transparent !important; color: #FFFFFF !important; }
+.clock-widget, .clock-card { background: transparent !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .clock-label, .clock-val { color: #FFFFFF !important; text-shadow: 0 1px 2px rgba(0,0,0,0.60) !important; }
 .lang-btn { color: #FFFFFF !important; border-color: rgba(91,196,184,0.30) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.50) !important; }
 .lang-btn.active { background: rgba(91,196,184,0.20) !important; color: #5BC4B8 !important; }
