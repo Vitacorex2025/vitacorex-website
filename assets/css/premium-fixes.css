@@ -882,3 +882,19 @@ body[data-vcx-private-lookup="true"] :focus-visible {
 .vcx-time-sub {
   color: #FFFFFF !important;
 }
+
+/* Fix: long-text kpi-values on revenue-recovery-workflow — smaller font */
+.kpi-value {
+  overflow-wrap: break-word;
+}
+.kpi-card .kpi-value:not(:empty) {
+  /* If value is long text (not a number), use smaller font */
+}
+
+
+/* Fix: kpi-value text too large on revenue-recovery workflow page */
+[data-vcx-page='revenue-recovery'] .kpi-value {
+  font-size: clamp(14px, 2vw, 18px) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
