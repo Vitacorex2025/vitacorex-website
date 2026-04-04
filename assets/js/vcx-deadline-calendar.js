@@ -4,6 +4,76 @@
  */
 (function() {
   'use strict';
+  /* ── Static Hosting Shim (GitHub Pages) ───────────────────────── */
+  var IS_STATIC = !window.VCX_API_BASE && (location.protocol === 'https:' || location.hostname.indexOf('github.io') !== -1);
+  var _lsKey = 'dcal_data';
+  function _lsDB() { try { return JSON.parse(localStorage.getItem(_lsKey)||'{}'); } catch(e) { return {}; } }
+  function _lsSave(db) { localStorage.setItem(_lsKey, JSON.stringify(db)); }
+  if (IS_STATIC) {
+    var _origFetch = window.fetch;
+    window.fetch = function(url, opts) {
+      if (typeof url !== 'string' || url.indexOf('/api/calendar') === -1) return _origFetch.apply(this, arguments);
+      var db = _lsDB();
+      if (!db.events) db.events = [];
+      if (!db.notes) db.notes = [];
+      var method = (opts && opts.method || 'GET').toUpperCase();
+      var body = opts && opts.body ? JSON.parse(opts.body) : {};
+      var ok = function(data) { return Promise.resolve({ ok:true, status:200, json:function(){ return Promise.resolve(Object.assign({ok:true},data)); } }); };
+
+      // POST /register
+      if (url.indexOf('/register') !== -1) {
+        var oid = Math.random().toString(36).slice(2,14);
+        return ok({ owner_id: oid, name: body.name || 'User' });
+      }
+      // GET /home
+      if (url.indexOf('/home') !== -1) {
+        var today = new Date().toISOString().slice(0,10);
+        var tc = db.events.filter(function(e){return e.date===today;}).length;
+        return ok({ today_count:tc, week_count:db.events.length, total_events:db.events.length });
+      }
+      // GET /month/YYYY-MM
+      if (url.indexOf('/month/') !== -1) {
+        var mo = url.match(/month/(d{4}-d{2})/);
+        var m = mo ? mo[1] : '';
+        return ok({ events: db.events.filter(function(e){return e.date&&e.date.startsWith(m);}), notes: db.notes.filter(function(n){return n.date&&n.date.startsWith(m);}) });
+      }
+      // GET /day/YYYY-MM-DD
+      if (url.indexOf('/day/') !== -1) {
+        var dm = url.match(/day/(d{4}-d{2}-d{2})/);
+        var d = dm ? dm[1] : '';
+        return ok({ events: db.events.filter(function(e){return e.date===d;}), notes: db.notes.filter(function(n){return n.date===d;}) });
+      }
+      // POST /events (create)
+      if (url.indexOf('/events') !== -1 && method === 'POST') {
+        body.id = Math.random().toString(36).slice(2,10);
+        db.events.push(body); _lsSave(db);
+        return ok({ event: body });
+      }
+      // PUT /events/:id (update)
+      if (url.indexOf('/events/') !== -1 && method === 'PUT') {
+        var eid = url.match(/events/([^?]+)/); eid = eid ? eid[1] : '';
+        db.events = db.events.map(function(e){ return e.id===eid ? Object.assign(e,body) : e; });
+        _lsSave(db);
+        return ok({ event: body });
+      }
+      // DELETE /events/:id
+      if (url.indexOf('/events/') !== -1 && method === 'DELETE') {
+        var did = url.match(/events/([^?]+)/); did = did ? did[1] : '';
+        db.events = db.events.filter(function(e){ return e.id!==did; });
+        _lsSave(db);
+        return ok({});
+      }
+      // POST /notes (create)
+      if (url.indexOf('/notes') !== -1 && method === 'POST') {
+        body.id = Math.random().toString(36).slice(2,10);
+        db.notes.push(body); _lsSave(db);
+        return ok({ note: body });
+      }
+      return _origFetch.apply(this, arguments);
+    };
+    console.info('[VCX Calendar] Static hosting — localStorage mode');
+  }
+
 
   var API = (window.VCX_API_BASE || '') + '/api/calendar';
   var ADMIN_EMAIL = 'vitacorex2025@gmail.com';

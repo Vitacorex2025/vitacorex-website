@@ -31,6 +31,7 @@
     // Production: same-origin (reverse proxy handles /api/ routing)
     return '';
   })();
+  var IS_STATIC_HOSTING = !API_BASE && (location.protocol === 'https:' || location.hostname.indexOf('github.io') !== -1);
   var STORAGE_KEY = 'vcx_cw_session';
   var STATE_KEY = 'vcx_cw_open';
   var ALLOWED_EXT = ['.pdf','.doc','.docx','.txt','.md','.jpg','.jpeg','.png','.gif','.csv','.xlsx','.xls'];
@@ -120,6 +121,7 @@
    */
   function checkBackend() {
     return new Promise(function (resolve) {
+      if (IS_STATIC_HOSTING) { console.info("[VCX Chat] Static mode — contact only"); resolve(true); return; }
       var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
       var timer = setTimeout(function () {
         if (controller) controller.abort();
@@ -366,6 +368,10 @@
     async function sendMessage(text) {
       appendMessage('user', text);
       showTyping();
+
+      if (IS_STATIC_HOSTING) {
+        hideTyping();
+        appendMessage('bot', 'Thank you for your message! For immediate assistance:', { status: 'contact_mode', escalation_links: [{ label: 'Submit Structured Intake', url: '/structured-case-intake.html', description: 'Detailed case evaluation.' },{ label: 'Schedule Consultation', url: '/contact.html', description: 'Book a consultation.' },{ label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak directly.' },{ label: 'Email Us', url: 'mailto:contact@vitacorexllc.com', description: 'Send an email.' }] }); return; }
 
       var payload = {
         session_id: state.sessionId,
