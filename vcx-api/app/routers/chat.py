@@ -15,7 +15,7 @@ import uuid
 
 from fastapi import APIRouter, HTTPException, Form, Header, Query, Request, UploadFile
 
-from ..db import ensure_session, save_message, list_recent_messages, create_lead
+from ..db import ensure_session, get_session, save_message, list_recent_messages, create_lead
 from ..legal_chat.policy import answer_message, build_intake_summary
 from ..models.chat import (
     ChatAttachment,
@@ -109,14 +109,34 @@ def post_message(request: Request, req: ChatRequest):
     ensure_session(req.session_id, topic=req.topic, state=req.state, language=req.language)
     save_message(req.session_id, "user", req.message)
 
+    # ── Conversation continuity fix ──────────────────────────────────
+    # When the frontend does not send a topic/state (follow-up messages),
+    # read the stored values from the session so the policy engine
+    # maintains context across the full conversation.
+    effective_topic = req.topic
+    effective_state = req.state
+    if not effective_topic or not effective_state:
+        stored = get_session(req.session_id)
+        if stored:
+            if not effective_topic:
+                effective_topic = stored.get("topic")
+            if not effective_state:
+                effective_state = stored.get("state")
+
     resp = answer_message(
         message=req.message,
-        topic=req.topic,
-        state=req.state,
+        topic=effective_topic,
+        state=effective_state,
         session_id=req.session_id,
     )
 
     save_message(req.session_id, "assistant", resp.answer)
+
+    # ── Persist any topic/state discovered by the policy engine ──────
+    # This ensures follow-up messages can retrieve context even if the
+    # frontend fails to send the topic back.
+    if resp.topic or resp.state:
+        ensure_session(req.session_id, topic=resp.topic, state=resp.state)
 
     # Phase 4C: Log the policy decision as an event
     _log_event(

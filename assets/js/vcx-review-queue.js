@@ -13,12 +13,12 @@
   var currentPage = 1;
 
   var STATUS_COLORS = {
-    intake_received: { bg: '#355E8A', label: 'Intake Received' },
+    intake_received: { bg: '#4A6B62', label: 'Intake Received' },
     triage: { bg: '#9A6A20', label: 'In Triage' },
     under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
-    closed: { bg: '#5E6C7B', label: 'Closed' },
+    closed: { bg: '#7BAE9E', label: 'Closed' },
   };
 
   // DOM
@@ -90,7 +90,7 @@
     var url = API_BASE + '/api/review/queue?page=' + page + '&per_page=20';
     if (status) url += '&status=' + encodeURIComponent(status);
 
-    queueList.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading...</p>';
+    queueList.innerHTML = '<p style="color:var(--vcx-ink-muted,#7BAE9E);">Loading...</p>';
 
     try {
       var res = await fetchWithTimeout(url, { headers: { 'X-Admin-Token': adminToken } });
@@ -120,7 +120,7 @@
 
   function renderQueue(data) {
     if (!data.matters || !data.matters.length) {
-      queueList.innerHTML = '<div class="card" style="padding:24px;text-align:center;color:var(--vcx-ink-muted,#5E6C7B);">No matters in queue.</div>';
+      queueList.innerHTML = '<div class="card" style="padding:24px;text-align:center;color:var(--vcx-ink-muted,#7BAE9E);">No matters in queue.</div>';
       pagination.innerHTML = '';
       return;
     }
@@ -130,7 +130,7 @@
     html += '</tr></thead><tbody>';
 
     data.matters.forEach(function (m) {
-      var st = STATUS_COLORS[m.status] || { bg: '#5E6C7B', label: m.status };
+      var st = STATUS_COLORS[m.status] || { bg: '#7BAE9E', label: m.status };
       html += '<tr>';
       html += '<td style="font-weight:600;">' + esc(m.matter_id) + '</td>';
       html += '<td><span class="rq-badge" style="background:' + st.bg + ';">' + esc(st.label) + '</span></td>';
@@ -138,7 +138,7 @@
       html += '<td>' + esc(m.service_type || '\u2014') + '</td>';
       html += '<td>' + esc(m.urgency || '\u2014') + '</td>';
       html += '<td>' + esc(m.contact_name || '\u2014') + '</td>';
-      html += '<td style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.created_at || '\u2014') + '</td>';
+      html += '<td style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);">' + esc(m.created_at || '\u2014') + '</td>';
       html += '<td><button class="rq-action-btn" data-matter="' + esc(m.matter_id) + '" data-token="' + esc(m.magic_token || '') + '">View</button></td>';
       html += '</tr>';
     });
@@ -154,7 +154,7 @@
         phtml += '<button class="rq-page-btn' + (p === data.page ? ' is-active' : '') + '" data-page="' + p + '">' + p + '</button> ';
       }
     }
-    phtml += '<span style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin-left:12px;">' + data.total + ' total</span>';
+    phtml += '<span style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);margin-left:12px;">' + data.total + ' total</span>';
     pagination.innerHTML = phtml;
 
     // Bind view buttons
@@ -175,7 +175,7 @@
   // Matter detail (admin view)
   async function loadMatterDetail(matterId, matterToken) {
     detailPanel.style.display = 'block';
-    detailPanel.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading matter ' + esc(matterId) + '...</p>';
+    detailPanel.innerHTML = '<p style="color:var(--vcx-ink-muted,#7BAE9E);">Loading matter ' + esc(matterId) + '...</p>';
     detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     try {
@@ -201,7 +201,7 @@
   }
 
   function renderMatterDetail(m) {
-    var st = STATUS_COLORS[m.status] || { bg: '#5E6C7B', label: m.status };
+    var st = STATUS_COLORS[m.status] || { bg: '#7BAE9E', label: m.status };
     var html = '';
 
     html += '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;">';
@@ -209,7 +209,7 @@
     html += '<span class="eyebrow">Matter Detail</span>';
     html += '<h2 style="font-size:1.3rem;margin:.2em 0 .3em;">' + esc(m.matter_id) + '</h2>';
     html += '<span class="rq-badge" style="background:' + st.bg + ';">' + esc(st.label) + '</span>';
-    html += ' <span style="font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</span>';
+    html += ' <span style="font-size:.85rem;color:var(--vcx-ink-muted,#7BAE9E);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</span>';
     html += '</div>';
     html += '<button id="rqCloseDetail" style="padding:8px 16px;border:1px solid rgba(26,47,42,.12);border-radius:8px;background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Close</button>';
     html += '</div>';
@@ -256,12 +256,12 @@
       html += '<div style="margin-bottom:20px;">';
       html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Timeline</h3>';
       m.status_events.forEach(function (e) {
-        var est = STATUS_COLORS[e.new_status] || { bg: '#5E6C7B', label: e.new_status };
+        var est = STATUS_COLORS[e.new_status] || { bg: '#7BAE9E', label: e.new_status };
         html += '<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(26,47,42,.04);font-size:.85rem;">';
         html += '<div style="width:6px;height:6px;border-radius:50%;background:' + est.bg + ';margin-top:6px;flex-shrink:0;"></div>';
         html += '<div><strong>' + esc(est.label) + '</strong>';
         if (e.note) html += ' &mdash; ' + esc(e.note);
-        html += '<br><span style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(e.created_at) + '</span>';
+        html += '<br><span style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);">' + esc(e.created_at) + '</span>';
         html += '</div></div>';
       });
       html += '</div>';
@@ -272,12 +272,12 @@
       html += '<div style="margin-bottom:20px;">';
       html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Documents (' + m.documents.length + ')</h3>';
       m.documents.forEach(function (d) {
-        html += '<p style="font-size:.85rem;padding:4px 0;border-bottom:1px solid rgba(26,47,42,.04);">' + esc(d.original_name) + ' <span style="color:var(--vcx-ink-muted,#5E6C7B);">' + formatBytes(d.size_bytes) + '</span></p>';
+        html += '<p style="font-size:.85rem;padding:4px 0;border-bottom:1px solid rgba(26,47,42,.04);">' + esc(d.original_name) + ' <span style="color:var(--vcx-ink-muted,#7BAE9E);">' + formatBytes(d.size_bytes) + '</span></p>';
       });
       html += '</div>';
     }
 
-    html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);">Created: ' + esc(m.created_at) + '</p>';
+    html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);">Created: ' + esc(m.created_at) + '</p>';
 
     detailPanel.innerHTML = html;
 

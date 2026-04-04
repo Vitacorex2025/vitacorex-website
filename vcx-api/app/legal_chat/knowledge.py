@@ -83,16 +83,22 @@ LEGAL_BROAD_KEYWORDS = {
 
 VCX_ROUTING_KEYWORDS = {
     "vitacorex", "vcx", "vitacore",
-    "intake", "structured intake", "case intake",
-    "contract scanner", "contract intelligence", "contract review",
+    "structured intake", "case intake",
+    "contract scanner", "contract intelligence",
     "recovery pilot", "revenue recovery",
     "packet room", "client portal", "matter status",
     "sign in", "sign-in", "login", "log in",
-    "upload", "submit", "my case", "my matter",
+    "my case", "my matter",
     "your services", "your products", "what do you offer",
     "how does this work", "how do i use",
     "pricing", "cost", "consultation",
 }
+# NOTE: Removed "contract review", "intake", "upload", "submit" from
+# VCX_ROUTING_KEYWORDS because they are ambiguous -- a user saying
+# "review my contract" or "I want to submit a contract" should go to
+# legal_information mode, not vcx_routing.  The product-specific routes
+# ("contract scanner", "contract intelligence") remain for explicit
+# product references.
 
 # ── High-risk legal requests (always escalate) ────────────────────────
 
@@ -626,16 +632,29 @@ detect_out_of_scope = detect_high_risk  # Phase 4C compat alias
 
 
 def detect_mode(message: str, current_topic: Optional[str] = None) -> str:
-    """Determine which mode should handle this message."""
+    """Determine which mode should handle this message.
+
+    Priority order (conversation-continuity fix):
+      1. High-risk detection (always first -- safety boundary)
+      2. Existing topic continuity (if the session already has a legal topic,
+         stay in legal_information mode so follow-ups work)
+      3. Topic inference from message text
+      4. VCX routing keywords (only when no legal topic is active)
+      5. Broad legal keyword scoring
+      6. General chat fallback
+    """
     lower = message.lower()
     if detect_high_risk(message):
         return "high_risk"
-    if any(kw in lower for kw in VCX_ROUTING_KEYWORDS):
-        return "vcx_routing"
+    # Conversation continuity: if there is already a legal topic, keep it
     if current_topic and current_topic in TOPIC_KEYWORDS:
         return "legal_information"
+    # Try to infer a topic from the message itself
     if infer_topic(message):
         return "legal_information"
+    # Only route to VCX services if no legal topic was detected
+    if any(kw in lower for kw in VCX_ROUTING_KEYWORDS):
+        return "vcx_routing"
     tokens = set(_normalize(message))
     legal_score = sum(1 for kw in LEGAL_BROAD_KEYWORDS if kw in lower or kw in tokens)
     if legal_score >= 2:
@@ -644,15 +663,40 @@ def detect_mode(message: str, current_topic: Optional[str] = None) -> str:
 
 
 def infer_topic(message: str) -> Optional[str]:
+    """Infer the legal topic from message keywords.
+
+    Threshold logic (conversation-continuity fix):
+      - score >= 2  -> always match (strong signal)
+      - score == 1  -> match only if the single keyword is a *primary*
+        topic anchor (e.g. "contract", "immigration", "dealer", "florida")
+        to avoid false positives on common words like "sign" or "form".
+    """
     tokens = set(_normalize(message))
+    lower = message.lower()
     best_topic = None
     best_score = 0
     for topic, keywords in TOPIC_KEYWORDS.items():
-        score = sum(1 for kw in keywords if kw in message.lower() or kw in tokens)
+        score = sum(1 for kw in keywords if kw in lower or kw in tokens)
         if score > best_score:
             best_topic = topic
             best_score = score
-    return best_topic if best_score >= 2 else None
+
+    if best_score >= 2:
+        return best_topic
+
+    # Single-keyword match: only accept high-signal primary anchors
+    if best_score == 1 and best_topic:
+        primary_anchors = {
+            "contracts": {"contract", "agreement", "clause", "nda", "indemnity", "non-compete"},
+            "immigration_packets": {"immigration", "uscis", "i-130", "i-485", "i-765", "green card", "visa", "petition"},
+            "auto_deal_review": {"dealer", "apr", "auto", "vehicle", "lease", "trade-in", "buyer's order"},
+            "florida_official_sources": {"sunpass", "florida", "citation", "dmv", "hsmv", "sunbiz"},
+        }
+        anchors = primary_anchors.get(best_topic, set())
+        if any(a in lower for a in anchors):
+            return best_topic
+
+    return None
 
 
 def topic_needs_state(topic: Optional[str]) -> bool:

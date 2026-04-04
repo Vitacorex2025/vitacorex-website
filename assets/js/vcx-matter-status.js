@@ -38,16 +38,16 @@
 
   // Status badge colors
   var STATUS_COLORS = {
-    intake_received: { bg: '#355E8A', label: 'Intake Received' },
+    intake_received: { bg: '#4A6B62', label: 'Intake Received' },
     triage: { bg: '#9A6A20', label: 'In Triage' },
     under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
-    closed: { bg: '#5E6C7B', label: 'Closed' },
+    closed: { bg: '#7BAE9E', label: 'Closed' },
   };
 
   async function loadMatter() {
-    root.innerHTML = '<p style="color:var(--vcx-ink-muted,#5E6C7B);">Loading matter\u2026</p>';
+    root.innerHTML = '<p style="color:var(--vcx-ink-muted,#7BAE9E);">Loading matter\u2026</p>';
 
     try {
       var res = await fetch(API_BASE + '/api/matters/' + matterId, {
@@ -61,7 +61,7 @@
           '<p style="font-weight:600;margin-bottom:8px;">This link has expired or is invalid.</p>' +
           '<p>For security, access links expire after a period of time.</p>' +
           '<p style="margin-top:12px;"><a href="/app/sign-in/" style="display:inline-block;padding:10px 24px;background:var(--vcx-brand-primary,#2E4F46);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">Request a new access link</a></p>' +
-          '<p style="margin-top:12px;font-size:.85rem;color:var(--vcx-ink-muted,#5E6C7B);">Or contact VitaCoreX at (888) 794-8292 for assistance.</p>' +
+          '<p style="margin-top:12px;font-size:.85rem;color:var(--vcx-ink-muted,#7BAE9E);">Or contact VitaCoreX at (888) 794-8292 for assistance.</p>' +
           '</div>';
         return;
       }
@@ -82,7 +82,7 @@
   }
 
   function renderMatter(m) {
-    var st = STATUS_COLORS[m.status] || { bg: '#5E6C7B', label: m.status };
+    var st = STATUS_COLORS[m.status] || { bg: '#7BAE9E', label: m.status };
     var html = '';
 
     // Header
@@ -90,7 +90,7 @@
     html += '<span class="eyebrow">Matter Status</span>';
     html += '<h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);margin:.3em 0 .4em;">' + esc(m.matter_id) + '</h1>';
     html += '<span style="display:inline-block;padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;color:#fff;background:' + st.bg + ';">' + esc(st.label) + '</span>';
-    html += '<p style="margin-top:12px;font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</p>';
+    html += '<p style="margin-top:12px;font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</p>';
     html += '</div>';
 
     // Triage score bar
@@ -121,13 +121,13 @@
       html += '<div class="card" style="margin-bottom:20px;padding:20px 24px;">';
       html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Timeline</h3>';
       m.status_events.forEach(function (e) {
-        var est = STATUS_COLORS[e.new_status] || { bg: '#5E6C7B', label: e.new_status };
+        var est = STATUS_COLORS[e.new_status] || { bg: '#7BAE9E', label: e.new_status };
         html += '<div style="display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<div style="width:8px;height:8px;border-radius:50%;background:' + est.bg + ';margin-top:6px;flex-shrink:0;"></div>';
         html += '<div>';
         html += '<p style="font-size:.85rem;font-weight:600;margin:0;">' + esc(est.label) + '</p>';
-        if (e.note) html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin:2px 0 0;">' + esc(e.note) + '</p>';
-        html += '<p style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);margin:2px 0 0;">' + esc(e.created_at) + '</p>';
+        if (e.note) html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);margin:2px 0 0;">' + esc(e.note) + '</p>';
+        html += '<p style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);margin:2px 0 0;">' + esc(e.created_at) + '</p>';
         html += '</div></div>';
       });
       html += '</div>';
@@ -140,7 +140,7 @@
       m.documents.forEach(function (d) {
         html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,47,42,.06);font-size:.85rem;">';
         html += '<span>' + esc(d.original_name) + '</span>';
-        html += '<span style="color:var(--vcx-ink-muted,#5E6C7B);">' + formatBytes(d.size_bytes) + '</span>';
+        html += '<span style="color:var(--vcx-ink-muted,#7BAE9E);">' + formatBytes(d.size_bytes) + '</span>';
         html += '</div>';
       });
       html += '</div>';
@@ -163,14 +163,14 @@
         html += '<div style="padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<span style="font-weight:600;font-size:.9rem;">' + esc(d.title) + '</span>';
         html += ' <span style="font-size:.75rem;padding:3px 8px;border-radius:10px;background:' + dst + ';color:#fff;">' + esc(d.status) + '</span>';
-        if (d.description) html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin:4px 0 0;">' + esc(d.description) + '</p>';
+        if (d.description) html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);margin:4px 0 0;">' + esc(d.description) + '</p>';
         html += '</div>';
       });
       html += '</div>';
     }
 
     // Created date
-    html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:16px;">Created: ' + esc(m.created_at) + '</p>';
+    html += '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);margin-top:16px;">Created: ' + esc(m.created_at) + '</p>';
 
     // Portal link
     html += '<p style="margin-top:20px;"><a href="/app/vcx-packet-room/" style="color:var(--vcx-brand-primary,#2E4F46);font-size:.88rem;font-weight:600;">Open full client portal &rarr;</a></p>';

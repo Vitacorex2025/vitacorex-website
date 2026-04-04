@@ -26,19 +26,41 @@
    Just fix the 5 specific behavioral issues.
    ============================================================ */
 
-/* 1. ENGLISH-ONLY: Hide all language toggle UI */
-.lang-btn,
-.vcx-lang-btn,
-.vcx-lang-switch,
-.vcx-lang-switcher,
-.vcx-lang-mobile,
-.vcx-lang-toggle,
-.lang-switcher,
-.language-selector,
-[data-lang-toggle],
-button[onclick*="vcxSetLang"],
+/* 1. MULTI-LANGUAGE: Show language toggle UI (EN/RU/ES) */
+.vcx-lang-switch {
+  display: flex !important;
+  gap: 4px;
+  align-items: center;
+}
+.lang-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--vcx-line-soft, rgba(26,47,42,.10));
+  background: transparent;
+  font-weight: 800;
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--vcx-brand-secondary, #58707E);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.lang-btn:hover {
+  background: rgba(91,186,167,.08);
+  color: var(--vcx-accent-premium, #5BBAA7);
+}
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--vcx-brand-primary, #2E4F46), var(--vcx-accent-premium-2, #3D8E7E));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(46,79,70,.22);
+}
 .lang-row {
-  display: none !important;
+  display: flex !important;
+  gap: 4px;
 }
 
 /* 2. HEADER: Never hide on scroll */

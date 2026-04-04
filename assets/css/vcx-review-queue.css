@@ -2,7 +2,7 @@
 
 body[data-vcx-page="review-queue"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .rq-filters {

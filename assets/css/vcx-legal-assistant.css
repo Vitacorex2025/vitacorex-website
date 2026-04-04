@@ -2,7 +2,7 @@
 
 body[data-vcx-page="legal-assistant"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .assistant-grid,
@@ -101,7 +101,7 @@ body[data-vcx-page="legal-assistant"] {
   margin-bottom: 6px;
   font-size: .8rem;
   font-weight: 600;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .assistant-form input,
@@ -111,7 +111,7 @@ body[data-vcx-page="legal-assistant"] {
   border-radius: 10px;
   border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   font-size: .9rem;
   font-family: inherit;
 }
@@ -143,7 +143,7 @@ body[data-vcx-page="legal-assistant"] {
   appearance: none;
   border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   border-radius: 999px;
   padding: 8px 16px;
   cursor: pointer;
@@ -260,7 +260,7 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta {
 
 body[data-vcx-page="legal-assistant"] .la-intake-cta-text {
   font-size: .85rem;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   margin: 0 0 10px;
 }
 
@@ -345,7 +345,7 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
   appearance: none;
   border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   border-radius: 8px;
   min-width: 44px;
   min-height: 44px;

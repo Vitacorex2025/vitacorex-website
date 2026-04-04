@@ -5,7 +5,7 @@
 
 body[data-vcx-page="vcx-recovery-pilot"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- Wizard container ------------------------------------ */
@@ -63,7 +63,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 }
 
 .rp-step.is-active .rp-step-label {
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   font-weight: 600;
 }
 
@@ -79,7 +79,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 }
 
 .rp-step.is-complete .rp-step-label {
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- Connecting line ------------------------------------- */
@@ -121,7 +121,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
   margin-bottom: var(--vcx-space-xs, 6px);
   font-size: 14px;
   font-weight: 600;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
 }
 
 .rp-field input,
@@ -133,7 +133,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
   border-radius: var(--vcx-radius-sm, 4px);
   font-size: 14px;
   background: var(--vcx-bg-surface, #FFFFFF);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   transition: border-color 0.2s ease;
   box-sizing: border-box;
 }
@@ -163,7 +163,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
   cursor: pointer;
   border: 1px solid var(--vcx-border-light, #D9D2C5);
   background: var(--vcx-bg-surface, #FFFFFF);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   transition: background 0.15s ease;
 }
 
@@ -207,7 +207,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 .rp-kpi .rp-kpi-value {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
 }
 
 .rp-kpi .rp-kpi-label {

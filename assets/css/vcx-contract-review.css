@@ -5,7 +5,7 @@
 
 body[data-vcx-page="vcx-contract-review"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- Tier grid ------------------------------------------- */
@@ -37,7 +37,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-tier-card--info {
-  border-top-color: var(--vcx-status-info, #2C7BE5);
+  border-top-color: var(--vcx-status-info, #5BBAA7);
 }
 
 .cr-tier-card--warning {
@@ -51,7 +51,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-tier-card .cr-price {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
   margin: var(--vcx-space-md, 16px) 0;
 }
 
@@ -109,14 +109,14 @@ body[data-vcx-page="vcx-contract-review"] {
   font-size: 12px;
   font-weight: 600;
   background: var(--vcx-bg-muted, #EDE8DF);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   white-space: nowrap;
 }
 
 .cr-clause .cr-excerpt {
   flex: 1;
   font-size: 14px;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- Risk indicators ------------------------------------- */
@@ -167,7 +167,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-mode-tab:hover {
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .cr-mode-tab--active {
@@ -212,7 +212,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-type-card strong {
   font-size: .88rem;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .cr-gen-type-card span {
@@ -258,7 +258,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-field label {
   font-size: .8rem;
   font-weight: 600;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .cr-gen-field input,
@@ -270,7 +270,7 @@ body[data-vcx-page="vcx-contract-review"] {
   border-radius: 8px;
   font-size: .88rem;
   font-family: inherit;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   background: #fff;
   transition: border-color .15s ease;
 }
@@ -342,7 +342,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-back:hover {
   border-color: var(--vcx-brand-primary, #2E4F46);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* ── Phase 9: Generation result / download panel ─────────── */
@@ -364,7 +364,7 @@ body[data-vcx-page="vcx-contract-review"] {
 .cr-gen-result h3 {
   font-size: 1.1rem;
   margin: 0 0 8px;
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .cr-gen-result p {
@@ -432,7 +432,7 @@ body[data-vcx-page="vcx-contract-review"] {
 
 .cr-gen-another:hover {
   border-color: var(--vcx-brand-primary, #2E4F46);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* ── Phase 11: Form validation ──────────────────────────────── */

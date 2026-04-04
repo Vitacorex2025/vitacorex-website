@@ -204,7 +204,7 @@
             html += ' <span style="font-size:.75rem;opacity:.6;">(' + Math.round(item.confidence * 100) + '% match)</span>';
           }
           if (item.note) {
-            html += '<p style="font-size:.82rem;color:#5E6C7B;margin:4px 0 0;">' + escHtml(item.note) + '</p>';
+            html += '<p style="font-size:.82rem;color:#7BAE9E;margin:4px 0 0;">' + escHtml(item.note) + '</p>';
           }
           if (item.excerpt && item.type !== 'missing_protection') {
             html += '<p style="font-size:.78rem;color:#8A98A8;margin:4px 0 0;font-style:italic;">&ldquo;' + escHtml(item.excerpt.substring(0, 150)) + (item.excerpt.length > 150 ? '&hellip;' : '') + '&rdquo;</p>';
@@ -227,7 +227,7 @@
         html += '<li class="vcx-clause-item ' + cls + '">';
         html += '<span class="vcx-clause-dot">' + dot + '</span>';
         html += '<div><strong>' + escHtml(mp.label) + '</strong>';
-        html += '<p style="font-size:.82rem;color:#5E6C7B;margin:4px 0 0;">' + escHtml(mp.recommendation) + '</p>';
+        html += '<p style="font-size:.82rem;color:#7BAE9E;margin:4px 0 0;">' + escHtml(mp.recommendation) + '</p>';
         html += '</div></li>';
       });
       html += '</ul></div>';
@@ -236,7 +236,7 @@
     // --- Suggested questions for counsel ---
     if (data.suggested_questions && data.suggested_questions.length > 0) {
       html += '<div class="vcx-result-section">';
-      html += '<h3 class="vcx-section-title" style="color:#355E8A;">Questions for Counsel (' + data.suggested_questions.length + ')</h3>';
+      html += '<h3 class="vcx-section-title" style="color:#4A6B62;">Questions for Counsel (' + data.suggested_questions.length + ')</h3>';
       html += '<p class="vcx-section-note">Bring these questions to your attorney before signing.</p>';
       html += '<ul class="vcx-clause-list">';
       data.suggested_questions.forEach(function (sq) {
@@ -244,8 +244,8 @@
         var cls = sq.context === 'missing' ? 'vcx-clause-verify' : 'vcx-clause-found';
         html += '<li class="vcx-clause-item ' + cls + '">';
         html += '<span class="vcx-clause-dot" style="font-size:.85rem;">' + icon + '</span>';
-        html += '<div><span style="font-size:.78rem;font-weight:600;color:#5E6C7B;text-transform:uppercase;letter-spacing:.03em;">' + escHtml(sq.category) + '</span>';
-        html += '<p style="font-size:.88rem;color:#243548;margin:3px 0 0;">' + escHtml(sq.question) + '</p>';
+        html += '<div><span style="font-size:.78rem;font-weight:600;color:#7BAE9E;text-transform:uppercase;letter-spacing:.03em;">' + escHtml(sq.category) + '</span>';
+        html += '<p style="font-size:.88rem;color:#243D36;margin:3px 0 0;">' + escHtml(sq.question) + '</p>';
         html += '</div></li>';
       });
       html += '</ul></div>';
@@ -262,12 +262,12 @@
     html += '<div class="vcx-result-cta">';
     html += '<p class="vcx-result-lead">This is a pattern-based pre-check. Findings depend on clause wording and document quality. An advisor review provides full interpretation.</p>';
     html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';
-    html += '<span style="display:inline-block;margin:0 12px;color:#5E6C7B;">or</span>';
+    html += '<span style="display:inline-block;margin:0 12px;color:#7BAE9E;">or</span>';
     html += '<a class="vcx-cta-btn" href="/structured-case-intake.html?service=contract-review" style="background:rgba(47,107,87,.1);border-color:rgba(47,107,87,.3);color:#2F6B57;">Submit to Structured Intake &#8594;</a>';
     if (data.word_count && data.word_count > 50) {
       html += '<br style="display:block;content:\'\';margin-top:12px;">';
       html += '<button class="vcx-cta-btn" type="button" onclick="vcxGenerateStronger()" style="margin-top:12px;cursor:pointer;">View Stronger Clause Suggestions &#8594;</button>';
-      html += '<p style="font-size:.78rem;color:#5E6C7B;margin:8px 0 0;">Pre-written template clauses for review with counsel. Not AI-generated.</p>';
+      html += '<p style="font-size:.78rem;color:#7BAE9E;margin:8px 0 0;">Pre-written template clauses for review with counsel. Not AI-generated.</p>';
     }
     html += '</div>';
 
@@ -293,7 +293,7 @@
       '</div>' +
       '<div class="vcx-result-cta">' +
       '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a>' +
-      '<span style="display:inline-block;margin:0 12px;color:#5E6C7B;">or</span>' +
+      '<span style="display:inline-block;margin:0 12px;color:#7BAE9E;">or</span>' +
       '<a class="vcx-cta-btn" href="/structured-case-intake.html?service=contract-review" style="background:rgba(47,107,87,.1);border-color:rgba(47,107,87,.3);color:#2F6B57;">Submit to Structured Intake &#8594;</a>' +
       '</div></div>';
   }

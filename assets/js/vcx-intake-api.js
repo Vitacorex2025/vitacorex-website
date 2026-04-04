@@ -132,16 +132,16 @@
       items +
       '</ul>' +
       '</div>' +
-      '<div style="background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.25);border-radius:8px;padding:16px 20px;margin-bottom:20px;">' +
+      '<div style="background:rgba(91,186,167,.06);border:1px solid rgba(91,186,167,.25);border-radius:8px;padding:16px 20px;margin-bottom:20px;">' +
       '<p style="font-size:.9rem;margin:0 0 8px;font-weight:600;">Secure Status Page</p>' +
-      '<p style="font-size:.85rem;margin:0 0 10px;color:var(--vcx-ink-muted,#5E6C7B);">Bookmark this link to check your matter status and upload additional documents.</p>' +
+      '<p style="font-size:.85rem;margin:0 0 10px;color:var(--vcx-ink-muted,#7BAE9E);">Bookmark this link to check your matter status and upload additional documents.</p>' +
       '<a href="' +
       escHTML(data.magic_link) +
       '" style="word-break:break-all;color:var(--vcx-brand-primary,#2E4F46);font-size:.85rem;">' +
       escHTML(data.magic_link) +
       '</a>' +
       '</div>' +
-      '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#5E6C7B);">Triage priority: ' +
+      '<p style="font-size:.8rem;color:var(--vcx-ink-muted,#7BAE9E);">Triage priority: ' +
       data.triage_score +
       '/100</p>' +
       '</div>'
@@ -200,7 +200,7 @@
         notice.style.cssText =
           'margin-bottom:16px;padding:14px 18px;background:rgba(47,107,87,.07);' +
           'border:1px solid rgba(47,107,87,.2);border-radius:10px;font-size:.85rem;' +
-          'color:#243548;line-height:1.5;';
+          'color:#243D36;line-height:1.5;';
         notice.innerHTML =
           '<strong>Pre-filled from your chat session.</strong> ' +
           'Review and edit before submitting.';

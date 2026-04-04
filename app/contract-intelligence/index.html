@@ -20,8 +20,8 @@
 <style>
 /* Tool page readability overrides — dark surface */
 body[data-vcx-page="contract-scanner"]{
-  background:#07131f !important;
-  color:#e8eff7;
+  background:#1A2F2A !important;
+  color:#E8F5F1;
 }
 body[data-vcx-page="contract-scanner"] label,
 body[data-vcx-page="contract-scanner"] .field label{
@@ -29,7 +29,7 @@ body[data-vcx-page="contract-scanner"] .field label{
 }
 body[data-vcx-page="contract-scanner"] .glass label,
 body[data-vcx-page="contract-scanner"] #vcxUploadCard label{
-  color:#e0eaf4 !important;
+  color:#EDF5F2 !important;
 }
 body[data-vcx-page="contract-scanner"] .glass p,
 body[data-vcx-page="contract-scanner"] #vcxUploadCard p{
@@ -47,13 +47,13 @@ body[data-vcx-page="contract-scanner"] .vcx-disc{
 .vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
 .vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
 .vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #1A2F2A; margin-bottom: 4px; }
-.vcx-summary-meta { font-size: 0.8125rem; color: #5E6C7B; }
+.vcx-summary-meta { font-size: 0.8125rem; color: #7BAE9E; }
 .vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(26,47,42,.08); border-radius: 8px; }
 .vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
 .vcx-section-title.vcx-found { color: #2F6B57; }
 .vcx-section-title.vcx-critical { color: #8B4348; }
 .vcx-section-title.vcx-flag { color: #9A6A20; }
-.vcx-section-note { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 12px; }
+.vcx-section-note { font-size: 0.8125rem; color: #7BAE9E; margin-bottom: 12px; }
 .vcx-clause-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .vcx-clause-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; padding: 6px 0; }
 .vcx-clause-dot { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
@@ -61,13 +61,13 @@ body[data-vcx-page="contract-scanner"] .vcx-disc{
 .vcx-clause-missing .vcx-clause-dot { background: rgba(139,67,72,.12); color: #8B4348; }
 .vcx-clause-verify .vcx-clause-dot { background: rgba(154,106,32,.12); color: #9A6A20; }
 .vcx-result-notice { padding: 14px 18px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; }
-.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #355E8A; }
+.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #3D8E7E; }
 .vcx-notice-warning { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); color: #9A6A20; }
 .vcx-notice-success { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); color: #2F6B57; }
 .vcx-file-notice { padding: 8px 14px; border-radius: 6px; font-size: 0.8125rem; margin-top: 8px; }
-.vcx-result-lead { font-size: 0.9375rem; color: #243548; margin-bottom: 16px; }
+.vcx-result-lead { font-size: 0.9375rem; color: #243D36; margin-bottom: 16px; }
 .vcx-result-cta { margin-top: 20px; }
-.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
+.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(91,186,167,.15); border: 1px solid rgba(91,186,167,.4); border-radius: 8px; color: #5BBAA7; font-weight: 600; text-decoration: none; font-size: .95rem; }
 .vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(26,47,42,.08); }
 
 /* Stronger Clauses Generation Results */
@@ -86,13 +86,13 @@ body[data-vcx-page="contract-scanner"] .vcx-disc{
 .vcx-gen-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 .vcx-gen-badge-strengthen { background: rgba(91,186,167,.12); color: #3D8B7A; }
 .vcx-gen-badge-add { background: rgba(47,107,87,.12); color: #2F6B57; }
-.vcx-gen-clause-text { font-family: 'Menlo', 'Consolas', 'Courier New', monospace; font-size: 0.8125rem; line-height: 1.7; color: #243548; background: rgba(26,47,42,.03); border: 1px solid rgba(26,47,42,.06); border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; white-space: pre-wrap; word-break: break-word; }
-.vcx-gen-explanation { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 10px; line-height: 1.5; }
-.vcx-gen-copy-btn { display: inline-block; padding: 6px 14px; background: rgba(26,47,42,.04); border: 1px solid rgba(26,47,42,.12); border-radius: 5px; color: #243548; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all .2s; }
+.vcx-gen-clause-text { font-family: 'Menlo', 'Consolas', 'Courier New', monospace; font-size: 0.8125rem; line-height: 1.7; color: #243D36; background: rgba(26,47,42,.03); border: 1px solid rgba(26,47,42,.06); border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; white-space: pre-wrap; word-break: break-word; }
+.vcx-gen-explanation { font-size: 0.8125rem; color: #7BAE9E; margin-bottom: 10px; line-height: 1.5; }
+.vcx-gen-copy-btn { display: inline-block; padding: 6px 14px; background: rgba(26,47,42,.04); border: 1px solid rgba(26,47,42,.12); border-radius: 5px; color: #243D36; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all .2s; }
 .vcx-gen-copy-btn:hover { background: rgba(26,47,42,.08); }
-.vcx-gen-footer { margin-top: 20px; padding: 16px 20px; background: rgba(53,94,138,.06); border: 1px solid rgba(53,94,138,.15); border-radius: 8px; font-size: 0.8125rem; color: #355E8A; line-height: 1.6; }
-.vcx-gen-download-btn { display: inline-block; padding: 12px 24px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: 0.9rem; cursor: pointer; margin-top: 14px; transition: all .2s; }
-.vcx-gen-download-btn:hover { background: rgba(212,175,55,.25); }
+.vcx-gen-footer { margin-top: 20px; padding: 16px 20px; background: rgba(53,94,138,.06); border: 1px solid rgba(53,94,138,.15); border-radius: 8px; font-size: 0.8125rem; color: #3D8E7E; line-height: 1.6; }
+.vcx-gen-download-btn { display: inline-block; padding: 12px 24px; background: rgba(91,186,167,.15); border: 1px solid rgba(91,186,167,.4); border-radius: 8px; color: #5BBAA7; font-weight: 600; text-decoration: none; font-size: 0.9rem; cursor: pointer; margin-top: 14px; transition: all .2s; }
+.vcx-gen-download-btn:hover { background: rgba(91,186,167,.25); }
 </style>
 <script>
 window.SITE_I18N = {
@@ -289,7 +289,7 @@ window.SITE_I18N = {
 <div class="wrap" style="max-width:780px;">
 
 <!-- Back link -->
-<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(212,175,55,.8);text-decoration:none;">&larr; Private Client Services</a>
+<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(91,186,167,.8);text-decoration:none;">&larr; Private Client Services</a>
 
 <!-- Hero -->
 <div class="reveal" style="margin-bottom:36px;">
@@ -304,9 +304,9 @@ window.SITE_I18N = {
 <!-- File upload -->
 <label for="vcxContractFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:8px;">Upload your contract</label>
 <p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.55);margin:0 0 14px;">Supports .txt, .pdf, and .docx files. Scanned or image-only PDFs may yield limited results.</p>
-<div id="vcxDropZone" style="border:2px dashed rgba(212,175,55,.35);border-radius:8px;padding:28px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxContractFile').click()">
+<div id="vcxDropZone" style="border:2px dashed rgba(91,186,167,.35);border-radius:8px;padding:28px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxContractFile').click()">
 <div style="font-size:2rem;margin-bottom:8px;">&#128196;</div>
-<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(212,175,55,.85);font-weight:500;">Choose file to upload</span>
+<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(91,186,167,.85);font-weight:500;">Choose file to upload</span>
 <div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
 </div>
 <input type="file" id="vcxContractFile" accept=".pdf,.doc,.docx,.txt,.md,.csv,.text" style="display:none;" onchange="vcxHandleFile(this)"/>
@@ -318,7 +318,7 @@ window.SITE_I18N = {
 
 <div style="margin-bottom:18px;">
 <label for="vcxContractType" data-tx="tool_contract_type" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Contract type</label>
-<select id="vcxContractType" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;">
+<select id="vcxContractType" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#E8F5F1;font-size:.9rem;">
 <option value="">Select type</option>
 <option value="Employment">Employment</option>
 <option value="Service">Service</option>
@@ -332,19 +332,19 @@ window.SITE_I18N = {
 <div style="margin-bottom:18px;">
 <p style="font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin:0 0 8px;" data-tx="tool_concerns">Primary concerns</p>
 <div style="display:flex;flex-wrap:wrap;gap:8px;">
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Liability cap" style="accent-color:#d4af37;"> Liability cap</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Auto-renewal" style="accent-color:#d4af37;"> Auto-renewal</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Payment terms" style="accent-color:#d4af37;"> Payment terms</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="IP ownership" style="accent-color:#d4af37;"> IP ownership</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Dispute resolution" style="accent-color:#d4af37;"> Dispute resolution</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Termination rights" style="accent-color:#d4af37;"> Termination rights</label>
-<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Other" style="accent-color:#d4af37;"> Other</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Liability cap" style="accent-color:#5BBAA7;"> Liability cap</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Auto-renewal" style="accent-color:#5BBAA7;"> Auto-renewal</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Payment terms" style="accent-color:#5BBAA7;"> Payment terms</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="IP ownership" style="accent-color:#5BBAA7;"> IP ownership</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Dispute resolution" style="accent-color:#5BBAA7;"> Dispute resolution</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Termination rights" style="accent-color:#5BBAA7;"> Termination rights</label>
+<label style="display:flex;align-items:center;gap:6px;font-size:.88rem;color:rgba(255,255,255,.65);cursor:pointer;"><input type="checkbox" name="vcxConcern" value="Other" style="accent-color:#5BBAA7;"> Other</label>
 </div>
 </div>
 
 <div style="margin-bottom:18px;">
 <label for="vcxNegotiated" data-tx="tool_negotiated" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Have you negotiated any terms?</label>
-<select id="vcxNegotiated" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;">
+<select id="vcxNegotiated" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#E8F5F1;font-size:.9rem;">
 <option value="">Select</option>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
@@ -354,26 +354,26 @@ window.SITE_I18N = {
 
 <div style="margin-bottom:22px;">
 <label for="vcxDeadline" data-tx="tool_deadline" style="display:block;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:7px;">Deadline to sign (optional)</label>
-<input type="date" id="vcxDeadline" style="padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eff7;font-size:.9rem;"/>
+<input type="date" id="vcxDeadline" style="padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#E8F5F1;font-size:.9rem;"/>
 </div>
 
 </div><!-- end questionnaire -->
 
 <button id="vcxScanBtn" type="button" onclick="vcxScanContract()"
-  style="width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;"
+  style="width:100%;padding:16px;background:rgba(91,186,167,.15);border:1px solid rgba(91,186,167,.4);border-radius:8px;color:#5BBAA7;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;"
   data-tx="tool_scan_btn">Analyze contract</button>
 </div>
 
 <!-- id=vcx-service-welcome: shown when arriving with ?service=contracts -->
-<div id="vcx-service-welcome" hidden style="background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(212,175,55,.85);">
+<div id="vcx-service-welcome" hidden style="background:rgba(91,186,167,.08);border:1px solid rgba(91,186,167,.25);border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(91,186,167,.85);">
   Welcome — you were routed here for contract review. Complete the intake below to reach an advisor.
 </div>
 
 <!-- Confirmation panel (shown on submit) -->
 <div id="vcxResultsArea" hidden></div>
 <!-- B3: ADVISOR REVIEW FORM (shown after local analysis) -->
-<div id="vcxAdvisorReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:10px;">
-<h3 style="color:#d4af37;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Advisor Review</h3>
+<div id="vcxAdvisorReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(91,186,167,.08);border:1px solid rgba(91,186,167,.3);border-radius:10px;">
+<h3 style="color:#5BBAA7;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Advisor Review</h3>
 <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin:0 0 18px;">An advisor will review your contract findings and contact you within 1 business day.</p>
 <form id="vcxAdvisorForm" method="POST" action="https://formsubmit.co/vitacorexllc@gmail.com" style="display:grid;gap:14px;">
 <input type="hidden" name="_subject" value="Contract Scanner - Advisor Review Request"/>
@@ -382,18 +382,18 @@ window.SITE_I18N = {
 <input type="hidden" name="_next" value="https://vitacorexllc.com/thank-you.html"/>
 <input type="hidden" name="analysis_summary" id="vcxAdvisorSummary" value=""/>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorName">Full Name <span style="color:#d4af37;">*</span></label>
-<input type="text" id="vcxAdvisorName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
-<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorEmail">Email <span style="color:#d4af37;">*</span></label>
-<input type="email" id="vcxAdvisorEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
+<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorName">Full Name <span style="color:#5BBAA7;">*</span></label>
+<input type="text" id="vcxAdvisorName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/></div>
+<div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorEmail">Email <span style="color:#5BBAA7;">*</span></label>
+<input type="email" id="vcxAdvisorEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/></div>
 </div>
 <div><label style="display:block;font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:6px;" for="vcxAdvisorPhone">Phone (optional)</label>
-<input type="tel" id="vcxAdvisorPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#e8eff7;font-size:.9rem;box-sizing:border-box;"/></div>
+<input type="tel" id="vcxAdvisorPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/></div>
 <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0;">This is a preliminary document review. Results require advisor verification.</p>
-<button type="submit" id="vcxAdvisorSubmitBtn" style="padding:14px 24px;background:rgba(212,175,55,.2);border:1px solid rgba(212,175,55,.5);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Advisor Review</button>
+<button type="submit" id="vcxAdvisorSubmitBtn" style="padding:14px 24px;background:rgba(91,186,167,.2);border:1px solid rgba(91,186,167,.5);border-radius:8px;color:#5BBAA7;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Advisor Review</button>
 </form>
 <div id="vcxAdvisorSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:8px;color:#2F6B57;font-size:.95rem;">Your contract summary has been submitted. An advisor will contact you within 1 business day.</div>
-<div id="vcxAdvisorError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:rgba(255,160,160,.9);font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:vitacorexllc@gmail.com" style="color:#d4af37;">vitacorexllc@gmail.com</a>.</div>
+<div id="vcxAdvisorError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:rgba(255,160,160,.9);font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:vitacorexllc@gmail.com" style="color:#5BBAA7;">vitacorexllc@gmail.com</a>.</div>
 </div>
 
 <!-- Error state -->
@@ -479,10 +479,10 @@ function t(k) {
   updateClocks(); setInterval(updateClocks,30000);
   var dz=document.getElementById('vcxDropZone');
   if(dz){
-    dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(212,175,55,.7)';});
-    dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(212,175,55,.35)';});
+    dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(91,186,167,.7)';});
+    dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(91,186,167,.35)';});
     dz.addEventListener('drop',function(e){
-      e.preventDefault();dz.style.borderColor='rgba(212,175,55,.35)';
+      e.preventDefault();dz.style.borderColor='rgba(91,186,167,.35)';
       var f=e.dataTransfer.files[0];
       if(f){var inp=document.getElementById('vcxContractFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}
     });
@@ -677,7 +677,7 @@ function renderGenerationResults(result) {
   if(result.quality.level === 'low') {
     html += '<div class="vcx-gen-section">';
     html += '<p style="color:#8B4348;font-weight:600;margin:0 0 10px;">Unable to generate reliable suggestions.</p>';
-    html += '<p style="color:#5E6C7B;font-size:0.875rem;margin:0 0 14px;">The extracted text is insufficient for accurate clause analysis. This typically occurs with image-based PDFs, scanned documents, or encrypted files. Please use the manual review route below for a thorough assessment.</p>';
+    html += '<p style="color:#7BAE9E;font-size:0.875rem;margin:0 0 14px;">The extracted text is insufficient for accurate clause analysis. This typically occurs with image-based PDFs, scanned documents, or encrypted files. Please use the manual review route below for a thorough assessment.</p>';
     html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule manual contract review &#8594;</a>';
     html += '</div>';
     html += '</div>';
@@ -685,7 +685,7 @@ function renderGenerationResults(result) {
   }
 
   // Contract type label
-  html += '<div style="margin-bottom:16px;font-size:0.875rem;color:#5E6C7B;">Contract Type: <strong style="color:#1A2F2A;">' + escHtml(result.contractType) + '</strong> &middot; ' + result.suggestions.length + ' suggestion' + (result.suggestions.length !== 1 ? 's' : '') + '</div>';
+  html += '<div style="margin-bottom:16px;font-size:0.875rem;color:#7BAE9E;">Contract Type: <strong style="color:#1A2F2A;">' + escHtml(result.contractType) + '</strong> &middot; ' + result.suggestions.length + ' suggestion' + (result.suggestions.length !== 1 ? 's' : '') + '</div>';
 
   // Suggestions
   if(result.suggestions.length > 0) {
@@ -707,7 +707,7 @@ function renderGenerationResults(result) {
     });
     html += '</div>';
   } else {
-    html += '<div class="vcx-gen-section"><p style="color:#5E6C7B;font-size:0.875rem;">No suggestions available for the selected contract type.</p></div>';
+    html += '<div class="vcx-gen-section"><p style="color:#7BAE9E;font-size:0.875rem;">No suggestions available for the selected contract type.</p></div>';
   }
 
   // Footer disclaimer
@@ -876,7 +876,7 @@ function renderResults(analysis, filename) {
   if(analysis.hasText) {
     html += '<br style="display:block;content:\'\';margin-top:12px;">';
     html += '<button class="vcx-cta-btn" type="button" onclick="vcxGenerateStronger()" style="margin-top:12px;cursor:pointer;">View Stronger Clause Suggestions &#8594;</button>';
-    html += '<p style="font-size:0.78rem;color:#5E6C7B;margin:8px 0 0;">Pre-written template clauses for review with counsel. Not AI-generated.</p>';
+    html += '<p style="font-size:0.78rem;color:#7BAE9E;margin:8px 0 0;">Pre-written template clauses for review with counsel. Not AI-generated.</p>';
   }
   html += '</div>';
   html += '<p class="vcx-disc">Pattern-based detection only &#8212; not legal advice. Clauses may be present but worded differently. Review all findings with licensed counsel before signing.</p>';

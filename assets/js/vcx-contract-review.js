@@ -126,14 +126,14 @@
     var html = '';
 
     // Status header
-    var statusColor = data.status === 'reviewed' ? 'var(--vcx-accent-gold,#5BBAA7)' : 'var(--vcx-ink-muted,#5E6C7B)';
+    var statusColor = data.status === 'reviewed' ? 'var(--vcx-accent-gold,#5BBAA7)' : 'var(--vcx-ink-muted,#7BAE9E)';
     html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px;">';
     html += '<div>';
     html += '<span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:' + statusColor + ';font-weight:600;">' + escapeHtml(data.status || 'unknown') + '</span>';
-    html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);margin-left:12px;">' + escapeHtml(data.filename || '') + '</span>';
+    html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#7BAE9E);margin-left:12px;">' + escapeHtml(data.filename || '') + '</span>';
     html += '</div>';
     if (data.review_id) {
-      html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">ID: ' + escapeHtml(data.review_id.substring(0, 8)) + '...</span>';
+      html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);">ID: ' + escapeHtml(data.review_id.substring(0, 8)) + '...</span>';
     }
     html += '</div>';
 
@@ -153,7 +153,7 @@
 
     // Risk summary
     if (data.risk_summary) {
-      html += '<div style="background:rgba(26,47,42,.03);border-radius:8px;padding:16px;margin-bottom:24px;font-size:.88rem;line-height:1.6;color:var(--vcx-ink-body,#243548);">';
+      html += '<div style="background:rgba(26,47,42,.03);border-radius:8px;padding:16px;margin-bottom:24px;font-size:.88rem;line-height:1.6;color:var(--vcx-ink-body,#243D36);">';
       html += escapeHtml(data.risk_summary);
       html += '</div>';
     }
@@ -166,7 +166,7 @@
       for (var i = 0; i < clauses.length; i++) {
         var c = clauses[i];
         var riskBg = 'rgba(26,47,42,.04)';
-        var riskColor = 'var(--vcx-ink-muted,#5E6C7B)';
+        var riskColor = 'var(--vcx-ink-muted,#7BAE9E)';
         var riskLabel = c.risk_level || 'neutral';
 
         if (riskLabel === 'high_risk') {
@@ -187,18 +187,18 @@
         html += '<span style="font-size:.72rem;font-weight:700;color:' + riskColor + ';text-transform:uppercase;letter-spacing:.08em;">' + riskLabel + '</span>';
         html += '</div>';
         if (c.excerpt) {
-          html += '<p style="font-size:.82rem;line-height:1.5;color:var(--vcx-ink-body,#243548);margin:0 0 6px;font-style:italic;">"' + escapeHtml(c.excerpt.substring(0, 200)) + '"</p>';
+          html += '<p style="font-size:.82rem;line-height:1.5;color:var(--vcx-ink-body,#243D36);margin:0 0 6px;font-style:italic;">"' + escapeHtml(c.excerpt.substring(0, 200)) + '"</p>';
         }
         if (c.note) {
-          html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0;">' + escapeHtml(c.note) + '</p>';
+          html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin:0;">' + escapeHtml(c.note) + '</p>';
         }
         if (c.confidence) {
-          html += '<div style="margin-top:4px;font-size:.72rem;color:var(--vcx-ink-muted,#5E6C7B);">Confidence: ' + (c.confidence * 100).toFixed(0) + '%</div>';
+          html += '<div style="margin-top:4px;font-size:.72rem;color:var(--vcx-ink-muted,#7BAE9E);">Confidence: ' + (c.confidence * 100).toFixed(0) + '%</div>';
         }
         html += '</div>';
       }
     } else {
-      html += '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">No clauses detected. The document may need manual review, or try uploading a .txt file for best results.</p>';
+      html += '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">No clauses detected. The document may need manual review, or try uploading a .txt file for best results.</p>';
     }
 
     // --- Issue Buckets (Phase 11: severity-tiered issue grouping) ---
@@ -208,23 +208,23 @@
       html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Issue Summary</h3>';
       for (var b = 0; b < buckets.length; b++) {
         var bkt = buckets[b];
-        var bktColor = bkt.severity === 'high' ? '#E63757' : bkt.severity === 'medium' ? '#F5A623' : 'var(--vcx-ink-muted,#5E6C7B)';
+        var bktColor = bkt.severity === 'high' ? '#E63757' : bkt.severity === 'medium' ? '#F5A623' : 'var(--vcx-ink-muted,#7BAE9E)';
         var bktBg = bkt.severity === 'high' ? 'rgba(230,55,87,.06)' : bkt.severity === 'medium' ? 'rgba(245,166,35,.06)' : 'rgba(26,47,42,.03)';
         html += '<div style="background:' + bktBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:16px;margin-bottom:12px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
-        html += '<span style="font-size:.88rem;font-weight:700;color:var(--vcx-ink-body,#243548);">' + escapeHtml(bkt.bucket) + '</span>';
+        html += '<span style="font-size:.88rem;font-weight:700;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(bkt.bucket) + '</span>';
         html += '<span style="font-size:.72rem;font-weight:700;color:' + bktColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml(bkt.severity) + '</span>';
         html += '</div>';
         var bItems = bkt.items || [];
         for (var bi = 0; bi < bItems.length; bi++) {
           var bItem = bItems[bi];
           html += '<div style="padding:8px 0;' + (bi > 0 ? 'border-top:1px solid rgba(26,47,42,.06);' : '') + '">';
-          html += '<div style="font-size:.82rem;font-weight:600;color:var(--vcx-ink-body,#243548);margin-bottom:3px;">' + escapeHtml(bItem.label) + '</div>';
+          html += '<div style="font-size:.82rem;font-weight:600;color:var(--vcx-ink-body,#243D36);margin-bottom:3px;">' + escapeHtml(bItem.label) + '</div>';
           if (bItem.excerpt) {
-            html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 3px;font-style:italic;">&ldquo;' + escapeHtml(bItem.excerpt.substring(0, 150)) + '&rdquo;</p>';
+            html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin:0 0 3px;font-style:italic;">&ldquo;' + escapeHtml(bItem.excerpt.substring(0, 150)) + '&rdquo;</p>';
           }
           if (bItem.note) {
-            html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0;">' + escapeHtml(bItem.note) + '</p>';
+            html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin:0;">' + escapeHtml(bItem.note) + '</p>';
           }
           html += '</div>';
         }
@@ -248,7 +248,7 @@
         html += '<span style="font-size:.72rem;font-weight:700;color:' + protColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml(prot.severity) + '</span>';
         html += '</div>';
         if (prot.recommendation) {
-          html += '<p style="font-size:.82rem;color:var(--vcx-ink-body,#243548);margin:0;line-height:1.5;">' + escapeHtml(prot.recommendation) + '</p>';
+          html += '<p style="font-size:.82rem;color:var(--vcx-ink-body,#243D36);margin:0;line-height:1.5;">' + escapeHtml(prot.recommendation) + '</p>';
         }
         html += '</div>';
       }
@@ -266,12 +266,12 @@
         var sq = suggestedQ[qi];
         if (sq.category !== prevCat) {
           if (prevCat !== '') html += '</ul>';
-          html += '<div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vcx-ink-muted,#5E6C7B);margin:' + (prevCat ? '14px' : '0') + ' 0 8px;">' + escapeHtml(sq.category) + '</div>';
+          html += '<div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vcx-ink-muted,#7BAE9E);margin:' + (prevCat ? '14px' : '0') + ' 0 8px;">' + escapeHtml(sq.category) + '</div>';
           html += '<ul style="margin:0 0 4px;padding-left:18px;list-style:disc;">';
           prevCat = sq.category;
         }
         var ctxTag = sq.context === 'missing' ? ' <span style="font-size:.68rem;color:#E63757;font-weight:600;margin-left:4px;">MISSING</span>' : '';
-        html += '<li style="font-size:.82rem;line-height:1.5;color:var(--vcx-ink-body,#243548);margin-bottom:4px;">' + escapeHtml(sq.question) + ctxTag + '</li>';
+        html += '<li style="font-size:.82rem;line-height:1.5;color:var(--vcx-ink-body,#243D36);margin-bottom:4px;">' + escapeHtml(sq.question) + ctxTag + '</li>';
       }
       if (prevCat !== '') html += '</ul>';
       html += '</div>';
@@ -286,7 +286,7 @@
     }
 
     // Disclaimer
-    html += '<p style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:16px;">This is an automated preliminary scan. It does not constitute legal advice. Consult licensed counsel before acting on these findings.</p>';
+    html += '<p style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);margin-top:16px;">This is an automated preliminary scan. It does not constitute legal advice. Consult licensed counsel before acting on these findings.</p>';
 
     resultPanel.innerHTML = html;
 
@@ -333,7 +333,7 @@
     resultPanel.style.display = 'block';
     var color = level === 'error' ? '#E63757'
               : level === 'warn'  ? '#F5A623'
-              : 'var(--vcx-ink-muted,#5E6C7B)';
+              : 'var(--vcx-ink-muted,#7BAE9E)';
     resultPanel.innerHTML = '<p style="color:' + color + ';font-size:.9rem;">' + escapeHtml(msg) + '</p>';
   }
 
@@ -450,7 +450,7 @@
     if (!genFields) return;
 
     var fields = COMMON_FIELDS.concat(TYPE_FIELDS[type] || []);
-    var html = '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin:0 0 16px;grid-column:1/-1;">Fields marked * are recommended. All others use standard defaults if left blank.</p>';
+    var html = '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin:0 0 16px;grid-column:1/-1;">Fields marked * are recommended. All others use standard defaults if left blank.</p>';
 
     for (var i = 0; i < fields.length; i++) {
       var f = fields[i];
@@ -625,7 +625,7 @@
     html += '<div class="cr-gen-result-icon">&#9888;&#65039;</div>';
     html += '<h3>Generation Failed</h3>';
     html += '<p style="color:#E63757;">' + escapeHtml(message) + '</p>';
-    html += '<p style="font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);">Check that the backend is running and try again. If the issue persists, contact support.</p>';
+    html += '<p style="font-size:.82rem;color:var(--vcx-ink-muted,#7BAE9E);">Check that the backend is running and try again. If the issue persists, contact support.</p>';
     html += '</div>';
 
     genResult.innerHTML = html;

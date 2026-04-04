@@ -54,7 +54,7 @@
         indicators[j].style.color = '#fff';
       } else {
         indicators[j].style.background = 'rgba(26,47,42,.06)';
-        indicators[j].style.color = 'var(--vcx-ink-muted,#5E6C7B)';
+        indicators[j].style.color = 'var(--vcx-ink-muted,#7BAE9E)';
       }
     }
   }
@@ -222,7 +222,7 @@
   // --- Load analysis results (Step 4) ----------------------
   function loadAnalysis() {
     if (!analysisPanel) return;
-    analysisPanel.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Computing analysis...</p>';
+    analysisPanel.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Computing analysis...</p>';
 
     getPilotDetail()
       .then(function (data) {
@@ -266,7 +266,7 @@
 
     var scenarios = ['conservative', 'moderate', 'aggressive'];
     var labels = { conservative: 'Conservative', moderate: 'Moderate', aggressive: 'Aggressive' };
-    var colors = { conservative: '#5E6C7B', moderate: '#2E4F46', aggressive: '#5BBAA7' };
+    var colors = { conservative: '#7BAE9E', moderate: '#2E4F46', aggressive: '#5BBAA7' };
 
     for (var i = 0; i < scenarios.length; i++) {
       var key = scenarios[i];
@@ -274,7 +274,7 @@
       if (!s) continue;
       html += '<div style="background:rgba(26,47,42,.03);border:1px solid rgba(26,47,42,.08);border-radius:8px;padding:16px;">';
       html += '<h4 style="font-size:.9rem;margin:0 0 10px;color:' + colors[key] + ';">' + labels[key] + '</h4>';
-      html += '<div style="font-size:.82rem;line-height:1.7;color:var(--vcx-ink-body,#243548);">';
+      html += '<div style="font-size:.82rem;line-height:1.7;color:var(--vcx-ink-body,#243D36);">';
       html += 'Recovery Rate: <strong>' + s.new_recovery_rate_pct + '%</strong><br/>';
       html += 'New DSO: <strong>' + s.new_dso + ' days</strong><br/>';
       html += 'Collection Cost: <strong>' + s.new_cost_pct + '%</strong><br/>';
@@ -286,7 +286,7 @@
     }
     html += '</div>';
 
-    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:12px;">These projections are estimates based on the data you provided. Actual results may vary. This does not constitute financial advice.</p>';
+    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin-top:12px;">These projections are estimates based on the data you provided. Actual results may vary. This does not constitute financial advice.</p>';
 
     analysisPanel.innerHTML = html;
   }
@@ -328,10 +328,10 @@
       for (var i = 0; i < phases.length; i++) {
         var phase = phases[i];
         html += '<div style="background:rgba(26,47,42,.03);border-left:3px solid var(--vcx-brand-primary,#2E4F46);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:12px;">';
-        html += '<h4 style="font-size:.92rem;margin:0 0 4px;">' + escapeHtml(phase.name || '') + ' <span style="font-weight:400;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);">(Weeks ' + escapeHtml(phase.weeks || '') + ')</span></h4>';
-        html += '<p style="font-size:.85rem;margin:0 0 8px;color:var(--vcx-ink-body,#243548);">' + escapeHtml(phase.focus || '') + '</p>';
+        html += '<h4 style="font-size:.92rem;margin:0 0 4px;">' + escapeHtml(phase.name || '') + ' <span style="font-weight:400;font-size:.82rem;color:var(--vcx-ink-muted,#7BAE9E);">(Weeks ' + escapeHtml(phase.weeks || '') + ')</span></h4>';
+        html += '<p style="font-size:.85rem;margin:0 0 8px;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(phase.focus || '') + '</p>';
         if (phase.deliverables && phase.deliverables.length > 0) {
-          html += '<ul style="margin:0;padding-left:18px;font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);">';
+          html += '<ul style="margin:0;padding-left:18px;font-size:.82rem;color:var(--vcx-ink-muted,#7BAE9E);">';
           for (var d = 0; d < phase.deliverables.length; d++) {
             html += '<li>' + escapeHtml(phase.deliverables[d]) + '</li>';
           }
@@ -342,7 +342,7 @@
     }
 
     // Disclaimer
-    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);margin-top:20px;padding-top:16px;border-top:1px solid rgba(26,47,42,.08);">' + escapeHtml(brief.disclaimer || 'This executive brief contains estimates based on client-provided data. Actual results may vary.') + '</p>';
+    html += '<p style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);margin-top:20px;padding-top:16px;border-top:1px solid rgba(26,47,42,.08);">' + escapeHtml(brief.disclaimer || 'This executive brief contains estimates based on client-provided data. Actual results may vary.') + '</p>';
 
     briefPanel.innerHTML = html;
   }
@@ -351,7 +351,7 @@
   function kpiCard(label, value) {
     return '<div style="background:#fff;border:1px solid rgba(26,47,42,.08);border-radius:8px;padding:14px 16px;text-align:center;">' +
       '<div style="font-size:1.15rem;font-weight:700;color:var(--vcx-brand-primary,#2E4F46);margin-bottom:4px;">' + escapeHtml(String(value)) + '</div>' +
-      '<div style="font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(label) + '</div>' +
+      '<div style="font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);">' + escapeHtml(label) + '</div>' +
     '</div>';
   }
 

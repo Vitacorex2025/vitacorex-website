@@ -20,16 +20,16 @@
 <style>
 /* Tool page readability overrides — dark surface */
 body[data-vcx-page="immigration-helper"]{
-  background:#07131f !important;
-  color:#e8eff7;
+  background:#1A2F2A !important;
+  color:#E8F5F1;
 }
 body[data-vcx-page="immigration-helper"] label,
 body[data-vcx-page="immigration-helper"] .field label{
-  color:#c8d6e4 !important;
+  color:#C5DDD6 !important;
 }
 body[data-vcx-page="immigration-helper"] .glass label,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard label{
-  color:#e0eaf4 !important;
+  color:#EDF5F2 !important;
 }
 body[data-vcx-page="immigration-helper"] .glass p,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard p{
@@ -46,13 +46,13 @@ body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
 .vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
 .vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
 .vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #1A2F2A; margin-bottom: 4px; }
-.vcx-summary-meta { font-size: 0.8125rem; color: #5E6C7B; }
+.vcx-summary-meta { font-size: 0.8125rem; color: #7BAE9E; }
 .vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(26,47,42,.08); border-radius: 8px; }
 .vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
 .vcx-section-title.vcx-found { color: #2F6B57; }
 .vcx-section-title.vcx-critical { color: #8B4348; }
 .vcx-section-title.vcx-flag { color: #9A6A20; }
-.vcx-section-note { font-size: 0.8125rem; color: #5E6C7B; margin-bottom: 12px; }
+.vcx-section-note { font-size: 0.8125rem; color: #7BAE9E; margin-bottom: 12px; }
 .vcx-clause-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .vcx-clause-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; padding: 6px 0; }
 .vcx-clause-dot { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
@@ -60,13 +60,13 @@ body[data-vcx-page="immigration-helper"] [data-tx="tool_not_legal"]{
 .vcx-clause-missing .vcx-clause-dot { background: rgba(139,67,72,.12); color: #8B4348; }
 .vcx-clause-verify .vcx-clause-dot { background: rgba(154,106,32,.12); color: #9A6A20; }
 .vcx-result-notice { padding: 14px 18px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; }
-.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #355E8A; }
+.vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #3D8E7E; }
 .vcx-notice-warning { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); color: #9A6A20; }
 .vcx-notice-success { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); color: #2F6B57; }
 .vcx-file-notice { padding: 8px 14px; border-radius: 6px; font-size: 0.8125rem; margin-top: 8px; }
-.vcx-result-lead { font-size: 0.9375rem; color: #243548; margin-bottom: 16px; }
+.vcx-result-lead { font-size: 0.9375rem; color: #243D36; margin-bottom: 16px; }
 .vcx-result-cta { margin-top: 20px; }
-.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); border-radius: 8px; color: #d4af37; font-weight: 600; text-decoration: none; font-size: .95rem; }
+.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(91,186,167,.15); border: 1px solid rgba(91,186,167,.4); border-radius: 8px; color: #5BBAA7; font-weight: 600; text-decoration: none; font-size: .95rem; }
 .vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(26,47,42,.08); }
 </style>
 
@@ -245,7 +245,7 @@ window.SITE_I18N = {
 <main id="vcxImmiMain" style="padding:40px 0 80px;">
 <div class="wrap" style="max-width:780px;">
 
-<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(212,175,55,.8);text-decoration:none;">&larr; Private Client Services</a>
+<a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(91,186,167,.8);text-decoration:none;">&larr; Private Client Services</a>
 
 <!-- Compliance banner -->
 <div style="background:rgba(255,180,0,.06);border:1px solid rgba(255,180,0,.2);border-radius:8px;padding:12px 16px;margin-bottom:28px;font-size:.85rem;color:rgba(255,200,100,.75);" data-tx="tool_not_legal">
@@ -263,9 +263,9 @@ Not legal advice. Not a filing service. For document organization only.
 <label for="vcxFormFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:8px;">Upload your form or notice</label>
 <p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.5);margin:0 0 16px;">USCIS PDF form or immigration notice (.txt for full analysis). PDF text extraction is limited — scanned and image files cannot be read.</p>
 
-<div id="vcxDropZone" style="border:2px dashed rgba(212,175,55,.35);border-radius:8px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxFormFile').click()">
+<div id="vcxDropZone" style="border:2px dashed rgba(91,186,167,.35);border-radius:8px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxFormFile').click()">
 <div style="font-size:2rem;margin-bottom:8px;">📋</div>
-<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(212,175,55,.85);font-weight:500;">Choose file to upload</span>
+<span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(91,186,167,.85);font-weight:500;">Choose file to upload</span>
 <div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
 </div>
 <input type="file" id="vcxFormFile" accept=".pdf,application/pdf,.txt,.md,.text" style="display:none;" onchange="vcxHandleFile(this)"/>
@@ -277,7 +277,7 @@ Not legal advice. Not a filing service. For document organization only.
 </details>
 
 <button id="vcxAnalyzeBtn" type="button" onclick="vcxAnalyzeForm()" disabled
-  style="margin-top:22px;width:100%;padding:16px;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);border-radius:8px;color:#d4af37;font-size:1rem;font-weight:600;cursor:pointer;"
+  style="margin-top:22px;width:100%;padding:16px;background:rgba(91,186,167,.15);border:1px solid rgba(91,186,167,.4);border-radius:8px;color:#5BBAA7;font-size:1rem;font-weight:600;cursor:pointer;"
   data-tx="tool_scan_btn">Analyze packet</button>
 
 <div id="vcxAnalyzeStatus" style="display:none;text-align:center;padding:16px;font-size:.9rem;color:rgba(255,255,255,.6);" data-tx="tool_analyzing">Reviewing your form&hellip;</div>

@@ -260,7 +260,7 @@
     if (!matterList) return;
 
     if (matters.length === 0) {
-      matterList.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">No matters found for this account.</p>';
+      matterList.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">No matters found for this account.</p>';
       return;
     }
 
@@ -269,14 +269,14 @@
       var statusColor = m.status === 'intake_received' ? '#F5A623'
                       : m.status === 'in_review' ? '#2E4F46'
                       : m.status === 'complete' ? '#38B249'
-                      : '#5E6C7B';
+                      : '#7BAE9E';
 
       html +=
         '<div class="vcx-matter-card" data-matter-id="' + escapeAttr(m.id) + '" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid rgba(26,47,42,.08);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:background .15s;"' +
         ' onmouseover="this.style.background=\'rgba(26,47,42,.03)\'" onmouseout="this.style.background=\'#fff\'">';
       html += '<div>';
       html += '<span style="font-size:.88rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);">' + escapeHtml(m.id.substring(0, 8)) + '...</span>';
-      html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#5E6C7B);margin-left:10px;">' + escapeHtml((m.service_type || '').replace(/_/g, ' ')) + '</span>';
+      html += '<span style="font-size:.82rem;color:var(--vcx-ink-muted,#7BAE9E);margin-left:10px;">' + escapeHtml((m.service_type || '').replace(/_/g, ' ')) + '</span>';
       html += '</div>';
       html += '<div>';
       html += '<span style="font-size:.72rem;font-weight:600;color:' + statusColor + ';text-transform:uppercase;letter-spacing:.08em;">' + escapeHtml((m.status || '').replace(/_/g, ' ')) + '</span>';
@@ -301,11 +301,11 @@
     activeMatterId = matterId;
 
     // Show loading in all sections
-    if (matterDetail) matterDetail.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading matter details...</p>';
-    if (timeline) timeline.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading timeline...</p>';
-    if (documents) documents.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading documents...</p>';
-    if (comments) comments.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading comments...</p>';
-    if (deliverables) deliverables.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#5E6C7B);">Loading deliverables...</p>';
+    if (matterDetail) matterDetail.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Loading matter details...</p>';
+    if (timeline) timeline.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Loading timeline...</p>';
+    if (documents) documents.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Loading documents...</p>';
+    if (comments) comments.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Loading comments...</p>';
+    if (deliverables) deliverables.innerHTML = '<p style="font-size:.9rem;color:var(--vcx-ink-muted,#7BAE9E);">Loading deliverables...</p>';
 
     // Highlight active card
     var cards = matterList ? matterList.querySelectorAll('.vcx-matter-card') : [];
@@ -359,7 +359,7 @@
   function renderTimeline(items) {
     if (!timeline) return;
     if (items.length === 0) {
-      timeline.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No timeline events yet.</p>';
+      timeline.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#7BAE9E);">No timeline events yet.</p>';
       return;
     }
     var html = '';
@@ -368,8 +368,8 @@
       html += '<div style="width:8px;min-height:8px;border-radius:50%;background:var(--vcx-brand-primary,#2E4F46);margin-top:6px;flex-shrink:0;"></div>';
       html += '<div>';
       html += '<strong style="font-size:.85rem;">' + escapeHtml(item.title || '') + '</strong>';
-      if (item.description) html += '<p style="font-size:.82rem;margin:2px 0 0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(item.description) + '</p>';
-      html += '<small style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(item.date || '') + '</small>';
+      if (item.description) html += '<p style="font-size:.82rem;margin:2px 0 0;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(item.description) + '</p>';
+      html += '<small style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);">' + escapeHtml(item.date || '') + '</small>';
       html += '</div></div>';
     });
     timeline.innerHTML = html;
@@ -378,14 +378,14 @@
   function renderDocuments(docs) {
     if (!documents) return;
     if (docs.length === 0) {
-      documents.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No documents uploaded yet.</p>';
+      documents.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#7BAE9E);">No documents uploaded yet.</p>';
       return;
     }
     var html = '';
     docs.forEach(function (doc) {
       html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
-      html += '<span style="font-size:.85rem;color:var(--vcx-ink-body,#243548);">' + escapeHtml(doc.name || '') + '</span>';
-      html += '<div style="display:flex;gap:12px;font-size:.78rem;color:var(--vcx-ink-muted,#5E6C7B);">';
+      html += '<span style="font-size:.85rem;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(doc.name || '') + '</span>';
+      html += '<div style="display:flex;gap:12px;font-size:.78rem;color:var(--vcx-ink-muted,#7BAE9E);">';
       html += '<span>' + escapeHtml(doc.size || '') + '</span>';
       html += '<span>' + escapeHtml(doc.date || '') + '</span>';
       html += '</div></div>';
@@ -401,7 +401,7 @@
     var html = '<h3 style="font-size:.95rem;margin:20px 0 10px;color:var(--vcx-brand-primary,#2E4F46);">Checklist</h3>';
     items.forEach(function (item) {
       var icon = item.is_complete ? '&#9745;' : '&#9744;';
-      var style = item.is_complete ? 'color:var(--vcx-ink-muted,#5E6C7B);text-decoration:line-through;' : '';
+      var style = item.is_complete ? 'color:var(--vcx-ink-muted,#7BAE9E);text-decoration:line-through;' : '';
       html += '<div style="font-size:.85rem;padding:4px 0;' + style + '">';
       html += '<span>' + icon + '</span> ' + escapeHtml(item.label || '');
       html += '</div>';
@@ -418,13 +418,13 @@
         html += '<div style="padding:12px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">';
         html += '<span style="font-size:.82rem;font-weight:600;color:var(--vcx-brand-primary,#2E4F46);">' + escapeHtml(c.author || 'Client') + '</span>';
-        html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(c.timestamp || '') + '</span>';
+        html += '<span style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);">' + escapeHtml(c.timestamp || '') + '</span>';
         html += '</div>';
-        html += '<p style="font-size:.85rem;margin:0;color:var(--vcx-ink-body,#243548);">' + escapeHtml(c.content || '') + '</p>';
+        html += '<p style="font-size:.85rem;margin:0;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(c.content || '') + '</p>';
         html += '</div>';
       });
     } else {
-      html += '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);margin-bottom:12px;">No comments yet.</p>';
+      html += '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#7BAE9E);margin-bottom:12px;">No comments yet.</p>';
     }
 
     // Comment form
@@ -450,18 +450,18 @@
   function renderDeliverables(items) {
     if (!deliverables) return;
     if (items.length === 0) {
-      deliverables.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#5E6C7B);">No deliverables yet.</p>';
+      deliverables.innerHTML = '<p style="font-size:.88rem;color:var(--vcx-ink-muted,#7BAE9E);">No deliverables yet.</p>';
       return;
     }
     var html = '';
     items.forEach(function (d) {
       var statusColor = d.status === 'delivered' ? '#38B249'
                       : d.status === 'in_progress' ? '#F5A623'
-                      : '#5E6C7B';
+                      : '#7BAE9E';
       html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
       html += '<div>';
-      html += '<span style="font-size:.85rem;font-weight:600;color:var(--vcx-ink-body,#243548);">' + escapeHtml(d.name || '') + '</span>';
-      if (d.description) html += '<p style="font-size:.78rem;margin:2px 0 0;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(d.description) + '</p>';
+      html += '<span style="font-size:.85rem;font-weight:600;color:var(--vcx-ink-body,#243D36);">' + escapeHtml(d.name || '') + '</span>';
+      if (d.description) html += '<p style="font-size:.78rem;margin:2px 0 0;color:var(--vcx-ink-muted,#7BAE9E);">' + escapeHtml(d.description) + '</p>';
       html += '</div>';
       html += '<span style="font-size:.72rem;font-weight:600;color:' + statusColor + ';text-transform:uppercase;">' + escapeHtml((d.status || '').replace(/_/g, ' ')) + '</span>';
       html += '</div>';
@@ -522,7 +522,7 @@
   function detailCard(label, value) {
     return '<div style="background:rgba(26,47,42,.03);border-radius:6px;padding:12px 14px;text-align:center;">' +
       '<div style="font-size:.95rem;font-weight:700;color:var(--vcx-brand-primary,#2E4F46);margin-bottom:2px;text-transform:capitalize;">' + escapeHtml(String(value)) + '</div>' +
-      '<div style="font-size:.75rem;color:var(--vcx-ink-muted,#5E6C7B);">' + escapeHtml(label) + '</div>' +
+      '<div style="font-size:.75rem;color:var(--vcx-ink-muted,#7BAE9E);">' + escapeHtml(label) + '</div>' +
     '</div>';
   }
 

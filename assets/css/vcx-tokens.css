@@ -12,18 +12,18 @@
   --bg-surface:  #FBF8F3;   /* slightly lighter surface */
   --bg-elevated: #FFFFFF;   /* cards, modals */
   --bg-ink:      #1A2F2A;   /* dark sections, footer */
-  --bg-ink-soft: #162338;   /* slightly lighter dark */
+  --bg-ink-soft: #243D36;   /* slightly lighter dark */
 
   /* INK / TEXT */
   --ink-strong:  #1A2F2A;   /* headings, key copy */
-  --ink-body:    #243548;   /* body text */
+  --ink-body:    #2E4F46;   /* body text */
   --ink-muted:   #5E6C7B;   /* secondary text, captions */
   --ink-faint:   #8A98A8;   /* placeholder, disabled */
 
   /* BRAND */
   --brand-primary:   #2E4F46;  /* primary brand, CTAs */
   --brand-secondary: #58707E;  /* slate — secondary elements */
-  --brand-hover:     #0F2A4D;  /* darker navy on hover */
+  --brand-hover:     #1A2F2A;  /* darker navy on hover */
 
   /* ACCENT — used sparingly */
   --accent-gold:     #5BBAA7;  /* dividers, badges, focus, icon details */

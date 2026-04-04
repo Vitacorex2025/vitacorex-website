@@ -5,7 +5,7 @@
 
 body[data-vcx-page="vcx-packet-room"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- Auth gate ------------------------------------------- */
@@ -61,13 +61,13 @@ body[data-vcx-page="vcx-packet-room"] {
   font-size: 12px;
   font-weight: 600;
   background: var(--vcx-bg-muted, #EDE8DF);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 .pr-matter-card .pr-matter-id {
   font-size: 14px;
   font-weight: 600;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
 }
 
 /* --- Timeline -------------------------------------------- */
@@ -138,7 +138,7 @@ body[data-vcx-page="vcx-packet-room"] {
   flex: 1;
   font-size: 14px;
   font-weight: 600;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
 }
 
 .pr-doc-row .pr-doc-size,
@@ -166,7 +166,7 @@ body[data-vcx-page="vcx-packet-room"] {
 .pr-comment .pr-comment-author {
   font-size: 14px;
   font-weight: 600;
-  color: var(--vcx-ink-heading, #1A2A3A);
+  color: var(--vcx-ink-heading, #1A2F2A);
 }
 
 .pr-comment .pr-comment-time {
@@ -205,5 +205,5 @@ body[data-vcx-page="vcx-packet-room"] {
   font-size: 12px;
   font-weight: 600;
   background: var(--vcx-bg-muted, #EDE8DF);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }

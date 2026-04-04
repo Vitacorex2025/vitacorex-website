@@ -5,7 +5,7 @@
 
 body[data-vcx-page="vcx-intake"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
 }
 
 /* --- 3-column card grid ---------------------------------- */
@@ -111,6 +111,6 @@ body[data-vcx-page="vcx-intake"] {
 }
 
 .vi-step.is-active .vi-step-label {
-  color: var(--vcx-ink-body, #243548);
+  color: var(--vcx-ink-body, #2E4F46);
   font-weight: 600;
 }

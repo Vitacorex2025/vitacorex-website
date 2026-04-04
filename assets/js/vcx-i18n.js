@@ -308,9 +308,13 @@ w.VCX_I18N = {
   }
 };
 
-/* ─── vcxCurrentLang — ENGLISH ONLY (public release) ──────── */
-w.vcxCurrentLang = function() {
-  return 'en'; // Public release: always English, never read localStorage
+/* ─── vcxCurrentLang — respects localStorage preference ──── */
+w.vcxCurrentLang = w.vcxCurrentLang || function() {
+  try {
+    var s = localStorage.getItem('vcx_lang');
+    if (s && (s === 'en' || s === 'ru' || s === 'es')) return s;
+  } catch(e) {}
+  return 'en';
 };
 
 /* ─── t() — translation lookup helper ───────────────────────
@@ -327,11 +331,12 @@ w.vcxT = function(key, fallback) {
 /* ─── setLang — apply language to entire page ────────────────
    Call this on lang button click and on DOMContentLoaded
    ──────────────────────────────────────────────────────────── */
-w.vcxSetLang = function(lang) {
-  lang = 'en'; // Public release: always English, ignore lang parameter
-  // Do NOT write to localStorage on public release
-  document.documentElement.lang = 'en';
-  document.documentElement.setAttribute('lang', 'en');
+w.vcxSetLang = w.vcxSetLang || function(lang) {
+  var supported = ['en', 'ru', 'es'];
+  if (supported.indexOf(lang) === -1) lang = 'en';
+  try { localStorage.setItem('vcx_lang', lang); } catch(e) {}
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('lang', lang);
 
   // Update all data-common attributes (SITE_I18N system)
   var d = (w.SITE_I18N && w.SITE_I18N[lang]) || {};
@@ -367,9 +372,9 @@ w.vcxSetLang = function(lang) {
 
 /* ─── Init on DOMContentLoaded ───────────────────────────── */
 document.addEventListener('DOMContentLoaded', function() {
-  // Public release: lang buttons are hidden via CSS; do NOT wire click handlers
-  // Always apply English
-  w.vcxSetLang('en');
+  // Apply saved language preference (or default 'en')
+  var lang = w.vcxCurrentLang ? w.vcxCurrentLang() : 'en';
+  w.vcxSetLang(lang);
 });
 
 })(window);
