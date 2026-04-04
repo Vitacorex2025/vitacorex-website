@@ -13,7 +13,7 @@ load_dotenv()
 
 from .db import init_db
 from .rate_limit import limiter
-from .routers import chat, contracts, intakes, matters, portal, recovery, review, uploads
+from .routers import ai_analyze, calendar, chat, contracts, intakes, matters, portal, recovery, review, uploads
 
 app = FastAPI(
     title="VCX Intake OS",
@@ -63,3 +63,5 @@ app.include_router(chat.router)
 app.include_router(contracts.router)
 app.include_router(recovery.router)
 app.include_router(portal.router)
+app.include_router(ai_analyze.router)
+app.include_router(calendar.router)

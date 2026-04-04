@@ -166,11 +166,7 @@ async function runLookup(tab){
       plate_state:  el('tolls_plate_state') ? el('tolls_plate_state').value : 'FL',
       invoice_number: invoice
     };
-    // Tolls: at least plate OR invoice required
-    if(!plate && !invoice){
-      showFieldError('tolls_plate_number', 'Enter a plate number or invoice number below');
-      valid = false;
-    }
+    // All fields optional — tool only shows portal links
   } else if(tab === 'traffic'){
     clearFieldErrors('vcx-form-traffic');
     var county = el('traffic_fl_county') ? el('traffic_fl_county').value : '';
@@ -194,11 +190,7 @@ async function runLookup(tab){
       case_number: caseNum,
       role_filter: el('courts_role_filter') ? el('courts_role_filter').value       : 'any'
     };
-    // Courts: name or case number required
-    if(!fullName && !caseNum){
-      showFieldError('courts_full_name', 'Enter a name or case number below');
-      valid = false;
-    }
+    // All fields optional — tool only shows portal links
   }
 
   if(!valid){

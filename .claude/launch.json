@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "vcx-frontend",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "require('child_process').execSync('echo ok')"],
+      "name": "vcx-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "-p", "8080", "-c-1", "--cors"],
       "port": 8080
     }
   ]

@@ -1,0 +1,517 @@
+/**
+ * VitaCoreX Deadline Calendar — Premium Styles
+ * Mobile-first, iPhone-optimised, premium light design
+ */
+
+/* ── View container ─────────────────────────────────────────────── */
+.dcal-app { max-width: 960px; margin: 0 auto; padding: 0 16px 32px; }
+.dcal-hidden { display: none !important; }
+
+/* ── Tab navigation (Home / Calendar) ───────────────────────────── */
+.dcal-tabs {
+  display: flex; gap: 4px;
+  background: #FFFFFF;
+  border: 1px solid rgba(26,79,74,.08);
+  border-radius: 12px; padding: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.03);
+}
+.dcal-tab {
+  flex: 1; padding: 12px 8px;
+  border: none; border-radius: 9px;
+  background: transparent;
+  color: #4A6B66; font-weight: 600; font-size: .88rem;
+  cursor: pointer; transition: all .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.dcal-tab.active {
+  background: linear-gradient(145deg, #1A4F4A 0%, #2D8A82 100%);
+  color: #FFF; box-shadow: 0 2px 8px rgba(26,79,74,.2);
+}
+
+/* ── KPI cards (top strip) ──────────────────────────────────────── */
+.dcal-kpi-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  margin-bottom: 20px;
+}
+.dcal-kpi {
+  background: #FFF; border: 1px solid rgba(26,79,74,.08);
+  border-radius: 10px; padding: 14px 10px; text-align: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,.03);
+}
+.dcal-kpi-value {
+  font-size: 1.6rem; font-weight: 700; color: #1A4F4A;
+  line-height: 1;
+}
+.dcal-kpi-value.danger { color: #DC2626; }
+.dcal-kpi-value.warning { color: #D97706; }
+.dcal-kpi-label {
+  font-size: .68rem; color: #6B8E89; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .04em; margin-top: 4px;
+}
+
+/* ── Risk buckets ───────────────────────────────────────────────── */
+.dcal-risk-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 20px;
+}
+.dcal-risk-card {
+  background: #FFF; border: 1px solid rgba(26,79,74,.08);
+  border-radius: 10px; padding: 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.03);
+  cursor: pointer; transition: transform .15s, box-shadow .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.dcal-risk-card:active { transform: scale(.97); }
+.dcal-risk-card.overdue { border-left: 3px solid #DC2626; }
+.dcal-risk-card.today { border-left: 3px solid #D97706; }
+.dcal-risk-card.tomorrow { border-left: 3px solid #2D8A82; }
+.dcal-risk-card.next_7_days { border-left: 3px solid #6B8E89; }
+.dcal-risk-count {
+  font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: 2px;
+}
+.dcal-risk-card.overdue .dcal-risk-count { color: #DC2626; }
+.dcal-risk-card.today .dcal-risk-count { color: #D97706; }
+.dcal-risk-card.tomorrow .dcal-risk-count { color: #1A4F4A; }
+.dcal-risk-card.next_7_days .dcal-risk-count { color: #6B8E89; }
+.dcal-risk-label { font-size: .82rem; font-weight: 600; color: #2A4A46; }
+.dcal-risk-helper { font-size: .7rem; color: #8AA5A0; margin-top: 4px; }
+
+/* ── Weekly memory strip ────────────────────────────────────────── */
+.dcal-section-title {
+  font-size: .92rem; font-weight: 700; color: #0F2B28;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+}
+.dcal-weekly-strip {
+  display: flex; gap: 10px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; padding-bottom: 4px;
+}
+.dcal-weekly-strip::-webkit-scrollbar { display: none; }
+.dcal-week-card {
+  flex: 0 0 140px; background: #FFF;
+  border: 1px solid rgba(26,79,74,.08);
+  border-radius: 10px; padding: 12px;
+  cursor: pointer; transition: all .15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.03);
+  -webkit-tap-highlight-color: transparent;
+}
+.dcal-week-card:active { transform: scale(.97); }
+.dcal-week-card.is-today {
+  border-color: #2D8A82;
+  box-shadow: 0 2px 10px rgba(45,138,130,.15);
+}
+.dcal-week-label { font-size: .78rem; font-weight: 700; color: #1A4F4A; }
+.dcal-week-date { font-size: .68rem; color: #8AA5A0; margin-bottom: 6px; }
+.dcal-week-note {
+  font-size: .72rem; color: #4A6B66; font-style: italic;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+.dcal-week-event {
+  display: flex; align-items: center; gap: 4px; margin-top: 3px;
+}
+.dcal-event-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+}
+.dcal-event-dot.hearing { background: #DC2626; }
+.dcal-event-dot.payment { background: #D97706; }
+.dcal-event-dot.call { background: #2563EB; }
+.dcal-event-dot.followup { background: #2D8A82; }
+.dcal-event-dot.doc { background: #6B7280; }
+.dcal-week-event-title {
+  font-size: .7rem; color: #2A4A46;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dcal-week-overflow { font-size: .65rem; color: #8AA5A0; margin-top: 3px; }
+.dcal-pressure-badge {
+  display: inline-block; background: #FEF2F2; color: #DC2626;
+  font-size: .6rem; font-weight: 700; padding: 2px 6px;
+  border-radius: 6px; margin-left: 4px;
+}
+
+/* ── Calendar grid (month view) ─────────────────────────────────── */
+.dcal-month-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.dcal-month-label {
+  font-size: 1.1rem; font-weight: 700; color: #0F2B28;
+}
+.dcal-nav-btn {
+  width: 40px; height: 40px; border: 1px solid rgba(26,79,74,.12);
+  border-radius: 10px; background: #FFF; color: #1A4F4A;
+  font-size: 1.1rem; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  transition: all .15s; -webkit-tap-highlight-color: transparent;
+}
+.dcal-nav-btn:active { background: #EFF8F6; transform: scale(.95); }
+.dcal-weekday-row {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+  margin-bottom: 4px;
+}
+.dcal-weekday-cell {
+  text-align: center; font-size: .68rem; font-weight: 600;
+  color: #8AA5A0; padding: 6px 0; text-transform: uppercase;
+}
+.dcal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+}
+.dcal-day-cell {
+  aspect-ratio: 1; background: #FFF; border: 1px solid rgba(26,79,74,.06);
+  border-radius: 8px; padding: 4px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center;
+  transition: all .12s; position: relative;
+  -webkit-tap-highlight-color: transparent; min-height: 44px;
+}
+.dcal-day-cell:active { background: #EFF8F6; }
+.dcal-day-cell.other-month { opacity: .35; }
+.dcal-day-cell.is-today {
+  border-color: #2D8A82; background: #F0FAF8;
+  box-shadow: 0 0 0 2px rgba(45,138,130,.12);
+}
+.dcal-day-cell.selected {
+  border-color: #1A4F4A; background: #E8F5F1;
+  box-shadow: 0 0 0 2px rgba(26,79,74,.15);
+}
+.dcal-day-cell.has-events::after {
+  content: ''; position: absolute; bottom: 4px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #2D8A82;
+}
+.dcal-day-cell.has-overdue::after { background: #DC2626; }
+.dcal-day-num {
+  font-size: .82rem; font-weight: 600; color: #2A4A46;
+  line-height: 1;
+}
+.dcal-day-cell.is-today .dcal-day-num {
+  color: #FFF; background: #1A4F4A;
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Day detail panel ───────────────────────────────────────────── */
+.dcal-day-panel {
+  background: #FFF; border: 1px solid rgba(26,79,74,.08);
+  border-radius: 14px; padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  margin-top: 16px; animation: dcalSlideUp .25s ease;
+}
+@keyframes dcalSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dcal-day-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.dcal-day-title {
+  font-size: 1.05rem; font-weight: 700; color: #0F2B28;
+}
+.dcal-day-close {
+  width: 32px; height: 32px; border: none; border-radius: 8px;
+  background: #F0F5F4; color: #6B8E89; font-size: 1rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Event list in day panel ────────────────────────────────────── */
+.dcal-event-list { margin-bottom: 16px; }
+.dcal-event-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px; border-radius: 8px; margin-bottom: 6px;
+  background: #F7FAFA; border: 1px solid rgba(26,79,74,.06);
+  transition: background .15s;
+}
+.dcal-event-item.priority-high { border-left: 3px solid #DC2626; }
+.dcal-event-item.priority-medium { border-left: 3px solid #D97706; }
+.dcal-event-type-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; flex-shrink: 0;
+}
+.dcal-event-type-icon.hearing { background: #FEF2F2; color: #DC2626; }
+.dcal-event-type-icon.payment { background: #FFFBEB; color: #D97706; }
+.dcal-event-type-icon.call { background: #EFF6FF; color: #2563EB; }
+.dcal-event-type-icon.followup { background: #F0FAF8; color: #2D8A82; }
+.dcal-event-type-icon.doc { background: #F3F4F6; color: #6B7280; }
+.dcal-event-info { flex: 1; min-width: 0; }
+.dcal-event-title-text {
+  font-size: .88rem; font-weight: 600; color: #0F2B28;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dcal-event-meta {
+  font-size: .72rem; color: #6B8E89; margin-top: 2px;
+}
+.dcal-event-actions {
+  display: flex; gap: 4px; flex-shrink: 0;
+}
+.dcal-event-action {
+  width: 30px; height: 30px; border: 1px solid rgba(26,79,74,.1);
+  border-radius: 6px; background: #FFF; color: #6B8E89;
+  font-size: .75rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.dcal-event-action:active { background: #F0F5F4; }
+.dcal-ics-btn { font-size: .7rem !important; color: #2D8A82 !important; border-color: rgba(45,138,130,.2) !important; }
+.dcal-ics-btn:active { background: #F0FAF8 !important; }
+.dcal-empty-state {
+  text-align: center; padding: 24px 16px; color: #8AA5A0;
+  font-size: .88rem;
+}
+
+/* ── Day note ───────────────────────────────────────────────────── */
+.dcal-note-section { margin-top: 14px; }
+.dcal-note-label {
+  font-size: .75rem; font-weight: 600; color: #6B8E89;
+  text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px;
+}
+.dcal-note-input {
+  width: 100%; border: 1px solid #D1DDD9; border-radius: 8px;
+  padding: 10px 12px; font-size: .88rem; color: #1A2A28;
+  background: #FFF; resize: vertical; min-height: 60px;
+  font-family: inherit; box-sizing: border-box;
+}
+.dcal-note-input:focus {
+  border-color: #2D8A82; outline: none;
+  box-shadow: 0 0 0 3px rgba(45,138,130,.1);
+}
+
+/* ── Quick add bar ──────────────────────────────────────────────── */
+.dcal-quick-add {
+  display: flex; gap: 8px; margin-top: 14px; align-items: center;
+}
+.dcal-quick-input {
+  flex: 1; border: 1px solid #D1DDD9; border-radius: 10px;
+  padding: 12px 14px; font-size: .9rem; color: #1A2A28;
+  background: #FFF; box-sizing: border-box;
+}
+.dcal-quick-input:focus {
+  border-color: #2D8A82; outline: none;
+  box-shadow: 0 0 0 3px rgba(45,138,130,.1);
+}
+.dcal-quick-input::placeholder { color: #A0B8B3; }
+.dcal-add-btn {
+  padding: 12px 18px; border: none; border-radius: 10px;
+  background: linear-gradient(145deg, #1A4F4A 0%, #2D8A82 100%);
+  color: #FFF; font-weight: 600; font-size: .88rem;
+  cursor: pointer; white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(26,79,74,.18);
+  -webkit-tap-highlight-color: transparent;
+}
+.dcal-add-btn:active { transform: scale(.96); }
+.dcal-ai-tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px 8px; border-radius: 6px; font-size: .65rem; font-weight: 700;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6); color: #FFF;
+  letter-spacing: .04em; white-space: nowrap; flex-shrink: 0;
+}
+.dcal-smart-preview {
+  font-size: .78rem; color: #6366F1; font-weight: 500;
+  min-height: 1.2em; margin-top: 6px; padding-left: 2px;
+  transition: opacity .15s;
+}
+
+/* ── Event type selector (mini pills) ───────────────────────────── */
+.dcal-type-pills {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;
+}
+.dcal-type-pill {
+  padding: 6px 12px; border: 1px solid #D1DDD9; border-radius: 20px;
+  background: #FFF; color: #4A6B66; font-size: .75rem; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.dcal-type-pill.active { background: #1A4F4A; color: #FFF; border-color: #1A4F4A; }
+.dcal-type-pill:active { transform: scale(.95); }
+
+/* ── Priority selector ──────────────────────────────────────────── */
+.dcal-priority-pills {
+  display: flex; gap: 6px; margin-top: 8px;
+}
+.dcal-priority-pill {
+  padding: 6px 14px; border: 1px solid #D1DDD9; border-radius: 20px;
+  background: #FFF; font-size: .75rem; font-weight: 600;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.dcal-priority-pill.low { color: #6B8E89; }
+.dcal-priority-pill.medium { color: #D97706; }
+.dcal-priority-pill.high { color: #DC2626; }
+.dcal-priority-pill.active { color: #FFF; }
+.dcal-priority-pill.active.low { background: #6B8E89; border-color: #6B8E89; }
+.dcal-priority-pill.active.medium { background: #D97706; border-color: #D97706; }
+.dcal-priority-pill.active.high { background: #DC2626; border-color: #DC2626; }
+
+/* ── Loading state ──────────────────────────────────────────────── */
+.dcal-loading {
+  text-align: center; padding: 40px; color: #8AA5A0;
+}
+.dcal-spinner {
+  width: 32px; height: 32px; border: 3px solid #E8F5F1;
+  border-top-color: #2D8A82; border-radius: 50%;
+  animation: dcalSpin .7s linear infinite; margin: 0 auto 12px;
+}
+@keyframes dcalSpin { to { transform: rotate(360deg); } }
+
+/* ── AI badge ───────────────────────────────────────────────────── */
+.dcal-ai-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: linear-gradient(135deg, #E8F5F1, #D4EDE7);
+  color: #1A4F4A; font-size: .65rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 10px;
+  border: 1px solid rgba(26,79,74,.12);
+  text-transform: uppercase; letter-spacing: .04em;
+}
+
+/* ── Mobile responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .dcal-kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .dcal-risk-grid { grid-template-columns: 1fr; }
+  .dcal-day-cell { min-height: 40px; }
+  .dcal-day-num { font-size: .75rem; }
+  .dcal-day-panel { padding: 16px; border-radius: 12px; }
+  .dcal-quick-add { flex-direction: column; }
+  .dcal-add-btn { width: 100%; text-align: center; padding: 14px; }
+  .dcal-quick-input, .dcal-note-input { font-size: 16px !important; }
+}
+@media (min-width: 768px) {
+  .dcal-risk-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2-WEEK (FORTNIGHT) APPLE CALENDAR GRID — events visible in cells
+   ══════════════════════════════════════════════════════════════════ */
+.dcal-fortnight { margin-bottom: 16px; }
+
+.dcal-fortnight-nav {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-bottom: 12px;
+}
+.dcal-fortnight-label {
+  font-size: 1.05rem; font-weight: 700; color: #0F2B28;
+  min-width: 180px; text-align: center;
+}
+.dcal-today-btn {
+  font-size: .76rem !important; font-weight: 600 !important;
+  width: auto !important; padding: 0 14px !important;
+  color: #2D8A82 !important; border-color: #2D8A82 !important;
+}
+.dcal-today-btn:active { background: #F0FAF8 !important; }
+
+/* ── The 7×2 grid ──────────────────────────────────────────────── */
+.dcal-fortnight-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
+}
+
+/* ── Individual day cell ───────────────────────────────────────── */
+.dcal-fn-cell {
+  background: #FFF; border: 1px solid rgba(26,79,74,.06);
+  border-radius: 8px; padding: 4px 3px 5px; min-height: 82px;
+  cursor: pointer; display: flex; flex-direction: column;
+  transition: all .12s; -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+.dcal-fn-cell:active { background: #EFF8F6; transform: scale(.97); }
+.dcal-fn-cell.is-today {
+  border-color: #2D8A82; background: #F0FAF8;
+  box-shadow: 0 0 0 2px rgba(45,138,130,.12);
+}
+.dcal-fn-cell.selected {
+  border-color: #1A4F4A; background: #E8F5F1;
+  box-shadow: 0 0 0 2px rgba(26,79,74,.15);
+}
+.dcal-fn-cell.is-past { opacity: .55; }
+.dcal-fn-cell.is-past.has-events { opacity: .75; }
+.dcal-fn-cell.is-weekend { background: #FAFCFB; }
+.dcal-fn-cell.is-today.is-weekend { background: #F0FAF8; }
+.dcal-fn-cell.has-overdue { border-color: rgba(220,38,38,.3); }
+
+/* ── Day number ────────────────────────────────────────────────── */
+.dcal-fn-num {
+  font-size: .72rem; font-weight: 600; color: #4A6B66;
+  margin-bottom: 2px; line-height: 1;
+}
+.dcal-fn-num.today-circle {
+  color: #FFF; background: #1A4F4A;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .68rem;
+}
+
+/* ── Event chips (VISIBLE TEXT, not dots) ──────────────────────── */
+.dcal-cell-chip {
+  display: flex; align-items: center; gap: 2px;
+  padding: 1px 3px; border-radius: 3px;
+  margin-top: 1px; min-height: 14px; overflow: hidden;
+}
+.dcal-cell-chip.done { opacity: .5; }
+.dcal-cell-chip.done .dcal-chip-text { text-decoration: line-through; }
+
+/* Event type backgrounds */
+.dcal-cell-chip.hearing { background: #FEF2F2; }
+.dcal-cell-chip.payment { background: #FFFBEB; }
+.dcal-cell-chip.call    { background: #EFF6FF; }
+.dcal-cell-chip.followup { background: #F0FAF8; }
+.dcal-cell-chip.doc     { background: #F3F4F6; }
+
+/* Color bar (left accent) */
+.dcal-chip-bar {
+  width: 2px; min-height: 10px; border-radius: 1px; flex-shrink: 0;
+}
+.dcal-cell-chip.hearing .dcal-chip-bar  { background: #DC2626; }
+.dcal-cell-chip.payment .dcal-chip-bar  { background: #D97706; }
+.dcal-cell-chip.call .dcal-chip-bar     { background: #2563EB; }
+.dcal-cell-chip.followup .dcal-chip-bar { background: #2D8A82; }
+.dcal-cell-chip.doc .dcal-chip-bar      { background: #6B7280; }
+
+/* Event title text — READABLE */
+.dcal-chip-text {
+  font-size: .58rem; font-weight: 500; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dcal-cell-chip.hearing .dcal-chip-text  { color: #DC2626; }
+.dcal-cell-chip.payment .dcal-chip-text  { color: #92400E; }
+.dcal-cell-chip.call .dcal-chip-text     { color: #1E40AF; }
+.dcal-cell-chip.followup .dcal-chip-text { color: #1A4F4A; }
+.dcal-cell-chip.doc .dcal-chip-text      { color: #4B5563; }
+
+/* Overflow (+N more) */
+.dcal-cell-more {
+  font-size: .52rem; color: #8AA5A0; padding: 0 3px; margin-top: 1px;
+}
+
+/* Day note preview */
+.dcal-cell-note {
+  font-size: .5rem; color: #6B8E89; font-style: italic;
+  padding: 0 2px; margin-top: auto;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ── KPI compact mode ──────────────────────────────────────────── */
+.dcal-kpi-compact { margin-bottom: 14px; }
+.dcal-kpi-compact .dcal-kpi { padding: 10px 6px; }
+.dcal-kpi-compact .dcal-kpi-value { font-size: 1.3rem; }
+
+/* ── Fortnight mobile responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .dcal-fn-cell { min-height: 68px; padding: 3px 2px 4px; }
+  .dcal-fn-num { font-size: .65rem; }
+  .dcal-fn-num.today-circle { width: 20px; height: 20px; font-size: .62rem; }
+  .dcal-chip-text { font-size: .52rem; }
+  .dcal-cell-chip { padding: 1px 2px; min-height: 12px; }
+  .dcal-chip-bar { width: 2px; min-height: 8px; }
+  .dcal-fortnight-label { font-size: .88rem; min-width: 140px; }
+  .dcal-cell-more { font-size: .48rem; }
+  .dcal-cell-note { font-size: .46rem; }
+  .dcal-kpi-compact { gap: 6px; }
+  .dcal-kpi-compact .dcal-kpi { padding: 8px 4px; }
+  .dcal-kpi-compact .dcal-kpi-value { font-size: 1.1rem; }
+  .dcal-kpi-compact .dcal-kpi-label { font-size: .6rem; }
+}
+@media (min-width: 768px) {
+  .dcal-fn-cell { min-height: 96px; padding: 6px 4px; }
+  .dcal-chip-text { font-size: .65rem; }
+  .dcal-fn-num { font-size: .78rem; }
+  .dcal-fn-num.today-circle { width: 26px; height: 26px; font-size: .72rem; }
+  .dcal-cell-more { font-size: .58rem; }
+  .dcal-cell-note { font-size: .56rem; }
+}

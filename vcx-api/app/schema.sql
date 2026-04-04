@@ -224,3 +224,43 @@ CREATE TABLE IF NOT EXISTS packet_exports (
     ready_at        TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_packet_exports_matter ON packet_exports(matter_id);
+
+-- Deadline Calendar (Product 5)
+-- ===========================================
+CREATE TABLE IF NOT EXISTS calendar_events (
+    id              TEXT PRIMARY KEY,
+    owner_id        TEXT NOT NULL DEFAULT 'default',
+    title           TEXT NOT NULL,
+    event_type      TEXT NOT NULL DEFAULT 'followup',
+    start_at        TEXT NOT NULL,
+    end_at          TEXT,
+    status          TEXT NOT NULL DEFAULT 'scheduled',
+    priority        TEXT NOT NULL DEFAULT 'medium',
+    description     TEXT,
+    contact_id      TEXT REFERENCES contacts(id),
+    matter_id       TEXT REFERENCES matters(id),
+    created_at      TEXT DEFAULT (datetime('now')),
+    updated_at      TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_cal_events_start ON calendar_events(start_at);
+CREATE INDEX IF NOT EXISTS idx_cal_events_status ON calendar_events(status);
+CREATE INDEX IF NOT EXISTS idx_cal_events_matter ON calendar_events(matter_id);
+
+CREATE INDEX IF NOT EXISTS idx_cal_events_owner ON calendar_events(owner_id);
+
+CREATE TABLE IF NOT EXISTS calendar_day_notes (
+    id              TEXT PRIMARY KEY,
+    owner_id        TEXT NOT NULL DEFAULT 'default',
+    note_date       TEXT NOT NULL,
+    short_text      TEXT NOT NULL DEFAULT '',
+    content         TEXT NOT NULL DEFAULT '',
+    status          TEXT NOT NULL DEFAULT 'open',
+    display_priority TEXT NOT NULL DEFAULT 'medium',
+    contact_id      TEXT REFERENCES contacts(id),
+    matter_id       TEXT REFERENCES matters(id),
+    created_at      TEXT DEFAULT (datetime('now')),
+    updated_at      TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_cal_notes_date ON calendar_day_notes(note_date);
+CREATE INDEX IF NOT EXISTS idx_cal_notes_owner ON calendar_day_notes(owner_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_cal_notes_owner_date ON calendar_day_notes(owner_id, note_date);

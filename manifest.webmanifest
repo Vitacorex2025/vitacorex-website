@@ -16,6 +16,12 @@
   ],
   "shortcuts": [
     {
+      "name": "Deadline Command Center",
+      "short_name": "Command",
+      "url": "/app/deadline-calendar/",
+      "description": "Risk-first deadline command center — see your week at a glance"
+    },
+    {
       "name": "Request confidential review",
       "url": "/contact.html"
     },

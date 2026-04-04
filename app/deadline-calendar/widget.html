@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Week View | VCX Command</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="VCX Week"/>
+<link rel="apple-touch-icon" href="/assets/img/logo.png"/>
+<meta name="color-scheme" content="dark"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0E1F1D;--surface:rgba(26,79,74,.32);--text:#E8F5F1;
+  --dim:#7FA8A2;--muted:#4A6B66;--accent:#2D8A82;
+  --border:rgba(45,138,130,.15);--glass:rgba(26,79,74,.25);
+  --hearing:#DC2626;--payment:#D97706;--call:#2563EB;
+  --followup:#2D8A82;--doc:#6B7280;
+}
+html,body{height:100%;overflow-y:auto;overflow-x:hidden;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{max-width:400px;margin:0 auto;padding:14px 12px 12px}
+
+/* ── Header ── */
+.wk-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.wk-title{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.wk-range{font-size:1.1rem;font-weight:700;color:var(--text);margin-top:1px}
+.wk-stats{display:flex;gap:8px;align-items:center}
+.wk-stat{display:flex;flex-direction:column;align-items:center;padding:4px 10px;
+  border-radius:10px;background:var(--surface);border:1px solid var(--border)}
+.wk-stat-num{font-size:1rem;font-weight:700;color:var(--text);line-height:1}
+.wk-stat-label{font-size:.5rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}
+.wk-stat-num.danger{color:var(--hearing)}
+
+/* ── Day rows ── */
+.wk-days{display:flex;flex-direction:column;gap:6px}
+.wk-day{display:flex;gap:8px;padding:8px 10px;border-radius:12px;
+  background:var(--surface);border:1px solid var(--border);
+  cursor:pointer;transition:background .12s;min-height:48px;
+  -webkit-tap-highlight-color:transparent}
+.wk-day:active{background:rgba(45,138,130,.2)}
+.wk-day.is-today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 2px 12px rgba(45,138,130,.15)}
+.wk-day.is-past{opacity:.5}
+.wk-day.is-past.has-events{opacity:.7}
+
+/* Day label column */
+.wk-day-label{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:36px;flex-shrink:0}
+.wk-day-name{font-size:.6rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.wk-day-num{font-size:1rem;font-weight:700;color:var(--dim);line-height:1.1}
+.wk-day.is-today .wk-day-num{color:#FFF;background:var(--accent);width:26px;height:26px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem}
+
+/* Events in row */
+.wk-day-events{flex:1;display:flex;flex-direction:column;gap:3px;justify-content:center;min-width:0}
+.wk-day-empty{font-size:.7rem;color:var(--muted);font-style:italic}
+
+/* Event chip */
+.wk-ev{display:flex;align-items:center;gap:5px;min-width:0}
+.wk-ev-bar{width:2px;height:14px;border-radius:1px;flex-shrink:0}
+.wk-ev-bar.hearing{background:var(--hearing)}.wk-ev-bar.payment{background:var(--payment)}
+.wk-ev-bar.call{background:var(--call)}.wk-ev-bar.followup{background:var(--followup)}
+.wk-ev-bar.doc{background:var(--doc)}
+.wk-ev-text{font-size:.7rem;font-weight:500;color:var(--text);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;flex:1}
+.wk-ev-time{font-size:.6rem;color:var(--muted);font-weight:500;flex-shrink:0}
+.wk-ev-more{font-size:.58rem;color:var(--muted);padding-left:7px}
+
+/* ── Footer ── */
+.wk-footer{display:flex;align-items:center;justify-content:center;padding:10px 0 2px;margin-top:8px}
+.wk-footer a{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;
+  color:var(--muted);text-decoration:none;font-weight:500;transition:color .15s}
+.wk-footer a:active{color:var(--accent)}
+.wk-footer svg{width:12px;height:12px;fill:currentColor;opacity:.6}
+
+/* Loading */
+.wk-loading{display:flex;align-items:center;justify-content:center;padding:40px 0}
+.wk-spinner{width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--accent);
+  border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Safe area */
+@supports(padding:env(safe-area-inset-top)){
+  body{padding-top:calc(14px + env(safe-area-inset-top));
+    padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+}
+</style>
+</head>
+<body>
+
+<div class="wk-header">
+  <div>
+    <div class="wk-title" id="wkTitle">This Week</div>
+    <div class="wk-range" id="wkRange"></div>
+  </div>
+  <div class="wk-stats" id="wkStats"></div>
+</div>
+
+<div class="wk-days" id="wkDays">
+  <div class="wk-loading"><div class="wk-spinner"></div></div>
+</div>
+
+<div class="wk-footer">
+  <a href="/app/deadline-calendar/">
+    Open Command Center
+    <svg viewBox="0 0 20 20"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var h=location.hostname,p=location.port,API_BASE='';
+  if(p==='8080'||p==='8765')API_BASE='http://'+h+':8787';
+  else if(p&&p!=='80'&&p!=='443')API_BASE='http://'+h+':8787';
+  var API=API_BASE+'/api/calendar';
+  var ownerId='';
+  try{ownerId=localStorage.getItem('dcal_owner_id')||''}catch(e){}
+
+  var DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var TYPE_LABELS={hearing:'Hearing',payment:'Payment',call:'Call',followup:'Follow-up',doc:'Document'};
+  function pad(n){return n<10?'0'+n:''+n}
+  function dateStr(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+  function esc(s){var e=document.createElement('span');e.textContent=s||'';return e.innerHTML}
+  function fmtTime(iso){
+    if(!iso||iso.length<=10)return'';var t=iso.slice(11,16);if(!t||t==='00:00')return'';
+    var p=t.split(':'),hr=+p[0],mn=p[1],ap=hr>=12?'p':'a';
+    if(hr===0)hr=12;else if(hr>12)hr-=12;return hr+':'+mn+ap;
+  }
+
+  function load(){
+    if(!ownerId){document.getElementById('wkDays').innerHTML=
+      '<div style="text-align:center;padding:30px;color:var(--muted);font-size:.82rem">'+
+      'Open the <a href="/app/deadline-calendar/" style="color:var(--accent)">Command Center</a> first to set up your account</div>';return}
+
+    // Get 7 days starting from today
+    var today=new Date();today.setHours(12,0,0,0);
+    var days=[];
+    for(var i=0;i<7;i++){var d=new Date(today);d.setDate(d.getDate()+i);days.push(d)}
+
+    // Header
+    var startLabel=MONTHS[days[0].getMonth()]+' '+days[0].getDate();
+    var endLabel=MONTHS[days[6].getMonth()]+' '+days[6].getDate();
+    document.getElementById('wkRange').textContent=startLabel+' \u2013 '+endLabel;
+
+    // Fetch months needed
+    var startMonth=dateStr(days[0]).slice(0,7);
+    var endMonth=dateStr(days[6]).slice(0,7);
+    var months=[startMonth];if(endMonth!==startMonth)months.push(endMonth);
+
+    Promise.all(months.map(function(m){
+      return fetch(API+'/month/'+m+'?owner_id='+encodeURIComponent(ownerId)).then(function(r){return r.json()})
+    })).then(function(results){
+      var allEvents=[];
+      results.forEach(function(d){if(d.ok)allEvents=allEvents.concat(d.events||[])});
+      renderWeek(days,allEvents);
+    }).catch(function(){
+      document.getElementById('wkDays').innerHTML=
+        '<div style="text-align:center;padding:20px;color:var(--muted)">Unable to connect<br>'+
+        '<button onclick="location.reload()" style="margin-top:8px;padding:6px 16px;border-radius:8px;'+
+        'border:1px solid var(--border);background:var(--surface);color:var(--accent);font-size:.75rem;'+
+        'font-weight:600;cursor:pointer">Retry</button></div>';
+    });
+  }
+
+  function renderWeek(days,allEvents){
+    var todayKey=dateStr(new Date());
+    var byDate={};
+    allEvents.forEach(function(ev){
+      var d=ev.start_at.slice(0,10);if(!byDate[d])byDate[d]=[];byDate[d].push(ev)
+    });
+
+    // Stats
+    var totalWeek=0,overdueCount=0;
+    days.forEach(function(d){
+      var key=dateStr(d);var evs=(byDate[key]||[]).filter(function(e){return e.status==='scheduled'});
+      totalWeek+=evs.length;
+      if(key<todayKey)evs.forEach(function(e){if(e.status==='scheduled')overdueCount++});
+    });
+    var statsEl=document.getElementById('wkStats');
+    statsEl.innerHTML=
+      '<div class="wk-stat"><div class="wk-stat-num'+(overdueCount>0?' danger':'')+'">'+overdueCount+'</div><div class="wk-stat-label">Overdue</div></div>'+
+      '<div class="wk-stat"><div class="wk-stat-num">'+totalWeek+'</div><div class="wk-stat-label">This Week</div></div>';
+
+    // Render days
+    var html='';
+    days.forEach(function(d){
+      var key=dateStr(d);
+      var isToday=key===todayKey;
+      var isPast=key<todayKey&&!isToday;
+      var dayEvents=(byDate[key]||[]).filter(function(e){return e.status!=='canceled'});
+      dayEvents.sort(function(a,b){return a.start_at<b.start_at?-1:1});
+      var cls='wk-day';
+      if(isToday)cls+=' is-today';
+      if(isPast)cls+=' is-past';
+      if(dayEvents.length)cls+=' has-events';
+
+      html+='<div class="'+cls+'" onclick="location.href=\'/app/deadline-calendar/\'">';
+      html+='<div class="wk-day-label">';
+      html+='<div class="wk-day-name">'+(isToday?'Today':DAYS[d.getDay()])+'</div>';
+      html+='<div class="wk-day-num">'+d.getDate()+'</div>';
+      html+='</div>';
+      html+='<div class="wk-day-events">';
+
+      if(dayEvents.length===0){
+        html+='<div class="wk-day-empty">\u2014</div>';
+      } else {
+        var maxShow=2;
+        for(var j=0;j<Math.min(dayEvents.length,maxShow);j++){
+          var ev=dayEvents[j];var t=ev.event_type||'followup';
+          html+='<div class="wk-ev">';
+          html+='<span class="wk-ev-bar '+t+'"></span>';
+          html+='<span class="wk-ev-text">'+esc(ev.title)+'</span>';
+          var tm=fmtTime(ev.start_at);
+          if(tm)html+='<span class="wk-ev-time">'+tm+'</span>';
+          html+='</div>';
+        }
+        if(dayEvents.length>maxShow){
+          html+='<div class="wk-ev-more">+'+(dayEvents.length-maxShow)+' more</div>';
+        }
+      }
+      html+='</div></div>';
+    });
+    document.getElementById('wkDays').innerHTML=html;
+  }
+
+  load();
+  setInterval(load,60000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+/**
+ * VitaCoreX Private Lookup — Premium Light Theme
+ * BLANKET override of private-lookup.css dark theme
+ * Must be loaded AFTER private-lookup.css
+ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   NUCLEAR DARK-KILL: Override every dark color in private-lookup.css
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ALL backgrounds → light */
+[data-vcx-private-lookup],
+[data-vcx-private-lookup] main,
+[data-vcx-private-lookup] section,
+[data-vcx-private-lookup] .vcx-lookup-hero,
+[data-vcx-private-lookup] .vcx-lookup-tool,
+[data-vcx-private-lookup] .vcx-lookup-footer,
+body[data-vcx-private-lookup="true"],
+body[data-vcx-private-lookup="true"] main {
+  background: #F7FAFA !important;
+  background-image: none !important;
+  color: #1A2A28 !important;
+}
+
+/* Kill pseudo-element overlays */
+[data-vcx-private-lookup] .vcx-lookup-hero::before,
+[data-vcx-private-lookup] .vcx-lookup-hero::after,
+[data-vcx-private-lookup] section::before,
+[data-vcx-private-lookup] section::after {
+  display: none !important;
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-lookup-hero {
+  background: linear-gradient(160deg, #EFF7F4 0%, #E4F0EC 50%, #D9EBE5 100%) !important;
+  padding: 48px 20px 44px !important;
+  text-align: center !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-hero h1,
+[data-vcx-private-lookup] .vcx-lookup-hero__heading {
+  color: #0F2B28 !important;
+  font-size: clamp(1.6rem, 4vw, 2.4rem) !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-hero p,
+[data-vcx-private-lookup] .vcx-lookup-hero .vcx-hero-subtitle,
+[data-vcx-private-lookup] .vcx-lookup-hero__subtitle {
+  color: #3A5E58 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-hero .eyebrow,
+[data-vcx-private-lookup] .vcx-lookup-hero__eyebrow,
+[data-vcx-private-lookup] .vcx-lookup-hero p.eyebrow {
+  background: linear-gradient(135deg, #D9EBE5 0%, #C8E0D8 100%) !important;
+  color: #1A4F4A !important;
+  border: 1px solid rgba(26, 79, 74, 0.15) !important;
+  display: inline-block !important;
+  padding: 6px 18px !important;
+  border-radius: 20px !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+[data-vcx-private-lookup] .vcx-feature-list li,
+[data-vcx-private-lookup] .vcx-lookup-hero li {
+  color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] .vcx-boundary-note {
+  color: #6B8E89 !important;
+}
+
+/* ── Breadcrumbs ──────────────────────────────────────────────────── */
+[data-vcx-private-lookup] .breadcrumbs,
+[data-vcx-private-lookup] .breadcrumbs a,
+[data-vcx-private-lookup] .breadcrumbs span {
+  color: #4A6B66 !important;
+}
+[data-vcx-private-lookup] .breadcrumbs a:hover {
+  color: #1A4F4A !important;
+}
+
+/* ── Gate card ────────────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-lookup-gate,
+[data-vcx-private-lookup] .vcx-gate-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.1) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 14px !important;
+  color: #1A2A28 !important;
+  padding: 32px !important;
+}
+[data-vcx-private-lookup] .vcx-gate-card::before,
+[data-vcx-private-lookup] .vcx-gate-card::after,
+[data-vcx-private-lookup] .vcx-lookup-gate::before {
+  display: none !important;
+}
+[data-vcx-private-lookup] .vcx-gate-header,
+[data-vcx-private-lookup] .vcx-gate-card__header,
+[data-vcx-private-lookup] .vcx-gate-label {
+  color: #1A4F4A !important;
+}
+[data-vcx-private-lookup] .vcx-gate-price .vcx-price-amount,
+[data-vcx-private-lookup] .vcx-gate-price__amount,
+[data-vcx-private-lookup] #vcx-price-display {
+  color: #1A4F4A !important;
+  font-weight: 700 !important;
+}
+[data-vcx-private-lookup] .vcx-price-note,
+[data-vcx-private-lookup] .vcx-gate-price__label {
+  color: #6B8E89 !important;
+}
+[data-vcx-private-lookup] .vcx-gate-features li,
+[data-vcx-private-lookup] .vcx-gate-features__item {
+  color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] .vcx-gate-note {
+  color: #8AA5A0 !important;
+}
+[data-vcx-private-lookup] .vcx-unlock-btn,
+[data-vcx-private-lookup] .vcx-gate-stripe-btn {
+  background: linear-gradient(145deg, #1A4F4A 0%, #267A72 50%, #2D8A82 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 14px 28px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 16px rgba(26, 79, 74, 0.22) !important;
+  cursor: pointer !important;
+}
+[data-vcx-private-lookup] .vcx-unlock-btn:hover,
+[data-vcx-private-lookup] .vcx-gate-stripe-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(26, 79, 74, 0.28) !important;
+}
+
+/* ── Session info bar ─────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-session-info {
+  background: #EFF8F6 !important;
+  border: 1px solid rgba(45, 138, 130, 0.15) !important;
+  color: #1A4F4A !important;
+  border-radius: 8px !important;
+}
+
+/* ── Tab navigation ──────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-tab-nav {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 5px !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04) !important;
+}
+[data-vcx-private-lookup] .vcx-tab-btn {
+  background: transparent !important;
+  color: #4A6B66 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  padding: 10px 18px !important;
+}
+[data-vcx-private-lookup] .vcx-tab-btn:hover {
+  background: #F0F7F5 !important;
+  color: #1A4F4A !important;
+}
+[data-vcx-private-lookup] .vcx-tab-btn.active {
+  background: linear-gradient(145deg, #1A4F4A 0%, #2D8A82 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(26, 79, 74, 0.2) !important;
+}
+
+/* ── Tab panels / forms ──────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-tab-panel {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 28px !important;
+  margin-top: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+[data-vcx-private-lookup] .vcx-form-intro {
+  color: #4A6B66 !important;
+}
+
+/* ── Form fields ─────────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-field label,
+[data-vcx-private-lookup] .vcx-lookup-form label,
+[data-vcx-private-lookup] label {
+  color: #2A4A46 !important;
+  font-weight: 600 !important;
+}
+[data-vcx-private-lookup] input,
+[data-vcx-private-lookup] select,
+[data-vcx-private-lookup] textarea,
+[data-vcx-private-lookup] .vcx-field input,
+[data-vcx-private-lookup] .vcx-field select {
+  background: #FFFFFF !important;
+  border: 1px solid #D1DDD9 !important;
+  color: #1A2A28 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-size: 0.92rem !important;
+}
+[data-vcx-private-lookup] input:focus,
+[data-vcx-private-lookup] select:focus {
+  border-color: #2D8A82 !important;
+  box-shadow: 0 0 0 3px rgba(45, 138, 130, 0.1) !important;
+  outline: none !important;
+}
+[data-vcx-private-lookup] input::placeholder {
+  color: #A0B8B3 !important;
+}
+[data-vcx-private-lookup] select option {
+  background: #FFFFFF !important;
+  color: #1A2A28 !important;
+}
+
+/* ── Consent block ───────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-consent-block {
+  background: #F7FAFA !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 8px !important;
+}
+[data-vcx-private-lookup] .vcx-consent-block label {
+  color: #4A6B66 !important;
+  font-weight: 400 !important;
+}
+
+/* ── Submit button ───────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-submit-btn {
+  background: linear-gradient(145deg, #1A4F4A 0%, #267A72 50%, #2D8A82 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 14px 24px !important;
+  box-shadow: 0 4px 16px rgba(26, 79, 74, 0.2) !important;
+  width: 100% !important;
+}
+[data-vcx-private-lookup] .vcx-submit-btn:disabled {
+  background: #C5D5D1 !important;
+  color: #8AA5A0 !important;
+  box-shadow: none !important;
+}
+[data-vcx-private-lookup] .vcx-submit-btn:not(:disabled):hover {
+  transform: translateY(-1px) !important;
+}
+
+/* ── Results / portal cards ──────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-results-panel,
+[data-vcx-private-lookup] .vcx-portal-card,
+[data-vcx-private-lookup] .vcx-result-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 10px !important;
+  color: #1A2A28 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+[data-vcx-private-lookup] .vcx-portal-card a,
+[data-vcx-private-lookup] .vcx-result-card a {
+  color: #2D8A82 !important;
+}
+
+/* ── Disclaimer block ────────────────────────────────────────────── */
+[data-vcx-private-lookup] .vcx-disclaimer-block,
+[data-vcx-private-lookup] .vcx-legal-section {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 10px !important;
+  padding: 24px !important;
+  margin-top: 24px !important;
+}
+[data-vcx-private-lookup] .vcx-disclaimer-block h3,
+[data-vcx-private-lookup] .vcx-disclaimer-block strong {
+  color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] .vcx-disclaimer-block p,
+[data-vcx-private-lookup] .vcx-disclaimer-block li,
+[data-vcx-private-lookup] .vcx-disclaimer-block ol li {
+  color: #4A6B66 !important;
+  line-height: 1.6 !important;
+}
+
+/* ── Footer section (secondary routes, legal boundary) ────────────── */
+[data-vcx-private-lookup] .vcx-lookup-footer,
+[data-vcx-private-lookup] footer.vcx-lookup-footer {
+  background: #F0F5F4 !important;
+  color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer a {
+  color: #2D8A82 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer a:hover {
+  color: #1A4F4A !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer strong,
+[data-vcx-private-lookup] .vcx-lookup-footer h3,
+[data-vcx-private-lookup] .vcx-lookup-footer h4 {
+  color: #0F2B28 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer p,
+[data-vcx-private-lookup] .vcx-lookup-footer span,
+[data-vcx-private-lookup] .vcx-lookup-footer li {
+  color: #4A6B66 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer .vcx-footer-brand-tag {
+  color: #6B8E89 !important;
+}
+[data-vcx-private-lookup] .vcx-lookup-footer .vcx-footer-legal,
+[data-vcx-private-lookup] .vcx-lookup-footer .vcx-footer-copy {
+  color: #8AA5A0 !important;
+}
+
+/* ── Secondary routes & legal boundary sections ──────────────────── */
+[data-vcx-private-lookup] .vcx-footer-secondary,
+[data-vcx-private-lookup] .vcx-footer-legal-boundary,
+[data-vcx-private-lookup] footer section,
+[data-vcx-private-lookup] footer div {
+  color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] footer h3,
+[data-vcx-private-lookup] footer h4,
+[data-vcx-private-lookup] footer strong {
+  color: #0F2B28 !important;
+}
+[data-vcx-private-lookup] footer p,
+[data-vcx-private-lookup] footer li,
+[data-vcx-private-lookup] footer span:not(.vcx-time-value) {
+  color: #4A6B66 !important;
+}
+[data-vcx-private-lookup] footer a {
+  color: #2D8A82 !important;
+}
+
+/* Main site footer (dark — keep dark) */
+[data-vcx-private-lookup] .vcx-footer {
+  background: #0F2B28 !important;
+}
+[data-vcx-private-lookup] .vcx-footer strong {
+  color: #FFFFFF !important;
+}
+[data-vcx-private-lookup] .vcx-footer span,
+[data-vcx-private-lookup] .vcx-footer p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+[data-vcx-private-lookup] .vcx-footer .footer-disc {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+[data-vcx-private-lookup] .vcx-footer .footer-copy {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ── site-shell spacing ──────────────────────────────────────────── */
+[data-vcx-private-lookup] .site-shell {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER NUCLEAR FIX: Override vcx-redesign.css -webkit-text-fill-color
+   vcx-redesign.css sets: .footer * { color:#E0E0E0 !important; -webkit-text-fill-color:#E0E0E0 !important; }
+   We must override BOTH color AND -webkit-text-fill-color
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Footer container — light bg, tight padding */
+body[data-vcx-private-lookup="true"] footer.footer,
+body[data-vcx-private-lookup="true"] .footer {
+  background: #F0F5F4 !important;
+  color: #2A4A46 !important;
+  -webkit-text-fill-color: #2A4A46 !important;
+  padding: 24px 0 20px !important;
+}
+
+/* Footer-grid */
+body[data-vcx-private-lookup="true"] footer.footer .footer-grid,
+body[data-vcx-private-lookup="true"] .footer .footer-grid {
+  color: #2A4A46 !important;
+  -webkit-text-fill-color: #2A4A46 !important;
+}
+
+/* Footer cards */
+body[data-vcx-private-lookup="true"] footer.footer .footer-card,
+body[data-vcx-private-lookup="true"] footer.footer .footer-copy,
+body[data-vcx-private-lookup="true"] .footer .footer-card,
+body[data-vcx-private-lookup="true"] .footer .footer-copy {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 10px !important;
+  color: #2A4A46 !important;
+  -webkit-text-fill-color: #2A4A46 !important;
+}
+
+/* Footer titles (h2.footer-title — "Secondary routes", "Legal boundary") */
+body[data-vcx-private-lookup="true"] footer.footer .footer-title,
+body[data-vcx-private-lookup="true"] footer.footer h2.footer-title,
+body[data-vcx-private-lookup="true"] footer.footer h2,
+body[data-vcx-private-lookup="true"] footer.footer h3,
+body[data-vcx-private-lookup="true"] footer.footer h4,
+body[data-vcx-private-lookup="true"] footer.footer strong,
+body[data-vcx-private-lookup="true"] .footer .footer-title,
+body[data-vcx-private-lookup="true"] .footer h2,
+body[data-vcx-private-lookup="true"] .footer h3,
+body[data-vcx-private-lookup="true"] .footer strong {
+  color: #0F2B28 !important;
+  -webkit-text-fill-color: #0F2B28 !important;
+}
+
+/* Footer text (p, span, li) */
+body[data-vcx-private-lookup="true"] footer.footer p,
+body[data-vcx-private-lookup="true"] footer.footer span,
+body[data-vcx-private-lookup="true"] footer.footer li,
+body[data-vcx-private-lookup="true"] .footer p,
+body[data-vcx-private-lookup="true"] .footer span,
+body[data-vcx-private-lookup="true"] .footer li {
+  color: #4A6B66 !important;
+  -webkit-text-fill-color: #4A6B66 !important;
+}
+
+/* Footer links */
+body[data-vcx-private-lookup="true"] footer.footer a,
+body[data-vcx-private-lookup="true"] footer.footer .footer-links a,
+body[data-vcx-private-lookup="true"] footer.footer .footer-card a,
+body[data-vcx-private-lookup="true"] .footer a,
+body[data-vcx-private-lookup="true"] .footer .footer-links a {
+  color: #2D8A82 !important;
+  -webkit-text-fill-color: #2D8A82 !important;
+}
+body[data-vcx-private-lookup="true"] footer.footer a:hover,
+body[data-vcx-private-lookup="true"] footer.footer .footer-links a:hover,
+body[data-vcx-private-lookup="true"] .footer a:hover {
+  color: #1A4F4A !important;
+  -webkit-text-fill-color: #1A4F4A !important;
+}
+
+/* Footer wildcard — override vcx-redesign.css ".footer *" rule */
+body[data-vcx-private-lookup="true"] footer.footer *,
+body[data-vcx-private-lookup="true"] .footer * {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* ── Kill ALL light-on-light text across the whole page ─────────── */
+[data-vcx-private-lookup] h2,
+[data-vcx-private-lookup] h3,
+[data-vcx-private-lookup] h4 {
+  color: #0F2B28 !important;
+  -webkit-text-fill-color: #0F2B28 !important;
+}
+[data-vcx-private-lookup] p,
+[data-vcx-private-lookup] li,
+[data-vcx-private-lookup] span:not(.vcx-time-value):not(.clock-vcx):not(.clock-local):not(.vcx-menu-icon) {
+  color: #2A4A46 !important;
+  -webkit-text-fill-color: #2A4A46 !important;
+}
+[data-vcx-private-lookup] a:not(.vcx-brand):not(.vcx-mobile-brand) {
+  color: #2D8A82 !important;
+  -webkit-text-fill-color: #2D8A82 !important;
+}
+
+/* ── Remove excess body padding that creates empty space below footer ── */
+body[data-vcx-private-lookup="true"] {
+  padding-bottom: 0 !important;
+}
+
+/* ── Mobile optimizations ────────────────────────────────────────── */
+@media (max-width: 600px) {
+  [data-vcx-private-lookup] .vcx-lookup-hero {
+    padding: 32px 16px 36px !important;
+  }
+  [data-vcx-private-lookup] .vcx-tab-panel {
+    padding: 20px 16px !important;
+  }
+  [data-vcx-private-lookup] .vcx-lookup-gate,
+  [data-vcx-private-lookup] .vcx-gate-card {
+    padding: 24px 18px !important;
+  }
+  [data-vcx-private-lookup] input,
+  [data-vcx-private-lookup] select {
+    font-size: 16px !important; /* Prevent iOS zoom */
+  }
+}

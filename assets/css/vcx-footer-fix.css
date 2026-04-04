@@ -1,0 +1,37 @@
+/**
+ * VitaCoreX Footer Spacing Fix
+ * Fixes: "VitaCoreX LLCEstablished 2025" and "Phone:EIN:" text collision
+ * Works globally on ALL pages.
+ */
+
+/* Elements inside footer-grid cells should stack vertically with gaps */
+.vcx-footer .footer-grid > div,
+.footer .footer-grid > div,
+footer .footer-grid > div {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+/* strong + span should have breathing room */
+.vcx-footer .footer-grid strong {
+  display: block !important;
+  margin-bottom: 2px !important;
+}
+
+.vcx-footer .footer-grid span,
+.footer .footer-grid span,
+footer .footer-grid span {
+  display: block !important;
+  line-height: 1.5 !important;
+}
+
+/* On mobile, single column */
+@media (max-width: 600px) {
+  .vcx-footer .footer-grid,
+  .footer .footer-grid,
+  footer .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}

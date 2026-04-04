@@ -3,16 +3,15 @@
 Phase 1: Initial topic routing + out-of-scope detection.
 Phase 4C: Tighter routing, escalation links, event typing.
 Phase 5A: Three-mode architecture (general_chat, legal_information, vcx_routing).
-Phase 5B: Structured legal responses (what-matters / what-to-check / documents-needed),
-          deeper fact-gathering sequences, jurisdiction + case-type + timeline prompts,
-          stronger escalation paths. Does NOT expand promises — does NOT give final
-          legal conclusions or simulate attorney advice.
-
-All legal responses are retrieval-based. No generative or LLM output.
+Phase 5B: Structured legal responses.
+Phase 9: LLM-powered conversational AI with rule-based fallback.
 """
 from __future__ import annotations
 
+import logging
 from typing import Optional
+
+from . import llm
 
 from .knowledge import (
     detect_case_type,
@@ -227,20 +226,90 @@ def _format_escalation_section(topic: str) -> str:
 #  Main entry point
 # ══════════════════════════════════════════════════════════════════════
 
+_logger = logging.getLogger("vcx.policy")
+
+
+def _try_llm_response(
+    message: str,
+    topic: Optional[str],
+    state: Optional[str],
+    session_id: str,
+) -> Optional[ChatResponse]:
+    """Attempt to get an LLM-powered response.
+
+    Phase 9: If OPENAI_API_KEY is set, use GPT for conversational answers.
+    Returns None if LLM is unavailable, allowing fallback to rule-based.
+    """
+    if not llm.is_available():
+        return None
+
+    try:
+        # Get recent conversation history from DB
+        from ..db import list_recent_messages
+        raw_history = list_recent_messages(session_id, limit=10)
+        history = []
+        for msg in raw_history:
+            role = msg.get("role", "")
+            if role == "user":
+                history.append({"role": "user", "content": msg.get("content", "")})
+            elif role == "assistant":
+                history.append({"role": "assistant", "content": msg.get("content", "")})
+
+        ai_answer = llm.chat_completion(
+            message=message,
+            history=history,
+            topic=topic,
+            state=state,
+        )
+        if ai_answer:
+            # Detect topic for suggestions
+            detected_topic = topic or infer_topic(message)
+            suggestions = TOPIC_SUGGESTIONS.get(detected_topic, [
+                "Tell me about your services",
+                "I need help with a contract",
+                "Help me organize immigration documents",
+                "Check my auto deal",
+            ])
+            return ChatResponse(
+                session_id=session_id,
+                topic=detected_topic,
+                state=state,
+                mode="general_chat",
+                answer=ai_answer,
+                status="answered",
+                event_type="llm_response",
+                suggestions=suggestions[:4],
+                escalation_links=get_product_routes(detected_topic) if detected_topic else DEFAULT_PRODUCT_ROUTES,
+            )
+    except Exception as exc:
+        _logger.warning("LLM response failed, falling back to rules: %s", exc)
+
+    return None
+
+
 def answer_message(
     message: str,
     topic: Optional[str],
     state: Optional[str],
     session_id: str,
 ) -> ChatResponse:
-    """Process a user message and return a controlled response.
+    """Process a user message and return a response.
 
-    Phase 5B: Enhanced legal mode with structured responses.
+    Phase 9: Tries LLM first (if configured), falls back to rule-based.
+    High-risk messages always go through the rule-based safety handler.
     """
     mode = detect_mode(message, current_topic=topic)
 
+    # Safety: high-risk always uses deterministic handler
     if mode == "high_risk":
         return _handle_high_risk(session_id)
+
+    # Phase 9: Try LLM-powered response first
+    llm_response = _try_llm_response(message, topic, state, session_id)
+    if llm_response:
+        return llm_response
+
+    # Fallback: rule-based responses
     if mode == "vcx_routing":
         return _handle_vcx_routing(message, session_id)
     if mode == "legal_information":
