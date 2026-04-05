@@ -748,7 +748,7 @@
     safe(initTextSplit);
     safe(initCardTilt);
     safe(initPageTransitions);
-    safe(initCursorGlow);
+    // safe(initCursorGlow); // disabled per user request
     safe(initScrollVideo);
     safe(initHeroParticles);
     safe(patchCounterPop);
