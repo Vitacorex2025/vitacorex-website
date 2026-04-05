@@ -2093,7 +2093,7 @@ def build_precollection_review():
         "personal assets. Key requirements for enforcement include: (1) valid and enforceable guaranty "
         "agreement, (2) proper default notice to guarantor, (3) opportunity to cure, and (4) "
         "documentation of the underlying obligation and default. Pre-collection documentation that "
-        "includes these elements significantly reduces downstream legal costs and accelerates recovery.", ss))
+        "includes these elements reduces downstream legal costs and accelerates recovery.", ss))
     story.append(PageBreak())
 
     # ── Financial Impact Model ──
