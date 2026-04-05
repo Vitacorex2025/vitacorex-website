@@ -26,6 +26,15 @@
   var TYPE_ICONS = { hearing: '\u2696', payment: '\uD83D\uDCB0', call: '\uD83D\uDCDE', followup: '\u21BB', doc: '\uD83D\uDCC4' };
   var TYPE_LABELS = { hearing: 'Hearing', payment: 'Payment', call: 'Call', followup: 'Follow-up', doc: 'Document' };
 
+  // ── Back navigation ───────────────────────────────────────────────
+  window.dcalGoBack = function() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = '/additional-services.html';
+    }
+  };
+
   // ── Init ──────────────────────────────────────────────────────────
   window.addEventListener('DOMContentLoaded', function() {
     if (state.ownerId && state.ownerName) {
