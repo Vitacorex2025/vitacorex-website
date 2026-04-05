@@ -399,9 +399,10 @@
 
     // Quick add
     html += '<div class="dcal-section-title" style="margin-top:16px;">Add Event</div>';
-    html += '<div class="dcal-quick-add"><input class="dcal-quick-input" id="dcalQuickInput" type="text" placeholder="e.g. Court hearing Smith case at 2pm urgent" oninput="dcalSmartPreview(this)" />';
+    html += '<div class="dcal-quick-add"><input class="dcal-quick-input" id="dcalQuickInput" type="text" placeholder="e.g. Court hearing Smith case urgent" oninput="dcalSmartPreview(this)" />';
     html += '<span class="dcal-ai-tag" title="Smart parsing enabled">AI</span>';
     html += '<button class="dcal-add-btn" onclick="dcalQuickAdd(\'' + data.date + '\')">Add</button></div>';
+    html += '<div class="dcal-time-row"><label class="dcal-time-label" for="dcalTimeInput">Time:</label><input class="dcal-time-input" id="dcalTimeInput" type="time" value="09:00" onchange="dcalUpdateTimePreview()" /><span class="dcal-time-shortcuts"><button type="button" class="dcal-time-chip" onclick="dcalSetTime(\'09:00\')">9 AM</button><button type="button" class="dcal-time-chip" onclick="dcalSetTime(\'12:00\')">12 PM</button><button type="button" class="dcal-time-chip" onclick="dcalSetTime(\'14:00\')">2 PM</button><button type="button" class="dcal-time-chip" onclick="dcalSetTime(\'17:00\')">5 PM</button></span></div>';
     html += '<div class="dcal-smart-preview" id="dcalSmartPreview"></div>';
 
     // Type pills
@@ -512,7 +513,24 @@
       document.querySelectorAll('.dcal-priority-pill').forEach(function(pill) {
         pill.classList.toggle('active', pill.dataset.priority === p.priority);
       });
+      // Sync time picker with parsed time
+      var ti = document.getElementById('dcalTimeInput');
+      if (ti) ti.value = p.time;
     }, 200);
+  };
+
+  // ── Time picker helpers ─────────────────────────────────────────
+  window.dcalSetTime = function(val) {
+    var ti = document.getElementById('dcalTimeInput');
+    if (ti) { ti.value = val; dcalUpdateTimePreview(); }
+  };
+
+  window.dcalUpdateTimePreview = function() {
+    var previewEl = document.getElementById('dcalSmartPreview');
+    var inputEl = document.getElementById('dcalQuickInput');
+    if (previewEl && inputEl && inputEl.value.trim()) {
+      dcalSmartPreview(inputEl);
+    }
   };
 
   // ── CRUD ──────────────────────────────────────────────────────────
@@ -528,7 +546,10 @@
     var eventType = parsed.type;
     var priority = parsed.priority;
     var title = parsed.title;
-    var time = parsed.time;
+
+    // Use time from the time picker (user can override parsed time)
+    var timeInput = document.getElementById('dcalTimeInput');
+    var time = (timeInput && timeInput.value) ? timeInput.value : parsed.time;
 
     fetch(API + '/events?owner_id=' + state.ownerId, {
       method: 'POST',

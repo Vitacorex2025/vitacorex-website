@@ -305,6 +305,25 @@
   background: linear-gradient(135deg, #6366F1, #8B5CF6); color: #FFF;
   letter-spacing: .04em; white-space: nowrap; flex-shrink: 0;
 }
+.dcal-time-row {
+  display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+}
+.dcal-time-label {
+  font-size: .78rem; font-weight: 600; color: #4A6B66; white-space: nowrap;
+}
+.dcal-time-input {
+  padding: 6px 10px; border: 1px solid #D1DDD9; border-radius: 8px;
+  font-size: .85rem; color: #1A4F4A; background: #FFF;
+  font-family: inherit; cursor: pointer;
+}
+.dcal-time-input:focus { border-color: #1A4F4A; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
+.dcal-time-shortcuts { display: flex; gap: 4px; flex-wrap: wrap; }
+.dcal-time-chip {
+  padding: 4px 10px; border: 1px solid #D1DDD9; border-radius: 14px;
+  background: #F5F7F6; color: #4A6B66; font-size: .7rem; font-weight: 600;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.dcal-time-chip:hover { background: #1A4F4A; color: #FFF; border-color: #1A4F4A; }
 .dcal-smart-preview {
   font-size: .78rem; color: #6366F1; font-weight: 500;
   min-height: 1.2em; margin-top: 6px; padding-left: 2px;

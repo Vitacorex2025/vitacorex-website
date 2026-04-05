@@ -158,6 +158,72 @@
     return 'Request failed: ' + (err && err.message ? err.message : 'unknown error') + '.';
   }
 
+  /* ── Client-side fallback knowledge base ─────────────────────────── */
+  var KB = [
+    { patterns: [/contract/i, /agreement/i, /nda/i, /сontract/i, /договор/i],
+      answer: 'For contract questions, VitaCoreX provides administrative contract review, document organization, and demand-letter packet preparation.\n\nYou can use our **Contract Scanner** tool for a free pattern-based pre-check of key clauses (payment terms, renewal, termination, liability, IP ownership).\n\nFor deeper analysis, open our Contract Review Desk.',
+      suggestions: ['Try Contract Scanner', 'Open structured intake', 'What services do you offer?'],
+      links: [{ label: 'Contract Scanner', url: '/contracts.html' }, { label: 'Structured Intake', url: '/structured-case-intake.html' }] },
+    { patterns: [/immigra/i, /visa/i, /uscis/i, /green\s*card/i, /иммигр/i, /виза/i],
+      answer: 'VitaCoreX offers immigration packet organization services:\n\n\u2022 Form packet organization\n\u2022 Evidence checklist cleanup\n\u2022 Submission-readiness review\n\nWe do not provide legal advice. Use our Immigration Packet Helper for a free pre-check.',
+      suggestions: ['Try Immigration Helper', 'Open structured intake'],
+      links: [{ label: 'Immigration Helper', url: '/immigration-documents.html' }, { label: 'Structured Intake', url: '/structured-case-intake.html' }] },
+    { patterns: [/auto\s*deal/i, /car\s*(deal|buy|purchase)/i, /dealer/i, /авто/i, /машин/i],
+      answer: 'Our Auto Deal Check tool helps you verify dealer fees, add-on pricing, and financing terms before signing.\n\n\u2022 Fee threshold check (doc fee, GAP, warranty)\n\u2022 Monthly payment calculator with APR\n\u2022 Negotiation points summary',
+      suggestions: ['Try Auto Deal Check', 'Open structured intake'],
+      links: [{ label: 'Auto Deal Check', url: '/auto-purchase.html' }] },
+    { patterns: [/toll/i, /traffic/i, /citation/i, /court/i, /florida/i, /штраф/i, /суд/i],
+      answer: 'Our Florida Official Source Locator routes you to the correct government portals:\n\n\u2022 SunPass, CFX, and county toll portals\n\u2022 County clerk traffic citation portals\n\u2022 Florida Courts and PACER portals\n\nWe do not retrieve records directly \u2014 we point you to official sources.',
+      suggestions: ['Start Portal Locator', 'What else can you help with?'],
+      links: [{ label: 'Florida Lookup', url: '/additional-services.html' }] },
+    { patterns: [/recover/i, /revenue/i, /collection/i, /debt/i, /возврат/i, /долг/i],
+      answer: 'VitaCoreX provides Revenue Recovery Infrastructure \u2014 pre-agency workflow design for:\n\n\u2022 Behavioral segmentation and outreach timing\n\u2022 Payment-plan structure and autopay logic\n\u2022 Escalation control and pilot economics\n\u2022 90-day pilot with KPI dashboard\n\nThis is operating-control infrastructure, not collections.',
+      suggestions: ['Learn more about recovery', 'Open structured intake'],
+      links: [{ label: 'Recovery Infrastructure', url: '/revenue-recovery-workflow.html' }, { label: 'Structured Intake', url: '/structured-case-intake.html' }] },
+    { patterns: [/file\s*control/i, /legal\s*file/i, /document/i, /packet/i, /документ/i, /файл/i],
+      answer: 'Corporate Legal File Control helps operators prepare counsel-ready files:\n\n\u2022 Matter chronology cleanup\n\u2022 Exhibit ordering logic\n\u2022 Issue summary memo\n\u2022 Counsel-ready packet assembly\n\u2022 Structured handoff notes\n\nFirst-week work product includes: initial issue map, first chronology pass, document request list, and key gaps memo.',
+      suggestions: ['Open structured intake', 'What industries do you serve?'],
+      links: [{ label: 'File Control', url: '/corporate-legal-file-control.html' }] },
+    { patterns: [/service/i, /what\s*(do|can)/i, /help/i, /услуг/i, /помо[гж]/i, /чем/i],
+      answer: 'VitaCoreX provides three core service lines:\n\n**1. Revenue Recovery Infrastructure** \u2014 Pre-agency workflow design for cash conversion and documentation discipline.\n\n**2. Corporate Legal File Control** \u2014 Chronology cleanup, packet standards, and counsel-ready file preparation.\n\n**3. Structured Intake & Packet Build** \u2014 Routing, first-packet cleanup, and workstream identification.\n\nPlus private client tools: Contract Scanner, Immigration Helper, Auto Deal Check, and Florida Lookup.',
+      suggestions: ['Revenue Recovery', 'File Control', 'Private client tools', 'Book consultation'],
+      links: [{ label: 'Solutions Overview', url: '/solutions.html' }] },
+    { patterns: [/price|cost|pricing|how\s*much|fee|цен|стои/i],
+      answer: 'VitaCoreX offers fixed-scope or staged pricing after intake and document review. No billable-hour surprise logic for first-stage work.\n\nFor a consultation, call (888) 794-8292 or submit through Structured Intake.',
+      suggestions: ['Open structured intake', 'Book consultation'],
+      links: [{ label: 'Contact', url: '/contact.html' }] },
+    { patterns: [/consult|call|phone|book|appointment|записа|звон|консульт/i],
+      answer: 'You can reach VitaCoreX through:\n\n\u2022 **Phone**: (888) 794-8292 (call or text)\n\u2022 **Structured Intake**: for document-ready matters\n\u2022 **Private Consultation**: for scoping and strategic recommendations\n\nResponse window: 1\u20132 business days after a complete request.',
+      suggestions: ['Open structured intake', 'Book consultation'],
+      links: [{ label: 'Call Now', url: 'tel:+18887948292' }, { label: 'Contact Page', url: '/contact.html' }] },
+    { patterns: [/career|job|hiring|work|hire|вакан|работ|сотрудн/i],
+      answer: 'VitaCoreX is looking for disciplined candidates:\n\n\u2022 Strong and confident English required\n\u2022 Verifiable recommendations preferred\n\u2022 Preference for Russian-speaking candidates with excellent English\n\nRoles: Operations, Documentation, Intake, Translation, Admin, Client Coordination support.',
+      suggestions: ['View careers page'],
+      links: [{ label: 'Careers', url: '/careers.html' }] },
+    { patterns: [/calendar|deadline|event|schedule|календар|дедлайн|событ/i],
+      answer: 'The Deadline Calendar is a risk-first deadline tracker for legal cases, payments, hearings, and follow-ups.\n\nFeatures: AI-assisted event creation, day notes, completion tracking, and priority management.',
+      suggestions: ['Open calendar', 'What else can you help with?'],
+      links: [{ label: 'Open Calendar', url: '/app.html?tool=calendar' }] },
+  ];
+
+  function localAnswer(text) {
+    var lower = (text || '').toLowerCase();
+    for (var i = 0; i < KB.length; i++) {
+      for (var j = 0; j < KB[i].patterns.length; j++) {
+        if (KB[i].patterns[j].test(lower)) {
+          return { answer: KB[i].answer, suggestions: KB[i].suggestions, escalation_links: KB[i].links, mode: 'local_fallback' };
+        }
+      }
+    }
+    // Default response
+    return {
+      answer: 'I\'m currently operating in offline mode. Here\'s what I can help with:\n\n\u2022 **Contract review** \u2014 scanner, document cleanup, demand-letter packets\n\u2022 **Immigration packets** \u2014 form organization, evidence checklists\n\u2022 **Auto deals** \u2014 fee check, payment calculator\n\u2022 **Florida lookups** \u2014 tolls, traffic, court records\n\u2022 **Revenue recovery** \u2014 pre-agency workflow design\n\u2022 **Legal file control** \u2014 counsel-ready packet preparation\n\nAsk about any of these, or call **(888) 794-8292** for direct assistance.',
+      suggestions: ['Contract question', 'Immigration packet', 'What services do you offer?', 'Book consultation'],
+      escalation_links: [{ label: 'Open Structured Intake', url: '/structured-case-intake.html' }, { label: 'Call (888) 794-8292', url: 'tel:+18887948292' }],
+      mode: 'local_fallback'
+    };
+  }
+
   /* ── Self-inject CSS ─────────────────────────────────────────────── */
   var cssLink = document.createElement('link');
   cssLink.rel = 'stylesheet';
@@ -407,18 +473,10 @@
 
       } catch (err) {
         hideTyping();
-        var diagnostic = diagnoseFetchError(err, API_BASE + '/api/legal-chat/message');
-        var errorMsg = diagnostic
-          ? diagnostic + '\n\nYou can submit your question through Structured Intake instead.'
-          : 'The assistant is not responding. You can submit your question through Structured Intake instead.';
-        appendMessage('bot', errorMsg, {
-          status: 'error',
-          escalation_links: [
-            { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
-            { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
-          ]
-        });
-        console.error('[VCX Chat Widget] sendMessage failed:', err, '| API_BASE:', API_BASE);
+        // Use client-side knowledge base as fallback
+        var local = localAnswer(text);
+        appendMessage('bot', local.answer, local);
+        console.warn('[VCX Chat Widget] Backend unavailable, using local fallback. Error:', err.message, '| API_BASE:', API_BASE);
       }
     }
 
