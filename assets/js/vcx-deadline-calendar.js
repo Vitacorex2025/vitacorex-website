@@ -419,6 +419,17 @@
     });
     html += '</div>';
 
+    // Notification section
+    var savedEmail = '';
+    var savedRecipient = '';
+    try { savedEmail = localStorage.getItem('dcal_notify_email') || ''; savedRecipient = localStorage.getItem('dcal_notify_recipient') || ''; } catch(e){}
+    html += '<div class="dcal-notify-section">';
+    html += '<div class="dcal-section-title" style="margin-top:14px;">Notifications</div>';
+    html += '<div class="dcal-notify-row"><label class="dcal-notify-label">Your email:</label><input class="dcal-notify-input" id="dcalNotifyEmail" type="email" placeholder="you@example.com" value="' + esc(savedEmail) + '" /></div>';
+    html += '<div class="dcal-notify-row"><label class="dcal-notify-label">Notify recipient:</label><input class="dcal-notify-input" id="dcalNotifyRecipient" type="email" placeholder="colleague@example.com" value="' + esc(savedRecipient) + '" /></div>';
+    html += '<div class="dcal-notify-row"><label class="dcal-notify-check-label"><input type="checkbox" id="dcalNotifyEnabled" ' + (savedEmail ? 'checked' : '') + ' /> Send email reminder</label></div>';
+    html += '</div>';
+
     html += '</div>';
     el.innerHTML = html;
     el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -533,6 +544,91 @@
     }
   };
 
+  // ── Email Notification ─────────────────────────────────────────────
+  function dcalSendNotification(eventData, ownerEmail, recipientEmail) {
+    var API_BASE = window.VCX_API_BASE || '';
+    var emails = [];
+    if (ownerEmail) emails.push(ownerEmail);
+    if (recipientEmail) emails.push(recipientEmail);
+    if (!emails.length) return;
+
+    var typeName = TYPE_LABELS[eventData.event_type] || eventData.event_type || 'Event';
+    var dateStr = eventData.start_at ? eventData.start_at.slice(0, 10) : '';
+    var timeStr = eventData.start_at ? eventData.start_at.slice(11, 16) : '';
+
+    var payload = {
+      to: emails,
+      subject: 'Calendar Reminder: ' + typeName + ' — ' + eventData.title,
+      body: 'You have an upcoming event:\n\n' +
+        'Title: ' + eventData.title + '\n' +
+        'Type: ' + typeName + '\n' +
+        'Date: ' + dateStr + '\n' +
+        'Time: ' + timeStr + '\n' +
+        'Priority: ' + (eventData.priority || 'medium') + '\n\n' +
+        '— VitaCoreX Deadline Calendar',
+      event: eventData
+    };
+
+    // Try backend notification endpoint
+    fetch(API_BASE + '/api/calendar/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r) {
+      if (r.ok) {
+        dcalShowToast('Notification sent to ' + emails.join(', '));
+      } else {
+        throw new Error('HTTP ' + r.status);
+      }
+    })
+    .catch(function() {
+      // Fallback: use mailto link
+      var mailTo = emails.join(',');
+      var subject = encodeURIComponent(payload.subject);
+      var body = encodeURIComponent(payload.body);
+      var mailLink = 'mailto:' + mailTo + '?subject=' + subject + '&body=' + body;
+
+      // Show toast with mailto fallback
+      dcalShowToast('Backend unavailable — opening email client...');
+      setTimeout(function() { window.location.href = mailLink; }, 500);
+    });
+
+    // Also schedule a browser notification reminder (if permitted)
+    if ('Notification' in window && Notification.permission === 'granted') {
+      dcalScheduleReminder(eventData);
+    } else if ('Notification' in window && Notification.permission !== 'denied') {
+      Notification.requestPermission().then(function(perm) {
+        if (perm === 'granted') dcalScheduleReminder(eventData);
+      });
+    }
+  }
+
+  function dcalScheduleReminder(eventData) {
+    var eventTime = new Date(eventData.start_at).getTime();
+    var now = Date.now();
+    var reminderMs = eventTime - now - (30 * 60 * 1000); // 30 min before
+    if (reminderMs > 0 && reminderMs < 86400000) { // only if within 24h
+      setTimeout(function() {
+        new Notification('Upcoming: ' + eventData.title, {
+          body: (TYPE_LABELS[eventData.event_type] || 'Event') + ' at ' + eventData.start_at.slice(11, 16),
+          icon: '/assets/img/logo.png'
+        });
+      }, reminderMs);
+    }
+  }
+
+  function dcalShowToast(msg) {
+    var existing = document.querySelector('.dcal-toast');
+    if (existing) existing.remove();
+    var toast = document.createElement('div');
+    toast.className = 'dcal-toast';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(function() { toast.classList.add('dcal-toast-visible'); }, 10);
+    setTimeout(function() { toast.classList.remove('dcal-toast-visible'); setTimeout(function() { toast.remove(); }, 300); }, 3000);
+  }
+
   // ── CRUD ──────────────────────────────────────────────────────────
   window.dcalQuickAdd = function(date) {
     var input = document.getElementById('dcalQuickInput');
@@ -551,10 +647,23 @@
     var timeInput = document.getElementById('dcalTimeInput');
     var time = (timeInput && timeInput.value) ? timeInput.value : parsed.time;
 
+    // Collect notification settings
+    var notifyEmail = (document.getElementById('dcalNotifyEmail') || {}).value || '';
+    var notifyRecipient = (document.getElementById('dcalNotifyRecipient') || {}).value || '';
+    var notifyEnabled = (document.getElementById('dcalNotifyEnabled') || {}).checked || false;
+
+    // Save email preferences for next time
+    try {
+      if (notifyEmail) localStorage.setItem('dcal_notify_email', notifyEmail);
+      if (notifyRecipient) localStorage.setItem('dcal_notify_recipient', notifyRecipient);
+    } catch(e){}
+
+    var eventData = { title: title, event_type: eventType, start_at: date + 'T' + time + ':00', priority: priority };
+
     fetch(API + '/events?owner_id=' + state.ownerId, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: title, event_type: eventType, start_at: date + 'T' + time + ':00', priority: priority })
+      body: JSON.stringify(eventData)
     })
     .then(function(r) { return r.json(); })
     .then(function(d) {
@@ -562,6 +671,11 @@
         input.value = '';
         dcalOpenDay(date);
         if (state.currentView === 'home') loadHome();
+
+        // Send email notifications if enabled
+        if (notifyEnabled && (notifyEmail || notifyRecipient)) {
+          dcalSendNotification(eventData, notifyEmail, notifyRecipient);
+        }
       }
     })
     .catch(function() {});

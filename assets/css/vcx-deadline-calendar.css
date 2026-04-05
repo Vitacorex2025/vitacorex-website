@@ -360,6 +360,37 @@
 .dcal-priority-pill.active.medium { background: #D97706; border-color: #D97706; }
 .dcal-priority-pill.active.high { background: #DC2626; border-color: #DC2626; }
 
+/* ── Notification section ──────────────────────────────────────── */
+.dcal-notify-section { margin-top: 4px; }
+.dcal-notify-row {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px;
+}
+.dcal-notify-label {
+  font-size: .75rem; font-weight: 600; color: #4A6B66; white-space: nowrap; min-width: 100px;
+}
+.dcal-notify-input {
+  flex: 1; padding: 6px 10px; border: 1px solid #D1DDD9; border-radius: 8px;
+  font-size: .8rem; color: #1A4F4A; background: #FFF; font-family: inherit;
+}
+.dcal-notify-input:focus { border-color: #1A4F4A; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
+.dcal-notify-input::placeholder { color: #8AA5A0; }
+.dcal-notify-check-label {
+  font-size: .75rem; font-weight: 500; color: #4A6B66; display: flex; align-items: center; gap: 6px; cursor: pointer;
+}
+.dcal-notify-check-label input[type="checkbox"] {
+  accent-color: #1A4F4A; width: 16px; height: 16px; cursor: pointer;
+}
+
+/* ── Toast notification ───────────────────────────────────────── */
+.dcal-toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #1A4F4A; color: #FFF; padding: 10px 20px; border-radius: 8px;
+  font-size: .82rem; font-weight: 500; z-index: 99999;
+  opacity: 0; transition: opacity .3s, transform .3s;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.dcal-toast-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 /* ── Loading state ──────────────────────────────────────────────── */
 .dcal-loading {
   text-align: center; padding: 40px; color: #8AA5A0;
