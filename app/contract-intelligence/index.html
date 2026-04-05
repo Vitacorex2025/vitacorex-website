@@ -853,6 +853,27 @@ function renderResults(analysis, filename) {
     html += '<div class="vcx-result-notice vcx-notice-info"><strong>Limited text extracted.</strong> This file may be image-based, scanned, or encrypted. Text analysis requires readable/selectable text. For scanned contracts, use the manual review route below.</div>';
   }
 
+  // AI Actions (same as server-side path)
+  if(analysis.hasText) {
+    html += '<div style="margin:24px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(45,138,130,.06),rgba(91,186,167,.08));border:1px solid rgba(45,138,130,.2);border-radius:10px;">';
+    html += '<h3 style="font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px;color:#2D8A82;">AI Contract Intelligence</h3>';
+    html += '<div style="display:flex;gap:16px;flex-wrap:wrap;">';
+    html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(154,106,32,.05);border:1px solid rgba(154,106,32,.2);border-radius:8px;">';
+    html += '<h4 style="font-size:.85rem;font-weight:700;color:#9A6A20;margin:0 0 6px;">Contract Risk Review</h4>';
+    html += '<p style="font-size:.82rem;color:#4A6B62;margin:0 0 12px;">AI analyzes risks, weak clauses, and generates a review document with comments for negotiation.</p>';
+    html += '<button class="vcx-cta-btn" id="vcxAiAnalyzeBtn" type="button" onclick="window._vcxAiAnalyze()" style="cursor:pointer;background:rgba(45,138,130,.12);border-color:rgba(45,138,130,.35);color:#2D8A82;font-weight:600;font-size:.82rem;padding:10px 16px;">&#9889; Risk Analysis</button> ';
+    html += '<button class="vcx-cta-btn" id="vcxAiReviewBtn" type="button" onclick="window._vcxAiReview()" style="cursor:pointer;background:rgba(154,106,32,.1);border-color:rgba(154,106,32,.3);color:#9A6A20;font-weight:600;font-size:.82rem;padding:10px 16px;margin-top:8px;">&#128221; Download Review DOCX</button>';
+    html += '</div>';
+    html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(47,107,87,.05);border:1px solid rgba(47,107,87,.2);border-radius:8px;">';
+    html += '<h4 style="font-size:.85rem;font-weight:700;color:#2F6B57;margin:0 0 6px;">Contract Generator</h4>';
+    html += '<p style="font-size:.82rem;color:#4A6B62;margin:0 0 12px;">AI generates a complete improved contract based on your upload. Download as DOCX ready for counsel review.</p>';
+    html += '<button class="vcx-cta-btn" id="vcxAiGenerateBtn" type="button" onclick="window._vcxAiGenerate()" style="cursor:pointer;background:rgba(47,107,87,.12);border-color:rgba(47,107,87,.35);color:#2F6B57;font-weight:600;font-size:.82rem;padding:10px 16px;">&#128196; Generate Contract DOCX</button>';
+    html += '</div>';
+    html += '</div>';
+    html += '<div id="vcxAiResultArea" style="margin-top:16px;"></div>';
+    html += '</div>';
+  }
+
   html += '<div class="vcx-result-cta">';
   html += '<p class="vcx-result-lead">This is a pattern-based pre-check. Findings depend on clause wording and document quality. An advisor review provides full interpretation.</p>';
   html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';

@@ -107,6 +107,192 @@ def analyze_contract_ai(
         return None
 
 
+# ── Contract Generation AI ──────────────────────────────────────────
+
+CONTRACT_GENERATE_PROMPT = """You are the VitaCoreX Contract Generator — an expert contract drafter.
+
+TASK: Based on the original contract provided, generate a COMPLETE improved contract document.
+
+YOUR OUTPUT MUST BE A FULL CONTRACT with these sections (use exact headings):
+
+## AGREEMENT
+The preamble with effective date and party names (extract from original or use placeholders).
+
+## RECITALS
+The whereas clauses explaining the purpose of the agreement.
+
+Then numbered articles — include ALL of these that are relevant:
+
+## ARTICLE 1: SCOPE OF SERVICES / SUBJECT MATTER
+Define the scope based on the original contract.
+
+## ARTICLE 2: TERM AND TERMINATION
+Include initial term, renewal, termination for convenience (with notice period), termination for cause with cure period.
+
+## ARTICLE 3: COMPENSATION / PAYMENT TERMS
+Payment amounts, schedule, net days, late fees, dispute rights.
+
+## ARTICLE 4: CONFIDENTIALITY
+Define confidential information, obligations, exceptions, survival period.
+
+## ARTICLE 5: INTELLECTUAL PROPERTY
+Work product ownership, pre-existing IP, license grants.
+
+## ARTICLE 6: INDEMNIFICATION
+Mutual indemnification with scope and limitations.
+
+## ARTICLE 7: LIMITATION OF LIABILITY
+Consequential damages exclusion, aggregate cap, carve-outs.
+
+## ARTICLE 8: REPRESENTATIONS AND WARRANTIES
+Standard reps and warranties from both parties.
+
+## ARTICLE 9: NON-COMPETE / NON-SOLICITATION
+If relevant to the contract type.
+
+## ARTICLE 10: FORCE MAJEURE
+Force majeure events, notification, extended force majeure termination.
+
+## ARTICLE 11: GOVERNING LAW AND DISPUTE RESOLUTION
+Governing law, jurisdiction, arbitration if applicable.
+
+## ARTICLE 12: ASSIGNMENT
+Assignment restrictions with M&A exception.
+
+## ARTICLE 13: MISCELLANEOUS
+Entire agreement, amendments, waiver, severability, notices, counterparts.
+
+## SIGNATURES
+Signature blocks for both parties.
+
+RULES:
+- IMPROVE all weak or missing clauses from the original
+- Add protections that are MISSING from the original
+- Use professional legal language
+- Keep party names and specific terms from the original where possible
+- Each clause must be complete and ready-to-use
+- Skip sections that don't apply to the contract type
+- This is a DRAFT document, NOT legal advice
+- Output ONLY the contract text, no commentary or explanations
+
+LANGUAGE: Write in the same language as the original contract."""
+
+
+def generate_full_contract_ai(
+    contract_text: str,
+    contract_type: Optional[str] = None,
+    language: str = "en",
+) -> Optional[str]:
+    """AI-powered full contract generation from an uploaded original."""
+    client = _get_client()
+    if not client:
+        return None
+
+    max_chars = 12000
+    text = contract_text[:max_chars]
+    if len(contract_text) > max_chars:
+        text += "\n\n[... document truncated ...]"
+
+    user_msg = f"Generate an improved version of this contract:\n\n{text}"
+    if contract_type:
+        user_msg = f"Contract type: {contract_type}\n\n{user_msg}"
+
+    try:
+        response = client.chat.completions.create(
+            model=_MODEL,
+            messages=[
+                {"role": "system", "content": CONTRACT_GENERATE_PROMPT},
+                {"role": "user", "content": user_msg},
+            ],
+            max_tokens=4000,
+            temperature=0.3,
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as exc:
+        logger.warning("Contract AI generation failed: %s", exc)
+        return None
+
+
+# ── Contract Review Comments AI ─────────────────────────────────────
+
+CONTRACT_REVIEW_PROMPT = """You are the VitaCoreX Contract Review Advisor — an expert contract negotiator.
+
+TASK: Review the provided contract and generate SPECIFIC COMMENTS for each clause that needs attention. These comments will be inserted into a document for the client to use during negotiation.
+
+YOUR OUTPUT FORMAT — for each issue, write:
+
+### [CLAUSE NAME / SECTION]
+**Location:** Quote the first few words of the relevant clause (5-10 words)
+**Issue:** What's wrong or risky about this clause
+**Recommendation:** Specific change to request during negotiation
+**Priority:** HIGH / MEDIUM / LOW
+
+Cover ALL of these areas:
+1. Payment terms — are they fair? Late fees? Net days?
+2. Termination — is the notice period adequate? Can both sides terminate?
+3. Liability — is there a cap? Are consequential damages excluded?
+4. Indemnification — is it mutual? Capped?
+5. Auto-renewal — what's the opt-out window?
+6. Non-compete / non-solicitation — scope and duration
+7. IP ownership — who owns work product?
+8. Confidentiality — duration and scope
+9. Dispute resolution — arbitration vs. litigation
+10. Force majeure — what events are covered?
+11. Assignment — can it be assigned without consent?
+12. Missing protections — what SHOULD be in this contract but isn't
+
+Also include:
+### SUMMARY
+- Total issues found
+- Issues by priority (HIGH/MEDIUM/LOW)
+- Overall negotiation position assessment
+
+RULES:
+- Be specific — reference actual text from the contract
+- Give actionable negotiation language the client can use
+- Focus on protecting the CLIENT's interests
+- Do NOT include any names of reviewers or advisors
+- This is contract intelligence, NOT legal advice
+- Keep it professional and direct
+
+LANGUAGE: Respond in the same language the contract is written in."""
+
+
+def review_contract_comments_ai(
+    contract_text: str,
+    contract_type: Optional[str] = None,
+    language: str = "en",
+) -> Optional[str]:
+    """AI-powered contract review — generates comments for negotiation."""
+    client = _get_client()
+    if not client:
+        return None
+
+    max_chars = 12000
+    text = contract_text[:max_chars]
+    if len(contract_text) > max_chars:
+        text += "\n\n[... document truncated ...]"
+
+    user_msg = f"Review this contract and generate negotiation comments:\n\n{text}"
+    if contract_type:
+        user_msg = f"Contract type: {contract_type}\n\n{user_msg}"
+
+    try:
+        response = client.chat.completions.create(
+            model=_MODEL,
+            messages=[
+                {"role": "system", "content": CONTRACT_REVIEW_PROMPT},
+                {"role": "user", "content": user_msg},
+            ],
+            max_tokens=3000,
+            temperature=0.3,
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as exc:
+        logger.warning("Contract review comments AI failed: %s", exc)
+        return None
+
+
 # ── Contract Improvement AI ───────────────────────────────────────────
 
 CONTRACT_IMPROVE_PROMPT = """You are the VitaCoreX Contract Advisor. The user has a contract that was analyzed and needs IMPROVED clause language.
