@@ -368,7 +368,7 @@
       showTyping();
 
       var payload = {
-        session_id: state.sessionId,
+        session_id: state.sessionId || "",
         message: text,
         topic: state.topic,
         state: state.jurisdiction,
@@ -555,7 +555,7 @@
 
       /* Upload to server */
       var formData = new FormData();
-      formData.append('session_id', state.sessionId);
+      formData.append('session_id', state.sessionId || "");
       formData.append('file', file);
 
       try {
@@ -624,7 +624,7 @@
       }
 
       var payload = {
-        session_id: state.sessionId,
+        session_id: state.sessionId || "",
         name: state.escalation ? state.escalation.name : null,
         email: state.escalation ? state.escalation.email : null,
         phone: state.escalation ? state.escalation.phone : null,
