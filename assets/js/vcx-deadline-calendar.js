@@ -661,8 +661,12 @@
   // ── CRUD ──────────────────────────────────────────────────────────
   window.dcalQuickAdd = function(date) {
     var input = document.getElementById('dcalQuickInput');
-    var rawTitle = input.value.trim();
-    if (!rawTitle) return;
+    var rawTitle = input ? input.value.trim() : '';
+    if (!rawTitle) {
+      dcalShowToast('Enter event title first');
+      if (input) input.focus();
+      return;
+    }
 
     // Smart parse the natural language input
     var parsed = dcalSmartParse(rawTitle);
