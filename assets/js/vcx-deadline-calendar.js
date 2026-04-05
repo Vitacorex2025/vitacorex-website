@@ -1047,10 +1047,10 @@
       'END:VCALENDAR'
     ].join('\r\n');
 
-    // iOS Safari doesn't support blob download — use data URI instead
+    // iOS Safari: blob download and window.open don't work — use location.href
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS) {
-      window.open('data:text/calendar;charset=utf-8,' + encodeURIComponent(ics));
+      window.location.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
     } else {
       var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
       var url = URL.createObjectURL(blob);
