@@ -35,11 +35,15 @@
 
 html{
   scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
 }
 
 body{
   margin:0;
   min-width:320px;
+  touch-action:manipulation;
+  -ms-touch-action:manipulation;
   background:
     radial-gradient(circle at top, rgba(190,163,107,.12), transparent 24%),
     linear-gradient(180deg, #07131f 0%, #081624 38%, #0d1c2b 100%);

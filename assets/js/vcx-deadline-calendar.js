@@ -36,9 +36,13 @@
   };
 
   // ── Pinch-zoom prevention (iOS Safari) ─────────────────────────
+  // Block 2-finger pinch zoom — most reliable method on iOS
+  document.addEventListener('touchmove', function(e) {
+    if (e.touches && e.touches.length > 1) { e.preventDefault(); }
+  }, { passive: false });
+  // Also block Safari gesture events as extra layer
   document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
   document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
-  document.addEventListener('gestureend', function(e) { e.preventDefault(); }, { passive: false });
 
   // ── Init ──────────────────────────────────────────────────────────
   window.addEventListener('DOMContentLoaded', function() {

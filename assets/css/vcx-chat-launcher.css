@@ -60,9 +60,28 @@
 .vcx-cw-launcher svg {
   width: 26px;
   height: 26px;
-  fill: currentColor;
+  color: inherit;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   transition: transform .3s cubic-bezier(.22,1,.36,1), opacity .2s ease;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,.15));
+}
+.vcx-cw-launcher svg circle {
+  fill: currentColor;
+  stroke: none;
+}
+.vcx-cw-launcher .vcx-cw-icon-chat,
+.vcx-cw-launcher .vcx-cw-icon-close {
+  color: inherit;
+  align-items: center;
+  justify-content: center;
+}
+
+.vcx-cw-launcher .vcx-cw-icon-chat {
+  display: flex;
 }
 
 .vcx-cw-launcher .vcx-cw-icon-close {

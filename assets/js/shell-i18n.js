@@ -1,4 +1,11 @@
 
+/* ── Global pinch-zoom prevention (iOS Safari) ────────────────── */
+document.addEventListener('touchmove', function(e) {
+  if (e.touches && e.touches.length > 1) e.preventDefault();
+}, { passive: false });
+document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
+document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+
 (function(){
   const shell = {
     en: {

@@ -5,15 +5,16 @@
 
 /* ── Pinch-zoom prevention (mobile) ─────────────────────────────── */
 body[data-vcx-page="deadline-calendar"] {
-  touch-action: pan-x pan-y;
-  -ms-touch-action: pan-x pan-y;
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
 }
-@media (max-width: 768px) {
-  body[data-vcx-page="deadline-calendar"] {
-    touch-action: pan-y;
-    -webkit-text-size-adjust: 100%;
-    -webkit-overflow-scrolling: touch;
-  }
+/* Ensure iOS form controls work (time picker, inputs, buttons) */
+.dcal-app input,
+.dcal-app textarea,
+.dcal-app select,
+.dcal-app button {
+  touch-action: auto;
 }
 
 /* ── View container ─────────────────────────────────────────────── */
@@ -434,7 +435,7 @@ body[data-vcx-page="deadline-calendar"] {
   .dcal-day-panel { padding: 16px; border-radius: 12px; }
   .dcal-quick-add { flex-direction: column; }
   .dcal-add-btn { width: 100%; text-align: center; padding: 14px; }
-  .dcal-quick-input, .dcal-note-input { font-size: 16px !important; }
+  .dcal-quick-input, .dcal-note-input, .dcal-time-input, .dcal-notify-input { font-size: 16px !important; }
 }
 @media (min-width: 768px) {
   .dcal-risk-grid { grid-template-columns: repeat(4, 1fr); }
