@@ -627,76 +627,82 @@
   }
 
   /* --------------------------------------------------------
-   * 15. Hero Canvas Particles (teal data-flow visualization)
+   * 15. Hero Aurora Waves (flowing teal light animation)
    * ------------------------------------------------------ */
   function initHeroParticles() {
     var hero = document.querySelector('.hero-premium');
     if (!hero || prefersReducedMotion) return;
-    if ('ontouchstart' in window && window.innerWidth < 1024) return; // skip small touch devices
 
     var canvas = document.createElement('canvas');
     canvas.className = 'vcx-hero-canvas';
     hero.insertBefore(canvas, hero.firstChild);
 
     var ctx = canvas.getContext('2d');
-    var particles = [];
-    var PARTICLE_COUNT = 40;
-    var connections = [];
+    var w, h;
 
     function resize() {
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
     }
     resize();
     window.addEventListener('resize', resize);
 
-    for (var i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: 1.5 + Math.random() * 2,
-        alpha: 0.15 + Math.random() * 0.25
-      });
-    }
+    // Aurora wave layers — each has unique speed, amplitude, frequency
+    var layers = [
+      { yBase: 0.52, amp: 0.18, freq: 0.7,  speed: 0.12, color: [45,180,165],  alpha: 0.14, width: 0.40 },
+      { yBase: 0.40, amp: 0.14, freq: 1.0,  speed: 0.20, color: [91,220,200],  alpha: 0.10, width: 0.35 },
+      { yBase: 0.65, amp: 0.20, freq: 0.5,  speed: 0.08, color: [35,140,125],  alpha: 0.16, width: 0.45 },
+      { yBase: 0.32, amp: 0.10, freq: 1.3,  speed: 0.25, color: [141,230,210], alpha: 0.08, width: 0.28 },
+      { yBase: 0.48, amp: 0.22, freq: 0.4,  speed: 0.06, color: [61,165,148],  alpha: 0.12, width: 0.38 }
+    ];
 
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function draw(now) {
+      var t = now * 0.001;
+      ctx.clearRect(0, 0, w, h);
 
-      // Update and draw particles
-      for (var j = 0; j < particles.length; j++) {
-        var p = particles[j];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
+      for (var i = 0; i < layers.length; i++) {
+        var L = layers[i];
+        var c = L.color;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(91, 196, 184, ' + p.alpha + ')';
+
+        // Build wave path across canvas width
+        var baseY = L.yBase * h;
+        var step = 4; // pixel step for smoothness
+        ctx.moveTo(0, h);
+
+        for (var x = 0; x <= w; x += step) {
+          var nx = x / w; // normalized x 0..1
+          // Multi-sine for organic feel
+          var wave = Math.sin(nx * Math.PI * 2 * L.freq + t * L.speed) * 0.6
+                   + Math.sin(nx * Math.PI * 3.7 * L.freq + t * L.speed * 1.3 + 1.2) * 0.25
+                   + Math.sin(nx * Math.PI * 5.1 + t * L.speed * 0.7 + 2.8) * 0.15;
+          var y = baseY + wave * L.amp * h;
+          ctx.lineTo(x, y);
+        }
+
+        // Close path down and across bottom
+        ctx.lineTo(w, h);
+        ctx.closePath();
+
+        // Gradient fill from wave crest to transparent
+        var grd = ctx.createLinearGradient(0, baseY - L.amp * h, 0, baseY + L.width * h);
+        grd.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+        grd.addColorStop(0.3, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + L.alpha + ')');
+        grd.addColorStop(0.6, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (L.alpha * 0.6) + ')');
+        grd.addColorStop(1, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+        ctx.fillStyle = grd;
         ctx.fill();
       }
 
-      // Draw connections between nearby particles
-      for (var a = 0; a < particles.length; a++) {
-        for (var b = a + 1; b < particles.length; b++) {
-          var dx = particles[a].x - particles[b].x;
-          var dy = particles[a].y - particles[b].y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.strokeStyle = 'rgba(91, 196, 184, ' + (0.06 * (1 - dist / 120)) + ')';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
+      // Center glow pulse
+      var pulse = 0.5 + Math.sin(t * 0.4) * 0.3;
+      var glow = ctx.createRadialGradient(w * 0.5, h * 0.45, 0, w * 0.5, h * 0.45, w * 0.5);
+      glow.addColorStop(0, 'rgba(91,210,195,' + (0.08 * pulse) + ')');
+      glow.addColorStop(0.4, 'rgba(45,160,145,' + (0.04 * pulse) + ')');
+      glow.addColorStop(1, 'rgba(45,138,130,0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, w, h);
 
       requestAnimationFrame(draw);
     }

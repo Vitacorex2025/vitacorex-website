@@ -1808,10 +1808,10 @@ body {
 
 /* --- Hero video overlay — UNIFORMLY DARK for text readability --- */
 .hero-video::after {
-  background: rgba(8,25,22,0.82) !important;
+  background: rgba(8,25,22,0.55) !important;
 }
 .hero-video::before {
-  background: rgba(8,25,22,0.50) !important;
+  background: rgba(8,25,22,0.25) !important;
 }
 /* Kill any glass/frost on hero content */
 .hero-copy, .hero-copy.glass, .hero .glass,
@@ -1985,8 +1985,8 @@ body {
 }
 .hero-video video,
 .hero-video img {
-  opacity: 0.3 !important;
-  filter: hue-rotate(120deg) saturate(0.6) brightness(0.5) !important;
+  opacity: 0.45 !important;
+  filter: hue-rotate(120deg) saturate(0.5) brightness(0.6) !important;
 }
 
 /* ================================================================
@@ -2035,46 +2035,7 @@ body {
 }
 
 /* Leaf container overlays the hero */
-.hero-premium::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    /* Leaf 1 — large, slow */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 50'%3E%3Cpath d='M20 0 C30 10 35 25 20 50 C5 25 10 10 20 0Z' fill='rgba(91,196,184,0.12)'/%3E%3Cpath d='M20 8 L20 45' stroke='rgba(143,216,206,0.15)' stroke-width='0.5' fill='none'/%3E%3C/svg%3E") no-repeat,
-    /* Leaf 2 — medium */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 38'%3E%3Cpath d='M15 0 C23 8 27 19 15 38 C3 19 7 8 15 0Z' fill='rgba(91,196,184,0.08)'/%3E%3Cpath d='M15 5 L15 34' stroke='rgba(143,216,206,0.10)' stroke-width='0.4' fill='none'/%3E%3C/svg%3E") no-repeat,
-    /* Leaf 3 — small, fast */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath d='M12 0 C18 6 21 15 12 30 C3 15 6 6 12 0Z' fill='rgba(110,200,188,0.10)'/%3E%3C/svg%3E") no-repeat;
-  background-size: 40px 50px, 28px 36px, 20px 26px;
-  background-position: 15% -50px, 55% -30px, 80% -40px;
-  animation: vcx-leaf-fall 12s ease-in-out infinite, vcx-leaf-sway 6s ease-in-out infinite;
-}
-
-/* Additional leaf layers via after pseudo */
-.hero-premium::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 45'%3E%3Cpath d='M18 0 C27 9 32 22 18 45 C4 22 9 9 18 0Z' fill='rgba(91,196,184,0.07)'/%3E%3Cpath d='M18 6 L18 40' stroke='rgba(143,216,206,0.08)' stroke-width='0.5' fill='none'/%3E%3C/svg%3E") no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cpath d='M10 0 C15 5 18 13 10 26 C2 13 5 5 10 0Z' fill='rgba(110,200,188,0.06)'/%3E%3C/svg%3E") no-repeat;
-  background-size: 34px 43px, 18px 24px;
-  background-position: 35% -60px, 70% -45px;
-  animation: vcx-leaf-drift 16s ease-in-out 3s infinite, vcx-leaf-sway 8s ease-in-out 2s infinite;
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-premium::before,
-  .hero-premium::after {
-    animation: none !important;
-  }
-}
+/* Old CSS leaf pseudo-elements removed — replaced by JS aurora canvas */
 
 /* ================================================================
    20. APP PAGE UNIFIED DESIGN — Override page-specific blues
@@ -2660,7 +2621,7 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
 .vcx-hero-canvas {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 .hero-premium .hero-video {
