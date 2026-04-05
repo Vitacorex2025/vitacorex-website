@@ -3,11 +3,16 @@
 import logging
 import uuid
 from datetime import datetime, timedelta
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Query, Request
+from pydantic import BaseModel
+
 from ..rate_limit import limiter
 from ..db import get_conn
 from ..models.calendar import CalendarRegister, EventCreate, EventUpdate, NoteUpsert
 from ..services import calendar_engine
+from ..services.email_service import _send_email, _esc
 
 logger = logging.getLogger("vcx.calendar.api")
 
@@ -172,3 +177,33 @@ async def upsert_note(request: Request, body: NoteUpsert, owner_id: str = Query(
     except Exception as exc:
         logger.error("Note upsert error: %s", exc)
         raise HTTPException(500, detail=str(exc))
+
+
+class CalendarNotifyRequest(BaseModel):
+    to: list[str]
+    subject: str
+    body: str
+    event: Optional[dict] = None
+
+
+@router.post("/notify")
+@limiter.limit("10/minute")
+async def calendar_notify(request: Request, body: CalendarNotifyRequest):
+    """Send calendar event notification emails."""
+    sent_count = 0
+    for recipient in body.to:
+        if not recipient or "@" not in recipient:
+            continue
+        body_html = f"""\
+<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
+  <h2 style="color:#2D8A82;margin-bottom:16px;">Calendar Reminder</h2>
+  <pre style="white-space:pre-wrap;font-family:inherit;line-height:1.6;">{_esc(body.body)}</pre>
+  <hr style="border:none;border-top:1px solid #e0e0e0;margin:24px 0;">
+  <p style="font-size:12px;color:#999;">
+    VitaCoreX Deadline Calendar | (888) 794-8292
+  </p>
+</div>"""
+        _send_email(recipient, body.subject, body_html, body.body)
+        sent_count += 1
+
+    return {"ok": True, "sent": sent_count}
