@@ -12,7 +12,7 @@ logger = logging.getLogger("vcx.llm")
 
 _API_KEY = os.getenv("OPENAI_API_KEY", "")
 _MODEL = os.getenv("VCX_LLM_MODEL", "gpt-4o-mini")
-_MAX_TOKENS = int(os.getenv("VCX_LLM_MAX_TOKENS", "600"))
+_MAX_TOKENS = int(os.getenv("VCX_LLM_MAX_TOKENS", "2000"))
 
 _client = None
 
@@ -137,3 +137,52 @@ def chat_completion(
     except Exception as exc:
         logger.warning("LLM call failed: %s", exc)
         return None
+
+
+def chat_completion_stream(
+    message: str,
+    history: list[dict] | None = None,
+    topic: Optional[str] = None,
+    state: Optional[str] = None,
+):
+    """Yield streaming chunks from OpenAI.
+
+    Yields str chunks as they arrive. Returns None-generator if unavailable.
+    """
+    client = _get_client()
+    if not client:
+        return
+
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+
+    if topic or state:
+        ctx = "Context: "
+        if topic:
+            ctx += f"The conversation topic is '{topic}'. "
+        if state:
+            ctx += f"The user's jurisdiction is {state}. "
+        messages.append({"role": "system", "content": ctx})
+
+    if history:
+        for msg in history[-10:]:
+            role = msg.get("role", "user")
+            if role in ("user", "assistant"):
+                messages.append({"role": role, "content": msg.get("content", "")})
+
+    messages.append({"role": "user", "content": message})
+
+    try:
+        stream = client.chat.completions.create(
+            model=_MODEL,
+            messages=messages,
+            max_tokens=_MAX_TOKENS,
+            temperature=0.7,
+            stream=True,
+        )
+        for chunk in stream:
+            delta = chunk.choices[0].delta if chunk.choices else None
+            if delta and delta.content:
+                yield delta.content
+    except Exception as exc:
+        logger.warning("LLM stream failed: %s", exc)
+        return

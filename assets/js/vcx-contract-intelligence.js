@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  var API_BASE = window.VCX_API_BASE || '';
+  function API_BASE() { return window.VCX_API_BASE || ''; }
 
   // Save originals for fallback
   var _origScanContract = window.vcxScanContract;
@@ -89,7 +89,7 @@
     if (deadline) fd.append('deadline', deadline);
 
     // Call API
-    fetch(API_BASE + '/api/contracts/analyze', {
+    fetch(API_BASE() + '/api/contracts/analyze', {
       method: 'POST',
       body: fd,
     })
@@ -260,21 +260,21 @@
 
     // --- AI Actions ---
     if (data.word_count && data.word_count > 50) {
-      html += '<div style="margin:24px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(45,138,130,.06),rgba(91,186,167,.08));border:1px solid rgba(45,138,130,.2);border-radius:10px;">';
+      html += '<div style="margin:24px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(45,138,130,.06),rgba(91,186,167,.08));border:1px solid rgba(45,138,130,.2);border-radius:3px;">';
       html += '<h3 style="font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px;color:#2D8A82;">AI Contract Intelligence</h3>';
       html += '<div style="display:flex;gap:16px;flex-wrap:wrap;">';
       // Risk Review & Comments
-      html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(154,106,32,.05);border:1px solid rgba(154,106,32,.2);border-radius:8px;">';
-      html += '<h4 style="font-size:.85rem;font-weight:700;color:#9A6A20;margin:0 0 6px;">Contract Risk Review</h4>';
+      html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(45,138,130,.04);border:1px solid rgba(45,138,130,.18);border-radius:3px;">';
+      html += '<h4 style="font-size:.85rem;font-weight:700;color:#2D8A82;margin:0 0 6px;">Contract Risk Review</h4>';
       html += '<p style="font-size:.82rem;color:#4A6B62;margin:0 0 12px;">AI analyzes risks, weak clauses, and generates a review document with comments for negotiation.</p>';
-      html += '<button class="vcx-cta-btn" id="vcxAiAnalyzeBtn" type="button" onclick="window._vcxAiAnalyze()" style="cursor:pointer;background:rgba(45,138,130,.12);border-color:rgba(45,138,130,.35);color:#2D8A82;font-weight:600;font-size:.82rem;padding:10px 16px;">&#9889; Risk Analysis</button> ';
-      html += '<button class="vcx-cta-btn" id="vcxAiReviewBtn" type="button" onclick="window._vcxAiReview()" style="cursor:pointer;background:rgba(154,106,32,.1);border-color:rgba(154,106,32,.3);color:#9A6A20;font-weight:600;font-size:.82rem;padding:10px 16px;margin-top:8px;">&#128221; Download Review DOCX</button>';
+      html += '<button class="vcx-cta-btn" id="vcxAiAnalyzeBtn" type="button" onclick="window._vcxAiAnalyze()" style="cursor:pointer;background:rgba(45,138,130,.12);border-color:rgba(45,138,130,.35);color:#2D8A82;font-weight:600;font-size:.82rem;padding:10px 16px;border-radius:3px;">&#9889; Risk Analysis</button> ';
+      html += '<button class="vcx-cta-btn" id="vcxAiReviewBtn" type="button" onclick="window._vcxAiReview()" style="cursor:pointer;background:rgba(45,138,130,.08);border-color:rgba(45,138,130,.25);color:#2D8A82;font-weight:600;font-size:.82rem;padding:10px 16px;margin-top:8px;border-radius:3px;">&#128221; Download Review DOCX</button>';
       html += '</div>';
       // Contract Generator
-      html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(47,107,87,.05);border:1px solid rgba(47,107,87,.2);border-radius:8px;">';
-      html += '<h4 style="font-size:.85rem;font-weight:700;color:#2F6B57;margin:0 0 6px;">Contract Generator</h4>';
+      html += '<div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(45,138,130,.04);border:1px solid rgba(45,138,130,.18);border-radius:3px;">';
+      html += '<h4 style="font-size:.85rem;font-weight:700;color:#2D8A82;margin:0 0 6px;">Contract Generator</h4>';
       html += '<p style="font-size:.82rem;color:#4A6B62;margin:0 0 12px;">AI generates a complete improved contract based on your upload. Download as DOCX ready for counsel review.</p>';
-      html += '<button class="vcx-cta-btn" id="vcxAiGenerateBtn" type="button" onclick="window._vcxAiGenerate()" style="cursor:pointer;background:rgba(47,107,87,.12);border-color:rgba(47,107,87,.35);color:#2F6B57;font-weight:600;font-size:.82rem;padding:10px 16px;">&#128196; Generate Contract DOCX</button>';
+      html += '<button class="vcx-cta-btn" id="vcxAiGenerateBtn" type="button" onclick="window._vcxAiGenerate()" style="cursor:pointer;background:rgba(45,138,130,.12);border-color:rgba(45,138,130,.35);color:#2D8A82;font-weight:600;font-size:.82rem;padding:10px 16px;border-radius:3px;">&#128196; Generate Contract DOCX</button>';
       html += '</div>';
       html += '</div>';
       html += '<div id="vcxAiResultArea" style="margin-top:16px;"></div>';
@@ -455,11 +455,11 @@
     fd.append('file', file);
     if (contractType) fd.append('contract_type', contractType);
 
-    fetch(API_BASE + '/api/ai/contract/analyze', { method: 'POST', body: fd })
+    fetch(API_BASE() + '/api/ai/contract/analyze', { method: 'POST', body: fd })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.ok && data.analysis) {
-          area.innerHTML = '<div style="background:#FBF8F3;border:1px solid rgba(26,47,42,.08);border-radius:8px;padding:20px 24px;">'
+          area.innerHTML = '<div style="background:#FBF8F3;border:1px solid rgba(26,47,42,.08);border-radius:3px;padding:20px 24px;">'
             + '<h4 style="font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2D8A82;margin:0 0 12px;">AI Analysis Results</h4>'
             + '<div style="font-size:.88rem;line-height:1.7;color:#243D36;white-space:pre-wrap;">' + escHtml(data.analysis) + '</div>'
             + '<p style="font-size:.75rem;color:#8A98A8;margin:12px 0 0;">Powered by AI \u2014 not legal advice</p>'
@@ -495,15 +495,15 @@
     fd.append('file', file);
     if (contractType) fd.append('contract_type', contractType);
 
-    fetch(API_BASE + '/api/ai/contract/review-comments', { method: 'POST', body: fd })
+    fetch(API_BASE() + '/api/ai/contract/review-comments', { method: 'POST', body: fd })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.ok && data.download_url) {
-          area.innerHTML = '<div style="background:rgba(154,106,32,.06);border:1px solid rgba(154,106,32,.25);border-radius:10px;padding:20px 24px;text-align:center;">'
+          area.innerHTML = '<div style="background:rgba(45,138,130,.05);border:1px solid rgba(45,138,130,.2);border-radius:3px;padding:20px 24px;text-align:center;">'
             + '<p style="font-size:1.5rem;margin:0 0 8px;">&#128221;</p>'
-            + '<h4 style="font-size:1rem;font-weight:700;color:#9A6A20;margin:0 0 8px;">Review Comments Ready</h4>'
+            + '<h4 style="font-size:1rem;font-weight:700;color:#2D8A82;margin:0 0 8px;">Review Comments Ready</h4>'
             + '<p style="font-size:.88rem;color:#4A6B62;margin:0 0 16px;">AI-generated negotiation comments and priority issues. Use this document to prepare for contract discussions.</p>'
-            + '<a href="' + escHtml(API_BASE + data.download_url) + '" class="vcx-cta-btn" style="display:inline-block;background:#9A6A20;color:#fff;border:none;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.95rem;" download>&#128221; Download Review DOCX</a>'
+            + '<a href="' + escHtml(API_BASE() + data.download_url) + '" class="vcx-cta-btn" style="display:inline-block;background:#2D8A82;color:#fff;border:none;padding:14px 32px;border-radius:3px;font-weight:700;text-decoration:none;font-size:.95rem;" download>&#128221; Download Review DOCX</a>'
             + '<p style="font-size:.78rem;color:#7BAE9E;margin:12px 0 0;">File: ' + escHtml(data.filename) + '</p>'
             + '<p style="font-size:.7rem;color:#8A98A8;margin:8px 0 0;">Negotiation notes \u2014 not legal advice \u2014 review with licensed counsel</p>'
             + '</div>';
@@ -538,15 +538,15 @@
     fd.append('file', file);
     if (contractType) fd.append('contract_type', contractType);
 
-    fetch(API_BASE + '/api/ai/contract/generate-docx', { method: 'POST', body: fd })
+    fetch(API_BASE() + '/api/ai/contract/generate-docx', { method: 'POST', body: fd })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.ok && data.download_url) {
-          area.innerHTML = '<div style="background:rgba(47,107,87,.06);border:1px solid rgba(47,107,87,.25);border-radius:10px;padding:20px 24px;text-align:center;">'
+          area.innerHTML = '<div style="background:rgba(45,138,130,.05);border:1px solid rgba(45,138,130,.2);border-radius:3px;padding:20px 24px;text-align:center;">'
             + '<p style="font-size:1.5rem;margin:0 0 8px;">&#10003;</p>'
-            + '<h4 style="font-size:1rem;font-weight:700;color:#2F6B57;margin:0 0 8px;">Contract Generated Successfully</h4>'
+            + '<h4 style="font-size:1rem;font-weight:700;color:#2D8A82;margin:0 0 8px;">Contract Generated Successfully</h4>'
             + '<p style="font-size:.88rem;color:#4A6B62;margin:0 0 16px;">Your improved contract is ready for download. Review with counsel before use.</p>'
-            + '<a href="' + escHtml(API_BASE + data.download_url) + '" class="vcx-cta-btn" style="display:inline-block;background:#2D8A82;color:#fff;border:none;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.95rem;" download>&#128196; Download DOCX</a>'
+            + '<a href="' + escHtml(API_BASE() + data.download_url) + '" class="vcx-cta-btn" style="display:inline-block;background:#2D8A82;color:#fff;border:none;padding:14px 32px;border-radius:3px;font-weight:700;text-decoration:none;font-size:.95rem;" download>&#128196; Download DOCX</a>'
             + '<p style="font-size:.78rem;color:#7BAE9E;margin:12px 0 0;">File: ' + escHtml(data.filename) + '</p>'
             + '<p style="font-size:.7rem;color:#8A98A8;margin:8px 0 0;">AI-generated draft \u2014 not legal advice \u2014 review with licensed counsel</p>'
             + '</div>';

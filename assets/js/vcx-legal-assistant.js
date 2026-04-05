@@ -102,6 +102,41 @@
     return '';
   }
 
+  // ── Lightweight markdown renderer ──────────────────────────────────
+  function renderMarkdown(text) {
+    var lines = esc(text).split('\n');
+    var html = '';
+    var inCode = false;
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      // Code blocks
+      if (line.match(/^```/)) {
+        if (inCode) { html += '</code></pre>'; inCode = false; }
+        else { html += '<pre class="la-code"><code>'; inCode = true; }
+        continue;
+      }
+      if (inCode) { html += line + '\n'; continue; }
+      // Headers
+      if (line.match(/^### /)) { html += '<h4>' + line.slice(4) + '</h4>'; continue; }
+      if (line.match(/^## /)) { html += '<h3>' + line.slice(3) + '</h3>'; continue; }
+      if (line.match(/^# /)) { html += '<h2>' + line.slice(2) + '</h2>'; continue; }
+      // List items
+      if (line.match(/^[-*] /)) { html += '<div class="la-list-item">' + line.slice(2) + '</div>'; continue; }
+      if (line.match(/^\d+\. /)) { html += '<div class="la-list-item">' + line.replace(/^\d+\. /, '') + '</div>'; continue; }
+      // Empty line
+      if (line.trim() === '') { html += '<br>'; continue; }
+      // Regular text
+      html += '<p>' + line + '</p>';
+    }
+    if (inCode) html += '</code></pre>';
+    // Inline: bold, italic, code, links
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/`([^`]+)`/g, '<code class="la-inline-code">$1</code>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    return html;
+  }
+
   function appendMessage(role, text, payload) {
     payload = payload || {};
     var wrapper = document.createElement('div');
@@ -124,7 +159,7 @@
       html += 'You';
     }
     html += '</span>';
-    html += '<div>' + esc(text).replaceAll('\n', '<br>') + '</div>';
+    html += '<div class="la-message-body">' + renderMarkdown(text) + '</div>';
 
     // Phase 4C: Render escalation links as actionable buttons
     if (payload.escalation_links && payload.escalation_links.length) {
@@ -176,28 +211,53 @@
     if (el) el.remove();
   }
 
+  // ── Streaming message append helper ─────────────────────────────
+  function appendStreamingMessage() {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'la-message la-message-assistant la-message-streaming';
+    wrapper.innerHTML = '<span class="la-message-meta">Assistant</span><div class="la-message-body"><span class="la-stream-cursor"></span></div>';
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return wrapper;
+  }
+
+  function updateStreamingMessage(wrapper, fullText) {
+    var body = wrapper.querySelector('.la-message-body');
+    if (body) body.innerHTML = renderMarkdown(fullText) + '<span class="la-stream-cursor"></span>';
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function finalizeStreamingMessage(wrapper, fullText) {
+    wrapper.classList.remove('la-message-streaming');
+    var body = wrapper.querySelector('.la-message-body');
+    if (body) body.innerHTML = renderMarkdown(fullText);
+  }
+
   async function sendMessage(message) {
     appendMessage('user', message);
-    showTyping();
+
+    // Generate session_id if not yet set
+    if (!chatState.sessionId) {
+      chatState.sessionId = 'la_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+      saveSession();
+    }
 
     var payload = {
       session_id: chatState.sessionId,
       message: message,
       topic: chatState.topic,
-      state: stateInput.value.trim() || null,
+      state: stateInput ? stateInput.value.trim() || null : null,
       language: 'en',
     };
 
     try {
-      var res = await fetch(API_BASE + '/api/legal-chat/message', {
+      // Try streaming endpoint first
+      var res = await fetch(API_BASE + '/api/legal-chat/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      hideTyping();
-
-      // Phase 4C: Better error differentiation
       if (res.status === 429) {
         appendMessage('assistant', 'Too many requests. Please wait a moment before sending another message.', {
           status: 'rate_limited',
@@ -210,29 +270,71 @@
 
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
-      var data = await res.json();
-      chatState.sessionId = data.session_id;
-      chatState.mode = data.mode || null; // Phase 5A: track mode
-      if (data.topic) setTopic(data.topic);
-      if (data.state) chatState.jurisdiction = data.state;
-      sessionStateEl.textContent = chatState.sessionId || 'new';
-      jurisdictionStateEl.textContent = data.state || stateInput.value.trim() || 'not set';
-      saveSession();
-      appendMessage('assistant', data.answer, data);
-    } catch (err) {
-      hideTyping();
-      var errDetail = '';
-      if (err instanceof TypeError) {
-        errDetail = ' (Network unreachable — is the backend running on port 8787?)';
+      var wrapper = appendStreamingMessage();
+      var fullText = '';
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+
+      while (true) {
+        var result = await reader.read();
+        if (result.done) break;
+        buffer += decoder.decode(result.value, { stream: true });
+        var lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line.startsWith('data: ')) continue;
+          try {
+            var evt = JSON.parse(line.slice(6));
+            if (evt.t) {
+              fullText += evt.t;
+              updateStreamingMessage(wrapper, fullText);
+            }
+            if (evt.done) {
+              if (evt.session_id) {
+                chatState.sessionId = evt.session_id;
+                if (sessionStateEl) sessionStateEl.textContent = evt.session_id;
+                saveSession();
+              }
+            }
+          } catch (pe) { /* skip malformed */ }
+        }
       }
-      appendMessage('assistant', 'The assistant is not responding' + errDetail + '. You can submit your question through Structured Intake instead.', {
-        status: 'error',
-        escalation_links: [
-          { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
-          { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
-        ]
-      });
-      console.error('[VCX Legal Assistant] sendMessage error:', err, '| API_BASE:', API_BASE);
+
+      finalizeStreamingMessage(wrapper, fullText);
+
+    } catch (err) {
+      // Fallback to non-streaming endpoint
+      showTyping();
+      try {
+        var res2 = await fetch(API_BASE + '/api/legal-chat/message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        hideTyping();
+        if (!res2.ok) throw new Error('HTTP ' + res2.status);
+        var data = await res2.json();
+        chatState.sessionId = data.session_id;
+        chatState.mode = data.mode || null;
+        if (data.topic) setTopic(data.topic);
+        if (data.state) chatState.jurisdiction = data.state;
+        if (sessionStateEl) sessionStateEl.textContent = chatState.sessionId || 'new';
+        if (jurisdictionStateEl) jurisdictionStateEl.textContent = data.state || stateInput.value.trim() || 'not set';
+        saveSession();
+        appendMessage('assistant', data.answer, data);
+      } catch (err2) {
+        hideTyping();
+        var errDetail = (err2 instanceof TypeError) ? ' (Network unreachable)' : '';
+        appendMessage('assistant', 'The assistant is not responding' + errDetail + '. You can submit your question through Structured Intake instead.', {
+          status: 'error',
+          escalation_links: [
+            { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'Submit your matter for private review.' },
+            { label: 'Call (888) 794-8292', url: 'tel:+18887948292', description: 'Speak with someone directly.' }
+          ]
+        });
+      }
     }
   }
 
@@ -243,6 +345,7 @@
       if (!message) return;
       await sendMessage(message);
       messageInput.value = '';
+      messageInput.style.height = 'auto';
     });
   }
 
@@ -510,28 +613,31 @@
       });
   }
 
-  // Phase 5A: Broader greeting — assistant can handle any topic
+  // Textarea auto-expand
+  if (messageInput) {
+    messageInput.addEventListener('input', function () {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 160) + 'px';
+    });
+    messageInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    });
+  }
+
+  // Welcome message — clean and minimal
   appendMessage(
     'assistant',
-    'Welcome to the VitaCoreX assistant. I can help with:\n\n' +
-    '- Legal topics: contracts, immigration packets, auto deals, Florida portals\n' +
-    '- VitaCoreX services: intake, contract review, recovery pilot, client portal\n' +
-    '- General questions and conversation\n\n' +
-    'For legal topics, I provide structured information, issue spotting, and preparation checklists. ' +
-    'I do not provide legal advice or representation.\n\n' +
-    'Select a topic below or type your question.',
+    'How can I help you today?',
     {
       mode: 'general_chat',
       suggestions: [
-        'I have a legal question',
-        'Tell me about VitaCoreX services',
-        'Contract review question',
-        'Immigration packet question',
-        'Auto deal question',
-        'Florida portal question'
-      ],
-      escalation_links: [
-        { label: 'Open Structured Intake', url: '/structured-case-intake.html', description: 'For matters requiring private advisor review.' }
+        'Contract question',
+        'Immigration packet',
+        'Auto deal review',
+        'VitaCoreX services'
       ]
     }
   );

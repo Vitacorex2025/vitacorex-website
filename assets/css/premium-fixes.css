@@ -466,26 +466,28 @@ body[data-vcx-page="contract-scanner"] .vcx-gen-results h3 {
   color: #1A2F2A !important;
 }
 
-/* 9j-cta. CTA button contrast fix — gold text on gold bg fails at 2.1:1 */
+/* 9j-cta. CTA button — teal gradient matching home page */
 .vcx-cta-btn {
-  background: linear-gradient(135deg, #c9a45c 0%, #a6823e 100%) !important;
-  color: #0e1e30 !important;
+  background: linear-gradient(135deg, #2D8A82 0%, #3D9E94 100%) !important;
+  color: #fff !important;
   border: none !important;
+  border-radius: 3px !important;
   font-weight: 700 !important;
-  box-shadow: 0 2px 8px rgba(91,186,167,.25);
+  box-shadow: 0 2px 8px rgba(45,138,130,.18);
 }
 .vcx-cta-btn:hover {
-  box-shadow: 0 4px 16px rgba(91,186,167,.4);
+  box-shadow: 0 4px 16px rgba(45,138,130,.3);
   transform: translateY(-1px);
 }
 .vcx-gen-download-btn {
-  background: rgba(46,79,70,.08) !important;
-  border: 1px solid rgba(46,79,70,.2) !important;
-  color: #2E4F46 !important;
+  background: linear-gradient(135deg, #2D8A82 0%, #3D9E94 100%) !important;
+  border: none !important;
+  border-radius: 3px !important;
+  color: #fff !important;
   font-weight: 600 !important;
 }
 .vcx-gen-download-btn:hover {
-  background: rgba(46,79,70,.14) !important;
+  opacity: .9 !important;
 }
 
 /* 9j-eyebrow-dark. Dark page eyebrow — #c9a45c at 4.1:1 fails AA. Bump to #ddb86a (~5.5:1) */

@@ -14,8 +14,10 @@ import secrets as _secrets
 import uuid
 
 from fastapi import APIRouter, HTTPException, Form, Header, Query, Request, UploadFile
+from fastapi.responses import StreamingResponse
 
 from ..db import ensure_session, get_session, save_message, list_recent_messages, create_lead
+from ..legal_chat.llm import chat_completion_stream, is_available as llm_available
 from ..legal_chat.policy import answer_message, build_intake_summary
 from ..models.chat import (
     ChatAttachment,
@@ -146,6 +148,63 @@ def post_message(request: Request, req: ChatRequest):
     )
 
     return resp
+
+
+# ── SSE streaming endpoint ──────────────────────────────────────────
+
+@router.post("/api/legal-chat/stream")
+@limiter.limit("30/minute")
+def post_message_stream(request: Request, req: ChatRequest):
+    """Stream AI response via SSE. Falls back to non-streaming if AI unavailable."""
+    ensure_session(req.session_id, topic=req.topic, state=req.state, language=req.language)
+    save_message(req.session_id, "user", req.message)
+
+    effective_topic = req.topic
+    effective_state = req.state
+    if not effective_topic or not effective_state:
+        stored = get_session(req.session_id)
+        if stored:
+            if not effective_topic:
+                effective_topic = stored.get("topic")
+            if not effective_state:
+                effective_state = stored.get("state")
+
+    # Get history for context
+    history = list_recent_messages(req.session_id, limit=20)
+
+    if not llm_available():
+        # Fall back to policy engine (non-streaming)
+        resp = answer_message(
+            message=req.message, topic=effective_topic,
+            state=effective_state, session_id=req.session_id,
+        )
+        save_message(req.session_id, "assistant", resp.answer)
+
+        def fallback_gen():
+            yield f"data: {json.dumps({'t': resp.answer})}\n\n"
+            yield f"data: {json.dumps({'done': True, 'session_id': req.session_id})}\n\n"
+
+        return StreamingResponse(fallback_gen(), media_type="text/event-stream")
+
+    # Stream from LLM
+    full_response = []
+
+    def sse_gen():
+        for chunk in chat_completion_stream(
+            message=req.message,
+            history=history,
+            topic=effective_topic,
+            state=effective_state,
+        ):
+            full_response.append(chunk)
+            yield f"data: {json.dumps({'t': chunk})}\n\n"
+
+        full_text = "".join(full_response)
+        if full_text:
+            save_message(req.session_id, "assistant", full_text)
+        yield f"data: {json.dumps({'done': True, 'session_id': req.session_id})}\n\n"
+
+    return StreamingResponse(sse_gen(), media_type="text/event-stream")
 
 
 # ── Phase 6A: Chat-to-Intake handoff endpoint ──────────────────────

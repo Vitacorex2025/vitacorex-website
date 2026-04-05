@@ -20,33 +20,33 @@
 <link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-app-premium.css" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css" rel="stylesheet"/>
 <style>
 .vcx-analysis-result { max-width: 720px; }
-.vcx-result-summary { display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; border-radius: 10px; margin-bottom: 24px; }
+.vcx-result-summary { display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; border-radius: 3px; margin-bottom: 24px; }
 .vcx-summary-high { background: rgba(139,67,72,.08); border: 1px solid rgba(139,67,72,.2); }
-.vcx-summary-medium { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); }
+.vcx-summary-medium { background: rgba(45,138,130,.08); border: 1px solid rgba(45,138,130,.2); }
 .vcx-summary-low { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); }
 .vcx-summary-icon { font-size: 1.5rem; flex-shrink: 0; }
 .vcx-summary-title { font-size: 1.125rem; font-weight: 600; color: #1A2F2A; margin-bottom: 4px; }
 .vcx-summary-meta { font-size: 0.8125rem; color: #7BAE9E; }
-.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(26,47,42,.08); border-radius: 8px; }
+.vcx-result-section { margin-bottom: 20px; padding: 20px 24px; background: #FBF8F3; border: 1px solid rgba(26,47,42,.08); border-radius: 3px; }
 .vcx-section-title { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
 .vcx-section-title.vcx-found { color: #2F6B57; }
 .vcx-section-title.vcx-critical { color: #8B4348; }
-.vcx-section-title.vcx-flag { color: #9A6A20; }
+.vcx-section-title.vcx-flag { color: #2D8A82; }
 .vcx-section-note { font-size: 0.8125rem; color: #7BAE9E; margin-bottom: 12px; }
 .vcx-clause-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .vcx-clause-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; padding: 6px 0; }
 .vcx-clause-dot { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
 .vcx-clause-found .vcx-clause-dot { background: rgba(47,107,87,.12); color: #2F6B57; }
 .vcx-clause-missing .vcx-clause-dot { background: rgba(139,67,72,.12); color: #8B4348; }
-.vcx-clause-verify .vcx-clause-dot { background: rgba(154,106,32,.12); color: #9A6A20; }
-.vcx-result-notice { padding: 14px 18px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; }
+.vcx-clause-verify .vcx-clause-dot { background: rgba(45,138,130,.12); color: #2D8A82; }
+.vcx-result-notice { padding: 14px 18px; border-radius: 3px; margin-bottom: 16px; font-size: 0.875rem; }
 .vcx-notice-info { background: rgba(53,94,138,.08); border: 1px solid rgba(53,94,138,.2); color: #3D8E7E; }
-.vcx-notice-warning { background: rgba(154,106,32,.08); border: 1px solid rgba(154,106,32,.2); color: #9A6A20; }
+.vcx-notice-warning { background: rgba(45,138,130,.08); border: 1px solid rgba(45,138,130,.2); color: #2D8A82; }
 .vcx-notice-success { background: rgba(47,107,87,.08); border: 1px solid rgba(47,107,87,.2); color: #2F6B57; }
-.vcx-file-notice { padding: 8px 14px; border-radius: 6px; font-size: 0.8125rem; margin-top: 8px; }
+.vcx-file-notice { padding: 8px 14px; border-radius: 3px; font-size: 0.8125rem; margin-top: 8px; }
 .vcx-result-lead { font-size: 0.9375rem; color: #243D36; margin-bottom: 16px; }
 .vcx-result-cta { margin-top: 20px; }
-.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: rgba(91,186,167,.15); border: 1px solid rgba(91,186,167,.4); border-radius: 8px; color: #5BBAA7; font-weight: 600; text-decoration: none; font-size: .95rem; }
+.vcx-cta-btn { display: inline-block; padding: 14px 28px; background: linear-gradient(135deg,#2D8A82,#3D9E94); border: none; border-radius: 3px; color: #fff; font-weight: 600; text-decoration: none; font-size: .95rem; }
 .vcx-disc { font-size: 0.75rem; color: #8A98A8; margin-top: 20px; line-height: 1.6; padding-top: 16px; border-top: 1px solid rgba(26,47,42,.08); }
 </style>
 
@@ -228,7 +228,7 @@ window.SITE_I18N = {
 <a href="/additional-services.html" data-tx="tool_back" style="display:inline-block;margin-bottom:28px;font-size:.9rem;color:rgba(91,186,167,.8);text-decoration:none;">&larr; Private Client Services</a>
 
 <!-- Compliance banner -->
-<div style="background:rgba(255,180,0,.06);border:1px solid rgba(255,180,0,.2);border-radius:8px;padding:12px 16px;margin-bottom:28px;font-size:.85rem;color:rgba(255,200,100,.75);" data-tx="tool_not_legal">
+<div style="background:rgba(255,180,0,.06);border:1px solid rgba(255,180,0,.2);border-radius:3px;padding:12px 16px;margin-bottom:28px;font-size:.85rem;color:rgba(255,200,100,.75);" data-tx="tool_not_legal">
 Not legal advice. Not a filing service. For document organization only.
 </div>
 
@@ -239,11 +239,11 @@ Not legal advice. Not a filing service. For document organization only.
 </div>
 
 <!-- Upload card -->
-<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:12px;margin-bottom:24px;">
+<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:3px;margin-bottom:24px;">
 <label for="vcxFormFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:1rem;margin-bottom:8px;">Upload your form or notice</label>
 <p data-tx="tool_upload_hint" style="font-size:.88rem;color:rgba(255,255,255,.5);margin:0 0 16px;">USCIS PDF form or immigration notice (.txt for full analysis). PDF text extraction is limited — scanned and image files cannot be read.</p>
 
-<div id="vcxDropZone" style="border:2px dashed rgba(91,186,167,.35);border-radius:8px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxFormFile').click()">
+<div id="vcxDropZone" style="border:2px dashed rgba(91,186,167,.35);border-radius:3px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .2s;" onclick="document.getElementById('vcxFormFile').click()">
 <div style="font-size:2rem;margin-bottom:8px;">📋</div>
 <span data-tx="tool_upload_btn" style="font-size:.95rem;color:rgba(91,186,167,.85);font-weight:500;">Choose file to upload</span>
 <div id="vcxFileName" style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.5);"></div>
@@ -253,11 +253,11 @@ Not legal advice. Not a filing service. For document organization only.
 <details style="margin-top:16px;">
 <summary style="font-size:.85rem;color:rgba(255,255,255,.45);cursor:pointer;" data-tx="tool_support_label">Supporting documents (optional)</summary>
 <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin:8px 0;" data-tx="tool_support_hint">Passport copy, prior notices, civil documents — used to suggest field values.</p>
-<input type="file" id="vcxSupportFile" accept=".pdf,.docx,.txt,image/*" capture="environment" multiple style="width:100%;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff;font-size:.9rem;"/>
+<input type="file" id="vcxSupportFile" accept=".pdf,.docx,.txt,image/*" capture="environment" multiple style="width:100%;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;color:#fff;font-size:.9rem;"/>
 </details>
 
 <button id="vcxAnalyzeBtn" type="button" onclick="vcxAnalyzeForm()" disabled
-  style="margin-top:22px;width:100%;padding:16px;background:rgba(91,186,167,.15);border:1px solid rgba(91,186,167,.4);border-radius:8px;color:#5BBAA7;font-size:1rem;font-weight:600;cursor:pointer;"
+  style="margin-top:22px;width:100%;padding:16px;background:linear-gradient(135deg,#2D8A82,#3D9E94);border:none;border-radius:3px;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;"
   data-tx="tool_scan_btn">Analyze packet</button>
 
 <div id="vcxAnalyzeStatus" style="display:none;text-align:center;padding:16px;font-size:.9rem;color:rgba(255,255,255,.6);" data-tx="tool_analyzing">Reviewing your form&hellip;</div>
@@ -266,7 +266,7 @@ Not legal advice. Not a filing service. For document organization only.
 <!-- Results -->
 <div id="vcxResultsArea" hidden></div>
 <!-- B3: PACKET REVIEW FORM (shown after local analysis) -->
-<div id="vcxPacketReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(47,107,87,.08);border:1px solid rgba(47,107,87,.3);border-radius:10px;">
+<div id="vcxPacketReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(47,107,87,.08);border:1px solid rgba(47,107,87,.3);border-radius:3px;">
 <h3 style="color:#2F6B57;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Packet Review</h3>
 <p style="color:rgba(26,47,42,.75);font-size:.9rem;margin:0 0 18px;">An advisor will review your immigration packet and contact you within 1 business day.</p>
 <form id="vcxPacketForm" method="POST" action="https://formsubmit.co/stevenmiller@vitacorexllc.com" style="display:grid;gap:14px;">
@@ -277,21 +277,21 @@ Not legal advice. Not a filing service. For document organization only.
 <input type="hidden" name="analysis_summary" id="vcxPacketSummary" value=""/>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
 <div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketName">Full Name <span style="color:#2F6B57;">*</span></label>
-<input type="text" id="vcxPacketName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
+<input type="text" id="vcxPacketName" name="full_name" required autocomplete="name" placeholder="Your full name" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:3px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
 <div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketEmail">Email <span style="color:#2F6B57;">*</span></label>
-<input type="email" id="vcxPacketEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
+<input type="email" id="vcxPacketEmail" name="email" required autocomplete="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:3px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
 </div>
 <div><label style="display:block;font-size:.85rem;color:rgba(26,47,42,.8);margin-bottom:6px;" for="vcxPacketPhone">Phone (optional)</label>
-<input type="tel" id="vcxPacketPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:6px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
+<input type="tel" id="vcxPacketPhone" name="phone" autocomplete="tel" placeholder="(888) 000-0000" style="width:100%;padding:10px 12px;background:#fff;border:1px solid rgba(26,47,42,.2);border-radius:3px;color:#1A2F2A;font-size:.9rem;box-sizing:border-box;"/></div>
 <p style="font-size:.8rem;color:rgba(26,47,42,.5);margin:0;">This is a preliminary document review. Results require advisor verification.</p>
-<button type="submit" id="vcxPacketSubmitBtn" style="padding:14px 24px;background:rgba(47,107,87,.15);border:1px solid rgba(47,107,87,.4);border-radius:8px;color:#2F6B57;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Packet Review</button>
+<button type="submit" id="vcxPacketSubmitBtn" style="padding:14px 24px;background:linear-gradient(135deg,#2D8A82,#3D9E94);border:none;border-radius:3px;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Packet Review</button>
 </form>
-<div id="vcxPacketSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:8px;color:#2F6B57;font-size:.95rem;">Your packet summary has been submitted. An advisor will contact you within 1 business day.</div>
-<div id="vcxPacketError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:#8B4348;font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:stevenmiller@vitacorexllc.com" style="color:#2F6B57;">stevenmiller@vitacorexllc.com</a>.</div>
+<div id="vcxPacketSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:3px;color:#2F6B57;font-size:.95rem;">Your packet summary has been submitted. An advisor will contact you within 1 business day.</div>
+<div id="vcxPacketError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:3px;color:#8B4348;font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:stevenmiller@vitacorexllc.com" style="color:#2F6B57;">stevenmiller@vitacorexllc.com</a>.</div>
 </div>
 
 <div id="vcxEmptyState" style="text-align:center;padding:40px;color:rgba(255,255,255,.4);" data-tx="tool_empty">Upload a form or notice above to see your review.</div>
-<div id="vcxErrorState" style="display:none;padding:18px 20px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:6px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Could not review the form.</div>
+<div id="vcxErrorState" style="display:none;padding:18px 20px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:3px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Could not review the form.</div>
 
 <p data-tx="tool_disc" style="margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.55;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;">This review identifies form fields and evidence gaps. It does not constitute legal advice and does not determine immigration eligibility.</p>
 </div>
@@ -506,7 +506,7 @@ function vcxAnalyzeForm(){
         var analysis=analyzeImmigration(text,selectedFile2.name);
         area.innerHTML=renderImmigrationResults(analysis);
         // Add AI unavailable notice
-        area.innerHTML+='<div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:12px 16px;margin-top:12px;font-size:.82rem;color:#8B6914;">&#9888; AI analysis unavailable \u2014 showing pattern-based results. The AI service may be warming up; try again in a minute for deeper analysis.</div>';
+        area.innerHTML+='<div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:3px;padding:12px 16px;margin-top:12px;font-size:.82rem;color:#8B6914;">&#9888; AI analysis unavailable \u2014 showing pattern-based results. The AI service may be warming up; try again in a minute for deeper analysis.</div>';
         area.hidden=false;
         area.scrollIntoView({behavior:'smooth',block:'start'});
         showPacketReviewSection(selectedFile2.name, analysis);

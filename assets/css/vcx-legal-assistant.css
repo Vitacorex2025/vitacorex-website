@@ -1,71 +1,73 @@
-/* VCX Legal Assistant — chat page styles */
+/* VCX Legal Assistant — ChatGPT-style full-page chat */
 
 body[data-vcx-page="legal-assistant"] {
   background: var(--vcx-bg-canvas, #F6F2EA);
   color: var(--vcx-ink-body, #2E4F46);
 }
 
-.assistant-grid,
-.assistant-escalation-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1.1fr 1fr;
+/* Hide footer on legal-assistant page for immersive chat */
+body[data-vcx-page="legal-assistant"] .footer {
+  display: none;
 }
 
-.assistant-intro {
-  padding: 28px 24px;
-}
+/* ── Full-page layout ──────────────────────────────────────────────── */
 
-.assistant-chat-shell {
-  min-height: 640px;
+.la-chat-main {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  height: calc(100vh - 120px);
+  min-height: 400px;
 }
 
-.assistant-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 16px;
-  font-size: .8rem;
-  color: var(--vcx-ink-muted, #5E6C7B);
-}
-
-.assistant-messages {
+.la-chat-container {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 1px solid rgba(26, 47, 42, .08);
-  border-radius: 14px;
-  padding: 16px;
-  background: var(--vcx-bg-surface, #FBF8F3);
-  min-height: 320px;
-  max-height: 480px;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
 
-/* Messages */
+.la-chat-messages {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: flex-end;
+}
+
+/* ── Messages ──────────────────────────────────────────────────────── */
+
 .la-message {
-  margin-bottom: 14px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  max-width: 90%;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-radius: 3px;
+  max-width: 85%;
   white-space: pre-wrap;
   font-size: .9rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  animation: laFadeIn .2s ease;
+}
+
+@keyframes laFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .la-message-user {
   margin-left: auto;
-  background: rgba(46, 79, 70, .06);
+  background: rgba(46, 79, 70, .07);
   border: 1px solid rgba(46, 79, 70, .1);
 }
 
 .la-message-assistant {
-  background: rgba(184, 153, 99, .08);
-  border: 1px solid rgba(184, 153, 99, .15);
+  background: transparent;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
 }
 
 .la-message-meta {
@@ -77,142 +79,187 @@ body[data-vcx-page="legal-assistant"] {
   color: var(--vcx-ink-muted, #5E6C7B);
 }
 
+/* ── Input area (sticky bottom) ────────────────────────────────────── */
+
+.la-chat-input-area {
+  border-top: 1px solid rgba(26, 47, 42, .08);
+  padding: 16px 20px;
+  background: var(--vcx-bg-canvas, #F6F2EA);
+}
+
+.la-chat-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.la-chat-input-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  border: 1px solid rgba(26, 47, 42, .15);
+  border-radius: 3px;
+  background: var(--vcx-bg-surface, #FBF8F3);
+  padding: 8px 12px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.la-chat-input-wrap:focus-within {
+  border-color: #2D8A82;
+  box-shadow: 0 0 0 2px rgba(45, 138, 130, .1);
+}
+
+.la-chat-textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--vcx-ink-body, #2E4F46);
+  font-size: .9rem;
+  font-family: inherit;
+  line-height: 1.5;
+  padding: 4px 0;
+  resize: none;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.la-chat-textarea::placeholder {
+  color: var(--vcx-ink-muted, #5E6C7B);
+  opacity: .6;
+}
+
+.la-chat-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  align-items: flex-end;
+}
+
+.la-icon-btn,
+.la-send-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background .15s, color .15s;
+  flex-shrink: 0;
+}
+
+.la-icon-btn:hover {
+  background: rgba(46, 79, 70, .06);
+  color: var(--vcx-ink-body, #2E4F46);
+}
+
+.la-send-btn {
+  background: #2D8A82;
+  color: #fff;
+}
+
+.la-send-btn:hover {
+  background: #3D9E94;
+}
+
+.la-chat-disclaimer {
+  margin: 10px 0 0;
+  font-size: .72rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+  text-align: center;
+}
+
+.la-chat-disclaimer a {
+  color: #2D8A82;
+  text-decoration: none;
+}
+
+.la-chat-disclaimer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Suggestion chips ──────────────────────────────────────────────── */
+
 .la-message-suggestions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-.la-message-sources {
-  margin-top: 10px;
-  font-size: .75rem;
-  color: var(--vcx-ink-muted, #5E6C7B);
-}
-
-/* Form within chat */
-.assistant-form label {
-  display: block;
-  margin-bottom: 14px;
-}
-
-.assistant-form span {
-  display: block;
-  margin-bottom: 6px;
-  font-size: .8rem;
-  font-weight: 600;
-  color: var(--vcx-ink-body, #2E4F46);
-}
-
-.assistant-form input,
-.assistant-form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(26, 47, 42, .12);
-  background: var(--vcx-bg-surface, #FBF8F3);
-  color: var(--vcx-ink-body, #2E4F46);
-  font-size: .9rem;
-  font-family: inherit;
-}
-
-.assistant-form input:focus,
-.assistant-form textarea:focus {
-  outline: none;
-  border-color: var(--vcx-brand-primary, #2E4F46);
-  box-shadow: 0 0 0 3px rgba(46, 79, 70, .12);
-}
-
-.assistant-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-/* Topic chips */
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.topic-chip,
 .suggestion-chip {
   appearance: none;
   border: 1px solid rgba(26, 47, 42, .12);
   background: var(--vcx-bg-surface, #FBF8F3);
   color: var(--vcx-ink-body, #2E4F46);
-  border-radius: 999px;
-  padding: 8px 16px;
+  border-radius: 3px;
+  padding: 8px 14px;
   cursor: pointer;
   font-size: .8rem;
   font-family: inherit;
-  transition: border-color .2s, background .2s;
+  transition: border-color .15s, background .15s;
 }
 
-.topic-chip:hover,
 .suggestion-chip:hover {
-  border-color: var(--vcx-brand-primary, #2E4F46);
-  background: rgba(46, 79, 70, .04);
+  border-color: #2D8A82;
+  background: rgba(45, 138, 130, .04);
 }
 
-.topic-chip.is-active {
-  border-color: var(--vcx-brand-primary, #2E4F46);
-  background: rgba(46, 79, 70, .08);
-  font-weight: 600;
-}
+/* ── Boundary / escalation ─────────────────────────────────────────── */
 
-/* Phase 4C: Boundary / out-of-scope message treatment */
 .la-message-boundary {
-  background: rgba(139, 67, 72, .05);
-  border-color: rgba(139, 67, 72, .15);
+  background: rgba(139, 67, 72, .04);
+  border: 1px solid rgba(139, 67, 72, .12);
+  padding: 14px 18px;
 }
 
-/* Phase 4C: Escalation link cards */
 .la-escalation-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .la-escalation-link {
   display: block;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 3px;
   border: 1px solid rgba(46, 79, 70, .12);
   background: rgba(46, 79, 70, .03);
   text-decoration: none;
-  transition: border-color .2s, background .2s;
+  transition: border-color .15s, background .15s;
 }
 
 .la-escalation-link:hover {
-  border-color: var(--vcx-brand-primary, #2E4F46);
+  border-color: #2D8A82;
   background: rgba(46, 79, 70, .06);
 }
 
 .la-escalation-label {
   display: block;
-  font-size: .85rem;
+  font-size: .82rem;
   font-weight: 600;
-  color: var(--vcx-brand-primary, #2E4F46);
+  color: #2D8A82;
 }
 
 .la-escalation-desc {
   display: block;
-  font-size: .75rem;
+  font-size: .72rem;
   color: var(--vcx-ink-muted, #5E6C7B);
   margin-top: 2px;
 }
 
-/* Phase 5A: Mode badge on assistant messages */
+/* ── Mode badges ───────────────────────────────────────────────────── */
+
 .la-mode-badge {
   display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: .6rem;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: .58rem;
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -226,171 +273,50 @@ body[data-vcx-page="legal-assistant"] {
 }
 
 .la-mode-routing {
-  background: rgba(184, 153, 99, .15);
-  color: #7A6430;
+  background: rgba(45, 138, 130, .1);
+  color: #2D8A82;
 }
 
 .la-mode-escalate {
-  background: rgba(139, 67, 72, .12);
+  background: rgba(139, 67, 72, .1);
   color: #8B4348;
 }
 
-/* Phase 5A: Mode-specific message tints */
+/* Mode tints on assistant messages */
 .la-message-assistant.la-mode-legal-information {
   border-left: 3px solid var(--vcx-brand-primary, #2E4F46);
+  padding-left: 16px;
 }
 
 .la-message-assistant.la-mode-vcx-routing {
-  border-left: 3px solid rgba(184, 153, 99, .6);
+  border-left: 3px solid rgba(45, 138, 130, .5);
+  padding-left: 16px;
 }
 
 .la-message-assistant.la-mode-high-risk {
   border-left: 3px solid #8B4348;
+  padding-left: 16px;
 }
 
-/* ── Phase 6A: Convert-to-Intake CTA ────────────────────────────── */
+/* ── Streaming cursor ──────────────────────────────────────────────── */
 
-body[data-vcx-page="legal-assistant"] .la-intake-cta {
-  margin-top: 16px;
-  padding: 16px 20px;
-  background: rgba(47, 107, 87, .06);
-  border: 1px solid rgba(47, 107, 87, .18);
-  border-radius: 10px;
-}
-
-body[data-vcx-page="legal-assistant"] .la-intake-cta-text {
-  font-size: .85rem;
-  color: var(--vcx-ink-body, #2E4F46);
-  margin: 0 0 10px;
-}
-
-body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
-  appearance: none;
+.la-stream-cursor {
   display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid var(--vcx-brand-primary, #2E4F46);
-  background: var(--vcx-brand-primary, #2E4F46);
-  color: #fff;
-  border-radius: 8px;
-  font-size: .85rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background .2s, border-color .2s;
+  width: 2px;
+  height: 1em;
+  background: #2D8A82;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: la-blink .6s step-end infinite;
 }
 
-body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:hover {
-  background: #3D6B5E;
-  border-color: #3D6B5E;
+@keyframes la-blink { 50% { opacity: 0; } }
+
+.la-message-streaming .la-message-body {
+  min-height: 1.5em;
 }
 
-body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-}
-
-/* Phase 6B: Detected-context tag and step indicators in CTA */
-
-body[data-vcx-page="legal-assistant"] .la-intake-cta-detected {
-  display: block;
-  margin-bottom: 10px;
-  font-size: .78rem;
-  font-weight: 600;
-  color: var(--vcx-brand-primary, #2E4F46);
-}
-
-body[data-vcx-page="legal-assistant"] .la-intake-cta-steps {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-  font-size: .76rem;
-  color: var(--vcx-ink-muted, #5E6C7B);
-}
-
-body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
-  white-space: nowrap;
-}
-
-/* ── Phase 10: Backend status indicator ──────────────────────────── */
-
-.la-backend-status {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: .75rem;
-  color: var(--vcx-ink-muted, #5E6C7B);
-}
-
-.la-status-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #999;
-  flex-shrink: 0;
-}
-
-.la-status-dot.la-status-online {
-  background: #2F6B57;
-}
-
-.la-status-dot.la-status-offline {
-  background: #8B4348;
-}
-
-/* ── Phase 10: Attach / camera buttons ──────────────────────────── */
-
-.la-attach-btn {
-  appearance: none;
-  border: 1px solid rgba(26, 47, 42, .12);
-  background: var(--vcx-bg-surface, #FBF8F3);
-  color: var(--vcx-ink-body, #2E4F46);
-  border-radius: 8px;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color .2s, background .2s;
-  flex-shrink: 0;
-}
-
-.la-attach-btn:hover {
-  border-color: var(--vcx-brand-primary, #2E4F46);
-  background: rgba(46, 79, 70, .04);
-}
-
-.la-attach-btn:active {
-  background: rgba(46, 79, 70, .08);
-}
-
-/* ── Phase 10: Upload status bar ────────────────────────────────── */
-
-.la-upload-status {
-  margin-top: 8px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: .8rem;
-  line-height: 1.4;
-}
-
-.la-upload-ok {
-  background: rgba(47, 107, 87, .08);
-  color: #2F6B57;
-  border: 1px solid rgba(47, 107, 87, .15);
-}
-
-.la-upload-error {
-  background: rgba(139, 67, 72, .08);
-  color: #8B4348;
-  border: 1px solid rgba(139, 67, 72, .15);
-}
-
-/* ── Phase 10: Typing indicator ─────────────────────────────────── */
+/* ── Typing indicator ──────────────────────────────────────────────── */
 
 .la-typing-dots {
   display: flex;
@@ -399,82 +325,226 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
 }
 
 .la-typing-dots span {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: rgba(26, 47, 42, .25);
+  background: rgba(26, 47, 42, .22);
   animation: laTypingBounce 1.2s ease-in-out infinite;
 }
 
-.la-typing-dots span:nth-child(2) {
-  animation-delay: .15s;
-}
-
-.la-typing-dots span:nth-child(3) {
-  animation-delay: .3s;
-}
+.la-typing-dots span:nth-child(2) { animation-delay: .15s; }
+.la-typing-dots span:nth-child(3) { animation-delay: .3s; }
 
 @keyframes laTypingBounce {
   0%, 60%, 100% { opacity: .3; transform: translateY(0); }
   30% { opacity: 1; transform: translateY(-4px); }
 }
 
-/* Responsive */
-@media (max-width: 980px) {
-  .assistant-grid,
-  .assistant-escalation-grid {
-    grid-template-columns: 1fr;
-  }
+/* ── Upload status ─────────────────────────────────────────────────── */
 
-  .assistant-chat-shell {
-    min-height: unset;
-  }
+.la-upload-status {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  font-size: .78rem;
+  line-height: 1.4;
 }
 
-/* ── Phase 8: Mobile / iPhone fixes ──────────────────────────────── */
+.la-upload-ok {
+  background: rgba(47, 107, 87, .07);
+  color: #2F6B57;
+  border: 1px solid rgba(47, 107, 87, .12);
+}
+
+.la-upload-error {
+  background: rgba(139, 67, 72, .07);
+  color: #8B4348;
+  border: 1px solid rgba(139, 67, 72, .12);
+}
+
+/* ── Intake CTA ────────────────────────────────────────────────────── */
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: rgba(45, 138, 130, .04);
+  border: 1px solid rgba(45, 138, 130, .12);
+  border-radius: 3px;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-text {
+  font-size: .84rem;
+  color: var(--vcx-ink-body, #2E4F46);
+  margin: 0 0 8px;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
+  appearance: none;
+  display: inline-block;
+  padding: 9px 18px;
+  border: none;
+  background: #2D8A82;
+  color: #fff;
+  border-radius: 3px;
+  font-size: .84rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:hover {
+  background: #3D9E94;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-detected {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .76rem;
+  font-weight: 600;
+  color: #2D8A82;
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-steps {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-size: .74rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
+  white-space: nowrap;
+}
+
+/* ── Message sources ───────────────────────────────────────────────── */
+
+.la-message-sources {
+  margin-top: 8px;
+  font-size: .72rem;
+  color: var(--vcx-ink-muted, #5E6C7B);
+}
+
+/* ── Markdown in messages ──────────────────────────────────────────── */
+
+.la-message-body h2,
+.la-message-body h3,
+.la-message-body h4 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #1A2F2A;
+  margin: 12px 0 6px;
+}
+
+.la-message-body h2 { font-size: 1.05rem; }
+
+.la-message-body p {
+  margin: 0 0 4px;
+  line-height: 1.6;
+}
+
+.la-message-body .la-list-item {
+  padding-left: 16px;
+  position: relative;
+  margin: 2px 0;
+  line-height: 1.6;
+}
+
+.la-message-body .la-list-item::before {
+  content: '\2022';
+  position: absolute;
+  left: 4px;
+  color: #2D8A82;
+}
+
+.la-message-body strong { font-weight: 700; }
+.la-message-body em { font-style: italic; }
+
+.la-message-body .la-inline-code {
+  background: rgba(45, 138, 130, .07);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: .85em;
+}
+
+.la-message-body pre.la-code {
+  background: rgba(26, 47, 42, .05);
+  border: 1px solid rgba(26, 47, 42, .08);
+  border-radius: 3px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.la-message-body pre.la-code code {
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: .82rem;
+  line-height: 1.5;
+}
+
+.la-message-body a {
+  color: #2D8A82;
+  text-decoration: underline;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
-  .assistant-messages {
-    max-height: calc(100dvh - 320px);
-    max-height: calc(100vh - 320px);
+  .la-chat-main {
+    height: calc(100dvh - 100px);
+    height: calc(100vh - 100px);
   }
 
-  .assistant-form input,
-  .assistant-form textarea {
-    font-size: 16px; /* Prevent iOS zoom on focus */
+  .la-chat-messages {
+    padding: 20px 14px 12px;
   }
 
-  .topic-chip,
+  .la-message {
+    max-width: 92%;
+    font-size: .88rem;
+  }
+
+  .la-chat-input-area {
+    padding: 12px 14px;
+  }
+
+  .la-chat-textarea {
+    font-size: 16px; /* prevent iOS zoom */
+  }
+
   .suggestion-chip {
     min-height: 44px;
-    padding: 10px 16px;
+    padding: 10px 14px;
   }
 
   .la-escalation-link {
     min-height: 44px;
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   body[data-vcx-page="legal-assistant"] .la-intake-cta-btn {
     min-height: 44px;
-    padding: 12px 20px;
+    padding: 12px 18px;
   }
 
-  .la-attach-btn {
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 1.2rem;
-  }
-
-  .la-upload-status {
-    font-size: .78rem;
+  .la-icon-btn,
+  .la-send-btn {
+    width: 40px;
+    height: 40px;
   }
 }
 
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   @media (max-width: 640px) {
-    body[data-vcx-page="legal-assistant"] .assistant-chat-shell {
-      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    .la-chat-input-area {
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     }
   }
 }
