@@ -386,23 +386,23 @@
       "</svg>"
     ];
 
-    // Color palette — greens with varying opacity for depth
+    // Premium palette — very subtle, barely visible
     var fills = [
-      'rgba(91,186,167,0.12)',
-      'rgba(91,186,167,0.08)',
-      'rgba(123,174,158,0.10)',
-      'rgba(141,212,197,0.07)',
-      'rgba(61,142,126,0.09)',
-      'rgba(91,186,167,0.06)'
+      'rgba(91,186,167,0.05)',
+      'rgba(91,186,167,0.04)',
+      'rgba(123,174,158,0.04)',
+      'rgba(141,212,197,0.03)',
+      'rgba(61,142,126,0.04)',
+      'rgba(91,186,167,0.03)'
     ];
     var strokes = [
-      'rgba(141,212,197,0.15)',
-      'rgba(91,186,167,0.10)',
-      'rgba(123,174,158,0.12)',
-      'rgba(197,221,214,0.08)'
+      'rgba(141,212,197,0.06)',
+      'rgba(91,186,167,0.05)',
+      'rgba(123,174,158,0.05)',
+      'rgba(197,221,214,0.04)'
     ];
 
-    var LEAF_COUNT = 12;
+    var LEAF_COUNT = 6; // fewer = more elegant
     var leaves = [];
 
     function createLeaf() {
@@ -412,7 +412,7 @@
       svg = svg.replace(/FG/g, fill).replace(/ST/g, stroke);
 
       var wrapper = document.createElement('div');
-      var size = 18 + Math.random() * 28; // 18–46px
+      var size = 14 + Math.random() * 18; // 14–32px (smaller)
       wrapper.innerHTML = svg;
       wrapper.style.cssText =
         'position:absolute;width:' + size + 'px;height:auto;' +
@@ -424,12 +424,12 @@
       return {
         el: wrapper,
         x: Math.random() * 100,
-        speed: 0.3 + Math.random() * 0.6,      // fall speed
-        swayAmp: 15 + Math.random() * 40,        // horizontal sway amplitude
-        swayFreq: 0.5 + Math.random() * 1.5,     // sway frequency
-        rotSpeed: 0.3 + Math.random() * 1.2,      // rotation speed
-        delay: Math.random() * 8000,               // initial delay
-        phase: Math.random() * Math.PI * 2         // sway phase offset
+        speed: 0.15 + Math.random() * 0.25,     // much slower drift
+        swayAmp: 8 + Math.random() * 16,         // gentle sway
+        swayFreq: 0.3 + Math.random() * 0.6,     // slow frequency
+        rotSpeed: 0.1 + Math.random() * 0.3,     // minimal rotation
+        delay: Math.random() * 12000,             // more spread out
+        phase: Math.random() * Math.PI * 2
       };
     }
 
