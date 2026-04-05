@@ -839,6 +839,30 @@ add('Private-client matters remain available where the work is administrative, d
 add('Open structured intake',
     'Открыть структурированный приём',
     'Abrir admisión estructurada');
+add('These services remain available where there is fit, while the primary VitaCoreX position remains executive consulting for companies.',
+    'Эти услуги остаются доступными при наличии соответствия, но основная позиция VitaCoreX — управленческий консалтинг для компаний.',
+    'Estos servicios siguen disponibles donde hay ajuste, mientras que la posición principal de VitaCoreX sigue siendo consultoría ejecutiva para empresas.');
+add('VitaCoreX is positioned primarily for company operators. Selected personal matters can still be reviewed when the work is operational, document-led, and a clean fit for the current workload.',
+    'VitaCoreX ориентирован прежде всего на корпоративных операторов. Отдельные частные дела могут быть рассмотрены, когда работа операционная, документарная и чётко вписывается в текущую нагрузку.',
+    'VitaCoreX está posicionado principalmente para operadores empresariales. Asuntos personales selectos pueden revisarse cuando el trabajo es operativo, basado en documentos y se ajusta a la carga de trabajo actual.');
+add('Server-side clause extraction and risk scoring. Upload contracts for structured analysis beyond the free scanner.',
+    'Серверное извлечение условий и оценка рисков. Загрузите контракты для структурированного анализа за пределами бесплатного сканера.',
+    'Extracción de cláusulas del lado del servidor y puntuación de riesgo. Cargue contratos para análisis estructurado más allá del escáner gratuito.');
+add('First-pass workflow guidance for contracts, immigration packets, auto deals, and Florida official-source routing.',
+    'Первичное руководство по рабочим процессам для контрактов, иммиграционных пакетов, автосделок и маршрутизации по официальным источникам Флориды.',
+    'Orientación de primera pasada para contratos, paquetes de inmigración, tratos automotrices y enrutamiento a fuentes oficiales de Florida.');
+add('Secure client portal for matter tracking, document uploads, comments, and deliverable downloads.',
+    'Защищённый клиентский портал для отслеживания дел, загрузки документов, комментариев и скачивания результатов.',
+    'Portal seguro para clientes para seguimiento de asuntos, carga de documentos, comentarios y descarga de entregables.');
+add('Risk-first deadline tracking for legal cases, payments, hearings, and follow-ups. Your personal operations calendar with AI assistance.',
+    'Отслеживание сроков с приоритетом рисков для юридических дел, платежей, слушаний и последующих действий. Ваш персональный операционный календарь с ИИ-помощником.',
+    'Seguimiento de plazos con prioridad de riesgo para casos legales, pagos, audiencias y seguimientos. Su calendario operativo personal con asistencia de IA.');
+add('Company & solutions',
+    'Компания и решения',
+    'Empresa y soluciones');
+add('Review, privacy & contact',
+    'Разбор, конфиденциальность и контакты',
+    'Revisión, privacidad y contacto');
 
 // ─── CORPORATE LEGAL FILE CONTROL ───────────────────────────
 add('Corporate Legal File Control for operators that need counsel-ready files and less attorney-rate cleanup.',
@@ -935,10 +959,8 @@ var SELECTORS = 'h1, h2, h3, p, li, span.eyebrow, span.pill, a.btn, a.btn-primar
 var SKIP_PARENTS = ['vcx-main-nav', 'vcx-mobile-nav', 'footer', 'vcx-header-meta', 'vcx-lang-switch'];
 
 function shouldSkip(el) {
-  // Skip elements handled by dictionary-based systems (vcx-i18n / vcx-translations)
-  if (el.hasAttribute('data-common') || el.hasAttribute('data-tx') ||
-      el.hasAttribute('data-i18n') || el.hasAttribute('data-page') ||
-      el.hasAttribute('data-v52')) return true;
+  // Skip elements handled by vcx-i18n.js (runs on all pages before this event fires)
+  if (el.hasAttribute('data-common') || el.hasAttribute('data-tx')) return true;
   var node = el;
   while (node) {
     if (node.tagName === 'NAV' || node.tagName === 'FOOTER') return true;
@@ -955,11 +977,9 @@ function shouldSkip(el) {
 
 function translatePage(lang) {
   if (lang === 'en') {
-    // Restore originals (skip dictionary-handled elements)
+    // Restore originals (skip elements handled by vcx-i18n.js)
     document.querySelectorAll('[data-en-orig]').forEach(function(el) {
-      if (el.hasAttribute('data-common') || el.hasAttribute('data-tx') ||
-          el.hasAttribute('data-i18n') || el.hasAttribute('data-page') ||
-          el.hasAttribute('data-v52')) return;
+      if (el.hasAttribute('data-common') || el.hasAttribute('data-tx')) return;
       el.textContent = el.getAttribute('data-en-orig');
     });
     return;
