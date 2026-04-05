@@ -547,8 +547,14 @@
   function initPageTransitions() {
     if (prefersReducedMotion) return;
 
-    // Fade in on load
+    // Fade in on load — remove class after animation to avoid breaking position:fixed
     document.body.classList.add('vcx-page-enter');
+    document.body.addEventListener('animationend', function handler(e) {
+      if (e.animationName === 'vcxPageIn') {
+        document.body.classList.remove('vcx-page-enter');
+        document.body.removeEventListener('animationend', handler);
+      }
+    });
 
     // Intercept internal link clicks
     document.addEventListener('click', function(e) {
