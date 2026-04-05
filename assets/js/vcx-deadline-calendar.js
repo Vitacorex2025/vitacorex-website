@@ -450,6 +450,17 @@
 
     html += '</div>';
     el.innerHTML = html;
+
+    // iOS fix: first tap on Add while keyboard is open only dismisses keyboard.
+    // Blur active input on touchstart so the click fires immediately.
+    var addBtn = el.querySelector('.dcal-add-btn');
+    if (addBtn) {
+      addBtn.addEventListener('touchstart', function() {
+        var ai = document.activeElement;
+        if (ai && (ai.tagName === 'INPUT' || ai.tagName === 'TEXTAREA')) ai.blur();
+      }, { passive: true });
+    }
+
     el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
