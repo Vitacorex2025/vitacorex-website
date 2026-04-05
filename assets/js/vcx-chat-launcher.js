@@ -35,7 +35,7 @@
   var STATE_KEY = 'vcx_cw_open';
   var ALLOWED_EXT = ['.pdf','.doc','.docx','.txt','.md','.jpg','.jpeg','.png','.gif','.csv','.xlsx','.xls'];
   var MAX_FILE_MB = 25;
-  var HEALTHZ_TIMEOUT = 4000; var IS_STATIC_HOSTING = !API_BASE && (location.protocol === "https:" || location.hostname.indexOf("github.io") !== -1); /* ms — backend readiness timeout */
+  var HEALTHZ_TIMEOUT = 4000; /* ms — backend readiness timeout */
 
   /* ── SVG Icons (inline, no external assets) ─────────────────────── */
   var ICON_CHAT = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8" cy="10" r="1.2" fill="currentColor"/><circle cx="12" cy="10" r="1.2" fill="currentColor"/><circle cx="16" cy="10" r="1.2" fill="currentColor"/></svg>';
@@ -120,7 +120,6 @@
    */
   function checkBackend() {
     return new Promise(function (resolve) {
-      if (IS_STATIC_HOSTING) { resolve(true); return; }
       var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
       var timer = setTimeout(function () {
         if (controller) controller.abort();
@@ -369,7 +368,7 @@
       showTyping();
 
       var payload = {
-        session_id: state.sessionId || "",
+        session_id: state.sessionId,
         message: text,
         topic: state.topic,
         state: state.jurisdiction,
@@ -625,7 +624,7 @@
       }
 
       var payload = {
-        session_id: state.sessionId || "",
+        session_id: state.sessionId,
         name: state.escalation ? state.escalation.name : null,
         email: state.escalation ? state.escalation.email : null,
         phone: state.escalation ? state.escalation.phone : null,

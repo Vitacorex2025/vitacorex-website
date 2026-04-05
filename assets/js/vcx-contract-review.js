@@ -104,7 +104,6 @@
         renderResults(data);
       })
       .catch(function () {
-        // Server unavailable — run client-side analysis
         analyzeLocal(file);
       })
       .finally(function () {
@@ -154,10 +153,8 @@
     var reader = new FileReader();
     reader.onload = function() {
       var text = reader.result;
-      // For PDF: attempt raw text extraction from binary
       if (file.name.toLowerCase().endsWith('.pdf')) {
         var chunks = [];
-        // Extract text between stream/endstream markers
         var matches = text.match(/\(([^)]{2,})\)/g);
         if (matches) {
           matches.forEach(function(m) {
@@ -165,7 +162,6 @@
             if (clean.length > 3 && /[a-zA-Z]/.test(clean)) chunks.push(clean);
           });
         }
-        // Also try to find readable ASCII sequences
         var ascii = text.replace(/[^\x20-\x7E\n]/g, ' ').replace(/\s{3,}/g, ' ');
         chunks.push(ascii);
         cb(chunks.join(' '));
@@ -188,38 +184,23 @@
         showMessage('Could not extract text from file. Try uploading a .txt or .md file for best results.', 'warn');
         return;
       }
-
       var clauses = [];
       var riskPoints = 0;
-      var totalFound = 0;
-
       CLAUSE_PATTERNS.forEach(function(pat) {
         var matches = text.match(pat.rx);
         if (matches && matches.length > 0) {
-          totalFound++;
-          // Find first match context
           var idx = text.search(pat.rx);
           var start = Math.max(0, idx - 40);
           var end = Math.min(text.length, idx + 120);
           var excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
           if (start > 0) excerpt = '...' + excerpt;
           if (end < text.length) excerpt = excerpt + '...';
-
           var conf = Math.min(0.95, 0.5 + (matches.length * 0.1));
-          clauses.push({
-            clause_type: pat.type,
-            excerpt: excerpt,
-            risk_level: pat.risk,
-            note: pat.note + ' (Found ' + matches.length + ' reference' + (matches.length > 1 ? 's' : '') + ')',
-            confidence: conf
-          });
-
+          clauses.push({ clause_type: pat.type, excerpt: excerpt, risk_level: pat.risk, note: pat.note + ' (Found ' + matches.length + ' reference' + (matches.length > 1 ? 's' : '') + ')', confidence: conf });
           if (pat.risk === 'high_risk') riskPoints += 15;
           else if (pat.risk === 'caution') riskPoints += 5;
         }
       });
-
-      // Check for missing protections
       var missing = [];
       MISSING_CHECKS.forEach(function(chk) {
         if (!chk.rx.test(text)) {
@@ -228,32 +209,21 @@
           else if (chk.severity === 'medium') riskPoints += 5;
         }
       });
-
       var riskScore = Math.min(100, riskPoints);
-      var summary = 'Local analysis detected ' + clauses.length + ' clause type' + (clauses.length !== 1 ? 's' : '') + ' in ' + file.name + '. ';
       var highRisk = clauses.filter(function(c) { return c.risk_level === 'high_risk'; });
-      if (highRisk.length > 0) {
-        summary += highRisk.length + ' high-risk provision' + (highRisk.length > 1 ? 's' : '') + ' found. ';
-      }
-      if (missing.length > 0) {
-        summary += missing.length + ' potentially missing protection' + (missing.length > 1 ? 's' : '') + ' identified.';
-      }
-
+      var summary = 'Local analysis detected ' + clauses.length + ' clause types in ' + file.name + '. ';
+      if (highRisk.length > 0) summary += highRisk.length + ' high-risk provisions found. ';
+      if (missing.length > 0) summary += missing.length + ' potentially missing protections identified.';
       renderResults({
-        status: 'local-scan',
-        filename: file.name,
+        status: 'local-scan', filename: file.name,
         review_id: 'local-' + Date.now().toString(36),
-        risk_score: riskScore,
-        risk_summary: summary,
-        clauses: clauses,
-        missing_protections: missing,
+        risk_score: riskScore, risk_summary: summary,
+        clauses: clauses, missing_protections: missing,
         suggested_questions: highRisk.length > 0 ? [
-          { category: 'High Risk Provisions', question: 'Are the indemnification and liability terms acceptable for your risk tolerance?', context: 'detected' },
-          { category: 'High Risk Provisions', question: 'Have non-compete restrictions been reviewed for enforceability under Florida law (F.S. 542.335)?', context: 'detected' },
-          { category: 'General Review', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
-        ] : [
-          { category: 'General Review', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
-        ]
+          { category: 'High Risk', question: 'Are the indemnification and liability terms acceptable?', context: 'detected' },
+          { category: 'High Risk', question: 'Have non-compete restrictions been reviewed for enforceability under Florida law (F.S. 542.335)?', context: 'detected' },
+          { category: 'General', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
+        ] : [{ category: 'General', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }]
       });
     });
   }
