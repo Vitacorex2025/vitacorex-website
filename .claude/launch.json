@@ -4,7 +4,7 @@
     {
       "name": "vcx-site",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "-p", "8080", "-c-1", "--cors"],
+      "runtimeArgs": ["http-server", "-p", "8765", "-c-1", "--cors"],
       "port": 8765
     }
   ]

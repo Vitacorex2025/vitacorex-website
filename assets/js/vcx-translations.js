@@ -22,6 +22,15 @@ en: {
   hero_lead:          'VitaCoreX helps complex operators improve cash control, packet discipline, and escalation readiness before margin is lost to weak workflow and expensive cleanup.',
   hero_pill_1:        'Built for operators, CFOs, and portfolio leadership',
   hero_pill_2:        'Documentation discipline before outside cost expands',
+  hero_pill_3:        'Pilot logic that can be measured',
+
+  stat_label_1:       'Operators served',
+  stat_label_2:       'Client retention rate',
+  stat_label_3:       'Revenue recovered',
+  stat_label_4:       'Avg. response time',
+
+  metric_bar_full:    'Structured Intake \u2022 Recovery Systems \u2022 Legal File Control',
+  metric_bar_short:   'Structured Intake \u2022 File Control',
 
   /* ── Leak section ──────────────────────────────────────────── */
   leaks_eyebrow:      'Where value leaks first',
@@ -332,6 +341,15 @@ ru: {
   hero_lead:          'VitaCoreX помогает сложным операторам наладить контроль денежных потоков, дисциплину документооборота и готовность к эскалации до того, как маржа будет потеряна из-за слабых процессов и дорогостоящего исправления.',
   hero_pill_1:        'Создано для операторов, финансовых директоров и руководителей портфелей',
   hero_pill_2:        'Дисциплина документации до роста внешних затрат',
+  hero_pill_3:        'Мультииндустриальные системы с измеримым эффектом',
+
+  stat_label_1:       'Операторов обслужено',
+  stat_label_2:       'Удержание клиентов',
+  stat_label_3:       'Выручка возвращена',
+  stat_label_4:       'Среднее время ответа',
+
+  metric_bar_full:    'Структурированный приём \u2022 Системы возврата \u2022 Контроль документов',
+  metric_bar_short:   'Приём \u2022 Контроль документов',
 
   leaks_eyebrow:      'Где утечка начинается',
   leaks_title:        'Большая часть потерь выручки начинается задолго до стадии взыскания.',
@@ -624,6 +642,15 @@ es: {
   hero_lead:          'VitaCoreX ayuda a operadores complejos a mejorar el control de efectivo, la disciplina de expedientes y la preparacion para escalamiento antes de que el margen se pierda por flujos debiles y costosa correccion.',
   hero_pill_1:        'Creado para operadores, directores financieros y liderazgo de cartera',
   hero_pill_2:        'Disciplina documental antes de que crezcan los costos externos',
+  hero_pill_3:        'Logica piloto con resultados medibles',
+
+  stat_label_1:       'Operadores atendidos',
+  stat_label_2:       'Retencion de clientes',
+  stat_label_3:       'Ingresos recuperados',
+  stat_label_4:       'Tiempo de respuesta promedio',
+
+  metric_bar_full:    'Admision estructurada \u2022 Sistemas de recuperacion \u2022 Control documental',
+  metric_bar_short:   'Admision \u2022 Control documental',
 
   leaks_eyebrow:      'Donde comienza la fuga',
   leaks_title:        'La mayor parte de la perdida de ingresos comienza antes de que la cobranza siquiera empiece.',

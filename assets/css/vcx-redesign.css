@@ -179,11 +179,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(24px, 4vw, 64px);
-  padding: 28px 24px;
+  gap: clamp(32px, 5vw, 80px);
+  padding: 40px 32px;
   background: linear-gradient(135deg, var(--vcx-r-navy-deep), var(--vcx-r-navy-mid));
-  border-top: 1px solid rgba(91, 196, 184, 0.12);
-  border-bottom: 1px solid rgba(91, 196, 184, 0.12);
+  border-top: 1px solid rgba(91, 196, 184, 0.18);
+  border-bottom: 1px solid rgba(91, 196, 184, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -193,22 +193,29 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 600px 200px at 20% 50%, rgba(91, 196, 184, 0.06), transparent),
-    radial-gradient(ellipse 600px 200px at 80% 50%, rgba(91, 196, 184, 0.04), transparent);
+    radial-gradient(ellipse 700px 250px at 20% 50%, rgba(91, 196, 184, 0.08), transparent),
+    radial-gradient(ellipse 700px 250px at 80% 50%, rgba(91, 196, 184, 0.05), transparent);
   pointer-events: none;
+}
+
+.vcx-trust-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 5vw, 80px);
 }
 
 .vcx-trust-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   position: relative;
   z-index: 1;
 }
 
 .vcx-trust-stat strong {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
   font-weight: 800;
   color: var(--vcx-r-gold);
   line-height: 1;
@@ -217,11 +224,11 @@
 }
 
 .vcx-trust-stat span {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: rgba(208, 240, 234, 0.65);
+  color: rgba(208, 240, 234, 0.75);
   text-transform: uppercase;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.08em;
 }
 
 .vcx-trust-logo {
@@ -880,12 +887,19 @@
   /* Stack everything to single column */
   .vcx-trust-bar {
     flex-wrap: wrap;
-    gap: 16px;
-    padding: 24px 16px;
+    gap: 20px;
+    padding: 28px 16px;
   }
 
-  .vcx-trust-stat strong {
-    font-size: 1.5rem;
+  .vcx-trust-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 40px;
+  }
+
+  .vcx-trust-stat strong,
+  .vcx-trust-number {
+    font-size: 1.8rem !important;
   }
 
   .vcx-impact-grid,
@@ -2291,8 +2305,20 @@ strong, b, em { color: #000 !important; }
 .vcx-trust-stat *, .vcx-trust-label {
   color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
+.vcx-trust-label {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #3a6b65 !important; -webkit-text-fill-color: #3a6b65 !important;
+}
 .vcx-trust-number, .vcx-trust-stat strong {
   color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important;
+  font-size: clamp(2.2rem, 3.5vw, 3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  font-variant-numeric: tabular-nums !important;
 }
 
 /* B4 — Impact section → light mint glass */
