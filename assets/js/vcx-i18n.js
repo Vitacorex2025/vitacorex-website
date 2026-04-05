@@ -375,6 +375,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Apply saved language preference (or default 'en')
   var lang = w.vcxCurrentLang ? w.vcxCurrentLang() : 'en';
   w.vcxSetLang(lang);
+
+  // Wire lang buttons (EN / RU / ES) on all pages
+  document.querySelectorAll('.lang-btn, [data-lang]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var l = btn.getAttribute('data-lang');
+      if (l) w.vcxSetLang(l);
+    });
+  });
 });
 
 })(window);
