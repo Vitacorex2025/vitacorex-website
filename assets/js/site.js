@@ -256,7 +256,7 @@ function ensureFileNameMirror(form, fileFieldName, mirrorFieldName){
   fileInput.addEventListener('change', sync);
   sync();
 }
-const OWNER_NOTIFICATION_EMAIL=['vitacorexllc','gmail.com'].join('@');
+const OWNER_NOTIFICATION_EMAIL=['stevenmiller','vitacorexllc.com'].join('@');
 const FORM_ENDPOINT=`https://formsubmit.co/${OWNER_NOTIFICATION_EMAIL}`;
 const FORM_AJAX_ENDPOINT=`https://formsubmit.co/ajax/${OWNER_NOTIFICATION_EMAIL}`;
 const FILE_UPLOAD_NOTIFICATION_ENDPOINT=FORM_ENDPOINT;

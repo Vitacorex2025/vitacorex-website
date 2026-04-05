@@ -6,7 +6,7 @@
   'use strict';
 
   var API = (window.VCX_API_BASE || '') + '/api/calendar';
-  var ADMIN_EMAIL = 'vitacorex2025@gmail.com';
+  var ADMIN_EMAIL = 'stevenmiller@vitacorexllc.com';
   var state = {
     ownerId: localStorage.getItem('dcal_owner_id') || '',
     ownerName: localStorage.getItem('dcal_owner_name') || '',

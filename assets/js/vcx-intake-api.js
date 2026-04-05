@@ -52,7 +52,7 @@
     } catch (err) {
       console.error('[VCX Intake]', err);
       if (statusEl) {
-        statusEl.textContent = err.userMessage || 'Submission failed. Please email vitacorexllc@gmail.com or call (888) 794-8292.';
+        statusEl.textContent = err.userMessage || 'Submission failed. Please email stevenmiller@vitacorexllc.com or call (888) 794-8292.';
         statusEl.style.color = '#8B4348';
       }
       if (submitBtn) {
@@ -98,9 +98,9 @@
     } else if (res.status === 413) {
       err.userMessage = 'Attachment is too large. Maximum file size is 25 MB.';
     } else if (res.status >= 500) {
-      err.userMessage = 'The server encountered an error. Please try again shortly, or email vitacorexllc@gmail.com.';
+      err.userMessage = 'The server encountered an error. Please try again shortly, or email stevenmiller@vitacorexllc.com.';
     } else {
-      err.userMessage = 'Submission failed (error ' + res.status + '). Please email vitacorexllc@gmail.com or call (888) 794-8292.';
+      err.userMessage = 'Submission failed (error ' + res.status + '). Please email stevenmiller@vitacorexllc.com or call (888) 794-8292.';
     }
 
     return err;

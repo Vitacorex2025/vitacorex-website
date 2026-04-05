@@ -22,7 +22,7 @@
     "logo": "https://vitacorexllc.com/assets/img/logo.png",
     "image": "https://vitacorexllc.com/assets/img/og-cover.png",
     "telephone": "+18887948292",
-    "email": "vitacorexllc@gmail.com",
+    "email": "stevenmiller@vitacorexllc.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Tampa",

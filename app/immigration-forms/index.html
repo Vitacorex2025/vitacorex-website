@@ -269,7 +269,7 @@ Not legal advice. Not a filing service. For document organization only.
 <div id="vcxPacketReviewSection" hidden style="margin-top:32px;padding:24px;background:rgba(47,107,87,.08);border:1px solid rgba(47,107,87,.3);border-radius:10px;">
 <h3 style="color:#2F6B57;font-size:1.1rem;font-weight:600;margin:0 0 8px;">Submit for Packet Review</h3>
 <p style="color:rgba(26,47,42,.75);font-size:.9rem;margin:0 0 18px;">An advisor will review your immigration packet and contact you within 1 business day.</p>
-<form id="vcxPacketForm" method="POST" action="https://formsubmit.co/vitacorexllc@gmail.com" style="display:grid;gap:14px;">
+<form id="vcxPacketForm" method="POST" action="https://formsubmit.co/stevenmiller@vitacorexllc.com" style="display:grid;gap:14px;">
 <input type="hidden" name="_subject" value="Immigration Helper - Packet Review Request"/>
 <input type="hidden" name="_captcha" value="false"/>
 <input type="hidden" name="_template" value="table"/>
@@ -287,7 +287,7 @@ Not legal advice. Not a filing service. For document organization only.
 <button type="submit" id="vcxPacketSubmitBtn" style="padding:14px 24px;background:rgba(47,107,87,.15);border:1px solid rgba(47,107,87,.4);border-radius:8px;color:#2F6B57;font-size:1rem;font-weight:600;cursor:pointer;">Submit for Packet Review</button>
 </form>
 <div id="vcxPacketSuccess" hidden style="padding:16px;background:rgba(47,107,87,.12);border:1px solid rgba(47,107,87,.3);border-radius:8px;color:#2F6B57;font-size:.95rem;">Your packet summary has been submitted. An advisor will contact you within 1 business day.</div>
-<div id="vcxPacketError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:#8B4348;font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:vitacorexllc@gmail.com" style="color:#2F6B57;">vitacorexllc@gmail.com</a>.</div>
+<div id="vcxPacketError" hidden style="padding:16px;background:rgba(255,80,80,.08);border:1px solid rgba(255,100,100,.3);border-radius:8px;color:#8B4348;font-size:.9rem;">Submission failed. Please email us directly at <a href="mailto:stevenmiller@vitacorexllc.com" style="color:#2F6B57;">stevenmiller@vitacorexllc.com</a>.</div>
 </div>
 
 <div id="vcxEmptyState" style="text-align:center;padding:40px;color:rgba(255,255,255,.4);" data-tx="tool_empty">Upload a form or notice above to see your review.</div>
@@ -564,7 +564,7 @@ function showPacketReviewSection(filename, analysis) {
     if(!name.trim()||!email.trim()){ alert('Please enter your name and email.'); return; }
     var btn = document.getElementById('vcxPacketSubmitBtn');
     if(btn){ btn.disabled=true; btn.textContent='Submitting...'; }
-    fetch('https://formsubmit.co/ajax/vitacorexllc@gmail.com',{
+    fetch('https://formsubmit.co/ajax/stevenmiller@vitacorexllc.com',{
       method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)
     }).then(function(r){
       if(r.ok||r.status<400){
