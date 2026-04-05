@@ -6,6 +6,43 @@
 ;(function(w){
 'use strict';
 
+/* ─── Fix: ensure vcxCurrentLang reads localStorage (override any cached stale version) ── */
+w.vcxCurrentLang = function() {
+  try {
+    var s = localStorage.getItem('vcx_lang');
+    if (s && (s === 'en' || s === 'ru' || s === 'es')) return s;
+  } catch(e) {}
+  return 'en';
+};
+w.vcxSetLang = function(lang) {
+  var supported = ['en', 'ru', 'es'];
+  if (supported.indexOf(lang) === -1) lang = 'en';
+  try { localStorage.setItem('vcx_lang', lang); } catch(e) {}
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('lang', lang);
+  var d = (w.SITE_I18N && w.SITE_I18N[lang]) || {};
+  document.querySelectorAll('[data-common]').forEach(function(el) {
+    var k = el.getAttribute('data-common');
+    if(d[k] !== undefined) el.textContent = d[k];
+    else if(w.VCX_I18N && w.VCX_I18N[lang] && w.VCX_I18N[lang][k] !== undefined) el.textContent = w.VCX_I18N[lang][k];
+  });
+  document.querySelectorAll('[data-tx]').forEach(function(el) {
+    var k = el.getAttribute('data-tx');
+    if(d[k] !== undefined) el.textContent = d[k];
+    else if(w.VCX_I18N && w.VCX_I18N[lang] && w.VCX_I18N[lang][k] !== undefined) el.textContent = w.VCX_I18N[lang][k];
+  });
+  document.querySelectorAll('[data-placeholder]').forEach(function(el) {
+    var k = el.getAttribute('data-placeholder');
+    var v = (w.VCX_I18N && w.VCX_I18N[lang] && w.VCX_I18N[lang][k]);
+    if(v) el.placeholder = v;
+  });
+  document.querySelectorAll('.lang-btn, [data-lang]').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  document.dispatchEvent(new CustomEvent('vcx:lang-change', {detail:{lang:lang}}));
+};
+
 /* ─── Translation dictionary ─────────────────────────────────
    Key = English text (trimmed), Value = {ru: '...', es: '...'}
    ──────────────────────────────────────────────────────────── */

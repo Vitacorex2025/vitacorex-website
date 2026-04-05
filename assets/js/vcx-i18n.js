@@ -309,7 +309,7 @@ w.VCX_I18N = {
 };
 
 /* ─── vcxCurrentLang — respects localStorage preference ──── */
-w.vcxCurrentLang = w.vcxCurrentLang || function() {
+w.vcxCurrentLang = function() {
   try {
     var s = localStorage.getItem('vcx_lang');
     if (s && (s === 'en' || s === 'ru' || s === 'es')) return s;
@@ -331,7 +331,7 @@ w.vcxT = function(key, fallback) {
 /* ─── setLang — apply language to entire page ────────────────
    Call this on lang button click and on DOMContentLoaded
    ──────────────────────────────────────────────────────────── */
-w.vcxSetLang = w.vcxSetLang || function(lang) {
+w.vcxSetLang = function(lang) {
   var supported = ['en', 'ru', 'es'];
   if (supported.indexOf(lang) === -1) lang = 'en';
   try { localStorage.setItem('vcx_lang', lang); } catch(e) {}

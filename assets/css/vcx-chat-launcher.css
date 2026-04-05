@@ -121,6 +121,8 @@
   flex-direction: column;
   overflow: hidden;
   overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
   font-family: Inter, system-ui, -apple-system, sans-serif;
   font-size: 13px;
   color: #111;
@@ -752,6 +754,11 @@
 @media (max-width: 640px) {
   body.vcx-cw-panel-open {
     overflow: hidden; /* Prevent background scroll on mobile */
+    touch-action: none; /* Prevent pinch-zoom when chat is open */
+  }
+
+  body.vcx-cw-panel-open .vcx-cw-panel {
+    touch-action: pan-y; /* Allow vertical scroll inside chat, block pinch */
   }
 
   body.vcx-cw-panel-open .vcx-dock,

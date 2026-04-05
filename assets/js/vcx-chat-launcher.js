@@ -309,6 +309,9 @@
 
     /* ── Open / Close ────────────────────────────────────────────── */
 
+    /* Prevent iOS Safari pinch-zoom inside chat */
+    var _gestureHandler = function(e) { e.preventDefault(); };
+
     function openPanel() {
       isOpen = true;
       panel.classList.add('vcx-cw-visible');
@@ -317,6 +320,9 @@
       fab.setAttribute('aria-label', 'Close chat');
       input.focus();
       try { sessionStorage.setItem(STATE_KEY, '1'); } catch (e) { /* */ }
+      /* iOS: block pinch-zoom while chat is open */
+      panel.addEventListener('gesturestart', _gestureHandler);
+      panel.addEventListener('gesturechange', _gestureHandler);
     }
 
     function closePanel() {
@@ -326,6 +332,8 @@
       document.body.classList.remove('vcx-cw-panel-open');
       fab.setAttribute('aria-label', 'Open chat');
       try { sessionStorage.setItem(STATE_KEY, '0'); } catch (e) { /* */ }
+      panel.removeEventListener('gesturestart', _gestureHandler);
+      panel.removeEventListener('gesturechange', _gestureHandler);
     }
 
     fab.addEventListener('click', function () {
