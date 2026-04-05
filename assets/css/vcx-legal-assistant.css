@@ -138,33 +138,37 @@ body[data-vcx-page="legal-assistant"] .footer {
 .la-icon-btn,
 .la-send-btn {
   appearance: none;
-  border: none;
+  border: none !important;
   background: transparent;
   color: var(--vcx-ink-muted, #5E6C7B);
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 3px !important;
   transition: background .15s, color .15s;
   flex-shrink: 0;
-  padding: 0;
-  min-width: 0;
-  min-height: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   line-height: 1;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+  overflow: hidden;
 }
 
 .la-icon-btn:hover {
-  background: rgba(46, 79, 70, .06);
+  background: rgba(46, 79, 70, .06) !important;
   color: var(--vcx-ink-body, #2E4F46);
 }
 
 .la-send-btn {
-  background: #2D8A82;
-  color: #fff;
+  background: #2D8A82 !important;
+  color: #fff !important;
   font-weight: 800;
   font-size: 13px;
   font-family: inherit;
@@ -172,7 +176,7 @@ body[data-vcx-page="legal-assistant"] .footer {
 }
 
 .la-send-btn:hover {
-  background: #3D9E94;
+  background: #3D9E94 !important;
 }
 
 .la-chat-disclaimer {
@@ -545,8 +549,12 @@ body[data-vcx-page="legal-assistant"] .la-intake-cta-steps span {
 
   .la-icon-btn,
   .la-send-btn {
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
   }
 }
 
