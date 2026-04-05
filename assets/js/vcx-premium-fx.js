@@ -6,21 +6,7 @@
 (function () {
   'use strict';
 
-  /* ── 1. Page Transition — fade in on load, fade out on navigate ── */
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest('a[href]');
-    if (!link) return;
-    var href = link.getAttribute('href');
-    // Skip external, hash, mailto, tel, javascript, download, target links
-    if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 ||
-        href.indexOf('tel:') === 0 || href.indexOf('javascript:') === 0 ||
-        link.hasAttribute('download') || link.getAttribute('target') === '_blank' ||
-        href.indexOf('http') === 0 && href.indexOf(location.origin) !== 0) return;
-
-    e.preventDefault();
-    document.body.classList.add('vcx-navigating');
-    setTimeout(function () { window.location.href = href; }, 250);
-  });
+  /* ── 1. Page Transition — removed (conflicted with menu/nav) ──── */
 
   /* ── 2. Button Ripple Effect ────────────────────────────────────── */
   document.addEventListener('click', function (e) {
@@ -135,16 +121,8 @@
     });
   }
 
-  /* ── 6. Glow divider lines between sections ────────────────────── */
-  function initGlowLines() {
-    var sections = document.querySelectorAll('.section, .vcx-section');
-    sections.forEach(function (section, i) {
-      if (i === 0) return; // skip first
-      var line = document.createElement('div');
-      line.className = 'vcx-fx-glow-line vcx-fx-card';
-      section.parentNode.insertBefore(line, section);
-    });
-  }
+  /* ── 6. Glow divider lines — removed (DOM injection broke layout) ── */
+  function initGlowLines() { /* noop */ }
 
   /* ── Init on DOMContentLoaded ───────────────────────────────────── */
   function init() {
