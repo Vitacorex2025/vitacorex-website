@@ -417,6 +417,305 @@ body[data-vcx-page] footer.footer .footer-links a:hover {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   LUXURY UPGRADE — v2
+   Premium visual weight for app tool pages
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero section: subtle gradient band behind title ────────────── */
+body[data-vcx-page] main {
+  padding-top: 0 !important;
+}
+body[data-vcx-page] main > .wrap:first-child,
+body[data-vcx-page] main > div > .wrap:first-child {
+  position: relative !important;
+}
+body[data-vcx-page] .reveal {
+  position: relative !important;
+  padding: 36px 40px 28px !important;
+  margin: 0 -40px 28px !important;
+  background: linear-gradient(165deg, #EFF8F6 0%, #F7FAFA 60%, rgba(45,138,130,0.04) 100%) !important;
+  border-bottom: 1px solid rgba(45,138,130,0.1) !important;
+  border-radius: 12px !important;
+}
+body[data-vcx-page] .reveal::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #2D8A82, #5BC4B8, #C8AF78) !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* ── Tool title — larger, more visual weight ────────────────────── */
+body[data-vcx-page] h1,
+body[data-vcx-page] [data-tx="tool_title"] {
+  font-size: clamp(1.8rem, 4vw, 2.4rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 12px !important;
+  margin-bottom: 10px !important;
+}
+
+/* ── Tool card — elevated premium card ──────────────────────────── */
+body[data-vcx-page] .glass,
+body[data-vcx-page] #vcxUploadCard,
+body[data-vcx-page] .tool-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.1) !important;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 8px 24px rgba(11,35,32,0.06),
+    0 20px 48px rgba(11,35,32,0.04) !important;
+  border-radius: 14px !important;
+  padding: 36px !important;
+  transition: box-shadow 0.3s ease !important;
+}
+body[data-vcx-page] .glass:hover,
+body[data-vcx-page] #vcxUploadCard:hover {
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 12px 32px rgba(11,35,32,0.08),
+    0 24px 56px rgba(11,35,32,0.05) !important;
+}
+
+/* ── Drop zone — luxury upload area ─────────────────────────────── */
+body[data-vcx-page] #vcxDropZone,
+body[data-vcx-page] [id*="DropZone"] {
+  border: 2px dashed rgba(45, 138, 130, 0.2) !important;
+  background: linear-gradient(145deg, #F7FAFA, #EFF8F6) !important;
+  border-radius: 12px !important;
+  padding: 32px 24px !important;
+  min-height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+body[data-vcx-page] #vcxDropZone:hover,
+body[data-vcx-page] [id*="DropZone"]:hover {
+  border-color: #2D8A82 !important;
+  background: linear-gradient(145deg, #EFF8F6, #E5F3F0) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(45,138,130,0.1) !important;
+}
+body[data-vcx-page] #vcxDropZone span,
+body[data-vcx-page] [id*="DropZone"] span,
+body[data-vcx-page] [data-tx="tool_upload_btn"] {
+  color: #2D8A82 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+}
+
+/* ── Form fields — refined inputs ───────────────────────────────── */
+body[data-vcx-page] input[type="number"],
+body[data-vcx-page] input[type="text"],
+body[data-vcx-page] input[type="email"],
+body[data-vcx-page] input[type="tel"],
+body[data-vcx-page] input[type="date"],
+body[data-vcx-page] textarea,
+body[data-vcx-page] select {
+  background: #FAFCFC !important;
+  border: 1.5px solid #D1DDD9 !important;
+  color: #1A2A28 !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+body[data-vcx-page] input:focus,
+body[data-vcx-page] textarea:focus,
+body[data-vcx-page] select:focus {
+  border-color: #2D8A82 !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 4px rgba(45, 138, 130, 0.08) !important;
+  outline: none !important;
+}
+
+/* ── Labels — polished with subtle left accent ──────────────────── */
+body[data-vcx-page] label {
+  color: #1A4F4A !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+/* ── Fieldset — group styling ───────────────────────────────────── */
+body[data-vcx-page] fieldset {
+  border: 1px solid rgba(45,138,130,0.12) !important;
+  border-radius: 10px !important;
+  padding: 20px 24px !important;
+  margin: 16px 0 !important;
+  background: #FAFCFC !important;
+}
+body[data-vcx-page] fieldset legend {
+  color: #1A4F4A !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.02em !important;
+  padding: 0 8px !important;
+}
+body[data-vcx-page] fieldset label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 500 !important;
+  font-size: 0.88rem !important;
+  color: #2A4A46 !important;
+  padding: 6px 14px !important;
+  margin: 4px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E0E8E6 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+body[data-vcx-page] fieldset label:hover {
+  border-color: #2D8A82 !important;
+  background: #EFF8F6 !important;
+}
+body[data-vcx-page] fieldset input[type="checkbox"]:checked + span,
+body[data-vcx-page] fieldset label:has(input:checked) {
+  border-color: #2D8A82 !important;
+  background: #E5F3F0 !important;
+  color: #1A4F4A !important;
+}
+
+/* ── Primary CTA button — premium gradient ──────────────────────── */
+body[data-vcx-page] #vcxScanBtn,
+body[data-vcx-page] #vcxCheckBtn,
+body[data-vcx-page] #vcxAnalyzeBtn,
+body[data-vcx-page] button[type="submit"],
+body[data-vcx-page] .vcx-primary-btn,
+body[data-vcx-page] button[onclick*="Run"],
+body[data-vcx-page] button[onclick*="Scan"],
+body[data-vcx-page] button[onclick*="Analyze"],
+body[data-vcx-page] button[onclick*="Check"],
+body[data-vcx-page] button[onclick*="Submit"] {
+  background: linear-gradient(145deg, #1A4F4A 0%, #267A72 50%, #2D8A82 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  padding: 16px 32px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+  letter-spacing: 0.01em !important;
+  transition: transform 0.15s, box-shadow 0.25s !important;
+  box-shadow: 0 4px 16px rgba(26, 79, 74, 0.2), 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+body[data-vcx-page] button:not(:disabled):hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(26, 79, 74, 0.28), 0 2px 6px rgba(0,0,0,0.08) !important;
+}
+body[data-vcx-page] button:not(:disabled):active {
+  transform: translateY(0) !important;
+}
+
+/* ── Select dropdown — better styling ───────────────────────────── */
+body[data-vcx-page] select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232D8A82' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  padding-right: 40px !important;
+}
+
+/* ── Grid form layout — better spacing ──────────────────────────── */
+body[data-vcx-page] [style*="grid-template-columns"] {
+  gap: 18px !important;
+}
+
+/* ── Results area — premium card styling ────────────────────────── */
+body[data-vcx-page] #vcxResultsArea:not([hidden]) {
+  margin-top: 28px !important;
+  padding: 28px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(45,138,130,0.1) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 20px rgba(11,35,32,0.06) !important;
+}
+
+/* ── Advisor / packet review form ───────────────────────────────── */
+body[data-vcx-page] #vcxAdvisorReviewSection:not([hidden]),
+body[data-vcx-page] #vcxPacketReviewSection:not([hidden]) {
+  padding: 28px !important;
+  background: linear-gradient(165deg, #EFF8F6, #F7FAFA) !important;
+  border: 1px solid rgba(45,138,130,0.12) !important;
+  border-radius: 14px !important;
+}
+
+/* ── Compliance banner ──────────────────────────────────────────── */
+body[data-vcx-page] #vcxComplianceBanner:not([hidden]) {
+  background: linear-gradient(135deg, #FEF9ED, #FFF8E7) !important;
+  border: 1px solid rgba(200,175,120,0.25) !important;
+  border-left: 4px solid #C8AF78 !important;
+  color: #5A4E36 !important;
+  padding: 14px 20px !important;
+  border-radius: 0 10px 10px 0 !important;
+  font-size: 0.88rem !important;
+  margin-bottom: 20px !important;
+}
+
+/* ── Disclaimer — refined ───────────────────────────────────────── */
+body[data-vcx-page] [data-tx="tool_disc"],
+body[data-vcx-page] .tool-disclaimer {
+  color: #8AA5A0 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.6 !important;
+  border-top: 1px solid rgba(26, 79, 74, 0.08) !important;
+  padding-top: 20px !important;
+  margin-top: 32px !important;
+}
+
+/* ── AI Analysis rendered output ────────────────────────────────── */
+body[data-vcx-page] .ai-analysis,
+body[data-vcx-page] .vcx-analysis-result {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(26, 79, 74, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 28px 32px !important;
+  line-height: 1.75 !important;
+  color: #1A2A28 !important;
+}
+body[data-vcx-page] .ai-analysis h2,
+body[data-vcx-page] .ai-analysis h3 {
+  color: #0F2B28 !important;
+  border-bottom: 1px solid rgba(45,138,130,0.08) !important;
+  padding-bottom: 8px !important;
+  margin-top: 1.5em !important;
+}
+
+/* ── Generated clause cards ─────────────────────────────────────── */
+body[data-vcx-page] .vcx-gen-clause-card {
+  background: #FAFCFC !important;
+  border: 1px solid rgba(45,138,130,0.12) !important;
+  border-radius: 10px !important;
+  padding: 20px 24px !important;
+  margin-bottom: 14px !important;
+  transition: box-shadow 0.2s !important;
+}
+body[data-vcx-page] .vcx-gen-clause-card:hover {
+  box-shadow: 0 4px 16px rgba(11,35,32,0.06) !important;
+}
+
+/* ── Result summary badges ──────────────────────────────────────── */
+body[data-vcx-page] .vcx-result-summary {
+  padding: 18px 24px !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px !important;
+  font-weight: 600 !important;
+}
+
 /* ── Scrollbar styling ───────────────────────────────────────────── */
 body[data-vcx-page] ::-webkit-scrollbar {
   width: 6px;
@@ -427,4 +726,23 @@ body[data-vcx-page] ::-webkit-scrollbar-track {
 body[data-vcx-page] ::-webkit-scrollbar-thumb {
   background: #C5D5D1;
   border-radius: 3px;
+}
+
+/* ── Mobile refinements ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body[data-vcx-page] .reveal {
+    padding: 24px 20px 20px !important;
+    margin: 0 -16px 20px !important;
+  }
+  body[data-vcx-page] .glass,
+  body[data-vcx-page] #vcxUploadCard {
+    padding: 24px 20px !important;
+  }
+  body[data-vcx-page] h1 {
+    font-size: 1.6rem !important;
+  }
+  body[data-vcx-page] fieldset label {
+    padding: 8px 12px !important;
+    font-size: 0.82rem !important;
+  }
 }

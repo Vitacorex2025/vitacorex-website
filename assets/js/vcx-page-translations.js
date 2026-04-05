@@ -977,9 +977,9 @@ function shouldSkip(el) {
 
 function translatePage(lang) {
   if (lang === 'en') {
-    // Restore originals (skip elements handled by vcx-i18n.js)
+    // Restore originals (skip elements handled by vcx-i18n.js / vcx-translations.js)
     document.querySelectorAll('[data-en-orig]').forEach(function(el) {
-      if (el.hasAttribute('data-common') || el.hasAttribute('data-tx')) return;
+      if (el.hasAttribute('data-common') || el.hasAttribute('data-tx') || el.hasAttribute('data-page') || el.hasAttribute('data-i18n') || el.hasAttribute('data-v52')) return;
       el.textContent = el.getAttribute('data-en-orig');
     });
     return;
@@ -988,6 +988,8 @@ function translatePage(lang) {
   var els = document.querySelectorAll(SELECTORS);
   els.forEach(function(el) {
     if (shouldSkip(el)) return;
+    // Skip elements handled by vcx-translations.js (data-page, data-i18n, data-v52)
+    if (el.hasAttribute('data-page') || el.hasAttribute('data-i18n') || el.hasAttribute('data-v52')) return;
     // Skip elements with child elements (complex nesting)
     if (el.children.length > 0 && el.tagName !== 'LI' && el.tagName !== 'A' && el.tagName !== 'BUTTON' && el.tagName !== 'LABEL') return;
 

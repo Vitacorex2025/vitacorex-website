@@ -122,16 +122,22 @@ function applyText(){
  document.documentElement.lang=lang;
  $$('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
  $$('[data-common]').forEach(el=>{ const v=(common[lang]&&common[lang][el.dataset.common]) || (extra[lang]&&extra[lang][el.dataset.common]) || common.en?.[el.dataset.common] || extra.en?.[el.dataset.common]; if(v!==undefined) el.textContent=v; });
- $$('[data-page]').forEach(el=>{ const v=tr(el.dataset.page); if(v) el.textContent=v; });
- $$('[data-tx]').forEach(el=>{ const v=tr(el.dataset.tx); if(v) el.textContent=v; });
+ $$('[data-page]').forEach(el=>{ var k=el.dataset.page; var cat=window.VCX_TRANSLATIONS; if(cat&&cat.en&&cat.en[k]!==undefined) return; const v=tr(k); if(v) el.textContent=v; });
+ $$('[data-tx]').forEach(el=>{ var k=el.dataset.tx; var cat=window.VCX_TRANSLATIONS; if(cat&&cat.en&&cat.en[k]!==undefined) return; const v=tr(k); if(v) el.textContent=v; });
  $$('[data-tx-placeholder]').forEach(el=>{ const v=tr(el.dataset.txPlaceholder); if(v) el.setAttribute('placeholder',v); });
  $$('[data-tx-title]').forEach(el=>{ const v=tr(el.dataset.txTitle); if(v) el.setAttribute('title',v); });
  $$('[data-tx-value]').forEach(el=>{ const v=tr(el.dataset.txValue); if(v) el.setAttribute('value',v); });
  
 }
 applyText();
-// B1 FIX: lang switching disabled for public release
-// $$('.lang-btn').forEach(b=>b.addEventListener('click',()=>{ lang=b.dataset.lang; localStorage.setItem('vcx_lang',lang); applyText(); syncCareerMailto(); updateOutputLanguage(); }));
+// B1 FIX: site.js now listens for vcx:lang-change event from vcx-translations.js
+document.addEventListener('vcx:lang-change', function(e) {
+  var newLang = (e.detail && e.detail.lang) || 'en';
+  lang = newLang;
+  applyText();
+  if (typeof syncCareerMailto === 'function') syncCareerMailto();
+  if (typeof updateOutputLanguage === 'function') updateOutputLanguage();
+});
 const menuBtn=$('.menu-btn'), mobileNav=$('.mobile-nav');
 if(menuBtn && mobileNav){
   menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open'));
