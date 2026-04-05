@@ -399,6 +399,7 @@
         html += '</div></div>';
         html += '<div class="dcal-event-actions">';
         html += '<button class="dcal-event-action dcal-ics-btn" onclick="dcalExportICS(\'' + ev.id + '\')" title="Add to iPhone Calendar">&#128197;</button>';
+        html += '<button class="dcal-event-action" onclick="dcalEditEvent(\'' + ev.id + '\')" title="Edit">&#9998;</button>';
         if (ev.status === 'scheduled') {
           html += '<button class="dcal-event-action" onclick="dcalCompleteEvent(\'' + ev.id + '\')" title="Complete">&#10003;</button>';
         }
@@ -786,6 +787,104 @@
     });
   };
 
+  // ── Edit Event ──────────────────────────────────────────────────
+  window.dcalEditEvent = function(id) {
+    // Find event data
+    var ev = null;
+    var allEvents = (state.fortnightEvents || []).concat(state.monthEvents || []);
+    for (var i = 0; i < allEvents.length; i++) {
+      if (allEvents[i].id === id) { ev = allEvents[i]; break; }
+    }
+    if (!ev) { dcalShowToast('Event not found'); return; }
+
+    var panel = document.getElementById('dcalDayPanel');
+    if (!panel) return;
+
+    var date = ev.start_at.slice(0, 10);
+    var time = ev.start_at.length >= 16 ? ev.start_at.slice(11, 16) : '09:00';
+
+    var html = '<div class="dcal-day-panel">';
+    html += '<div class="dcal-day-header"><div class="dcal-day-title">Edit Event</div>';
+    html += '<button class="dcal-day-close" onclick="dcalOpenDay(\'' + date + '\')">&times;</button></div>';
+
+    html += '<div style="margin-top:12px;">';
+    html += '<label class="dcal-notify-label">Title</label>';
+    html += '<input class="dcal-quick-input" id="dcalEditTitle" type="text" value="' + esc(ev.title) + '" />';
+    html += '</div>';
+
+    html += '<div class="dcal-time-row" style="margin-top:10px;">';
+    html += '<label class="dcal-time-label">Time:</label>';
+    html += '<input class="dcal-time-input" id="dcalEditTime" type="time" value="' + time + '" />';
+    html += '</div>';
+
+    html += '<div class="dcal-type-pills" id="dcalEditType" style="margin-top:10px;">';
+    ['followup','hearing','payment','call','doc'].forEach(function(t) {
+      html += '<button class="dcal-type-pill' + (t === ev.event_type ? ' active' : '') + '" data-type="' + t + '" onclick="dcalEditSelectPill(this,\'dcalEditType\')">' + (TYPE_LABELS[t] || t) + '</button>';
+    });
+    html += '</div>';
+
+    html += '<div class="dcal-priority-pills" id="dcalEditPriority" style="margin-top:8px;">';
+    ['low','medium','high'].forEach(function(p) {
+      html += '<button class="dcal-priority-pill ' + p + (p === ev.priority ? ' active' : '') + '" data-priority="' + p + '" onclick="dcalEditSelectPill(this,\'dcalEditPriority\')">' + p.charAt(0).toUpperCase() + p.slice(1) + '</button>';
+    });
+    html += '</div>';
+
+    html += '<button class="dcal-add-btn" style="width:100%;margin-top:16px;padding:14px;text-align:center;" onclick="dcalSaveEdit(\'' + id + '\',\'' + date + '\')">Save Changes</button>';
+    html += '</div>';
+
+    panel.innerHTML = html;
+    panel.classList.remove('dcal-hidden');
+
+    // iOS keyboard fix
+    var saveBtn = panel.querySelector('.dcal-add-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('touchstart', function() {
+        var ai = document.activeElement;
+        if (ai && (ai.tagName === 'INPUT' || ai.tagName === 'TEXTAREA')) ai.blur();
+      }, { passive: true });
+    }
+  };
+
+  window.dcalEditSelectPill = function(btn, containerId) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  };
+
+  window.dcalSaveEdit = function(id, date) {
+    var title = (document.getElementById('dcalEditTitle') || {}).value || '';
+    var time = (document.getElementById('dcalEditTime') || {}).value || '09:00';
+    var typeEl = document.querySelector('#dcalEditType .active');
+    var prioEl = document.querySelector('#dcalEditPriority .active');
+    var eventType = typeEl ? typeEl.dataset.type : 'followup';
+    var priority = prioEl ? prioEl.dataset.priority : 'medium';
+
+    if (!title.trim()) { dcalShowToast('Title is required'); return; }
+
+    var data = {
+      title: title.trim(),
+      event_type: eventType,
+      start_at: date + 'T' + time + ':00',
+      priority: priority
+    };
+
+    fetch(API + '/events/' + id + '?owner_id=' + state.ownerId, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function() {
+      dcalShowToast('Event updated');
+      dcalOpenDay(date);
+      if (state.currentView === 'home') loadHome();
+    })
+    .catch(function() {
+      dcalShowToast('Failed to update');
+    });
+  };
+
   window.dcalSaveNote = function(date) {
     var input = document.getElementById('dcalNoteInput');
     if (!input) return;
@@ -948,15 +1047,22 @@
       'END:VCALENDAR'
     ].join('\r\n');
 
-    var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = ev.title.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 30) + '.ics';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // iOS Safari doesn't support blob download — use data URI instead
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS) {
+      window.open('data:text/calendar;charset=utf-8,' + encodeURIComponent(ics));
+    } else {
+      var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = ev.title.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 30) + '.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    dcalShowToast('Calendar event exported');
   }
 
   // Auto-request notifications after showing app
