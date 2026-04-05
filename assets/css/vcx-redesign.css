@@ -2572,13 +2572,13 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
    PREMIUM FX v2 — Advanced visual effects
    ================================================================ */
 
-/* --- Animated gradient borders on cards --- */
+/* --- Shimmer sparkle on card borders --- */
 .lux-card,
 .service-card-lux,
 .authority-card,
 .vcx-testimonial-card {
-  --border-angle: 0deg;
   position: relative;
+  overflow: hidden;
 }
 .lux-card::after,
 .service-card-lux::after,
@@ -2586,33 +2586,37 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
 .vcx-testimonial-card::after {
   content: '';
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
-  background: conic-gradient(
-    from var(--border-angle),
+  /* thin shimmer band that sweeps across */
+  background: linear-gradient(
+    105deg,
     transparent 0%,
-    rgba(200,175,120,0.12) 10%,
-    rgba(45,138,130,0.08) 30%,
-    transparent 50%
+    transparent 38%,
+    rgba(141,212,197,0.10) 42%,
+    rgba(200,175,120,0.08) 44%,
+    rgba(141,212,197,0.10) 46%,
+    transparent 50%,
+    transparent 100%
   );
-  z-index: -1;
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  z-index: 1;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
 }
 .lux-card:hover::after,
 .service-card-lux:hover::after,
 .authority-card:hover::after,
 .vcx-testimonial-card:hover::after {
-  opacity: 0.5;
-  animation: vcxBorderRotate 3s linear infinite;
+  opacity: 1;
+  animation: vcxShimmerSweep 1.6s ease-in-out;
 }
-@keyframes vcxBorderRotate {
-  to { --border-angle: 360deg; }
-}
-@property --border-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
+@keyframes vcxShimmerSweep {
+  0%   { background-position: 100% 0; opacity: 1; }
+  70%  { background-position: -50% 0; opacity: 1; }
+  100% { background-position: -50% 0; opacity: 0; }
 }
 
 /* --- 3D card tilt (enhanced by JS) --- */

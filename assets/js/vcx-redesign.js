@@ -344,15 +344,14 @@
   }
 
   /* --------------------------------------------------------
-   * 9. Premium Falling Leaves Animation
-   *    Creates organic, randomized falling leaf particles
-   *    on .hero-premium — replaces cloud video background
+   * 9. Floating Bokeh Orbs
+   *    Soft glowing circles that drift lazily across the hero,
+   *    pulse gently, and feel like ambient light — strictly teal palette.
    * ------------------------------------------------------ */
   function initLeafAnimation() {
     var hero = document.querySelector('.hero-premium');
     if (!hero || prefersReducedMotion) return;
 
-    // Create leaf container
     var container = document.createElement('div');
     container.className = 'vcx-leaf-container';
     container.setAttribute('aria-hidden', 'true');
@@ -361,120 +360,107 @@
     hero.style.position = 'relative';
     hero.insertBefore(container, hero.firstChild);
 
-    // SVG leaf templates — 4 organic shapes
-    var leafSVGs = [
-      // Birch leaf — classic teardrop
-      "<svg viewBox='0 0 40 55' xmlns='http://www.w3.org/2000/svg'>" +
-        "<path d='M20 0C30 12 36 28 20 55C4 28 10 12 20 0Z' fill='FG'/>" +
-        "<path d='M20 8L20 48' stroke='ST' stroke-width='0.6' fill='none'/>" +
-        "<path d='M20 18L28 14M20 26L12 22M20 34L27 30' stroke='ST' stroke-width='0.3' fill='none'/>" +
-      "</svg>",
-      // Maple-style — wider
-      "<svg viewBox='0 0 50 45' xmlns='http://www.w3.org/2000/svg'>" +
-        "<path d='M25 0C32 6 42 12 48 20C42 22 38 18 35 22C38 28 40 35 38 42L25 45L12 42C10 35 12 28 15 22C12 18 8 22 2 20C8 12 18 6 25 0Z' fill='FG'/>" +
-        "<path d='M25 8L25 42' stroke='ST' stroke-width='0.4' fill='none'/>" +
-      "</svg>",
-      // Small round leaf
-      "<svg viewBox='0 0 30 36' xmlns='http://www.w3.org/2000/svg'>" +
-        "<path d='M15 0C22 7 28 18 15 36C2 18 8 7 15 0Z' fill='FG'/>" +
-        "<path d='M15 5L15 32' stroke='ST' stroke-width='0.4' fill='none'/>" +
-      "</svg>",
-      // Elongated willow leaf
-      "<svg viewBox='0 0 18 50' xmlns='http://www.w3.org/2000/svg'>" +
-        "<path d='M9 0C14 10 16 25 9 50C2 25 4 10 9 0Z' fill='FG'/>" +
-        "<path d='M9 6L9 44' stroke='ST' stroke-width='0.3' fill='none'/>" +
-      "</svg>"
-    ];
+    var ORB_COUNT = 10;
+    var orbs = [];
 
-    // Premium palette — very subtle, barely visible
-    var fills = [
-      'rgba(91,186,167,0.05)',
-      'rgba(91,186,167,0.04)',
-      'rgba(123,174,158,0.04)',
-      'rgba(141,212,197,0.03)',
-      'rgba(61,142,126,0.04)',
-      'rgba(91,186,167,0.03)'
-    ];
-    var strokes = [
-      'rgba(141,212,197,0.06)',
-      'rgba(91,186,167,0.05)',
-      'rgba(123,174,158,0.05)',
-      'rgba(197,221,214,0.04)'
-    ];
+    function createOrb() {
+      var el = document.createElement('div');
+      var size = 4 + Math.random() * 28; // 4–32px, mix of tiny and large
+      var isLarge = size > 18;
+      var baseAlpha = isLarge ? (0.04 + Math.random() * 0.04) : (0.08 + Math.random() * 0.08);
 
-    var LEAF_COUNT = 6; // fewer = more elegant
-    var leaves = [];
+      // Teal palette with slight variation
+      var hue = 164 + Math.floor(Math.random() * 16); // 164–180 (teal range)
+      var sat = 35 + Math.floor(Math.random() * 25);   // 35–60%
+      var lit = 55 + Math.floor(Math.random() * 20);    // 55–75%
+      var color = 'hsla(' + hue + ',' + sat + '%,' + lit + '%,';
 
-    function createLeaf() {
-      var svg = leafSVGs[Math.floor(Math.random() * leafSVGs.length)];
-      var fill = fills[Math.floor(Math.random() * fills.length)];
-      var stroke = strokes[Math.floor(Math.random() * strokes.length)];
-      svg = svg.replace(/FG/g, fill).replace(/ST/g, stroke);
-
-      var wrapper = document.createElement('div');
-      var size = 14 + Math.random() * 18; // 14–32px (smaller)
-      wrapper.innerHTML = svg;
-      wrapper.style.cssText =
-        'position:absolute;width:' + size + 'px;height:auto;' +
-        'top:-60px;' +
-        'left:' + (Math.random() * 100) + '%;' +
+      el.style.cssText =
+        'position:absolute;border-radius:50%;' +
+        'width:' + size + 'px;height:' + size + 'px;' +
+        'background:radial-gradient(circle at 35% 35%,' +
+          color + (baseAlpha * 1.6) + '),' +
+          color + (baseAlpha * 0.8) + ') 50%,' +
+          'transparent 100%);' +
+        (isLarge ? 'filter:blur(2px);' : '') +
         'opacity:0;will-change:transform,opacity;';
 
-      container.appendChild(wrapper);
+      container.appendChild(el);
+
+      // Random start position across full hero area
+      var startX = Math.random() * 100;
+      var startY = Math.random() * 100;
+
       return {
-        el: wrapper,
-        x: Math.random() * 100,
-        speed: 0.15 + Math.random() * 0.25,     // much slower drift
-        swayAmp: 8 + Math.random() * 16,         // gentle sway
-        swayFreq: 0.3 + Math.random() * 0.6,     // slow frequency
-        rotSpeed: 0.1 + Math.random() * 0.3,     // minimal rotation
-        delay: Math.random() * 12000,             // more spread out
-        phase: Math.random() * Math.PI * 2
+        el: el,
+        size: size,
+        baseAlpha: baseAlpha,
+        x: startX,
+        y: startY,
+        driftX: (Math.random() - 0.5) * 0.008,     // very slow horizontal drift
+        driftY: -0.002 - Math.random() * 0.006,     // gentle upward float
+        wobbleAmpX: 12 + Math.random() * 30,        // horizontal wobble range
+        wobbleAmpY: 8 + Math.random() * 20,         // vertical wobble range
+        wobbleFreqX: 0.15 + Math.random() * 0.25,   // slow wobble
+        wobbleFreqY: 0.1 + Math.random() * 0.2,
+        pulseFreq: 0.3 + Math.random() * 0.5,       // breathing pulse speed
+        pulseAmp: 0.25 + Math.random() * 0.35,      // how much brightness pulses
+        phase: Math.random() * Math.PI * 2,
+        delay: Math.random() * 6000
       };
     }
 
-    for (var i = 0; i < LEAF_COUNT; i++) {
-      leaves.push(createLeaf());
+    for (var i = 0; i < ORB_COUNT; i++) {
+      orbs.push(createOrb());
     }
 
     var startTime = performance.now();
 
-    function animateLeaves(now) {
+    function animateOrbs(now) {
       var elapsed = now - startTime;
+      var heroW = hero.offsetWidth;
       var heroH = hero.offsetHeight;
 
-      for (var j = 0; j < leaves.length; j++) {
-        var leaf = leaves[j];
-        var t = elapsed - leaf.delay;
-        if (t < 0) { continue; }
+      for (var j = 0; j < orbs.length; j++) {
+        var o = orbs[j];
+        var t = elapsed - o.delay;
+        if (t < 0) continue;
 
-        // Cycle: each leaf takes ~10-18s to fall
-        var cycleDuration = (heroH + 120) / leaf.speed / 60 * 1000;
-        var progress = (t % cycleDuration) / cycleDuration;
+        var sec = t / 1000;
 
-        // Y position: top to bottom
-        var y = -60 + progress * (heroH + 120);
+        // Position: base drift + wobble
+        var wx = Math.sin(sec * o.wobbleFreqX + o.phase) * o.wobbleAmpX;
+        var wy = Math.cos(sec * o.wobbleFreqY + o.phase * 1.3) * o.wobbleAmpY;
 
-        // X sway
-        var sway = Math.sin(progress * Math.PI * 2 * leaf.swayFreq + leaf.phase) * leaf.swayAmp;
+        var px = o.x + o.driftX * sec;
+        var py = o.y + o.driftY * sec;
 
-        // Rotation
-        var rotation = (t / 1000) * leaf.rotSpeed * 60;
+        // Wrap around when out of bounds
+        if (py < -10) { py += 120; o.y += 120; }
+        if (py > 110) { py -= 120; o.y -= 120; }
+        if (px < -10) { px += 120; o.x += 120; }
+        if (px > 110) { px -= 120; o.x -= 120; }
 
-        // Opacity: fade in, visible, fade out
-        var opacity = 1;
-        if (progress < 0.08) opacity = progress / 0.08;
-        else if (progress > 0.85) opacity = (1 - progress) / 0.15;
+        var xPos = (px / 100) * heroW + wx;
+        var yPos = (py / 100) * heroH + wy;
 
-        leaf.el.style.transform =
-          'translate3d(' + sway + 'px,' + y + 'px,0) rotate(' + rotation + 'deg)';
-        leaf.el.style.opacity = opacity * 0.9;
+        // Breathing pulse
+        var pulse = 1 + Math.sin(sec * o.pulseFreq + o.phase) * o.pulseAmp;
+        var scale = 0.7 + pulse * 0.3;
+        var alpha = o.baseAlpha * pulse;
+
+        // Fade in during first 2 seconds
+        if (t < 2000) alpha *= (t / 2000);
+
+        o.el.style.transform =
+          'translate3d(' + xPos + 'px,' + yPos + 'px,0) scale(' + scale.toFixed(3) + ')';
+        o.el.style.opacity = alpha.toFixed(4);
       }
 
-      requestAnimationFrame(animateLeaves);
+      requestAnimationFrame(animateOrbs);
     }
 
-    requestAnimationFrame(animateLeaves);
+    requestAnimationFrame(animateOrbs);
   }
 
   /* --------------------------------------------------------
