@@ -177,8 +177,8 @@ en: {
   v52_evidence_cta2:  'Review executive materials',
 
   /* ── Measurable impact ─────────────────────────────────────── */
-  impact_eyebrow:     'Measurable impact',
-  impact_title:       'Results that speak for themselves.',
+  impact_eyebrow:     'Methodology benchmarks',
+  impact_title:       'What structured recovery infrastructure delivers.',
   impact_stat_1:      'Average reduction in days sales outstanding',
   impact_stat_2:      'Recovery before agency escalation',
   impact_stat_3:      'Return on pilot investment',
@@ -488,8 +488,8 @@ ru: {
   v52_evidence_cta1:  'Открыть структурированный приём',
   v52_evidence_cta2:  'Обзор материалов для руководства',
 
-  impact_eyebrow:     'Измеримый результат',
-  impact_title:       'Результаты, которые говорят сами за себя.',
+  impact_eyebrow:     'Отраслевые ориентиры',
+  impact_title:       'Что даёт структурированная инфраструктура возврата.',
   impact_stat_1:      'Среднее сокращение дней дебиторской задолженности',
   impact_stat_2:      'Возврат до эскалации в агентство',
   impact_stat_3:      'Возврат на инвестиции в пилот',
@@ -789,8 +789,8 @@ es: {
   v52_evidence_cta1:  'Abrir admision estructurada',
   v52_evidence_cta2:  'Revisar materiales ejecutivos',
 
-  impact_eyebrow:     'Impacto medible',
-  impact_title:       'Resultados que hablan por si mismos.',
+  impact_eyebrow:     'Referentes metodologicos',
+  impact_title:       'Lo que entrega la infraestructura de recuperacion estructurada.',
   impact_stat_1:      'Reduccion promedio en dias de ventas pendientes',
   impact_stat_2:      'Recuperacion antes del escalamiento a agencia',
   impact_stat_3:      'Retorno sobre inversion piloto',
