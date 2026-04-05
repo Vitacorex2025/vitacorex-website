@@ -3158,9 +3158,8 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   color:rgba(255,255,255,.65);
 }
 
-.vcx-time-value,
+.vcx-time-value{
   color:#FFFFFF;
-  color:#112f4c;
 }
 
 .vcx-main-nav a{

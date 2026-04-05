@@ -900,7 +900,17 @@ body[data-vcx-private-lookup="true"] :focus-visible {
 }
 
 
-/* FINAL FIX: vcx-time-chip grey squares — the ACTUAL clock classes */
+/* FINAL FIX: clock grey squares — the container AND chip classes */
+.vcx-header-meta {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.vcx-header-meta::before,
+.vcx-header-meta::after {
+  display: none !important;
+}
 .vcx-time-chip,
 .vcx-time-chip-mobile {
   background: transparent !important;

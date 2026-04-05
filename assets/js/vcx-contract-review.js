@@ -103,8 +103,9 @@
         lastReviewId = data.review_id || null;
         renderResults(data);
       })
-      .catch(function (err) {
-        showMessage('Analysis failed: ' + err.message, 'error');
+      .catch(function () {
+        // Server unavailable — run client-side analysis
+        analyzeLocal(file);
       })
       .finally(function () {
         if (analyzeBtn) {
@@ -116,6 +117,145 @@
 
   if (analyzeBtn) {
     analyzeBtn.addEventListener('click', analyze);
+  }
+
+  // --- Client-side fallback analysis -----------------------
+  var CLAUSE_PATTERNS = [
+    { type: 'confidentiality',    rx: /\b(confidential|non-disclosure|nda|proprietary\s+information|trade\s+secret)/gi, risk: 'caution', note: 'Contains confidentiality provisions — verify scope and duration.' },
+    { type: 'indemnification',    rx: /\b(indemnif|hold\s+harmless|defend\s+and\s+indemnify)/gi, risk: 'high_risk', note: 'Indemnification clause detected — review scope of liability assumed.' },
+    { type: 'limitation_of_liability', rx: /\b(limitation\s+of\s+liability|consequential\s+damages|aggregate\s+liability|cap\s+on\s+damages)/gi, risk: 'caution', note: 'Liability cap provision — verify amount and exclusions.' },
+    { type: 'termination',        rx: /\b(terminat|cancel|expir|right\s+to\s+terminate)/gi, risk: 'neutral', note: 'Termination provisions detected.' },
+    { type: 'non_compete',        rx: /\b(non-compete|noncompete|non-competition|restrictive\s+covenant)/gi, risk: 'high_risk', note: 'Non-compete clause — must comply with F.S. 542.335 in Florida.' },
+    { type: 'non_solicitation',   rx: /\b(non-solicitation|nonsolicit|shall\s+not\s+solicit)/gi, risk: 'caution', note: 'Non-solicitation restriction detected.' },
+    { type: 'governing_law',      rx: /\b(governing\s+law|governed\s+by|laws\s+of\s+the\s+state)/gi, risk: 'neutral', note: 'Governing law clause identified.' },
+    { type: 'arbitration',        rx: /\b(arbitrat|mediat|dispute\s+resolution|binding\s+arbitration)/gi, risk: 'caution', note: 'Alternative dispute resolution clause — may waive jury trial rights.' },
+    { type: 'payment_terms',      rx: /\b(payment|compensation|fee|invoice|net\s+\d+|billing)/gi, risk: 'neutral', note: 'Payment terms detected.' },
+    { type: 'intellectual_property', rx: /\b(intellectual\s+property|work\s+product|copyright|patent|trademark|work\s+for\s+hire)/gi, risk: 'caution', note: 'IP ownership provisions — verify who retains rights to work product.' },
+    { type: 'force_majeure',      rx: /\b(force\s+majeure|act\s+of\s+god|unforeseeable|pandemic|natural\s+disaster)/gi, risk: 'neutral', note: 'Force majeure clause detected.' },
+    { type: 'assignment',         rx: /\b(assign|transfer|successor|delegate)/gi, risk: 'neutral', note: 'Assignment provisions present.' },
+    { type: 'warranty',           rx: /\b(warrant|represent|guarantee|as-is|disclaimer)/gi, risk: 'caution', note: 'Warranty or disclaimer provisions — review carefully.' },
+    { type: 'severability',       rx: /\b(severab|invalid\s+provision|unenforceable)/gi, risk: 'neutral', note: 'Severability clause detected.' },
+    { type: 'entire_agreement',   rx: /\b(entire\s+agreement|integration|supersed|merger\s+clause)/gi, risk: 'neutral', note: 'Integration clause — prior agreements may be voided.' },
+    { type: 'attorneys_fees',     rx: /\b(attorney.?s?\s+fees|prevailing\s+party|legal\s+costs|f\.s\.\s+57)/gi, risk: 'caution', note: 'Attorney\'s fees provision — check if prevailing party recovers costs.' },
+    { type: 'auto_renewal',       rx: /\b(auto.?renew|automatic\s+renewal|evergreen|shall\s+renew)/gi, risk: 'high_risk', note: 'Auto-renewal clause — may lock in obligations without active consent.' },
+    { type: 'liquidated_damages', rx: /\b(liquidated\s+damages|penalty|forfeiture)/gi, risk: 'high_risk', note: 'Liquidated damages provision — verify enforceability and reasonableness.' }
+  ];
+
+  var MISSING_CHECKS = [
+    { label: 'Data Protection / Privacy',   rx: /\b(data\s+protection|privacy|gdpr|ccpa|personal\s+data)/gi, severity: 'high', rec: 'Consider adding data protection and privacy compliance terms.' },
+    { label: 'Insurance Requirements',      rx: /\b(insurance|coverage|policy\s+limits)/gi, severity: 'medium', rec: 'Consider requiring proof of insurance.' },
+    { label: 'Notice Provisions',           rx: /\b(notice|written\s+notice|certified\s+mail)/gi, severity: 'medium', rec: 'Add formal notice requirements with method and address.' },
+    { label: 'Amendment Clause',            rx: /\b(amend|modif|written\s+consent)/gi, severity: 'low', rec: 'Add clause requiring written amendments only.' },
+    { label: 'Waiver Provision',            rx: /\b(waiver|failure\s+to\s+enforce)/gi, severity: 'low', rec: 'Add clause stating failure to enforce does not waive rights.' },
+    { label: 'Electronic Signatures',       rx: /\b(electronic\s+signature|e-sign|f\.s\.\s+668)/gi, severity: 'low', rec: 'Consider adding electronic signature validity clause (F.S. 668.50).' }
+  ];
+
+  function extractTextFromFile(file, cb) {
+    var reader = new FileReader();
+    reader.onload = function() {
+      var text = reader.result;
+      // For PDF: attempt raw text extraction from binary
+      if (file.name.toLowerCase().endsWith('.pdf')) {
+        var chunks = [];
+        // Extract text between stream/endstream markers
+        var matches = text.match(/\(([^)]{2,})\)/g);
+        if (matches) {
+          matches.forEach(function(m) {
+            var clean = m.slice(1, -1).replace(/\\n/g, '\n').replace(/\\\\/g, '\\').replace(/\\[()]/g, '');
+            if (clean.length > 3 && /[a-zA-Z]/.test(clean)) chunks.push(clean);
+          });
+        }
+        // Also try to find readable ASCII sequences
+        var ascii = text.replace(/[^\x20-\x7E\n]/g, ' ').replace(/\s{3,}/g, ' ');
+        chunks.push(ascii);
+        cb(chunks.join(' '));
+      } else {
+        cb(text);
+      }
+    };
+    reader.onerror = function() { cb(''); };
+    if (file.name.toLowerCase().endsWith('.pdf')) {
+      reader.readAsBinaryString(file);
+    } else {
+      reader.readAsText(file);
+    }
+  }
+
+  function analyzeLocal(file) {
+    showMessage('Server unavailable — running local pattern analysis...', 'info');
+    extractTextFromFile(file, function(text) {
+      if (!text || text.length < 20) {
+        showMessage('Could not extract text from file. Try uploading a .txt or .md file for best results.', 'warn');
+        return;
+      }
+
+      var clauses = [];
+      var riskPoints = 0;
+      var totalFound = 0;
+
+      CLAUSE_PATTERNS.forEach(function(pat) {
+        var matches = text.match(pat.rx);
+        if (matches && matches.length > 0) {
+          totalFound++;
+          // Find first match context
+          var idx = text.search(pat.rx);
+          var start = Math.max(0, idx - 40);
+          var end = Math.min(text.length, idx + 120);
+          var excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
+          if (start > 0) excerpt = '...' + excerpt;
+          if (end < text.length) excerpt = excerpt + '...';
+
+          var conf = Math.min(0.95, 0.5 + (matches.length * 0.1));
+          clauses.push({
+            clause_type: pat.type,
+            excerpt: excerpt,
+            risk_level: pat.risk,
+            note: pat.note + ' (Found ' + matches.length + ' reference' + (matches.length > 1 ? 's' : '') + ')',
+            confidence: conf
+          });
+
+          if (pat.risk === 'high_risk') riskPoints += 15;
+          else if (pat.risk === 'caution') riskPoints += 5;
+        }
+      });
+
+      // Check for missing protections
+      var missing = [];
+      MISSING_CHECKS.forEach(function(chk) {
+        if (!chk.rx.test(text)) {
+          missing.push({ label: chk.label, severity: chk.severity, recommendation: chk.rec });
+          if (chk.severity === 'high') riskPoints += 10;
+          else if (chk.severity === 'medium') riskPoints += 5;
+        }
+      });
+
+      var riskScore = Math.min(100, riskPoints);
+      var summary = 'Local analysis detected ' + clauses.length + ' clause type' + (clauses.length !== 1 ? 's' : '') + ' in ' + file.name + '. ';
+      var highRisk = clauses.filter(function(c) { return c.risk_level === 'high_risk'; });
+      if (highRisk.length > 0) {
+        summary += highRisk.length + ' high-risk provision' + (highRisk.length > 1 ? 's' : '') + ' found. ';
+      }
+      if (missing.length > 0) {
+        summary += missing.length + ' potentially missing protection' + (missing.length > 1 ? 's' : '') + ' identified.';
+      }
+
+      renderResults({
+        status: 'local-scan',
+        filename: file.name,
+        review_id: 'local-' + Date.now().toString(36),
+        risk_score: riskScore,
+        risk_summary: summary,
+        clauses: clauses,
+        missing_protections: missing,
+        suggested_questions: highRisk.length > 0 ? [
+          { category: 'High Risk Provisions', question: 'Are the indemnification and liability terms acceptable for your risk tolerance?', context: 'detected' },
+          { category: 'High Risk Provisions', question: 'Have non-compete restrictions been reviewed for enforceability under Florida law (F.S. 542.335)?', context: 'detected' },
+          { category: 'General Review', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
+        ] : [
+          { category: 'General Review', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
+        ]
+      });
+    });
   }
 
   // --- Render full results ---------------------------------
