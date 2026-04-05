@@ -35,6 +35,11 @@
     }
   };
 
+  // ── Pinch-zoom prevention (iOS Safari) ─────────────────────────
+  document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
+  document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+  document.addEventListener('gestureend', function(e) { e.preventDefault(); }, { passive: false });
+
   // ── Init ──────────────────────────────────────────────────────────
   window.addEventListener('DOMContentLoaded', function() {
     if (state.ownerId && state.ownerName) {
@@ -627,7 +632,7 @@
     }
   }
 
-  function dcalShowToast(msg) {
+  window.dcalShowToast = function dcalShowToast(msg) {
     var existing = document.querySelector('.dcal-toast');
     if (existing) existing.remove();
     var toast = document.createElement('div');
@@ -674,9 +679,13 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(eventData)
     })
-    .then(function(r) { return r.json(); })
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(function(d) {
       if (d.ok) {
+        dcalShowToast('Event added');
         input.value = '';
         dcalOpenDay(date);
         if (state.currentView === 'home') loadHome();
@@ -685,9 +694,29 @@
         if (notifyEnabled && (notifyEmail || notifyRecipient)) {
           dcalSendNotification(eventData, notifyEmail, notifyRecipient);
         }
+      } else {
+        throw new Error('Server error');
       }
     })
-    .catch(function() {});
+    .catch(function() {
+      // Fallback: save event locally in localStorage
+      eventData.id = Math.random().toString(36).slice(2, 10);
+      eventData.status = 'scheduled';
+      var db;
+      try { db = JSON.parse(localStorage.getItem('dcal_data') || '{}'); } catch(e) { db = {}; }
+      if (!db.events) db.events = [];
+      db.events.push(eventData);
+      localStorage.setItem('dcal_data', JSON.stringify(db));
+      dcalShowToast('Saved locally (server unavailable)');
+      input.value = '';
+      dcalOpenDay(date);
+      if (state.currentView === 'home') loadHome();
+
+      // Send email notifications even if server is down
+      if (notifyEnabled && (notifyEmail || notifyRecipient)) {
+        dcalSendNotification(eventData, notifyEmail, notifyRecipient);
+      }
+    });
   };
 
   window.dcalCompleteEvent = function(id) {
@@ -696,8 +725,21 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: 'completed' })
     })
-    .then(function(r) { return r.json(); })
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
     .then(function() {
+      dcalShowToast('Event completed');
+      dcalOpenDay(state.selectedDate);
+      if (state.currentView === 'home') loadHome();
+    })
+    .catch(function() {
+      // Fallback: update in localStorage
+      var db;
+      try { db = JSON.parse(localStorage.getItem('dcal_data') || '{}'); } catch(e) { db = {}; }
+      if (db.events) {
+        db.events = db.events.map(function(e) { return e.id === id ? Object.assign(e, { status: 'completed' }) : e; });
+        localStorage.setItem('dcal_data', JSON.stringify(db));
+      }
+      dcalShowToast('Completed (saved locally)');
       dcalOpenDay(state.selectedDate);
       if (state.currentView === 'home') loadHome();
     });
@@ -705,8 +747,21 @@
 
   window.dcalDeleteEvent = function(id) {
     fetch(API + '/events/' + id + '?owner_id=' + state.ownerId, { method: 'DELETE' })
-    .then(function(r) { return r.json(); })
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
     .then(function() {
+      dcalShowToast('Event deleted');
+      dcalOpenDay(state.selectedDate);
+      if (state.currentView === 'home') loadHome();
+    })
+    .catch(function() {
+      // Fallback: remove from localStorage
+      var db;
+      try { db = JSON.parse(localStorage.getItem('dcal_data') || '{}'); } catch(e) { db = {}; }
+      if (db.events) {
+        db.events = db.events.filter(function(e) { return e.id !== id; });
+        localStorage.setItem('dcal_data', JSON.stringify(db));
+      }
+      dcalShowToast('Deleted (saved locally)');
       dcalOpenDay(state.selectedDate);
       if (state.currentView === 'home') loadHome();
     });
@@ -719,7 +774,19 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ note_date: date, short_text: input.value })
-    }).catch(function() {});
+    }).catch(function() {
+      // Fallback: save note in localStorage
+      var db;
+      try { db = JSON.parse(localStorage.getItem('dcal_data') || '{}'); } catch(e) { db = {}; }
+      if (!db.notes) db.notes = [];
+      var exists = false;
+      db.notes = db.notes.map(function(n) {
+        if (n.note_date === date) { exists = true; return Object.assign(n, { short_text: input.value }); }
+        return n;
+      });
+      if (!exists) db.notes.push({ id: Math.random().toString(36).slice(2, 10), note_date: date, short_text: input.value });
+      localStorage.setItem('dcal_data', JSON.stringify(db));
+    });
   };
 
   // ── PWA Install ────────────────────────────────────────────────────

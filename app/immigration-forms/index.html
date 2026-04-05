@@ -471,27 +471,71 @@ window.vcxHandleFile=vcxHandleFile;
 function vcxAnalyzeForm(){
   if(!selectedFile2){alert('Please select a file first.');return;}
   var btn=el('vcxAnalyzeBtn'); var area=el('vcxResultsArea'); if(!area) return;
-  if(btn){btn.disabled=true;btn.textContent='Checking\u2026';}
+  if(btn){btn.disabled=true;btn.textContent='Analyzing with AI\u2026';}
 
-  var ext=selectedFile2.name.split('.').pop().toLowerCase();
-  var reader=new FileReader();
-  reader.onload=function(e){
-    var raw=e.target.result||'';
-    var text=(['txt','md','text'].indexOf(ext)>=0)?raw:raw.replace(/[^\x20-\x7E\u00A0-\uFFFF\n\r\t]/g,' ').replace(/\s{3,}/g,' ');
-    var analysis=analyzeImmigration(text,selectedFile2.name);
-    area.innerHTML=renderImmigrationResults(analysis);
-    area.hidden=false;
-    area.scrollIntoView({behavior:'smooth',block:'start'});
-    showPacketReviewSection(selectedFile2.name, analysis);
-    if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
-  };
-  reader.onerror=function(){
-    area.innerHTML='<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
-    area.hidden=false;
-    if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
-  };
-  if(['txt','md','text'].indexOf(ext)>=0) reader.readAsText(selectedFile2);
-  else reader.readAsBinaryString(selectedFile2);
+  var API_BASE=window.VCX_API_BASE||'';
+
+  // Try AI endpoint first
+  var fd=new FormData();
+  fd.append('file',selectedFile2);
+  var formTypeEl=el('vcxFormType');
+  if(formTypeEl&&formTypeEl.value) fd.append('form_type',formTypeEl.value);
+
+  fetch(API_BASE+'/api/ai/immigration/analyze',{method:'POST',body:fd})
+    .then(function(res){if(!res.ok)throw new Error('HTTP '+res.status);return res.json();})
+    .then(function(data){
+      if(data.ok&&data.ai_powered&&data.analysis){
+        // Render AI results
+        var html='<div class="vcx-analysis-result">';
+        html+='<div class="vcx-result-summary vcx-summary-low">';
+        html+='<div class="vcx-summary-icon">&#129302;</div>';
+        html+='<div><h2 class="vcx-summary-title">AI-Powered Immigration Analysis</h2>';
+        html+='<p class="vcx-summary-meta">File: <strong>'+escHtml(selectedFile2.name)+'</strong> &middot; <span style="background:#2D8A82;color:#fff;border-radius:4px;padding:1px 6px;font-size:.72rem;">GPT-4o</span></p></div></div>';
+        // Format AI markdown
+        var content=escHtml(data.analysis)
+          .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+          .replace(/^### (.+)$/gm,'<h4 style="font-size:.88rem;color:#2D8A82;margin:14px 0 6px;">$1</h4>')
+          .replace(/^## (.+)$/gm,'<h3 style="font-size:.95rem;color:#2E4F46;margin:16px 0 8px;">$1</h3>')
+          .replace(/^- (.+)$/gm,'<li style="font-size:.82rem;margin-bottom:3px;">$1</li>')
+          .replace(/\n/g,'<br>');
+        content=content.replace(/((?:<li[^>]*>.*?<\/li>(?:<br>)?)+)/g,'<ul style="margin:4px 0 8px;padding-left:18px;">$1</ul>');
+        html+='<div style="font-size:.84rem;line-height:1.7;color:#243D36;padding:16px 0;">'+content+'</div>';
+        html+='<p class="vcx-disc">AI-powered analysis \u2014 not legal advice. Always review with a licensed immigration attorney before filing.</p>';
+        html+='</div>';
+        area.innerHTML=html;
+        area.hidden=false;
+        area.scrollIntoView({behavior:'smooth',block:'start'});
+        showPacketReviewSection(selectedFile2.name, {formType:{label:'AI-detected'},fields:{found:[],missing:[]},wordCount:0,hasText:true});
+        if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
+      } else {
+        throw new Error('AI not available');
+      }
+    })
+    .catch(function(){
+      // Fallback to client-side pattern analysis
+      if(btn) btn.textContent='Pattern analysis\u2026';
+      var ext=selectedFile2.name.split('.').pop().toLowerCase();
+      var reader=new FileReader();
+      reader.onload=function(e){
+        var raw=e.target.result||'';
+        var text=(['txt','md','text'].indexOf(ext)>=0)?raw:raw.replace(/[^\x20-\x7E\u00A0-\uFFFF\n\r\t]/g,' ').replace(/\s{3,}/g,' ');
+        var analysis=analyzeImmigration(text,selectedFile2.name);
+        area.innerHTML=renderImmigrationResults(analysis);
+        // Add AI unavailable notice
+        area.innerHTML+='<div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:12px 16px;margin-top:12px;font-size:.82rem;color:#8B6914;">&#9888; AI analysis unavailable \u2014 showing pattern-based results. The AI service may be warming up; try again in a minute for deeper analysis.</div>';
+        area.hidden=false;
+        area.scrollIntoView({behavior:'smooth',block:'start'});
+        showPacketReviewSection(selectedFile2.name, analysis);
+        if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
+      };
+      reader.onerror=function(){
+        area.innerHTML='<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
+        area.hidden=false;
+        if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
+      };
+      if(['txt','md','text'].indexOf(ext)>=0) reader.readAsText(selectedFile2);
+      else reader.readAsBinaryString(selectedFile2);
+    });
 }
 window.vcxAnalyzeForm=vcxAnalyzeForm;
 

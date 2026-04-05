@@ -3,8 +3,21 @@
  * Mobile-first, iPhone-optimised, premium light design
  */
 
+/* ── Pinch-zoom prevention (mobile) ─────────────────────────────── */
+body[data-vcx-page="deadline-calendar"] {
+  touch-action: pan-x pan-y;
+  -ms-touch-action: pan-x pan-y;
+}
+@media (max-width: 768px) {
+  body[data-vcx-page="deadline-calendar"] {
+    touch-action: pan-y;
+    -webkit-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* ── View container ─────────────────────────────────────────────── */
-.dcal-app { max-width: 960px; margin: 0 auto; padding: 0 16px 32px; }
+.dcal-app { max-width: 960px; margin: 0 auto; padding: 0 16px 32px; touch-action: pan-y; }
 .dcal-hidden { display: none !important; }
 
 /* ── Tab navigation (Home / Calendar) ───────────────────────────── */

@@ -102,9 +102,11 @@
       .then(function (data) {
         lastReviewId = data.review_id || null;
         renderResults(data);
+        // After pattern results, request AI-enhanced analysis
+        requestAIAnalysis(file, data);
       })
       .catch(function () {
-        analyzeLocal(file);
+        analyzeLocal(file, true);
       })
       .finally(function () {
         if (analyzeBtn) {
@@ -116,6 +118,109 @@
 
   if (analyzeBtn) {
     analyzeBtn.addEventListener('click', analyze);
+  }
+
+  // --- AI-enhanced analysis (calls /api/ai/contract/analyze) ---
+  function requestAIAnalysis(file, patternData) {
+    var aiPanel = document.getElementById('vcxAIPanel');
+    if (!aiPanel) {
+      // Create AI panel below results
+      aiPanel = document.createElement('div');
+      aiPanel.id = 'vcxAIPanel';
+      aiPanel.style.cssText = 'margin-top:24px;';
+      if (resultPanel) resultPanel.appendChild(aiPanel);
+    }
+    aiPanel.innerHTML = '<div style="background:linear-gradient(135deg,rgba(45,138,130,.08),rgba(91,186,167,.06));border:1px solid rgba(45,138,130,.15);border-radius:10px;padding:18px 20px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#2D8A82;">AI Analysis</span><span class="vcx-ai-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5BBAA7;animation:vcxPulse 1.2s infinite;"></span></div><p style="font-size:.82rem;color:rgba(36,61,54,.6);margin:0;">Requesting AI-powered deep analysis...</p></div>';
+
+    var fd = new FormData();
+    fd.append('file', file);
+
+    var aiOpts = { method: 'POST', body: fd };
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
+      aiOpts.signal = AbortSignal.timeout(45000);
+    }
+
+    fetch(API_BASE + '/api/ai/contract/analyze', aiOpts)
+      .then(function (res) {
+        if (!res.ok) throw new Error('AI HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.ok && data.ai_powered && data.analysis) {
+          renderAIPanel(aiPanel, data.analysis, true);
+          // Also offer AI improvement
+          aiPanel.innerHTML += '<div style="text-align:center;margin-top:14px;"><button type="button" id="vcxAIImproveBtn" style="background:#2D8A82;color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:.85rem;font-weight:600;cursor:pointer;">Generate Stronger Clauses with AI</button></div>';
+          var improveBtn = document.getElementById('vcxAIImproveBtn');
+          if (improveBtn) {
+            improveBtn.addEventListener('click', function () {
+              improveBtn.disabled = true;
+              improveBtn.textContent = 'Generating...';
+              requestAIImprove(file);
+            });
+          }
+        } else {
+          renderAIPanel(aiPanel, data.error || 'AI analysis not available. Pattern-based results shown above.', false);
+        }
+      })
+      .catch(function () {
+        renderAIPanel(aiPanel, 'AI service is warming up. Pattern-based analysis is shown above. Try again in a minute for AI-enhanced results.', false);
+      });
+  }
+
+  function requestAIImprove(file) {
+    var improvePanel = document.getElementById('vcxAIImprovePanel');
+    if (!improvePanel) {
+      improvePanel = document.createElement('div');
+      improvePanel.id = 'vcxAIImprovePanel';
+      improvePanel.style.cssText = 'margin-top:16px;';
+      var aiPanel = document.getElementById('vcxAIPanel');
+      if (aiPanel) aiPanel.appendChild(improvePanel);
+    }
+    improvePanel.innerHTML = '<p style="font-size:.82rem;color:#2D8A82;">Generating improved clause suggestions...</p>';
+
+    var fd = new FormData();
+    fd.append('file', file);
+
+    fetch(API_BASE + '/api/ai/contract/improve', { method: 'POST', body: fd })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.ok && data.analysis) {
+          renderAIPanel(improvePanel, data.analysis, true, 'AI Improvement Suggestions');
+        } else {
+          improvePanel.innerHTML = '<p style="font-size:.82rem;color:#F5A623;">Could not generate improvements. ' + (data.error || '') + '</p>';
+        }
+      })
+      .catch(function () {
+        improvePanel.innerHTML = '<p style="font-size:.82rem;color:#F5A623;">AI improvement service unavailable.</p>';
+      });
+  }
+
+  function renderAIPanel(container, content, isSuccess, title) {
+    var bg = isSuccess ? 'linear-gradient(135deg,rgba(45,138,130,.08),rgba(91,186,167,.06))' : 'rgba(245,166,35,.06)';
+    var border = isSuccess ? 'rgba(45,138,130,.15)' : 'rgba(245,166,35,.15)';
+    var icon = isSuccess ? '&#129302;' : '&#9888;';
+    var heading = title || 'AI Analysis';
+    var badge = isSuccess ? '<span style="font-size:.65rem;background:#2D8A82;color:#fff;border-radius:4px;padding:2px 6px;margin-left:6px;">GPT-4o</span>' : '';
+
+    // Convert markdown-like formatting to HTML
+    var html = escapeHtml(content)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/^### (.+)$/gm, '<h4 style="font-size:.88rem;color:#2D8A82;margin:14px 0 6px;">$1</h4>')
+      .replace(/^## (.+)$/gm, '<h3 style="font-size:.95rem;color:#2E4F46;margin:16px 0 8px;">$1</h3>')
+      .replace(/^- (.+)$/gm, '<li style="font-size:.82rem;margin-bottom:3px;">$1</li>')
+      .replace(/\n/g, '<br>');
+
+    // Wrap consecutive <li> in <ul>
+    html = html.replace(/((?:<li[^>]*>.*?<\/li>(?:<br>)?)+)/g, '<ul style="margin:4px 0 8px;padding-left:18px;">$1</ul>');
+    html = html.replace(/<br><\/ul>/g, '</ul>');
+
+    container.innerHTML = '<div style="background:' + bg + ';border:1px solid ' + border + ';border-radius:10px;padding:18px 20px;">' +
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">' +
+      '<span style="font-size:1.1rem;">' + icon + '</span>' +
+      '<span style="font-size:.88rem;font-weight:700;color:#2D8A82;">' + heading + '</span>' + badge +
+      '</div>' +
+      '<div style="font-size:.84rem;line-height:1.7;color:var(--vcx-ink-body,#243D36);">' + html + '</div>' +
+      '</div>';
   }
 
   // --- Client-side fallback analysis -----------------------
@@ -177,7 +282,7 @@
     }
   }
 
-  function analyzeLocal(file) {
+  function analyzeLocal(file, skipAI) {
     showMessage('Server unavailable — running local pattern analysis...', 'info');
     extractTextFromFile(file, function(text) {
       if (!text || text.length < 20) {
@@ -225,6 +330,8 @@
           { category: 'General', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }
         ] : [{ category: 'General', question: 'Has qualified counsel reviewed this agreement before execution?', context: 'missing' }]
       });
+      // Also try AI analysis even when server pattern-analysis failed
+      if (!skipAI) requestAIAnalysis(file, null);
     });
   }
 
@@ -699,6 +806,7 @@
     html += '<svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>';
     html += 'Download DOCX';
     html += '</a>';
+    html += '<div id="vcxGenAITips" style="margin:16px 0;"></div>';
     html += '<div class="cr-gen-actions">';
     html += '<button type="button" class="cr-gen-another" id="vcxGenAnother">Generate Another</button>';
     html += '</div>';
@@ -706,6 +814,9 @@
     html += '</div>';
 
     genResult.innerHTML = html;
+
+    // Request AI tips for the generated contract
+    requestAIContractTips(data);
 
     // Bind "Generate Another" button
     var anotherBtn = document.getElementById('vcxGenAnother');
@@ -739,6 +850,34 @@
     html += '</div>';
 
     genResult.innerHTML = html;
+  }
+
+  // --- AI tips for generated contracts ----------------------
+  function requestAIContractTips(genData) {
+    var tipsEl = document.getElementById('vcxGenAITips');
+    if (!tipsEl) return;
+    tipsEl.innerHTML = '<div style="background:linear-gradient(135deg,rgba(45,138,130,.08),rgba(91,186,167,.06));border:1px solid rgba(45,138,130,.15);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;gap:8px;"><span>&#129302;</span><span style="font-size:.82rem;font-weight:600;color:#2D8A82;">Getting AI review tips...</span><span class="vcx-ai-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5BBAA7;animation:vcxPulse 1.2s infinite;"></span></div></div>';
+
+    // Download the generated file and send to AI for review
+    fetch(API_BASE + genData.download_url)
+      .then(function (res) { return res.blob(); })
+      .then(function (blob) {
+        var fd = new FormData();
+        fd.append('file', blob, genData.filename);
+        fd.append('contract_type', genData.contract_type);
+        return fetch(API_BASE + '/api/ai/contract/analyze', { method: 'POST', body: fd });
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.ok && data.ai_powered && data.analysis) {
+          renderAIPanel(tipsEl, data.analysis, true, 'AI Review of Generated Contract');
+        } else {
+          tipsEl.innerHTML = '<div style="background:rgba(45,138,130,.06);border:1px solid rgba(45,138,130,.12);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#2D8A82;">&#128161; Tip: Upload this DOCX to the Analyze tab for AI-powered clause review.</div>';
+        }
+      })
+      .catch(function () {
+        tipsEl.innerHTML = '<div style="background:rgba(45,138,130,.06);border:1px solid rgba(45,138,130,.12);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#2D8A82;">&#128161; Tip: Upload this DOCX to the Analyze tab for AI-powered clause review.</div>';
+      });
   }
 
   // --- Public namespace ------------------------------------
