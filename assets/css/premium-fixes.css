@@ -1,3 +1,35 @@
+/* Clock transparency fix — placed first to guarantee parsing */
+.vcx-header-meta {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.vcx-header-meta::before,
+.vcx-header-meta::after {
+  display: none !important;
+}
+.vcx-time-chip,
+.vcx-time-chip-mobile {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.vcx-time-label span:first-child {
+  color: rgba(255,255,255,.8) !important;
+}
+.vcx-time-sub {
+  color: rgba(255,255,255,.65) !important;
+}
+.vcx-time-value {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
 /* ============================================================
    PREMIUM DESIGN TOKENS — Restrained Advisory Palette
    ============================================================ */
@@ -883,16 +915,10 @@ body[data-vcx-private-lookup="true"] :focus-visible {
   color: #FFFFFF !important;
 }
 
-/* Fix: long-text kpi-values on revenue-recovery-workflow — smaller font */
+/* Fix: kpi-value text too large on revenue-recovery workflow page */
 .kpi-value {
   overflow-wrap: break-word;
 }
-.kpi-card .kpi-value:not(:empty) {
-  /* If value is long text (not a number), use smaller font */
-}
-
-
-/* Fix: kpi-value text too large on revenue-recovery workflow page */
 [data-vcx-page='revenue-recovery'] .kpi-value {
   font-size: clamp(14px, 2vw, 18px) !important;
   font-weight: 600 !important;
@@ -900,34 +926,4 @@ body[data-vcx-private-lookup="true"] :focus-visible {
 }
 
 
-/* FINAL FIX: clock grey squares — the container AND chip classes */
-.vcx-header-meta {
-  background: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-.vcx-header-meta::before,
-.vcx-header-meta::after {
-  display: none !important;
-}
-.vcx-time-chip,
-.vcx-time-chip-mobile {
-  background: transparent !important;
-  background-image: none !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-.vcx-time-label span:first-child {
-  color: rgba(255,255,255,.8) !important;
-}
-.vcx-time-sub {
-  color: rgba(255,255,255,.65) !important;
-}
-.vcx-time-value {
-  color: #FFFFFF !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
+/* Clock fix rules are at top of this file */
