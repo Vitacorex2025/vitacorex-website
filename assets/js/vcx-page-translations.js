@@ -864,6 +864,101 @@ add('Open intake',
     'Открыть приём',
     'Abrir admisión');
 
+// ─── ADDITIONAL SERVICES — missing ──────────────────────────
+add('Selected support for individuals and one-off matters.',
+    'Избранная поддержка для физических лиц и разовых дел.',
+    'Apoyo seleccionado para individuos y asuntos puntuales.');
+add('Private-client matters remain available where the work is administrative, documentation-heavy, and clearly scoped.',
+    'Дела частных клиентов остаются доступными, когда работа административная, насыщенная документацией и с чётким объёмом.',
+    'Los asuntos de clientes privados siguen disponibles cuando el trabajo es administrativo, intensivo en documentación y con alcance claro.');
+add('Open structured intake',
+    'Открыть структурированный приём',
+    'Abrir admisión estructurada');
+
+// ─── CORPORATE LEGAL FILE CONTROL ───────────────────────────
+add('Corporate Legal File Control for operators that need counsel-ready files and less attorney-rate cleanup.',
+    'Контроль корпоративного юридического документооборота для операторов, которым нужны файлы, готовые для юристов, и меньше дорогостоящей доработки.',
+    'Control de expediente legal corporativo para operadores que necesitan archivos listos para abogados y menos limpieza a tarifa de abogado.');
+add('Typical control outputs',
+    'Типичные результаты контроля',
+    'Resultados de control típicos');
+add('First-week work product',
+    'Результаты первой недели',
+    'Producto de trabajo de la primera semana');
+add('Typical engagement rhythm',
+    'Типичный ритм работы',
+    'Ritmo de trabajo típico');
+add('Commercial structure',
+    'Коммерческая структура',
+    'Estructura comercial');
+add('See attorney-rate drag, file quality, and handoff readiness in one view.',
+    'Посмотрите влияние стоимости юриста, качество файлов и готовность к передаче в одном обзоре.',
+    'Vea el arrastre de tarifa de abogado, la calidad del expediente y la preparación del traspaso en una sola vista.');
+add('Estimate how much expensive cleanup work is being absorbed before counsel can move.',
+    'Оцените, сколько дорогостоящей доработки поглощается до того, как юристы смогут приступить к работе.',
+    'Estime cuánto trabajo de limpieza costoso se absorbe antes de que el abogado pueda avanzar.');
+add('Relevant operator environments',
+    'Релевантные операционные среды',
+    'Entornos operativos relevantes');
+add('Attorney-rate drag estimator',
+    'Калькулятор влияния стоимости юриста',
+    'Estimador de arrastre de tarifa de abogado');
+add('File readiness index',
+    'Индекс готовности файлов',
+    'Índice de preparación de expedientes');
+add('Illustrative matter flow',
+    'Иллюстративный ход дела',
+    'Flujo ilustrativo del asunto');
+add('What premium file control should signal',
+    'Что должен показывать премиальный контроль файлов',
+    'Qué debe señalar el control premium de expedientes');
+add('Attorney cleanup exposure',
+    'Риск затрат на доработку юристом',
+    'Exposición a limpieza por abogado');
+add('Estimated annual exposure',
+    'Расчётная годовая экспозиция',
+    'Exposición anual estimada');
+
+// ─── SHARED INDUSTRY ENVIRONMENTS ───────────────────────────
+add('Patient-balance and packet-discipline environments.',
+    'Среды с балансами пациентов и дисциплиной пакетов.',
+    'Entornos de saldos de pacientes y disciplina de paquetes.');
+add('Recurring billing and churn-sensitive recovery workflows.',
+    'Повторяющийся биллинг и процессы возврата, чувствительные к оттоку.',
+    'Facturación recurrente y flujos de recuperación sensibles al churn.');
+add('Dispersed operations with contract-heavy receivables.',
+    'Распределённые операции с контрактоёмкой дебиторской задолженностью.',
+    'Operaciones dispersas con cuentas por cobrar con muchos contratos.');
+add('Multi-party documentation and escalation-control needs.',
+    'Многосторонняя документация и потребности в контроле эскалации.',
+    'Documentación multipartita y necesidades de control de escalación.');
+
+// ─── REVENUE RECOVERY ───────────────────────────────────────
+add('What gets reviewed each week',
+    'Что проверяется каждую неделю',
+    'Qué se revisa cada semana');
+add('See pilot measurement plan',
+    'Посмотреть план измерений пилота',
+    'Ver plan de medición del piloto');
+
+// ─── RESOURCES — missing ────────────────────────────────────
+add('These briefs are public executive materials.',
+    'Эти брифы являются публичными материалами для руководства.',
+    'Estos informes son materiales ejecutivos públicos.');
+
+// ─── STRUCTURED INTAKE — missing ────────────────────────────
+add('Preliminary intake output',
+    'Предварительные результаты приёма',
+    'Resultado preliminar de admisión');
+
+// ─── SHARED FOOTER ──────────────────────────────────────────
+add('Company & solutions',
+    'Компания и решения',
+    'Empresa y soluciones');
+add('Review, privacy & contact',
+    'Обзор, конфиденциальность и контакт',
+    'Revisión, privacidad y contacto');
+
 /* ================================================================
    TRANSLATION ENGINE — walks the DOM and replaces text
    ================================================================ */
