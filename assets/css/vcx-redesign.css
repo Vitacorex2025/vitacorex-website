@@ -2567,3 +2567,138 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
 
 /* F11: Badges */
 .vcx-exclusive-badge, .vcx-leaf-badge, .premium-indicator { border-radius: 2px !important; }
+
+/* ================================================================
+   PREMIUM FX v2 — Advanced visual effects
+   ================================================================ */
+
+/* --- Animated gradient borders on cards --- */
+.lux-card,
+.service-card-lux,
+.authority-card,
+.vcx-testimonial-card {
+  --border-angle: 0deg;
+  position: relative;
+}
+.lux-card::after,
+.service-card-lux::after,
+.authority-card::after,
+.vcx-testimonial-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0%,
+    var(--vcx-r-gold) 10%,
+    var(--vcx-r-navy-soft) 30%,
+    transparent 50%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.lux-card:hover::after,
+.service-card-lux:hover::after,
+.authority-card:hover::after,
+.vcx-testimonial-card:hover::after {
+  opacity: 1;
+  animation: vcxBorderRotate 3s linear infinite;
+}
+@keyframes vcxBorderRotate {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* --- 3D card tilt (enhanced by JS) --- */
+.vcx-tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+.vcx-tilt-card > * {
+  transform: translateZ(20px);
+}
+
+/* --- Text split animation --- */
+.vcx-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--vcx-r-ease), transform 0.5s var(--vcx-r-ease);
+}
+.vcx-word.vcx-word-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Smooth page transitions --- */
+.vcx-page-enter {
+  animation: vcxPageIn 0.4s var(--vcx-r-ease) both;
+}
+.vcx-page-exit {
+  animation: vcxPageOut 0.3s ease-in both;
+}
+@keyframes vcxPageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vcxPageOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* --- Hero canvas particle background --- */
+.vcx-hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-premium .hero-video {
+  z-index: 0;
+}
+
+/* --- Cursor glow (desktop only) --- */
+.vcx-cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,196,184,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* --- Parallax sections --- */
+.vcx-parallax-section {
+  will-change: transform;
+}
+
+/* --- Counter pop on complete --- */
+[data-vcx-count-to].vcx-counted {
+  animation: vcxCounterPop 0.35s var(--vcx-r-ease-bounce);
+}
+@keyframes vcxCounterPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .vcx-word { opacity: 1; transform: none; transition: none; }
+  .vcx-page-enter, .vcx-page-exit { animation: none; }
+  .vcx-cursor-glow { display: none; }
+  .lux-card:hover::after,
+  .service-card-lux:hover::after,
+  .authority-card:hover::after,
+  .vcx-testimonial-card:hover::after { animation: none; }
+}

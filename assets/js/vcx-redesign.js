@@ -478,18 +478,288 @@
   }
 
   /* --------------------------------------------------------
-   * 10. Init -- run everything on DOMContentLoaded
+   * 10. Text Split Animation
+   *     Hero h1/h2 words appear one by one on scroll
    * ------------------------------------------------------ */
+  function initTextSplit() {
+    if (prefersReducedMotion) return;
+
+    function splitAndObserve() {
+      var headings = document.querySelectorAll('.hero-copy h1, .section-head h2');
+      if (!headings.length) return;
+
+      for (var i = 0; i < headings.length; i++) {
+        var el = headings[i];
+        if (el.querySelector('.vcx-word')) continue; // already split
+        var text = el.textContent.trim();
+        if (!text) continue;
+        var words = text.split(/\s+/);
+        el.innerHTML = '';
+        for (var w = 0; w < words.length; w++) {
+          var span = document.createElement('span');
+          span.className = 'vcx-word';
+          span.textContent = words[w];
+          span.style.transitionDelay = (w * 0.06) + 's';
+          el.appendChild(span);
+          if (w < words.length - 1) el.appendChild(document.createTextNode(' '));
+        }
+      }
+
+      var observer = new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var wordEls = entry.target.querySelectorAll('.vcx-word');
+          for (var j = 0; j < wordEls.length; j++) {
+            wordEls[j].classList.add('vcx-word-visible');
+          }
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.2 });
+
+      for (var k = 0; k < headings.length; k++) {
+        observer.observe(headings[k]);
+      }
+    }
+
+    // Delay to run AFTER translation systems finish
+    setTimeout(splitAndObserve, 300);
+
+    // Re-split when language changes (translations overwrite innerHTML)
+    document.addEventListener('vcx:lang-change', function() {
+      setTimeout(splitAndObserve, 100);
+    });
+  }
+
+  /* --------------------------------------------------------
+   * 11. 3D Card Tilt on Mouse Move
+   * ------------------------------------------------------ */
+  function initCardTilt() {
+    var cards = document.querySelectorAll('.lux-card, .service-card-lux, .authority-card');
+    if (!cards.length || prefersReducedMotion) return;
+    if ('ontouchstart' in window && window.innerWidth < 1024) return; // skip touch-only devices
+
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].classList.add('vcx-tilt-card');
+
+      cards[i].addEventListener('mousemove', function(e) {
+        var rect = this.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        this.style.transform =
+          'perspective(600px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-3px)';
+      });
+
+      cards[i].addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    }
+  }
+
+  /* --------------------------------------------------------
+   * 12. Smooth Page Transitions
+   * ------------------------------------------------------ */
+  function initPageTransitions() {
+    if (prefersReducedMotion) return;
+
+    // Fade in on load
+    document.body.classList.add('vcx-page-enter');
+
+    // Intercept internal link clicks
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
+          href.startsWith('tel:') || href.startsWith('javascript:') ||
+          link.target === '_blank' || href.startsWith('http')) return;
+
+      e.preventDefault();
+      document.body.classList.remove('vcx-page-enter');
+      document.body.classList.add('vcx-page-exit');
+      var dest = href;
+      setTimeout(function() { window.location.href = dest; }, 300);
+    });
+  }
+
+  /* --------------------------------------------------------
+   * 13. Cursor Glow Effect (desktop only)
+   * ------------------------------------------------------ */
+  function initCursorGlow() {
+    if (prefersReducedMotion) return;
+    if ('ontouchstart' in window) return; // skip touch devices
+
+    var glow = document.createElement('div');
+    glow.className = 'vcx-cursor-glow';
+    glow.style.opacity = '0';
+    document.body.appendChild(glow);
+
+    var mx = 0, my = 0, gx = 0, gy = 0;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      glow.style.opacity = '1';
+    });
+    document.addEventListener('mouseleave', function() {
+      glow.style.opacity = '0';
+    });
+
+    function tick() {
+      gx += (mx - gx) * 0.12;
+      gy += (my - gy) * 0.12;
+      glow.style.left = gx + 'px';
+      glow.style.top = gy + 'px';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* --------------------------------------------------------
+   * 14. Scroll-Triggered Video Play/Pause
+   * ------------------------------------------------------ */
+  function initScrollVideo() {
+    var videos = document.querySelectorAll('.hero-video video, video[data-scroll-play]');
+    if (!videos.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(function(){});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    for (var i = 0; i < videos.length; i++) {
+      observer.observe(videos[i]);
+    }
+  }
+
+  /* --------------------------------------------------------
+   * 15. Hero Canvas Particles (teal data-flow visualization)
+   * ------------------------------------------------------ */
+  function initHeroParticles() {
+    var hero = document.querySelector('.hero-premium');
+    if (!hero || prefersReducedMotion) return;
+    if ('ontouchstart' in window && window.innerWidth < 1024) return; // skip small touch devices
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'vcx-hero-canvas';
+    hero.insertBefore(canvas, hero.firstChild);
+
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 40;
+    var connections = [];
+
+    function resize() {
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (var i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: 1.5 + Math.random() * 2,
+        alpha: 0.15 + Math.random() * 0.25
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update and draw particles
+      for (var j = 0; j < particles.length; j++) {
+        var p = particles[j];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(91, 196, 184, ' + p.alpha + ')';
+        ctx.fill();
+      }
+
+      // Draw connections between nearby particles
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var dx = particles[a].x - particles[b].x;
+          var dy = particles[a].y - particles[b].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.strokeStyle = 'rgba(91, 196, 184, ' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  /* --------------------------------------------------------
+   * 16. Enhanced Counter — add pop animation on complete
+   * ------------------------------------------------------ */
+  var _origAnimateCounter = null;
+  function patchCounterPop() {
+    // Add vcx-counted class after counter finishes for CSS pop
+    var counters = document.querySelectorAll('[data-vcx-count-to]');
+    if (!counters.length || prefersReducedMotion) return;
+
+    var observer = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        // After 2.1s (counter duration + buffer), add pop class
+        var el = entry.target;
+        setTimeout(function() {
+          el.classList.add('vcx-counted');
+        }, 2100);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+
+    for (var i = 0; i < counters.length; i++) {
+      observer.observe(counters[i]);
+    }
+  }
+
+  /* --------------------------------------------------------
+   * 99. Init -- run everything on DOMContentLoaded
+   * ------------------------------------------------------ */
+  function safe(fn) { try { fn(); } catch(e) { console.warn('[VCX]', fn.name || 'anon', e.message); } }
+
   function init() {
-    initScrollReveals();
-    initCounters();
-    initParallax();
-    initStaggeredCards();
-    initActiveNav();
-    initSmoothScroll();
-    initApiBaseDetection();
-    initTypeReveal();
-    initLeafAnimation();
+    safe(initScrollReveals);
+    safe(initCounters);
+    safe(initParallax);
+    safe(initStaggeredCards);
+    safe(initActiveNav);
+    safe(initSmoothScroll);
+    safe(initApiBaseDetection);
+    safe(initTypeReveal);
+    safe(initLeafAnimation);
+    // Premium v2
+    safe(initTextSplit);
+    safe(initCardTilt);
+    safe(initPageTransitions);
+    safe(initCursorGlow);
+    safe(initScrollVideo);
+    safe(initHeroParticles);
+    safe(patchCounterPop);
   }
 
   if (document.readyState === 'loading') {
