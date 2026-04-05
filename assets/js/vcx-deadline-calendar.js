@@ -554,9 +554,10 @@
       document.querySelectorAll('.dcal-priority-pill').forEach(function(pill) {
         pill.classList.toggle('active', pill.dataset.priority === p.priority);
       });
-      // Sync time picker with parsed time
+      // Sync time picker ONLY if user typed a time in the text (e.g. "at 3pm")
       var ti = document.getElementById('dcalTimeInput');
-      if (ti) ti.value = p.time;
+      var hasTimeInText = /\bat\s+\d{1,2}(?::\d{2})?\s*(?:am|pm)\b/i.test(val) || /\b(morning|afternoon|evening)\b/i.test(val);
+      if (ti && hasTimeInText) ti.value = p.time;
     }, 200);
   };
 

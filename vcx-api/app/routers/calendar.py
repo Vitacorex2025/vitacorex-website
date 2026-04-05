@@ -12,7 +12,10 @@ from ..rate_limit import limiter
 from ..db import get_conn
 from ..models.calendar import CalendarRegister, EventCreate, EventUpdate, NoteUpsert
 from ..services import calendar_engine
-from ..services.email_service import _send_email, _esc
+from ..services.email_service import _send_email, _esc, _smtp_configured
+import smtplib, os
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 logger = logging.getLogger("vcx.calendar.api")
 
@@ -189,8 +192,18 @@ class CalendarNotifyRequest(BaseModel):
 @router.post("/notify")
 @limiter.limit("10/minute")
 async def calendar_notify(request: Request, body: CalendarNotifyRequest):
-    """Send calendar event notification emails."""
+    """Send calendar event notification emails — synchronous for reliable delivery."""
+    smtp_host = os.getenv("VCX_SMTP_HOST", "")
+    smtp_port = int(os.getenv("VCX_SMTP_PORT", "587"))
+    smtp_user = os.getenv("VCX_SMTP_USER", "")
+    smtp_pass = os.getenv("VCX_SMTP_PASS", "")
+    from_email = os.getenv("VCX_FROM_EMAIL", smtp_user)
+
+    if not (smtp_host and smtp_user and smtp_pass):
+        return {"ok": False, "sent": 0, "error": "SMTP not configured"}
+
     sent_count = 0
+    errors = []
     for recipient in body.to:
         if not recipient or "@" not in recipient:
             continue
@@ -203,7 +216,26 @@ async def calendar_notify(request: Request, body: CalendarNotifyRequest):
     VitaCoreX Deadline Calendar | (888) 794-8292
   </p>
 </div>"""
-        _send_email(recipient, body.subject, body_html, body.body)
-        sent_count += 1
+        try:
+            msg = MIMEMultipart("alternative")
+            msg["From"] = from_email
+            msg["To"] = recipient
+            msg["Subject"] = body.subject
+            msg.attach(MIMEText(body.body, "plain"))
+            msg.attach(MIMEText(body_html, "html"))
 
-    return {"ok": True, "sent": sent_count}
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=15) as server:
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login(smtp_user, smtp_pass)
+                server.send_message(msg)
+            sent_count += 1
+        except Exception as e:
+            errors.append(f"{recipient}: {str(e)}")
+            logger.exception("SMTP error sending to %s", recipient)
+
+    result = {"ok": sent_count > 0, "sent": sent_count}
+    if errors:
+        result["errors"] = errors
+    return result
