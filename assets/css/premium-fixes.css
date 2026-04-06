@@ -815,13 +815,14 @@ body[data-vcx-page="auto-deal-check"] #vcxCheckBtn {
 /* 11. iPhone responsive fixes (v282) */
 
 /* 11a. Body scroll lock — html.vcx-mobile-menu-open is toggled by ui-shell.js
-   but had no CSS overflow rule, allowing background scroll on mobile menu open */
+   JS applies position:fixed + top:-scrollY for iOS-safe scroll lock.
+   CSS prevents overflow and keeps width stable. */
 html.vcx-mobile-menu-open {
   overflow: hidden !important;
 }
 html.vcx-mobile-menu-open body {
   overflow: hidden !important;
-  position: relative;
+  width: 100% !important;
 }
 
 /* 11b. Mobile nav link min-height — WCAG 2.5.5 requires 44px minimum target

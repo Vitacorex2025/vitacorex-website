@@ -50,7 +50,7 @@ en: {
   /* ── Two buying paths ──────────────────────────────────────── */
   why_eyebrow:        'Two buying paths',
   why_title:          'Built for companies first, while still serving selected individual matters.',
-  why_intro:          'Corporate advisory remains the core offer. Private-client work is intentionally curated so institutional buyers encounter a firm with a clear operating position rather than a generalist marketplace.',
+  why_intro:          'Corporate advisory is our core expertise. Private-client services complement the institutional platform, offering the same documentation discipline and quality standards to selected individual matters.',
   b2b_badge:          'For operators',
   b2b_title:          'Advisory for operators that need cleaner execution before legal and agency costs expand.',
   b2b_intro:          'Built for organizations that want stronger operating control, tighter documentation, and a more defensible handoff model before outside spend accelerates.',
@@ -61,7 +61,7 @@ en: {
   b2b_cta:            'Request company review',
   ind_badge:          'Private clients',
   ind_title:          'Curated private-client support remains available without weakening the corporate position.',
-  ind_intro:          'Selected personal matters remain available, but intentionally secondary, so corporate buyers experience VitaCoreX as a premium advisory platform rather than a general service marketplace.',
+  ind_intro:          'Private-client services are available for selected individual matters, backed by the same documentation discipline and quality standards used in our corporate advisory work.',
   ind_b1:             'Contracts and documentation support',
   ind_b2:             'Immigration packet organization',
   ind_b3:             'Auto purchase review',
@@ -71,7 +71,7 @@ en: {
   /* ── Fit qualification ─────────────────────────────────────── */
   fit_eyebrow:        'Fit qualification',
   fit_title:          'Best fit for operators that need cleaner execution before outside cost expands.',
-  fit_intro:          'The site now filters more aggressively. That improves buyer confidence and reduces confusion between serious operating engagements and generic service requests.',
+  fit_intro:          'We work with operators who need measurable improvement before outside cost expands\u2014not with teams looking for generic support.',
   fit_best_pill:      'Best fit',
   fit_best_1:         'Multi-location operators with aged balances, inconsistent workflows, or weak escalation discipline.',
   fit_best_2:         'Finance-led teams that need a measurable path from diagnostic review to pilot proof.',
@@ -103,7 +103,7 @@ en: {
   /* ── Core services ─────────────────────────────────────────── */
   services_eyebrow:   'Core offers',
   svc_h:              'Core advisory lines',
-  svc_i:              'Frame the offer around economic control, file quality, and executive implementation\u2014not commodity support.',
+  svc_i:              'Our advisory lines focus on economic control, file quality, and executive-level implementation\u2014delivering measurable value, not commodity support.',
   svc_card_1_h:       'Revenue Recovery Infrastructure',
   svc_card_1_p:       'Design pre-agency systems that convert balances into documented commitments before margin is lost.',
   svc_card_1_b1:      'Behavioral segmentation',
@@ -129,7 +129,7 @@ en: {
   /* ── Industry wedges ───────────────────────────────────────── */
   ind_wedge_eyebrow:  'Industry wedges',
   ind_wedge_title:    'Focused entry pages for the operator environments that fit the model best.',
-  ind_wedge_intro:    'The fastest path to search traction and buyer clarity is a tighter wedge. These pages separate where VitaCoreX fits naturally from broad generic positioning.',
+  ind_wedge_intro:    'Each industry page addresses the specific recovery and documentation challenges operators face in that vertical.',
   ind_w1_pill:        'Healthcare & dental',
   ind_w1_h:           'Documentation control and pre-agency workflow design for complex patient-balance environments.',
   ind_w1_p:           'Useful where revenue leakage, packet inconsistency, and escalation cleanup are happening at the same time.',
@@ -367,7 +367,7 @@ ru: {
 
   why_eyebrow:        'Два пути для покупателя',
   why_title:          'Построено для компаний в первую очередь, при этом обслуживая избранные частные дела.',
-  why_intro:          'Корпоративное консультирование остаётся основным предложением. Работа с частными клиентами намеренно выстроена так, чтобы институциональные покупатели видели фирму с чёткой операционной позицией, а не универсальный маркетплейс.',
+  why_intro:          'Корпоративный консалтинг \u2014 наша основная экспертиза. Услуги для частных клиентов дополняют институциональную платформу, предлагая ту же дисциплину документации и стандарты качества для избранных частных вопросов.',
   b2b_badge:          'Для операторов',
   b2b_title:          'Консультирование для операторов, которым нужно более чистое исполнение до роста юридических и агентских расходов.',
   b2b_intro:          'Создано для организаций, которые хотят более сильного операционного контроля, более жёсткой документации и более надёжной модели передачи до ускорения внешних затрат.',
@@ -378,7 +378,7 @@ ru: {
   b2b_cta:            'Запросить корпоративный разбор',
   ind_badge:          'Частные клиенты',
   ind_title:          'Курируемая поддержка частных клиентов остаётся доступной без ослабления корпоративной позиции.',
-  ind_intro:          'Избранные личные дела остаются доступными, но намеренно вторичными, чтобы корпоративные покупатели воспринимали VitaCoreX как премиальную консалтинговую платформу, а не общий сервисный маркетплейс.',
+  ind_intro:          'Услуги для частных клиентов доступны для избранных индивидуальных вопросов, подкреплённые той же дисциплиной документации и стандартами качества, что и в нашей корпоративной работе.',
   ind_b1:             'Поддержка по контрактам и документации',
   ind_b2:             'Организация иммиграционного пакета',
   ind_b3:             'Проверка автомобильной покупки',
@@ -387,7 +387,7 @@ ru: {
 
   fit_eyebrow:        'Квалификация соответствия',
   fit_title:          'Лучше всего подходит для операторов, которым нужно более чистое исполнение до роста внешних затрат.',
-  fit_intro:          'Сайт теперь фильтрует жёстче. Это повышает уверенность покупателя и уменьшает путаницу между серьёзными операционными контрактами и общими сервисными запросами.',
+  fit_intro:          'Мы работаем с операторами, которым нужно измеримое улучшение до роста внешних затрат \u2014 а не с командами, ищущими универсальную поддержку.',
   fit_best_pill:      'Лучший вариант',
   fit_best_1:         'Многолокационные операторы с просроченными балансами, непоследовательными процессами или слабой дисциплиной эскалации.',
   fit_best_2:         'Финансово-ориентированные команды, которым нужен измеримый путь от диагностики к пилотному подтверждению.',
@@ -417,7 +417,7 @@ ru: {
 
   services_eyebrow:   'Основные предложения',
   svc_h:              'Основные направления консалтинга',
-  svc_i:              'Формируйте предложение вокруг экономического контроля, качества файлов и внедрения на уровне руководства \u2014 а не массовой поддержки.',
+  svc_i:              'Наши направления консалтинга сосредоточены на экономическом контроле, качестве файлов и внедрении на уровне руководства \u2014 обеспечивая измеримый результат, а не массовую поддержку.',
   svc_card_1_h:       'Инфраструктура возврата выручки',
   svc_card_1_p:       'Проектирование систем до агентской стадии, преобразующих задолженности в документированные обязательства до потери маржи.',
   svc_card_1_b1:      'Поведенческая сегментация',
@@ -442,7 +442,7 @@ ru: {
 
   ind_wedge_eyebrow:  'Отраслевые клинья',
   ind_wedge_title:    'Целевые страницы для операционных сред, которые лучше всего подходят модели.',
-  ind_wedge_intro:    'Кратчайший путь к поисковой тяге и ясности для покупателя \u2014 более узкий клин. Эти страницы отделяют зоны, где VitaCoreX естественно вписывается, от широкого общего позиционирования.',
+  ind_wedge_intro:    'Каждая отраслевая страница раскрывает конкретные задачи возврата выручки и документации, с которыми операторы сталкиваются в данном секторе.',
   ind_w1_pill:        'Здравоохранение и стоматология',
   ind_w1_h:           'Контроль документации и проектирование процессов до агентской стадии для сложных сред с балансами пациентов.',
   ind_w1_p:           'Полезно там, где утечка выручки, несогласованность пакетов и очистка при эскалации происходят одновременно.',
@@ -668,7 +668,7 @@ es: {
 
   why_eyebrow:        'Dos caminos de compra',
   why_title:          'Construido para empresas primero, sin dejar de servir asuntos individuales seleccionados.',
-  why_intro:          'La consultoria corporativa sigue siendo la oferta principal. El trabajo con clientes privados esta intencionalmente curado para que los compradores institucionales encuentren una firma con una posicion operativa clara, no un mercado generalista.',
+  why_intro:          'La consultoria corporativa es nuestra experiencia principal. Los servicios para clientes privados complementan la plataforma institucional, ofreciendo la misma disciplina documental y estandares de calidad para asuntos individuales seleccionados.',
   b2b_badge:          'Para operadores',
   b2b_title:          'Consultoria para operadores que necesitan una ejecucion mas limpia antes de que crezcan los costos legales y de agencia.',
   b2b_intro:          'Construido para organizaciones que desean un control operativo mas fuerte, documentacion mas estricta y un modelo de transferencia mas defendible antes de que los gastos externos se aceleren.',
@@ -679,7 +679,7 @@ es: {
   b2b_cta:            'Solicitar revision corporativa',
   ind_badge:          'Clientes privados',
   ind_title:          'El soporte curado para clientes privados permanece disponible sin debilitar la posicion corporativa.',
-  ind_intro:          'Los asuntos personales seleccionados permanecen disponibles, pero intencionalmente secundarios, para que los compradores corporativos experimenten VitaCoreX como una plataforma de consultoria premium, no un mercado de servicios general.',
+  ind_intro:          'Los servicios para clientes privados estan disponibles para asuntos individuales seleccionados, respaldados por la misma disciplina documental y estandares de calidad de nuestra consultoria corporativa.',
   ind_b1:             'Soporte de contratos y documentacion',
   ind_b2:             'Organizacion de paquete de inmigracion',
   ind_b3:             'Revision de compra de vehiculo',
@@ -688,7 +688,7 @@ es: {
 
   fit_eyebrow:        'Calificacion de ajuste',
   fit_title:          'Mejor ajuste para operadores que necesitan ejecucion mas limpia antes de que los costos externos se expandan.',
-  fit_intro:          'El sitio ahora filtra mas agresivamente. Eso mejora la confianza del comprador y reduce la confusion entre compromisos operativos serios y solicitudes de servicio genericas.',
+  fit_intro:          'Trabajamos con operadores que necesitan mejoras medibles antes de que crezcan los costos externos \u2014 no con equipos que buscan soporte generico.',
   fit_best_pill:      'Mejor ajuste',
   fit_best_1:         'Operadores multi-ubicacion con saldos envejecidos, flujos de trabajo inconsistentes o disciplina de escalamiento debil.',
   fit_best_2:         'Equipos liderados por finanzas que necesitan un camino medible desde la revision diagnostica hasta la prueba piloto.',
@@ -718,7 +718,7 @@ es: {
 
   services_eyebrow:   'Ofertas principales',
   svc_h:              'Lineas de consultoria principales',
-  svc_i:              'Enmarque la oferta alrededor del control economico, la calidad de archivos y la implementacion ejecutiva, no el soporte de commodities.',
+  svc_i:              'Nuestras lineas de consultoria se centran en el control economico, la calidad de archivos y la implementacion ejecutiva \u2014 entregando valor medible, no soporte generico.',
   svc_card_1_h:       'Infraestructura de recuperacion de ingresos',
   svc_card_1_p:       'Diseno de sistemas pre-agencia que convierten saldos en compromisos documentados antes de perder margen.',
   svc_card_1_b1:      'Segmentacion conductual',
@@ -743,7 +743,7 @@ es: {
 
   ind_wedge_eyebrow:  'Cunas industriales',
   ind_wedge_title:    'Paginas de entrada enfocadas para los entornos operativos que mejor se ajustan al modelo.',
-  ind_wedge_intro:    'El camino mas rapido hacia la traccion de busqueda y la claridad del comprador es una cuna mas estrecha. Estas paginas separan donde VitaCoreX encaja naturalmente del posicionamiento generico amplio.',
+  ind_wedge_intro:    'Cada pagina industrial aborda los desafios especificos de recuperacion y documentacion que enfrentan los operadores en ese sector.',
   ind_w1_pill:        'Salud y dental',
   ind_w1_h:           'Control de documentacion y diseno de flujo pre-agencia para entornos complejos de saldos de pacientes.',
   ind_w1_p:           'Util donde la fuga de ingresos, la inconsistencia de paquetes y la limpieza de escalamiento ocurren simultaneamente.',

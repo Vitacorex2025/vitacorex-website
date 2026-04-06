@@ -68,6 +68,7 @@
 
     function setOpen(open){
       const isOpen = !!open;
+      const body = doc.body;
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       nav.hidden = !isOpen;
       nav.setAttribute('data-open', isOpen ? 'true' : 'false');
@@ -76,6 +77,22 @@
       if(header){
         header.classList.remove('is-hidden');
         header.classList.toggle('is-compact', isOpen || (window.scrollY || 0) > 24);
+      }
+      // iOS scroll-lock: position:fixed preserves scroll, overflow:hidden alone does not
+      if(isOpen){
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        body.dataset.vcxScrollY = String(scrollY);
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+      } else {
+        const savedY = parseInt(body.dataset.vcxScrollY || '0', 10);
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        window.scrollTo(0, savedY);
       }
     }
 
@@ -87,11 +104,16 @@
 
     setOpen(false);
 
+    // Debounce flag prevents touchend + click from double-toggling
+    let lastToggle = 0;
     function activateToggle(event){
       if(event){
         event.preventDefault();
         event.stopPropagation();
       }
+      const now = Date.now();
+      if(now - lastToggle < 300) return; // ignore duplicate within 300ms
+      lastToggle = now;
       if(!mq.matches) return;
       window.__vcxToggleMobileMenu();
     }

@@ -200,9 +200,9 @@ add('When to start where',
 add('The correct entry point depends on the operational bottleneck.',
     'Правильная точка входа зависит от операционного узкого места.',
     'El punto de entrada correcto depende del cuello de botella operativo.');
-add('The site now makes the three lanes more legible so buyers do not confuse a recovery problem with a file-control problem or a routing problem.',
-    'Сайт теперь делает три направления более понятными, чтобы покупатели не путали проблему возврата с проблемой контроля файлов или маршрутизации.',
-    'El sitio ahora hace las tres líneas más legibles para que los compradores no confundan un problema de recuperación con uno de control de archivos o enrutamiento.');
+add('Each service lane addresses a distinct operational need, so you can identify whether the priority is recovery, file control, or case routing.',
+    'Каждое направление решает отдельную операционную задачу, чтобы вы могли определить приоритет: возврат, контроль файлов или маршрутизация дел.',
+    'Cada línea de servicio aborda una necesidad operativa distinta, para que pueda identificar si la prioridad es recuperación, control de archivos o enrutamiento de casos.');
 add('Start with recovery infrastructure',
     'Начните с инфраструктуры возврата',
     'Comience con infraestructura de recuperación');
@@ -235,15 +235,15 @@ add('Industries',
 add('Focused industry pages for the operator environments that fit VitaCoreX best.',
     'Целевые отраслевые страницы для операционных сред, которые лучше всего подходят VitaCoreX.',
     'Páginas industriales enfocadas para los entornos operativos que mejor se ajustan a VitaCoreX.');
-add('A tighter wedge improves both buyer clarity and search relevance. These pages show where the operational model has the strongest natural fit.',
-    'Более узкая специализация улучшает ясность для покупателя и поисковую релевантность. Эти страницы показывают, где операционная модель имеет наиболее сильное естественное соответствие.',
-    'Una cuña más precisa mejora la claridad para el comprador y la relevancia en búsquedas. Estas páginas muestran dónde el modelo operativo tiene el ajuste natural más fuerte.');
+add('Each industry page highlights where the recovery and documentation model delivers the strongest results for operators in that sector.',
+    'Каждая отраслевая страница показывает, где модель возврата и документации даёт наиболее сильные результаты для операторов данного сектора.',
+    'Cada página industrial destaca dónde el modelo de recuperación y documentación ofrece los resultados más sólidos para operadores de ese sector.');
 add('Industry fit',
     'Отраслевое соответствие',
     'Ajuste industrial');
 add('Focused landing pages make the offer easier to trust and easier to rank.',
-    'Целевые посадочные страницы делают предложение более надёжным и лёгким для ранжирования.',
-    'Las páginas de destino enfocadas hacen que la oferta sea más confiable y fácil de posicionar.');
+    'Целевые отраслевые страницы помогают быстрее найти нужное решение для вашего сектора.',
+    'Las páginas industriales enfocadas le ayudan a encontrar la solución adecuada para su sector más rápidamente.');
 add('Broad positioning can still exist, but a newer domain needs narrower entry points where the operating logic is more obvious and the buyer sees themselves faster.',
     'Широкое позиционирование может существовать, но новый домен нуждается в более узких точках входа, где операционная логика очевиднее и покупатель быстрее себя узнаёт.',
     'El posicionamiento amplio puede existir, pero un dominio nuevo necesita puntos de entrada más estrechos donde la lógica operativa sea más obvia y el comprador se identifique más rápido.');
@@ -482,8 +482,8 @@ add('Curated and selective',
     'Курированный и избирательный подход',
     'Curado y selectivo');
 add('These services remain available, but intentionally secondary, so the core brand stays centered on corporate advisory and disciplined execution.',
-    'Эти услуги остаются доступными, но намеренно вторичными, чтобы ядро бренда оставалось сосредоточенным на корпоративном консалтинге и дисциплинированном исполнении.',
-    'Estos servicios siguen disponibles, pero intencionalmente secundarios, para que la marca central se mantenga enfocada en asesoría corporativa y ejecución disciplinada.');
+    'Эти услуги доступны для избранных частных вопросов, подкреплённые той же дисциплиной документации и стандартами качества корпоративного консалтинга.',
+    'Estos servicios están disponibles para asuntos individuales seleccionados, respaldados por la misma disciplina documental y estándares de calidad de la consultoría corporativa.');
 add('Curated services',
     'Курированные услуги',
     'Servicios curados');
@@ -842,9 +842,9 @@ add('Open structured intake',
 add('These services remain available where there is fit, while the primary VitaCoreX position remains executive consulting for companies.',
     'Эти услуги остаются доступными при наличии соответствия, но основная позиция VitaCoreX — управленческий консалтинг для компаний.',
     'Estos servicios siguen disponibles donde hay ajuste, mientras que la posición principal de VitaCoreX sigue siendo consultoría ejecutiva para empresas.');
-add('VitaCoreX is positioned primarily for company operators. Selected personal matters can still be reviewed when the work is operational, document-led, and a clean fit for the current workload.',
-    'VitaCoreX ориентирован прежде всего на корпоративных операторов. Отдельные частные дела могут быть рассмотрены, когда работа операционная, документарная и чётко вписывается в текущую нагрузку.',
-    'VitaCoreX está posicionado principalmente para operadores empresariales. Asuntos personales selectos pueden revisarse cuando el trabajo es operativo, basado en documentos y se ajusta a la carga de trabajo actual.');
+add('VitaCoreX serves company operators and selected private clients. Individual matters are accepted when the scope is clear, documentation-driven, and aligned with our quality standards.',
+    'VitaCoreX обслуживает корпоративных операторов и избранных частных клиентов. Индивидуальные дела принимаются, когда объём ясен, работа документарная и соответствует нашим стандартам качества.',
+    'VitaCoreX atiende a operadores empresariales y clientes privados seleccionados. Los asuntos individuales se aceptan cuando el alcance es claro, basado en documentación y alineado con nuestros estándares de calidad.');
 add('Server-side clause extraction and risk scoring. Upload contracts for structured analysis beyond the free scanner.',
     'Серверное извлечение условий и оценка рисков. Загрузите контракты для структурированного анализа за пределами бесплатного сканера.',
     'Extracción de cláusulas del lado del servidor y puntuación de riesgo. Cargue contratos para análisis estructurado más allá del escáner gratuito.');
