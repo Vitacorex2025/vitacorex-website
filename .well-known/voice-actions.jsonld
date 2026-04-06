@@ -1,0 +1,103 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SearchAction",
+      "@id": "https://vitacorexllc.com/#search",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://vitacorexllc.com/?q={search_term_string}",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform",
+          "https://schema.org/IOSPlatform",
+          "https://schema.org/AndroidPlatform"
+        ]
+      },
+      "query-input": "required name=search_term_string"
+    },
+    {
+      "@type": "OrderAction",
+      "name": "Schedule Free Consultation with VitaCoreX",
+      "description": "Book a free consultation with VitaCoreX LLC for revenue recovery, immigration documents, LLC formation, auto deal review, or legal document services",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://calendly.com/vitacorex2025/30min",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "agent": {
+        "@type": "Organization",
+        "@id": "https://vitacorexllc.com/#organization"
+      }
+    },
+    {
+      "@type": "CommunicateAction",
+      "name": "Call VitaCoreX",
+      "description": "Call VitaCoreX LLC at (888) 794-8292 for revenue recovery, immigration, LLC formation, auto deals, or legal document services in English, Russian, or Spanish",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "tel:+18887948292",
+        "actionPlatform": [
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "about": [
+        "revenue recovery",
+        "immigration document preparation",
+        "LLC formation Florida",
+        "auto deal review",
+        "legal document services",
+        "USCIS forms",
+        "company formation",
+        "contract review"
+      ],
+      "inLanguage": ["en", "ru", "es"],
+      "agent": {
+        "@type": "Organization",
+        "@id": "https://vitacorexllc.com/#organization"
+      }
+    },
+    {
+      "@type": "AskAction",
+      "name": "Ask VitaCoreX about Revenue Recovery",
+      "description": "Ask VitaCoreX about pre-collection revenue recovery for healthcare, dental, gym, SaaS, fleet, or construction businesses",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://vitacorexllc.com/contact.html",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      }
+    },
+    {
+      "@type": "AskAction",
+      "name": "Ask VitaCoreX about Immigration Documents",
+      "description": "Ask VitaCoreX about USCIS form preparation including I-130, I-485, I-765, K-1 visa, N-400 naturalization, DACA, asylum, and green card applications",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://vitacorexllc.com/immigration-documents.html",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      }
+    },
+    {
+      "@type": "AskAction",
+      "name": "Ask VitaCoreX about LLC Formation",
+      "description": "Ask VitaCoreX about Florida LLC formation, S-Corp, C-Corp, articles of incorporation, EIN registration, and operating agreements",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://vitacorexllc.com/business-plans.html",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      }
+    }
+  ]
+}

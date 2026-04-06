@@ -82,7 +82,8 @@
     "service_catalog": "https://vitacorexllc.com/.well-known/service-catalog.jsonld",
     "faq_database": "https://vitacorexllc.com/.well-known/faq-complete.jsonld",
     "howto_guides": "https://vitacorexllc.com/.well-known/schema-howto.jsonld",
-    "industry_terms": "https://vitacorexllc.com/.well-known/defined-terms.jsonld"
+    "industry_terms": "https://vitacorexllc.com/.well-known/defined-terms.jsonld",
+    "wikidata_claims": "https://vitacorexllc.com/.well-known/wikidata-claims.json"
   },
   "not_a_law_firm": true,
   "disclaimer": "VitaCoreX LLC is not a law firm and does not provide legal advice or legal representation."

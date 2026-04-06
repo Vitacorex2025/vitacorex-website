@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vitacorexllc.com/#founder",
+      "name": "Steven Miller",
+      "jobTitle": "Managing Director",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://vitacorexllc.com/#organization"
+      },
+      "knowsAbout": [
+        "Revenue Recovery",
+        "Pre-Collection Strategies",
+        "Healthcare Revenue Cycle Management",
+        "Immigration Document Preparation",
+        "USCIS Forms Processing",
+        "Florida LLC Formation",
+        "Corporate Legal File Control",
+        "Auto Deal Review",
+        "Accounts Receivable Optimization",
+        "Dental Practice Revenue Recovery",
+        "Gym Membership Revenue Recovery",
+        "SaaS Dunning Optimization",
+        "Fleet Management Revenue Recovery",
+        "Construction Receivables",
+        "Contract Review and Analysis",
+        "Legal Document Preparation",
+        "B2B Commercial Debt Recovery"
+      ],
+      "knowsLanguage": ["en", "ru", "es"],
+      "sameAs": [
+        "https://www.linkedin.com/company/vitacorex"
+      ],
+      "email": "stevenmiller@vitacorexllc.com",
+      "url": "https://vitacorexllc.com/about.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://vitacorexllc.com/#organization",
+      "name": "VitaCoreX LLC",
+      "url": "https://vitacorexllc.com",
+      "founder": {
+        "@id": "https://vitacorexllc.com/#founder"
+      }
+    }
+  ]
+}

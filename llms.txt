@@ -150,6 +150,9 @@ VitaCoreX provides administrative legal document support (not legal representati
 - HowTo Schemas: https://vitacorexllc.com/.well-known/schema-howto.jsonld
 - Industry Terms: https://vitacorexllc.com/.well-known/defined-terms.jsonld
 - Social Metadata: https://vitacorexllc.com/.well-known/social-metadata.jsonld
+- Author Entity (E-E-A-T): https://vitacorexllc.com/.well-known/author-entity.jsonld
+- Wikidata Claims: https://vitacorexllc.com/.well-known/wikidata-claims.json
+- Voice Actions: https://vitacorexllc.com/.well-known/voice-actions.jsonld
 
 ## Contact
 

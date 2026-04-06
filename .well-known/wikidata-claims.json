@@ -1,0 +1,45 @@
+{
+  "_comment": "Wikidata-ready claims for VitaCoreX LLC entity creation. Submit at https://www.wikidata.org/wiki/Special:NewItem",
+  "label": {
+    "en": "VitaCoreX LLC",
+    "ru": "VitaCoreX LLC",
+    "es": "VitaCoreX LLC"
+  },
+  "description": {
+    "en": "American professional services company based in Tampa, Florida providing revenue recovery, immigration document preparation, company formation, auto deal review, and legal document services",
+    "ru": "Американская компания деловых услуг из Тампы, Флорида — восстановление доходов, подготовка иммиграционных документов, создание компаний, анализ автосделок и юридические документы",
+    "es": "Empresa estadounidense de servicios profesionales con sede en Tampa, Florida que ofrece recuperaci\u00f3n de ingresos, preparaci\u00f3n de documentos de inmigraci\u00f3n, formaci\u00f3n de empresas, revisi\u00f3n de compras de autos y servicios de documentos legales"
+  },
+  "aliases": {
+    "en": ["VitaCoreX", "Vita Core X", "VCX"],
+    "ru": ["\u0412\u0438\u0442\u0430\u041a\u043e\u0440\u042d\u043a\u0441", "VitaCoreX"],
+    "es": ["VitaCoreX"]
+  },
+  "claims": {
+    "P31": "Q4830453 (instance of: business)",
+    "P17": "Q30 (country: United States)",
+    "P131": "Q49255 (located in: Tampa, Florida)",
+    "P159": "Q49255 (headquarters: Tampa, Florida)",
+    "P571": "2025 (inception)",
+    "P856": "https://vitacorexllc.com (official website)",
+    "P1037": "Steven Miller (director/manager)",
+    "P452": "Q1640824 (industry: professional services)",
+    "P1128": "1-10 (employees)",
+    "P2002": "vitacorex_llc (Twitter/X username \u2014 placeholder if created)",
+    "P2003": "vitacorex_llc (Instagram username)",
+    "P2013": "61554844507884 (Facebook page ID)",
+    "P4264": "vitacorex (LinkedIn company ID)",
+    "P2037": "Vitacorex2025 (GitHub username)",
+    "P1329": "+1-888-794-8292 (phone number)",
+    "P968": "vitacorex2025@gmail.com (email)",
+    "P407": ["Q1860 (language: English)", "Q7737 (language: Russian)", "Q1321 (language: Spanish)"],
+    "P3931": "41-4399148 (EIN/tax ID)"
+  },
+  "references": {
+    "official_website": "https://vitacorexllc.com",
+    "linkedin": "https://www.linkedin.com/company/vitacorex",
+    "instagram": "https://www.instagram.com/vitacorex_llc/",
+    "facebook": "https://www.facebook.com/profile.php?id=61554844507884",
+    "github": "https://github.com/Vitacorex2025"
+  }
+}
