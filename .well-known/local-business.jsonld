@@ -1,0 +1,166 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://vitacorexllc.com/#local-business",
+  "name": "VitaCoreX LLC",
+  "alternateName": ["VitaCoreX", "Vita Core X", "VCX"],
+  "description": "Revenue recovery infrastructure, immigration document preparation, company formation, auto deal review, and legal document services. Serving Tampa FL and nationwide in English, Russian, and Spanish.",
+  "url": "https://vitacorexllc.com",
+  "telephone": "+1-888-794-8292",
+  "email": "vitacorex2025@gmail.com",
+  "image": "https://vitacorexllc.com/assets/img/logo.png",
+  "logo": "https://vitacorexllc.com/assets/img/logo.png",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tampa",
+    "addressLocality": "Tampa",
+    "addressRegion": "FL",
+    "postalCode": "33602",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.9506,
+    "longitude": -82.4572
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "State",
+      "name": "Florida"
+    },
+    {
+      "@type": "City",
+      "name": "Tampa"
+    },
+    {
+      "@type": "City",
+      "name": "St. Petersburg"
+    },
+    {
+      "@type": "City",
+      "name": "Clearwater"
+    },
+    {
+      "@type": "City",
+      "name": "Brandon"
+    },
+    {
+      "@type": "City",
+      "name": "Riverview"
+    },
+    {
+      "@type": "City",
+      "name": "Wesley Chapel"
+    },
+    {
+      "@type": "City",
+      "name": "Lakeland"
+    }
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.9506,
+      "longitude": -82.4572
+    },
+    "geoRadius": "50 mi"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-888-794-8292",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Russian", "Spanish"],
+      "areaServed": "US",
+      "contactOption": "TollFree"
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "vitacorex2025@gmail.com",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Russian", "Spanish"]
+    }
+  ],
+  "availableLanguage": [
+    {"@type": "Language", "name": "English", "alternateName": "en"},
+    {"@type": "Language", "name": "Russian", "alternateName": "ru"},
+    {"@type": "Language", "name": "Spanish", "alternateName": "es"}
+  ],
+  "knowsLanguage": ["en", "ru", "es"],
+  "slogan": "Revenue Recovery Infrastructure for Complex Operators",
+  "foundingDate": "2025",
+  "legalName": "VitaCoreX LLC",
+  "taxID": "41-4399148",
+  "sameAs": [
+    "https://www.linkedin.com/company/vitacorex",
+    "https://www.instagram.com/vitacorex_llc/",
+    "https://www.facebook.com/profile.php?id=61554844507884",
+    "https://github.com/Vitacorex2025"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "VitaCoreX Professional Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Revenue Recovery & Pre-Collection",
+          "description": "Pre-collection workflows for healthcare, dental, gyms, SaaS, fleet"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Immigration Document Preparation",
+          "description": "USCIS form packets, visa applications, green card, naturalization"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Company Formation Florida",
+          "description": "LLC, S-Corp, C-Corp registration, articles, operating agreements"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Auto Deal Review",
+          "description": "Dealer fee analysis, payment calculator, GAP insurance review"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Legal Document Services",
+          "description": "Contract review, NDA, litigation support, demand letters"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "1",
+    "bestRating": "5"
+  }
+}

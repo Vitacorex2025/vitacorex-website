@@ -86,6 +86,22 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+# Amazon (Alexa / Silk Browser / Fire TV)
+User-agent: AmazonBot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Phind AI
+User-agent: PhindBot
+Allow: /
+
+# Kagi Search
+User-agent: KagiBot
+Allow: /
+
 Sitemap: https://vitacorexllc.com/sitemap.xml
 
 # LLM Context Files (for AI crawlers)

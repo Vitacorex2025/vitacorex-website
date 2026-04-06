@@ -133,4 +133,73 @@
     <category term="hospital"/>
     <category term="medical billing"/>
   </entry>
+
+  <entry>
+    <title>Gym &amp; Fitness Membership Revenue Recovery</title>
+    <link href="https://vitacorexllc.com/industry-subscription-recurring.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/industry-subscription-recurring.html#gym</id>
+    <updated>2026-04-05T14:00:00Z</updated>
+    <summary>Revenue recovery for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and boutique fitness operators. Recover unpaid memberships without losing members.</summary>
+    <category term="gym"/>
+    <category term="fitness"/>
+    <category term="membership recovery"/>
+    <category term="health club"/>
+  </entry>
+
+  <entry>
+    <title>SaaS &amp; Subscription Dunning Optimization</title>
+    <link href="https://vitacorexllc.com/industry-subscription-recurring.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/industry-subscription-recurring.html#saas</id>
+    <updated>2026-04-05T14:00:00Z</updated>
+    <summary>Reduce involuntary churn and recover failed payments for SaaS companies, subscription businesses, and recurring billing operators. Smart dunning sequences and payment retry optimization.</summary>
+    <category term="SaaS"/>
+    <category term="subscription"/>
+    <category term="dunning"/>
+    <category term="churn recovery"/>
+  </entry>
+
+  <entry>
+    <title>Fleet &amp; Logistics Revenue Recovery</title>
+    <link href="https://vitacorexllc.com/industry-fleet-logistics.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/industry-fleet-logistics.html</id>
+    <updated>2026-04-05T14:00:00Z</updated>
+    <summary>Revenue recovery for fleet operators, logistics companies, and transportation businesses. Fuel card recovery, equipment lease recovery, and commercial vehicle billing.</summary>
+    <category term="fleet"/>
+    <category term="logistics"/>
+    <category term="transportation"/>
+    <category term="fuel card"/>
+  </entry>
+
+  <entry>
+    <title>Construction &amp; B2B Commercial Debt Recovery</title>
+    <link href="https://vitacorexllc.com/industry-contract-services.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/industry-contract-services.html</id>
+    <updated>2026-04-05T14:00:00Z</updated>
+    <summary>Commercial debt recovery for construction companies, contractors, and B2B service providers. Contractor payment recovery and professional services AR management.</summary>
+    <category term="construction"/>
+    <category term="B2B"/>
+    <category term="contractor"/>
+    <category term="commercial debt"/>
+  </entry>
+
+  <entry>
+    <title>VitaCoreX Complete Service Catalog — All Industries</title>
+    <link href="https://vitacorexllc.com/.well-known/service-catalog.jsonld" rel="alternate"/>
+    <id>https://vitacorexllc.com/.well-known/service-catalog.jsonld</id>
+    <updated>2026-04-05T15:00:00Z</updated>
+    <summary>Complete structured data catalog of all VitaCoreX services: revenue recovery, healthcare, dental, gym, SaaS, immigration, LLC formation, auto deals, legal docs, fleet, construction.</summary>
+    <category term="service catalog"/>
+    <category term="structured data"/>
+  </entry>
+
+  <entry>
+    <title>VitaCoreX FAQ — Comprehensive Question &amp; Answer Database</title>
+    <link href="https://vitacorexllc.com/.well-known/faq-complete.jsonld" rel="alternate"/>
+    <id>https://vitacorexllc.com/.well-known/faq-complete.jsonld</id>
+    <updated>2026-04-05T15:00:00Z</updated>
+    <summary>Complete FAQ covering all VitaCoreX services in English, Russian, and Spanish. Revenue recovery, immigration, LLC formation, auto deals, legal documents, healthcare, dental, gym recovery.</summary>
+    <category term="FAQ"/>
+    <category term="questions"/>
+    <category term="multilingual"/>
+  </entry>
 </feed>

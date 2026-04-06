@@ -64,10 +64,51 @@
         "net recovery improvement", "bad debt reduction", "DSO reduction",
         "collection agency alternative", "revenue cycle optimization"
       ],
+      "slogan": "Revenue Recovery Infrastructure for Complex Operators",
+      "legalName": "VitaCoreX LLC",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 10
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+18887948292",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Russian", "Spanish"],
+          "areaServed": "US"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+18887948292",
+          "contactType": "sales",
+          "availableLanguage": ["English", "Russian", "Spanish"],
+          "areaServed": "US"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "VitaCoreX Services",
+        "itemListElement": [
+          {"@type": "OfferCatalog", "name": "Revenue Recovery Services"},
+          {"@type": "OfferCatalog", "name": "Immigration Document Services"},
+          {"@type": "OfferCatalog", "name": "Company Formation Services"},
+          {"@type": "OfferCatalog", "name": "Auto Deal Review Services"},
+          {"@type": "OfferCatalog", "name": "Legal Document Services"},
+          {"@type": "OfferCatalog", "name": "Healthcare Revenue Recovery"},
+          {"@type": "OfferCatalog", "name": "Dental Revenue Recovery"},
+          {"@type": "OfferCatalog", "name": "Gym & Fitness Recovery"},
+          {"@type": "OfferCatalog", "name": "SaaS & Subscription Recovery"},
+          {"@type": "OfferCatalog", "name": "Fleet & Logistics Recovery"},
+          {"@type": "OfferCatalog", "name": "Construction & B2B Recovery"}
+        ]
+      },
       "sameAs": [
         "https://www.linkedin.com/company/vitacorex",
         "https://www.instagram.com/vitacorex_llc/",
-        "https://www.facebook.com/profile.php?id=61554844507884"
+        "https://www.facebook.com/profile.php?id=61554844507884",
+        "https://github.com/Vitacorex2025"
       ]
     },
     {
@@ -89,8 +130,15 @@
       "name": "Revenue Recovery Infrastructure",
       "provider": {"@id": "https://vitacorexllc.com/#organization"},
       "description": "Structured pre-collection revenue recovery systems that capture revenue before agency escalation. Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional collection agencies.",
-      "serviceType": ["Revenue Recovery", "Pre-Collection Services", "Debt Recovery", "AR Management", "Net Recovery Improvement", "Bad Debt Reduction", "Collection Agency Alternative"],
-      "url": "https://vitacorexllc.com/revenue-recovery-workflow.html"
+      "serviceType": ["Revenue Recovery", "Pre-Collection Services", "Debt Recovery", "AR Management", "Net Recovery Improvement", "Bad Debt Reduction", "Collection Agency Alternative", "Days Sales Outstanding Reduction", "Cash Flow Improvement", "Accounts Receivable Recovery"],
+      "url": "https://vitacorexllc.com/revenue-recovery-workflow.html",
+      "areaServed": {"@type": "Country", "name": "United States"},
+      "availableLanguage": ["English", "Russian", "Spanish"],
+      "isRelatedTo": [
+        {"@id": "https://vitacorexllc.com/#healthcare-recovery"},
+        {"@id": "https://vitacorexllc.com/#gym-fitness"},
+        {"@id": "https://vitacorexllc.com/#subscription-recovery"}
+      ]
     },
     {
       "@type": "Service",
@@ -107,8 +155,10 @@
       "name": "Immigration Packet Organization",
       "provider": {"@id": "https://vitacorexllc.com/#organization"},
       "description": "Documentation-first immigration packet organization: USCIS form preparation, visa application packets, green card documentation, naturalization forms, asylum and DACA documentation. Covers I-130, I-485, I-765, K-1, N-400.",
-      "serviceType": ["Immigration Document Services", "Visa Packet Preparation", "Green Card Documentation", "Naturalization Packet", "USCIS Form Organization"],
-      "url": "https://vitacorexllc.com/additional-services.html"
+      "serviceType": ["Immigration Document Services", "Visa Packet Preparation", "Green Card Documentation", "Naturalization Packet", "USCIS Form Organization", "I-130 Preparation", "I-485 Filing Help", "K-1 Visa Packet", "N-400 Naturalization", "Asylum Documentation", "DACA Renewal", "Work Permit Application"],
+      "url": "https://vitacorexllc.com/immigration-documents.html",
+      "areaServed": {"@type": "Country", "name": "United States"},
+      "availableLanguage": ["English", "Russian", "Spanish"]
     },
     {
       "@type": "Service",
@@ -116,8 +166,10 @@
       "name": "Company Formation Documentation",
       "provider": {"@id": "https://vitacorexllc.com/#organization"},
       "description": "Documentation support for new business formation: Florida LLC formation, articles of incorporation, operating agreements, EIN applications, business licenses, registered agent documentation, S-Corp and C-Corp formation.",
-      "serviceType": ["LLC Formation", "Company Registration", "Business Formation", "Corporate Formation Documents"],
-      "url": "https://vitacorexllc.com/additional-services.html"
+      "serviceType": ["LLC Formation", "Company Registration", "Business Formation", "Corporate Formation Documents", "S-Corp Formation", "C-Corp Formation", "Articles of Incorporation", "Operating Agreement", "EIN Application", "Business License Florida", "Registered Agent"],
+      "url": "https://vitacorexllc.com/additional-services.html",
+      "areaServed": {"@type": "State", "name": "Florida"},
+      "availableLanguage": ["English", "Russian", "Spanish"]
     },
     {
       "@type": "Service",
@@ -125,8 +177,10 @@
       "name": "Auto Deal Review & Fee Analysis",
       "provider": {"@id": "https://vitacorexllc.com/#organization"},
       "description": "Dealer fee threshold analysis, true monthly payment calculator with APR, GAP insurance and warranty review, negotiation points summary for car buyers.",
-      "serviceType": ["Auto Deal Review", "Car Purchase Analysis", "Dealer Fee Check", "Auto Loan Calculator"],
-      "url": "https://vitacorexllc.com/additional-services.html"
+      "serviceType": ["Auto Deal Review", "Car Purchase Analysis", "Dealer Fee Check", "Auto Loan Calculator", "GAP Insurance Review", "Extended Warranty Analysis", "Dealer Markup Check", "Car Buying Help", "Monthly Payment Calculator", "Vehicle Cost Analysis"],
+      "url": "https://vitacorexllc.com/auto-purchase.html",
+      "areaServed": {"@type": "Country", "name": "United States"},
+      "availableLanguage": ["English", "Russian", "Spanish"]
     },
     {
       "@type": "Service",

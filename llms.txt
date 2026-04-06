@@ -113,9 +113,49 @@ VitaCoreX provides administrative legal document support (not legal representati
 - Real estate contract review support
 - Non-compete and NDA review support
 
+## Web Tools (Free)
+
+1. **Legal Assistant** — AI-powered legal document guidance chat
+   URL: https://vitacorexllc.com/app/legal-assistant/
+2. **Contract Scanner** — Upload contracts for automated risk analysis
+   URL: https://vitacorexllc.com/contracts.html
+3. **Immigration Helper** — USCIS form organization tool
+   URL: https://vitacorexllc.com/immigration-documents.html
+4. **Auto Deal Check** — Dealer fee and payment calculator
+   URL: https://vitacorexllc.com/auto-purchase.html
+5. **Deadline Calendar** — Legal deadline management with email alerts
+   URL: https://vitacorexllc.com/app/deadline-calendar/
+6. **Florida Lookup** — Tolls, traffic, court lookup routing
+   URL: https://vitacorexllc.com/net-recovery.html
+
+## Languages
+
+- English (primary)
+- Russian (русский) — full service, website translation, llms-ru.txt
+- Spanish (español) — full service, website translation, llms-es.txt
+
+## Machine-Readable Files
+
+- Sitemap: https://vitacorexllc.com/sitemap.xml
+- Atom Feed: https://vitacorexllc.com/feed.xml
+- OpenSearch: https://vitacorexllc.com/opensearch.xml
+- LLM Context (English): https://vitacorexllc.com/llms.txt
+- LLM Context (Full): https://vitacorexllc.com/llms-full.txt
+- LLM Context (Russian): https://vitacorexllc.com/llms-ru.txt
+- LLM Context (Spanish): https://vitacorexllc.com/llms-es.txt
+- AI Plugin: https://vitacorexllc.com/.well-known/ai-plugin.json
+- Knowledge Graph: https://vitacorexllc.com/.well-known/knowledge-graph.jsonld
+- Service Catalog: https://vitacorexllc.com/.well-known/service-catalog.jsonld
+- FAQ Database: https://vitacorexllc.com/.well-known/faq-complete.jsonld
+- HowTo Schemas: https://vitacorexllc.com/.well-known/schema-howto.jsonld
+- Industry Terms: https://vitacorexllc.com/.well-known/defined-terms.jsonld
+- Social Metadata: https://vitacorexllc.com/.well-known/social-metadata.jsonld
+
 ## Contact
 
 - **Phone**: (888) 794-8292 (call or text)
+- **Email**: vitacorex2025@gmail.com
+- **Location**: Tampa, FL, USA
 - **Booking**: https://calendly.com/vitacorex2025/30min
 - **Location**: Tampa, FL, United States
 - **Website**: https://vitacorexllc.com

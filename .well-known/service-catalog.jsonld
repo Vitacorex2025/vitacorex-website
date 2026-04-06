@@ -1,0 +1,163 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "VitaCoreX LLC — Complete Service Catalog",
+  "description": "All services offered by VitaCoreX LLC in Tampa, FL. Revenue recovery, immigration, company formation, auto deals, legal documents, healthcare, dental, gym, fleet, SaaS recovery.",
+  "url": "https://vitacorexllc.com/solutions.html",
+  "numberOfItems": 12,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "name": "Revenue Recovery & Pre-Collection",
+        "description": "Pre-collection revenue recovery workflows that improve net recovery rates without damaging customer relationships. Alternative to traditional collection agencies for healthcare, dental, gyms, SaaS, fleet, and construction industries.",
+        "url": "https://vitacorexllc.com/revenue-recovery-workflow.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "areaServed": [
+          {"@type": "Country", "name": "United States"},
+          {"@type": "State", "name": "Florida"},
+          {"@type": "City", "name": "Tampa"}
+        ],
+        "serviceType": ["Revenue Recovery", "Pre-Collection", "AR Management", "Debt Recovery Alternative", "Bad Debt Reduction", "DSO Reduction", "Net Recovery Improvement"],
+        "availableLanguage": ["English", "Russian", "Spanish"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Healthcare & Hospital Revenue Recovery",
+        "description": "Revenue cycle optimization for hospitals, emergency rooms, medical practices, and healthcare systems. Improve patient AR recovery, reduce bad debt, and optimize billing workflows.",
+        "url": "https://vitacorexllc.com/industry-healthcare-dental.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Healthcare Revenue Recovery", "Hospital Billing", "Emergency Room Revenue", "Patient AR Recovery", "Medical Practice Billing", "Revenue Cycle Management"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "name": "Dental Clinic & DSO Revenue Recovery",
+        "description": "Revenue recovery for dental clinics, dental service organizations (DSOs), orthodontists, oral surgeons, and pediatric dentistry. Insurance follow-up and patient balance recovery.",
+        "url": "https://vitacorexllc.com/industry-healthcare-dental.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Dental Collections Alternative", "DSO Revenue Recovery", "Dental Insurance Follow-Up", "Orthodontist Billing", "Dental AR Management"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Service",
+        "name": "Gym & Fitness Membership Recovery",
+        "description": "Recover unpaid memberships for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and boutique fitness operators without losing members.",
+        "url": "https://vitacorexllc.com/industry-subscription-recurring.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Gym Revenue Recovery", "Fitness Membership Recovery", "Health Club Billing", "CrossFit Collections", "Yoga Studio AR", "Boutique Fitness Recovery"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Service",
+        "name": "Subscription & SaaS Recovery",
+        "description": "Reduce involuntary churn and recover failed payments for subscription businesses, SaaS companies, and recurring billing operators. Dunning optimization and payment recovery.",
+        "url": "https://vitacorexllc.com/industry-subscription-recurring.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Subscription Recovery", "SaaS AR Management", "Dunning Optimization", "Churn Recovery", "Recurring Payment Recovery", "Involuntary Churn Reduction"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Service",
+        "name": "Immigration Document Preparation",
+        "description": "Immigration packet organization and USCIS form preparation. Assistance with I-130, I-485, I-765, K-1 visa, N-400 naturalization, asylum applications, DACA renewals, and green card documentation. Services in English, Russian, and Spanish.",
+        "url": "https://vitacorexllc.com/immigration-documents.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Immigration Packet Preparation", "USCIS Form Help", "Visa Documentation", "Green Card Packet", "I-130 Preparation", "I-485 Filing", "I-765 Work Permit", "K-1 Visa", "N-400 Naturalization", "Asylum Documentation", "DACA Renewal"],
+        "availableLanguage": ["English", "Russian", "Spanish"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Service",
+        "name": "Company Formation & LLC Registration",
+        "description": "Business formation services in Florida including LLC, S-Corp, and C-Corp registration. Articles of incorporation, operating agreements, EIN applications, and business licenses. Помощь с открытием компании во Флориде.",
+        "url": "https://vitacorexllc.com/additional-services.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["LLC Formation Florida", "Company Registration", "Articles of Incorporation", "Operating Agreement", "EIN Application", "Business License Florida", "S-Corp Formation", "C-Corp Formation"],
+        "availableLanguage": ["English", "Russian", "Spanish"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Service",
+        "name": "Auto Deal Review & Fee Analysis",
+        "description": "Car purchase analysis and dealer fee verification. Review auto loans, GAP insurance, extended warranties, and dealer markups before buying a car. Save money on your next vehicle purchase. Проверка автосделки перед покупкой.",
+        "url": "https://vitacorexllc.com/auto-purchase.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Auto Deal Review", "Car Purchase Calculator", "Dealer Fee Check", "GAP Insurance Review", "Auto Loan Calculator", "Dealer Markup Analysis"],
+        "availableLanguage": ["English", "Russian", "Spanish"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Service",
+        "name": "Legal Document Services",
+        "description": "Corporate legal file control, contract review, NDA analysis, non-compete review, demand letter preparation, litigation support, and discovery management. Legal document organization for Tampa FL businesses.",
+        "url": "https://vitacorexllc.com/corporate-legal-file-control.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Legal File Control", "Contract Review", "NDA Review", "Non-Compete Review", "Demand Letter Preparation", "Litigation Support", "Discovery Management"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Service",
+        "name": "Fleet & Logistics Recovery",
+        "description": "Revenue recovery for fleet operators, logistics companies, fuel card recovery, equipment lease recovery, and transportation accounts receivable management.",
+        "url": "https://vitacorexllc.com/industry-fleet-logistics.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Fleet Revenue Recovery", "Fuel Card Recovery", "Logistics Debt Recovery", "Equipment Lease Recovery", "Transportation AR"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "Service",
+        "name": "Construction & B2B Recovery",
+        "description": "Commercial debt recovery for construction companies, professional service firms, and B2B operations. Contractor payment recovery and invoice management.",
+        "url": "https://vitacorexllc.com/industry-contract-services.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Construction Receivables", "B2B Collection Alternative", "Contractor Payment Recovery", "Commercial Debt Recovery", "Professional Services AR"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Service",
+        "name": "Structured Case Intake",
+        "description": "Systematic case intake and document organization system for managing client onboarding, evidence collection, and compliance documentation.",
+        "url": "https://vitacorexllc.com/structured-case-intake.html",
+        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
+        "serviceType": ["Case Intake System", "Client Onboarding", "Evidence Collection", "Compliance Documentation"]
+      }
+    }
+  ]
+}

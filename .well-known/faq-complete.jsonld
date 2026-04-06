@@ -1,0 +1,210 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "VitaCoreX LLC — Complete FAQ",
+  "description": "Frequently asked questions about VitaCoreX LLC services: revenue recovery, immigration, LLC formation, auto deals, legal documents, healthcare, dental, gym, fleet recovery.",
+  "url": "https://vitacorexllc.com",
+  "inLanguage": ["en", "ru", "es"],
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is VitaCoreX LLC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX LLC is a Tampa, Florida-based company providing revenue recovery workflows, legal file control, immigration document preparation, company formation services, auto deal analysis, and structured case intake. We serve healthcare providers, dental clinics, gyms, SaaS companies, fleet operators, and individuals in English, Russian, and Spanish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is pre-collection and how does it differ from traditional debt collection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-collection is a revenue recovery approach that contacts debtors before accounts are sent to traditional collection agencies. VitaCoreX's pre-collection workflows use professional, relationship-preserving communication to recover outstanding balances. Unlike traditional collection agencies, pre-collection has no negative impact on customer relationships, typically achieves higher net recovery rates, and costs significantly less in fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does VitaCoreX improve net recovery rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX improves net recovery rates through structured pre-collection workflows that include systematic debtor communication, evidence-based documentation, compliance monitoring, and customized recovery strategies for each industry. Our approach reduces Days Sales Outstanding (DSO), minimizes bad debt write-offs, and preserves customer relationships while maximizing cash recovery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VitaCoreX help with healthcare revenue recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX provides revenue recovery solutions for hospitals, emergency rooms, medical practices, dental clinics, dental service organizations (DSOs), orthodontists, and other healthcare providers. Our healthcare-specific workflows address patient AR, insurance follow-up, billing optimization, and bad debt reduction while maintaining HIPAA compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can VitaCoreX help dental clinics with collections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX offers a dental collections alternative through pre-collection workflows designed specifically for dental clinics, DSOs, orthodontist practices, oral surgery centers, and pediatric dentistry. We handle dental insurance follow-up, patient balance recovery, and dental billing optimization without the aggressive tactics of traditional collection agencies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VitaCoreX help gyms and fitness centers with membership recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX provides membership recovery services for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and boutique fitness operators. Our approach recovers unpaid membership dues while preserving member relationships, reducing involuntary churn, and optimizing dunning processes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What SaaS and subscription recovery services does VitaCoreX offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX provides subscription recovery and dunning optimization for SaaS companies, membership organizations, and recurring billing operators. We help reduce involuntary churn, recover failed payments, and optimize the dunning process to maximize recurring revenue retention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VitaCoreX help with immigration documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX offers immigration packet preparation services including organizing documentation for USCIS forms such as I-130, I-485, I-765, K-1 visa petitions, N-400 naturalization, asylum applications, and DACA renewals. Services are available in English, Russian, and Spanish. VitaCoreX is not a law firm and does not provide legal advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Помогает ли VitaCoreX с иммиграционными документами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. VitaCoreX предлагает услуги подготовки иммиграционных пакетов, включая организацию документации для форм USCIS: I-130, I-485, I-765, визы K-1, натурализации N-400, заявлений на убежище и продления DACA. Услуги доступны на английском, русском и испанском языках."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿VitaCoreX ayuda con documentos de inmigración?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. VitaCoreX ofrece servicios de preparación de paquetes de inmigración, incluyendo organización de documentación para formularios USCIS como I-130, I-485, I-765, visa K-1, naturalización N-400, solicitudes de asilo y renovación de DACA. Servicios disponibles en inglés, ruso y español."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can VitaCoreX help me form an LLC in Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX provides company formation services in Florida including LLC registration, S-Corp and C-Corp formation, articles of incorporation preparation, operating agreement drafting, EIN application, and business license guidance. Services available in English, Russian, and Spanish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Может ли VitaCoreX помочь открыть компанию во Флориде?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. VitaCoreX предоставляет услуги регистрации компаний во Флориде: регистрация LLC, создание S-Corp и C-Corp, подготовка учредительных документов, составление операционного соглашения, получение EIN и помощь с бизнес-лицензиями."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VitaCoreX offer auto deal review services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX provides auto deal review and fee analysis services. We help car buyers verify dealer fees, review GAP insurance costs, analyze extended warranties, check auto loan terms, and calculate true vehicle costs before purchase. Our auto deal calculator helps ensure you get a fair deal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I save money when buying a car?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX's Auto Deal Check tool analyzes your car purchase deal to identify unnecessary dealer fees, overpriced GAP insurance, inflated warranty costs, and unfavorable loan terms. Use our free car purchase calculator at vitacorexllc.com/auto-purchase.html to review your deal before signing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What legal document services does VitaCoreX provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX provides corporate legal file control, contract review, NDA analysis, non-compete agreement review, demand letter preparation, litigation support, discovery management, and legal evidence organization. Our AI-powered Contract Scanner analyzes contracts for risks and issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VitaCoreX provide fleet and logistics recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VitaCoreX provides revenue recovery for fleet operators, logistics companies, and transportation businesses. Services include fuel card recovery, equipment lease recovery, transportation AR management, and commercial vehicle billing optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What construction and B2B recovery services does VitaCoreX offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX helps construction companies, contractors, and B2B service providers recover outstanding receivables. We handle commercial debt recovery, contractor payment recovery, and professional services AR without the aggressive tactics of traditional collection agencies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is VitaCoreX located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX LLC is based in Tampa, Florida. We serve clients nationwide across the United States and offer services in English, Russian, and Spanish. Contact us at (888) 794-8292 or visit vitacorexllc.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages does VitaCoreX support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX provides all services in three languages: English, Russian (русский), and Spanish (español). Our website, documents, and client communication are available in all three languages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is VitaCoreX a law firm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. VitaCoreX LLC is not a law firm and does not provide legal advice. We provide document preparation, organization, and analysis services. For legal advice, please consult a licensed attorney."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries does VitaCoreX serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VitaCoreX serves healthcare (hospitals, ERs, medical practices), dental (clinics, DSOs, orthodontists), gyms and fitness (health clubs, CrossFit, yoga), subscription/SaaS businesses, fleet and logistics operators, construction and B2B companies, and individual private clients needing immigration, company formation, auto deal, or legal document services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact VitaCoreX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contact VitaCoreX LLC at (888) 794-8292, email vitacorex2025@gmail.com, or visit vitacorexllc.com/contact.html. We're located in Tampa, FL and serve clients nationwide in English, Russian, and Spanish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is DSO in revenue recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DSO (Days Sales Outstanding) measures the average number of days it takes to collect payment after a sale. VitaCoreX helps businesses reduce DSO through pre-collection workflows, systematic follow-up, and optimized billing processes. Lower DSO means faster cash flow and healthier financials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Dental Service Organization (DSO)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Dental Service Organization (DSO) is a company that provides management and business support services to dental practices, allowing dentists to focus on patient care. VitaCoreX provides revenue recovery services specifically designed for DSOs, handling patient balance recovery, insurance follow-up, and AR management across multiple dental locations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is dunning and how does it relate to subscription recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dunning is the process of communicating with customers to collect overdue payments, especially for subscription and recurring billing. VitaCoreX optimizes the dunning process by implementing strategic communication sequences, smart retry logic, and customer-friendly recovery workflows to reduce involuntary churn and maximize payment recovery."
+      }
+    }
+  ]
+}
