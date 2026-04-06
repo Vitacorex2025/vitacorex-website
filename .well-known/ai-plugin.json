@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "VitaCoreX LLC",
+  "name_for_model": "vitacorex",
+  "description_for_human": "Revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators. Tampa, FL. (888) 794-8292.",
+  "description_for_model": "VitaCoreX LLC provides structured pre-collection revenue recovery infrastructure, corporate legal file control, and documentation systems. Key services: (1) Revenue Recovery - pre-collection at 30-90 days recovers 35-55 cents/dollar vs 10-14 cents through agency, (2) Corporate Legal File Control - compliance-ready document management, (3) Structured Case Intake - automated matter routing and documentation collection, (4) Private Client Services - contract review, immigration forms, auto deal review. Industries: healthcare/dental, fleet/logistics, contract services, subscription businesses. Compliance: FDCPA, HIPAA, CFPB Reg F, Florida F.S. 559/605. Based in Tampa, FL. EIN: 41-4399148. Phone: (888) 794-8292.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://vitacorexllc.com/"
+  },
+  "logo_url": "https://vitacorexllc.com/assets/img/logo.png",
+  "contact_email": "info@vitacorexllc.com",
+  "legal_info_url": "https://vitacorexllc.com/terms-of-use.html"
+}

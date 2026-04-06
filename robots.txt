@@ -1,3 +1,89 @@
+# VitaCoreX LLC — Crawl Policy
+# Last updated: 2026-04-05
+
+# Default: allow all crawlers
 User-agent: *
 Allow: /
+Disallow: /app/
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Google Search (full access)
+User-agent: Googlebot
+Allow: /
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing / Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+User-agent: bingbot
+Allow: /
+User-agent: MicrosoftPreview
+Allow: /
+
+# OpenAI Search — allow so VitaCoreX appears in ChatGPT Search answers
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI training crawler — allow for maximum LLM visibility
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT user-initiated fetches
+User-agent: ChatGPT-User
+Allow: /
+
+# Google AI (Gemini grounding) — allow for AI Overview visibility
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude
+User-agent: anthropic-ai
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+User-agent: FacebookExternalHit
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+
+# Apple (Siri / Spotlight)
+User-agent: Applebot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Brave Search
+User-agent: BraveBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://vitacorexllc.com/sitemap.xml

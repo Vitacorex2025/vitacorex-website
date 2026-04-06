@@ -1,0 +1,28 @@
+/* TEAM */
+Company: VitaCoreX LLC
+Location: Tampa, FL, United States
+Phone: (888) 794-8292
+EIN: 41-4399148
+Site: https://vitacorexllc.com
+
+/* SERVICES */
+Revenue Recovery Infrastructure
+Corporate Legal File Control
+Structured Case Intake
+Private Client Services
+
+/* INDUSTRIES */
+Healthcare & Dental Operators
+Fleet & Logistics Companies
+Contract-Heavy Service Businesses
+Subscription & Recurring Payment Operators
+
+/* TECHNOLOGY */
+Frontend: HTML5, CSS3, JavaScript (vanilla)
+Hosting: GitHub Pages
+Backend API: Python/FastAPI on Render
+PDF Generation: ReportLab
+Languages: English, Russian, Spanish
+
+/* LAST UPDATE */
+2026-04-05

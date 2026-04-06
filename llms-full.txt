@@ -1,0 +1,495 @@
+# VitaCoreX LLC — Complete Site Content for LLM Reference
+# https://vitacorexllc.com
+# Generated: 2026-04-05
+
+================================================================================
+## Company Overview
+================================================================================
+
+VitaCoreX LLC is an operational advisory firm established in 2025, headquartered in Tampa, Florida. The company provides revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators.
+
+Company Name: VitaCoreX LLC
+Website: https://vitacorexllc.com
+EIN: 41-4399148
+Phone (call/text): (888) 794-8292
+Location: Tampa, FL
+Established: 2025
+Languages Supported: English, Russian, Spanish
+
+What VitaCoreX Does:
+- Builds operational control before expensive escalation
+- Helps complex operators improve cash control, documentation discipline, and counsel-ready file structure before avoidable fee pressure expands
+- Revenue recovery workflow design
+- Corporate file cleanup and packet control
+- Pilot economics, KPI reporting, and rollout logic
+- Board-ready, CFO-ready positioning
+
+What VitaCoreX Does NOT Do:
+- Does not provide legal advice or act as a law firm
+- Does not position itself as a licensed collection agency
+- Does not provide legal representation
+- Legal strategy and legal advice remain the responsibility of licensed counsel
+
+Operating Method (Diagnose, Pilot, Scale):
+1. Diagnose: Review workflow friction, document quality, escalation logic, and where recoverable value leaks first.
+2. Pilot: Define a contained workstream with clear expectations, response windows, and measurement logic.
+3. Scale: Expand only when the pilot creates credible operator-owned evidence.
+
+Typical First-Phase Outputs:
+- Current-state leakage and handoff review
+- Document gap list and packet standard
+- Priority routing logic and next-step memo
+- Pilot scope with measurement criteria
+
+Strong Fit:
+- Finance-led teams and owners who want a cleaner path to cash control
+- Operators dealing with fragmented files, aged balances, or weak escalation handoff
+- Counsel-adjacent environments where administrative cleanup is absorbing expensive time
+- Multi-location operators with inconsistent workflows or weak escalation discipline
+- Organizations that want cleaner packet control before outside counsel or agency cost expands
+- Owners, CFOs, COOs, and counsel-adjacent operators who need a more credible handoff model
+
+Weak Fit:
+- Buyers seeking legal advice or fully outsourced collections operations
+- Requests with no workable documents, no decision owner, and no interest in measurement
+- Generic outsourced call-center or broad "do everything" service shop requests
+- Highly sensitive regulated records submitted through a public intake without secure coordination
+
+Social Media:
+- Instagram: https://www.instagram.com/vitacorex_llc/
+- Facebook: https://www.facebook.com/profile.php?id=61554844507884
+
+================================================================================
+## Services
+================================================================================
+
+VitaCoreX offers three core solution lanes plus selective private client services.
+
+### Revenue Recovery Infrastructure
+URL: https://vitacorexllc.com/revenue-recovery-workflow.html
+
+Private advisory for operators that want stronger cash conversion, cleaner documentation, and less contingency leakage before agency escalation or outside legal spend expands. This is an operating-control system for margin protection, documentation quality, and cash velocity — not a generic collections pitch.
+
+Framework Components:
+- Behavioral segmentation
+- Conditional offer conversion
+- Guarantor activation
+- ACH-first discipline
+- Litigation-ready documentation
+- 90-day pilot
+- KPI dashboard
+
+What Leadership Monitors:
+- Balances converted before agency escalation
+- Documented payment commitments and cure rates
+- Exception queues, follow-up discipline, and aging movement
+- File quality improvements that reduce downstream cleanup
+
+Pilot Measurement Plan:
+- Starting portfolio mix and pre-agency balance volume
+- Acceptance rate, completion rate, and time-to-cash
+- Agency referrals avoided or deferred through cleaner internal sequencing
+- Documentation quality at handoff when escalation remains necessary
+
+Weekly Review Includes:
+- Cash movement: Collections captured against baseline cohorts
+- Workflow control: Follow-up cadence, cure logic, and exception handling consistency
+- Escalation discipline: Accounts routed onward only after documented internal steps are completed
+- File quality: Agreement records, notes, and support materials ready for downstream use
+
+Pilot Work Product:
+- Baseline map: Aging, routing, and exception logic documented
+- Workflow changes: Offers, follow-up sequence, and payment controls defined
+- Review memo: Weekly observations with next-step recommendations
+
+Regulatory Guardrails: FDCPA, Regulation F, Florida FCCPA, E-SIGN, and Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structuring.
+
+VCX Products Available:
+- Recovery Pilot Studio: Multi-step diagnostic wizard with executive brief generation and KPI baseline computation
+- Intake OS: Structured intake pipeline with triage scoring, magic-link status tracking, and admin review queue
+
+--------------------------------------------------------------------------------
+
+### Corporate Legal File Control
+URL: https://vitacorexllc.com/corporate-legal-file-control.html
+
+VitaCoreX organizes chronology, exhibits, payment support, issue mapping, and escalation records so outside counsel receives a disciplined file rather than an administrative reconstruction project. Best for organizations with repeat contractual matters, recovery files, or dispute packets that need stronger preparation before outside review begins.
+
+Why the Economics Matter:
+When chronology, exhibits, authorizations, and escalation records arrive fragmented, attorney time gets consumed by administrative reconstruction instead of legal judgment.
+
+Typical Control Outputs:
+- Matter chronology cleanup
+- Exhibit ordering logic
+- Issue summary memo
+- File map
+- Counsel-ready packet
+- Questions / gaps log
+- Structured handoff notes
+
+First-Week Work Product:
+Initial issue map, first chronology pass, document request list, key gaps memo, and defined next-step routing.
+
+Typical Engagement Rhythm:
+Most first-phase engagements are framed as a short sprint with a first work product in the first week and a structured review immediately after.
+
+Commercial Structure:
+Fixed-scope or staged pricing after intake and document review. No billable-hour surprise logic for first-stage cleanup work.
+
+Control Architecture Tools:
+- Attorney-Rate Drag Estimator: Calculates annualized attorney-rate cleanup cost based on monthly matters, cleanup hours per matter, and blended counsel hourly rate
+- File Readiness Index: Scores the operating quality of a file before counsel review based on chronology clarity, exhibit order, authorization and payment support, and escalation notes
+
+What Premium File Control Signals:
+- Counsel receives organized exhibits instead of fragmented attachments
+- Issue summaries and chronology reduce repeat explanation cycles
+- Escalation records and authorizations stay auditable
+- Finance, operations, and counsel work from the same file logic
+
+VCX Products Available:
+- Contract Review Desk: Upload contracts for server-side clause extraction, risk scoring, and structured analysis memos
+- Packet Room: Secure portal for matter status, document uploads, comments thread, and deliverable downloads
+
+--------------------------------------------------------------------------------
+
+### Structured Case Intake
+URL: https://vitacorexllc.com/structured-case-intake.html
+
+Structured consultation intake that identifies fit, the right service line, required documents, and the recommended next step. Built to route the matter correctly, reduce rework, score urgency, and define what should be sent now.
+
+Best for document-ready matters. Company operators remain the primary fit. Private-client matters are reviewed where documentation quality and scope are already clear.
+
+Intake Form Fields:
+- Client type (Company/Portfolio or Private Client)
+- Full name, company name, phone, email, state
+- Urgency level: Standard, 48 hours, 24 hours, Same day/urgent
+- Service type selection: Revenue Recovery Workflow Design, Corporate Legal File Control, Structured Case Intake and Packet Build, Executive Briefs/Proof Request, Private Client Services, Other
+- Message / situation summary
+- Optional additional company details (company size, annual revenue range, AR/portfolio size, current agency usage)
+- File attachment (optional, PDF/DOC/XLS/CSV/images accepted)
+
+Intake Output Includes:
+- Recommended service line
+- Estimated fit
+- What to send now
+- Expected response window
+- Recommended next step
+
+Private Client Self-Service Tools Available from Intake:
+- Contract review scanner
+- Immigration packet helper
+- Auto deal fee check
+- Legal assistant
+- Deadline calendar
+
+--------------------------------------------------------------------------------
+
+### Private Client Services
+URL: https://vitacorexllc.com/additional-services.html
+
+Curated private-client support for documentation-led matters. Selected private matters remain available where the work is administrative, documentation-heavy, and clearly scoped. The company-first VitaCoreX position remains primary.
+
+Service Categories:
+
+1. Contracts and Documentation
+   - Contract review support
+   - Document organization
+   - Demand-letter packet preparation
+   - Tools: Contract Scanner, Contract Review Desk
+
+2. Immigration Packet Organization
+   - Packet organization
+   - Evidence checklist cleanup
+   - Submission-readiness review
+   - Tools: Immigration Helper
+
+3. Auto Deal Fee and Payment Calculator
+   - Fee threshold check (doc fee, GAP, warranty)
+   - Monthly payment calculator with APR
+   - Negotiation points summary
+   - Tools: Auto Deal Check
+
+4. Florida Official Source Locator
+   - Routes to SunPass, CFX, and county toll portals
+   - Links to county clerk traffic citation portals
+   - Links to Florida Courts and PACER portals
+   - Note: Does not retrieve records directly
+
+Additional VCX Products:
+- Contract Review Desk: Server-side clause extraction and risk scoring
+- Legal Assistant: First-pass workflow guidance for contracts, immigration packets, auto deals, and Florida official-source routing
+- Packet Room: Secure client portal for matter tracking, document uploads, comments, and deliverable downloads
+- Deadline Calendar: Risk-first deadline tracking for legal cases, payments, hearings, and follow-ups
+
+Good Fit for Private Client Services:
+- Administrative, documentation-led matters with clear scope and a usable first packet
+- Private-client requests that do not require legal advice or regulated collections activity
+- Buyers who need structured document cleanup, packet logic, and executive-style clarity
+
+Not Designed For:
+- Emergency legal representation, court strategy, or attorney-client work product
+- Open-ended personal admin work without document structure or clear boundaries
+- Public submission of highly sensitive regulated records through a generic form
+
+================================================================================
+## Solutions Overview
+================================================================================
+URL: https://vitacorexllc.com/solutions.html
+
+Three clear solution lanes instead of one blended story:
+
+1. Revenue Recovery Infrastructure
+   - Pre-agency workflow design for cleaner commitments, better sequencing, and stronger measurement discipline
+   - Components: Behavioral segmentation and outreach timing, payment-plan structure and autopay logic, escalation control and pilot economics
+   - Start here when: The main issue is aging balances, inconsistent outreach, weak payment-plan structure, or early agency fee compression
+
+2. Corporate Legal File Control
+   - Chronology cleanup, packet standards, and cleaner file readiness before outside counsel is asked to move
+   - Components: Gap logs and chronology control, exhibit order and packet assembly, counsel-ready documentation workflows
+   - Start here when: Outside counsel or internal leadership is losing time to chronology cleanup, exhibit disorder, or missing packet logic
+
+3. Structured Intake and Packet Build
+   - Best for routing, first-packet cleanup, and identifying the right workstream before scope expands
+   - Components: Fit review and routing memo, document request logic, next-step recommendation
+   - Start here when: The matter is not yet clean enough to define the real workstream, but there is enough context to route it properly
+
+================================================================================
+## Industries
+================================================================================
+URL: https://vitacorexllc.com/industries.html
+
+VitaCoreX serves four primary industry verticals where the operating model has the strongest natural fit.
+
+### Healthcare and Dental
+URL: https://vitacorexllc.com/industry-healthcare-dental.html
+
+Patient-balance environments with documentation drag and pre-agency leakage. Healthcare and dental operators need stronger control before balances decay into expensive escalation.
+
+Target Audience: Healthcare CFOs, Dental Group Operators, Revenue Cycle Managers
+
+Operating Problem:
+Healthcare and dental operators often lose margin before formal collections ever begin. Balances age while outreach sequencing, payment-plan logic, documentation quality, and escalation records vary by location, team, or vendor.
+
+What Changes:
+- More consistent outreach and documented payment-plan structure before early fee compression sets in
+- Cleaner packet rules for authorizations, notices, payment records, and escalation history
+- A stronger handoff model from operator workflow to outside counsel when escalation becomes necessary
+
+Typical First Outputs:
+- Current-state leakage review by cohort or operating lane
+- Packet and chronology standards for counsel-ready files
+- Pilot measurement plan tied to cash movement, completion rates, and file quality
+
+90-Day Pilot Frame:
+- Weeks 1-2: Map the current workflow, identify failure points, and establish the minimum packet and reporting standard
+- Weeks 3-8: Run a contained workstream with documented decisions, response windows, and exception handling rules
+- Weeks 9-12: Review cohort movement, packet quality, and whether a broader rollout is justified
+
+### Subscription and Recurring Payments
+URL: https://vitacorexllc.com/industry-subscription-recurring.html
+
+Recurring billing operators balancing retention sensitivity with recovery discipline. Useful where dunning, commitments, and exceptions need stronger logic. Retention-sensitive recovery design for operators managing recurring billing complexity.
+
+### Fleet and Logistics
+URL: https://vitacorexllc.com/industry-fleet-logistics.html
+
+Contract-heavy portfolios with dispersed operations and uneven document control. Recovery workflows and file discipline for contract-heavy portfolios with dispersed operations.
+
+Target Audience: Fleet Managers, Logistics CFOs, Fuel Card Portfolio Managers
+
+Operating Problem:
+Fleet, fuel, and logistics portfolios often combine receivable friction with weak supporting records. Dispersed operations, contract complexity, driver or customer disputes, and inconsistent supporting files can turn a straightforward recovery problem into an expensive administrative one.
+
+What Changes:
+- Cleaner invoice, authorization, and support-record packet structure
+- More consistent internal sequencing before an outside escalation path is used
+- Reduced administrative drag when issues need executive or counsel review
+
+Typical First Outputs:
+- Review of recurring failure points in contract support files
+- Packet standards for invoice, authorization, and issue chronology control
+- Pilot path for tightening recovery discipline without broad operational disruption
+
+90-Day Pilot Frame:
+- Weeks 1-2: Map the current workflow, identify failure points, and establish the minimum packet and reporting standard
+- Weeks 3-8: Run a contained workstream with documented decisions, response windows, and exception handling rules
+- Weeks 9-12: Review cohort movement, packet quality, and whether a broader rollout is justified
+
+### Contract-Heavy Services
+URL: https://vitacorexllc.com/industry-contract-services.html
+
+Commercial service businesses with invoice, authorization, and escalation complexity. Cash-control and counsel-ready packet logic for commercial service businesses with multi-party documentation.
+
+================================================================================
+## Executive Proof Materials
+================================================================================
+URL: https://vitacorexllc.com/resources.html
+
+Public executive PDFs and briefing materials designed for internal forwarding, investment discussions, and cleaner first conversations.
+
+Available Resources:
+
+1. Healthcare Leakage Brief (PDF)
+   - Type: Executive brief / Operator brief
+   - Content: 5 leakage points in healthcare operators, why sequencing matters, and how early agency escalation compresses margin
+   - File: assets/pdf/lead-magnet-healthcare.pdf
+
+2. Healthcare CFO Brief (PDF)
+   - Type: CFO decision brief
+   - Content: Compact CFO-facing summary with DSO, leakage, and executive rationale
+   - File: assets/pdf/healthcare-cfo-brief.pdf
+
+3. Dental Institutional Deck (PDF)
+   - Type: Institutional deck
+   - Content: Pilot economics, operating framework, and executive positioning for dental operators
+   - File: assets/pdf/dental-institutional-deck.pdf
+
+4. Pre-Collection Executive Review (PDF)
+   - Type: Executive review
+   - Content: Framework logic, escalation control, and executive review for pre-agency sequencing
+   - File: assets/pdf/precollection-executive-review.pdf
+
+Use by Role:
+- Owner / CEO: Should clarify where margin is leaking and why the operating layer matters before outside cost grows
+- CFO / Finance: Should frame cash velocity, fee compression, and how pilot measurement would be documented
+- Operations: Should explain workflow sequencing, packet discipline, and how exceptions are handled more cleanly
+- Counsel-adjacent teams: Should show why better file readiness reduces administrative cleanup before legal strategy begins
+
+Note: These briefs are public executive materials intended for review, internal forwarding, and first-pass executive evaluation.
+
+================================================================================
+## Contact and Engagement
+================================================================================
+URL: https://vitacorexllc.com/contact.html
+
+Two Entry Points:
+
+1. Structured Intake (https://vitacorexllc.com/structured-case-intake.html)
+   - Best for document-ready matters, active files, invoices, contracts, screenshots, or an existing packet
+   - Features: Document upload supported, routing and packet review, B2B-first service selection
+
+2. Private Consultation
+   - Best for owners, operators, and counsel-adjacent teams who need scoping, sequencing, or a strategic recommendation first
+   - Features: High-level operator conversation, implementation-path discussion, no document upload required
+   - Book consultation: https://calendly.com/vitacorex2025/30min
+
+Private Consultation Line:
+- Phone (call or text): (888) 794-8292
+- Purpose: Routing, confidential coordination, and fast direction when leadership needs a quick path before a formal packet is assembled
+
+Response Window: 1-2 business days after a complete request. Faster routing is possible when the request is scoped clearly and the right workstream is selected at the start.
+
+Confidential Coordination Note: Use the phone line for direction, not for sending regulated records. For sensitive materials, request a secure exchange path first.
+
+Email: stevenmiller@vitacorexllc.com
+
+================================================================================
+## Careers
+================================================================================
+URL: https://vitacorexllc.com/careers.html
+
+VitaCoreX looks for people who write clearly, think carefully, and can protect quality in a documentation-intensive environment.
+
+Who We Look For:
+- Disciplined candidates who can work in a documentation-first operating model
+- Strong and confident English
+- Verifiable recommendations strongly preferred
+- Preference for Russian-speaking candidates with excellent English
+- Prior experience in documentation, operations, client support, legal support, or litigation support
+
+Available Roles:
+- Operations support
+- Documentation support
+- Intake support
+- Translation support
+- Admin support
+- Client coordination
+- Business documentation support
+
+Work Style: Clarity, discretion, and repeatable execution matter more than theatrics.
+
+Application: Submit via the careers form on the website or by email.
+
+================================================================================
+## FAQ
+================================================================================
+
+Q: What is VitaCoreX LLC?
+A: VitaCoreX LLC is an operational advisory firm established in 2025 in Tampa, Florida. It provides revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators. It is not a law firm and not a licensed collection agency.
+
+Q: What services does VitaCoreX offer?
+A: Three core service lines: (1) Revenue Recovery Infrastructure for pre-agency workflow design, (2) Corporate Legal File Control for counsel-ready file preparation, and (3) Structured Case Intake for routing and packet build. Additionally, selective private client services are available for documentation-led personal matters.
+
+Q: Is VitaCoreX a law firm or collection agency?
+A: No. VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. It is not a licensed collection agency. Legal strategy and legal advice remain the responsibility of licensed counsel.
+
+Q: What industries does VitaCoreX serve?
+A: VitaCoreX primarily serves four industry verticals: Healthcare and Dental, Subscription and Recurring Payments, Fleet and Logistics, and Contract-Heavy Services.
+
+Q: How does the engagement process work?
+A: The process follows three phases: (1) Diagnose — review workflow friction, document quality, and where value leaks. (2) Pilot — define a contained workstream with clear expectations and measurement logic for 90 days. (3) Scale — expand only when the pilot creates credible operator-owned evidence.
+
+Q: What does a typical first engagement produce?
+A: A serious first phase produces a gap map, a recommended workstream, a measurement path, and an initial work product including issue mapping, chronology pass, document request list, and next-step routing.
+
+Q: How is pricing structured?
+A: Fixed-scope or staged pricing after intake and document review. No billable-hour surprise logic for first-stage cleanup work.
+
+Q: How do I get started?
+A: Two options: (1) Use the Structured Case Intake form when materials are ready for review. (2) Book a private consultation via Calendly or call/text (888) 794-8292 when you need scoping or a strategic recommendation first.
+
+Q: What is the typical response time?
+A: 1-2 business days after a complete request. Faster routing is possible when the request is clearly scoped and the right workstream is selected at the start.
+
+Q: Does VitaCoreX handle private/individual matters?
+A: Selected private matters are available where the work is administrative, documentation-heavy, and clearly scoped. Available services include contract review support, immigration packet organization, auto deal fee review, and Florida official source locator. The company-first position remains primary.
+
+Q: What regulatory frameworks does VitaCoreX reference?
+A: FDCPA, Regulation F, Florida FCCPA, E-SIGN, and Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structuring.
+
+Q: What executive materials are available?
+A: Four public PDF resources are available: Healthcare Leakage Brief, Healthcare CFO Brief, Dental Institutional Deck, and Pre-Collection Executive Review. These are designed for internal forwarding and executive evaluation.
+
+Q: What digital tools does VitaCoreX offer?
+A: VitaCoreX offers several browser-based tools: Recovery Pilot Studio, Intake OS, Contract Review Desk, Packet Room, Legal Assistant, Deadline Calendar, Contract Scanner, Immigration Helper, Auto Deal Check, and Florida Official Source Locator.
+
+Q: How can I contact VitaCoreX?
+A: Phone (call/text): (888) 794-8292. Email: stevenmiller@vitacorexllc.com. Consultation booking: https://calendly.com/vitacorex2025/30min. Structured intake form on the website.
+
+Q: Is VitaCoreX hiring?
+A: Yes. VitaCoreX looks for disciplined candidates who can work in a documentation-first model. Roles include operations support, documentation support, intake support, translation support, admin support, client coordination, and business documentation support. Strong English and verifiable recommendations are preferred.
+
+================================================================================
+## Site Map
+================================================================================
+
+Main Pages:
+- https://vitacorexllc.com/ (Home)
+- https://vitacorexllc.com/about.html (About)
+- https://vitacorexllc.com/solutions.html (Solutions)
+- https://vitacorexllc.com/industries.html (Industries)
+- https://vitacorexllc.com/contact.html (Contact)
+- https://vitacorexllc.com/careers.html (Careers)
+- https://vitacorexllc.com/resources.html (Executive Briefs)
+
+Service Pages:
+- https://vitacorexllc.com/revenue-recovery-workflow.html (Revenue Recovery Infrastructure)
+- https://vitacorexllc.com/corporate-legal-file-control.html (Corporate Legal File Control)
+- https://vitacorexllc.com/structured-case-intake.html (Structured Case Intake)
+- https://vitacorexllc.com/additional-services.html (Private Client Services)
+
+Industry Pages:
+- https://vitacorexllc.com/industry-healthcare-dental.html (Healthcare and Dental)
+- https://vitacorexllc.com/industry-subscription-recurring.html (Subscription and Recurring)
+- https://vitacorexllc.com/industry-fleet-logistics.html (Fleet and Logistics)
+- https://vitacorexllc.com/industry-contract-services.html (Contract Services)
+
+Legal Pages:
+- https://vitacorexllc.com/privacy-policy.html (Privacy Policy)
+- https://vitacorexllc.com/terms-of-use.html (Terms of Use)
+- https://vitacorexllc.com/cookie-policy.html (Cookie Policy)
+
+================================================================================
+# End of llms-full.txt
+# VitaCoreX LLC | https://vitacorexllc.com | (888) 794-8292
+================================================================================

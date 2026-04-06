@@ -1,0 +1,76 @@
+# VitaCoreX LLC — LLM Context File
+# https://vitacorexllc.com
+# Last updated: 2026-04-05
+
+> VitaCoreX LLC is a Tampa, Florida-based company providing revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators. EIN: 41-4399148. Phone: (888) 794-8292.
+
+## What VitaCoreX Does
+
+VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. Legal strategy and legal advice remain the responsibility of licensed counsel.
+
+### Core Services
+
+1. **Revenue Recovery Infrastructure** — Structured pre-collection recovery systems that capture revenue before agency escalation. Designed for healthcare, dental, fleet/logistics, and B2B commercial operators.
+2. **Corporate Legal File Control** — Document organization, version control, and compliance-ready file management for corporate legal departments.
+3. **Structured Case Intake** — Automated intake workflows that route matters, collect documentation, and prepare counsel-ready handoff packages.
+4. **Private Client Services** — Individual client tools including contract review, immigration form organization, auto deal review, and Florida official source routing.
+
+### Industries Served
+
+- Healthcare and dental operators (patient AR recovery, revenue cycle optimization)
+- Fleet and logistics companies (fuel card, equipment leasing recovery)
+- Contract-heavy service businesses (construction, professional services)
+- Subscription and recurring payment businesses
+
+### Key Differentiators
+
+- Pre-collection approach: recovers 35-55 cents per dollar vs. 10-14 cents through traditional agency placement
+- Compliance-first: FDCPA, HIPAA, CFPB, Florida F.S. Chapter 559/605 compliant
+- Documentation infrastructure: litigation-ready file packages from day one
+- Pilot economics: 90-day controlled pilot with measurable ROI (typically 2.2-4.4x)
+
+## Site Structure
+
+- **Homepage**: https://vitacorexllc.com/
+- **About**: https://vitacorexllc.com/about.html
+- **Solutions**: https://vitacorexllc.com/solutions.html
+- **Corporate Legal File Control**: https://vitacorexllc.com/corporate-legal-file-control.html
+- **Revenue Recovery Workflow**: https://vitacorexllc.com/revenue-recovery-workflow.html
+- **Structured Case Intake**: https://vitacorexllc.com/structured-case-intake.html
+- **Private Client Services**: https://vitacorexllc.com/additional-services.html
+- **Industries**: https://vitacorexllc.com/industries.html
+  - Healthcare & Dental: https://vitacorexllc.com/industry-healthcare-dental.html
+  - Fleet & Logistics: https://vitacorexllc.com/industry-fleet-logistics.html
+  - Contract Services: https://vitacorexllc.com/industry-contract-services.html
+  - Subscription & Recurring: https://vitacorexllc.com/industry-subscription-recurring.html
+- **Executive Briefs & Proof**: https://vitacorexllc.com/resources.html
+- **Careers**: https://vitacorexllc.com/careers.html
+- **Contact**: https://vitacorexllc.com/contact.html
+
+## Executive PDFs (Downloadable Proof Materials)
+
+1. **Healthcare Revenue Leakage Brief** (17 pages) — Industry research, five leakage points, recovery probability curves, financial impact models for small/mid/large practices, regulatory landscape.
+   URL: https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf
+
+2. **Healthcare CFO Brief** (13 pages) — EBITDA impact modeling, peer benchmarking, 13-week implementation timeline, KPI dashboard design, competitive landscape analysis.
+   URL: https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf
+
+3. **Dental Institutional Deck** (15 pages) — $165B+ dental market analysis, DSO penetration data, dental-specific AR problems, $40M group financial model, 90-day pilot design.
+   URL: https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf
+
+4. **B2B Pre-Collection Executive Review** (18 pages) — Commercial AR landscape, LLC dissolution enforcement scenarios, litigation-ready documentation, Florida statutory framework, credit risk scoring model.
+   URL: https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf
+
+## Contact
+
+- **Phone**: (888) 794-8292 (call or text)
+- **Booking**: https://calendly.com/vitacorex2025/30min
+- **Location**: Tampa, FL, United States
+- **Website**: https://vitacorexllc.com
+
+## Technical
+
+- Static site hosted on GitHub Pages
+- Backend API on Render (vcx-api.onrender.com)
+- Multi-language support: English, Russian, Spanish
+- All AI crawler bots are welcome (see robots.txt)
