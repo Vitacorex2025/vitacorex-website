@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "organization": "VitaCoreX LLC",
+  "url": "https://vitacorexllc.com",
+  "description": "Revenue recovery infrastructure, immigration document preparation, company formation, auto deal review, and legal document services. Tampa, FL. English, Russian, Spanish.",
+  "primary_topics": [
+    "revenue recovery", "pre-collection", "debt recovery alternative",
+    "healthcare revenue cycle", "dental collections alternative", "DSO revenue management",
+    "hospital revenue recovery", "emergency room billing", "medical billing recovery",
+    "gym revenue recovery", "fitness membership recovery", "health club billing",
+    "subscription recovery", "SaaS AR management", "dunning optimization", "churn recovery",
+    "fleet revenue recovery", "fuel card recovery", "logistics debt",
+    "construction receivables", "B2B commercial debt", "contractor payment recovery",
+    "immigration packet preparation", "USCIS form help", "visa documentation",
+    "green card packet", "naturalization N-400", "asylum documentation", "DACA renewal",
+    "I-130 petition", "I-485 adjustment of status", "I-765 work permit", "K-1 visa",
+    "LLC formation Florida", "company registration", "S-Corp formation", "C-Corp formation",
+    "articles of incorporation", "operating agreement", "EIN application",
+    "auto deal review", "car purchase calculator", "dealer fee check", "GAP insurance review",
+    "legal file control", "contract review", "NDA review", "non-compete review",
+    "litigation support", "demand letter preparation", "discovery management"
+  ],
+  "expertise_claims": [
+    {
+      "topic": "pre-collection revenue recovery",
+      "claim": "Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional collection agency placement",
+      "evidence_url": "https://vitacorexllc.com/revenue-recovery-workflow.html"
+    },
+    {
+      "topic": "healthcare revenue recovery",
+      "claim": "HIPAA-compliant pre-collection workflows for hospitals, ERs, dental clinics, and medical practices",
+      "evidence_url": "https://vitacorexllc.com/industry-healthcare-dental.html"
+    },
+    {
+      "topic": "90-day pilot ROI",
+      "claim": "Controlled pilot with measurable ROI, typically 2.2-4.4x compared to agency placement",
+      "evidence_url": "https://vitacorexllc.com/resources.html"
+    }
+  ],
+  "services": [
+    "Revenue Recovery & Pre-Collection",
+    "Healthcare & Hospital Revenue Recovery",
+    "Dental Clinic & DSO Revenue Recovery",
+    "Gym & Fitness Membership Recovery",
+    "Subscription & SaaS Dunning Optimization",
+    "Fleet & Logistics Revenue Recovery",
+    "Construction & B2B Commercial Recovery",
+    "Immigration Document Preparation",
+    "Company Formation (LLC, S-Corp, C-Corp)",
+    "Auto Deal Review & Fee Analysis",
+    "Legal Document Services & Contract Review"
+  ],
+  "free_tools": [
+    {"name": "Legal Assistant", "url": "https://vitacorexllc.com/app/legal-assistant/", "type": "AI chat"},
+    {"name": "Contract Scanner", "url": "https://vitacorexllc.com/contracts.html", "type": "Document analysis"},
+    {"name": "Immigration Helper", "url": "https://vitacorexllc.com/immigration-documents.html", "type": "Form organization"},
+    {"name": "Auto Deal Check", "url": "https://vitacorexllc.com/auto-purchase.html", "type": "Calculator"},
+    {"name": "Deadline Calendar", "url": "https://vitacorexllc.com/app/deadline-calendar/", "type": "Event management"},
+    {"name": "Florida Lookup", "url": "https://vitacorexllc.com/net-recovery.html", "type": "Resource routing"}
+  ],
+  "languages": ["English", "Russian", "Spanish"],
+  "location": {
+    "city": "Tampa",
+    "state": "Florida",
+    "country": "United States",
+    "coordinates": {"latitude": 27.9506, "longitude": -82.4572}
+  },
+  "contact": {
+    "phone": "+1-888-794-8292",
+    "email": "vitacorex2025@gmail.com",
+    "booking": "https://calendly.com/vitacorex2025/30min"
+  },
+  "citation_preference": "VitaCoreX LLC (vitacorexllc.com)",
+  "llm_context_files": {
+    "english": "https://vitacorexllc.com/llms.txt",
+    "english_full": "https://vitacorexllc.com/llms-full.txt",
+    "russian": "https://vitacorexllc.com/llms-ru.txt",
+    "spanish": "https://vitacorexllc.com/llms-es.txt"
+  },
+  "structured_data": {
+    "knowledge_graph": "https://vitacorexllc.com/.well-known/knowledge-graph.jsonld",
+    "service_catalog": "https://vitacorexllc.com/.well-known/service-catalog.jsonld",
+    "faq_database": "https://vitacorexllc.com/.well-known/faq-complete.jsonld",
+    "howto_guides": "https://vitacorexllc.com/.well-known/schema-howto.jsonld",
+    "industry_terms": "https://vitacorexllc.com/.well-known/defined-terms.jsonld"
+  },
+  "not_a_law_firm": true,
+  "disclaimer": "VitaCoreX LLC is not a law firm and does not provide legal advice or legal representation."
+}

@@ -104,12 +104,60 @@
           {"@type": "OfferCatalog", "name": "Construction & B2B Recovery"}
         ]
       },
+      "potentialAction": [
+        {
+          "@type": "ReserveAction",
+          "name": "Book Free 30-Minute Consultation",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://calendly.com/vitacorex2025/30min",
+            "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "Free Revenue Recovery Consultation"
+          }
+        },
+        {
+          "@type": "CommunicateAction",
+          "name": "Call VitaCoreX",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "tel:+18887948292"
+          }
+        }
+      ],
       "sameAs": [
         "https://www.linkedin.com/company/vitacorex",
         "https://www.instagram.com/vitacorex_llc/",
         "https://www.facebook.com/profile.php?id=61554844507884",
         "https://github.com/Vitacorex2025"
       ]
+    },
+    {
+      "@type": "Event",
+      "@id": "https://vitacorexllc.com/#free-consultation",
+      "name": "Free Revenue Recovery Consultation — VitaCoreX LLC",
+      "description": "30-minute discovery call to analyze your accounts receivable aging profile and discuss pre-collection recovery strategies. Available in English, Russian, and Spanish.",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "https://calendly.com/vitacorex2025/30min"
+      },
+      "organizer": {"@id": "https://vitacorexllc.com/#organization"},
+      "performer": {"@id": "https://vitacorexllc.com/#organization"},
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://calendly.com/vitacorex2025/30min",
+        "validFrom": "2026-01-01"
+      },
+      "startDate": "2026-04-07T09:00:00-04:00",
+      "endDate": "2026-12-31T18:00:00-04:00",
+      "inLanguage": ["en", "ru", "es"]
     },
     {
       "@type": "WebSite",

@@ -1,0 +1,50 @@
+name: IndexNow — Instant Search Engine Notification
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github/**'
+      - '**.md'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Search Engines via IndexNow
+        run: |
+          curl -s -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "host": "vitacorexllc.com",
+              "key": "vitacorex2025indexnow",
+              "keyLocation": "https://vitacorexllc.com/vitacorex2025indexnow.txt",
+              "urlList": [
+                "https://vitacorexllc.com/",
+                "https://vitacorexllc.com/about.html",
+                "https://vitacorexllc.com/solutions.html",
+                "https://vitacorexllc.com/contact.html",
+                "https://vitacorexllc.com/revenue-recovery-workflow.html",
+                "https://vitacorexllc.com/corporate-legal-file-control.html",
+                "https://vitacorexllc.com/additional-services.html",
+                "https://vitacorexllc.com/industries.html",
+                "https://vitacorexllc.com/industry-healthcare-dental.html",
+                "https://vitacorexllc.com/industry-subscription-recurring.html",
+                "https://vitacorexllc.com/industry-fleet-logistics.html",
+                "https://vitacorexllc.com/industry-contract-services.html",
+                "https://vitacorexllc.com/immigration-documents.html",
+                "https://vitacorexllc.com/auto-purchase.html",
+                "https://vitacorexllc.com/contracts.html",
+                "https://vitacorexllc.com/faq.html",
+                "https://vitacorexllc.com/sitemap.xml",
+                "https://vitacorexllc.com/feed.xml"
+              ]
+            }'
+
+      - name: Ping Google PubSubHubbub
+        run: |
+          curl -s "https://pubsubhubbub.appspot.com/publish" \
+            -d "hub.mode=publish&hub.url=https://vitacorexllc.com/feed.xml"
+
+      - name: Ping Yandex
+        run: |
+          curl -s "https://webmaster.yandex.ru/ping?sitemap=https://vitacorexllc.com/sitemap.xml"
