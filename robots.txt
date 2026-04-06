@@ -87,3 +87,9 @@ User-agent: YouBot
 Allow: /
 
 Sitemap: https://vitacorexllc.com/sitemap.xml
+
+# LLM Context Files (for AI crawlers)
+# English: https://vitacorexllc.com/llms.txt
+# English (full): https://vitacorexllc.com/llms-full.txt
+# Russian: https://vitacorexllc.com/llms-ru.txt
+# Spanish: https://vitacorexllc.com/llms-es.txt

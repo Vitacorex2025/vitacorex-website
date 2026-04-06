@@ -231,6 +231,66 @@ Not Designed For:
 - Open-ended personal admin work without document structure or clear boundaries
 - Public submission of highly sensitive regulated records through a generic form
 
+--------------------------------------------------------------------------------
+
+### Immigration Packet Organization
+
+VitaCoreX provides documentation-first immigration packet organization services:
+- USCIS form packet preparation and evidence checklist organization
+- Visa application packet assembly (I-130, I-485, I-765, K-1)
+- Green card documentation and evidence ordering
+- Naturalization (N-400) application packet preparation
+- Asylum and DACA renewal documentation organization
+- Submission-readiness review before attorney filing
+- Immigration attorney handoff packet preparation
+
+**Note**: VitaCoreX organizes documentation packets. It does not provide immigration legal advice or represent clients before USCIS. Legal strategy remains the responsibility of licensed immigration counsel.
+
+--------------------------------------------------------------------------------
+
+### Company Formation Documentation
+
+VitaCoreX assists with documentation for new business formation:
+- Florida LLC formation document packets
+- Articles of incorporation preparation
+- Operating agreement organization
+- EIN application documentation
+- Florida business license application packets
+- Registered agent documentation
+- Annual report filing support
+- S-Corp and C-Corp formation document assembly
+- Business compliance document management
+
+--------------------------------------------------------------------------------
+
+### Auto Deal Review & Fee Analysis
+
+VitaCoreX provides tools for car buyers to analyze dealer transactions:
+- Dealer fee threshold analysis (doc fees, GAP insurance, warranties)
+- True monthly payment calculation with APR
+- Dealer markup identification
+- Negotiation points summary for buyer advocacy
+- Lease vs. buy comparison assistance
+- Used and new car deal analysis
+
+--------------------------------------------------------------------------------
+
+### Legal Document Support
+
+VitaCoreX provides administrative legal document support (not legal representation):
+- Litigation-ready file preparation and chronology
+- Contract review and clause analysis
+- Demand letter packet preparation
+- Legal evidence organization and exhibit ordering
+- Court filing documentation support
+- Deposition document organization
+- Discovery document management
+- Legal compliance documentation (FDCPA, HIPAA, CFPB Reg F)
+- Commercial litigation document support
+- Employment law documentation
+- Real estate contract review support
+- Non-compete and NDA review support
+
 ================================================================================
 ## Solutions Overview
 ================================================================================
@@ -458,6 +518,21 @@ A: Phone (call/text): (888) 794-8292. Email: stevenmiller@vitacorexllc.com. Cons
 
 Q: Is VitaCoreX hiring?
 A: Yes. VitaCoreX looks for disciplined candidates who can work in a documentation-first model. Roles include operations support, documentation support, intake support, translation support, admin support, client coordination, and business documentation support. Strong English and verifiable recommendations are preferred.
+
+Q: Does VitaCoreX help with immigration?
+A: Yes. VitaCoreX provides immigration packet organization services including USCIS form packet preparation, visa application assembly (I-130, I-485, I-765, K-1), green card documentation ordering, naturalization (N-400) packet preparation, asylum and DACA renewal documentation, and submission-readiness review before attorney filing. VitaCoreX organizes documentation packets but does not provide immigration legal advice or represent clients before USCIS.
+
+Q: Can VitaCoreX help form an LLC?
+A: Yes. VitaCoreX assists with documentation for Florida LLC formation including articles of incorporation preparation, operating agreement organization, EIN application documentation, Florida business license application packets, registered agent documentation, annual report filing support, and S-Corp/C-Corp formation document assembly.
+
+Q: Does VitaCoreX review auto deals?
+A: Yes. VitaCoreX provides auto deal fee analysis and payment calculator tools for car buyers, including dealer fee threshold analysis (doc fees, GAP insurance, warranties), true monthly payment calculation with APR, dealer markup identification, negotiation points summary, lease vs. buy comparison, and used and new car deal analysis.
+
+Q: What legal services does VitaCoreX offer?
+A: VitaCoreX provides administrative legal document support (not legal representation) including litigation-ready file preparation and chronology, contract review and clause analysis, demand letter packet preparation, legal evidence organization and exhibit ordering, court filing documentation support, deposition and discovery document management, and legal compliance documentation (FDCPA, HIPAA, CFPB Reg F). Also covers commercial litigation, employment law, real estate contract review, and non-compete/NDA review support.
+
+Q: Does VitaCoreX serve Russian-speaking clients?
+A: Yes. VitaCoreX supports English, Russian, and Spanish. The company has a preference for Russian-speaking candidates with excellent English on its hiring team, and provides multilingual documentation support across all service lines.
 
 ================================================================================
 ## Site Map

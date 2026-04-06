@@ -1,0 +1,22 @@
+{
+  "name": "VitaCoreX LLC",
+  "short_name": "VitaCoreX",
+  "description": "Revenue recovery infrastructure, corporate legal file control, immigration packet organization, company formation documents, auto deal review, and documentation systems. Tampa, FL.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e2036",
+  "theme_color": "#2D8A82",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/assets/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "business",
+    "finance",
+    "productivity"
+  ]
+}

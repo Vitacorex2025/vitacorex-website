@@ -13,9 +13,37 @@ Private Client Services
 
 /* INDUSTRIES */
 Healthcare & Dental Operators
+Dental Clinics & DSO Groups
+Medical Practices & Hospitals
+Gyms & Fitness Centers
 Fleet & Logistics Companies
 Contract-Heavy Service Businesses
 Subscription & Recurring Payment Operators
+SaaS Companies
+Construction & Professional Services
+Membership Organizations
+
+/* PRIVATE CLIENT SERVICES */
+Immigration Packet Organization (USCIS, Visa, Green Card, Naturalization)
+Company Formation Documents (LLC, Corp, EIN, Articles of Incorporation)
+Auto Deal Review & Fee Analysis (Dealer Fees, Payment Calculator)
+Contract Review & Analysis (NDA, Non-Compete, Lease, Employment)
+Legal Document Organization (Litigation Files, Evidence, Court Docs)
+Florida Official Source Routing
+
+/* KEYWORDS */
+Revenue Recovery, Pre-Collection, Debt Recovery, AR Management
+Healthcare Revenue Cycle, Dental AR, Medical Billing Recovery
+Immigration Help, Immigration Documents, Visa Packet Preparation
+Company Formation Florida, LLC Formation, Business Registration
+Auto Deal Check, Car Purchase Review, Dealer Fee Analysis
+Legal File Control, Litigation Support, Document Management
+Net Recovery Improvement, Bad Debt Reduction, DSO Reduction
+Collection Agency Alternative, FDCPA Compliance, HIPAA Compliance
+Gym Revenue Recovery, Fitness Membership Recovery
+Subscription Billing, Dunning Optimization, Churn Recovery
+Business Formation Tampa FL, Florida Business Startup
+Russian Speaking Services, Spanish Speaking Services
 
 /* TECHNOLOGY */
 Frontend: HTML5, CSS3, JavaScript (vanilla)
@@ -23,6 +51,20 @@ Hosting: GitHub Pages
 Backend API: Python/FastAPI on Render
 PDF Generation: ReportLab
 Languages: English, Russian, Spanish
+
+/* LANGUAGES */
+English, Russian, Spanish
+
+/* AREAS SERVED */
+United States (nationwide)
+Florida (primary)
+Tampa, FL (headquarters)
+
+/* CONTACT */
+Phone: (888) 794-8292
+Email: info@vitacorexllc.com
+Web: https://vitacorexllc.com
+Booking: https://calendly.com/vitacorex2025/30min
 
 /* LAST UPDATE */
 2026-04-05

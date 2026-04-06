@@ -1,0 +1,199 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vitacorexllc.com/#organization",
+      "name": "VitaCoreX LLC",
+      "alternateName": ["VitaCoreX", "Vita Core X", "VCX", "ВитаКорекс"],
+      "url": "https://vitacorexllc.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vitacorexllc.com/assets/img/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Revenue recovery infrastructure, corporate legal file control, immigration packet organization, company formation documents, auto deal review, and documentation systems for complex operators.",
+      "telephone": "+18887948292",
+      "email": "info@vitacorexllc.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "postalCode": "33602",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "27.9506",
+        "longitude": "-82.4572"
+      },
+      "foundingDate": "2025",
+      "taxID": "41-4399148",
+      "areaServed": [
+        {"@type": "Country", "name": "United States"},
+        {"@type": "State", "name": "Florida"}
+      ],
+      "availableLanguage": ["English", "Russian", "Spanish"],
+      "knowsAbout": [
+        "revenue recovery", "pre-collection", "debt recovery", "accounts receivable",
+        "healthcare revenue cycle", "dental AR management", "medical billing recovery",
+        "hospital revenue recovery", "emergency room billing", "patient balance recovery",
+        "dental clinic collections", "DSO revenue management", "orthodontist billing",
+        "gym revenue recovery", "fitness membership recovery", "health club billing",
+        "fleet fuel card recovery", "logistics debt recovery", "equipment lease recovery",
+        "subscription billing recovery", "SaaS AR management", "dunning optimization",
+        "churn recovery", "recurring payment recovery", "membership recovery",
+        "construction receivables", "professional services debt", "commercial debt recovery",
+        "immigration packet organization", "USCIS form preparation", "visa documentation",
+        "green card documentation", "naturalization packet", "I-130 petition",
+        "I-485 adjustment of status", "I-765 work permit", "K-1 visa packet",
+        "N-400 naturalization", "asylum documentation", "DACA renewal",
+        "company formation", "LLC formation Florida", "articles of incorporation",
+        "operating agreement", "EIN application", "business registration Florida",
+        "S-Corp formation", "C-Corp formation", "business startup documents",
+        "auto deal review", "car purchase analysis", "dealer fee check",
+        "GAP insurance review", "auto loan calculator", "car payment calculator",
+        "corporate legal file control", "litigation document preparation",
+        "contract review", "NDA review", "non-compete review",
+        "lease agreement review", "demand letter preparation",
+        "legal evidence organization", "court document preparation",
+        "legal compliance", "FDCPA", "HIPAA", "CFPB Regulation F",
+        "Florida business services", "Tampa professional services",
+        "Russian speaking business services", "Spanish speaking business services",
+        "net recovery improvement", "bad debt reduction", "DSO reduction",
+        "collection agency alternative", "revenue cycle optimization"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/vitacorex",
+        "https://www.instagram.com/vitacorex_llc/",
+        "https://www.facebook.com/profile.php?id=61554844507884"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vitacorexllc.com/#website",
+      "name": "VitaCoreX LLC",
+      "url": "https://vitacorexllc.com/",
+      "publisher": {"@id": "https://vitacorexllc.com/#organization"},
+      "inLanguage": ["en-US", "ru", "es"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vitacorexllc.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#revenue-recovery",
+      "name": "Revenue Recovery Infrastructure",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Structured pre-collection revenue recovery systems that capture revenue before agency escalation. Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional collection agencies.",
+      "serviceType": ["Revenue Recovery", "Pre-Collection Services", "Debt Recovery", "AR Management", "Net Recovery Improvement", "Bad Debt Reduction", "Collection Agency Alternative"],
+      "url": "https://vitacorexllc.com/revenue-recovery-workflow.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#legal-file-control",
+      "name": "Corporate Legal File Control",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Litigation-ready document organization, chronology cleanup, exhibit ordering, and compliance-ready file management for corporate legal departments.",
+      "serviceType": ["Legal Document Management", "Litigation Support", "Legal File Organization", "Court Document Preparation"],
+      "url": "https://vitacorexllc.com/corporate-legal-file-control.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#immigration",
+      "name": "Immigration Packet Organization",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Documentation-first immigration packet organization: USCIS form preparation, visa application packets, green card documentation, naturalization forms, asylum and DACA documentation. Covers I-130, I-485, I-765, K-1, N-400.",
+      "serviceType": ["Immigration Document Services", "Visa Packet Preparation", "Green Card Documentation", "Naturalization Packet", "USCIS Form Organization"],
+      "url": "https://vitacorexllc.com/additional-services.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#company-formation",
+      "name": "Company Formation Documentation",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Documentation support for new business formation: Florida LLC formation, articles of incorporation, operating agreements, EIN applications, business licenses, registered agent documentation, S-Corp and C-Corp formation.",
+      "serviceType": ["LLC Formation", "Company Registration", "Business Formation", "Corporate Formation Documents"],
+      "url": "https://vitacorexllc.com/additional-services.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#auto-deal",
+      "name": "Auto Deal Review & Fee Analysis",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Dealer fee threshold analysis, true monthly payment calculator with APR, GAP insurance and warranty review, negotiation points summary for car buyers.",
+      "serviceType": ["Auto Deal Review", "Car Purchase Analysis", "Dealer Fee Check", "Auto Loan Calculator"],
+      "url": "https://vitacorexllc.com/additional-services.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#healthcare-recovery",
+      "name": "Healthcare & Dental Revenue Recovery",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Pre-collection revenue recovery for healthcare providers, hospitals, emergency rooms, dental clinics, DSO groups, orthodontist practices, medical practices, and specialty clinics. Patient balance recovery at 30-90 days.",
+      "serviceType": ["Healthcare Revenue Recovery", "Hospital Revenue Recovery", "Emergency Room Billing Recovery", "Dental Clinic Collections Alternative", "Medical Practice AR Management", "DSO Revenue Recovery", "Patient Balance Recovery", "Medical Billing Recovery", "Dental Billing Recovery"],
+      "url": "https://vitacorexllc.com/industry-healthcare-dental.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#gym-fitness",
+      "name": "Gym & Fitness Revenue Recovery",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Revenue recovery for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and membership-based businesses. Dunning optimization, failed payment recovery, and membership cancellation prevention.",
+      "serviceType": ["Gym Revenue Recovery", "Fitness Center AR Management", "Membership Payment Recovery", "Health Club Billing", "Fitness Club Collections Alternative"],
+      "url": "https://vitacorexllc.com/industry-subscription-recurring.html"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://vitacorexllc.com/#subscription-recovery",
+      "name": "Subscription & SaaS Revenue Recovery",
+      "provider": {"@id": "https://vitacorexllc.com/#organization"},
+      "description": "Retention-sensitive revenue recovery for subscription businesses, SaaS companies, and recurring payment operators. Dunning optimization, churn recovery, involuntary churn reduction.",
+      "serviceType": ["Subscription Revenue Recovery", "SaaS AR Management", "Dunning Optimization", "Churn Recovery", "Recurring Payment Recovery"],
+      "url": "https://vitacorexllc.com/industry-subscription-recurring.html"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vitacorexllc.com/#legal-assistant",
+      "name": "VitaCoreX Legal Assistant",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "AI-powered legal document guidance for contracts, immigration packets, auto deals, and Florida source routing.",
+      "url": "https://vitacorexllc.com/app/legal-assistant/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vitacorexllc.com/#contract-scanner",
+      "name": "VitaCoreX Contract Scanner",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "Upload contracts for automated clause extraction, risk scoring, and structured analysis.",
+      "url": "https://vitacorexllc.com/app/vcx-contract-review/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vitacorexllc.com/#immigration-helper",
+      "name": "VitaCoreX Immigration Helper",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "Immigration form organization helper for USCIS packets, visa applications, green card documentation, and naturalization forms.",
+      "url": "https://vitacorexllc.com/app/immigration-forms/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vitacorexllc.com/#auto-deal-check",
+      "name": "VitaCoreX Auto Deal Check",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "Car purchase fee analysis, monthly payment calculator with APR, and dealer fee threshold check for auto buyers.",
+      "url": "https://vitacorexllc.com/app/dealer-contract-check/"
+    }
+  ]
+}

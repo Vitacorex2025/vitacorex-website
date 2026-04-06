@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>VitaCoreX LLC — Revenue Recovery &amp; Documentation Infrastructure</title>
+  <subtitle>Revenue recovery, legal file control, immigration packets, company formation, auto deal review. Tampa, FL.</subtitle>
+  <link href="https://vitacorexllc.com/" rel="alternate" type="text/html"/>
+  <link href="https://vitacorexllc.com/feed.xml" rel="self" type="application/atom+xml"/>
+  <id>https://vitacorexllc.com/</id>
+  <updated>2026-04-05T12:00:00Z</updated>
+  <author>
+    <name>VitaCoreX LLC</name>
+    <uri>https://vitacorexllc.com/</uri>
+    <email>info@vitacorexllc.com</email>
+  </author>
+  <category term="revenue recovery"/>
+  <category term="pre-collection"/>
+  <category term="legal file control"/>
+  <category term="immigration documents"/>
+  <category term="company formation"/>
+  <category term="auto deal review"/>
+  <category term="healthcare revenue cycle"/>
+  <category term="dental AR management"/>
+  <category term="gym membership recovery"/>
+
+  <entry>
+    <title>Healthcare Revenue Leakage Brief — Executive Research</title>
+    <link href="https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf" rel="alternate"/>
+    <id>https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>17-page executive brief covering 5 healthcare revenue leakage points, recovery probability curves, and financial impact models for small, mid, and large practices.</summary>
+    <category term="healthcare"/>
+    <category term="revenue recovery"/>
+    <category term="executive brief"/>
+  </entry>
+
+  <entry>
+    <title>Healthcare CFO Brief — EBITDA Impact &amp; Pilot Design</title>
+    <link href="https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf" rel="alternate"/>
+    <id>https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>13-page CFO-facing brief with EBITDA impact modeling, peer benchmarking, implementation timeline, and KPI dashboard design for healthcare revenue recovery.</summary>
+    <category term="healthcare CFO"/>
+    <category term="EBITDA"/>
+    <category term="revenue cycle"/>
+  </entry>
+
+  <entry>
+    <title>Dental Institutional Deck — DSO Market Analysis</title>
+    <link href="https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf" rel="alternate"/>
+    <id>https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>15-page institutional deck covering $165B+ dental market analysis, DSO penetration data, dental-specific AR problems, and 90-day pilot design.</summary>
+    <category term="dental"/>
+    <category term="DSO"/>
+    <category term="dental AR"/>
+  </entry>
+
+  <entry>
+    <title>B2B Pre-Collection Executive Review — Commercial AR Framework</title>
+    <link href="https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf" rel="alternate"/>
+    <id>https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>18-page executive review covering commercial AR landscape, LLC dissolution enforcement, litigation-ready documentation, and Florida statutory framework.</summary>
+    <category term="B2B"/>
+    <category term="commercial debt"/>
+    <category term="pre-collection"/>
+  </entry>
+
+  <entry>
+    <title>Revenue Recovery Infrastructure — Pre-Collection Workflow Design</title>
+    <link href="https://vitacorexllc.com/revenue-recovery-workflow.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/revenue-recovery-workflow.html</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Structured pre-collection recovery infrastructure for healthcare, dental, fleet, logistics, and B2B operators. Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional agency placement.</summary>
+    <category term="revenue recovery"/>
+    <category term="pre-collection"/>
+    <category term="net recovery improvement"/>
+  </entry>
+
+  <entry>
+    <title>Corporate Legal File Control — Litigation-Ready Documentation</title>
+    <link href="https://vitacorexllc.com/corporate-legal-file-control.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/corporate-legal-file-control.html</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Document organization, chronology cleanup, exhibit ordering, and compliance-ready file management for corporate legal departments and counsel-adjacent teams.</summary>
+    <category term="legal file control"/>
+    <category term="litigation support"/>
+    <category term="document management"/>
+  </entry>
+
+  <entry>
+    <title>Immigration Packet Organization — USCIS Form Preparation</title>
+    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/additional-services.html#immigration</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Documentation-first immigration packet organization: USCIS form preparation, visa packets (I-130, I-485, I-765, K-1), green card documentation, naturalization (N-400), asylum, and DACA renewal.</summary>
+    <category term="immigration"/>
+    <category term="USCIS"/>
+    <category term="visa documentation"/>
+    <category term="green card"/>
+  </entry>
+
+  <entry>
+    <title>Company Formation Documents — Florida LLC &amp; Corporation</title>
+    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/additional-services.html#company-formation</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Documentation support for Florida LLC formation, articles of incorporation, operating agreements, EIN applications, business licenses, and registered agent documentation.</summary>
+    <category term="LLC formation"/>
+    <category term="company formation"/>
+    <category term="Florida business"/>
+    <category term="business startup"/>
+  </entry>
+
+  <entry>
+    <title>Auto Deal Fee &amp; Payment Calculator</title>
+    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/additional-services.html#auto-deal</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Check dealer fees against common thresholds, calculate true monthly payments with APR, and get negotiation points before signing at a car dealership.</summary>
+    <category term="auto deal"/>
+    <category term="car purchase"/>
+    <category term="dealer fees"/>
+  </entry>
+
+  <entry>
+    <title>Healthcare &amp; Dental Industry Solutions</title>
+    <link href="https://vitacorexllc.com/industry-healthcare-dental.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/industry-healthcare-dental.html</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary>Revenue recovery for healthcare providers, hospitals, emergency rooms, dental clinics, DSO groups, and medical practices. Patient balance recovery, net recovery improvement, and compliance-ready documentation.</summary>
+    <category term="healthcare"/>
+    <category term="dental"/>
+    <category term="hospital"/>
+    <category term="medical billing"/>
+  </entry>
+</feed>

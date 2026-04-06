@@ -1,0 +1,8 @@
+# VitaCoreX LLC Security Contact
+# https://vitacorexllc.com
+
+Contact: mailto:info@vitacorexllc.com
+Contact: tel:+18887948292
+Preferred-Languages: en, ru, es
+Canonical: https://vitacorexllc.com/.well-known/security.txt
+Expires: 2027-04-05T00:00:00.000Z

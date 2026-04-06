@@ -1,0 +1,137 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Improve Net Recovery Rate for Healthcare Providers",
+      "description": "Step-by-step guide for healthcare and dental operators to improve net recovery through structured pre-collection workflows.",
+      "totalTime": "P90D",
+      "estimatedCost": {"@type": "MonetaryAmount", "currency": "USD", "value": "Contact for pricing"},
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Diagnose Current Workflow",
+          "text": "Review workflow friction, document quality, escalation logic, and identify where recoverable value leaks. Map current aging, routing, and exception logic."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Define Pilot Scope",
+          "text": "Define a contained 90-day workstream with clear expectations, response windows, and measurement criteria. Establish baseline metrics for comparison."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Implement Pre-Collection Workflows",
+          "text": "Deploy behavioral segmentation, optimized outreach timing, conditional offer conversion, ACH-first payment discipline, and litigation-ready documentation standards."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Measure and Scale",
+          "text": "Review cohort movement, packet quality, cash velocity, and whether broader rollout is justified. Typical ROI: 2.2-4.4x within 12 months."
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Prepare an Immigration Document Packet",
+      "description": "Step-by-step guide for organizing immigration documentation for USCIS applications, visa petitions, and naturalization.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Identify Required Forms",
+          "text": "Determine which USCIS forms are needed (I-130, I-485, I-765, K-1, N-400, etc.) based on your immigration case type."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Organize Supporting Evidence",
+          "text": "Gather and organize all supporting documents: identification, financial records, employment verification, relationship evidence, and any required photographs."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Complete Evidence Checklist",
+          "text": "Review the evidence checklist for completeness, ensuring all required items are included and properly formatted for USCIS submission."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Submission-Readiness Review",
+          "text": "Conduct a final review of the complete packet for accuracy, completeness, and proper organization before submitting to USCIS or handing off to your immigration attorney."
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Form an LLC in Florida",
+      "description": "Documentation checklist for forming a Limited Liability Company (LLC) in the state of Florida.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Prepare Articles of Organization",
+          "text": "Draft and prepare the Articles of Organization for filing with the Florida Division of Corporations."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Create Operating Agreement",
+          "text": "Prepare an operating agreement that outlines ownership structure, management roles, and operating procedures."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Apply for EIN",
+          "text": "Apply for an Employer Identification Number (EIN) from the IRS for tax purposes and business banking."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Obtain Business License",
+          "text": "Apply for required Florida business licenses and register with local county authorities as needed."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Designate Registered Agent",
+          "text": "Designate a registered agent in Florida for receiving legal and official documents on behalf of the LLC."
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Check Auto Dealer Fees Before Buying a Car",
+      "description": "Steps to analyze dealer fees and calculate true monthly payments before signing a car purchase agreement.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Review Dealer Documentation Fee",
+          "text": "Check the dealer doc fee against your state's common threshold. Florida typical range is $699-$999. Fees above this range may be negotiable."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Evaluate GAP Insurance and Warranty",
+          "text": "Review GAP insurance pricing and extended warranty costs. Compare dealer pricing against third-party alternatives which are often 40-60% cheaper."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Calculate True Monthly Payment",
+          "text": "Calculate the true monthly payment including all fees, taxes, and APR to understand the total cost of the vehicle over the loan term."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Prepare Negotiation Points",
+          "text": "Use the fee analysis to prepare specific negotiation points for discussion with the dealer before signing any agreements."
+        }
+      ]
+    }
+  ]
+}
