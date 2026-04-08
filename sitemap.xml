@@ -56,6 +56,31 @@
     <priority>0.2</priority>
   </url>
 
+  <url>
+    <loc>https://vitacorexllc.com/faq.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/ai-intake.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/business-plans.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/corporate-paralegal.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Solution / Service Pages -->
   <url>
     <loc>https://vitacorexllc.com/corporate-legal-file-control.html</loc>
