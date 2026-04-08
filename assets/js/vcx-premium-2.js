@@ -242,10 +242,13 @@
     handleMobile(mq);
   }
 
-  // ---- 9. ANIMATED BACKGROUND PATHS ----
+  // ---- 9. ANIMATED BACKGROUND PATHS (optimized: 20 total) ----
   function initBackgroundPaths() {
     var container = document.querySelector('.vcx-hero-2__paths');
     if (!container) return;
+
+    // Skip on mobile for performance
+    if (window.innerWidth < 768) return;
 
     function createPaths(position) {
       var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -256,28 +259,26 @@
       svg.style.width = '100%';
       svg.style.height = '100%';
 
-      for (var i = 0; i < 36; i++) {
+      for (var i = 0; i < 10; i++) {
         var p = position;
-        var d = 'M-' + (380 - i * 5 * p) + ' -' + (189 + i * 6) +
-          'C-' + (380 - i * 5 * p) + ' -' + (189 + i * 6) +
-          ' -' + (312 - i * 5 * p) + ' ' + (216 - i * 6) +
-          ' ' + (152 - i * 5 * p) + ' ' + (343 - i * 6) +
-          'C' + (616 - i * 5 * p) + ' ' + (470 - i * 6) +
-          ' ' + (684 - i * 5 * p) + ' ' + (875 - i * 6) +
-          ' ' + (684 - i * 5 * p) + ' ' + (875 - i * 6);
+        var step = i * 3;
+        var d = 'M-' + (380 - step * 5 * p) + ' -' + (189 + step * 6) +
+          'C-' + (380 - step * 5 * p) + ' -' + (189 + step * 6) +
+          ' -' + (312 - step * 5 * p) + ' ' + (216 - step * 6) +
+          ' ' + (152 - step * 5 * p) + ' ' + (343 - step * 6) +
+          'C' + (616 - step * 5 * p) + ' ' + (470 - step * 6) +
+          ' ' + (684 - step * 5 * p) + ' ' + (875 - step * 6) +
+          ' ' + (684 - step * 5 * p) + ' ' + (875 - step * 6);
 
         var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', d);
-        path.setAttribute('stroke-width', (0.5 + i * 0.03).toFixed(2));
-        path.setAttribute('stroke-opacity', (0.1 + i * 0.03).toFixed(2));
-
-        // Animate with stroke-dasharray
-        var len = path.getTotalLength ? 2000 : 2000;
+        path.setAttribute('stroke-width', (0.5 + i * 0.08).toFixed(2));
+        path.setAttribute('stroke-opacity', (0.1 + i * 0.07).toFixed(2));
         path.style.strokeDasharray = '1';
         path.style.strokeDashoffset = '0';
-        var dur = (20 + Math.random() * 10).toFixed(1);
+        var dur = (25 + i * 3).toFixed(1);
         path.style.animation = 'vcxPathFlow ' + dur + 's linear infinite';
-        path.style.animationDelay = '-' + (Math.random() * 20).toFixed(1) + 's';
+        path.style.animationDelay = '-' + (i * 2.5).toFixed(1) + 's';
 
         svg.appendChild(path);
       }
