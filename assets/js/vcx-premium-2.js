@@ -228,22 +228,18 @@
     });
   }
 
-  // ---- 8. MOBILE MENU — pause Lenis/ScrollTrigger to prevent freeze ----
+  // ---- 8. MOBILE MENU — kill Lenis to prevent freeze ----
   function initMenuPause() {
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (m) {
-        if (m.attributeName === 'class') {
-          var isOpen = document.documentElement.classList.contains('vcx-mobile-menu-open');
-          if (lenis) {
-            if (isOpen) lenis.stop(); else lenis.start();
-          }
-          if (typeof ScrollTrigger !== 'undefined') {
-            if (isOpen) ScrollTrigger.disable(); else ScrollTrigger.enable();
-          }
-        }
-      });
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    // Disable Lenis entirely on mobile — it conflicts with position:fixed scroll-lock
+    var mq = window.matchMedia('(max-width: 900px)');
+    function handleMobile(e) {
+      if (e.matches && lenis) {
+        lenis.destroy();
+        lenis = null;
+      }
+    }
+    mq.addEventListener('change', handleMobile);
+    handleMobile(mq);
   }
 
   // ---- INIT ALL ----

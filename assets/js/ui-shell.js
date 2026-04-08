@@ -78,20 +78,27 @@
         header.classList.remove('is-hidden');
         header.classList.toggle('is-compact', isOpen || (window.scrollY || 0) > 24);
       }
-      // iOS scroll-lock: position:fixed preserves scroll, overflow:hidden alone does not
+      // Scroll-lock for iOS: position:fixed + scrollTo on close
       if(isOpen){
         const scrollY = window.scrollY || window.pageYOffset || 0;
         body.dataset.vcxScrollY = String(scrollY);
+        body.style.overflow = 'hidden';
+        root.style.overflow = 'hidden';
         body.style.position = 'fixed';
         body.style.top = `-${scrollY}px`;
         body.style.left = '0';
         body.style.right = '0';
+        // Ensure header stays visible at viewport top
+        if(header) { header.style.position = 'fixed'; header.style.top = '0'; header.style.left = '0'; header.style.right = '0'; }
       } else {
         const savedY = parseInt(body.dataset.vcxScrollY || '0', 10);
+        body.style.overflow = '';
+        root.style.overflow = '';
         body.style.position = '';
         body.style.top = '';
         body.style.left = '';
         body.style.right = '';
+        if(header) { header.style.position = ''; header.style.top = ''; header.style.left = ''; header.style.right = ''; }
         window.scrollTo(0, savedY);
       }
     }

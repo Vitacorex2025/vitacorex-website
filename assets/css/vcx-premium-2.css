@@ -1184,23 +1184,23 @@ section.section:not(.band):nth-of-type(odd) {
 /* ---- MOBILE MENU — glass morphism ---- */
 .vcx-mobile-nav,
 .mobile-nav {
-  background: rgba(10,30,26,0.65) !important;
-  backdrop-filter: blur(24px) saturate(1.4) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+  background: rgba(11,36,32,0.40) !important;
+  backdrop-filter: blur(32px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(1.6) !important;
   border-radius: 12px !important;
   padding: 8px !important;
   margin: 4px 0 !important;
-  border: 1px solid rgba(91,186,167,0.12) !important;
+  border: 1px solid rgba(91,186,167,0.15) !important;
 }
 .vcx-mobile-nav a,
 .mobile-nav a,
 [class*="mobile-menu"] a,
 [class*="nav-overlay"] a {
-  background: rgba(255,255,255,0.06) !important;
+  background: rgba(255,255,255,0.10) !important;
   background-image: none !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
   border-radius: 8px !important;
-  color: rgba(255,255,255,0.8) !important;
+  color: rgba(255,255,255,0.9) !important;
   font-weight: 500 !important;
   font-size: 0.82rem !important;
   padding: 10px 14px !important;
@@ -1227,6 +1227,17 @@ section.section:not(.band):nth-of-type(odd) {
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
 }
+
+/* When menu is open — header is fixed via JS, ensure no transform/opacity breaks it */
+.vcx-mobile-menu-open .vcx-header {
+  transform: none !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+}
+.vcx-mobile-menu-open .vcx-mobile-nav {
+  max-height: 70vh !important;
+  overflow-y: auto !important;
+}
 .vcx-mobile-brand span {
   color: #FFFFFF !important;
 }
@@ -1238,6 +1249,9 @@ section.section:not(.band):nth-of-type(odd) {
 }
 
 /* ---- FOOTER — elegant dark teal ---- */
+html {
+  background: #0B2420 !important;
+}
 .footer {
   background: #0B2420 !important;
   border-top: none !important;
