@@ -349,7 +349,7 @@
    *    pulse gently, and feel like ambient light — strictly teal palette.
    * ------------------------------------------------------ */
   function initLeafAnimation() {
-    var hero = document.querySelector('.hero-premium');
+    var hero = document.querySelector('.hero-premium') || document.querySelector('.vcx-hero-2');
     if (!hero || prefersReducedMotion) return;
 
     var container = document.createElement('div');
@@ -630,7 +630,7 @@
    * 15. Hero Aurora Waves (flowing teal light animation)
    * ------------------------------------------------------ */
   function initHeroParticles() {
-    var hero = document.querySelector('.hero-premium');
+    var hero = document.querySelector('.hero-premium') || document.querySelector('.vcx-hero-2');
     if (!hero || prefersReducedMotion) return;
 
     var canvas = document.createElement('canvas');

@@ -433,7 +433,7 @@ if(careersForm){
 }
 
 function injectHeroClouds(){
-  const heroVideo=$('.hero-video');
+  const heroVideo=$('.hero-video') || document.querySelector('.vcx-hero-2__bg');
   if(!heroVideo || heroVideo.querySelector('.hero-cloud-layer')) return;
   const layer1=document.createElement('div');
   layer1.className='hero-cloud-layer layer-1';
