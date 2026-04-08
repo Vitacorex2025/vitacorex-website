@@ -17,12 +17,12 @@ w.VCX_TRANSLATIONS = {
 en: {
 
   /* ── Hero ──────────────────────────────────────────────────── */
-  hero_eyebrow:       'Company-first advisory',
-  hero_title:         'Revenue recovery design and documentation control for operators that cannot afford a weak handoff.',
-  hero_lead:          'VitaCoreX helps complex operators improve cash control, packet discipline, and escalation readiness before margin is lost to weak workflow and expensive cleanup.',
-  hero_pill_1:        'Built for operators, CFOs, and portfolio leadership',
-  hero_pill_2:        'Documentation discipline before outside cost expands',
-  hero_pill_3:        'Pilot logic that can be measured',
+  hero_eyebrow:       'Revenue Recovery & Legal Infrastructure',
+  hero_title:         'Structured recovery for modern operators.',
+  hero_lead:          'Cash control, documentation discipline, and escalation readiness — designed for companies that cannot afford a weak handoff.',
+  hero_pill_1:        'Built for operators & CFOs',
+  hero_pill_2:        '90-day pilot standard',
+  hero_pill_3:        'Counsel-ready file control',
 
   stat_label_1:       'Solution lanes',
   stat_label_2:       'Pilot standard',
@@ -336,12 +336,12 @@ en: {
 /* ═══════════════════  RUSSIAN  ══════════════════════════════ */
 ru: {
 
-  hero_eyebrow:       'Консультирование для бизнеса',
-  hero_title:         'Проектирование возврата выручки и контроль документации для операторов, которые не могут позволить себе слабую передачу дел.',
-  hero_lead:          'VitaCoreX помогает сложным операторам наладить контроль денежных потоков, дисциплину документооборота и готовность к эскалации до того, как маржа будет потеряна из-за слабых процессов и дорогостоящего исправления.',
-  hero_pill_1:        'Создано для операторов, финансовых директоров и руководителей портфелей',
-  hero_pill_2:        'Дисциплина документации до роста внешних затрат',
-  hero_pill_3:        'Мультииндустриальные системы с измеримым эффектом',
+  hero_eyebrow:       'Возврат выручки и юридическая инфраструктура',
+  hero_title:         'Структурированный возврат для современного бизнеса.',
+  hero_lead:          'Контроль денежных потоков, дисциплина документооборота и готовность к эскалации — для компаний, которые не могут позволить себе слабую передачу дел.',
+  hero_pill_1:        'Для операторов и CFO',
+  hero_pill_2:        '90-дневный пилотный стандарт',
+  hero_pill_3:        'Файлы готовые для юристов',
 
   stat_label_1:       'Направления решений',
   stat_label_2:       'Стандарт пилота',
@@ -637,12 +637,12 @@ ru: {
 /* ═══════════════════  SPANISH  ══════════════════════════════ */
 es: {
 
-  hero_eyebrow:       'Consultoría corporativa',
-  hero_title:         'Diseno de recuperacion de ingresos y control de documentacion para operadores que no pueden permitirse una transferencia debil.',
-  hero_lead:          'VitaCoreX ayuda a operadores complejos a mejorar el control de efectivo, la disciplina de expedientes y la preparacion para escalamiento antes de que el margen se pierda por flujos debiles y costosa correccion.',
-  hero_pill_1:        'Creado para operadores, directores financieros y liderazgo de cartera',
-  hero_pill_2:        'Disciplina documental antes de que crezcan los costos externos',
-  hero_pill_3:        'Logica piloto con resultados medibles',
+  hero_eyebrow:       'Recuperacion de ingresos e infraestructura legal',
+  hero_title:         'Recuperacion estructurada para operadores modernos.',
+  hero_lead:          'Control de efectivo, disciplina documental y preparacion para escalamiento — disenado para empresas que no pueden permitirse una transferencia debil.',
+  hero_pill_1:        'Para operadores y CFOs',
+  hero_pill_2:        'Estandar piloto de 90 dias',
+  hero_pill_3:        'Expedientes listos para abogados',
 
   stat_label_1:       'Lineas de solucion',
   stat_label_2:       'Estandar de piloto',

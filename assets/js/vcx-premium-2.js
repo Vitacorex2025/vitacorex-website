@@ -44,28 +44,33 @@
 
       els.forEach(function (el) {
         var dir = el.getAttribute('data-animate') || 'up';
-        var from = { opacity: 0, duration: 0.8, ease: 'power2.out' };
+        if (dir === 'none') return; // skip hero/stats
 
-        if (dir === 'left') from.x = -60;
-        else if (dir === 'right') from.x = 60;
-        else if (dir === 'scale') { from.scale = 0.9; from.y = 0; }
-        else from.y = 60;
+        var fromVars = { opacity: 0 };
+        var toVars = { opacity: 1, duration: 0.8, ease: 'power2.out' };
 
-        gsap.from(el, Object.assign({}, from, {
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          }
-        }));
+        if (dir === 'left') { fromVars.x = -60; toVars.x = 0; }
+        else if (dir === 'right') { fromVars.x = 60; toVars.x = 0; }
+        else if (dir === 'scale') { fromVars.scale = 0.9; toVars.scale = 1; }
+        else { fromVars.y = 60; toVars.y = 0; }
+
+        toVars.scrollTrigger = {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        };
+
+        gsap.fromTo(el, fromVars, toVars);
       });
 
       // Staggered card grids
       document.querySelectorAll('.vcx-stagger, .vcx-card-grid-2').forEach(function (grid) {
-        gsap.from(grid.children, {
-          y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out',
-          scrollTrigger: { trigger: grid, start: 'top 82%' }
-        });
+        gsap.fromTo(grid.children,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+            scrollTrigger: { trigger: grid, start: 'top 82%' }
+          }
+        );
       });
 
     } else {
@@ -149,6 +154,81 @@
     });
   }
 
+  // ---- 4B. WEAVE-STYLE SECTION REVEALS ----
+  function initSectionReveals() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    // Full section reveal with scale + fade
+    var sections = document.querySelectorAll('section.section, section.vcx-impact-section');
+    sections.forEach(function (sec) {
+      gsap.fromTo(sec,
+        { opacity: 0.3, y: 80 },
+        {
+          opacity: 1, y: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 90%',
+            end: 'top 40%',
+            scrub: 0.8,
+          }
+        }
+      );
+    });
+
+    // Parallax section headings
+    document.querySelectorAll('.section-head, .eyebrow').forEach(function (el) {
+      gsap.fromTo(el,
+        { y: 30 },
+        {
+          y: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        }
+      );
+    });
+
+    // Cards — lift and stagger
+    document.querySelectorAll('.card, .problem-item, .widget-card, .service-card, .proof-card').forEach(function (card) {
+      gsap.fromTo(card,
+        { opacity: 0, y: 50, scale: 0.96 },
+        {
+          opacity: 1, y: 0, scale: 1,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    });
+
+    // Band sections (dark bg) — clip reveal from center
+    document.querySelectorAll('section.band').forEach(function (band) {
+      gsap.fromTo(band,
+        { clipPath: 'inset(8% 4% 8% 4% round 16px)' },
+        {
+          clipPath: 'inset(0% 0% 0% 0% round 0px)',
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: band,
+            start: 'top 85%',
+            end: 'top 35%',
+            scrub: 0.6,
+          }
+        }
+      );
+    });
+  }
+
   // ---- 5. HEADER SHRINK ON SCROLL ----
   function initHeader() {
     var header = document.querySelector('.vcx-header-2') || document.querySelector('.vcx-header');
@@ -216,6 +296,7 @@
   function init() {
     initLenis();
     initScrollReveals();
+    initSectionReveals();
     initCounters();
     initParallax();
     initHeader();
