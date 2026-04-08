@@ -228,6 +228,24 @@
     });
   }
 
+  // ---- 8. MOBILE MENU — pause Lenis/ScrollTrigger to prevent freeze ----
+  function initMenuPause() {
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.attributeName === 'class') {
+          var isOpen = document.documentElement.classList.contains('vcx-mobile-menu-open');
+          if (lenis) {
+            if (isOpen) lenis.stop(); else lenis.start();
+          }
+          if (typeof ScrollTrigger !== 'undefined') {
+            if (isOpen) ScrollTrigger.disable(); else ScrollTrigger.enable();
+          }
+        }
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+
   // ---- INIT ALL ----
   function init() {
     initLenis();
@@ -238,6 +256,7 @@
     initHeader();
     initMagneticBtns();
     initCarousels();
+    initMenuPause();
   }
 
   if (document.readyState === 'loading') {
