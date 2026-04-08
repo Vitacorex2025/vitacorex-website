@@ -342,7 +342,7 @@ body[data-vcx-page] .ai-analysis li {
 
 /* ── Footer on app pages: ensure readable + proper spacing ────────── */
 body[data-vcx-page] .vcx-footer {
-  background: #0F2B28 !important;
+  background: #0B2420 !important;
   color: rgba(255, 255, 255, 0.8) !important;
 }
 body[data-vcx-page] .vcx-footer strong {
@@ -445,7 +445,7 @@ body[data-vcx-page] .reveal::before {
   left: 0 !important;
   right: 0 !important;
   height: 3px !important;
-  background: linear-gradient(90deg, #2D8A82, #5BC4B8, #C8AF78) !important;
+  background: linear-gradient(90deg, #2D8A82, #5BBAA7, #5BC4B8) !important;
   border-radius: 3px 3px 0 0 !important;
 }
 
@@ -598,19 +598,20 @@ body[data-vcx-page] button[onclick*="Scan"],
 body[data-vcx-page] button[onclick*="Analyze"],
 body[data-vcx-page] button[onclick*="Check"],
 body[data-vcx-page] button[onclick*="Submit"] {
-  background: linear-gradient(145deg, #1A4F4A 0%, #267A72 50%, #2D8A82 100%) !important;
+  background: #5BBAA7 !important;
+  background-image: none !important;
   color: #FFFFFF !important;
   border: none !important;
-  border-radius: 3px !important;
-  font-weight: 700 !important;
-  font-size: 1.05rem !important;
-  padding: 16px 32px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 12px 28px !important;
   cursor: pointer !important;
   width: 100% !important;
   margin-top: 20px !important;
   letter-spacing: 0.01em !important;
-  transition: transform 0.15s, box-shadow 0.25s !important;
-  box-shadow: 0 4px 16px rgba(26, 79, 74, 0.2), 0 1px 3px rgba(0,0,0,0.06) !important;
+  transition: all 0.25s ease !important;
+  box-shadow: none !important;
 }
 body[data-vcx-page] button:not(:disabled):hover {
   transform: translateY(-2px) !important;
@@ -656,10 +657,10 @@ body[data-vcx-page] #vcxPacketReviewSection:not([hidden]) {
 
 /* ── Compliance banner ──────────────────────────────────────────── */
 body[data-vcx-page] #vcxComplianceBanner:not([hidden]) {
-  background: linear-gradient(135deg, #FEF9ED, #FFF8E7) !important;
-  border: 1px solid rgba(200,175,120,0.25) !important;
-  border-left: 4px solid #C8AF78 !important;
-  color: #5A4E36 !important;
+  background: rgba(91,186,167,0.08) !important;
+  border: 1px solid rgba(91,186,167,0.15) !important;
+  border-left: 4px solid #5BBAA7 !important;
+  color: #1A2F2A !important;
   padding: 14px 20px !important;
   border-radius: 0 10px 10px 0 !important;
   font-size: 0.88rem !important;
