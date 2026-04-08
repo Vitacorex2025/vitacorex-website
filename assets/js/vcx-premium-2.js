@@ -1,152 +1,89 @@
 /* ============================================================
-   VCX PREMIUM 2.0 — Lenis + GSAP + ScrollTrigger + Counters
-   Weave-level smooth scroll & animations
+   VCX PREMIUM 2.1 — Lightweight (no GSAP, no Lenis)
+   Pure IntersectionObserver reveals + counters
    ============================================================ */
 
 (function () {
   'use strict';
 
-  // ---- 1. SMOOTH SCROLL (native, no Lenis) ----
-  let lenis = null; // removed Lenis — caused perf issues & mobile conflicts
-  function initLenis() {
-    // Lenis disabled — native scroll is faster and more compatible
-  }
-
-  // ---- 2. SCROLL-TRIGGERED REVEALS ----
+  // ---- 1. SCROLL-TRIGGERED REVEALS (IntersectionObserver) ----
   function initScrollReveals() {
     var els = document.querySelectorAll('[data-animate]');
     if (!els.length) return;
 
-    // Prefer GSAP ScrollTrigger
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Native scroll — no Lenis sync needed
-
-      els.forEach(function (el) {
-        var dir = el.getAttribute('data-animate') || 'up';
-        if (dir === 'none') return; // skip hero/stats
-
-        var fromVars = { opacity: 0 };
-        var toVars = { opacity: 1, duration: 0.8, ease: 'power2.out' };
-
-        if (dir === 'left') { fromVars.x = -60; toVars.x = 0; }
-        else if (dir === 'right') { fromVars.x = 60; toVars.x = 0; }
-        else if (dir === 'scale') { fromVars.scale = 0.9; toVars.scale = 1; }
-        else { fromVars.y = 60; toVars.y = 0; }
-
-        toVars.scrollTrigger = {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        };
-
-        gsap.fromTo(el, fromVars, toVars);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
       });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-      // Staggered card grids
-      document.querySelectorAll('.vcx-stagger, .vcx-card-grid-2').forEach(function (grid) {
-        gsap.fromTo(grid.children,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
-            scrollTrigger: { trigger: grid, start: 'top 82%' }
-          }
-        );
-      });
+    els.forEach(function (el) {
+      var dir = el.getAttribute('data-animate');
+      if (dir === 'none') {
+        el.classList.add('is-visible');
+        return;
+      }
+      observer.observe(el);
+    });
 
-    } else {
-      // Fallback: IntersectionObserver
-      var observer = new IntersectionObserver(function (entries) {
+    // Stagger grids
+    document.querySelectorAll('.vcx-stagger, .vcx-card-grid-2').forEach(function (grid) {
+      var gridObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            var children = entry.target.children;
+            for (var i = 0; i < children.length; i++) {
+              (function (child, delay) {
+                setTimeout(function () { child.classList.add('is-visible'); }, delay);
+              })(children[i], i * 100);
+            }
+            gridObs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      els.forEach(function (el) { observer.observe(el); });
-
-      // Stagger observer
-      document.querySelectorAll('.vcx-stagger, .vcx-card-grid-2').forEach(function (grid) {
-        observer.observe(grid);
-      });
-    }
+      }, { threshold: 0.1 });
+      gridObs.observe(grid);
+    });
   }
 
-  // ---- 3. COUNTER ANIMATIONS ----
+  // ---- 2. COUNTER ANIMATIONS (IntersectionObserver) ----
   function initCounters() {
     var counters = document.querySelectorAll('[data-counter]');
     if (!counters.length) return;
 
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      counters.forEach(function (el) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
         var target = parseFloat(el.getAttribute('data-counter'));
-        var obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          duration: 2.2,
-          ease: 'power1.out',
-          scrollTrigger: { trigger: el, start: 'top 82%' },
-          onUpdate: function () {
-            el.textContent = Math.round(obj.val);
-          }
-        });
-      });
-    } else {
-      // Fallback: simple counter
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          var target = parseFloat(el.getAttribute('data-counter'));
-          var start = 0;
-          var duration = 2000;
-          var startTime = null;
-          function step(ts) {
-            if (!startTime) startTime = ts;
-            var p = Math.min((ts - startTime) / duration, 1);
-            el.textContent = Math.round(start + (target - start) * p);
-            if (p < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-          observer.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-      counters.forEach(function (c) { observer.observe(c); });
-    }
-  }
-
-  // ---- 4. PARALLAX ELEMENTS ----
-  function initParallax() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    document.querySelectorAll('[data-parallax]').forEach(function (el) {
-      var speed = parseFloat(el.getAttribute('data-parallax')) || -15;
-      gsap.to(el, {
-        yPercent: speed,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
+        var duration = 1800;
+        var startTime = null;
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var p = Math.min((ts - startTime) / duration, 1);
+          el.textContent = Math.round(target * p);
+          if (p < 1) requestAnimationFrame(step);
         }
+        requestAnimationFrame(step);
+        observer.unobserve(el);
       });
-    });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (c) { observer.observe(c); });
   }
 
-  // ---- 4B. SECTION STACKING (lightweight) ----
+  // ---- 3. SECTION STACKING (z-index only) ----
   function initSectionReveals() {
-    // Just apply stacking z-index — no heavy scrub animations
     var allSections = document.querySelectorAll('section.section, section.vcx-impact-section, section.band');
     allSections.forEach(function (sec, i) {
-      sec.classList.add('vcx-stack-section');
       sec.style.zIndex = 10 + i;
       sec.style.position = 'relative';
     });
   }
 
-  // ---- 5. HEADER SHRINK ON SCROLL ----
+  // ---- 4. HEADER SHRINK ON SCROLL ----
   function initHeader() {
     var header = document.querySelector('.vcx-header-2') || document.querySelector('.vcx-header');
     if (!header) return;
@@ -156,8 +93,7 @@
     window.addEventListener('scroll', function () {
       if (!ticking) {
         requestAnimationFrame(function () {
-          var y = window.scrollY || window.pageYOffset;
-          if (y > scrollThreshold) {
+          if (window.scrollY > scrollThreshold) {
             header.classList.add('is-scrolled');
           } else {
             header.classList.remove('is-scrolled');
@@ -169,7 +105,7 @@
     }, { passive: true });
   }
 
-  // ---- 6. MAGNETIC BUTTONS ----
+  // ---- 5. MAGNETIC BUTTONS ----
   function initMagneticBtns() {
     document.querySelectorAll('.vcx-btn-2--primary').forEach(function (btn) {
       btn.addEventListener('mousemove', function (e) {
@@ -184,7 +120,7 @@
     });
   }
 
-  // ---- 7. SPLIDE CAROUSELS ----
+  // ---- 6. SPLIDE CAROUSELS ----
   function initCarousels() {
     if (typeof Splide === 'undefined') return;
     document.querySelectorAll('.splide').forEach(function (el) {
@@ -203,70 +139,14 @@
     });
   }
 
-  // ---- 8. MOBILE MENU (Lenis removed — no conflicts) ----
-  function initMenuPause() {
-    // No-op: Lenis removed, native scroll works fine with mobile menu
-  }
-
-  // ---- 9. ANIMATED BACKGROUND PATHS (optimized: 20 total) ----
-  function initBackgroundPaths() {
-    var container = document.querySelector('.vcx-hero-2__paths');
-    if (!container) return;
-
-    // Skip on mobile for performance
-    if (window.innerWidth < 768) return;
-
-    function createPaths(position) {
-      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('viewBox', '0 0 696 316');
-      svg.setAttribute('fill', 'none');
-      svg.style.position = 'absolute';
-      svg.style.inset = '0';
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-
-      for (var i = 0; i < 10; i++) {
-        var p = position;
-        var step = i * 3;
-        var d = 'M-' + (380 - step * 5 * p) + ' -' + (189 + step * 6) +
-          'C-' + (380 - step * 5 * p) + ' -' + (189 + step * 6) +
-          ' -' + (312 - step * 5 * p) + ' ' + (216 - step * 6) +
-          ' ' + (152 - step * 5 * p) + ' ' + (343 - step * 6) +
-          'C' + (616 - step * 5 * p) + ' ' + (470 - step * 6) +
-          ' ' + (684 - step * 5 * p) + ' ' + (875 - step * 6) +
-          ' ' + (684 - step * 5 * p) + ' ' + (875 - step * 6);
-
-        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', d);
-        path.setAttribute('stroke-width', (0.5 + i * 0.08).toFixed(2));
-        path.setAttribute('stroke-opacity', (0.1 + i * 0.07).toFixed(2));
-        path.style.strokeDasharray = '1';
-        path.style.strokeDashoffset = '0';
-        var dur = (25 + i * 3).toFixed(1);
-        path.style.animation = 'vcxPathFlow ' + dur + 's linear infinite';
-        path.style.animationDelay = '-' + (i * 2.5).toFixed(1) + 's';
-
-        svg.appendChild(path);
-      }
-      container.appendChild(svg);
-    }
-
-    createPaths(1);
-    createPaths(-1);
-  }
-
-  // ---- INIT ALL ----
+  // ---- INIT ----
   function init() {
-    initLenis();
     initScrollReveals();
     initSectionReveals();
     initCounters();
-    initParallax();
     initHeader();
     initMagneticBtns();
     initCarousels();
-    initMenuPause();
-    initBackgroundPaths();
   }
 
   if (document.readyState === 'loading') {
