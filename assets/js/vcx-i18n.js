@@ -90,7 +90,7 @@ w.VCX_I18N = {
     footer_phone:   'Private consultation line: (888) 794-8292',
     footer_disc:    'VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. Legal strategy and legal advice remain the responsibility of licensed counsel.',
     footer_forms:   'Public forms are designed for general business documents and non-regulated materials. For highly sensitive or regulated records, request secure coordination first.',
-    footer_copy:    '© 2026 VitaCoreX LLC. All rights reserved.',
+    footer_copy:    '© 2025 VitaCoreX LLC. All rights reserved.',
     footer_col1:    'COMPANY & SOLUTIONS',
     footer_col2:    'REVIEW, PRIVACY & CONTACT',
 
@@ -174,7 +174,7 @@ w.VCX_I18N = {
     footer_phone:   'Частная линия: (888) 794-8292',
     footer_disc:    'VitaCoreX LLC оказывает административную, документарную и бизнес-поддержку. Компания не является юридической фирмой и не оказывает юридическое представительство. Правовая стратегия и юридические советы относятся к компетенции лицензированного адвоката.',
     footer_forms:   'Публичные формы предназначены для общих деловых документов и нерегулируемых материалов. Для особо чувствительных или регулируемых данных сначала запросите защищённую координацию.',
-    footer_copy:    '© 2026 VitaCoreX LLC. Все права защищены.',
+    footer_copy:    '© 2025 VitaCoreX LLC. Все права защищены.',
     footer_col1:    'КОМПАНИЯ И РЕШЕНИЯ',
     footer_col2:    'РАЗБОР, КОНФИДЕНЦИАЛЬНОСТЬ И КОНТАКТЫ',
 
@@ -252,7 +252,7 @@ w.VCX_I18N = {
     footer_phone:   'Línea privada: (888) 794-8292',
     footer_disc:    'VitaCoreX LLC proporciona servicios administrativos, de documentación y apoyo empresarial. No es un bufete de abogados y no proporciona representación legal. La estrategia y el asesoramiento legal son responsabilidad del abogado autorizado.',
     footer_forms:   'Los formularios públicos están diseñados para documentos comerciales generales y materiales no regulados. Para registros altamente sensibles o regulados, solicite coordinación segura primero.',
-    footer_copy:    '© 2026 VitaCoreX LLC. Todos los derechos reservados.',
+    footer_copy:    '© 2025 VitaCoreX LLC. Todos los derechos reservados.',
     footer_col1:    'EMPRESA Y SOLUCIONES',
     footer_col2:    'REVISIÓN, PRIVACIDAD Y CONTACTO',
 
