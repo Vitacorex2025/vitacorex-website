@@ -1405,12 +1405,27 @@ body {
   box-shadow: none !important;
 }
 
-/* ---- FOOTER — equal columns + copyright & social centered at bottom ---- */
+/* ---- FOOTER — single unified frame, equal columns ---- */
 .footer-grid-extended {
   position: relative !important;
-  padding-bottom: 60px !important;
+  padding: 32px 32px 70px !important;
   grid-template-columns: 1fr 1fr 1fr !important;
   align-items: start !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 20px !important;
+}
+/* Remove individual group borders */
+.footer-grid-extended .footer-group {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 24px !important;
+}
+/* Divider lines between columns */
+.footer-grid-extended .footer-group + .footer-group {
+  border-left: 1px solid rgba(255,255,255,0.08) !important;
 }
 .footer-company .small-note[data-i18n="footer_copy"] {
   position: absolute !important;
@@ -1451,6 +1466,12 @@ body {
   .footer-grid-extended {
     display: flex !important;
     flex-direction: column !important;
+    padding: 24px 20px 70px !important;
+  }
+  /* No column dividers on mobile */
+  .footer-grid-extended .footer-group + .footer-group {
+    border-left: none !important;
+    padding: 0 !important;
   }
   /* Push company block to the very end */
   .footer-company {
