@@ -1734,7 +1734,7 @@ body {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 9000;
+  z-index: 10200;
 }
 .vcx-ai-fab {
   width: 56px;
@@ -1772,6 +1772,7 @@ body {
   position: absolute;
   bottom: 68px;
   right: 0;
+  z-index: 10201;
   width: 420px;
   max-width: calc(100vw - 32px);
   background: #fff;
