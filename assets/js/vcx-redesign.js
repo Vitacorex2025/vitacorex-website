@@ -649,11 +649,11 @@
 
     // Aurora wave layers — each has unique speed, amplitude, frequency
     var layers = [
-      { yBase: 0.52, amp: 0.18, freq: 0.7,  speed: 0.12, color: [45,180,165],  alpha: 0.14, width: 0.40 },
-      { yBase: 0.40, amp: 0.14, freq: 1.0,  speed: 0.20, color: [91,220,200],  alpha: 0.10, width: 0.35 },
-      { yBase: 0.65, amp: 0.20, freq: 0.5,  speed: 0.08, color: [35,140,125],  alpha: 0.16, width: 0.45 },
-      { yBase: 0.32, amp: 0.10, freq: 1.3,  speed: 0.25, color: [141,230,210], alpha: 0.08, width: 0.28 },
-      { yBase: 0.48, amp: 0.22, freq: 0.4,  speed: 0.06, color: [61,165,148],  alpha: 0.12, width: 0.38 }
+      { yBase: 0.52, amp: 0.18, freq: 0.7,  speed: 0.12, color: [45,180,165],  alpha: 0.28, width: 0.40 },
+      { yBase: 0.40, amp: 0.14, freq: 1.0,  speed: 0.20, color: [91,220,200],  alpha: 0.22, width: 0.35 },
+      { yBase: 0.65, amp: 0.20, freq: 0.5,  speed: 0.08, color: [35,140,125],  alpha: 0.30, width: 0.45 },
+      { yBase: 0.32, amp: 0.10, freq: 1.3,  speed: 0.25, color: [141,230,210], alpha: 0.18, width: 0.28 },
+      { yBase: 0.48, amp: 0.22, freq: 0.4,  speed: 0.06, color: [61,165,148],  alpha: 0.25, width: 0.38 }
     ];
 
     function draw(now) {
@@ -698,8 +698,8 @@
       // Center glow pulse
       var pulse = 0.5 + Math.sin(t * 0.4) * 0.3;
       var glow = ctx.createRadialGradient(w * 0.5, h * 0.45, 0, w * 0.5, h * 0.45, w * 0.5);
-      glow.addColorStop(0, 'rgba(91,210,195,' + (0.08 * pulse) + ')');
-      glow.addColorStop(0.4, 'rgba(45,160,145,' + (0.04 * pulse) + ')');
+      glow.addColorStop(0, 'rgba(91,210,195,' + (0.16 * pulse) + ')');
+      glow.addColorStop(0.4, 'rgba(45,160,145,' + (0.10 * pulse) + ')');
       glow.addColorStop(1, 'rgba(45,138,130,0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, w, h);
