@@ -6,26 +6,10 @@
 (function () {
   'use strict';
 
-  // ---- 1. LENIS SMOOTH SCROLL ----
-  let lenis;
+  // ---- 1. SMOOTH SCROLL (native, no Lenis) ----
+  let lenis = null; // removed Lenis — caused perf issues & mobile conflicts
   function initLenis() {
-    if (typeof Lenis === 'undefined') return;
-    lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-      wheelMultiplier: 0.9,
-    });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Sync with GSAP if available
-    if (typeof gsap !== 'undefined' && gsap.ticker) {
-      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    }
+    // Lenis disabled — native scroll is faster and more compatible
   }
 
   // ---- 2. SCROLL-TRIGGERED REVEALS ----
@@ -37,10 +21,7 @@
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Sync Lenis with ScrollTrigger
-      if (lenis) {
-        lenis.on('scroll', ScrollTrigger.update);
-      }
+      // Native scroll — no Lenis sync needed
 
       els.forEach(function (el) {
         var dir = el.getAttribute('data-animate') || 'up';
@@ -171,27 +152,21 @@
     if (!header) return;
 
     var scrollThreshold = 60;
-    var onScroll = function () {
-      var y = window.scrollY || window.pageYOffset;
-      if (y > scrollThreshold) {
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.remove('is-scrolled');
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          var y = window.scrollY || window.pageYOffset;
+          if (y > scrollThreshold) {
+            header.classList.add('is-scrolled');
+          } else {
+            header.classList.remove('is-scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    };
-
-    if (lenis) {
-      lenis.on('scroll', function (e) {
-        if (e.animatedScroll > scrollThreshold) {
-          header.classList.add('is-scrolled');
-        } else {
-          header.classList.remove('is-scrolled');
-        }
-      });
-    } else {
-      window.addEventListener('scroll', onScroll, { passive: true });
-    }
-    onScroll();
+    }, { passive: true });
   }
 
   // ---- 6. MAGNETIC BUTTONS ----
@@ -228,18 +203,9 @@
     });
   }
 
-  // ---- 8. MOBILE MENU — kill Lenis to prevent freeze ----
+  // ---- 8. MOBILE MENU (Lenis removed — no conflicts) ----
   function initMenuPause() {
-    // Disable Lenis entirely on mobile — it conflicts with position:fixed scroll-lock
-    var mq = window.matchMedia('(max-width: 900px)');
-    function handleMobile(e) {
-      if (e.matches && lenis) {
-        lenis.destroy();
-        lenis = null;
-      }
-    }
-    mq.addEventListener('change', handleMobile);
-    handleMobile(mq);
+    // No-op: Lenis removed, native scroll works fine with mobile menu
   }
 
   // ---- 9. ANIMATED BACKGROUND PATHS (optimized: 20 total) ----
