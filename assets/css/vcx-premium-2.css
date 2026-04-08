@@ -39,7 +39,7 @@
   justify-content: center;
   background: #0C2D2A;
   overflow: hidden;
-  padding: 60px 32px 40px;
+  padding: 20px 32px 40px;
 }
 
 /* Dark overlay on video for text readability */
@@ -736,13 +736,188 @@
 }
 
 /* Light sections get subtle rounded top corners for "card" feel */
-.vcx-stack-section:not(.band):not(.vcx-stats-2) {
+.vcx-stack-section:not(.band):not(.vcx-stats-2):not(.vcx-bg-dark):not(.vcx-bg-ink) {
   background: var(--parchment, #F6F2EA);
 }
 
 /* Dark band sections get stronger shadow */
-.vcx-stack-section.band {
+.vcx-stack-section.band,
+.vcx-stack-section.vcx-bg-dark,
+.vcx-stack-section.vcx-bg-ink {
   box-shadow: 0 -24px 80px rgba(0,0,0,0.22);
+}
+
+/* ---- SECTION BACKGROUND VARIETY (Weave-inspired) ---- */
+
+/* Fine grid lines — subtle engineering paper feel */
+.vcx-bg-grid {
+  background-color: var(--parchment, #F6F2EA);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(91,186,167,0.05) 59px, rgba(91,186,167,0.05) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(91,186,167,0.05) 59px, rgba(91,186,167,0.05) 60px);
+  background-size: 60px 60px;
+}
+
+/* Dot matrix — subtle repeating dots */
+.vcx-bg-dots {
+  background-color: var(--parchment, #F6F2EA);
+  background-image: radial-gradient(circle, rgba(91,186,167,0.10) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Deep teal with fine grid overlay */
+.vcx-bg-dark {
+  background-color: #0A2E28 !important;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(91,186,167,0.06) 49px, rgba(91,186,167,0.06) 50px),
+    repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(91,186,167,0.06) 49px, rgba(91,186,167,0.06) 50px);
+  background-size: 50px 50px;
+}
+.vcx-bg-dark .section-head h2,
+.vcx-bg-dark .eyebrow,
+.vcx-bg-dark h2,
+.vcx-bg-dark h3 {
+  color: #EEE9DE !important;
+}
+.vcx-bg-dark p,
+.vcx-bg-dark li,
+.vcx-bg-dark .card-body {
+  color: rgba(238,233,222,0.72) !important;
+}
+
+/* Deep ink — solid dark with subtle noise grain */
+.vcx-bg-ink {
+  background-color: #0A1916 !important;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(91,186,167,0.06), transparent 70%),
+    radial-gradient(ellipse 100% 60% at 80% 0%, rgba(61,142,126,0.04), transparent 60%);
+}
+.vcx-bg-ink .section-head h2,
+.vcx-bg-ink .eyebrow,
+.vcx-bg-ink h2,
+.vcx-bg-ink h3 {
+  color: #EEE9DE !important;
+}
+.vcx-bg-ink p,
+.vcx-bg-ink li,
+.vcx-bg-ink .card-body {
+  color: rgba(238,233,222,0.68) !important;
+}
+
+/* Warm cream with diagonal fine lines */
+.vcx-bg-lines {
+  background-color: #F0EBE1;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 14px,
+      rgba(91,186,167,0.04) 14px,
+      rgba(91,186,167,0.04) 15px
+    );
+}
+
+/* Animated gradient glow — for impact/CTA sections */
+.vcx-bg-glow {
+  background: #0F2621 !important;
+  position: relative;
+  overflow: hidden;
+}
+.vcx-bg-glow::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(91,186,167,0.12), transparent),
+    radial-gradient(ellipse 40% 50% at 80% 20%, rgba(61,142,126,0.08), transparent);
+  animation: vcxGlowDrift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+.vcx-bg-glow > * {
+  position: relative;
+  z-index: 1;
+}
+.vcx-bg-glow .section-head h2,
+.vcx-bg-glow .eyebrow,
+.vcx-bg-glow h2,
+.vcx-bg-glow h3 {
+  color: #EEE9DE !important;
+}
+.vcx-bg-glow p,
+.vcx-bg-glow li {
+  color: rgba(238,233,222,0.72) !important;
+}
+
+@keyframes vcxGlowDrift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(5%, -3%) rotate(2deg); }
+  100% { transform: translate(-3%, 5%) rotate(-1deg); }
+}
+
+/* ---- DARK SECTION SHARED OVERRIDES ---- */
+/* Eyebrow premium text in dark contexts */
+.vcx-bg-dark .vcx-eyebrow-premium,
+.vcx-bg-ink .vcx-eyebrow-premium,
+.vcx-bg-glow .vcx-eyebrow-premium {
+  color: #5BBAA7 !important;
+}
+
+/* Headline accent in dark contexts */
+.vcx-bg-dark .vcx-headline-accent,
+.vcx-bg-ink .vcx-headline-accent,
+.vcx-bg-glow .vcx-headline-accent {
+  color: #EEE9DE !important;
+}
+
+/* Cards inside dark sections — glass morphism dark variant */
+.vcx-bg-dark .card,
+.vcx-bg-dark .widget-card,
+.vcx-bg-dark .problem-item,
+.vcx-bg-dark .proof-card,
+.vcx-bg-ink .card,
+.vcx-bg-ink .widget-card,
+.vcx-bg-glow .card,
+.vcx-bg-glow .widget-card {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(91,186,167,0.12) !important;
+}
+
+/* Testimonial cards in dark — glass effect */
+.vcx-bg-dark .vcx-testimonial-card,
+.vcx-bg-dark .testimonial-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(91,186,167,0.10) !important;
+}
+.vcx-bg-dark .vcx-testimonial-card p,
+.vcx-bg-dark .testimonial-card p,
+.vcx-bg-dark .vcx-testimonial-card .quote {
+  color: rgba(238,233,222,0.82) !important;
+}
+.vcx-bg-dark .vcx-testimonial-card .author,
+.vcx-bg-dark .testimonial-card .author,
+.vcx-bg-dark .testimonial-card strong {
+  color: #EEE9DE !important;
+}
+
+/* Impact items in dark ink */
+.vcx-bg-ink .vcx-impact-item {
+  border-color: rgba(91,186,167,0.08) !important;
+}
+.vcx-bg-ink .vcx-impact-number {
+  color: #5BBAA7 !important;
+}
+.vcx-bg-ink .vcx-impact-label {
+  color: rgba(238,233,222,0.65) !important;
+}
+.vcx-bg-ink .vcx-impact-source {
+  color: rgba(238,233,222,0.45) !important;
+}
+
+/* Concierge panel in dark bg */
+.vcx-bg-dark .concierge-panel {
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(91,186,167,0.12) !important;
 }
 
 /* ---- NAVIGATION UPGRADE ---- */
