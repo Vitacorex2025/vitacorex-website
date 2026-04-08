@@ -220,59 +220,66 @@
   letter-spacing: 0.02em;
 }
 
-/* ---- BUTTONS — WEAVE-STYLE (rounded-rect, not pill) ---- */
+/* ---- BUTTONS — refined minimal style ---- */
 .vcx-btn-2 {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  gap: 6px;
+  padding: 10px 22px;
+  font-size: 0.8rem;
+  font-weight: 500;
   font-family: 'Inter', -apple-system, system-ui, sans-serif;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  letter-spacing: 0.01em;
+  transition: all 0.25s ease;
   position: relative;
 }
 
 .vcx-btn-2--primary {
   background: #5BBAA7;
   color: #FFFFFF;
-  font-weight: 600;
 }
 .vcx-btn-2--primary:hover {
-  background: #4AA896;
+  background: #4DAE9B;
   color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 .vcx-btn-2--ghost {
-  background: transparent;
-  color: rgba(255,255,255,0.88);
-  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 .vcx-btn-2--ghost:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.30);
   color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 .vcx-btn-2--dark {
   background: #1A2F2A;
   color: #EEE9DE;
-  border-radius: 10px;
 }
 .vcx-btn-2--dark:hover {
   background: #243D36;
+  transform: translateY(-1px);
 }
 
 /* Override old pill buttons site-wide */
 .btn, .btn-primary, .btn-secondary {
-  border-radius: 10px !important;
-  padding: 12px 24px !important;
-  font-size: 0.875rem !important;
-  transition: background-color 0.3s ease, color 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 10px 22px !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  transition: all 0.25s ease !important;
+}
+.btn:hover, .btn-primary:hover, .btn-secondary:hover {
+  transform: translateY(-1px) !important;
 }
 .btn-primary:hover {
   color: #FFFFFF !important;
@@ -1000,6 +1007,109 @@
   margin: 0 auto;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--line-soft, rgba(26,47,42,.10)), transparent);
+}
+
+/* ---- HEADER SHELL — clean minimal style ---- */
+.vcx-header-shell {
+  border: none !important;
+  box-shadow: none !important;
+}
+.vcx-header-navrow {
+  border-top: 1px solid rgba(91,186,167,0.10) !important;
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+/* Time chips — no frames */
+.vcx-time-chip {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 8px !important;
+  gap: 8px !important;
+}
+.vcx-time-value {
+  color: #5BBAA7 !important;
+  font-weight: 600 !important;
+}
+
+/* Language switcher — minimal */
+.vcx-lang-switch {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  gap: 2px !important;
+}
+.vcx-lang-switch .lang-btn {
+  background: none !important;
+  border: none !important;
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  transition: color 0.2s ease, background 0.2s ease !important;
+}
+.vcx-lang-switch .lang-btn:hover {
+  color: #FFFFFF !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+.vcx-lang-switch .lang-btn.active {
+  color: #0A1E1A !important;
+  background: #5BBAA7 !important;
+}
+
+/* Brand text */
+.vcx-brand-copy strong {
+  color: #FFFFFF !important;
+}
+.vcx-brand-copy span {
+  color: rgba(255,255,255,0.55) !important;
+}
+.vcx-brand img {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Metric bar — subtle */
+.vcx-metric-bar {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  backdrop-filter: none !important;
+}
+.vcx-metric-text {
+  color: rgba(255,255,255,0.45) !important;
+  font-size: 0.72rem !important;
+}
+
+/* ---- NAV LINKS — clean text style, no frames ---- */
+.vcx-main-nav a {
+  background: none !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+.vcx-main-nav a:hover {
+  color: #FFFFFF !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+.vcx-main-nav a.active {
+  color: #FFFFFF !important;
+  background: rgba(91,186,167,0.18) !important;
+}
+.vcx-main-nav a.is-long {
+  font-size: 0.72rem !important;
 }
 
 /* ---- RESPONSIVE ---- */
