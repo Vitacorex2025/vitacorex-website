@@ -33,13 +33,13 @@
 /* ---- HERO SECTION 2.0 — WEAVE-LEVEL ---- */
 .vcx-hero-2 {
   position: relative;
-  min-height: 75vh;
+  min-height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #0C2D2A;
   overflow: hidden;
-  padding: 0 32px 40px;
+  padding: 48px 32px 40px;
 }
 
 /* Dark overlay on video for text readability */
@@ -1391,8 +1391,12 @@ body {
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   .vcx-hero-2 {
-    min-height: 90vh;
-    padding: 80px 20px;
+    min-height: auto;
+    padding: 40px 16px 32px;
+  }
+  .vcx-hero-2__content {
+    margin-left: 0 !important;
+    max-width: 100% !important;
   }
   .vcx-hero-2__title {
     font-size: clamp(2rem, 7vw, 2.8rem);
