@@ -1405,10 +1405,12 @@ body {
   box-shadow: none !important;
 }
 
-/* ---- FOOTER — copyright & social centered at bottom (all screens) ---- */
+/* ---- FOOTER — equal columns + copyright & social centered at bottom ---- */
 .footer-grid-extended {
   position: relative !important;
   padding-bottom: 60px !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  align-items: start !important;
 }
 .footer-company .small-note[data-i18n="footer_copy"] {
   position: absolute !important;
