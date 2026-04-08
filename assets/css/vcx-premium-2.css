@@ -33,7 +33,7 @@
 /* ---- HERO SECTION 2.0 — WEAVE-LEVEL ---- */
 .vcx-hero-2 {
   position: relative;
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,7 +145,7 @@
 .vcx-hero-2 .vcx-hero-2__title,
 .vcx-hero-2 h1 {
   font-family: 'Georgia', 'Times New Roman', serif !important;
-  font-size: clamp(1.8rem, 2.8vw, 2.2rem) !important;
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem) !important;
   font-weight: 400 !important;
   line-height: 1.18 !important;
   letter-spacing: -0.02em !important;
@@ -157,7 +157,7 @@
 
 .vcx-hero-2 .vcx-hero-2__subtitle,
 .vcx-hero-2 p {
-  font-size: clamp(0.88rem, 1.1vw, 1rem) !important;
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem) !important;
   color: rgba(255,255,255,0.78) !important;
   max-width: 480px !important;
   line-height: 1.65 !important;
@@ -309,15 +309,18 @@
 
 .vcx-stats-2 .vcx-stat-2__number {
   font-family: 'Georgia', 'Times New Roman', serif !important;
-  font-size: clamp(3rem, 5.5vw, 4.5rem) !important;
+  font-size: clamp(1.6rem, 2.5vw, 2rem) !important;
   font-weight: 400 !important;
+  font-variant-numeric: tabular-nums !important;
+  min-width: 2ch;
+  display: inline-block;
   color: #5BBAA7 !important;
   line-height: 1 !important;
   letter-spacing: -0.03em;
 }
 
 .vcx-stats-2 .vcx-stat-2__suffix {
-  font-size: 1.3rem !important;
+  font-size: 0.85rem !important;
   color: rgba(141,212,197,0.7) !important;
   vertical-align: super;
   font-weight: 400;
@@ -325,7 +328,7 @@
 
 .vcx-stats-2 .vcx-stat-2__label {
   display: block;
-  font-size: 0.8125rem !important;
+  font-size: 0.65rem !important;
   color: rgba(255,255,255,0.5) !important;
   margin-top: 14px;
   letter-spacing: 0.04em;
