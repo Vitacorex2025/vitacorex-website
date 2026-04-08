@@ -1474,14 +1474,16 @@ body {
   gap: 12px;
 }
 .vcx-bento-card {
-  background: rgba(11,36,32,0.55);
-  border: 1px solid rgba(91,186,167,0.15);
+  background: linear-gradient(135deg, rgba(11,36,32,0.92) 0%, rgba(16,52,44,0.88) 100%);
+  border: 1px solid rgba(91,186,167,0.22);
   border-radius: 14px;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
 .vcx-bento-card:hover {
-  border-color: rgba(91,186,167,0.35);
+  border-color: rgba(91,186,167,0.45);
+  box-shadow: 0 4px 24px rgba(91,186,167,0.1);
 }
 .vcx-bento-card__inner {
   padding: 24px;
@@ -1529,7 +1531,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  color: rgba(91,186,167,0.15);
+  color: rgba(91,186,167,0.3);
 }
 .vcx-bento-big-number {
   position: relative;
@@ -1561,7 +1563,7 @@ body {
 .vcx-bento-fingerprint {
   width: 80px;
   height: auto;
-  color: rgba(91,186,167,0.5);
+  color: rgba(91,186,167,0.7);
 }
 
 /* Card 3: chart */
@@ -1605,11 +1607,12 @@ body {
 }
 .vcx-bento-split__visual {
   position: relative;
-  border-left: 1px solid rgba(91,186,167,0.12);
-  border-top: 1px solid rgba(91,186,167,0.12);
+  border-left: 1px solid rgba(91,186,167,0.18);
+  border-top: 1px solid rgba(91,186,167,0.18);
   border-radius: 12px 0 0 0;
   padding: 16px;
   min-height: 180px;
+  background: rgba(11,36,32,0.4);
 }
 .vcx-bento-code-dots {
   display: flex;
@@ -1634,10 +1637,11 @@ body {
   justify-content: center;
   gap: 20px;
   padding: 20px 16px;
-  border-left: 1px solid rgba(91,186,167,0.12);
+  border-left: 1px solid rgba(91,186,167,0.18);
   border-top: none;
   border-radius: 0;
   position: relative;
+  background: rgba(11,36,32,0.4);
 }
 .vcx-bento-avatar-line {
   position: absolute;
