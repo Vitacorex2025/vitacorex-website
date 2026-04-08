@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0A1A15;
+  background: #0C2D2A;
   overflow: hidden;
   padding: 160px 32px 120px;
 }
@@ -53,11 +53,17 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,
-    rgba(10,26,21,0.50) 0%,
-    rgba(10,26,21,0.30) 40%,
-    rgba(10,26,21,0.60) 100%);
+  background: rgba(8, 25, 22, 0.55);
   z-index: 1;
+}
+
+/* Cloud layers: above ::after overlay, boosted visibility */
+.vcx-hero-2__bg .hero-cloud-layer {
+  z-index: 3 !important;
+  opacity: 0.55 !important;
+}
+.vcx-hero-2__bg .hero-cloud-layer.layer-2 {
+  opacity: 0.35 !important;
 }
 
 .vcx-hero-2__orb {
@@ -684,6 +690,24 @@
 .vcx-stagger.is-visible > * {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ---- WEAVE-STYLE SECTION STACKING ---- */
+/* Each section stacks above the previous with depth shadow */
+.vcx-stack-section {
+  position: relative;
+  will-change: transform;
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.12);
+}
+
+/* Light sections get subtle rounded top corners for "card" feel */
+.vcx-stack-section:not(.band):not(.vcx-stats-2) {
+  background: var(--parchment, #F6F2EA);
+}
+
+/* Dark band sections get stronger shadow */
+.vcx-stack-section.band {
+  box-shadow: 0 -24px 80px rgba(0,0,0,0.22);
 }
 
 /* ---- NAVIGATION UPGRADE ---- */

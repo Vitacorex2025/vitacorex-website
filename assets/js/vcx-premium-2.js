@@ -154,75 +154,81 @@
     });
   }
 
-  // ---- 4B. WEAVE-STYLE SECTION REVEALS ----
+  // ---- 4B. WEAVE-STYLE SECTION STACKING ----
   function initSectionReveals() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    // Full section reveal with scale + fade
-    var sections = document.querySelectorAll('section.section, section.vcx-impact-section');
-    sections.forEach(function (sec) {
-      gsap.fromTo(sec,
-        { opacity: 0.3, y: 80 },
-        {
-          opacity: 1, y: 0,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sec,
-            start: 'top 90%',
-            end: 'top 40%',
-            scrub: 0.8,
-          }
-        }
-      );
+    // Apply stacking z-index to all content sections
+    var allSections = document.querySelectorAll('section.section, section.vcx-impact-section, section.band');
+    allSections.forEach(function (sec, i) {
+      sec.classList.add('vcx-stack-section');
+      sec.style.zIndex = 10 + i;
+      sec.style.position = 'relative';
     });
 
-    // Parallax section headings
-    document.querySelectorAll('.section-head, .eyebrow').forEach(function (el) {
-      gsap.fromTo(el,
-        { y: 30 },
+    // Sections slide up into view with scale + opacity (scrub tied to scroll)
+    allSections.forEach(function (sec) {
+      gsap.fromTo(sec,
+        { y: 100, scale: 0.97, opacity: 0.4 },
         {
-          y: -20,
+          y: 0, scale: 1, opacity: 1,
           ease: 'none',
           scrollTrigger: {
-            trigger: el,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
+            trigger: sec,
+            start: 'top 95%',
+            end: 'top 30%',
+            scrub: 0.5,
           }
         }
       );
     });
 
-    // Cards — lift and stagger
+    // Cards — lift and stagger with slight rotation
     document.querySelectorAll('.card, .problem-item, .widget-card, .service-card, .proof-card').forEach(function (card) {
       gsap.fromTo(card,
-        { opacity: 0, y: 50, scale: 0.96 },
+        { opacity: 0, y: 60, scale: 0.94 },
         {
           opacity: 1, y: 0, scale: 1,
-          duration: 0.7,
+          duration: 0.8,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
-            start: 'top 88%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
           }
         }
       );
     });
 
-    // Band sections (dark bg) — clip reveal from center
+    // Band sections (dark bg) — clip-path reveal expanding from rounded inset
     document.querySelectorAll('section.band').forEach(function (band) {
       gsap.fromTo(band,
-        { clipPath: 'inset(8% 4% 8% 4% round 16px)' },
+        { clipPath: 'inset(6% 3% 6% 3% round 20px)' },
         {
           clipPath: 'inset(0% 0% 0% 0% round 0px)',
           ease: 'power2.out',
           scrollTrigger: {
             trigger: band,
-            start: 'top 85%',
-            end: 'top 35%',
-            scrub: 0.6,
+            start: 'top 88%',
+            end: 'top 30%',
+            scrub: 0.5,
+          }
+        }
+      );
+    });
+
+    // Parallax on section headers — subtle float
+    document.querySelectorAll('.section-head h2, .section-head .eyebrow').forEach(function (el) {
+      gsap.fromTo(el,
+        { y: 20 },
+        {
+          y: -15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el.closest('section') || el,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
           }
         }
       );
