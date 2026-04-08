@@ -269,23 +269,60 @@
   transform: translateY(-1px);
 }
 
-/* Override old pill buttons site-wide */
-.btn, .btn-primary, .btn-secondary {
+/* Override ALL buttons site-wide — elegant minimal style */
+.btn, .btn-primary, .btn-secondary,
+.cta-row .btn, .cta-banner .btn,
+a.btn, button.btn {
   border-radius: 8px !important;
-  padding: 10px 22px !important;
+  padding: 10px 24px !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif !important;
   letter-spacing: 0.01em !important;
   transition: all 0.25s ease !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
 }
-.btn:hover, .btn-primary:hover, .btn-secondary:hover {
-  transform: translateY(-1px) !important;
+
+.btn-primary {
+  background: #5BBAA7 !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+  border: none !important;
 }
 .btn-primary:hover {
+  background: #4DAE9B !important;
   color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-secondary {
+  background: rgba(26,47,42,0.06) !important;
+  color: #1A2F2A !important;
+  border: 1px solid rgba(26,47,42,0.15) !important;
 }
 .btn-secondary:hover {
+  background: rgba(26,47,42,0.10) !important;
   color: #1A2F2A !important;
+  border-color: rgba(26,47,42,0.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Secondary on dark/band sections — light variant */
+.band .btn-secondary,
+.vcx-bg-dark .btn-secondary {
+  background: rgba(255,255,255,0.06) !important;
+  color: rgba(255,255,255,0.85) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+}
+.band .btn-secondary:hover,
+.vcx-bg-dark .btn-secondary:hover {
+  background: rgba(255,255,255,0.12) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255,255,255,0.30) !important;
 }
 
 /* ---- STATS COUNTER SECTION ---- */
@@ -1110,6 +1147,51 @@
 }
 .vcx-main-nav a.is-long {
   font-size: 0.72rem !important;
+}
+
+/* ---- FOOTER — elegant dark teal ---- */
+.footer {
+  background: #0B2420 !important;
+  border-top: none !important;
+  padding: 48px 0 36px !important;
+  margin-top: 0 !important;
+}
+.footer::before {
+  display: none !important;
+}
+.footer-group h3 {
+  color: #FFFFFF !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  margin-bottom: 16px !important;
+}
+.footer-meta .small-note {
+  color: rgba(238,233,222,0.55) !important;
+  font-size: 0.78rem !important;
+}
+.footer-phone-link {
+  color: #5BBAA7 !important;
+}
+.footer-links a,
+.foot-social a {
+  color: rgba(238,233,222,0.7) !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  transition: color 0.2s ease !important;
+}
+.footer-links a:hover,
+.foot-social a:hover {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+.footer .small-note a {
+  color: #5BBAA7 !important;
+}
+.footer .exclusive-badge,
+.footer .footer-project-btn {
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* ---- RESPONSIVE ---- */
