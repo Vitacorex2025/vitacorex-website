@@ -154,84 +154,14 @@
     });
   }
 
-  // ---- 4B. WEAVE-STYLE SECTION STACKING ----
+  // ---- 4B. SECTION STACKING (lightweight) ----
   function initSectionReveals() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    // Apply stacking z-index to all content sections
+    // Just apply stacking z-index — no heavy scrub animations
     var allSections = document.querySelectorAll('section.section, section.vcx-impact-section, section.band');
     allSections.forEach(function (sec, i) {
       sec.classList.add('vcx-stack-section');
       sec.style.zIndex = 10 + i;
       sec.style.position = 'relative';
-    });
-
-    // Sections slide up into view with scale + opacity (scrub tied to scroll)
-    allSections.forEach(function (sec) {
-      gsap.fromTo(sec,
-        { y: 100, scale: 0.97, opacity: 0.4 },
-        {
-          y: 0, scale: 1, opacity: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sec,
-            start: 'top 95%',
-            end: 'top 30%',
-            scrub: 0.5,
-          }
-        }
-      );
-    });
-
-    // Cards — lift and stagger with slight rotation
-    document.querySelectorAll('.card, .problem-item, .widget-card, .service-card, .proof-card').forEach(function (card) {
-      gsap.fromTo(card,
-        { opacity: 0, y: 60, scale: 0.94 },
-        {
-          opacity: 1, y: 0, scale: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-          }
-        }
-      );
-    });
-
-    // Band sections (dark bg) — clip-path reveal expanding from rounded inset
-    document.querySelectorAll('section.band').forEach(function (band) {
-      gsap.fromTo(band,
-        { clipPath: 'inset(6% 3% 6% 3% round 20px)' },
-        {
-          clipPath: 'inset(0% 0% 0% 0% round 0px)',
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: band,
-            start: 'top 88%',
-            end: 'top 30%',
-            scrub: 0.5,
-          }
-        }
-      );
-    });
-
-    // Parallax on section headers — subtle float
-    document.querySelectorAll('.section-head h2, .section-head .eyebrow').forEach(function (el) {
-      gsap.fromTo(el,
-        { y: 20 },
-        {
-          y: -15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: el.closest('section') || el,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
-        }
-      );
     });
   }
 

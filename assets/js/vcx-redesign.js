@@ -752,10 +752,10 @@
     safe(initLeafAnimation);
     // Premium v2
     safe(initTextSplit);
-    safe(initCardTilt);
+    // safe(initCardTilt);  // disabled — performance
     safe(initPageTransitions);
-    // safe(initCursorGlow); // disabled per user request
-    safe(initScrollVideo);
+    // safe(initCursorGlow); // disabled — performance
+    // safe(initScrollVideo); // disabled — performance
     safe(initHeroParticles);
     safe(patchCounterPop);
   }
