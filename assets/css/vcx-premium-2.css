@@ -802,6 +802,15 @@ a.btn, button.btn {
   background-size: 40px 40px !important;
 }
 
+/* Auto-grid on every other light section site-wide */
+section.section:not(.band):nth-of-type(odd) {
+  background-color: #FFFFFF !important;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px) !important;
+  background-size: 40px 40px !important;
+}
+
 /* Dot matrix — subtle repeating dots */
 .vcx-bg-dots {
   background-color: var(--parchment, #F6F2EA);
