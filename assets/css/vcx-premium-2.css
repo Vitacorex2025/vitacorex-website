@@ -39,7 +39,7 @@
   justify-content: center;
   background: #0C2D2A;
   overflow: hidden;
-  padding: 140px 32px 80px;
+  padding: 120px 32px 48px;
 }
 
 /* Dark overlay on video for text readability */
@@ -289,7 +289,7 @@
 
 /* ---- STATS COUNTER SECTION ---- */
 .vcx-stats-2 {
-  padding: clamp(72px, 8vw, 120px) 32px;
+  padding: 40px 32px;
   background: linear-gradient(180deg, #0A1A15 0%, #122A22 50%, #0A1A15 100%);
   position: relative;
   z-index: 1;
@@ -301,7 +301,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  max-width: 1100px;
+  max-width: 760px;
   margin: 0 auto;
   text-align: center;
 }
