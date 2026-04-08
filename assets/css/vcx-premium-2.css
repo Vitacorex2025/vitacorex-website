@@ -736,7 +736,7 @@
 }
 
 /* Light sections get subtle rounded top corners for "card" feel */
-.vcx-stack-section:not(.band):not(.vcx-stats-2):not(.vcx-bg-dark):not(.vcx-bg-ink) {
+.vcx-stack-section:not(.band):not(.vcx-stats-2):not(.vcx-bg-dark):not(.vcx-bg-ink):not(.vcx-bg-grid):not(.vcx-bg-dots):not(.vcx-bg-lines) {
   background: var(--parchment, #F6F2EA);
 }
 
@@ -749,13 +749,13 @@
 
 /* ---- SECTION BACKGROUND VARIETY (Weave-inspired) ---- */
 
-/* Fine grid lines — subtle engineering paper feel */
+/* Grid lines — visible engineering paper feel */
 .vcx-bg-grid {
-  background-color: var(--parchment, #F6F2EA);
+  background-color: #F6F2EA !important;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(91,186,167,0.05) 59px, rgba(91,186,167,0.05) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(91,186,167,0.05) 59px, rgba(91,186,167,0.05) 60px);
-  background-size: 60px 60px;
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px) !important;
+  background-size: 40px 40px !important;
 }
 
 /* Dot matrix — subtle repeating dots */
