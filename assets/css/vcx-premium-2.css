@@ -1506,12 +1506,12 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #EEE9DE;
+  color: #fff;
   margin: 0 0 6px;
 }
 .vcx-bento-card__text {
   font-size: 0.88rem;
-  color: rgba(238,233,222,0.6);
+  color: rgba(255,255,255,0.7);
   line-height: 1.55;
   margin: 0;
 }
@@ -1537,7 +1537,7 @@ body {
   position: relative;
   font-size: 3rem;
   font-weight: 700;
-  color: #EEE9DE;
+  color: #fff;
   font-family: 'Playfair Display', serif;
 }
 
@@ -1726,5 +1726,116 @@ body {
   }
   .vcx-bento-section {
     padding: 40px 0;
+  }
+}
+
+/* ── TESTIMONIAL MASONRY GRID ── */
+.vcx-testi-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 10px;
+}
+.vcx-testi-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vcx-testi-card {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid rgba(91,186,167,0.18);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.vcx-testi-card:hover {
+  border-color: rgba(91,186,167,0.4);
+  transform: translateY(-2px);
+}
+.vcx-testi-card__body {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+.vcx-testi-card__quote {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.88);
+  margin: 0 0 20px;
+}
+.vcx-testi-card__author {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.vcx-testi-card__name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+.vcx-testi-card__role {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+.vcx-testi-card__photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Card variants */
+.vcx-testi-card--featured {
+  background: linear-gradient(135deg, rgba(11,36,32,0.95) 0%, rgba(16,52,44,0.9) 100%);
+  flex: 7;
+}
+.vcx-testi-card--featured .vcx-testi-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(91,186,167,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91,186,167,0.08) 1px, transparent 1px);
+  background-size: 50px 56px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
+}
+.vcx-testi-card--accent {
+  background: linear-gradient(135deg, #1a6b5a 0%, #0f4d40 100%);
+  flex: 3;
+}
+.vcx-testi-card--dark {
+  background: linear-gradient(135deg, rgba(8,28,24,0.95) 0%, rgba(12,40,34,0.92) 100%);
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .vcx-testi-masonry {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+  .vcx-testi-col:nth-child(2) {
+    display: flex;
+  }
+  .vcx-testi-col:nth-child(3) .vcx-testi-card--featured {
+    flex: auto;
+  }
+  .vcx-testi-card__photo {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .vcx-testi-masonry {
+    grid-template-columns: 1fr;
+  }
+  .vcx-testi-card__quote {
+    font-size: 0.88rem;
   }
 }
