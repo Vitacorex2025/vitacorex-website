@@ -1301,7 +1301,7 @@ body {
 .footer {
   background: #0B2420 !important;
   border-top: none !important;
-  padding: 48px 0 36px !important;
+  padding: 48px 0 20px !important;
   margin-top: 0 !important;
 }
 .footer::before {
@@ -1340,6 +1340,52 @@ body {
 .footer .footer-project-btn {
   border: none !important;
   box-shadow: none !important;
+}
+
+/* ---- FOOTER MOBILE — copyright & social at bottom, centered ---- */
+@media (max-width: 900px) {
+  .footer-grid-extended {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* Push company block to the very end */
+  .footer-company {
+    order: 10 !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  /* Hide everything except copyright + social */
+  .footer-company h3,
+  .footer-company .footer-meta .small-note {
+    display: none !important;
+  }
+  /* Show only copyright */
+  .footer-company .footer-meta .small-note[data-i18n="footer_copy"] {
+    display: block !important;
+    font-size: 0.72rem !important;
+    color: rgba(238,233,222,0.35) !important;
+    letter-spacing: 0.03em !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+  }
+  /* Social — inline centered, subtle */
+  .footer-company .foot-social {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+  .footer-company .foot-social a {
+    font-size: 0.75rem !important;
+    color: rgba(238,233,222,0.35) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
 }
 
 /* ---- RESPONSIVE ---- */
@@ -1384,5 +1430,8 @@ body {
   }
   .vcx-section-2 {
     padding: 56px 16px;
+  }
+  body {
+    padding-bottom: 20px !important;
   }
 }
