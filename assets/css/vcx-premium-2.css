@@ -751,7 +751,7 @@
 
 /* Grid lines — visible engineering paper feel */
 .vcx-bg-grid {
-  background-color: #F6F2EA !important;
+  background-color: #FFFFFF !important;
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px),
     repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px) !important;
