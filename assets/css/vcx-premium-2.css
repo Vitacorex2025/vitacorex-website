@@ -1181,62 +1181,105 @@ section.section:not(.band):nth-of-type(odd) {
   font-size: 0.72rem !important;
 }
 
-/* ---- MOBILE MENU — glass morphism ---- */
-.vcx-mobile-nav,
-.mobile-nav {
-  background: rgba(11,36,32,0.40) !important;
-  backdrop-filter: blur(32px) saturate(1.6) !important;
-  -webkit-backdrop-filter: blur(32px) saturate(1.6) !important;
-  border-radius: 12px !important;
-  padding: 8px !important;
-  margin: 4px 0 !important;
-  border: 1px solid rgba(91,186,167,0.15) !important;
-}
-.vcx-mobile-nav a,
-.mobile-nav a,
-[class*="mobile-menu"] a,
-[class*="nav-overlay"] a {
-  background: rgba(255,255,255,0.10) !important;
-  background-image: none !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-  border-radius: 8px !important;
-  color: rgba(255,255,255,0.9) !important;
-  font-weight: 500 !important;
-  font-size: 0.82rem !important;
-  padding: 10px 14px !important;
-  min-height: 40px !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-  transition: all 0.2s ease !important;
-}
-.vcx-mobile-nav a:hover,
-.vcx-mobile-nav a.active,
-.mobile-nav a:hover,
-.mobile-nav a.active {
-  background: rgba(91,186,167,0.18) !important;
-  background-image: none !important;
-  color: #FFFFFF !important;
-  border-color: rgba(91,186,167,0.20) !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
+/* ---- MOBILE MENU — full-viewport glass ---- */
 
-/* Mobile header meta row — glass */
+/* Mobile header base glass */
 .vcx-header-mobile {
   background: rgba(10,30,26,0.70) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
 }
 
-/* When menu is open — header is fixed via JS, ensure no transform/opacity breaks it */
-.vcx-mobile-menu-open .vcx-header {
-  transform: none !important;
-  opacity: 1 !important;
-  z-index: 9999 !important;
+/* Nav links — glass pills */
+.vcx-mobile-nav a,
+.mobile-nav a {
+  background: rgba(255,255,255,0.07) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 10px !important;
+  color: rgba(255,255,255,0.88) !important;
+  font-weight: 500 !important;
+  font-size: 0.88rem !important;
+  padding: 14px 18px !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
 }
-.vcx-mobile-menu-open .vcx-mobile-nav {
-  max-height: 70vh !important;
-  overflow-y: auto !important;
+.vcx-mobile-nav a:hover,
+.vcx-mobile-nav a.active,
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: rgba(91,186,167,0.15) !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+  border-color: rgba(91,186,167,0.22) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ---- MENU OPEN STATE — header becomes full-viewport glass ---- */
+@media (max-width: 900px) {
+  .vcx-mobile-menu-open .vcx-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 9999 !important;
+    padding: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+  }
+
+  .vcx-mobile-menu-open .vcx-header-shell {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(11,36,32,0.45) !important;
+    backdrop-filter: blur(14px) saturate(1.4) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.4) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  .vcx-mobile-menu-open .vcx-header-shell::before {
+    display: none !important;
+  }
+
+  .vcx-mobile-menu-open .vcx-header-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .vcx-mobile-menu-open .vcx-mobile-nav {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 12px 16px 24px !important;
+    margin: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Scroll lock — no body movement */
+  .vcx-mobile-menu-open,
+  .vcx-mobile-menu-open body {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
 }
 .vcx-mobile-brand span {
   color: #FFFFFF !important;
@@ -1251,6 +1294,9 @@ section.section:not(.band):nth-of-type(odd) {
 /* ---- FOOTER — elegant dark teal ---- */
 html {
   background: #0B2420 !important;
+}
+body {
+  background-color: transparent !important;
 }
 .footer {
   background: #0B2420 !important;
