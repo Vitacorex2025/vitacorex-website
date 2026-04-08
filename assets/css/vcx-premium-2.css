@@ -1744,12 +1744,13 @@ body {
 .vcx-testi-card {
   position: relative;
   border-radius: 12px;
-  border: 1px solid rgba(91,186,167,0.18);
+  border: 1px solid rgba(11,36,32,0.08);
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 .vcx-testi-card:hover {
-  border-color: rgba(91,186,167,0.4);
+  border-color: rgba(91,186,167,0.35);
   transform: translateY(-2px);
 }
 .vcx-testi-card__body {
@@ -1764,7 +1765,7 @@ body {
 .vcx-testi-card__quote {
   font-size: 0.92rem;
   line-height: 1.6;
-  color: rgba(255,255,255,0.88);
+  color: rgba(11,36,32,0.75);
   margin: 0 0 20px;
 }
 .vcx-testi-card__author {
@@ -1775,12 +1776,12 @@ body {
 .vcx-testi-card__name {
   font-weight: 600;
   font-size: 1rem;
-  color: #fff;
+  color: #0B2420;
   margin: 0;
 }
 .vcx-testi-card__role {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(11,36,32,0.5);
 }
 .vcx-testi-card__photo {
   width: 52px;
@@ -1792,25 +1793,25 @@ body {
 
 /* Card variants */
 .vcx-testi-card--featured {
-  background: linear-gradient(135deg, rgba(11,36,32,0.95) 0%, rgba(16,52,44,0.9) 100%);
+  background: #fff;
   flex: 7;
 }
 .vcx-testi-card--featured .vcx-testi-grid-bg {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(91,186,167,0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(91,186,167,0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(91,186,167,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91,186,167,0.06) 1px, transparent 1px);
   background-size: 50px 56px;
   mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
   -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
 }
 .vcx-testi-card--accent {
-  background: linear-gradient(135deg, #1a6b5a 0%, #0f4d40 100%);
+  background: linear-gradient(135deg, #e8f5f1 0%, #d4ede6 100%);
   flex: 3;
 }
 .vcx-testi-card--dark {
-  background: linear-gradient(135deg, rgba(8,28,24,0.95) 0%, rgba(12,40,34,0.92) 100%);
+  background: #f7f7f5;
   flex: 1;
 }
 
