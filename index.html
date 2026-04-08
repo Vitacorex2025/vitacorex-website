@@ -950,4 +950,46 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"VitaCoreX LLC — Revenue Recovery & Business Services","speakable":{"@type":"SpeakableSpecification","cssSelector":[".vcx-hero-title",".vcx-hero-subtitle",".vcx-section-title"]},"url":"https://vitacorexllc.com/","dateModified":"2026-04-05"}
 </script>
+<!-- ── FLOATING AI ASSISTANT ── -->
+<div id="vcx-ai-assistant" class="vcx-ai-wrap">
+  <button class="vcx-ai-fab" id="vcxAiFab" aria-label="AI Assistant">
+    <svg class="vcx-ai-fab__icon vcx-ai-fab__icon--bot" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+    <svg class="vcx-ai-fab__icon vcx-ai-fab__icon--close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    <span class="vcx-ai-fab__ping"></span>
+  </button>
+  <div class="vcx-ai-chat" id="vcxAiChat">
+    <div class="vcx-ai-chat__header">
+      <div class="vcx-ai-chat__status"><span class="vcx-ai-dot"></span><span>VitaCoreX Assistant</span></div>
+      <div class="vcx-ai-chat__badges">
+        <span class="vcx-ai-badge">AI</span>
+        <span class="vcx-ai-badge vcx-ai-badge--pro">Pro</span>
+      </div>
+    </div>
+    <textarea class="vcx-ai-chat__input" id="vcxAiInput" rows="4" placeholder="How can we help? Ask about recovery infrastructure, document standards, or schedule a consultation..."></textarea>
+    <div class="vcx-ai-chat__controls">
+      <div class="vcx-ai-chat__tools">
+        <button class="vcx-ai-tool" title="Attach file"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
+        <button class="vcx-ai-tool" title="Share link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+      </div>
+      <div class="vcx-ai-chat__actions">
+        <span class="vcx-ai-charcount"><span id="vcxCharCount">0</span>/2000</span>
+        <button class="vcx-ai-send" id="vcxAiSend"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+      </div>
+    </div>
+    <div class="vcx-ai-chat__footer">
+      <span><kbd>Shift+Enter</kbd> for new line</span>
+      <span><span class="vcx-ai-dot vcx-ai-dot--sm"></span> Online</span>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var fab=document.getElementById('vcxAiFab'),chat=document.getElementById('vcxAiChat'),inp=document.getElementById('vcxAiInput'),cnt=document.getElementById('vcxCharCount'),wrap=document.getElementById('vcx-ai-assistant');
+  fab.addEventListener('click',function(){wrap.classList.toggle('vcx-ai--open');if(wrap.classList.contains('vcx-ai--open'))inp.focus();});
+  inp.addEventListener('input',function(){cnt.textContent=inp.value.length;});
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();if(inp.value.trim()){inp.value='';cnt.textContent='0';}}});
+  document.getElementById('vcxAiSend').addEventListener('click',function(){if(inp.value.trim()){inp.value='';cnt.textContent='0';}});
+  document.addEventListener('mousedown',function(e){if(wrap.classList.contains('vcx-ai--open')&&!wrap.contains(e.target))wrap.classList.remove('vcx-ai--open');});
+})();
+</script>
 </body></html>

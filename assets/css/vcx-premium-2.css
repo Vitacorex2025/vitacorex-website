@@ -1729,6 +1729,189 @@ body {
   }
 }
 
+/* ── FLOATING AI ASSISTANT ── */
+.vcx-ai-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+}
+.vcx-ai-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: linear-gradient(135deg, #1a6b5a 0%, #0f4d40 100%);
+  box-shadow: 0 0 18px rgba(91,186,167,0.5), 0 0 36px rgba(91,186,167,0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.vcx-ai-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 28px rgba(91,186,167,0.7), 0 0 50px rgba(91,186,167,0.35);
+}
+.vcx-ai-fab__icon--close { display: none; }
+.vcx-ai--open .vcx-ai-fab__icon--bot { display: none; }
+.vcx-ai--open .vcx-ai-fab__icon--close { display: block; }
+.vcx-ai-fab__ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #5BBAA7;
+  opacity: 0.2;
+  animation: vcxPing 2s cubic-bezier(0,0,0.2,1) infinite;
+}
+@keyframes vcxPing {
+  75%,100% { transform: scale(1.6); opacity: 0; }
+}
+.vcx-ai-chat {
+  position: absolute;
+  bottom: 68px;
+  right: 0;
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  background: #fff;
+  border: 1px solid rgba(11,36,32,0.1);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: vcxChatPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+.vcx-ai--open .vcx-ai-chat { display: flex; }
+@keyframes vcxChatPop {
+  0% { opacity:0; transform: scale(0.85) translateY(16px); }
+  100% { opacity:1; transform: scale(1) translateY(0); }
+}
+.vcx-ai-chat__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid rgba(11,36,32,0.06);
+}
+.vcx-ai-chat__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0B2420;
+}
+.vcx-ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5BBAA7;
+  animation: vcxDotPulse 2s infinite;
+}
+.vcx-ai-dot--sm { width: 6px; height: 6px; }
+@keyframes vcxDotPulse { 50% { opacity:0.5; } }
+.vcx-ai-chat__badges { display: flex; gap: 6px; }
+.vcx-ai-badge {
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: rgba(91,186,167,0.1);
+  color: #1a6b5a;
+}
+.vcx-ai-badge--pro {
+  background: rgba(91,186,167,0.15);
+  color: #0f4d40;
+  border: 1px solid rgba(91,186,167,0.3);
+}
+.vcx-ai-chat__input {
+  width: 100%;
+  min-height: 100px;
+  padding: 16px 20px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #0B2420;
+  background: transparent;
+  font-family: inherit;
+}
+.vcx-ai-chat__input::placeholder { color: rgba(11,36,32,0.35); }
+.vcx-ai-chat__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+}
+.vcx-ai-chat__tools {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(11,36,32,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(11,36,32,0.06);
+}
+.vcx-ai-tool {
+  padding: 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(11,36,32,0.4);
+  transition: color 0.2s, background 0.2s;
+}
+.vcx-ai-tool:hover { color: #1a6b5a; background: rgba(91,186,167,0.1); }
+.vcx-ai-chat__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.vcx-ai-charcount {
+  font-size: 0.72rem;
+  color: rgba(11,36,32,0.35);
+}
+.vcx-ai-send {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #1a6b5a, #5BBAA7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(91,186,167,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.vcx-ai-send:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(91,186,167,0.4);
+}
+.vcx-ai-chat__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: 1px solid rgba(11,36,32,0.06);
+  font-size: 0.7rem;
+  color: rgba(11,36,32,0.35);
+}
+.vcx-ai-chat__footer kbd {
+  padding: 2px 5px;
+  background: rgba(11,36,32,0.05);
+  border: 1px solid rgba(11,36,32,0.1);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.65rem;
+}
+.vcx-ai-chat__footer span { display: flex; align-items: center; gap: 5px; }
+@media (max-width: 480px) {
+  .vcx-ai-wrap { bottom: 16px; right: 16px; }
+  .vcx-ai-chat { width: calc(100vw - 32px); right: -8px; }
+}
+
 /* ── TESTIMONIAL MASONRY GRID ── */
 .vcx-testi-masonry {
   display: grid;
