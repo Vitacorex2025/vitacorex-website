@@ -767,41 +767,46 @@
 
 /* Deep teal with fine grid overlay */
 .vcx-bg-dark {
-  background-color: #0A2E28 !important;
+  background-color: #0B2A24 !important;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(91,186,167,0.06) 49px, rgba(91,186,167,0.06) 50px),
-    repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(91,186,167,0.06) 49px, rgba(91,186,167,0.06) 50px);
-  background-size: 50px 50px;
-}
-.vcx-bg-dark .section-head h2,
-.vcx-bg-dark .eyebrow,
-.vcx-bg-dark h2,
-.vcx-bg-dark h3 {
-  color: #EEE9DE !important;
-}
-.vcx-bg-dark p,
-.vcx-bg-dark li,
-.vcx-bg-dark .card-body {
-  color: rgba(238,233,222,0.72) !important;
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.07) 39px, rgba(91,186,167,0.07) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.07) 39px, rgba(91,186,167,0.07) 40px);
+  background-size: 40px 40px;
 }
 
-/* Deep ink — solid dark with subtle noise grain */
+/* Deep ink — teal with ambient glow */
 .vcx-bg-ink {
-  background-color: #0A1916 !important;
+  background-color: #091E1A !important;
   background-image:
-    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(91,186,167,0.06), transparent 70%),
-    radial-gradient(ellipse 100% 60% at 80% 0%, rgba(61,142,126,0.04), transparent 60%);
+    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(91,186,167,0.08), transparent 70%),
+    radial-gradient(ellipse 100% 60% at 80% 0%, rgba(61,142,126,0.06), transparent 60%);
 }
-.vcx-bg-ink .section-head h2,
-.vcx-bg-ink .eyebrow,
-.vcx-bg-ink h2,
-.vcx-bg-ink h3 {
-  color: #EEE9DE !important;
+
+/* ---- DARK SECTION TEXT — force all text white/light ---- */
+.vcx-bg-dark,
+.vcx-bg-ink,
+.vcx-bg-glow {
+  color: rgba(238,233,222,0.85) !important;
 }
-.vcx-bg-ink p,
-.vcx-bg-ink li,
-.vcx-bg-ink .card-body {
-  color: rgba(238,233,222,0.68) !important;
+.vcx-bg-dark h1, .vcx-bg-dark h2, .vcx-bg-dark h3, .vcx-bg-dark h4,
+.vcx-bg-ink h1, .vcx-bg-ink h2, .vcx-bg-ink h3, .vcx-bg-ink h4,
+.vcx-bg-glow h1, .vcx-bg-glow h2, .vcx-bg-glow h3, .vcx-bg-glow h4 {
+  color: #FFFFFF !important;
+}
+.vcx-bg-dark p, .vcx-bg-dark li, .vcx-bg-dark span, .vcx-bg-dark td, .vcx-bg-dark th, .vcx-bg-dark label, .vcx-bg-dark strong,
+.vcx-bg-ink p, .vcx-bg-ink li, .vcx-bg-ink span, .vcx-bg-ink td, .vcx-bg-ink th, .vcx-bg-ink label, .vcx-bg-ink strong,
+.vcx-bg-glow p, .vcx-bg-glow li, .vcx-bg-glow span, .vcx-bg-glow td, .vcx-bg-glow th, .vcx-bg-glow label, .vcx-bg-glow strong {
+  color: rgba(238,233,222,0.82) !important;
+}
+.vcx-bg-dark .eyebrow, .vcx-bg-dark .vcx-eyebrow-premium,
+.vcx-bg-ink .eyebrow, .vcx-bg-ink .vcx-eyebrow-premium,
+.vcx-bg-glow .eyebrow, .vcx-bg-glow .vcx-eyebrow-premium {
+  color: #5BBAA7 !important;
+}
+.vcx-bg-dark .section-intro,
+.vcx-bg-ink .section-intro,
+.vcx-bg-glow .section-intro {
+  color: rgba(238,233,222,0.72) !important;
 }
 
 /* Warm cream with diagonal fine lines */
@@ -856,59 +861,39 @@
 }
 
 /* ---- DARK SECTION SHARED OVERRIDES ---- */
-/* Eyebrow premium text in dark contexts */
-.vcx-bg-dark .vcx-eyebrow-premium,
-.vcx-bg-ink .vcx-eyebrow-premium,
-.vcx-bg-glow .vcx-eyebrow-premium {
-  color: #5BBAA7 !important;
-}
 
-/* Headline accent in dark contexts */
-.vcx-bg-dark .vcx-headline-accent,
-.vcx-bg-ink .vcx-headline-accent,
-.vcx-bg-glow .vcx-headline-accent {
-  color: #EEE9DE !important;
-}
-
-/* Cards inside dark sections — glass morphism dark variant */
-.vcx-bg-dark .card,
-.vcx-bg-dark .widget-card,
-.vcx-bg-dark .problem-item,
-.vcx-bg-dark .proof-card,
-.vcx-bg-ink .card,
-.vcx-bg-ink .widget-card,
-.vcx-bg-glow .card,
-.vcx-bg-glow .widget-card {
-  background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(91,186,167,0.12) !important;
+/* Cards/panels inside dark sections — glass morphism */
+.vcx-bg-dark .card, .vcx-bg-dark .widget-card, .vcx-bg-dark .problem-item,
+.vcx-bg-dark .proof-card, .vcx-bg-dark .concierge-panel,
+.vcx-bg-ink .card, .vcx-bg-ink .widget-card,
+.vcx-bg-glow .card, .vcx-bg-glow .widget-card {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(91,186,167,0.15) !important;
 }
 
 /* Testimonial cards in dark — glass effect */
-.vcx-bg-dark .vcx-testimonial-card,
-.vcx-bg-dark .testimonial-card {
-  background: rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(91,186,167,0.10) !important;
-}
-.vcx-bg-dark .vcx-testimonial-card p,
-.vcx-bg-dark .testimonial-card p,
-.vcx-bg-dark .vcx-testimonial-card .quote {
-  color: rgba(238,233,222,0.82) !important;
-}
-.vcx-bg-dark .vcx-testimonial-card .author,
-.vcx-bg-dark .testimonial-card .author,
-.vcx-bg-dark .testimonial-card strong {
-  color: #EEE9DE !important;
+.vcx-bg-ink .testimonial-card, .vcx-bg-ink .vcx-testimonial-card,
+.vcx-bg-dark .testimonial-card, .vcx-bg-dark .vcx-testimonial-card {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(91,186,167,0.12) !important;
 }
 
-/* Impact items in dark ink */
-.vcx-bg-ink .vcx-impact-item {
-  border-color: rgba(91,186,167,0.08) !important;
+/* Impact section items */
+.vcx-bg-dark .vcx-impact-item, .vcx-bg-ink .vcx-impact-item {
+  border-color: rgba(91,186,167,0.10) !important;
 }
-.vcx-bg-ink .vcx-impact-number {
+.vcx-bg-dark .vcx-impact-number, .vcx-bg-ink .vcx-impact-number {
   color: #5BBAA7 !important;
 }
-.vcx-bg-ink .vcx-impact-label {
-  color: rgba(238,233,222,0.65) !important;
+.vcx-bg-dark .vcx-impact-label, .vcx-bg-ink .vcx-impact-label {
+  color: rgba(238,233,222,0.70) !important;
+}
+.vcx-bg-dark .vcx-impact-source, .vcx-bg-ink .vcx-impact-source {
+  color: rgba(238,233,222,0.45) !important;
+}
+.vcx-bg-dark .vcx-headline-accent, .vcx-bg-ink .vcx-headline-accent,
+.vcx-bg-glow .vcx-headline-accent {
+  color: #FFFFFF !important;
 }
 .vcx-bg-ink .vcx-impact-source {
   color: rgba(238,233,222,0.45) !important;
