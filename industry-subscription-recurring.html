@@ -125,11 +125,11 @@
 <div class="hero-video"><video aria-hidden="true" autoplay="" loop="" muted="" playsinline="" poster="assets/img/sky-poster.jpg" preload="metadata"><source src="assets/video/sky-clouds.mp4" type="video/mp4"/></video><img alt="Sky background" src="assets/img/sky-poster.jpg"/></div>
 <div class="wrap hero-inner">
 <div class="hero-grid hero-grid-composed">
-<div class="hero-copy glass reveal"><span class="eyebrow">Subscription &amp; recurring payments</span><h1>Recovery design for recurring billing environments where cash control and customer experience both matter.</h1><p class="lead">The point is not aggressive collections rhetoric. It is better segmentation, commitment logic, documentation, and exception handling before escalation becomes expensive.</p></div>
+<div class="hero-copy glass reveal"><span class="eyebrow">Subscription &amp; recurring · SaaS, membership, fitness</span><h1>Involuntary churn isn&rsquo;t a collections problem. It&rsquo;s a retry-logic, dunning-ladder, and card-update problem that escalated into a collections decision &mdash; usually one month too late.</h1><p class="lead">This page is written for SaaS operators, B2B subscription finance teams, membership platforms, and gym / fitness / wellness multi-location chains whose failed-payment recovery has drifted into hard-collections territory while the underlying retry logic, dunning ladder, and card-on-file update flow remain un-tuned. Most of the recoverable dollars are still fully collectable with retention preserved &mdash; if the upstream workflow is fixed first.</p></div>
 <div class="hero-side reveal">
 <div class="problem-item glass">
-<h3>Company-first positioning</h3>
-<p>These pages support the corporate lane first: recovery design, documentation control, and cleaner handoff before outside cost expands.</p>
+<h3>Where the work anchors</h3>
+<p>Retry-logic design, dunning-ladder sequencing, card-update flow, cohort-level rescue vs churn decisions, and the escalation gate that separates "retention-salvageable" from "collections-justified." VitaCoreX is not a debt collector under FDCPA &mdash; all member / subscriber contact stays under the operator&rsquo;s brand. Our lane is upstream workflow, segmentation discipline, and the decision log that keeps retention and recovery aligned.</p>
 </div>
 </div>
 </div>
@@ -139,20 +139,28 @@
 <div class="wrap">
 <div class="section-head reveal">
 <span class="eyebrow">Operating problem</span>
-<h2>Subscription and recurring-payment operators need recovery logic that protects both cash and customer experience.</h2>
-<p class="section-intro">Generic collections framing is often too blunt for recurring-billing businesses. The problem is not only delinquency; it is also poor segmentation, weak dunning discipline, inconsistent commitments, and exceptions that are not documented clearly enough to scale.</p>
+<h2>The failed payment is fixable. The decision to escalate usually isn&rsquo;t fixable after the fact.</h2>
+<p class="section-intro">Across SaaS, B2B subscription, membership, and multi-location gym / fitness operators, the common pattern isn&rsquo;t subscriber unwillingness &mdash; it&rsquo;s retry logic that fires at the wrong times (weekend 3am, then nothing for 11 days), dunning ladders that mix tone across stages, a card-on-file update flow that lives behind three clicks, exit cohorts that aren&rsquo;t segmented from rescue cohorts, and an escalation gate where the decision to treat a delinquent subscriber as a collections case happens implicitly rather than on documented criteria. The dollar gap isn&rsquo;t "uncollectable vs collectable" &mdash; it&rsquo;s "would have paid on retry day 4 vs flagged for collections day 31".</p>
 </div>
 <div class="grid-2">
 <article class="card reveal">
 <span class="pill">What changes</span>
 <ul class="authority-list compact">
-<li>Structured recovery paths based on cohort behavior and payment friction.</li><li>Cleaner commitment tracking, exception handling, and payment-plan documentation.</li><li>More credible escalation decisions when internal recovery steps have already been controlled.</li>
+<li>Retry logic tuned to card-network behavior &mdash; retry timing aligned with issuer posting windows and avoid-decline rules, not arbitrary time-of-day.</li>
+<li>Dunning ladder rewritten by stage with tone discipline &mdash; cooperative framing up to day 14, firmer framing day 15&ndash;30, escalation framing only past day 30.</li>
+<li>Card-on-file update flow surfaced one click deep in the subscriber-facing UX, not buried &mdash; with a mobile-first fallback path for hard declines.</li>
+<li>Cohort segmentation: rescue-eligible (active use, recent success, soft decline) vs churn-expected (inactive, hard decline, cancel-signal) treated on different ladders, not the same one.</li>
+<li>Escalation gate documented: specific criteria that move a subscriber from retention to collections, signed off by a named owner, logged per decision.</li>
 </ul>
 </article>
 <article class="card reveal">
 <span class="pill">Typical first outputs</span>
 <ul class="authority-list compact">
-<li>Segmentation and workflow review for aging cohorts.</li><li>Commitment and exception-control standards.</li><li>Pilot design tied to time-to-cash, cure rates, and avoidable external-cost exposure.</li>
+<li>Failed-payment cohort audit across the trailing 90 days &mdash; soft vs hard decline, recovered vs churned, time-to-cure distribution.</li>
+<li>Retry-logic audit against issuer posting behavior &mdash; surface retries firing in known-decline windows.</li>
+<li>Dunning-ladder content review with tone scoring per stage and per channel (email, SMS, in-app).</li>
+<li>Card-update flow walkthrough on production UX, timed click-depth and mobile compatibility.</li>
+<li>30-day diagnostic report with a low/high recovery band and 90-day prioritized roadmap &mdash; see the <a href="sample-deliverable.html">redacted sample deliverable</a> for the format.</li>
 </ul>
 </article>
 </div>
@@ -161,18 +169,18 @@
 <section class="section band">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow">90-day frame</span>
-<h2>Pilot before scale.</h2>
-<p class="section-intro">A stronger first phase documents the baseline, implements a contained control layer, and measures whether the changes are actually improving cash, file readiness, or escalation discipline.</p>
+<span class="eyebrow">90-day frame · Retention preserved</span>
+<h2>Fix the upstream ladder before touching the escalation gate.</h2>
+<p class="section-intro">Subscription rollouts that go straight to the escalation gate often leave rescue-eligible dollars on the table. The standard frame is to rebuild the retry logic and dunning ladder first, measure the shift in cure rate and time-to-cure on a single cohort, then re-examine the escalation gate once the upstream flow is tuned. LTV is tracked alongside cash throughout &mdash; recovered dollars that churn the subscriber are not net wins.</p>
 </div>
 <div class="grid-3">
-<article class="card reveal"><span class="pill">Weeks 1–2</span><p>Map the current workflow, identify failure points, and establish the minimum packet and reporting standard.</p></article>
-<article class="card reveal"><span class="pill">Weeks 3–8</span><p>Run a contained workstream with documented decisions, response windows, and exception handling rules.</p></article>
-<article class="card reveal"><span class="pill">Weeks 9–12</span><p>Review cohort movement, packet quality, and whether a broader rollout is justified.</p></article>
+<article class="card reveal"><span class="pill">Weeks 1&ndash;2 · Baseline</span><p>Failed-payment cohort pull, retry-logic audit, dunning-ladder review. Baseline cure rate, time-to-cure distribution, and involuntary-churn percentage documented.</p></article>
+<article class="card reveal"><span class="pill">Weeks 3&ndash;8 · Pilot</span><p>Retry timing and dunning ladder live on one subscriber cohort (plan, region, or acquisition channel). Card-update flow surfaced. Cohort-level rescue vs churn segmentation running.</p></article>
+<article class="card reveal"><span class="pill">Weeks 9&ndash;12 · Decision</span><p>Measured: cure rate vs baseline, time-to-cure shift, involuntary-churn delta, LTV preservation on recovered cohort. Broader rollout and escalation-gate rewrite only if metrics justify it.</p></article>
 </div>
 <div class="cta-row">
-<a class="btn btn-primary" href="structured-case-intake.html">Request confidential review</a>
-<a class="btn btn-secondary" href="solutions.html">Review solutions</a>
+<a class="btn btn-primary" href="structured-case-intake.html?source=industry-subscription">Request confidential review</a>
+<a class="btn btn-secondary" href="sample-deliverable.html">See the sample deliverable</a>
 </div>
 </div>
 </section>
