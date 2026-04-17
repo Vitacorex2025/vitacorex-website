@@ -154,6 +154,67 @@
 </div>
 </section>
 <!-- VCX Phase 2: product integration cards -- END -->
+<section class="section" id="roi-calculator">
+<div class="wrap">
+<div class="section-head reveal" style="text-align:center;max-width:760px;margin:0 auto 30px;">
+<span class="eyebrow">Interactive estimator</span>
+<h2>What would a structured pilot recover on your AR?</h2>
+<p class="section-intro">Enter your outstanding receivables and the typical aging. The estimator applies industry recovery-rate benchmarks and the aging-curve multiplier to produce a 90-day pilot range. Results are illustrative, not a guarantee.</p>
+</div>
+<div class="roi-shell" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px;">
+<form id="vcxRoiCalc" class="card reveal" style="padding:24px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+<label style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;font-weight:600;color:#173A63;">
+<span>Outstanding AR balance (USD)</span>
+<input type="number" name="ar" min="1000" step="1000" placeholder="e.g. 500000" style="padding:10px 12px;border:1px solid rgba(23,58,99,.28);border-radius:8px;font-size:1rem;"/>
+</label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;font-weight:600;color:#173A63;">
+<span>Average days past due</span>
+<select name="days" style="padding:10px 12px;border:1px solid rgba(23,58,99,.28);border-radius:8px;font-size:1rem;background:#fff;">
+<option value="45">Under 60 days (fresh)</option>
+<option value="75" selected>60–90 days</option>
+<option value="105">90–120 days</option>
+<option value="150">120–180 days</option>
+<option value="270">180 days – 1 year</option>
+<option value="400">Over 1 year</option>
+</select>
+</label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;font-weight:600;color:#173A63;">
+<span>Primary industry</span>
+<select name="industry" style="padding:10px 12px;border:1px solid rgba(23,58,99,.28);border-radius:8px;font-size:1rem;background:#fff;">
+<option value="healthcare">Healthcare</option>
+<option value="dental">Dental</option>
+<option value="fleet">Fleet &amp; logistics</option>
+<option value="contract">Contract services</option>
+<option value="subscription">Subscription / recurring</option>
+<option value="other">Other B2B</option>
+</select>
+</label>
+</div>
+<div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
+<button type="submit" class="btn btn-primary">Calculate my estimate</button>
+<button type="button" class="btn btn-secondary" data-roi-sample>Use sample: $500K, 90-day, healthcare</button>
+</div>
+</form>
+<div id="vcxRoiResult" class="reveal"><p class="roi-hint" style="text-align:center;color:#5E6C7B;font-size:.92rem;padding:20px 10px;">Enter an outstanding AR balance above $1,000 to see the estimate.</p></div>
+</div>
+<style>
+.roi-result-card{background:linear-gradient(135deg,#0B3B30,#173A63);color:#F6F2EA;border-radius:14px;padding:26px 28px;box-shadow:0 12px 32px rgba(23,58,99,.22);}
+.roi-result-head{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-bottom:6px;}
+.roi-result-range{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:#fff;}
+.roi-result-label{font-size:.85rem;opacity:.75;margin-bottom:18px;}
+.roi-result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:14px 0 18px;}
+.roi-result-grid > div{background:rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;}
+.roi-val{display:block;font-size:1.35rem;font-weight:700;color:#fff;line-height:1.2;}
+.roi-val-accent{color:#8FD5CE;}
+.roi-meta{display:block;font-size:.72rem;opacity:.7;margin-top:4px;}
+.roi-disclaimer{font-size:.72rem;opacity:.65;line-height:1.45;margin:14px 0 16px;}
+.roi-result-cta{display:flex;gap:10px;flex-wrap:wrap;}
+.roi-result-cta .btn{font-size:.88rem;}
+@media (max-width:560px){.roi-result-range{font-size:1.9rem}}
+</style>
+</div>
+</section>
 <section class="section band">
 <div class="wrap">
 <div class="section-head reveal">
@@ -215,6 +276,8 @@
 <script src="assets/js/site.js" defer></script><script src="assets/js/ui-shell.js" defer></script><script src="assets/js/premium-fixes.js" defer></script><script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <script src="/assets/js/vcx-chat-launcher.js" defer></script><script src="/assets/js/vcx-calendar-launcher.js" defer></script><script src="/assets/js/vcx-seo.js" defer></script>
 <script src="/assets/js/vcx-redesign.js?v=6" defer></script>
+<script src="/assets/js/vcx-roi-calculator.js" defer></script>
+<script src="/assets/js/vcx-exit-intent.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"Revenue Recovery Infrastructure","provider":{"@type":"Organization","name":"VitaCoreX LLC","telephone":"+18887948292"},"description":"Structured pre-collection revenue recovery infrastructure for complex operators. Workflow design for behavioral segmentation, payment plan optimization, ACH-first discipline, escalation control, and litigation-ready documentation. Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional agency placement.","serviceType":["Revenue Recovery","Pre-Collection Services","Net Recovery Improvement","Debt Recovery Workflow","Accounts Receivable Recovery","Bad Debt Reduction","DSO Reduction","Collection Agency Alternative"],"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"Audience","audienceType":"CFOs, Revenue Cycle Managers, AR Directors, Operations Leaders, Healthcare Administrators"}}
 </script>
