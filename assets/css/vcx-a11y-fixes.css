@@ -1,0 +1,159 @@
+/*
+ * vcx-a11y-fixes.css
+ *
+ * Accessibility contrast fixes loaded AFTER all other stylesheets.
+ * Brand teal #2D8A82 as text on white scores 4.14 — below WCAG AA (4.5 required).
+ * This file darkens text-on-light teal to #1A5A54 (~7.97) and fixes CTA buttons
+ * that were white-on-white in some page contexts.
+ *
+ * Touches: .eyebrow, .pill, .btn-primary, .btn-secondary, and .cta-row variants.
+ * Does NOT change any background-as-color use of #2D8A82 (brand accents, gradients,
+ * hero panels, launcher icons) — only foreground text on light surfaces.
+ */
+
+/* ---- 1. Eyebrow text on light backgrounds ---- */
+.eyebrow,
+body .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
+  color: #1A5A54 !important;
+}
+
+/* Restore white eyebrow inside hero (dark teal background) */
+.hero .eyebrow,
+.hero-premium .eyebrow,
+.hero span.eyebrow,
+body .hero .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .hero .eyebrow {
+  color: #FFFFFF !important;
+}
+
+/* ---- 2. Pill text on light backgrounds ---- */
+.pill,
+.card .pill,
+.industry-card .pill,
+.fit-card .pill,
+.resource-card .meta .pill,
+.deliverable-card .pill {
+  color: #1A5A54 !important;
+}
+
+/* Keep pill white inside hero (dark) context */
+.hero .pill,
+.hero-premium .pill {
+  color: #FFFFFF !important;
+}
+
+/* ---- 3. Primary CTA button ---- */
+/* Original gradient used #5BBAA7 / #2D8A82 — white text failed 4.5.
+   Darken gradient to pass 4.5+ while preserving brand teal feel. */
+.btn-primary,
+a.btn-primary,
+button.btn-primary,
+.hero .btn-primary,
+.concierge-panel .btn-primary,
+.contact-concierge .btn-primary,
+[class*="vcx-"] .btn-primary,
+.cta-row .btn-primary {
+  background: linear-gradient(135deg, #1A5A54 0%, #236B64 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+.btn-primary:hover,
+a.btn-primary:hover,
+button.btn-primary:hover,
+.cta-row .btn-primary:hover {
+  background: linear-gradient(135deg, #236B64 0%, #2D8A82 100%) !important;
+  color: #FFFFFF !important;
+}
+
+/* ---- 4. Secondary CTA button ---- */
+/* Default secondary: dark teal text on white + border, readable on light sections. */
+.btn-secondary,
+a.btn-secondary,
+button.btn-secondary,
+.section .btn-secondary,
+.cta-row .btn-secondary {
+  color: #1A5A54 !important;
+  background: #FFFFFF !important;
+  border: 2px solid #1A5A54 !important;
+}
+.btn-secondary:hover,
+a.btn-secondary:hover,
+.section .btn-secondary:hover,
+.cta-row .btn-secondary:hover {
+  color: #FFFFFF !important;
+  background: #1A5A54 !important;
+  border-color: #1A5A54 !important;
+}
+
+/* Hero (dark bg) variant — white text on translucent bg with white border */
+.hero .btn-secondary,
+.hero a.btn-secondary,
+.hero-premium .btn-secondary {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+}
+.hero .btn-secondary:hover,
+.hero a.btn-secondary:hover {
+  color: #0E2D2A !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #FFFFFF !important;
+}
+
+/* Truly dark band sections (vcx-bg-dark) keep white text secondary */
+.vcx-bg-dark .btn-secondary,
+.vcx-bg-ink .btn-secondary,
+section.band.vcx-bg-dark .btn-secondary {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ---- 5. Small-note navy gradient that read poorly on teal background ---- */
+section.band .small-note,
+.section .small-note {
+  color: #2F3A3A !important;
+}
+
+/* ---- 6. Audience badge light + workflow chip ---- */
+.audience-badge-light,
+.workflow-chip {
+  color: #1A5A54 !important;
+}
+
+/* ---- 7. Body background restore ---- */
+/* vcx-premium-2.css set body to transparent to reveal html's dark teal as a
+   seamless dark footer. Side-effect: pages without solid section backgrounds
+   (faq.html, structured-case-intake.html, etc.) bleed the dark html bg onto
+   content areas and make black text unreadable. Restore a parchment body bg.
+   The dark footer effect still works because .footer sets its own bg to #0B2420. */
+body {
+  background-color: #FAFCFC !important;
+  min-height: 100vh;
+}
+
+/* Sections without their own bg fall back to inherit from body */
+main,
+main.faq-page,
+main.legal-doc,
+.faq-section,
+section:not(.hero):not(.band):not(.vcx-bg-dark):not(.vcx-bg-ink):not([style*="background"]) {
+  background-color: transparent;
+}
+
+/* Ensure FAQ section headings read on the parchment body */
+.faq-section h2,
+.faq-section h3,
+.faq-page h1,
+.faq-page h2 {
+  color: #0E2D2A !important;
+}
+.faq-question {
+  color: #0E2D2A !important;
+}
+.faq-answer,
+.faq-answer p,
+.faq-answer li {
+  color: #1F2A29 !important;
+}
