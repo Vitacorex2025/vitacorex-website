@@ -68,7 +68,7 @@ def make_styles():
 
 
 # ─── Canvas Drawing Helpers ───────────────────────────────────
-def draw_cover(c, title_lines, subtitle, doc_type='CONFIDENTIAL'):
+def draw_cover(c, title_lines, subtitle, doc_type='PROPRIETARY \u2014 EXECUTIVE BRIEF'):
     c.setFillColor(NAVY_DEEP)
     c.rect(0, 0, W, H, fill=1, stroke=0)
     for i in range(120):
@@ -559,7 +559,7 @@ def generate_precollection():
     # Page 1: Cover
     draw_cover(c, ['Pre-Collection Recovery', 'System'],
                'B2B Fuel Card / Fleet / Logistics  \u2022  Florida-ready deployment',
-               'CONFIDENTIAL \u2014 EXECUTIVE REVIEW ONLY')
+               'PROPRIETARY \u2014 EXECUTIVE REVIEW')
     c.showPage()
 
     pages = [
@@ -918,7 +918,7 @@ def generate_dental_deck():
     # Cover
     draw_cover(c, ['Pre-Collection Revenue', 'Cycle Optimization'],
                'Dental & Outpatient Chains  \u2022  CFO / Ownership Briefing',
-               'CONFIDENTIAL \u2014 INSTITUTIONAL DECK')
+               'PROPRIETARY \u2014 INSTITUTIONAL DECK')
     c.showPage()
 
     # Define all 44 content pages

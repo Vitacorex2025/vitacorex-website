@@ -445,8 +445,8 @@ def footer_func(canvas, doc):
 def cover_page(title, subtitle, doc_type, ss):
     story = []
     story.append(Spacer(1, 1.8 * inch))
-    # Confidential badge
-    badge_data = [[Paragraph("CONFIDENTIAL", ss["VCXConfBadge"])]]
+    # Proprietary methodology badge
+    badge_data = [[Paragraph("PROPRIETARY", ss["VCXConfBadge"])]]
     badge = Table(badge_data, colWidths=[1.4 * inch])
     badge.setStyle(TableStyle([
         ("BOX", (0, 0), (-1, -1), 1.5, RED_ACCENT),
@@ -469,8 +469,8 @@ def cover_page(title, subtitle, doc_type, ss):
         ParagraphStyle("ci2", fontName="Helvetica", fontSize=9, textColor=MUTED, alignment=TA_CENTER, spaceAfter=3)))
     story.append(sp(40))
     story.append(Paragraph(
-        "Copyright 2026 VitaCoreX LLC. All rights reserved. Confidential and proprietary. "
-        "Do not distribute without written authorization.", ss["VCXDisclaimer"]))
+        "Copyright 2026 VitaCoreX LLC. All rights reserved. Proprietary methodology. "
+        "Intended for executive review and internal forwarding within the recipient organization.", ss["VCXDisclaimer"]))
     story.append(PageBreak())
     return story
 
@@ -2286,8 +2286,8 @@ def build_precollection_review():
         "operations to identify specific opportunities for structured pre-collection improvement.", ss))
     story.append(sp(10))
     story.append(Paragraph(
-        "Copyright 2026 VitaCoreX LLC. All rights reserved. This document is confidential and "
-        "proprietary. Do not distribute without written authorization from VitaCoreX LLC.",
+        "Copyright 2026 VitaCoreX LLC. All rights reserved. Proprietary methodology. "
+        "Intended for executive review and internal forwarding within the recipient organization.",
         ss["VCXDisclaimer"]))
 
     doc.build(story, onFirstPage=footer_func, onLaterPages=footer_func)

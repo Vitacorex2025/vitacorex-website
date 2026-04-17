@@ -58,12 +58,14 @@
         if (!entry.isIntersecting) return;
         var el = entry.target;
         var target = parseFloat(el.getAttribute('data-counter'));
+        var start = parseFloat(el.textContent) || 0;
+        if (start >= target) { observer.unobserve(el); return; }
         var duration = 1800;
         var startTime = null;
         function step(ts) {
           if (!startTime) startTime = ts;
           var p = Math.min((ts - startTime) / duration, 1);
-          el.textContent = Math.round(target * p);
+          el.textContent = Math.round(start + (target - start) * p);
           if (p < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
