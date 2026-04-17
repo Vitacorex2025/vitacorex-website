@@ -12,7 +12,6 @@
   }
 
   var LOCALE_KEY = 'vcx_lang';
-  var CONSENT_KEY = 'vitacorex-consent';
   var ATTRIBUTION_KEY = 'vitacorex.attribution';
   var SUPPORTED_LOCALES = ['en', 'ru', 'es'];
   var ATTRIBUTION_FIELDS = [
@@ -571,60 +570,6 @@
     window.dataLayer.push(arguments);
   };
 
-  function initConsent() {
-    var banner = doc.querySelector('[data-consent-banner]');
-    if (!banner) {
-      return;
-    }
-
-    var saved = safeLocalGet(CONSENT_KEY);
-    if (saved) {
-      banner.hidden = true;
-      return;
-    }
-
-    var text = messages();
-    var title = banner.querySelector('[data-consent-title]');
-    var bodyNode = banner.querySelector('[data-consent-body]');
-    var essential = banner.querySelector('[data-consent-essential]');
-    var analytics = banner.querySelector('[data-consent-analytics]');
-
-    if (title) {
-      title.textContent = text.consent_title;
-    }
-    if (bodyNode) {
-      bodyNode.textContent = text.consent_body;
-    }
-    if (essential) {
-      essential.textContent = text.essential;
-    }
-    if (analytics) {
-      analytics.textContent = text.analytics;
-    }
-
-    function save(value) {
-      safeLocalSet(CONSENT_KEY, value);
-      banner.hidden = true;
-      trackEvent('consent_updated', {
-        consent_choice: value,
-        language: lang
-      });
-    }
-
-    banner.hidden = false;
-
-    if (essential) {
-      essential.addEventListener('click', function () {
-        save('essential');
-      });
-    }
-    if (analytics) {
-      analytics.addEventListener('click', function () {
-        save('analytics');
-      });
-    }
-  }
-
   function initFileLabels() {
     doc.querySelectorAll('input[type="file"][data-file-list]').forEach(function (input) {
       if (input.dataset.vcxFileListBound === 'true') {
@@ -797,7 +742,6 @@
   initLocalePersistence();
   setYear();
   initMenu();
-  initConsent();
   initFileLabels();
   initForms();
   initThankYou();
