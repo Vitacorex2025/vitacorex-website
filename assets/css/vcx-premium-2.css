@@ -2220,3 +2220,386 @@ body {
   }
 }
 
+/* ============================================================
+   DUAL-ENTRY ROUTING — luxury editorial cards
+   B2B primary (7/12) + Private secondary (5/12)
+   Above-the-fold routing below hero, pre-stats.
+   ============================================================ */
+.vcx-routes {
+  position: relative;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(91,186,167,0.07) 0%, transparent 60%),
+    linear-gradient(180deg, #F6F2EA 0%, #EFE9DC 100%);
+  padding: 72px 32px 80px;
+  border-top: 1px solid rgba(26,47,42,0.08);
+  overflow: hidden;
+}
+.vcx-routes::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #5BBAA7 50%, transparent);
+  opacity: 0.6;
+}
+
+.vcx-routes__wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.vcx-routes__head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+
+.vcx-routes__eyebrow {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #3D8E7E;
+  margin-bottom: 18px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.vcx-routes__eyebrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 1px;
+  background: #5BBAA7;
+}
+
+.vcx-routes__title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: #1A2F2A;
+  margin: 0 0 16px;
+}
+
+.vcx-routes__lede {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.66;
+  color: #4A5A52;
+  margin: 0 auto 28px;
+  max-width: 56ch;
+}
+
+.vcx-routes__rule {
+  width: 48px;
+  height: 1px;
+  background: rgba(26,47,42,0.22);
+  margin: 0 auto;
+}
+
+/* Grid — primary gets 7/12, private 5/12 */
+.vcx-routes__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.vcx-route {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #FBF8F3;
+  border: 1px solid rgba(26,47,42,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 280ms ease,
+              border-color 280ms ease;
+  box-shadow: 0 1px 0 rgba(26,47,42,0.02);
+}
+
+.vcx-route__inner {
+  padding: 40px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* PRIMARY (B2B) — richer, ink-navy surface */
+.vcx-route--primary {
+  background:
+    linear-gradient(180deg, #FBF8F3 0%, #F1EBDD 100%);
+  border-color: rgba(26,47,42,0.12);
+}
+.vcx-route--primary .vcx-route__inner {
+  padding: 48px 48px 44px;
+}
+
+/* SECONDARY (Private) — lighter, ghost feel */
+.vcx-route--private {
+  background: #FBF8F3;
+}
+
+/* Top row — tag + meta */
+.vcx-route__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(26,47,42,0.10);
+}
+.vcx-route__tag {
+  font-family: 'Georgia', serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: #1A2F2A;
+  position: relative;
+  padding-left: 18px;
+}
+.vcx-route__tag::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 1px;
+  background: #5BBAA7;
+}
+.vcx-route--primary .vcx-route__tag {
+  font-size: 0.82rem;
+}
+.vcx-route__meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7A8A82;
+}
+
+.vcx-route__headline {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.42rem;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.012em;
+  color: #1A2F2A;
+  margin: 0 0 14px;
+}
+.vcx-route--primary .vcx-route__headline {
+  font-size: 1.68rem;
+  line-height: 1.22;
+}
+
+.vcx-route__summary {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.64;
+  color: #3F5049;
+  margin: 0 0 24px;
+  max-width: 48ch;
+}
+.vcx-route--primary .vcx-route__summary {
+  font-size: 1rem;
+}
+
+.vcx-route__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vcx-route__list li {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2E4F46;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.vcx-route__list-mark {
+  color: #5BBAA7;
+  font-weight: 400;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+/* Bottom row — CTA + micro */
+.vcx-route__foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(26,47,42,0.08);
+}
+
+.vcx-route__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 13px 22px;
+  border-radius: 3px;
+  transition: all 250ms ease;
+  width: fit-content;
+}
+.vcx-route__cta--primary {
+  background: #2E4F46;
+  color: #F6F2EA;
+  border: 1px solid #2E4F46;
+}
+.vcx-route__cta--ghost {
+  background: transparent;
+  color: #1A2F2A;
+  border: 1px solid rgba(26,47,42,0.28);
+}
+.vcx-route__arrow {
+  transition: transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.vcx-route__micro {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7A8A82;
+}
+
+/* Bottom hairline reveal (luxury hover) */
+.vcx-route__hairline {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #5BBAA7 20%, #5BBAA7 80%, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: 3;
+}
+
+/* HOVER — the whole luxury feel */
+.vcx-route:hover {
+  transform: translateY(-3px);
+  border-color: rgba(26,47,42,0.18);
+  box-shadow: 0 18px 40px -20px rgba(26,47,42,0.18),
+              0 4px 12px -6px rgba(26,47,42,0.08);
+}
+.vcx-route:hover .vcx-route__hairline {
+  transform: scaleX(1);
+}
+.vcx-route:hover .vcx-route__arrow {
+  transform: translateX(4px);
+}
+.vcx-route--primary:hover .vcx-route__cta--primary {
+  background: #1A2F2A;
+  border-color: #1A2F2A;
+}
+.vcx-route--private:hover .vcx-route__cta--ghost {
+  border-color: #2E4F46;
+  color: #2E4F46;
+}
+
+/* Focus states — accessibility */
+.vcx-route:focus-visible {
+  outline: 2px solid #5BBAA7;
+  outline-offset: 3px;
+}
+
+/* Escape hatch */
+.vcx-routes__escape {
+  margin-top: 36px;
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: #5E6C7B;
+}
+.vcx-routes__escape em {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #2E4F46;
+  margin-right: 8px;
+}
+.vcx-routes__escape a {
+  color: #2E4F46;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46,79,70,0.35);
+  padding-bottom: 2px;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.vcx-routes__escape a:hover {
+  color: #1A2F2A;
+  border-bottom-color: #5BBAA7;
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+  .vcx-routes {
+    padding: 56px 24px 64px;
+  }
+  .vcx-routes__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .vcx-route__inner,
+  .vcx-route--primary .vcx-route__inner {
+    padding: 36px 32px 32px;
+  }
+  .vcx-route--primary .vcx-route__headline {
+    font-size: 1.5rem;
+  }
+  .vcx-route__headline {
+    font-size: 1.3rem;
+  }
+}
+
+/* Phone */
+@media (max-width: 540px) {
+  .vcx-routes {
+    padding: 44px 20px 52px;
+  }
+  .vcx-routes__head {
+    margin-bottom: 36px;
+  }
+  .vcx-route__inner,
+  .vcx-route--primary .vcx-route__inner {
+    padding: 30px 24px 26px;
+  }
+  .vcx-route__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .vcx-route__cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .vcx-routes__escape {
+    font-size: 0.86rem;
+    padding: 0 8px;
+  }
+}
+
