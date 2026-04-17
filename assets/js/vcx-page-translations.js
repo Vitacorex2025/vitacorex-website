@@ -947,6 +947,320 @@ add('Company & solutions',
 add('Review, privacy & contact',
     'Обзор, конфиденциальность и контакт',
     'Revisión, privacidad y contacto');
+add('Trust & procurement',
+    'Доверие и закупки',
+    'Confianza y compras');
+
+// ─── PROCUREMENT PAGES (Phase 8) ─────────────────────────────
+// Covers: pricing-and-engagement-tiers, sub-processors-and-dpa,
+// security-and-compliance, sample-deliverable, procurement-FAQ,
+// privacy-policy, terms-of-use — visible procurement-facing strings.
+
+// -- Pricing & engagement tiers --
+add('Pricing & engagement tiers · Published',
+    'Цены и уровни взаимодействия · Публично',
+    'Precios y niveles de contratación · Publicado');
+add('Three tiers, published fees, no contingency.',
+    'Три уровня, публикуемые ставки, без гонораров от результата.',
+    'Tres niveles, tarifas publicadas, sin honorarios contingentes.');
+add('Why bands, not a single price',
+    'Почему диапазоны, а не одна цена',
+    'Por qué bandas y no un único precio');
+add('The three tiers',
+    'Три уровня',
+    'Los tres niveles');
+add('Fixed fees where we can. Bands where scope genuinely varies.',
+    'Фиксированные ставки, где возможно. Диапазоны, где объём действительно различается.',
+    'Tarifas fijas donde es posible. Bandas donde el alcance realmente varía.');
+add('Diagnostic',
+    'Диагностика',
+    'Diagnóstico');
+add('90-day Pilot',
+    'Пилот на 90 дней',
+    'Piloto de 90 días');
+add('Programme',
+    'Программа',
+    'Programa');
+add('Most common',
+    'Чаще всего',
+    'Más común');
+add('Request a Diagnostic',
+    'Запросить диагностику',
+    'Solicitar un diagnóstico');
+add('Start a 90-day Pilot',
+    'Запустить пилот на 90 дней',
+    'Iniciar un piloto de 90 días');
+add('Discuss a Programme',
+    'Обсудить программу',
+    'Conversar sobre un programa');
+add('Billing & termination mechanics',
+    'Механика оплаты и расторжения',
+    'Mecánica de facturación y terminación');
+add('Exactly what happens at start, mid, and end of engagement.',
+    'Что именно происходит в начале, середине и в конце взаимодействия.',
+    'Qué sucede exactamente al inicio, a medio camino y al cierre del contrato.');
+add('Event',
+    'Событие',
+    'Evento');
+add('Deposit at start',
+    'Авансовый платёж в начале',
+    'Depósito inicial');
+add('Payment terms',
+    'Условия оплаты',
+    'Términos de pago');
+add('Scope change',
+    'Изменение объёма',
+    'Cambio de alcance');
+add('Early termination by operator',
+    'Досрочное расторжение со стороны оператора',
+    'Terminación anticipada por el operador');
+add('Early termination by VitaCoreX',
+    'Досрочное расторжение со стороны VitaCoreX',
+    'Terminación anticipada por VitaCoreX');
+add('Data & playbook ownership',
+    'Принадлежность данных и плейбука',
+    'Propiedad de datos y playbook');
+add('Invoice form',
+    'Форма счёта',
+    'Formato de factura');
+add('ROI framework',
+    'Методика расчёта ROI',
+    'Marco de ROI');
+add('How we measure, and what "works" actually means.',
+    'Как мы измеряем и что на самом деле значит «работает».',
+    'Cómo medimos y qué significa realmente que «funciona».');
+add('What we count',
+    'Что мы считаем',
+    'Qué contamos');
+add("What we don't count",
+    'Что мы не считаем',
+    'Qué no contamos');
+add('Start a structured intake',
+    'Начать структурированный приём',
+    'Iniciar admisión estructurada');
+add("See what you'd receive",
+    'Посмотреть, что вы получите',
+    'Ver qué recibiría');
+
+// -- Sub-processors & DPA --
+add('Sub-processors & DPA · Named, dated, scoped',
+    'Субпроцессоры и DPA · Поимённо, с датами, с объёмом',
+    'Sub-procesadores y DPA · Nombrados, con fecha, con alcance');
+add('Who touches the data, in what role, and what we put in writing.',
+    'Кто касается данных, в какой роли и что мы фиксируем письменно.',
+    'Quién toca los datos, en qué rol y qué ponemos por escrito.');
+add('Named vendors and what they touch',
+    'Именованные поставщики и зона их доступа',
+    'Proveedores nombrados y a qué acceden');
+add('Data Processing Addendum summary',
+    'Краткое изложение соглашения об обработке данных (DPA)',
+    'Resumen del Addendum de Procesamiento de Datos (DPA)');
+add('Change notification',
+    'Уведомление об изменениях',
+    'Notificación de cambios');
+add('Artifacts available on request',
+    'Артефакты, предоставляемые по запросу',
+    'Artefactos disponibles bajo solicitud');
+add('DPA & contracts',
+    'DPA и контракты',
+    'DPA y contratos');
+add('Vendor diligence',
+    'Проверка поставщиков',
+    'Debida diligencia de proveedores');
+add('Purpose limitation & scope',
+    'Ограничение цели и объёма',
+    'Limitación de propósito y alcance');
+add('Sub-processor binding',
+    'Обязательства субпроцессоров',
+    'Vinculación de sub-procesadores');
+add('Security baseline',
+    'Базовый уровень безопасности',
+    'Línea base de seguridad');
+add('Breach notification (72 hours)',
+    'Уведомление об утечке (72 часа)',
+    'Notificación de brecha (72 horas)');
+add('Data-subject rights & cooperation',
+    'Права субъектов данных и сотрудничество',
+    'Derechos del sujeto de datos y cooperación');
+add('Retention & destruction',
+    'Хранение и уничтожение',
+    'Retención y destrucción');
+add('Audit rights',
+    'Права на аудит',
+    'Derechos de auditoría');
+add('International transfers',
+    'Международная передача',
+    'Transferencias internacionales');
+add('Regulatory boundaries',
+    'Регуляторные границы',
+    'Límites regulatorios');
+
+// -- Security & compliance (key headers) --
+add('Security & Compliance · Procurement-grade disclosure',
+    'Безопасность и комплаенс · Раскрытие для закупок',
+    'Seguridad y cumplimiento · Divulgación para compras');
+add('What your procurement, legal, and security teams need to file us as a vendor.',
+    'Что нужно вашим отделам закупок, юристам и безопасности, чтобы оформить нас как поставщика.',
+    'Lo que sus equipos de compras, legal y seguridad necesitan para registrarnos como proveedor.');
+add('Data handling posture',
+    'Подход к обработке данных',
+    'Postura de manejo de datos');
+add('Access controls',
+    'Управление доступом',
+    'Controles de acceso');
+add('Incident response',
+    'Реагирование на инциденты',
+    'Respuesta a incidentes');
+add('Compliance boundaries',
+    'Границы комплаенса',
+    'Límites de cumplimiento');
+add('Procurement artifacts',
+    'Артефакты для закупок',
+    'Artefactos para compras');
+add('Read the full security posture',
+    'Прочитать полный обзор безопасности',
+    'Leer la postura de seguridad completa');
+
+// -- Sample deliverable --
+add('Sample deliverable · Redacted 30-day diagnostic',
+    'Образец отчёта · 30-дневная диагностика (с редактированием)',
+    'Entregable de muestra · Diagnóstico de 30 días (editado)');
+add('What a VitaCoreX diagnostic actually looks like.',
+    'Как на самом деле выглядит диагностика VitaCoreX.',
+    'Cómo se ve realmente un diagnóstico de VitaCoreX.');
+add('What this sample is',
+    'Что представляет собой этот образец',
+    'Qué es esta muestra');
+add("What's redacted and why",
+    'Что отредактировано и почему',
+    'Qué se ha editado y por qué');
+add('Sample sections (abbreviated)',
+    'Разделы образца (сокращённо)',
+    'Secciones de la muestra (abreviadas)');
+add('Review security & compliance',
+    'Просмотреть безопасность и комплаенс',
+    'Revisar seguridad y cumplimiento');
+
+// -- Procurement FAQ (key questions) --
+add('Procurement & Vendor Onboarding',
+    'Закупки и подключение поставщика',
+    'Compras e incorporación de proveedores');
+add('Do you provide W-9, Certificate of Insurance, and NDA on request?',
+    'Предоставляете ли вы W-9, сертификат страхования и NDA по запросу?',
+    '¿Proporciona W-9, Certificado de Seguro y NDA bajo solicitud?');
+add('Will you sign an NDA before the first technical conversation?',
+    'Подпишете ли вы NDA до первого технического разговора?',
+    '¿Firmarán un NDA antes de la primera conversación técnica?');
+add('Where is client data stored, and in what jurisdiction?',
+    'Где хранятся данные клиента и в какой юрисдикции?',
+    '¿Dónde se almacenan los datos del cliente y en qué jurisdicción?');
+add('Can you work inside our environment instead of yours?',
+    'Можете ли вы работать в нашей среде, а не в вашей?',
+    '¿Pueden trabajar dentro de nuestro entorno en lugar del suyo?');
+add('Do you work on contingency or outcome-based pricing?',
+    'Работаете ли вы за гонорар от результата или по модели оплаты по итогам?',
+    '¿Trabajan con honorarios contingentes o precios basados en resultados?');
+add('How do you measure ROI and report results?',
+    'Как вы измеряете ROI и отчитываетесь о результатах?',
+    '¿Cómo miden el ROI y reportan los resultados?');
+
+// -- Privacy & terms (hero + key sections) --
+add('Privacy policy · Last updated 17 April 2026',
+    'Политика конфиденциальности · Обновлено 17 апреля 2026',
+    'Política de privacidad · Actualizado el 17 de abril de 2026');
+add('How site data, engagement data, and operator data are handled — stated, not implied.',
+    'Как обрабатываются данные сайта, данные взаимодействия и данные оператора — явно, а не по умолчанию.',
+    'Cómo se tratan los datos del sitio, los datos del contrato y los datos del operador — declarado, no implícito.');
+add('Two streams of data',
+    'Два потока данных',
+    'Dos flujos de datos');
+add('Information you submit via the public site',
+    'Информация, которую вы отправляете через публичный сайт',
+    'Información que envía a través del sitio público');
+add('How site data is used',
+    'Как используются данные сайта',
+    'Cómo se usan los datos del sitio');
+add('Important file-handling boundary',
+    'Важная граница по работе с файлами',
+    'Límite importante para el manejo de archivos');
+add('Cookies and consent',
+    'Cookies и согласие',
+    'Cookies y consentimiento');
+add('Third-party services and sub-processors',
+    'Сторонние сервисы и субпроцессоры',
+    'Servicios de terceros y sub-procesadores');
+add('Operator data: purpose limitation & scope',
+    'Данные оператора: ограничение цели и объёма',
+    'Datos del operador: limitación de propósito y alcance');
+add('Retention & destruction',
+    'Хранение и уничтожение',
+    'Retención y destrucción');
+add('Breach notification',
+    'Уведомление об утечке',
+    'Notificación de brecha');
+add('Your rights & data-subject requests',
+    'Ваши права и запросы субъекта данных',
+    'Sus derechos y solicitudes del sujeto de datos');
+add('Governing law & jurisdiction',
+    'Применимое право и юрисдикция',
+    'Ley aplicable y jurisdicción');
+add('Changes to this policy',
+    'Изменения этой политики',
+    'Cambios a esta política');
+add('Contact',
+    'Контакт',
+    'Contacto');
+add('Terms of use · Last updated 17 April 2026',
+    'Условия использования · Обновлено 17 апреля 2026',
+    'Términos de uso · Actualizado el 17 de abril de 2026');
+add('Site terms, engagement-letter supremacy, and procurement-relevant boundaries.',
+    'Условия сайта, верховенство договора о взаимодействии и границы, важные для закупок.',
+    'Términos del sitio, supremacía de la carta de contratación y límites relevantes para compras.');
+add('Informational use of the public site',
+    'Информационное использование публичного сайта',
+    'Uso informativo del sitio público');
+add('No legal advice',
+    'Без юридических консультаций',
+    'Sin asesoría legal');
+add('No licensed collections activity represented here',
+    'Лицензированная коллекторская деятельность здесь не представлена',
+    'Aquí no se representa actividad de cobranza con licencia');
+add('No guarantee of results',
+    'Без гарантии результата',
+    'Sin garantía de resultados');
+add('Engagement letter supersedes these terms',
+    'Договор о взаимодействии имеет приоритет над этими условиями',
+    'La carta de contratación prevalece sobre estos términos');
+add('User responsibilities',
+    'Обязанности пользователя',
+    'Responsabilidades del usuario');
+add('Intellectual property on the public site',
+    'Интеллектуальная собственность на публичном сайте',
+    'Propiedad intelectual en el sitio público');
+add('Engagement IP & data ownership',
+    'Интеллектуальная собственность и данные в рамках взаимодействия',
+    'Propiedad intelectual y datos en el contrato');
+add('Confidentiality',
+    'Конфиденциальность',
+    'Confidencialidad');
+add('Disclaimer of warranties (site use)',
+    'Отказ от гарантий (использование сайта)',
+    'Renuncia de garantías (uso del sitio)');
+add('Limitation of liability (site use)',
+    'Ограничение ответственности (использование сайта)',
+    'Limitación de responsabilidad (uso del sitio)');
+add('Indemnification',
+    'Возмещение убытков',
+    'Indemnización');
+add('Governing law, venue, dispute resolution',
+    'Применимое право, место рассмотрения, разрешение споров',
+    'Ley aplicable, jurisdicción, resolución de disputas');
+add('Severability',
+    'Делимость условий',
+    'Divisibilidad');
+add('Changes to these terms',
+    'Изменения этих условий',
+    'Cambios a estos términos');
 
 /* ================================================================
    TRANSLATION ENGINE — walks the DOM and replaces text
