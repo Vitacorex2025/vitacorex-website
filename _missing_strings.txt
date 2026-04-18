@@ -1,0 +1,239 @@
+Current translation keys: 982
+
+=== 404.html: 11 missing ===
+  <h1  > Page Not Found
+  <p   > The page you're looking for may have been moved or no longer exists. VitaCoreX LLC provides revenue recovery, immigration services, LLC formation, auto deal ...
+  <h3  > Explore Our Services
+  <p   > Pre-collection workflows for healthcare, dental, gyms, SaaS
+  <p   > Corporate document management and litigation support
+  <p   > USCIS packet preparation, visa, green card documentation
+  <p   > LLC, S-Corp, C-Corp formation in Florida
+  <p   > Dealer fee analysis, GAP insurance, loan calculator
+  <p   > AI contract analysis, NDA, non-compete review
+  <p   > Healthcare, dental, gyms, fleet, construction, SaaS
+  <p   > Tampa FL ? EN / RU / ES ? (888) 794-8292
+
+=== about.html: 9 missing ===
+  <span> Leadership
+  <h2  > Who runs VitaCoreX.
+  <p   > Boutique advisory firms are bought as much for the principal as for the method. This page exists to make that principal visible ? and verifiable ? before the...
+  <h3  > FOUNDER_NAME
+  <p   > FOUNDER_BIO_PARAGRAPH_1
+  <p   > FOUNDER_BIO_PARAGRAPH_2
+  <h3  > For procurement and security teams
+  <p   > Vendor onboarding packets ? including W-9, Certificate of Insurance, data handling procedures, and references ? are provided during procurement review. Reque...
+  <p   > Founder LinkedIn, Sunbiz entity record, and EIN are independently verifiable before any engagement commitment.
+
+=== additional-services.html: 0 missing ===
+
+=== app.html: 4 missing ===
+  <p   > Workspace redirect
+  <h1  > The secure VitaCoreX workspace now opens from the current sign-in route.
+  <p   > This utility page is no longer a public product surface. It forwards operators to the active secure entry instead of the older legacy handoff.
+  <p   > VitaCoreX is not a law firm.
+
+=== auto-purchase.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== business-plans.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== careers.html: 0 missing ===
+
+=== case-study-healthcare-network.html: 0 missing ===
+
+=== contact.html: 1 missing ===
+  <p   > VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and not a licensed collection agency.
+
+=== contracts.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== cookie-policy.html: 13 missing ===
+  <span> Cookie policy
+  <h1  > How the site handles essential functionality, analytics consent, and configured measurement tools.
+  <p   > The site already had a consent banner. This page makes the consent logic and tracker categories explicit.
+  <h2  > How cookies are used
+  <p   > The site uses essential functionality plus optional analytics and marketing measurement tools. Optional tools are intended to load only after consent.
+  <h2  > Consent choices
+  <li  > Essential only: basic site operation without optional analytics or marketing tags.
+  <li  > Analytics only: essential functionality plus analytics-focused measurement.
+  <li  > Accept all: essential, analytics, and any configured campaign/marketing measurement tools.
+  <h2  > Configured tracker slots
+  <p   > The site is prepared for Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag, and Apollo website tracking. Wh...
+  <h2  > Managing consent
+  <p   > You can manage consent through the banner when it is shown. Browser settings can also be used to control or clear cookies.
+
+=== corporate-legal-file-control.html: 5 missing ===
+  <span> Estimator
+  <span> Impact view
+  <p   > Use the estimator to quantify how much high-cost attorney time may be consumed by administrative file preparation.
+  <p   > Upload contracts for server-side clause extraction, risk scoring, and structured analysis memos.
+  <p   > Secure portal for matter status, document uploads, comments thread, and deliverable downloads.
+
+=== corporate-paralegal.html: 1 missing ===
+  <p   > Redirecting to corporate-legal-file-control.html
+
+=== faq.html: 0 missing ===
+
+=== google4ac6122041612c23.html: 0 missing ===
+
+=== i-130-petition.html: 0 missing ===
+
+=== i-485-adjustment.html: 0 missing ===
+
+=== immigration-documents.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== immigration-services-tampa.html: 0 missing ===
+
+=== index.html: 0 missing ===
+
+=== industries.html: 2 missing ===
+  <p   > A tighter wedge improves both buyer clarity and search relevance. These pages show where the operational model has the strongest natural fit.
+  <p   > The page should never promise guaranteed rankings or fixed performance outcomes. It should explain fit, process, and evidence standards.
+
+=== industry-contract-services.html: 0 missing ===
+
+=== industry-fleet-logistics.html: 0 missing ===
+
+=== industry-healthcare-dental.html: 0 missing ===
+
+=== industry-subscription-recurring.html: 0 missing ===
+
+=== llc-formation-florida.html: 0 missing ===
+
+=== n-400-naturalization.html: 0 missing ===
+
+=== net-recovery.html: 1 missing ===
+  <p   > Redirecting to revenue-recovery-workflow.html
+
+=== pricing-and-engagement-tiers.html: 0 missing ===
+
+=== privacy-policy.html: 0 missing ===
+
+=== resources.html: 8 missing ===
+  <p   > 5 leakage points in healthcare operators, why sequencing matters, and how early agency escalation compresses margin.
+  <p   > Compact CFO-facing summary with DSO, leakage, and executive rationale.
+  <p   > Institutional deck for pilot economics, operating framework, and executive positioning.
+  <p   > Framework logic, escalation control, and executive review for pre-agency sequencing.
+  <h2  > Proprietary methodology materials for executive review and internal forwarding.
+  <p   > Each PDF is designed to move a specific internal conversation ? recovery economics, DSO leakage, pilot structure ? past the first meeting without another sal...
+  <p   > Share them with your CFO, operations lead, or counsel-adjacent team. The "proprietary" badge means the underlying methodology is copyrighted; the document it...
+  <p   > That makes the resource library more than lead bait. It becomes a forwarding tool for owners, CFOs, operators, and counsel-adjacent teams.
+
+=== revenue-recovery-miami.html: 0 missing ===
+
+=== revenue-recovery-orlando.html: 0 missing ===
+
+=== revenue-recovery-tampa.html: 0 missing ===
+
+=== revenue-recovery-workflow.html: 26 missing ===
+  <p   > Pilot evidence should come from operator baselines, documented process changes, and measured file-quality improvements rather than illustrative public claims.
+  <li  > Behavioral segmentation
+  <li  > Conditional offer conversion
+  <li  > Guarantor activation
+  <li  > ACH-first discipline
+  <li  > Litigation-ready documentation
+  <li  > 90-day pilot
+  <li  > Balances converted before agency escalation
+  <li  > Documented payment commitments and cure rates
+  <li  > Exception queues, follow-up discipline, and aging movement
+  <li  > File quality improvements that reduce downstream cleanup
+  <p   > Measure the operator's own baseline first, then compare the pilot against that live operating context.
+  <p   > Use a live pilot to validate the economic case with operator-owned data.
+  <li  > Starting portfolio mix and pre-agency balance volume
+  <li  > Acceptance rate, completion rate, and time-to-cash
+  <li  > Agency referrals avoided or deferred through cleaner internal sequencing
+  <li  > Documentation quality at handoff when escalation remains necessary
+  <p   > FDCPA / Regulation F / Florida FCCPA / E-SIGN / Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structur...
+  <p   > The goal is controlled implementation evidence, not illustrative case-study theatre.
+  <p   > Multi-step diagnostic wizard with executive brief generation and KPI baseline computation.
+  <p   > Structured intake pipeline with triage scoring, magic-link status tracking, and admin review queue.
+  <span> Interactive estimator
+  <h2  > What would a structured pilot recover on your AR?
+  <p   > Enter your outstanding receivables and the typical aging. The estimator applies industry recovery-rate benchmarks and the aging-curve multiplier to produce a...
+  <p   > Enter an outstanding AR balance above $1,000 to see the estimate.
+  <p   > Use the industry pages when the buyer needs a more specific operating frame than a general service description can provide.
+
+=== sample-deliverable.html: 0 missing ===
+
+=== security-and-compliance.html: 0 missing ===
+
+=== solutions.html: 25 missing ===
+  <p   > The site now makes the three lanes more legible so buyers do not confuse a recovery problem with a file-control problem or a routing problem.
+  <span> Engagement tiers
+  <h2  > Three entry points. Every commitment starts with a measurable scope.
+  <p   > Indicative ranges below reflect current pilot and programme structures. Final fee is confirmed after the confidential review and depends on matter volume, in...
+  <span> Diagnostic review
+  <h3  > Starting $2,500
+  <p   > Two-week assessment
+  <p   > Workflow audit, AR leakage map, file-control gap log, and a 12-month roadmap. Fee applied to subsequent pilot if engaged within 30 days.
+  <li  > Remote kickoff and data intake
+  <li  > Recovery-probability model for your AR mix
+  <li  > Written deliverable plus 45-min readout
+  <span> 90-day controlled pilot
+  <h3  > From $8,500/mo
+  <p   > Performance-linked component available
+  <p   > Full workflow deployment for one business unit or one matter lane. Typical pilots report 2.2?4.4x ROI over the 90-day window, with measurable DSO reduction a...
+  <li  > Documented SOPs and escalation ladder
+  <li  > File-control standards applied to live packets
+  <li  > Weekly scorecards; counsel-ready handoff format
+  <h3  > Custom scope
+  <p   > Multi-unit, 12-month minimum
+  <p   > Post-pilot roll-out across business units, industries, or regions. Includes quarterly governance reviews, compliance alignment (FDCPA, HIPAA, CFPB Reg F, Flo...
+  <li  > Dedicated workflow owner on the VitaCoreX side
+  <li  > Quarterly business reviews with CFO-level reporting
+  <li  > Priority routing for regulated and high-value matters
+  <p   > Ranges are indicative. Final fee depends on matter volume, compliance scope, and integration depth. VitaCoreX LLC is not a law firm; fees are for administrat...
+
+=== structured-case-intake.html: 14 missing ===
+  <p   > Attachment is optional. Use the public form for general business documents and non-regulated materials only.
+  <p   > Private Client Self-Service Tools
+  <p   > Need a quick analysis before you submit? Use one of these tools first ? results are instant and stay in your browser.
+  <li  > Recommended service lineStructured intake review aligned to route, urgency, and file readiness.
+  <li  > Routing confidenceUpdated when the required fields, service type, and urgency are complete.
+  <li  > What to send nowContract, invoice, payment history, screenshots, notices, and any existing file references.
+  <li  > Response window24?48 business hours after a complete intake and usable supporting material.
+  <li  > Recommended next stepRouting review, document gap check, and consultation handoff.
+  <p   > This summary becomes more precise as the intake is completed. It is not legal advice.
+  <li  > Initial routing review to confirm the right workstream and identify obvious gaps.
+  <li  > Request for missing materials only when they materially improve the next step.
+  <li  > Response-window guidance based on urgency, fit, and document readiness.
+  <p   > Use the public intake for general business documents and non-regulated materials. For highly sensitive or regulated records, request secure coordination first.
+  <p   > VitaCoreX is not a law firm and not a licensed collection agency. Legal strategy and legal advice remain with licensed counsel.
+
+=== sub-processors-and-dpa.html: 0 missing ===
+
+=== terms-of-use.html: 0 missing ===
+
+=== thank-you.html: 2 missing ===
+  <h1  > Thank you. We received your request.
+  <p   > Your request has been logged. A team review typically begins within 1-2 business days once the submission is complete.
+
+=== vitacorex-vs-traditional-agency.html: 22 missing ===
+  <span> Side-by-side comparison
+  <h1  > VitaCoreX vs Traditional Collection Agency
+  <p   > Two different economic models for the same problem: unpaid balances. One treats revenue recovery as an infrastructure discipline before the matter gets expen...
+  <p   > VitaCoreX LLC is not a collection agency and not a law firm. We design and operate structured pre-collection workflows for operators. Third-party collection ...
+  <span> When to choose what
+  <h2  > Not every balance belongs inside VitaCoreX.
+  <p   > Balances already 12+ months old, already charged off, or already in dispute typically belong with a licensed collection agency or counsel. Pre-collection inf...
+  <span> Choose VitaCoreX
+  <p   > When 30-, 60-, and 90-day buckets are leaking revenue, when the customer relationship is still worth protecting, and when counsel is spending hours reorganiz...
+  <span> Choose a collection agency
+  <p   > When a balance is already 12+ months old, when the customer relationship is already ended, or when the account is already charged off and contingency-fee rec...
+  <span> Choose both
+  <p   > Mature AR programs run VitaCoreX on fresh-to-aged balances (where most recoverable dollars live) and use collection agencies on the long tail where the econo...
+  <span> Source benchmarks
+  <h2  > Why these numbers hold across industries.
+  <h3  > Fresh vs aged recoverability
+  <p   > Industry data shows 70?90% recoverability on invoices under 6 months old, dropping to 45?55% at 6 months and 20?30% at 12 months. Every week of inaction redu...
+  <h3  > Agency net-to-creditor economics
+  <p   > After a 25?50% contingency commission, traditional agency placements net 10?14? per dollar to the creditor on aged balances. The math reflects both commissio...
+  <h3  > Pilot ROI benchmark
+  <p   > VitaCoreX controlled pilots typically report 2.2?4.4x ROI over a 90-day window driven by faster pre-escalation recovery, reduced agency placement volume, and...
+  <p   > Figures are industry benchmarks and VitaCoreX methodology outputs, not guaranteed outcomes. VitaCoreX LLC is not a law firm; legal strategy remains the respo...
+
+=== yandex_7c27f4f2ed32ff4d.html: 0 missing ===
+
+TOTAL MISSING: 148

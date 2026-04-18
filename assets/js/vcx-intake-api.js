@@ -211,6 +211,13 @@
 
   prefillFromChat();
 
+  // Wake-up ping: Render free tier cold-starts take ~30s.
+  // Hit /healthz on page load so the API is warm by the time user submits.
+  (function wakeUpRender() {
+    if (!API_BASE) return;
+    fetch(API_BASE + '/healthz', { method: 'GET', mode: 'cors' }).catch(function () {});
+  })();
+
   // Expose for site.js integration
   window.VCX_IntakeAPI = {
     submit: submitIntake,

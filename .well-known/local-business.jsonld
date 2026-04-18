@@ -7,7 +7,7 @@
   "description": "Revenue recovery infrastructure, immigration document preparation, company formation, auto deal review, and legal document services. Serving Tampa FL and nationwide in English, Russian, and Spanish.",
   "url": "https://vitacorexllc.com",
   "telephone": "+1-888-794-8292",
-  "email": "vitacorex2025@gmail.com",
+  "email": "stevenmiller@vitacorexllc.com",
   "image": "https://vitacorexllc.com/assets/img/logo.png",
   "logo": "https://vitacorexllc.com/assets/img/logo.png",
   "priceRange": "$$",
@@ -90,7 +90,7 @@
     },
     {
       "@type": "ContactPoint",
-      "email": "vitacorex2025@gmail.com",
+      "email": "stevenmiller@vitacorexllc.com",
       "contactType": "customer service",
       "availableLanguage": ["English", "Russian", "Spanish"]
     }

@@ -1,0 +1,731 @@
+Current translation keys: 536
+
+=== 404.html: 11 missing ===
+  <h1  > Page Not Found
+  <p   > The page you're looking for may have been moved or no longer exists. VitaCoreX LLC provides revenue recovery, immigration services, LLC formation, auto deal ...
+  <h3  > Explore Our Services
+  <p   > Pre-collection workflows for healthcare, dental, gyms, SaaS
+  <p   > Corporate document management and litigation support
+  <p   > USCIS packet preparation, visa, green card documentation
+  <p   > LLC, S-Corp, C-Corp formation in Florida
+  <p   > Dealer fee analysis, GAP insurance, loan calculator
+  <p   > AI contract analysis, NDA, non-compete review
+  <p   > Healthcare, dental, gyms, fleet, construction, SaaS
+  <p   > Tampa FL ? EN / RU / ES ? (888) 794-8292
+
+=== about.html: 9 missing ===
+  <span> Leadership
+  <h2  > Who runs VitaCoreX.
+  <p   > Boutique advisory firms are bought as much for the principal as for the method. This page exists to make that principal visible ? and verifiable ? before the...
+  <h3  > FOUNDER_NAME
+  <p   > FOUNDER_BIO_PARAGRAPH_1
+  <p   > FOUNDER_BIO_PARAGRAPH_2
+  <h3  > For procurement and security teams
+  <p   > Vendor onboarding packets ? including W-9, Certificate of Insurance, data handling procedures, and references ? are provided during procurement review. Reque...
+  <p   > Founder LinkedIn, Sunbiz entity record, and EIN are independently verifiable before any engagement commitment.
+
+=== additional-services.html: 0 missing ===
+
+=== app.html: 4 missing ===
+  <p   > Workspace redirect
+  <h1  > The secure VitaCoreX workspace now opens from the current sign-in route.
+  <p   > This utility page is no longer a public product surface. It forwards operators to the active secure entry instead of the older legacy handoff.
+  <p   > VitaCoreX is not a law firm.
+
+=== auto-purchase.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== business-plans.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== careers.html: 0 missing ===
+
+=== case-study-healthcare-network.html: 0 missing ===
+
+=== contact.html: 1 missing ===
+  <p   > VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and not a licensed collection agency.
+
+=== contracts.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== cookie-policy.html: 13 missing ===
+  <span> Cookie policy
+  <h1  > How the site handles essential functionality, analytics consent, and configured measurement tools.
+  <p   > The site already had a consent banner. This page makes the consent logic and tracker categories explicit.
+  <h2  > How cookies are used
+  <p   > The site uses essential functionality plus optional analytics and marketing measurement tools. Optional tools are intended to load only after consent.
+  <h2  > Consent choices
+  <li  > Essential only: basic site operation without optional analytics or marketing tags.
+  <li  > Analytics only: essential functionality plus analytics-focused measurement.
+  <li  > Accept all: essential, analytics, and any configured campaign/marketing measurement tools.
+  <h2  > Configured tracker slots
+  <p   > The site is prepared for Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag, and Apollo website tracking. Wh...
+  <h2  > Managing consent
+  <p   > You can manage consent through the banner when it is shown. Browser settings can also be used to control or clear cookies.
+
+=== corporate-legal-file-control.html: 7 missing ===
+  <span> Estimator
+  <span> Impact view
+  <p   > Use the estimator to quantify how much high-cost attorney time may be consumed by administrative file preparation.
+  <p   > Upload contracts for server-side clause extraction, risk scoring, and structured analysis memos.
+  <p   > Secure portal for matter status, document uploads, comments thread, and deliverable downloads.
+  <span> Subscription
+  <span> Contract services
+
+=== corporate-paralegal.html: 1 missing ===
+  <p   > Redirecting to corporate-legal-file-control.html
+
+=== faq.html: 0 missing ===
+
+=== google4ac6122041612c23.html: 0 missing ===
+
+=== i-130-petition.html: 65 missing ===
+  <span> Immigration Document Services
+  <h1  > Form I-130 ? Petition for Alien Relative
+  <p   > VitaCoreX prepares, organizes, and reviews your I-130 petition package so your family-based immigration case starts with a complete, well-structured file. Av...
+  <span> Understanding the I-130
+  <h2  > What is Form I-130 and why does it matter?
+  <h3  > Purpose of the I-130
+  <p   > USCIS Form I-130 is the foundational petition in family-based immigration. Filed by a U.S. citizen or lawful permanent resident, it establishes a qualifying ...
+  <p   > The petition itself does not grant a green card. It is the first required step that proves the family tie exists and is legitimate. Once approved, the benefi...
+  <h3  > Who can file?
+  <li  > U.S. citizens may petition for a spouse, unmarried children under 21 (immediate relatives), married or unmarried adult children, parents (if petitioner is 21...
+  <li  > Lawful permanent residents may petition for a spouse and unmarried children only.
+  <li  > The petitioner must be at least 18 years old for spousal petitions and must demonstrate the ability to financially support the beneficiary.
+  <li  > Immediate relatives of U.S. citizens have no annual visa cap, while preference categories are subject to per-country limits and visa bulletin wait times.
+  <span> Document checklist
+  <h2  > Required documents for your I-130 petition
+  <span> Petitioner evidence
+  <li  > Proof of U.S. citizenship (birth certificate, naturalization certificate, or U.S. passport)
+  <li  > Proof of lawful permanent residence (green card copy, front and back)
+  <li  > Government-issued photo ID
+  <li  > Passport-style photographs (2x2 inches)
+  <span> Relationship evidence
+  <li  > Marriage certificate (for spousal petitions)
+  <li  > Birth certificates showing parent-child relationship
+  <li  > Divorce decrees or death certificates of prior spouses
+  <li  > Adoption decree (if applicable)
+  <span> Supporting materials
+  <li  > Certified English translations for all foreign-language documents
+  <li  > Joint financial records, shared lease agreements, or photos (spousal petitions)
+  <li  > Affidavits from family or friends attesting to the relationship
+  <li  > Filing fee payment (check or money order payable to U.S. Department of Homeland Security)
+  <span> Common mistakes
+  <h2  > Errors that delay or deny I-130 petitions
+  <h3  > Filing and documentation errors
+  <li  > Submitting an outdated form edition ? USCIS rejects petitions not using the current version
+  <li  > Missing signatures or incomplete fields on the petition form
+  <li  > Failing to include certified translations for documents in languages other than English
+  <li  > Sending the wrong filing fee amount or using an unaccepted payment method
+  <h3  > Evidence and eligibility issues
+  <li  > Insufficient proof of a bona fide relationship, especially in spousal cases
+  <li  > Not providing evidence that a prior marriage was legally terminated before the current marriage
+  <li  > Filing in the wrong preference category or misunderstanding LPR vs. citizen filing rights
+  <li  > Overlooking name discrepancies across documents without explanatory evidence
+  <span> How VitaCoreX helps
+  <h2  > Structured document preparation for your I-130 case
+  <p   > VitaCoreX organizes your complete petition package, checks for common errors, and ensures every required document is accounted for before you submit. Service...
+  <span> Document assembly
+  <p   > We compile and organize every required form, photo, and supporting exhibit into a structured filing package with a cover letter and document index for USCIS ...
+  <span> Error review
+  <p   > Our team reviews the petition for missing signatures, incorrect fee amounts, outdated form editions, and inconsistencies that commonly trigger Requests for E...
+  <span> Multilingual support
+  <p   > We assist clients in English, Russian, and Spanish, and coordinate certified translations for foreign-language civil documents required by USCIS.
+  <span> Frequently asked questions
+  <h2  > Common questions about Form I-130
+  <h3  > What is Form I-130?
+  <p   > Form I-130, Petition for Alien Relative, is filed by a U.S. citizen or permanent resident to establish a qualifying family relationship with a foreign-nation...
+  <h3  > Who can file Form I-130?
+  <p   > U.S. citizens may petition for spouses, children, parents, and siblings. Lawful permanent residents may petition for spouses and unmarried children. The peti...
+  <h3  > What documents are needed?
+  <p   > Key documents include proof of the petitioner's citizenship or LPR status, evidence of the qualifying family relationship (marriage or birth certificates), p...
+  <h3  > How long does the I-130 take?
+  <p   > Processing times depend on the relationship category and country of origin. Immediate relatives of U.S. citizens generally experience shorter processing time...
+  <span> Get started
+  <h2  > Ready to begin your I-130 petition?
+  <p   > Contact VitaCoreX today for a consultation. We serve clients in English, Russian, and Spanish throughout Tampa, Florida and nationwide.
+  <p   > Disclaimer: VitaCoreX LLC is NOT a law firm and does not provide legal advice. We provide document preparation, organization, and administrative support serv...
+
+=== i-485-adjustment.html: 56 missing ===
+  <span> Immigration Document Services
+  <h1  > Form I-485 ? Adjustment of Status
+  <p   > VitaCoreX prepares, organizes, and reviews your I-485 application package so your path to permanent residence starts with a complete, well-structured file. A...
+  <span> Understanding the I-485
+  <h2  > What is Form I-485 and how does it work?
+  <h3  > Purpose of adjustment of status
+  <p   > USCIS Form I-485 allows eligible individuals who are physically present in the United States to apply for lawful permanent resident status without leaving th...
+  <p   > This form is used across multiple immigration categories including family-based, employment-based, diversity visa, asylee, and refugee adjustments. Upon appr...
+  <h3  > Eligibility requirements
+  <li  > Physical presence: The applicant must be in the United States at the time of filing.
+  <li  > Lawful admission or parole: Most categories require that the applicant was inspected and admitted or paroled into the U.S.
+  <li  > Visa availability: An immigrant visa number must be immediately available based on the applicant's priority date and preference category.
+  <li  > No disqualifying bars: Certain criminal, security, and immigration violations may bar adjustment eligibility.
+  <li  > Immediate relatives: Spouses, parents, and unmarried children under 21 of U.S. citizens do not face visa number limits.
+  <span> Concurrent filing
+  <h2  > Filing I-485 together with I-130
+  <h3  > What is concurrent filing?
+  <p   > Immediate relatives of U.S. citizens may file Form I-485 at the same time as the underlying Form I-130 petition, rather than waiting months or years for the ...
+  <h3  > Companion forms
+  <li  > Form I-765: Application for Employment Authorization Document (EAD), allowing the applicant to work while the I-485 is pending.
+  <li  > Form I-131: Application for Advance Parole, permitting the applicant to travel abroad and return without abandoning the pending adjustment application.
+  <li  > Form I-693: Report of Medical Examination and Vaccination Record, completed by a USCIS-designated civil surgeon.
+  <li  > Form I-864: Affidavit of Support from the petitioning sponsor, demonstrating financial ability to support the applicant.
+  <span> Medical exam
+  <h2  > Immigration medical examination for the I-485
+  <h3  > What the exam includes
+  <p   > Every I-485 applicant must complete a medical examination performed by a USCIS-designated civil surgeon. The civil surgeon completes Form I-693, which is sub...
+  <p   > The completed I-693 is valid for two years from the date of the civil surgeon's signature and must remain valid at the time of the adjustment interview or fi...
+  <h3  > Vaccination requirements
+  <li  > Applicants must show proof of vaccination against diseases required by USCIS, including mumps, measles, rubella, polio, tetanus, diphtheria, pertussis, hepat...
+  <li  > If vaccination records are unavailable, the civil surgeon may administer required vaccines during the exam.
+  <li  > Waivers may be available on religious or medical grounds for certain vaccinations.
+  <li  > VitaCoreX helps clients compile vaccination records and understand what to bring to the civil surgeon appointment.
+  <span> How VitaCoreX helps
+  <h2  > Structured document preparation for your I-485 case
+  <p   > VitaCoreX organizes your complete adjustment-of-status package, reviews companion forms, and ensures every document and exhibit is accounted for. Services av...
+  <span> Full package assembly
+  <p   > We compile and organize the I-485 along with companion forms (I-765, I-131, I-864, I-693 envelope), supporting evidence, and a detailed document index for a ...
+  <span> Concurrent filing coordination
+  <p   > For immediate relatives of U.S. citizens, we organize the I-130 and I-485 for simultaneous submission along with work permit and travel document applications...
+  <span> Interview preparation support
+  <p   > We prepare clients with a document review checklist for the USCIS adjustment interview, organize the evidence binder, and provide a timeline of what to expec...
+  <span> Frequently asked questions
+  <h2  > Common questions about Form I-485
+  <h3  > What is Form I-485?
+  <p   > Form I-485 is the application used to adjust immigration status to lawful permanent resident (green card holder) from within the United States. It eliminates...
+  <h3  > Who is eligible to file?
+  <p   > Eligibility generally requires physical presence in the U.S., lawful admission or parole, an available immigrant visa number, and no disqualifying bars. Imme...
+  <h3  > What is concurrent filing?
+  <p   > Concurrent filing allows immediate relatives of U.S. citizens to submit Form I-485 simultaneously with Form I-130, reducing total processing time and enablin...
+  <h3  > Is a medical exam required?
+  <p   > Yes. All I-485 applicants must complete Form I-693, a medical examination conducted by a USCIS-designated civil surgeon. The exam covers physical health, vac...
+  <span> Get started
+  <h2  > Ready to begin your adjustment of status?
+  <p   > Contact VitaCoreX today for a consultation. We serve clients in English, Russian, and Spanish throughout Tampa, Florida and nationwide.
+  <p   > Disclaimer: VitaCoreX LLC is NOT a law firm and does not provide legal advice. We provide document preparation, organization, and administrative support serv...
+
+=== immigration-documents.html: 1 missing ===
+  <p   > Redirecting to additional-services.html
+
+=== immigration-services-tampa.html: 30 missing ===
+  <span> Tampa, Florida
+  <h1  > Immigration Document Preparation in Tampa, FL
+  <p   > VitaCoreX LLC provides immigration document preparation and packet organization for individuals and families in the Tampa Bay area. We help you assemble, org...
+  <p   > Important: VitaCoreX is not a law firm and does not provide legal advice or legal representation. We provide document preparation and organizational support....
+  <h2  > USCIS Form Packets We Prepare
+  <h3  > I-130: Petition for Alien Relative
+  <p   > Family-based immigration starts with the I-130 petition. We help Tampa families organize the supporting documentation: proof of relationship, civil documents...
+  <h3  > I-485: Adjustment of Status
+  <p   > The I-485 application to adjust status to lawful permanent resident involves extensive documentation: medical examination records (Form I-693), affidavit of ...
+  <h3  > I-765: Employment Authorization
+  <p   > Work permit applications filed concurrently with I-485 or independently require supporting photographs, identity documents, and category-specific evidence. W...
+  <h3  > K-1: Fiance(e) Visa Packet
+  <p   > The K-1 fiance(e) visa petition requires proof of a genuine relationship including photographs, communication records, travel evidence, and meeting documenta...
+  <h3  > N-400: Naturalization Application
+  <p   > Citizenship applicants must document their continuous residence, physical presence, tax compliance, and good moral character over the statutory period. We pr...
+  <h3  > Additional Filings
+  <p   > We also prepare document packets for I-131 (Advance Parole), I-751 (Removal of Conditions), I-90 (Green Card Renewal), asylum applications, DACA renewals, an...
+  <h2  > Serving Tampa's Immigrant Communities
+  <h3  > Russian-Speaking Families
+  <h3  > Spanish-Speaking Families
+  <p   > Hillsborough County's Hispanic population represents a substantial portion of Tampa's residents, with communities from Mexico, Colombia, Venezuela, Cuba, Pue...
+  <h2  > How Our Document Preparation Works
+  <li  > Initial review: We review your current documents and identify what is missing, what needs translation, and what additional evidence should be gathered.
+  <li  > Document collection: We provide a checklist of required documents specific to your filing type and help you obtain certified translations, apostilles, and su...
+  <li  > Packet assembly: We organize your complete filing into a structured packet with a table of contents, tabbed exhibits, cover letters, and form-field cross-ref...
+  <li  > Quality review: Before delivery, we verify that every required field is completed, every attachment is present, photos meet specifications, and fee calculati...
+  <li  > Delivery: You receive your completed packet ready for submission to USCIS, along with a copy for your personal records.
+  <h2  > Schedule an Immigration Document Consultation
+  <p   > Call us directly or book a 30-minute consultation to discuss your USCIS filing and get a clear picture of which documents you need and how we can help organi...
+  <p   > Phone: (888) 794-8292
+
+=== index.html: 57 missing ===
+  <span> Two ways to engage
+  <h2  > Who are you coming for?
+  <p   > VitaCoreX serves two distinct audiences. Each has its own engagement standard, documentation depth, and delivery cadence ? so the work fits the context, not ...
+  <h3  > Revenue recovery, documentation control, escalation readiness.
+  <p   > Structured infrastructure for companies that cannot afford a weak handoff. Built around pre-collection discipline, counsel-ready files, and 90-day pilot visi...
+  <li  > ? Pre-collection & commercial AR recovery
+  <li  > ? Corporate legal file control & contract governance
+  <li  > ? Structured intake & escalation protocols
+  <h3  > Contract review, immigration packets, auto-deal analysis.
+  <p   > Defined-scope advisory for individuals facing high-stakes documents. Clear timeframe, clear format, discretion by default.
+  <li  > ? Contract & lease review
+  <li  > ? Immigration document preparation
+  <li  > ? Auto-deal & major-purchase review
+  <p   > Not sure where you fit? Start with a confidential review ?
+  <h3  > Counsel-Ready
+  <h3  > Audit-Grade Security
+  <p   > Every document encrypted, access-logged, and compliant with federal retention standards.
+  <h3  > Recovery Analytics
+  <p   > Live dashboards tracking cohort aging, collection velocity, and escalation timing across every matter.
+  <h3  > Compliance Infrastructure
+  <p   > FDCPA, FCCPA, and state-level compliance built into every workflow. Automated audit trails and escalation triggers.
+  <h3  > Trusted by Operators
+  <p   > CFOs, compliance directors, and legal operations teams across Florida choose VitaCoreX for structured recovery infrastructure.
+  <p   > Based on structured AR methodology benchmarks. Sources: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.
+  <p   > 6-location DSO with $1.1M in receivables 30?180 days old. Pre-collection workflow prioritized fresh balances (<90 days) and structured outreach preserved pat...
+  <li  > DSO reduced from 62 ? 41 days
+  <li  > Net recovery rate: 47? per dollar (vs 12? agency baseline)
+  <li  > Pilot ROI: 3.9? fees in 90 days
+  <p   > Multi-specialty clinic network with fragmented billing processes across 12 sites. Diagnostic identified $2.8M in recoverable AR. Structured 6-month programme...
+  <li  > DSO reduced from 58 ? 36 days
+  <li  > Bad debt write-offs down 41% year over year
+  <li  > HIPAA-compliant, patient NPS neutral-to-positive
+  <p   > Regional fleet operator with $1.6M in disputed and overdue fuel card balances from 340 SMB accounts. Structured dispute resolution, documentation discipline,...
+  <li  > Dispute resolution cycle: 21 ? 9 days
+  <li  > Net recovery: 41? per dollar on aged balances
+  <li  > 78% of accounts retained (vs typical 20?30% post-collection)
+  <p   > 9-location fitness operator with 2,100 delinquent memberships and rising involuntary churn. Automated dunning sequence plus personalized outreach converted 4...
+  <li  > Involuntary churn: -38% over pilot period
+  <li  > Reactivation rate: 44% of delinquent members
+  <li  > Pilot ROI: 2.8? fees in 90 days
+  <p   > Mid-market SaaS with $780K in failed subscription renewals and card-decline backlog. Intelligent retry sequencing combined with professional outreach rescued...
+  <li  > Failed payment recovery rate: 67% (vs 20% prior)
+  <li  > Customer LTV preserved on 89% of recovered accounts
+  <li  > Pilot ROI: 4.1? fees in 60 days
+  <p   > Regional commercial contractor with $1.8M in aged progress billings and disputed change orders. Legal-file control discipline and structured demand cycle cle...
+  <li  > Avoided $180K in projected outside-counsel fees
+  <li  > File readiness at 94% ? qualified for clean escalation
+  <li  > GC relationships preserved on 100% of engagements
+  <p   > Representative composite scenarios derived from VitaCoreX engagement data and industry benchmarks. Actual results depend on AR age, portfolio mix, documentat...
+  <p   > Hear from the CFOs, compliance directors, and legal operations leaders who chose VitaCoreX.
+  <p   > "The structured intake process gave us visibility into recovery gaps we had been ignoring. For the first time, our AR workflow had a documented standard."
+  <p   > "We've seen incredible results with the recovery infrastructure. Expertise and dedication beyond expectations."
+  <p   > "Their team is highly professional, and innovative solutions have truly transformed the way we handle escalation."
+  <p   > "The packet discipline brought everything to counsel-ready state ? chronology, exhibits, gap log ? so outside attorneys could start immediately."
+  <p   > "Customer support is absolutely exceptional. They are always available, incredibly helpful with every question."
+  <p   > "VitaCoreX has been a key partner in our growth journey. Structured approach changed everything."
+  <p   > "The 90-day pilot gave our board a clear before-and-after picture. We moved from fragmented billing to a repeatable infrastructure with measurable results. A...
+
+=== industries.html: 2 missing ===
+  <p   > A tighter wedge improves both buyer clarity and search relevance. These pages show where the operational model has the strongest natural fit.
+  <p   > The page should never promise guaranteed rankings or fixed performance outcomes. It should explain fit, process, and evidence standards.
+
+=== industry-contract-services.html: 28 missing ===
+  <span> Contract-heavy services ? Construction, professional, B2B
+  <h1  > In contract-heavy work, the invoice is rarely the problem. The change order without a signature, the scope drift without a PCO, and the lien deadline that al...
+  <p   > This page is written for general contractors and sub-tier trades, professional-services firms on milestone or retainer billing, multi-tier B2B service operat...
+  <h3  > Where the work anchors
+  <p   > Change-order and PCO discipline, signed-authorization trail, lien-period calendar, scope-drift memo habit, multi-tier payment flow-down reconciliation, and t...
+  <span> Operating problem
+  <h2  > The receivable is usually collectable. The chronology supporting it usually isn't assembled yet.
+  <span> What changes
+  <li  > Change-order discipline: every verbal direction becomes a written PCO with pricing and a signature window before work proceeds ? no exceptions absorbed quiet...
+  <li  > Authorization trail built at the time of the event, not reconstructed at dispute ? signed daily reports, photo-dated progress, and change directives filed wi...
+  <li  > Lien-period calendar owned by a named role, calibrated to the jurisdiction of each project, with hard preliminary-notice and NTO deadlines tracked and remind...
+  <li  > Milestone billing events tied to completion evidence in one reconciled packet ? not "check the PM portal, check the billing system, check the project drive".
+  <li  > Counsel-handoff packet: contract chain, change-order log, authorization trail, payment history, dispute chronology, and lien-period status ? one artifact per...
+  <span> Typical first outputs
+  <li  > Change-order inventory on active and trailing-12-month projects ? categorized as signed, verbal-only-documented, and undocumented.
+  <li  > Authorization-trail audit on a sample of disputed receivables ? scored against an industry-standard packet checklist.
+  <li  > Lien-period calendar review per jurisdiction with any missed or at-risk preliminary-notice deadlines surfaced.
+  <li  > Milestone-to-billing reconciliation on open invoices, producing a delta per project between delivered scope and billed amount.
+  <li  > 30-day diagnostic report with a low/high recovery band and 90-day prioritized roadmap ? see the redacted sample deliverable for the format.
+  <span> 90-day frame ? Counsel-ready by design
+  <h2  > Tighten the packet before leverage softens further.
+  <p   > Contract-services rollouts that skip the packet step end up funding expensive reconstruction work at counsel rates. The standard frame is to freeze the basel...
+  <span> Weeks 1?2 ? Baseline
+  <p   > Change-order inventory, authorization-trail audit, lien-calendar review per jurisdiction. Baseline file-readiness score per project and per disputed balance.
+  <span> Weeks 3?8 ? Pilot
+  <p   > PCO discipline enforced on new change directions; signed daily-report and photo-dated progress habit embedded; lien-period calendar with a named owner; miles...
+  <span> Weeks 9?12 ? Decision
+  <p   > Retrofit of packet standard onto the highest-leverage disputed balances; file-readiness score improvement measured; and a counsel-engagement recommendation p...
+
+=== industry-fleet-logistics.html: 29 missing ===
+  <span> Fleet, fuel & logistics ? Contract-heavy portfolios
+  <h1  > Fleet receivables don't die on the aging report. They die in the gap between fuel-card swipe, signed BOL, and the dispute log that nobody owns.
+  <p   > This page is written for fleet operators, fuel-card portfolio managers, equipment-leasing firms, and logistics / 3PL / freight-broker AR teams whose dispute ...
+  <h3  > Where the work anchors
+  <p   > Fuel-card reconciliation, BOL-to-invoice pairing, driver-attestation workflow, equipment-lease default packet discipline, and the dispute log that sits betwe...
+  <span> Operating problem
+  <h2  > The dispute is usually winnable. The file usually isn't ready.
+  <p   > Across fleet, fuel-card, equipment-leasing, and logistics / 3PL portfolios, the common pattern isn't customer insolvency ? it's fragmented authorization evid...
+  <span> What changes
+  <li  > Unified invoice packet: master invoice, BOL/POD, accessorial evidence, driver attestation, and any customer sign-off in one artifact bundled at billing ? not...
+  <li  > Fuel-card reconciliation cadence (weekly, minimum) matching swipe data to vehicle / driver / authorized-use boundary, with exception queue for mismatches.
+  <li  > Equipment-lease default packet standard: lease chain, payment history, telematics/usage log at default date, notices sent, cure-period documentation.
+  <li  > One shared dispute log between operations, finance, and legal ? not three overlapping spreadsheets. Every dispute carries status, evidence index, and next-ac...
+  <li  > File-readiness KPI measured before counsel engagement: 90% packet complete, or the balance does not leave the operator's environment.
+  <span> Typical first outputs
+  <li  > Dispute inventory across the trailing 12 months ? categorized by counterparty type (shipper, carrier, broker, driver, fleet customer), dispute cause, and cur...
+  <li  > Fuel-card swipe audit against driver roster, authorized-use policy, and vehicle assignment ? surfaced outliers quantified in dollars.
+  <li  > Packet-completeness audit on 60?80 representative invoices, scored against an industry-standard checklist.
+  <li  > Equipment-lease default review on current-delinquent accounts, producing a file-readiness score per lease.
+  <li  > 30-day diagnostic report with a low/high recovery band and a 90-day prioritized roadmap ? see the redacted sample deliverable for the format.
+  <span> 90-day frame ? Dispute log first
+  <h2  > Prove the packet before scaling the workflow.
+  <p   > Fleet-and-logistics rollouts that skip the dispute log step tend to accelerate the wrong work. The standard frame is to start at the dispute log itself ? est...
+  <span> Weeks 1?2 ? Baseline
+  <p   > Dispute inventory pulled, categorized, and quantified. Fuel-card swipe audit against driver and vehicle assignment. Baseline packet-completeness score per co...
+  <span> Weeks 3?8 ? Pilot
+  <p   > Single dispute log live for one business unit or customer cohort. Packet standard enforced on new invoices in that cohort. Weekly reconciliation cadence re-e...
+  <span> Weeks 9?12 ? Decision
+  <p   > Measured: dispute-to-cure velocity, packet-completeness score, dollars moved from dispute bucket to paid, number of accounts newly counsel-ready. Expansion o...
+
+=== industry-healthcare-dental.html: 29 missing ===
+  <span> Healthcare & dental ? Multi-site operators
+  <h1  > Patient AR doesn't fail at collections. It fails at documentation timing, escalation variance, and portal fragmentation ? long before a balance is written off.
+  <p   > This page is written for multi-site health systems, dental groups, DSOs, orthodontic networks, and specialty practices whose aging curve is drifting past 90 ...
+  <h3  > Where the work anchors
+  <p   > A BAA-backed, operator-environment engagement. VitaCoreX is not a HIPAA Covered Entity and not a debt collector under FDCPA. PHI stays on the operator's infr...
+  <span> Operating problem
+  <h2  > The aging report is usually right. The packet behind it often isn't.
+  <p   > Across multi-site healthcare and dental operators, the common pattern is not patient unwillingness ? it is documentation timing (statements generated at bill...
+  <span> What changes
+  <li  > Documentation regenerated at each escalation threshold, not frozen at initial billing ? stale packets are the most common cause of payer and patient challenge.
+  <li  > Unified escalation thresholds across sites (45 / 75 / 120 days) with documented override criteria, replacing manager-by-manager variance.
+  <li  > Portal option extended network-wide with paper retained as fallback ? no site forced digital-only, no site trapped in paper-only.
+  <li  > Weekly EHR-to-practice-management reconciliation restored where it lapsed post-acquisition, with published variance tolerance.
+  <li  > Counsel-handoff packet template measured as a standing KPI ? 90% file readiness before any balance leaves the operator's environment.
+  <span> Typical first outputs
+  <li  > Cross-site aging dashboard reconciled weekly, with per-site and per-specialty cohort views.
+  <li  > Packet-quality audit across a stratified sample of balances ? itemized statement presence, insurance activity, coverage context, next-step clarity.
+  <li  > Escalation-threshold audit by billing manager interview, producing the delta between written policy and observed practice.
+  <li  > Patient-path walkthrough from statement receipt through portal login on each site's production configuration.
+  <li  > 30-day diagnostic report with a low/high recovery band and a 90-day prioritized roadmap ? see the redacted sample deliverable.
+  <span> 90-day frame ? Patient-NPS protected
+  <h2  > Pilot on a subset before network rollout.
+  <p   > Healthcare and dental rollouts that move too fast damage patient relationships. The standard frame is to pilot on a small site mix ? one high-volume general,...
+  <span> Weeks 1?2 ? Baseline
+  <p   > Pull aging report per site, sample packet quality against a 12-item rubric, audit escalation thresholds by observed practice (not written policy). Deliverabl...
+  <span> Weeks 3?8 ? Pilot
+  <p   > Pilot 2?3 sites by mix. Packet template live, portal extended with paper fallback, weekly exception queue on a fixed cadence. Compliance lead reviews every p...
+  <span> Weeks 9?12 ? Decision
+  <p   > Measured against baseline: cash recovered, DSO movement, packet-quality score, patient-NPS delta, exception-queue throughput. Network rollout only if metrics...
+
+=== industry-subscription-recurring.html: 28 missing ===
+  <span> Subscription & recurring ? SaaS, membership, fitness
+  <h1  > Involuntary churn isn't a collections problem. It's a retry-logic, dunning-ladder, and card-update problem that escalated into a collections decision ? usual...
+  <p   > This page is written for SaaS operators, B2B subscription finance teams, membership platforms, and gym / fitness / wellness multi-location chains whose faile...
+  <h3  > Where the work anchors
+  <p   > Retry-logic design, dunning-ladder sequencing, card-update flow, cohort-level rescue vs churn decisions, and the escalation gate that separates "retention-sa...
+  <span> Operating problem
+  <h2  > The failed payment is fixable. The decision to escalate usually isn't fixable after the fact.
+  <span> What changes
+  <li  > Retry logic tuned to card-network behavior ? retry timing aligned with issuer posting windows and avoid-decline rules, not arbitrary time-of-day.
+  <li  > Dunning ladder rewritten by stage with tone discipline ? cooperative framing up to day 14, firmer framing day 15?30, escalation framing only past day 30.
+  <li  > Card-on-file update flow surfaced one click deep in the subscriber-facing UX, not buried ? with a mobile-first fallback path for hard declines.
+  <li  > Cohort segmentation: rescue-eligible (active use, recent success, soft decline) vs churn-expected (inactive, hard decline, cancel-signal) treated on differen...
+  <li  > Escalation gate documented: specific criteria that move a subscriber from retention to collections, signed off by a named owner, logged per decision.
+  <span> Typical first outputs
+  <li  > Failed-payment cohort audit across the trailing 90 days ? soft vs hard decline, recovered vs churned, time-to-cure distribution.
+  <li  > Retry-logic audit against issuer posting behavior ? surface retries firing in known-decline windows.
+  <li  > Dunning-ladder content review with tone scoring per stage and per channel (email, SMS, in-app).
+  <li  > Card-update flow walkthrough on production UX, timed click-depth and mobile compatibility.
+  <li  > 30-day diagnostic report with a low/high recovery band and 90-day prioritized roadmap ? see the redacted sample deliverable for the format.
+  <span> 90-day frame ? Retention preserved
+  <h2  > Fix the upstream ladder before touching the escalation gate.
+  <p   > Subscription rollouts that go straight to the escalation gate often leave rescue-eligible dollars on the table. The standard frame is to rebuild the retry lo...
+  <span> Weeks 1?2 ? Baseline
+  <p   > Failed-payment cohort pull, retry-logic audit, dunning-ladder review. Baseline cure rate, time-to-cure distribution, and involuntary-churn percentage documen...
+  <span> Weeks 3?8 ? Pilot
+  <p   > Retry timing and dunning ladder live on one subscriber cohort (plan, region, or acquisition channel). Card-update flow surfaced. Cohort-level rescue vs churn...
+  <span> Weeks 9?12 ? Decision
+  <p   > Measured: cure rate vs baseline, time-to-cure shift, involuntary-churn delta, LTV preservation on recovered cohort. Broader rollout and escalation-gate rewri...
+
+=== llc-formation-florida.html: 35 missing ===
+  <span> Florida Business Formation
+  <h1  > LLC Formation in Florida ? Start Your Business
+  <p   > VitaCoreX LLC prepares the documents you need to form a Florida limited liability company, corporation, or other business entity. From Articles of Organizati...
+  <p   > Important: VitaCoreX is not a law firm and does not provide legal advice. We provide document preparation and organizational support for business formation f...
+  <h2  > Florida LLC Formation Documents
+  <p   > Florida is one of the most popular states for LLC formation in the United States, with no state income tax, strong asset protection statutes, and a streamlin...
+  <h3  > Articles of Organization
+  <p   > The Articles of Organization is the foundational document filed with the Florida Division of Corporations through Sunbiz.org. We prepare the filing with your...
+  <h3  > Operating Agreement
+  <p   > Florida does not legally require an operating agreement, but operating without one leaves your LLC governed entirely by Florida's default statutes, which may...
+  <h3  > EIN Application (IRS Form SS-4)
+  <p   > Your Employer Identification Number is required to open a business bank account, hire employees, and file federal tax returns. We prepare the IRS Form SS-4 a...
+  <h2  > Entity Type Options
+  <h3  > Standard Florida LLC
+  <p   > The default Florida LLC is taxed as a disregarded entity (single member) or partnership (multi-member) for federal purposes. This is the simplest structure f...
+  <h3  > S-Corp Election (Form 2553)
+  <p   > LLCs that elect S-Corp tax treatment can reduce self-employment tax by splitting income between salary and distributions. We prepare the IRS Form 2553 electi...
+  <h3  > C-Corp Formation
+  <p   > For businesses seeking venture capital, planning to issue stock options, or requiring a corporate structure for contractual reasons, we prepare Florida Artic...
+  <h2  > Additional Formation Documents
+  <h3  > Registered Agent Documentation
+  <p   > Every Florida LLC and corporation must designate a registered agent with a physical Florida street address. We prepare the registered agent designation forms...
+  <h3  > Sunbiz Annual Report
+  <p   > Florida requires every LLC and corporation to file an annual report with the Division of Corporations by May 1 each year. The filing fee is $138.75 for LLCs ...
+  <h3  > Business License Research
+  <p   > Depending on your business type and location within Florida, you may need county or city business tax receipts, professional licenses, or industry-specific p...
+  <h2  > Formation Process
+  <li  > Consultation: We discuss your business goals, planned activities, and ownership structure to determine the appropriate entity type and document package.
+  <li  > Name verification: We check your desired business name against the Florida Division of Corporations database to confirm availability before preparing filing ...
+  <li  > Document preparation: We prepare your Articles of Organization (or Incorporation), operating agreement (or bylaws), EIN application, and any additional docum...
+  <li  > Review and delivery: You receive a complete formation document package with filing instructions, fee schedules, and a post-formation checklist covering bank ...
+  <li  > Post-formation support: After your entity is active, we remain available for annual report preparation, operating agreement amendments, and additional docume...
+  <h2  > Start Your Florida Business
+  <p   > Call us directly or book a 30-minute consultation to discuss your business formation needs and get a clear picture of the documents, filings, and timeline in...
+  <p   > Phone: (888) 794-8292
+
+=== n-400-naturalization.html: 65 missing ===
+  <span> Immigration Document Services
+  <h1  > Form N-400 ? Application for Naturalization
+  <p   > VitaCoreX prepares your N-400 application package, organizes supporting documents, and helps you prepare for the citizenship interview and civics test. Avail...
+  <span> Understanding the N-400
+  <h2  > What is Form N-400 and who qualifies?
+  <h3  > Purpose of the N-400
+  <p   > USCIS Form N-400 is the application used by lawful permanent residents to apply for U.S. citizenship through the naturalization process. It is the final step...
+  <p   > The application covers personal history, travel records, employment, moral character, and willingness to take the Oath of Allegiance. Once submitted, the app...
+  <h3  > Eligibility pathways
+  <li  > 5-year rule: Lawful permanent residents who have held a green card for at least 5 years, with continuous residence and at least 30 months of physical presenc...
+  <li  > 3-year spouse rule: LPRs married to and living with a U.S. citizen for at least 3 years, with continuous residence and at least 18 months of physical presence.
+  <li  > Military service: Current or former members of the U.S. armed forces may qualify under expedited naturalization provisions.
+  <li  > Age and language: Applicants must be at least 18 years old. Certain applicants over 50 or 55 with long-term residency may qualify for language exemptions.
+  <li  > Good moral character: Applicants must demonstrate good moral character for the statutory period prior to filing.
+  <span> Required documents
+  <h2  > What you need for your N-400 application
+  <span> Identity and status
+  <li  > Copy of green card (front and back)
+  <li  > Passport-style photographs (2x2 inches)
+  <li  > Valid government-issued photo ID
+  <li  > Travel documents and passport pages showing entries and exits
+  <span> Personal history
+  <li  > Tax returns for the past 5 years (or 3 years for spouse-based filing)
+  <li  > Complete travel history with dates of all trips outside the U.S.
+  <li  > Employment history for the past 5 years
+  <li  > Residential address history for the past 5 years
+  <span> Additional evidence
+  <li  > Marriage certificate (if applying under the 3-year spouse rule)
+  <li  > Divorce decrees or death certificates of prior spouses
+  <li  > Court records for any arrests, citations, or criminal history
+  <li  > Certified English translations for all foreign-language documents
+  <span> Citizenship interview
+  <h2  > What to expect at the naturalization interview
+  <h3  > Interview structure
+  <p   > The naturalization interview is conducted by a USCIS officer at your local field office. The officer will place you under oath and review every question on y...
+  <p   > The interview also includes an English language test with three components: reading (you must read one sentence correctly out of three attempts), writing (yo...
+  <h3  > Civics test preparation
+  <li  > The civics test covers 100 possible questions about U.S. history, government structure, and civic principles.
+  <li  > During the interview, the officer asks up to 10 questions. You must answer at least 6 correctly to pass.
+  <li  > Topics include the Constitution, branches of government, rights and freedoms, U.S. history, and geography.
+  <li  > Applicants 65 years or older with 20+ years of permanent residence qualify for a simplified version of the test (20 designated questions).
+  <li  > VitaCoreX provides civics study materials and practice question sessions in English, Russian, and Spanish to help applicants prepare.
+  <span> How VitaCoreX helps
+  <h2  > Structured support for your naturalization application
+  <p   > VitaCoreX organizes your complete N-400 package, reviews your application for common errors, and helps you prepare for the citizenship interview. Services av...
+  <span> Application assembly
+  <p   > We compile and organize your N-400 form, supporting documents, photographs, and evidence into a structured filing package with a document index and cover let...
+  <span> Travel and residency audit
+  <p   > We review your travel history, residency timeline, and physical presence calculations to identify any gaps or issues that could affect your continuous reside...
+  <span> Interview preparation
+  <p   > We provide civics study materials, practice question sessions, and a walkthrough of the interview process so applicants know what to expect. Preparation avai...
+  <span> Frequently asked questions
+  <h2  > Common questions about Form N-400
+  <h3  > What is Form N-400?
+  <p   > Form N-400 is the application for U.S. citizenship through naturalization. Lawful permanent residents who meet residency, physical presence, and good moral c...
+  <h3  > What are the eligibility requirements?
+  <p   > General requirements include holding a green card for 5 years (or 3 years if married to a U.S. citizen), continuous U.S. residence, physical presence for at ...
+  <h3  > What documents are needed?
+  <p   > Key documents include your green card copy, passport photos, tax returns for the past 5 years, complete travel records, employment and address history, and a...
+  <h3  > What happens at the interview?
+  <p   > A USCIS officer reviews your application under oath, tests your English reading, writing, and speaking abilities, and administers a civics test. You must cor...
+  <span> Get started
+  <h2  > Ready to begin your path to U.S. citizenship?
+  <p   > Contact VitaCoreX today for a consultation. We serve clients in English, Russian, and Spanish throughout Tampa, Florida and nationwide.
+  <p   > Disclaimer: VitaCoreX LLC is NOT a law firm and does not provide legal advice. We provide document preparation, organization, and administrative support serv...
+
+=== net-recovery.html: 1 missing ===
+  <p   > Redirecting to revenue-recovery-workflow.html
+
+=== pricing-and-engagement-tiers.html: 0 missing ===
+
+=== privacy-policy.html: 0 missing ===
+
+=== resources.html: 8 missing ===
+  <p   > 5 leakage points in healthcare operators, why sequencing matters, and how early agency escalation compresses margin.
+  <p   > Compact CFO-facing summary with DSO, leakage, and executive rationale.
+  <p   > Institutional deck for pilot economics, operating framework, and executive positioning.
+  <p   > Framework logic, escalation control, and executive review for pre-agency sequencing.
+  <h2  > Proprietary methodology materials for executive review and internal forwarding.
+  <p   > Each PDF is designed to move a specific internal conversation ? recovery economics, DSO leakage, pilot structure ? past the first meeting without another sal...
+  <p   > Share them with your CFO, operations lead, or counsel-adjacent team. The "proprietary" badge means the underlying methodology is copyrighted; the document it...
+  <p   > That makes the resource library more than lead bait. It becomes a forwarding tool for owners, CFOs, operators, and counsel-adjacent teams.
+
+=== revenue-recovery-miami.html: 22 missing ===
+  <span> Miami, Florida
+  <h1  > Revenue Recovery Services in Miami, FL
+  <p   > VitaCoreX LLC extends its structured pre-collection infrastructure to Miami-Dade County, serving operators across South Florida's hospitality, healthcare, an...
+  <h2  > Hospitality Revenue Recovery in Miami
+  <p   > Miami-Dade County hosts over 60,000 hotel rooms, thousands of restaurants, and a convention and events industry that generates billions in annual revenue. Ho...
+  <p   > VitaCoreX builds recovery workflows designed for hospitality-specific billing patterns: group block disputes, catering overages, late cancellation fees, and ...
+  <h2  > Healthcare Networks Across Miami-Dade
+  <p   > Miami's healthcare landscape includes major hospital systems like Jackson Health, Baptist Health South Florida, and Mount Sinai Medical Center, alongside hun...
+  <p   > VitaCoreX structures patient outreach sequences that account for Miami's demographics, delivering communications in the patient's preferred language and coor...
+  <h2  > Construction and Contractor Payment Recovery
+  <p   > South Florida's construction market operates at a pace and scale that makes payment disputes inevitable. General contractors, subcontractors, and specialty t...
+  <p   > VitaCoreX provides structured pre-collection support for construction and B2B operators, including documented escalation sequences, lien-right timeline track...
+  <h2  > Miami-Specific Advantages
+  <h3  > Multilingual Outreach
+  <p   > Miami's population is over 70% Hispanic or Latino. Our recovery communications deploy in English, Spanish, and Portuguese, matching the language that will pr...
+  <h3  > Seasonal Revenue Calibration
+  <p   > Miami businesses experience significant revenue swings between peak season (November through April) and off-season. Our recovery timelines adjust outreach in...
+  <h3  > Florida-Compliant Documentation
+  <p   > Every outreach, escalation, and demand letter follows Florida's consumer protection statutes and FDCPA requirements. Litigation-ready documentation from day ...
+  <h2  > Start Recovering Revenue in Miami
+  <p   > Call us directly or book a 30-minute consultation to review your current AR aging and identify recovery opportunities specific to your Miami-Dade operation.
+  <p   > Phone: (888) 794-8292
+
+=== revenue-recovery-orlando.html: 22 missing ===
+  <span> Orlando, Florida
+  <h1  > Revenue Recovery Services in Orlando, FL
+  <p   > VitaCoreX LLC delivers structured pre-collection recovery infrastructure to operators across Orange County and Central Florida. Orlando's tourism-driven econ...
+  <h2  > Tourism and Attraction Operator Recovery
+  <p   > Orlando is the most-visited destination in the United States, anchored by Walt Disney World, Universal Studios, SeaWorld, and the Orange County Convention Ce...
+  <p   > VitaCoreX builds recovery workflows tailored to tourism-adjacent businesses where the debtor is geographically dispersed. Our structured outreach sequences p...
+  <h2  > Hospitality and Convention Revenue Recovery
+  <p   > Orlando's convention industry generates significant group and corporate billing that moves through multi-layer approval chains. Hotels in the Convention Cent...
+  <p   > VitaCoreX provides structured B2B recovery for hospitality operators, including documented escalation to the corporate accounts payable contact, dispute reso...
+  <h2  > Healthcare Provider Recovery in Central Florida
+  <p   > Central Florida's healthcare market serves both a permanent population of over 2.6 million in the Orlando metro and a transient visitor population that gener...
+  <p   > Patient balance recovery in Orlando is complicated by the visitor population: out-of-state patients who receive emergency treatment and leave Florida without...
+  <h2  > Orlando Market Advantages
+  <h3  > Tourism-Calibrated Recovery
+  <p   > Orlando's transient customer base demands compressed recovery timelines. Our workflows prioritize early outreach when contact data is fresh, recovering balan...
+  <h3  > Convention and Group Billing
+  <p   > We handle the complex B2B recovery that Orlando hospitality teams deprioritize: group master account disputes, attrition penalties, and corporate direct-bill...
+  <h3  > Cross-State Patient Recovery
+  <p   > For healthcare providers treating visitors, our cross-state outreach infrastructure reaches patients who have returned home to other states, using documented...
+  <h2  > Start Recovering Revenue in Orlando
+  <p   > Call us directly or book a 30-minute consultation to review your current AR aging and identify recovery opportunities specific to your Central Florida operat...
+  <p   > Phone: (888) 794-8292
+
+=== revenue-recovery-tampa.html: 22 missing ===
+  <span> Tampa, Florida
+  <h1  > Revenue Recovery Services in Tampa, FL
+  <p   > VitaCoreX LLC is headquartered in Tampa and delivers structured pre-collection recovery infrastructure to operators across Hillsborough County and the greate...
+  <h2  > Healthcare Revenue Recovery in Tampa
+  <p   > Tampa's healthcare market includes over 25 hospitals, hundreds of specialty clinics, and a growing network of urgent care and outpatient surgical centers. Pr...
+  <p   > VitaCoreX builds tiered outreach sequences calibrated to Tampa's payer mix, including coordination with Florida Blue, Aetna, and United Healthcare plans that...
+  <h2  > Dental Practice Recovery Across Tampa Bay
+  <p   > Tampa Bay supports over 1,200 dental practices ranging from solo general dentistry offices in Carrollwood and Riverview to multi-location DSO-affiliated grou...
+  <p   > VitaCoreX provides dental-specific recovery workflows that integrate with practice management systems. We handle the structured outreach that front-desk staf...
+  <h2  > Gym and Fitness Membership Recovery
+  <p   > Tampa's fitness industry extends from large-format gyms along Dale Mabry Highway to boutique studios in Hyde Park, SoHo, and Seminole Heights. Membership-bas...
+  <p   > Our pre-collection recovery system targets failed payments within the first 14-30 days, using structured outreach that preserves the member relationship whil...
+  <h2  > Why Tampa Operators Choose VitaCoreX
+  <h3  > Local Presence, Direct Access
+  <p   > Our headquarters sit in Tampa. You work with a local team that understands Hillsborough County's business environment, payer landscape, and regulatory contex...
+  <h3  > Pre-Collection, Not Debt Collection
+  <p   > We operate in the window before traditional collections. Structured outreach, compliant documentation, and escalation-ready files mean higher recovery rates ...
+  <h3  > Measurable Outcomes
+  <p   > Every engagement starts with a current-state leakage review. We identify where revenue is falling off, build the recovery workflow, and measure results again...
+  <h2  > Schedule a Revenue Recovery Assessment
+  <p   > Call us directly or book a 30-minute consultation to review your current AR aging and identify recovery opportunities specific to your Tampa-area operation.
+  <p   > Phone: (888) 794-8292
+
+=== revenue-recovery-workflow.html: 28 missing ===
+  <p   > Pilot evidence should come from operator baselines, documented process changes, and measured file-quality improvements rather than illustrative public claims.
+  <li  > Behavioral segmentation
+  <li  > Conditional offer conversion
+  <li  > Guarantor activation
+  <li  > ACH-first discipline
+  <li  > Litigation-ready documentation
+  <li  > 90-day pilot
+  <li  > Balances converted before agency escalation
+  <li  > Documented payment commitments and cure rates
+  <li  > Exception queues, follow-up discipline, and aging movement
+  <li  > File quality improvements that reduce downstream cleanup
+  <p   > Measure the operator's own baseline first, then compare the pilot against that live operating context.
+  <p   > Use a live pilot to validate the economic case with operator-owned data.
+  <li  > Starting portfolio mix and pre-agency balance volume
+  <li  > Acceptance rate, completion rate, and time-to-cash
+  <li  > Agency referrals avoided or deferred through cleaner internal sequencing
+  <li  > Documentation quality at handoff when escalation remains necessary
+  <p   > FDCPA / Regulation F / Florida FCCPA / E-SIGN / Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structur...
+  <p   > The goal is controlled implementation evidence, not illustrative case-study theatre.
+  <p   > Multi-step diagnostic wizard with executive brief generation and KPI baseline computation.
+  <p   > Structured intake pipeline with triage scoring, magic-link status tracking, and admin review queue.
+  <span> Interactive estimator
+  <h2  > What would a structured pilot recover on your AR?
+  <p   > Enter your outstanding receivables and the typical aging. The estimator applies industry recovery-rate benchmarks and the aging-curve multiplier to produce a...
+  <p   > Enter an outstanding AR balance above $1,000 to see the estimate.
+  <p   > Use the industry pages when the buyer needs a more specific operating frame than a general service description can provide.
+  <span> Subscription
+  <span> Contract services
+
+=== sample-deliverable.html: 0 missing ===
+
+=== security-and-compliance.html: 0 missing ===
+
+=== solutions.html: 25 missing ===
+  <p   > The site now makes the three lanes more legible so buyers do not confuse a recovery problem with a file-control problem or a routing problem.
+  <span> Engagement tiers
+  <h2  > Three entry points. Every commitment starts with a measurable scope.
+  <p   > Indicative ranges below reflect current pilot and programme structures. Final fee is confirmed after the confidential review and depends on matter volume, in...
+  <span> Diagnostic review
+  <h3  > Starting $2,500
+  <p   > Two-week assessment
+  <p   > Workflow audit, AR leakage map, file-control gap log, and a 12-month roadmap. Fee applied to subsequent pilot if engaged within 30 days.
+  <li  > Remote kickoff and data intake
+  <li  > Recovery-probability model for your AR mix
+  <li  > Written deliverable plus 45-min readout
+  <span> 90-day controlled pilot
+  <h3  > From $8,500/mo
+  <p   > Performance-linked component available
+  <p   > Full workflow deployment for one business unit or one matter lane. Typical pilots report 2.2?4.4x ROI over the 90-day window, with measurable DSO reduction a...
+  <li  > Documented SOPs and escalation ladder
+  <li  > File-control standards applied to live packets
+  <li  > Weekly scorecards; counsel-ready handoff format
+  <h3  > Custom scope
+  <p   > Multi-unit, 12-month minimum
+  <p   > Post-pilot roll-out across business units, industries, or regions. Includes quarterly governance reviews, compliance alignment (FDCPA, HIPAA, CFPB Reg F, Flo...
+  <li  > Dedicated workflow owner on the VitaCoreX side
+  <li  > Quarterly business reviews with CFO-level reporting
+  <li  > Priority routing for regulated and high-value matters
+  <p   > Ranges are indicative. Final fee depends on matter volume, compliance scope, and integration depth. VitaCoreX LLC is not a law firm; fees are for administrat...
+
+=== structured-case-intake.html: 14 missing ===
+  <p   > Attachment is optional. Use the public form for general business documents and non-regulated materials only.
+  <p   > Private Client Self-Service Tools
+  <p   > Need a quick analysis before you submit? Use one of these tools first ? results are instant and stay in your browser.
+  <li  > Recommended service lineStructured intake review aligned to route, urgency, and file readiness.
+  <li  > Routing confidenceUpdated when the required fields, service type, and urgency are complete.
+  <li  > What to send nowContract, invoice, payment history, screenshots, notices, and any existing file references.
+  <li  > Response window24?48 business hours after a complete intake and usable supporting material.
+  <li  > Recommended next stepRouting review, document gap check, and consultation handoff.
+  <p   > This summary becomes more precise as the intake is completed. It is not legal advice.
+  <li  > Initial routing review to confirm the right workstream and identify obvious gaps.
+  <li  > Request for missing materials only when they materially improve the next step.
+  <li  > Response-window guidance based on urgency, fit, and document readiness.
+  <p   > Use the public intake for general business documents and non-regulated materials. For highly sensitive or regulated records, request secure coordination first.
+  <p   > VitaCoreX is not a law firm and not a licensed collection agency. Legal strategy and legal advice remain with licensed counsel.
+
+=== sub-processors-and-dpa.html: 0 missing ===
+
+=== terms-of-use.html: 0 missing ===
+
+=== thank-you.html: 2 missing ===
+  <h1  > Thank you. We received your request.
+  <p   > Your request has been logged. A team review typically begins within 1-2 business days once the submission is complete.
+
+=== vitacorex-vs-traditional-agency.html: 22 missing ===
+  <span> Side-by-side comparison
+  <h1  > VitaCoreX vs Traditional Collection Agency
+  <p   > Two different economic models for the same problem: unpaid balances. One treats revenue recovery as an infrastructure discipline before the matter gets expen...
+  <p   > VitaCoreX LLC is not a collection agency and not a law firm. We design and operate structured pre-collection workflows for operators. Third-party collection ...
+  <span> When to choose what
+  <h2  > Not every balance belongs inside VitaCoreX.
+  <p   > Balances already 12+ months old, already charged off, or already in dispute typically belong with a licensed collection agency or counsel. Pre-collection inf...
+  <span> Choose VitaCoreX
+  <p   > When 30-, 60-, and 90-day buckets are leaking revenue, when the customer relationship is still worth protecting, and when counsel is spending hours reorganiz...
+  <span> Choose a collection agency
+  <p   > When a balance is already 12+ months old, when the customer relationship is already ended, or when the account is already charged off and contingency-fee rec...
+  <span> Choose both
+  <p   > Mature AR programs run VitaCoreX on fresh-to-aged balances (where most recoverable dollars live) and use collection agencies on the long tail where the econo...
+  <span> Source benchmarks
+  <h2  > Why these numbers hold across industries.
+  <h3  > Fresh vs aged recoverability
+  <p   > Industry data shows 70?90% recoverability on invoices under 6 months old, dropping to 45?55% at 6 months and 20?30% at 12 months. Every week of inaction redu...
+  <h3  > Agency net-to-creditor economics
+  <p   > After a 25?50% contingency commission, traditional agency placements net 10?14? per dollar to the creditor on aged balances. The math reflects both commissio...
+  <h3  > Pilot ROI benchmark
+  <p   > VitaCoreX controlled pilots typically report 2.2?4.4x ROI over a 90-day window driven by faster pre-escalation recovery, reduced agency placement volume, and...
+  <p   > Figures are industry benchmarks and VitaCoreX methodology outputs, not guaranteed outcomes. VitaCoreX LLC is not a law firm; legal strategy remains the respo...
+
+=== yandex_7c27f4f2ed32ff4d.html: 0 missing ===
+
+TOTAL MISSING: 640

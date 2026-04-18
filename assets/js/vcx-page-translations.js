@@ -1829,9 +1829,9 @@ add('How do I contact VitaCoreX?',
     'Как мне связаться с VitaCoreX?',
     '¿Cómo contacto a VitaCoreX?');
 
-add("Contact VitaCoreX LLC at (888) 794-8292, email vitacorex2025@gmail.com, or visit our contact page at vitacorexllc.com/contact.html. We're located in Tampa, FL and serve clients nationwide in English, Russian, and Spanish. You can also book a 30-minute consultation at calendly.com/vitacorex2025/30min.",
-    'Свяжитесь с VitaCoreX LLC по телефону (888) 794-8292, по электронной почте vitacorex2025@gmail.com или посетите нашу контактную страницу vitacorexllc.com/contact.html. Мы находимся в Тампе, Флорида, и обслуживаем клиентов по всей стране на английском, русском и испанском. Вы также можете забронировать 30-минутную консультацию на calendly.com/vitacorex2025/30min.',
-    'Contacte a VitaCoreX LLC al (888) 794-8292, correo vitacorex2025@gmail.com, o visite nuestra página de contacto en vitacorexllc.com/contact.html. Estamos en Tampa, FL y servimos clientes a nivel nacional en inglés, ruso y español. También puede reservar una consulta de 30 minutos en calendly.com/vitacorex2025/30min.');
+add("Contact VitaCoreX LLC at (888) 794-8292, email stevenmiller@vitacorexllc.com, or visit our contact page at vitacorexllc.com/contact.html. We're located in Tampa, FL and serve clients nationwide in English, Russian, and Spanish. You can also book a 30-minute consultation at calendly.com/vitacorex2025/30min.",
+    'Свяжитесь с VitaCoreX LLC по телефону (888) 794-8292, по электронной почте stevenmiller@vitacorexllc.com или посетите нашу контактную страницу vitacorexllc.com/contact.html. Мы находимся в Тампе, Флорида, и обслуживаем клиентов по всей стране на английском, русском и испанском. Вы также можете забронировать 30-минутную консультацию на calendly.com/vitacorex2025/30min.',
+    'Contacte a VitaCoreX LLC al (888) 794-8292, correo stevenmiller@vitacorexllc.com, o visite nuestra página de contacto en vitacorexllc.com/contact.html. Estamos en Tampa, FL y servimos clientes a nivel nacional en inglés, ruso y español. También puede reservar una consulta de 30 minutos en calendly.com/vitacorex2025/30min.');
 
 add('Ready to Get Started?',
     'Готовы начать?',
@@ -3264,21 +3264,24 @@ add('Who runs VitaCoreX.',
 add('Boutique advisory firms are bought as much for the principal as for the method. This page exists to make that principal visible — and verifiable — before the first call.',
     'В бутиковых консалтинговых фирмах клиент покупает не только метод, но и руководителя. Эта страница существует, чтобы сделать его видимым — и проверяемым — до первого звонка.',
     'En firmas de asesoría boutique se contrata tanto al principal como al método. Esta página existe para hacer visible — y verificable — a ese principal antes de la primera llamada.');
-add('FOUNDER_NAME',
-    'FOUNDER_NAME',
-    'FOUNDER_NAME');
-add('FOUNDER_BIO_PARAGRAPH_1',
-    'FOUNDER_BIO_PARAGRAPH_1',
-    'FOUNDER_BIO_PARAGRAPH_1');
-add('FOUNDER_BIO_PARAGRAPH_2',
-    'FOUNDER_BIO_PARAGRAPH_2',
-    'FOUNDER_BIO_PARAGRAPH_2');
+add('Steven Miller',
+    'Стивен Миллер',
+    'Steven Miller');
+add('Founder & Managing Director',
+    'Основатель и управляющий директор',
+    'Fundador y director general');
+add('Steven founded VitaCoreX LLC in 2025 to close a practical gap operators kept describing: administrative work that was not legal enough to require outside counsel, but not simple enough to run cleanly in-house — and that steadily bled margin before anyone escalated it. The firm focuses on three operational lanes: revenue recovery design, corporate legal file control, and structured case intake.',
+    'Стивен основал VitaCoreX LLC в 2025 году, чтобы закрыть практический пробел, о котором операторы говорили снова и снова: административная работа, которая недостаточно юридическая, чтобы привлекать внешнего советника, но и не настолько простая, чтобы чисто вести её внутри — и которая стабильно размывает маржу до того, как кто-то её эскалирует. Фирма работает по трём операционным линиям: дизайн возврата доходов, контроль корпоративных юридических файлов и структурированный intake кейсов.',
+    'Steven fundó VitaCoreX LLC en 2025 para cerrar una brecha práctica que los operadores repetían: trabajo administrativo no lo suficientemente legal como para requerir asesoría externa, pero tampoco lo suficientemente simple como para gestionarse limpiamente dentro de la empresa — y que erosionaba el margen antes de que alguien lo escalara. La firma se enfoca en tres líneas operativas: diseño de recuperación de ingresos, control de archivos legales corporativos e intake estructurado de casos.');
+add('VitaCoreX is intentionally positioned as a boutique, non-agency, non-law-firm advisory so engagements stay measurable and handoffs stay clean. Steven works directly with finance-led and counsel-adjacent operators who want cash-control logic and packet discipline in place before outside cost expands. Verification points — Sunbiz entity record, EIN, and LinkedIn — are made available before any engagement commitment.',
+    'VitaCoreX намеренно позиционирована как бутиковая не-агентская и не-юридическая консалтинговая фирма, чтобы проекты оставались измеримыми, а передачи материалов чистыми. Стивен работает напрямую с операторами, где финансы ведут повестку, а также с counsel-adjacent командами, которым нужна логика контроля cash и дисциплина packet до того, как расходы на внешних подрядчиков раздуются. Точки верификации — запись Sunbiz, EIN и LinkedIn — предоставляются до любых обязательств по сотрудничеству.',
+    'VitaCoreX está intencionalmente posicionada como una firma boutique de asesoría — no es una agencia y no es un bufete — para que los compromisos permanezcan medibles y las entregas permanezcan limpias. Steven trabaja directamente con operadores liderados por finanzas y equipos counsel-adjacent que quieren lógica de control de efectivo y disciplina de paquetes antes de que el costo externo se expanda. Los puntos de verificación — registro de Sunbiz, EIN y LinkedIn — están disponibles antes de cualquier compromiso de contratación.');
 add('For procurement and security teams',
     'Для отделов закупок и безопасности',
     'Para equipos de compras y seguridad');
-add('Vendor onboarding packets — including W-9, Certificate of Insurance, data handling procedures, and references — are provided during procurement review. Request these materials directly at vitacorex2025@gmail.com.',
-    'Пакеты onboarding вендора — включая W-9, Certificate of Insurance, процедуры обработки данных и референсы — предоставляются в рамках procurement review. Запросите эти материалы напрямую на vitacorex2025@gmail.com.',
-    'Los paquetes de onboarding de proveedor — incluyendo W-9, Certificado de Seguro, procedimientos de manejo de datos y referencias — se entregan durante la revisión de compras. Solicite estos materiales directamente en vitacorex2025@gmail.com.');
+add('Vendor onboarding packets — including W-9, Certificate of Insurance, data handling procedures, and references — are provided during procurement review. Request these materials directly at stevenmiller@vitacorexllc.com.',
+    'Пакеты onboarding вендора — включая W-9, Certificate of Insurance, процедуры обработки данных и референсы — предоставляются в рамках procurement review. Запросите эти материалы напрямую на stevenmiller@vitacorexllc.com.',
+    'Los paquetes de onboarding de proveedor — incluyendo W-9, Certificado de Seguro, procedimientos de manejo de datos y referencias — se entregan durante la revisión de compras. Solicite estos materiales directamente en stevenmiller@vitacorexllc.com.');
 add('Founder LinkedIn, Sunbiz entity record, and EIN are independently verifiable before any engagement commitment.',
     'LinkedIn основателя, запись в Sunbiz и EIN можно независимо проверить до принятия любых обязательств по сотрудничеству.',
     'El LinkedIn del fundador, el registro en Sunbiz y el EIN son verificables de forma independiente antes de cualquier compromiso de contratación.');

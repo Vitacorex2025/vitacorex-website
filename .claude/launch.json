@@ -4,13 +4,13 @@
     {
       "name": "vcx-desktop",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "-p", "8765", "-c-1", "--cors"],
+      "runtimeArgs": ["-y", "http-server", "C:/Users/sergz/OneDrive/Desktop/vitacorex-website", "-p", "8765", "-c-1", "--cors", "--silent"],
       "port": 8765
     },
     {
       "name": "vcx-mobile",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "-p", "8766", "-c-1", "--cors"],
+      "runtimeArgs": ["-y", "http-server", "C:/Users/sergz/OneDrive/Desktop/vitacorex-website", "-p", "8766", "-c-1", "--cors", "--silent"],
       "port": 8766
     }
   ]
