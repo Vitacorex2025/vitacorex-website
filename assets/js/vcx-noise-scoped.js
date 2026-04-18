@@ -30,16 +30,15 @@
     }
   } catch (_) { /* noop */ }
 
-  // Tuning — scoped sections now sit on a DARK neutral-950 backdrop, so
-  // grain must be LIGHT (180..255) for mix-blend-mode:overlay to lift the
-  // mid-tones without muddying the indigo/sky spotlights. Global noise-bg
-  // (vcx-noise-bg.js) keeps its dark-grain tuning because it still runs on
-  // the cream body background.
+  // Tuning — scoped sections sit on a LIGHT teal-tinted backdrop (#F4FBF8),
+  // so grain is DARK (0..55) with mix-blend-mode:multiply in the CSS. This
+  // matches the global noise-bg tuning and keeps the film-grain effect
+  // subtle on white-ish surfaces without washing out the teal spotlights.
   var SIZE = 512;
   var REFRESH_EVERY = 3;     // paint every 3rd frame
-  var PATTERN_ALPHA = 22;    // slightly stronger on dark bg so flecks read
-  var GRAIN_CHANNEL_MIN = 180;
-  var GRAIN_CHANNEL_MAX = 255; // light speckle on dark bg
+  var PATTERN_ALPHA = 18;    // alpha per grain pixel
+  var GRAIN_CHANNEL_MIN = 0;
+  var GRAIN_CHANNEL_MAX = 55; // dark speckle on light bg
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
