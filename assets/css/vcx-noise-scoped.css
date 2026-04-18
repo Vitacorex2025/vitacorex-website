@@ -133,6 +133,28 @@
   padding: 44px 48px 40px;
 }
 
+/* --- Primary CTA: flip from dark ink-green to brand teal --------------- */
+/* The default #2E4F46 button reads as too dark against the pure-white    */
+/* card on the pale-teal backdrop. Switch to site primary teal so the     */
+/* CTA stays brand-consistent with the spotlights and dot grid.           */
+.vcx-routes[data-vcx-texture] .vcx-route__cta--primary {
+  background: #5BBAA7 !important;
+  color: #FFFFFF !important;
+  border-color: #5BBAA7 !important;
+}
+.vcx-routes[data-vcx-texture] .vcx-route--primary:hover .vcx-route__cta--primary {
+  background: #2D8A82 !important;
+  border-color: #2D8A82 !important;
+  color: #FFFFFF !important;
+}
+
+/* Keep the ghost CTA on the private card readable — nudge its accent to */
+/* teal on hover so the colour family matches the primary on hover.      */
+.vcx-routes[data-vcx-texture] .vcx-route--private:hover .vcx-route__cta--ghost {
+  border-color: #2D8A82 !important;
+  color: #2D8A82 !important;
+}
+
 /* --- Text on backdrop: NO flip needed ---------------------------------- */
 /* Backdrop is now light (#F4FBF8), so the original ink-green/gray text    */
 /* colours from vcx-premium-2.css (#1A2F2A title, #4A5A52 lede, #3D8E7E    */
