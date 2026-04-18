@@ -1,23 +1,29 @@
 /* ==========================================================================
    vcx-noise-scoped.css
-   Section-bounded noise + dark spotlight backdrop.
-   Adapted from React film-grain snippet — dark neutral-950 base, dot grid,
-   indigo + sky radial spotlights, light film grain on top.
+   Section-bounded noise + dark spotlight backdrop, TUNED TO SITE PALETTE.
+   Dark ink-green base (matches the site's primary ink #1A2F2A family),
+   warm gold + teal spotlights (the site's accent pair), warm cream dot
+   grid (stays in the brand ecosystem, not cold slate), light film grain.
 
    Usage: add  data-vcx-texture  to any <section> you want textured.
    JS companion (vcx-noise-scoped.js) injects the .vcx-bg-texture layer.
 
    Applied places on home: dual-entry routes (.vcx-routes) + bento grid
    (.vcx-bento-section). Creates a dark premium pocket that makes the
-   pure-white cards read crisper and more "product page" vs the cream flow.
+   pure-white cards read crisper, while keeping the palette inside the
+   brand (gold + teal + cream) instead of a generic indigo/sky SaaS look.
+
+   Readability contract:
+   - White cards inside sit above the backdrop (no overlap with spotlight
+     colour, dark text on white stays fully legible).
+   - Text that renders directly on the dark backdrop (routes eyebrow,
+     title, lede, rule, escape link) is flipped to cream/gold/teal so it
+     hits WCAG AA against #0E1A17 base.
    ========================================================================== */
 
 /* Host section — becomes positioning context for the texture layer.         */
-/* NO overflow:hidden here — it would clip hovers/shadows from cards and     */
-/* break :not(fixed) floating children positioned relative to the section.   */
-/* NO isolation:isolate here — the global noise-bg already puts sections at  */
-/* z-index 2 (creating a stacking context anyway), and isolating would trap  */
-/* mix-blend-mode so the scoped grain cannot render against the page bg.    */
+/* NO overflow:hidden / NO isolation:isolate — both would break floating     */
+/* children or trap mix-blend-mode. See the prior revision's header for why. */
 [data-vcx-texture] {
   position: relative;
 }
@@ -29,42 +35,39 @@
 }
 
 /* The injected texture layer itself.                                         */
-/* Solid dark neutral base — this is what the dot-grid + spotlights + grain   */
-/* render against. No transparency here or the body cream would bleed through */
-/* and kill the dark-pocket effect.                                           */
+/* Dark ink-green base — same hue family as the site's primary ink #1A2F2A   */
+/* but pushed two steps darker so it reads as "depth / premium pocket".      */
 .vcx-bg-texture {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #0a0a0a; /* neutral-950 */
+  background: #0E1A17; /* dark ink-green, brand-aligned */
 }
 
 /* Spotlight + dot-grid layer.                                                */
-/* Three stacked images (top → bottom in background shorthand renders first): */
-/*   1. Indigo ellipse top-left-ish — warm accent                             */
-/*   2. Sky ellipse bottom-right-ish — cool accent                            */
-/*   3. Dot grid — slate-400 @ 1px, 20px spacing, low alpha                   */
-/* Solid neutral-950 fills any transparent gap (declared on .vcx-bg-texture). */
+/* Stacked images (top → bottom in background shorthand renders first):       */
+/*   1. Warm gold ellipse top — site accent #C9A460                           */
+/*   2. Teal ellipse bottom — site accent #5BBAA7                             */
+/*   3. Warm cream dot grid (very subtle) — keeps structure warm, not slate   */
 .vcx-bg-texture__gradient {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse 85% 70% at 50% -8%,
-      rgba(99, 102, 241, 0.32),
-      transparent 60%),
+      rgba(201, 164, 96, 0.32),
+      transparent 62%),
     radial-gradient(ellipse 80% 60% at 60% 115%,
-      rgba(56, 189, 248, 0.22),
+      rgba(91, 186, 167, 0.26),
       transparent 65%),
-    radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
-  background-size: auto, auto, 20px 20px;
+    radial-gradient(rgba(246, 242, 234, 0.10) 1px, transparent 1px);
+  background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
 
 /* Canvas hosting the animated film grain.                                    */
-/* Light grain on dark bg — rendered via RGB in the 180..255 range (see JS),  */
-/* so mix-blend-mode: overlay lifts mid-tones without washing out the dark    */
-/* pocket. Opacity stays moderate so grain reads as texture, not noise.       */
+/* Light grain (180..255 in JS) on dark bg; mix-blend-mode: overlay lifts     */
+/* mid-tones and adds depth without washing out the gold/teal glow.           */
 .vcx-bg-texture__noise {
   position: absolute;
   inset: 0;
@@ -73,46 +76,46 @@
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   mix-blend-mode: overlay;
-  opacity: 0.55;
+  opacity: 0.50;
 }
 
 /* --- Variant: routes section (home dual-entry) ------------------------- */
-/* Two large cards — slightly stronger indigo so the section has more       */
-/* presence under the hero cream pocket.                                    */
+/* Two large cards — slightly stronger gold spotlight so the section has    */
+/* presence directly under the hero cream pocket.                           */
 .vcx-routes[data-vcx-texture] .vcx-bg-texture__gradient {
   background:
     radial-gradient(ellipse 90% 75% at 50% -10%,
-      rgba(99, 102, 241, 0.38),
-      transparent 62%),
+      rgba(201, 164, 96, 0.38),
+      transparent 64%),
     radial-gradient(ellipse 80% 60% at 65% 115%,
-      rgba(56, 189, 248, 0.24),
+      rgba(91, 186, 167, 0.28),
       transparent 65%),
-    radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
-  background-size: auto, auto, 20px 20px;
+    radial-gradient(rgba(246, 242, 234, 0.10) 1px, transparent 1px);
+  background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
 
 /* --- Variant: bento grid ------------------------------------------------ */
-/* Five cards competing — keep spotlights softer so the cards lead the eye. */
+/* Five cards competing — softer spotlights so the cards lead the eye.      */
 .vcx-bento-section[data-vcx-texture] .vcx-bg-texture__gradient {
   background:
     radial-gradient(ellipse 80% 65% at 50% -6%,
-      rgba(99, 102, 241, 0.28),
-      transparent 62%),
+      rgba(201, 164, 96, 0.26),
+      transparent 64%),
     radial-gradient(ellipse 75% 55% at 55% 115%,
-      rgba(56, 189, 248, 0.18),
-      transparent 65%),
-    radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
-  background-size: auto, auto, 20px 20px;
+      rgba(91, 186, 167, 0.20),
+      transparent 66%),
+    radial-gradient(rgba(246, 242, 234, 0.08) 1px, transparent 1px);
+  background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
 
 /* --- Force pure-white cards inside dark-pocket sections ----------------- */
-/* Override the cream tint on route cards so they read as clean white       */
-/* product panels against the dark backdrop. !important is used because     */
-/* vcx-premium-2.css loads after this file on some pages and would          */
-/* otherwise reassert the cream gradient.                                   */
-/* The bento cards are already #fff in base CSS — no change needed.         */
+/* Cream tint on route cards is replaced with pure white so both blocks     */
+/* read as clean product panels against the dark backdrop. !important is    */
+/* used because vcx-premium-2.css would otherwise reassert the cream        */
+/* linear-gradient on .vcx-route--primary.                                  */
+/* Bento cards are already #fff in base CSS.                                */
 .vcx-routes[data-vcx-texture] .vcx-route,
 .vcx-routes[data-vcx-texture] .vcx-route--primary,
 .vcx-routes[data-vcx-texture] .vcx-route--private {
@@ -120,25 +123,63 @@
   border-color: rgba(26, 47, 42, 0.10);
 }
 
-/* Subtle lift — darker shadow so white cards don't feel flat on the dark bg. */
+/* Subtle lift — shadow so white cards don't feel flat on the dark bg. */
 .vcx-routes[data-vcx-texture] .vcx-route {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22), 0 10px 28px rgba(0, 0, 0, 0.14);
 }
 .vcx-routes[data-vcx-texture] .vcx-route:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28), 0 18px 44px rgba(0, 0, 0, 0.20);
 }
-
-/* Route heading/text needs slightly stronger contrast on pure white        */
-/* (the original cream-tint gave natural softening); keep ink colours as-is */
-/* but drop the primary card's heavy top padding one notch so the white     */
-/* card doesn't feel cavernous.                                             */
 .vcx-routes[data-vcx-texture] .vcx-route--primary .vcx-route__inner {
   padding: 44px 48px 40px;
 }
 
-/* Section-top/bottom fade so the transition from cream body into the dark  */
-/* pocket is not an abrupt band. Very subtle — 40px of gradient on each    */
-/* edge that blends cream → dark.                                          */
+/* --- Readability flip for text rendered DIRECTLY on the dark backdrop --- */
+/* Without these, the default dark-ink text would be invisible on #0E1A17.  */
+/* All colours here hit WCAG AA against the dark base. Cards inside are    */
+/* unaffected (they're white with their own dark text).                     */
+
+/* Eyebrow: brighter teal (site accent) + gold accent bar under it.        */
+.vcx-routes[data-vcx-texture] .vcx-routes__eyebrow {
+  color: #5BBAA7;
+}
+.vcx-routes[data-vcx-texture] .vcx-routes__eyebrow::after {
+  background: #C9A460;
+}
+
+/* Headline: cream on dark ink-green = AAA contrast.                        */
+.vcx-routes[data-vcx-texture] .vcx-routes__title {
+  color: #F6F2EA;
+}
+
+/* Lede: muted cream, still highly readable.                                */
+.vcx-routes[data-vcx-texture] .vcx-routes__lede {
+  color: rgba(246, 242, 234, 0.82);
+}
+
+/* Rule hairline: warm cream at low alpha so it's a visible divider.        */
+.vcx-routes[data-vcx-texture] .vcx-routes__rule {
+  background: rgba(246, 242, 234, 0.28);
+}
+
+/* Escape line ("Not sure where you fit? Start with a confidential review") */
+.vcx-routes[data-vcx-texture] .vcx-routes__escape {
+  color: rgba(246, 242, 234, 0.75);
+}
+.vcx-routes[data-vcx-texture] .vcx-routes__escape em {
+  color: #C9A460;                       /* warm gold accent */
+}
+.vcx-routes[data-vcx-texture] .vcx-routes__escape a {
+  color: #5BBAA7;                       /* teal link on dark */
+  border-bottom-color: rgba(91, 186, 167, 0.45);
+}
+.vcx-routes[data-vcx-texture] .vcx-routes__escape a:hover {
+  color: #F6F2EA;
+  border-bottom-color: #C9A460;
+}
+
+/* --- Section-edge fade: cream body → dark pocket → cream body ---------- */
+/* Softens the transition so the section boundary is not an abrupt band.    */
 .vcx-routes[data-vcx-texture]::before,
 .vcx-routes[data-vcx-texture]::after,
 .vcx-bento-section[data-vcx-texture]::before,
@@ -172,28 +213,28 @@
 /* Smaller viewports get lighter grain + tighter spotlights so the section  */
 /* doesn't feel too heavy under touch scrolling.                            */
 @media (max-width: 720px) {
-  .vcx-bg-texture__noise { opacity: 0.40; }
+  .vcx-bg-texture__noise { opacity: 0.38; }
 
   .vcx-routes[data-vcx-texture] .vcx-bg-texture__gradient {
     background:
       radial-gradient(ellipse 120% 60% at 50% -12%,
-        rgba(99, 102, 241, 0.34),
-        transparent 65%),
+        rgba(201, 164, 96, 0.34),
+        transparent 66%),
       radial-gradient(ellipse 120% 50% at 60% 115%,
-        rgba(56, 189, 248, 0.20),
+        rgba(91, 186, 167, 0.22),
         transparent 70%),
-      radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+      radial-gradient(rgba(246, 242, 234, 0.10) 1px, transparent 1px);
     background-size: auto, auto, 18px 18px;
   }
   .vcx-bento-section[data-vcx-texture] .vcx-bg-texture__gradient {
     background:
       radial-gradient(ellipse 120% 55% at 50% -8%,
-        rgba(99, 102, 241, 0.26),
-        transparent 65%),
+        rgba(201, 164, 96, 0.24),
+        transparent 66%),
       radial-gradient(ellipse 120% 45% at 55% 115%,
-        rgba(56, 189, 248, 0.16),
+        rgba(91, 186, 167, 0.18),
         transparent 70%),
-      radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+      radial-gradient(rgba(246, 242, 234, 0.08) 1px, transparent 1px);
     background-size: auto, auto, 18px 18px;
   }
 }
@@ -207,4 +248,11 @@
     background: #FFFFFF !important;
     box-shadow: none !important;
   }
+  /* Flip readability overrides back to dark text for print (white paper). */
+  .vcx-routes[data-vcx-texture] .vcx-routes__title { color: #1A2F2A !important; }
+  .vcx-routes[data-vcx-texture] .vcx-routes__lede { color: #4A5A52 !important; }
+  .vcx-routes[data-vcx-texture] .vcx-routes__eyebrow { color: #3D8E7E !important; }
+  .vcx-routes[data-vcx-texture] .vcx-routes__escape { color: #5E6C7B !important; }
+  .vcx-routes[data-vcx-texture] .vcx-routes__escape em,
+  .vcx-routes[data-vcx-texture] .vcx-routes__escape a { color: #2E4F46 !important; }
 }
