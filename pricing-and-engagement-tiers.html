@@ -9,17 +9,17 @@
 <link rel="preconnect" href="https://vcx-api.onrender.com" crossorigin/>
 <link rel="dns-prefetch" href="https://vcx-api.onrender.com"/>
 <meta name="robots" content="index, follow, max-image-preview:large"/><meta http-equiv="Content-Language" content="en"/>
-<title>Pricing &amp; Engagement Tiers | VitaCoreX LLC</title>
-<meta content="VitaCoreX engagement tiers and pricing bands: Diagnostic, 90-day Pilot, and Programme. Published fees, what's included at each tier, billing mechanics, and ROI framework." name="description"/>
-<meta name="keywords" content="VitaCoreX pricing, engagement tiers, diagnostic fee, pilot pricing, revenue recovery pricing, B2B recovery fees, procurement, transparent pricing"/>
+<title>Pricing and Engagement Tiers · VitaCoreX LLC</title>
+<meta content="Master pricing index: corporate weekly retainers ($1,500-$4,500/wk), Corporate Legal File Control starting $3,500/matter, Free Pre-Collection Pilot (success fees 15/18/22.5%), plus fixed-fee private client packets ($149/$219/$725) and hearing support $110/hr." name="description"/>
+<meta name="keywords" content="VitaCoreX pricing, engagement tiers, corporate retainer, Free pilot, pre-collection pilot, success fee, small claims packet, attorney-ready packet, managed small claims, hearing support, B2B recovery pricing, documentation packet pricing, procurement"/>
 <script>(function(){document.documentElement.classList.add("vcx-preload");})();</script>
 <link href="https://vitacorexllc.com/pricing-and-engagement-tiers.html" rel="canonical"/>
 <link rel="alternate" hreflang="en" href="https://vitacorexllc.com/pricing-and-engagement-tiers.html"/>
 <link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/pricing-and-engagement-tiers.html"/>
 <link rel="alternate" hreflang="es" href="https://vitacorexllc.com/pricing-and-engagement-tiers.html"/>
 <link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/pricing-and-engagement-tiers.html"/>
-<meta content="Pricing &amp; Engagement Tiers | VitaCoreX LLC" property="og:title"/>
-<meta content="Three engagement tiers with published fee bands, inclusions, billing mechanics, and termination terms — so procurement can file a complete record." property="og:description"/>
+<meta content="Pricing and Engagement Tiers · VitaCoreX LLC" property="og:title"/>
+<meta content="Master pricing index for VitaCoreX: corporate weekly retainers, Corporate Legal File Control, Free Pre-Collection Pilot, and fixed-fee private-client documentation packets. Transparent, published prices — fan out to specialized pages for detail." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://vitacorexllc.com/assets/img/og-vitacorex-2026.svg" property="og:image"/>
 <meta property="og:locale" content="en_US"/>
@@ -41,26 +41,86 @@
 <script src="assets/js/shell-i18n.js?v=2" defer></script>
 <script src="/assets/js/vcx-premium-fx.js" defer></script>
 <style>
-  .vcx-tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0 16px; }
-  @media (max-width: 900px) { .vcx-tier-grid { grid-template-columns: 1fr; } }
-  .vcx-tier { background: #FFFFFF; border: 1px solid rgba(26, 79, 74, 0.14); border-radius: 12px; padding: 26px 24px; position: relative; box-shadow: 0 4px 16px rgba(14, 45, 42, 0.04); display: flex; flex-direction: column; }
-  .vcx-tier--featured { border-color: #1A5A54; border-width: 2px; box-shadow: 0 8px 24px rgba(26, 90, 84, 0.12); }
-  .vcx-tier--featured::before { content: "Most common"; position: absolute; top: -11px; left: 24px; background: #1A5A54; color: #FFFFFF; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
-  .vcx-tier-name { font-family: Georgia, serif; font-size: 22px; color: #0E2D2A; margin: 0 0 6px 0; }
-  .vcx-tier-sub { color: #4A5B6E; font-size: 13.5px; margin: 0 0 18px 0; font-style: italic; }
-  .vcx-tier-price { font-family: Georgia, serif; font-size: 30px; color: #1A5A54; font-weight: 700; margin: 0 0 4px 0; }
-  .vcx-tier-price small { font-size: 14px; color: #4A5B6E; font-weight: 400; }
-  .vcx-tier-price-note { font-size: 12.5px; color: #4A5B6E; margin: 0 0 18px 0; }
-  .vcx-tier-list { list-style: none; padding: 0; margin: 18px 0; border-top: 1px solid rgba(26, 79, 74, 0.10); padding-top: 18px; flex-grow: 1; }
-  .vcx-tier-list li { padding: 7px 0 7px 20px; position: relative; font-size: 14px; color: #1F2A29; line-height: 1.5; }
-  .vcx-tier-list li::before { content: "—"; position: absolute; left: 0; color: #1A5A54; font-weight: 700; }
-  .vcx-tier-cta { margin-top: 16px; }
-  .vcx-pricing-note { background: rgba(201, 169, 78, 0.10); border-left: 3px solid #C9A94E; padding: 14px 18px; margin: 16px 0; border-radius: 0 6px 6px 0; color: #3A2E0F; font-size: 14px; }
-  .vcx-billing-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
-  .vcx-billing-table th, .vcx-billing-table td { text-align: left; padding: 12px; border-bottom: 1px solid rgba(26, 79, 74, 0.14); vertical-align: top; }
-  .vcx-billing-table th { background: rgba(26, 79, 74, 0.06); color: #0E2D2A; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; font-size: 11.5px; }
-  .vcx-billing-table td { color: #1F2A29; }
-  .vcx-billing-table tr:last-child td { border-bottom: none; }
+/* ── Page-local styles: pricing-and-engagement-tiers.html ── */
+.pet-hero{background:linear-gradient(180deg,#FBF8F3 0%,#F6F2EA 100%);padding:72px 0 56px;border-bottom:1px solid rgba(23,58,99,.08);}
+.pet-hero .wrap{max-width:1160px;}
+.pet-hero__eyebrow{display:inline-block;background:rgba(91,186,167,.14);color:#2D8A82;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px;}
+.pet-hero__title{font-size:clamp(1.9rem,3.6vw,2.85rem);line-height:1.12;font-weight:800;color:#1A2F2A;letter-spacing:-.02em;margin:0 0 18px;max-width:940px;}
+.pet-hero__lede{font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.65;color:#4A5A52;max-width:820px;margin:0 0 12px;}
+
+.pet-section{padding:64px 0;}
+.pet-section--cream{background:#F6F2EA;}
+.pet-section--white{background:#FBF8F3;}
+.pet-section .wrap{max-width:1160px;}
+
+.pet-sec-head{max-width:820px;margin:0 auto 40px;text-align:center;}
+.pet-sec-head__eyebrow{display:inline-block;color:#2D8A82;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;}
+.pet-sec-head h2{font-size:clamp(1.5rem,2.6vw,2rem);color:#1A2F2A;margin:0 0 12px;font-weight:800;letter-spacing:-.01em;}
+.pet-sec-head p{color:#4A5A52;font-size:1rem;line-height:1.6;margin:0;}
+
+.pet-aud-badge{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:10px;}
+.pet-aud-badge--b2b{background:rgba(23,58,99,.10);color:#173A63;}
+.pet-aud-badge--b2c{background:rgba(201,164,96,.16);color:#7a6123;}
+
+.pet-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media (max-width:960px){.pet-tiers{grid-template-columns:1fr;}}
+.pet-tier{background:#FFFFFF;border-radius:14px;padding:30px 26px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(23,58,99,.06);display:flex;flex-direction:column;position:relative;}
+.pet-tier--featured{border:2px solid #5BBAA7;box-shadow:0 12px 32px rgba(91,186,167,.22);}
+.pet-tier__badge{position:absolute;top:-12px;left:26px;background:#5BBAA7;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.pet-tier__kicker{color:#2D8A82;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px;}
+.pet-tier__title{color:#1A2F2A;font-size:1.18rem;font-weight:800;margin:0 0 14px;line-height:1.3;}
+.pet-tier__price{font-size:2.3rem;font-weight:800;color:#1A2F2A;line-height:1;letter-spacing:-.02em;margin:0 0 6px;}
+.pet-tier__price small{font-size:.92rem;color:#4A5A52;font-weight:600;}
+.pet-tier__price-note{color:#4A5A52;font-size:.86rem;margin:0 0 18px;line-height:1.5;}
+.pet-tier__for{background:rgba(91,186,167,.08);border-left:3px solid #5BBAA7;padding:10px 14px;border-radius:6px;margin:0 0 16px;}
+.pet-tier__for span{display:block;font-size:.72rem;color:#2D8A82;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+.pet-tier__for p{margin:0;color:#1A2F2A;font-size:.92rem;line-height:1.45;}
+.pet-tier__inc{margin:0 0 16px;padding:0;list-style:none;flex-grow:1;}
+.pet-tier__inc li{position:relative;padding:7px 0 7px 24px;color:#4A5A52;font-size:.93rem;line-height:1.5;}
+.pet-tier__inc li::before{content:"\2713";position:absolute;left:0;top:6px;color:#2D8A82;font-weight:800;}
+.pet-tier__micro{background:rgba(23,58,99,.05);border-radius:8px;padding:10px 12px;font-size:.82rem;color:#4A5A52;font-style:italic;line-height:1.5;margin:0 0 14px;}
+.pet-tier__footnote{font-size:.82rem;color:#4A5A52;line-height:1.5;margin:0 0 14px;}
+.pet-btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.92rem;padding:12px 20px;border-radius:10px;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;justify-content:center;}
+.pet-btn--primary{background:#5BBAA7;color:#fff;box-shadow:0 6px 18px rgba(91,186,167,.24);}
+.pet-btn--primary:hover{background:#2D8A82;box-shadow:0 8px 22px rgba(45,138,130,.3);color:#fff;}
+.pet-btn--ghost{background:transparent;color:#2D8A82;border-color:#5BBAA7;}
+.pet-btn--ghost:hover{background:rgba(91,186,167,.08);color:#1A2F2A;}
+.pet-tier__cta{width:100%;}
+
+/* Retainer sub-cards for Tier B-3 */
+.pet-retainer-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px;}
+@media (max-width:520px){.pet-retainer-levels{grid-template-columns:1fr;}}
+.pet-retainer-level{background:rgba(91,186,167,.08);border:1px solid rgba(91,186,167,.22);border-radius:10px;padding:12px 12px;text-align:center;}
+.pet-retainer-level__label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2D8A82;margin-bottom:4px;}
+.pet-retainer-level__price{font-size:1.1rem;font-weight:800;color:#1A2F2A;margin-bottom:4px;line-height:1;}
+.pet-retainer-level__price small{font-size:.74rem;color:#4A5A52;font-weight:600;}
+.pet-retainer-level__desc{font-size:.78rem;color:#4A5A52;line-height:1.4;margin:0;}
+
+/* Add-on band */
+.pet-addon{background:#FBF8F3;border-radius:14px;padding:26px 28px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(23,58,99,.06);margin:28px auto 0;max-width:980px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;}
+.pet-addon__lead{flex:1 1 360px;min-width:280px;}
+.pet-addon__name{color:#1A2F2A;font-size:1.05rem;font-weight:800;margin:0 0 6px;}
+.pet-addon__price{color:#2D8A82;font-size:1.2rem;font-weight:800;margin:0 0 8px;}
+.pet-addon__desc{color:#4A5A52;font-size:.92rem;line-height:1.55;margin:0;}
+.pet-addon__cta{flex:0 0 auto;}
+
+/* Principles */
+.pet-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.pet-principle{background:#FFFFFF;border-radius:14px;padding:22px 24px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(23,58,99,.06);}
+.pet-principle__num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:rgba(91,186,167,.14);color:#2D8A82;font-weight:800;font-size:.95rem;margin-bottom:12px;}
+.pet-principle p{color:#1A2F2A;font-size:.95rem;line-height:1.55;margin:0;font-weight:500;}
+
+/* UPL Safeguard */
+.pet-upl{background:#173A63;color:#F6F2EA;padding:36px 40px;border-radius:16px;max-width:1040px;margin:0 auto;box-shadow:0 12px 36px rgba(23,58,99,.22);}
+.pet-upl__label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C9A460;margin-bottom:10px;}
+.pet-upl h2{color:#fff;font-size:1.35rem;font-weight:800;margin:0 0 12px;}
+.pet-upl p{margin:0;font-size:.98rem;line-height:1.65;color:#F6F2EA;}
+
+@media (max-width:640px){
+  .pet-hero{padding:48px 0 40px;}
+  .pet-section{padding:48px 0;}
+  .pet-upl{padding:28px 22px;}
+}
 </style>
 </head>
 <body data-page="pricing-and-engagement-tiers">
@@ -103,192 +163,243 @@
 </header>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"VitaCoreX LLC","url":"https://vitacorexllc.com/","logo":"https://vitacorexllc.com/assets/img/logo.png","telephone":"+18887948292"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vitacorexllc.com/"},{"@type":"ListItem","position":2,"name":"Pricing & Engagement Tiers","item":"https://vitacorexllc.com/pricing-and-engagement-tiers.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pricing & Engagement Tiers","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Three engagement tiers with published fee bands, inclusions, billing mechanics, and termination terms.","datePublished":"2026-04-17","dateModified":"2026-04-17"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"OfferCatalog","name":"VitaCoreX Engagement Tiers","itemListElement":[{"@type":"Offer","name":"Diagnostic","description":"Fixed-fee 10-business-day revenue leakage audit producing a dollarized recovery map.","price":"2500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"2500","priceCurrency":"USD","unitText":"one-time"}},{"@type":"Offer","name":"90-day Pilot","description":"Monthly engagement building pre-collection workflows, dashboards, and dispute discipline.","priceSpecification":{"@type":"PriceSpecification","minPrice":"8500","maxPrice":"18000","priceCurrency":"USD","unitText":"per month"}},{"@type":"Offer","name":"Programme","description":"Ongoing recovery infrastructure retainer plus outcome-based fee.","priceSpecification":{"@type":"PriceSpecification","minPrice":"12000","priceCurrency":"USD","unitText":"per month"}}]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vitacorexllc.com/"},{"@type":"ListItem","position":2,"name":"Pricing and Engagement Tiers","item":"https://vitacorexllc.com/pricing-and-engagement-tiers.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"VitaCoreX Consulting Engagements","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Revenue recovery, documentation, and workflow-governance consulting for operators, plus fixed-fee civil and small-claims documentation packets for private clients. Not a law firm.","provider":{"@type":"Organization","name":"VitaCoreX LLC","url":"https://vitacorexllc.com/","telephone":"+18887948292"},"areaServed":{"@type":"Country","name":"United States"},"offers":[{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 0-90 days aged","description":"Consulting success fee on recovered cash (0-90 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"15","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 91-180 days aged","description":"Consulting success fee on recovered cash (91-180 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"18","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 181+ days aged","description":"Consulting success fee on recovered cash (181+ day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"22.5","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Corporate Legal File Control — fixed scope","description":"Chronology cleanup, exhibit indexing, issue and gap log, counsel-ready packet assembly. Scaled to document volume.","priceSpecification":{"@type":"PriceSpecification","minPrice":"3500","priceCurrency":"USD","unitText":"per matter (starting at)"}},{"@type":"Offer","name":"Recovery and File-Control Weekly Retainer — Starter","description":"Single operator, one workflow lane, weekly governance.","priceSpecification":{"@type":"UnitPriceSpecification","price":"1500","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Recovery and File-Control Weekly Retainer — Growth","description":"Multi-location, 2-3 workflow lanes, weekly reporting.","priceSpecification":{"@type":"UnitPriceSpecification","price":"3250","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Recovery and File-Control Weekly Retainer — Executive","description":"Full governance, multi-lane, board-ready reporting, priority response.","priceSpecification":{"@type":"UnitPriceSpecification","price":"4500","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Small Claims Documentation Packet","description":"Intake review, chronology, exhibit index, claim summary memo, print-ready format. Florida small claims under $8,000.","price":"149","priceCurrency":"USD"},{"@type":"Offer","name":"Attorney-Ready Civil Packet","description":"Deeper exhibit analysis, gap log, issue summary memo, counsel-ready tabs.","price":"219","priceCurrency":"USD"},{"@type":"Offer","name":"Managed Small Claims to Judgment","description":"End-to-end file management through pre-judgment, docket tracking, judgment packet assembly.","price":"725","priceCurrency":"USD"},{"@type":"Offer","name":"Hearing Attendance Support","description":"Documentation support during hearings. 2-hour minimum. Not legal representation.","priceSpecification":{"@type":"UnitPriceSpecification","price":"110","priceCurrency":"USD","unitText":"per hour","referenceQuantity":{"@type":"QuantitativeValue","value":"2","unitText":"hour minimum"}}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Pricing and Engagement Tiers","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Master pricing index: corporate retainers and Free Pilot for operators, plus fixed-fee documentation packets for private clients.","datePublished":"2026-04-18","dateModified":"2026-04-18"}
+</script>
 
-<section class="hero hero-premium">
-<div class="hero-video"><video aria-hidden="true" autoplay="" loop="" muted="" playsinline="" poster="assets/img/sky-poster.jpg" preload="metadata"><source src="assets/video/sky-clouds.mp4" type="video/mp4"/></video><img alt="Sky background" src="assets/img/sky-poster.jpg"/></div>
-<div class="wrap hero-inner">
-<div class="hero-grid hero-grid-composed">
-<div class="hero-copy glass reveal">
-<span class="eyebrow">Pricing &amp; engagement tiers · Published</span>
-<h1>Three tiers, published fees, no contingency.</h1>
-<p class="lead">Procurement shouldn't have to negotiate a range out of us. This page publishes the three engagement tiers, what's inside each, how billing and termination work, and where outcome-based components are permitted. Actual engagement price within each band is set during structured intake based on portfolio size, document quality, and whether the work runs inside your environment or ours. No contingency. No multi-year lock-in. No exit penalty.</p>
+<section class="pet-hero">
+<div class="wrap">
+<span class="pet-hero__eyebrow" data-page="pet_hero_eyebrow">Master pricing index</span>
+<h1 class="pet-hero__title" data-page="pet_hero_title">Pricing and engagement tiers &mdash; corporate and private-client, published.</h1>
+<p class="pet-hero__lede" data-page="pet_hero_lede">VitaCoreX is a documentation, workflow, and revenue-recovery consulting firm. Corporate engagements are priced by shape, not by hour &mdash; free diagnostic pilots, fixed-scope file control, and weekly governance retainers. Private-client documentation packets carry flat fees. Every priced item below links to its detail page.</p>
+<p class="pet-hero__lede" data-page="pet_hero_lede2">We are not a law firm. We do not give legal advice, file, or appear on your behalf. Every engagement is structured as consulting, not legal services.</p>
 </div>
-<div class="hero-side reveal">
-<div class="problem-item glass">
-<h3>Why bands, not a single price</h3>
-<p>A 3-location dental DSO with $400K in AR and a 30-location hospital network with $40M in AR need the same playbook but not the same volume of work. Bands let us disclose the honest price range without pretending one number fits both. Within-band placement is explained in writing during intake.</p>
+</section>
+
+<!-- ═══════════════ SECTION A: B2B (DOMINANT) ═══════════════ -->
+<section class="pet-section pet-section--white">
+<div class="wrap">
+<div class="pet-sec-head">
+<span class="pet-aud-badge pet-aud-badge--b2b" data-page="pet_b2b_badge">For Companies</span>
+<h2 data-page="pet_b2b_title">Corporate advisory and recovery &mdash; priced by engagement shape, not by hour.</h2>
+<p data-page="pet_b2b_intro">Three shapes operators actually use: a free pilot that proves recovery before dollars move, a fixed-scope file-control engagement that cleans the matter packet, and a weekly retainer that runs continuous governance across locations.</p>
 </div>
+
+<div class="pet-tiers">
+
+<!-- Tier B-1: Free Pilot -->
+<article class="pet-tier">
+<p class="pet-tier__kicker" data-page="pet_b1_kicker">Tier B-1 &middot; Free for qualified portfolios</p>
+<h3 class="pet-tier__title" data-page="pet_b1_title">Pre-Collection Recovery Pilot</h3>
+<p class="pet-tier__price" data-page="pet_b1_price">FREE <small data-page="pet_b1_price_small">for qualified operators</small></p>
+<p class="pet-tier__price-note" data-page="pet_b1_price_note">No setup fee. Consulting success fee only on recovered cash, by AR age band.</p>
+<div class="pet-tier__for">
+<span data-page="pet_b1_for_label">For</span>
+<p data-page="pet_b1_for_text">AR portfolios greater than or equal to $100K, 30&ndash;180 day aged balances, operator-side governance.</p>
+</div>
+<ul class="pet-tier__inc">
+<li data-page="pet_b1_inc_1">7-day diagnostic of the portfolio</li>
+<li data-page="pet_b1_inc_2">90-day structured pilot on a live AR slice</li>
+<li data-page="pet_b1_inc_3">Weekly KPI dashboard &mdash; measured against operator baseline</li>
+<li data-page="pet_b1_inc_4">Executive deck at close</li>
+<li data-page="pet_b1_inc_5">Success fee: 15% / 18% / 22.5% by AR age (0&ndash;90 / 91&ndash;180 / 181+ days)</li>
+</ul>
+<p class="pet-tier__footnote" data-page="pet_b1_footnote">US Chamber benchmark for pre-collection is 25&ndash;33%. VitaCoreX is roughly 25% below common benchmarks.</p>
+<div class="pet-tier__micro" data-page="pet_b1_micro">Structured as a pre-collection consulting success fee, not a contingency collection fee. Licensed collection activity referred to partner agencies when appropriate.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="pre-collection-pilot.html" data-page="pet_b1_cta">See Pilot details &rarr;</a>
+</article>
+
+<!-- Tier B-2: Corporate Legal File Control -->
+<article class="pet-tier pet-tier--featured">
+<span class="pet-tier__badge" data-page="pet_b2_badge">Fixed scope</span>
+<p class="pet-tier__kicker" data-page="pet_b2_kicker">Tier B-2 &middot; Per-matter engagement</p>
+<h3 class="pet-tier__title" data-page="pet_b2_title">Corporate Legal File Control</h3>
+<p class="pet-tier__price" data-page="pet_b2_price">from $3,500 <small data-page="pet_b2_price_small">/ matter</small></p>
+<p class="pet-tier__price-note" data-page="pet_b2_price_note">Starting price on a simple matter. Scales with document volume and complexity; scope and price fixed in writing before work begins.</p>
+<div class="pet-tier__for">
+<span data-page="pet_b2_for_label">For</span>
+<p data-page="pet_b2_for_text">Organizations that need cleaner packet discipline before engaging counsel or a collection agency.</p>
+</div>
+<ul class="pet-tier__inc">
+<li data-page="pet_b2_inc_1">Chronology cleanup across matter documents</li>
+<li data-page="pet_b2_inc_2">Exhibit indexing with consistent tab and source labeling</li>
+<li data-page="pet_b2_inc_3">Issue and gap log for counsel review</li>
+<li data-page="pet_b2_inc_4">Counsel-ready packet assembly (print and digital formats)</li>
+<li data-page="pet_b2_inc_5">Single-point handoff to your licensed counsel</li>
+</ul>
+<div class="pet-tier__micro" data-page="pet_b2_micro">Documentation and workflow preparation only. Filing, legal strategy, and representation remain with your licensed counsel.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="corporate-legal-file-control.html" data-page="pet_b2_cta">Review file control &rarr;</a>
+</article>
+
+<!-- Tier B-3: Weekly Retainer -->
+<article class="pet-tier">
+<p class="pet-tier__kicker" data-page="pet_b3_kicker">Tier B-3 &middot; Weekly retainer</p>
+<h3 class="pet-tier__title" data-page="pet_b3_title">Recovery + File-Control Retainer</h3>
+<p class="pet-tier__price" data-page="pet_b3_price">$1,500&ndash;$4,500 <small data-page="pet_b3_price_small">/ week</small></p>
+<p class="pet-tier__price-note" data-page="pet_b3_price_note">Three levels. Weekly cadence, not monthly &mdash; short feedback loops, easy to pause or scale.</p>
+<div class="pet-tier__for">
+<span data-page="pet_b3_for_label">For</span>
+<p data-page="pet_b3_for_text">Multi-location operators needing continuous workflow governance, weekly reporting, and escalation discipline.</p>
+</div>
+<div class="pet-retainer-levels">
+<div class="pet-retainer-level">
+<span class="pet-retainer-level__label" data-page="pet_b3_lvl_starter_label">Starter</span>
+<div class="pet-retainer-level__price">$1,500<small data-page="pet_b3_lvl_starter_unit"> /wk</small></div>
+<p class="pet-retainer-level__desc" data-page="pet_b3_lvl_starter_desc">Single operator, one workflow lane</p>
+</div>
+<div class="pet-retainer-level">
+<span class="pet-retainer-level__label" data-page="pet_b3_lvl_growth_label">Growth</span>
+<div class="pet-retainer-level__price">$3,250<small data-page="pet_b3_lvl_growth_unit"> /wk</small></div>
+<p class="pet-retainer-level__desc" data-page="pet_b3_lvl_growth_desc">Multi-location, 2-3 lanes, weekly reporting</p>
+</div>
+<div class="pet-retainer-level">
+<span class="pet-retainer-level__label" data-page="pet_b3_lvl_exec_label">Executive</span>
+<div class="pet-retainer-level__price">$4,500<small data-page="pet_b3_lvl_exec_unit"> /wk</small></div>
+<p class="pet-retainer-level__desc" data-page="pet_b3_lvl_exec_desc">Full governance, board-ready reporting, priority response</p>
+</div>
+</div>
+<div class="pet-tier__micro" data-page="pet_b3_micro">Workflow governance, documentation discipline, and escalation coordination. Not legal services.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="contact.html" data-page="pet_b3_cta">Request retainer scope &rarr;</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ SECTION B: B2C (CURATED, SECONDARY) ═══════════════ -->
+<section class="pet-section pet-section--cream">
+<div class="wrap">
+<div class="pet-sec-head">
+<span class="pet-aud-badge pet-aud-badge--b2c" data-page="pet_b2c_badge">Private Clients</span>
+<h2 data-page="pet_b2c_title">Fixed-fee packets and documentation support &mdash; counsel-ready, transparent pricing.</h2>
+<p data-page="pet_b2c_intro">For individuals and small business owners handling Florida small-claims or civil matters. Counsel-ready documentation prepared for you or your attorney to file. VitaCoreX is not a law firm and does not file or appear on your behalf.</p>
+</div>
+
+<div class="pet-tiers">
+
+<!-- Tier C-1: $149 -->
+<article class="pet-tier">
+<p class="pet-tier__kicker" data-page="pet_c1_kicker">Tier C-1 &middot; Small-claims documentation</p>
+<h3 class="pet-tier__title" data-page="pet_c1_title">Small Claims Documentation Packet</h3>
+<p class="pet-tier__price" data-page="pet_c1_price">$149 <small data-page="pet_c1_price_small">fixed fee</small></p>
+<p class="pet-tier__price-note" data-page="pet_c1_price_note">Turnaround: 5 business days.</p>
+<div class="pet-tier__for">
+<span data-page="pet_c1_for_label">For</span>
+<p data-page="pet_c1_for_text">Florida small-claims matters (under $8,000), pro se or lawyer-filed.</p>
+</div>
+<ul class="pet-tier__inc">
+<li data-page="pet_c1_inc_1">Intake review</li>
+<li data-page="pet_c1_inc_2">Chronology preparation</li>
+<li data-page="pet_c1_inc_3">Exhibit index</li>
+<li data-page="pet_c1_inc_4">Claim summary memo</li>
+<li data-page="pet_c1_inc_5">Print-ready formatting</li>
+</ul>
+<div class="pet-tier__micro" data-page="pet_c1_micro">Documentation preparation only. You or your licensed attorney file.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="small-claims-documentation.html#compare" data-page="pet_c1_cta">See packet details &rarr;</a>
+</article>
+
+<!-- Tier C-2: $219 (featured) -->
+<article class="pet-tier pet-tier--featured">
+<span class="pet-tier__badge" data-page="pet_c2_badge">Most common</span>
+<p class="pet-tier__kicker" data-page="pet_c2_kicker">Tier C-2 &middot; Attorney-ready packet</p>
+<h3 class="pet-tier__title" data-page="pet_c2_title">Attorney-Ready Civil Packet</h3>
+<p class="pet-tier__price" data-page="pet_c2_price">$219 <small data-page="pet_c2_price_small">fixed fee</small></p>
+<p class="pet-tier__price-note" data-page="pet_c2_price_note">Turnaround: 7 business days.</p>
+<div class="pet-tier__for">
+<span data-page="pet_c2_for_label">For</span>
+<p data-page="pet_c2_for_text">Civil and commercial matters, including larger claims.</p>
+</div>
+<ul class="pet-tier__inc">
+<li data-page="pet_c2_inc_1">Everything in Tier C-1</li>
+<li data-page="pet_c2_inc_2">Deeper exhibit analysis</li>
+<li data-page="pet_c2_inc_3">Gap log</li>
+<li data-page="pet_c2_inc_4">Issue summary memo</li>
+<li data-page="pet_c2_inc_5">Counsel-ready tabs and indexing</li>
+</ul>
+<div class="pet-tier__micro" data-page="pet_c2_micro">Prepared for your licensed attorney to file. No legal advice.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="small-claims-documentation.html#compare" data-page="pet_c2_cta">See packet details &rarr;</a>
+</article>
+
+<!-- Tier C-3: $725 -->
+<article class="pet-tier">
+<p class="pet-tier__kicker" data-page="pet_c3_kicker">Tier C-3 &middot; Managed file</p>
+<h3 class="pet-tier__title" data-page="pet_c3_title">Managed Small Claims to Judgment</h3>
+<p class="pet-tier__price" data-page="pet_c3_price">$725 <small data-page="pet_c3_price_small">fixed fee</small></p>
+<p class="pet-tier__price-note" data-page="pet_c3_price_note">Turnaround: matter duration, typically 60&ndash;90 days.</p>
+<div class="pet-tier__for">
+<span data-page="pet_c3_for_label">For</span>
+<p data-page="pet_c3_for_text">Small-claims matters where you want the file managed end-to-end through pre-judgment.</p>
+</div>
+<ul class="pet-tier__inc">
+<li data-page="pet_c3_inc_1">Everything in Tier C-2</li>
+<li data-page="pet_c3_inc_2">Docket tracking</li>
+<li data-page="pet_c3_inc_3">File updates through pre-judgment</li>
+<li data-page="pet_c3_inc_4">Coordination with your attorney</li>
+<li data-page="pet_c3_inc_5">Judgment packet assembly</li>
+</ul>
+<div class="pet-tier__micro" data-page="pet_c3_micro">File management and coordination. Your attorney files and appears.</div>
+<a class="pet-btn pet-btn--primary pet-tier__cta" href="small-claims-documentation.html#compare" data-page="pet_c3_cta">Book managed file &rarr;</a>
+</article>
+
+</div>
+
+<!-- Add-on band -->
+<div class="pet-addon">
+<div class="pet-addon__lead">
+<p class="pet-addon__name" data-page="pet_addon_name">Hearing Attendance Support</p>
+<p class="pet-addon__price" data-page="pet_addon_price">$110 / hour (2-hour minimum)</p>
+<p class="pet-addon__desc" data-page="pet_addon_desc">Documentation support during hearings, on-site or remote. Not legal representation &mdash; we do not speak for you in court.</p>
+</div>
+<div class="pet-addon__cta">
+<a class="pet-btn pet-btn--ghost" href="small-claims-documentation.html#compare" data-page="pet_addon_cta">Add hearing support &rarr;</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════ SECTION C: ENGAGEMENT PRINCIPLES ═══════════════ -->
+<section class="pet-section pet-section--white">
+<div class="wrap">
+<div class="pet-sec-head">
+<span class="pet-sec-head__eyebrow" data-page="pet_pri_eyebrow">How we engage</span>
+<h2 data-page="pet_pri_title">Engagement principles</h2>
+<p data-page="pet_pri_intro">Four rules every buyer hears before we start. Written the same way every time.</p>
+</div>
+<div class="pet-principles">
+<div class="pet-principle">
+<div class="pet-principle__num">1</div>
+<p data-page="pet_pri_1">All consulting work is scoped and fixed before start. No retainers you can&rsquo;t predict.</p>
+</div>
+<div class="pet-principle">
+<div class="pet-principle__num">2</div>
+<p data-page="pet_pri_2">Retainers are weekly, not monthly &mdash; short feedback loops, easy to pause or scale.</p>
+</div>
+<div class="pet-principle">
+<div class="pet-principle__num">3</div>
+<p data-page="pet_pri_3">Success fees only apply to cash recovered during our pilot window, against your baseline.</p>
+</div>
+<div class="pet-principle">
+<div class="pet-principle__num">4</div>
+<p data-page="pet_pri_4">Documentation and workflow services only. We are not a law firm.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section">
+<!-- ═══════════════ SECTION D: UPL SAFEGUARD ═══════════════ -->
+<section class="pet-section pet-section--cream">
 <div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">The three tiers</span>
-<h2>Fixed fees where we can. Bands where scope genuinely varies.</h2>
-<p class="section-intro">All three tiers share the same underlying methodology — structured documentation discipline, compliance-boundary-respecting recovery workflow, and file-readiness that keeps counsel engagement practical. The tier determines depth and duration, not quality of work.</p>
-</div>
-
-<div class="vcx-tier-grid">
-<article class="vcx-tier">
-<h3 class="vcx-tier-name">Diagnostic</h3>
-<p class="vcx-tier-sub">10 business days · Fixed fee · No ongoing commitment</p>
-<p class="vcx-tier-price">$2,500 <small>one-time</small></p>
-<p class="vcx-tier-price-note">Flat, regardless of portfolio size within the stated minimum threshold.</p>
-<ul class="vcx-tier-list">
-<li>Dollarized map of where cash is stuck across aging buckets and documentation gaps</li>
-<li>30-page redacted-format deliverable (see <a href="sample-deliverable.html">sample</a>) with low / high recovery band and source notes</li>
-<li>Industry-specific benchmarking against observed operator-data patterns</li>
-<li>90-day prioritized action list tied to dollar impact</li>
-<li>Working-paper handoff (spreadsheets, interview notes) on request under NDA</li>
-<li>Viable at $100K+ in AR older than 30 days</li>
-</ul>
-<div class="vcx-tier-cta">
-<a class="btn btn-primary" href="structured-case-intake.html?tier=diagnostic">Request a Diagnostic</a>
-</div>
-</article>
-
-<article class="vcx-tier vcx-tier--featured">
-<h3 class="vcx-tier-name">90-day Pilot</h3>
-<p class="vcx-tier-sub">3 months · Monthly billing · Fixed fee, no contingency</p>
-<p class="vcx-tier-price">$8,500&ndash;$18,000 <small>/ month</small></p>
-<p class="vcx-tier-price-note">Band reflects portfolio size, document quality, and sub-processor footprint. Exact monthly set in writing at engagement start.</p>
-<ul class="vcx-tier-list">
-<li>Everything in the Diagnostic (or priced-in if you've already completed one)</li>
-<li>Workflow build: structured AR packet per disputed balance, dunning ladder by stage, operator-environment runbook</li>
-<li>Weekly cash-recovered dashboard with raw-number export (verifiable against your GL)</li>
-<li>Dispute-log ownership with a named operator contact and a named VitaCoreX engagement lead</li>
-<li>Compliance posture: FDCPA / HIPAA / GLBA boundaries documented per workflow path</li>
-<li>Standard benchmark: 2.2&ndash;4.4&times; return on pilot fees in recovered cash by day 90</li>
-<li>Exit clause: if month-2 metrics underperform agreed benchmarks, we recommend ending early at no further fee</li>
-<li>Economic sense threshold: $500K+ open AR or $25K+ / month write-offs</li>
-</ul>
-<div class="vcx-tier-cta">
-<a class="btn btn-primary" href="structured-case-intake.html?tier=pilot">Start a 90-day Pilot</a>
-</div>
-</article>
-
-<article class="vcx-tier">
-<h3 class="vcx-tier-name">Programme</h3>
-<p class="vcx-tier-sub">Month-to-month · Retainer + outcome · 30-day notice</p>
-<p class="vcx-tier-price">from $12,000 <small>/ month + outcome fee</small></p>
-<p class="vcx-tier-price-note">Retainer band plus a capped outcome-based component tied to DSO reduction, write-off avoidance, or recovered cash &mdash; agreed in writing before the engagement begins.</p>
-<ul class="vcx-tier-list">
-<li>Ongoing recovery infrastructure after a successful Pilot or equivalent diagnostic</li>
-<li>Dedicated engagement lead embedded at the weekly operating cadence</li>
-<li>Quarterly refresh of playbooks against observed portfolio evolution</li>
-<li>Outcome-based component capped so it cannot exceed ~30% of total fees &mdash; keeps incentives aligned, not aggressive</li>
-<li>Monthly executive review: net ROI, forecast recovery, compliance audit log</li>
-<li>Month-to-month with 30-day written notice &mdash; no multi-year lock-in</li>
-<li>Multi-location operators preferred: fixed workflow cost amortizes across sites</li>
-</ul>
-<div class="vcx-tier-cta">
-<a class="btn btn-primary" href="structured-case-intake.html?tier=programme">Discuss a Programme</a>
-</div>
-</article>
-</div>
-
-<div class="vcx-pricing-note">
-<strong>Not on this page:</strong> pure contingency. VitaCoreX does not operate on contingency, full stop &mdash; the incentive distortion is well-documented (aggressive tactics that damage customer relationships and lifetime value). Outcome-based components at the Programme tier are capped and measured on operator-owned metrics (DSO, write-off rate), not on recovered-balance percentages.
-</div>
-</div>
-</section>
-
-<section class="section band">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">Billing &amp; termination mechanics</span>
-<h2>Exactly what happens at start, mid, and end of engagement.</h2>
-<p class="section-intro">Procurement usually cares less about the headline price and more about what happens when something changes mid-engagement. These are the mechanics in writing:</p>
-</div>
-<table class="vcx-billing-table">
-<thead>
-<tr><th>Event</th><th>Diagnostic</th><th>90-day Pilot</th><th>Programme</th></tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deposit at start</strong></td>
-<td>50% on engagement letter; balance on delivery.</td>
-<td>Month-1 fee payable on engagement letter; months 2 &amp; 3 billed on the first business day of each month.</td>
-<td>First month on engagement letter; subsequent months billed on the first business day.</td>
-</tr>
-<tr>
-<td><strong>Payment terms</strong></td>
-<td>Net-15 from invoice date.</td>
-<td>Net-15 from invoice date. Late-payment work-pause trigger at Net-30.</td>
-<td>Net-15 from invoice date. Outcome-based component trued up quarterly.</td>
-</tr>
-<tr>
-<td><strong>Scope change</strong></td>
-<td>Fixed scope; additions run as a separate fixed-fee addendum.</td>
-<td>In-scope adjustments absorbed; material scope change documented as a written change order with fee adjustment.</td>
-<td>Monthly review allows scope calibration; changes landed via change-order at quarter boundaries.</td>
-</tr>
-<tr>
-<td><strong>Early termination by operator</strong></td>
-<td>Pro-rata refund for work not yet delivered. No penalty.</td>
-<td>30-day written notice. Pro-rata refund for remaining days in the current month.</td>
-<td>30-day written notice. No multi-year lock-in. No exit fee.</td>
-</tr>
-<tr>
-<td><strong>Early termination by VitaCoreX</strong></td>
-<td>If operator data quality makes diagnosis impossible &mdash; full refund minus documented hours at a published rate.</td>
-<td>If pilot benchmarks clearly cannot be met (documented in month-2 review) &mdash; we recommend ending at month-end with no further fee.</td>
-<td>30-day written notice required. Handoff pack to operator counsel / next-vendor included at no further charge.</td>
-</tr>
-<tr>
-<td><strong>Data &amp; playbook ownership</strong></td>
-<td colspan="3">Operator retains full ownership of all data supplied and all playbooks, templates, and process artifacts built during the engagement. Complete export (CSV, PDF, DOCX) provided at close. No data-hostage fees.</td>
-</tr>
-<tr>
-<td><strong>Invoice form</strong></td>
-<td colspan="3">PDF invoice with line items matching the engagement letter. W-9, COI, and NDA available at onboarding; see <a href="faq.html#procurement-faq">Procurement FAQ</a> for the full artifact list.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-
-<section class="section" id="roi-framework">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">ROI framework</span>
-<h2>How we measure, and what "works" actually means.</h2>
-<p class="section-intro">The most common procurement question is "what's the ROI." Here's our honest answer with the math we actually use.</p>
-</div>
-<div class="grid-2">
-<article class="card reveal">
-<span class="pill">What we count</span>
-<ul class="authority-list compact">
-<li>Cash recovered &mdash; verifiable against operator GL, not our dashboard numbers</li>
-<li>DSO reduction &mdash; days-sales-outstanding, calculated on operator's own aging report</li>
-<li>Write-off avoidance &mdash; dollars that would have landed in bad-debt absent the workflow</li>
-<li>Dispute resolution cycle time &mdash; days from dispute-open to closure / escalation decision</li>
-<li>Escalation file-readiness score &mdash; qualitative, audited against a packet checklist</li>
-</ul>
-</article>
-<article class="card reveal">
-<span class="pill">What we don't count</span>
-<ul class="authority-list compact">
-<li>"Contact rate" as a primary KPI &mdash; it incentivizes volume over quality</li>
-<li>"Promise-to-pay" without cash follow-through &mdash; promises aren't dollars</li>
-<li>Recovery percentages on aged balances where solvency was the block &mdash; honest attribution, not vanity credit</li>
-<li>Customer-relationship cost &mdash; we avoid tactics that improve short-term cash at the cost of lifetime value</li>
-<li>Results on data we haven't seen yet &mdash; forecasts are bands, not single numbers</li>
-</ul>
-</article>
-</div>
-<div class="vcx-pricing-note" style="margin-top: 24px;">
-<strong>Standard benchmark for a 90-day Pilot:</strong> 2.2&ndash;4.4&times; return on pilot fees in recovered cash, measured against the operator's own GL by day 90. If the month-2 review indicates the benchmark cannot be met, we recommend ending early rather than extending. This is published because it should be &mdash; procurement deserves a number to hold us to.
-</div>
-<div class="cta-row reveal" style="margin-top: 32px;">
-<a class="btn btn-primary" href="structured-case-intake.html?source=pricing">Start a structured intake</a>
-<a class="btn btn-secondary" href="sample-deliverable.html">See what you'd receive</a>
+<div class="pet-upl">
+<span class="pet-upl__label" data-page="pet_upl_label">UPL safeguard</span>
+<h2 data-page="pet_upl_title">Documentation consulting, not legal services.</h2>
+<p data-page="pet_upl_text">VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Florida Bar rules on the Unauthorized Practice of Law apply. Consulting success fees apply to recovery work and are distinct from contingency collection fees; licensed collection activity is referred to partner agencies when appropriate.</p>
 </div>
 </div>
 </section>
@@ -340,6 +451,7 @@
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
 <script src="/assets/js/vcx-i18n.js?v=2" defer></script>
+<script src="/assets/js/vcx-translations.js?v=4" defer></script>
 <script src="/assets/js/vcx-page-translations.js?v=7" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/ui-shell.js" defer></script>
