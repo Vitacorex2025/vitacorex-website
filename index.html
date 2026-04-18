@@ -221,6 +221,48 @@
 </div>
 </section>
 
+<!-- ── PRICING STRIP (new pricing pages) ── -->
+<section class="vcx-pricing-strip" aria-label="Published pricing entries">
+<style>
+.vcx-pricing-strip{padding:52px 0;background:#F6F2EA;border-top:1px solid rgba(23,58,99,.06);border-bottom:1px solid rgba(23,58,99,.06);}
+.vcx-pricing-strip__wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+.vcx-pricing-strip__head{text-align:center;max-width:760px;margin:0 auto 28px;}
+.vcx-pricing-strip__eyebrow{display:inline-block;color:#2D8A82;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.vcx-pricing-strip__title{color:#1A2F2A;font-size:clamp(1.4rem,2.2vw,1.8rem);font-weight:800;margin:0 0 10px;letter-spacing:-.01em;}
+.vcx-pricing-strip__lede{color:#4A5A52;font-size:1rem;line-height:1.55;margin:0;}
+.vcx-pricing-strip__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+.vcx-pricing-strip__card{background:#FBF8F3;border-radius:14px;padding:26px 26px 22px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(23,58,99,.06);text-decoration:none;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;}
+.vcx-pricing-strip__card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(11,31,48,.12);}
+.vcx-pricing-strip__tag{display:inline-block;align-self:flex-start;background:rgba(91,186,167,.14);color:#2D8A82;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:12px;}
+.vcx-pricing-strip__card--gold .vcx-pricing-strip__tag{background:rgba(201,164,96,.16);color:#8A6F34;}
+.vcx-pricing-strip__h{color:#1A2F2A;font-size:1.15rem;font-weight:800;margin:0 0 8px;line-height:1.3;}
+.vcx-pricing-strip__d{color:#4A5A52;font-size:.94rem;line-height:1.55;margin:0 0 16px;flex-grow:1;}
+.vcx-pricing-strip__cta{color:#2D8A82;font-size:.92rem;font-weight:700;}
+.vcx-pricing-strip__card:hover .vcx-pricing-strip__cta{color:#1A2F2A;}
+</style>
+<div class="vcx-pricing-strip__wrap">
+<div class="vcx-pricing-strip__head">
+<span class="vcx-pricing-strip__eyebrow" data-page="pricing_strip_eyebrow">Pricing now public</span>
+<h2 class="vcx-pricing-strip__title" data-page="pricing_strip_title">Two entry prices, published.</h2>
+<p class="vcx-pricing-strip__lede" data-page="pricing_strip_lede">Fixed-fee documentation packets for private matters, and a free 90-day pilot for qualified recovery portfolios.</p>
+</div>
+<div class="vcx-pricing-strip__grid">
+<a class="vcx-pricing-strip__card" href="pre-collection-pilot.html">
+<span class="vcx-pricing-strip__tag" data-page="pricing_strip_pcp_tag">For qualified operators</span>
+<h3 class="vcx-pricing-strip__h" data-page="pricing_strip_pcp_title">Pre-Collection Pilot &mdash; free</h3>
+<p class="vcx-pricing-strip__d" data-page="pricing_strip_pcp_desc">90-day pilot on a live AR portfolio. Consulting success fee only on recovered cash (15 / 18 / 22.5% by aging).</p>
+<span class="vcx-pricing-strip__cta" data-page="pricing_strip_pcp_cta">See pilot terms &rarr;</span>
+</a>
+<a class="vcx-pricing-strip__card vcx-pricing-strip__card--gold" href="small-claims-documentation.html">
+<span class="vcx-pricing-strip__tag" data-page="pricing_strip_scd_tag">For private clients</span>
+<h3 class="vcx-pricing-strip__h" data-page="pricing_strip_scd_title">Small-Claims Packets &mdash; from $149</h3>
+<p class="vcx-pricing-strip__d" data-page="pricing_strip_scd_desc">Fixed-fee Florida small-claims and civil documentation packets. Counsel-ready chronology, exhibits, and gap log.</p>
+<span class="vcx-pricing-strip__cta" data-page="pricing_strip_scd_cta">See packet tiers &rarr;</span>
+</a>
+</div>
+</div>
+</section>
+
 <!-- ── FEATURES BENTO GRID ── -->
 <section class="section vcx-bento-section" data-vcx-texture>
 <div class="wrap">
@@ -1076,6 +1118,8 @@
 <a href="industries.html" data-i18n="footer_nav_industries">Industries</a>
 <a href="about.html" data-i18n="footer_nav_about">About VitaCoreX</a>
 <a href="revenue-recovery-workflow.html" data-i18n="footer_nav_recovery">Revenue Recovery Infrastructure</a>
+<a href="pre-collection-pilot.html" data-i18n="footer_nav_pcp">Pre-Collection Pilot</a>
+<a href="small-claims-documentation.html" data-i18n="footer_nav_scd">Small Claims Packets</a>
 <a href="corporate-legal-file-control.html" data-i18n="footer_nav_file">Corporate Legal File Control</a>
 <a href="resources.html" data-i18n="footer_nav_briefs">Executive Briefs &amp; Proof</a>
 </nav>
@@ -1101,7 +1145,7 @@
 <script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
 <!-- old chat launcher removed, replaced by AI assistant -->
 <script src="/assets/js/vcx-calendar-launcher.js" defer></script>
-<script src="/assets/js/vcx-translations.js?v=3" defer></script>
+<script src="/assets/js/vcx-translations.js?v=4" defer></script>
 <script src="/assets/js/vcx-i18n.js?v=2" defer></script><script src="/assets/js/vcx-page-translations.js?v=7" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/ui-shell.js" defer></script>
