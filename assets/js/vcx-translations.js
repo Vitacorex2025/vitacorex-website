@@ -1712,6 +1712,19 @@ en: {
   res_cta_industries: 'Review industry pages',
   res_cta_intake:     'Open structured intake',
 
+  /* ── careers.html ───────────────────────────────────────────── */
+  car_hero_eyebrow:   'Careers',
+  car_hero_title:     'Work with discretion, judgment, and disciplined execution.',
+  car_hero_lead:      'We look for people who write clearly, think carefully, and can protect quality in a documentation-intensive environment.',
+  car_side_h3:        'Preferred profile',
+  car_side_p:         'Strong English, clear business writing, verified recommendations preferred, and prior experience in documentation, operations, client support, legal support, or litigation support.',
+  car_a_pill:         'Application handling',
+  car_a_h3:           'Send only the materials needed to assess fit.',
+  car_a_p:            'Use the form for standard professional information. Do not send highly sensitive identity documents or regulated records through the public career form.',
+  car_b_pill:         'Work style',
+  car_b_h3:           'Clarity, discretion, and repeatable execution matter more than theatrics.',
+  car_b_p:            'That standard now shows up consistently across the site and in the hiring flow.',
+
   exclusive_badge:    'Private Advisory',
 
   /* ── Shared CTA labels (data-common) ───────────────────────── */
@@ -3202,6 +3215,19 @@ ru: {
   res_cta_industries: 'Разобрать страницы отраслей',
   res_cta_intake:     'Открыть structured intake',
 
+  /* ── careers.html ───────────────────────────────────────────── */
+  car_hero_eyebrow:   'Сотрудничество',
+  car_hero_title:     'Работать с дискретностью, суждением и дисциплинированным исполнением.',
+  car_hero_lead:      'Мы ищем людей, которые ясно пишут, внимательно думают и могут защитить качество в документационно-интенсивной среде.',
+  car_side_h3:        'Предпочтительный профиль',
+  car_side_p:         'Сильный английский, ясное деловое письмо, предпочтительны проверенные рекомендации и прежний опыт в документации, операциях, поддержке клиентов, юридической поддержке или litigation support.',
+  car_a_pill:         'Обработка заявок',
+  car_a_h3:           'Отправляйте только материалы, нужные для оценки fit.',
+  car_a_p:            'Используйте форму для стандартной профессиональной информации. Не отправляйте высокочувствительные идентификационные документы или регулируемые записи через публичную форму career.',
+  car_b_pill:         'Стиль работы',
+  car_b_h3:           'Ясность, дискретность и повторяемое исполнение важнее театральности.',
+  car_b_p:            'Этот стандарт теперь последовательно проявляется по сайту и в hiring-потоке.',
+
   exclusive_badge:    'Частный консалтинг',
 
   brand_tag:          'Инфраструктура возврата выручки и контроля документации',
@@ -4690,6 +4716,19 @@ es: {
   res_r4_p:           'Debe mostrar por que mejor readiness de file reduce limpieza administrativa antes de que empiece la estrategia legal.',
   res_cta_industries: 'Revisar paginas de industrias',
   res_cta_intake:     'Abrir structured intake',
+
+  /* ── careers.html ───────────────────────────────────────────── */
+  car_hero_eyebrow:   'Carreras',
+  car_hero_title:     'Trabaja con discrecion, criterio y ejecucion disciplinada.',
+  car_hero_lead:      'Buscamos personas que escriben con claridad, piensan con cuidado y protegen la calidad en un entorno intensivo en documentacion.',
+  car_side_h3:        'Perfil preferido',
+  car_side_p:         'Ingles solido, escritura empresarial clara, recomendaciones verificadas preferidas y experiencia previa en documentacion, operaciones, soporte a clientes, soporte legal o litigation support.',
+  car_a_pill:         'Manejo de postulaciones',
+  car_a_h3:           'Envia solo los materiales necesarios para evaluar encaje.',
+  car_a_p:            'Usa el formulario para informacion profesional estandar. No envies documentos de identidad altamente sensibles o registros regulados por el formulario publico de career.',
+  car_b_pill:         'Estilo de trabajo',
+  car_b_h3:           'Claridad, discrecion y ejecucion repetible importan mas que el espectaculo.',
+  car_b_p:            'Ese estandar ahora aparece de forma consistente en el sitio y en el flujo de contratacion.',
 
   exclusive_badge:    'Consultoria privada',
 
