@@ -47,18 +47,31 @@ body.vcx-bg-noise::before {
 }
 
 /* --- Content stacking --- */
-/* Everything directly inside body must sit above backdrop (z:0) and canvas (z:1). */
+/* Main page structure must sit above backdrop (z:0) and canvas (z:1).             */
+/* IMPORTANT: we deliberately do NOT target `> div` / `> a` broadly, because that  */
+/* would beat the `position: fixed` declared on floating elements like the         */
+/* Private Advisory side tab (.vcx-exclusive-badge), chat/calendar launchers,      */
+/* exit-intent popup, and any other body-level floating CTA. Those elements stay   */
+/* fixed with their own z-index from their own CSS.                                */
 body.vcx-bg-noise > header,
 body.vcx-bg-noise > main,
 body.vcx-bg-noise > section,
 body.vcx-bg-noise > footer,
 body.vcx-bg-noise > nav,
-body.vcx-bg-noise > aside,
-body.vcx-bg-noise > div,
-body.vcx-bg-noise > a,
-body.vcx-bg-noise > script + header {
+body.vcx-bg-noise > aside {
   position: relative;
   z-index: 2;
+}
+
+/* Explicit safeguard — if anything global still tries to flatten a floating tab,  */
+/* re-assert fixed positioning with !important so the badge survives.              */
+body.vcx-bg-noise > .vcx-exclusive-badge,
+body.vcx-bg-noise > .vcx-calendar-launcher,
+body.vcx-bg-noise > .vcx-chat-launcher,
+body.vcx-bg-noise > .vcx-ai-assistant-launcher,
+body.vcx-bg-noise > .vcx-exit-intent-popup,
+body.vcx-bg-noise > [data-vcx-floating] {
+  position: fixed !important;
 }
 
 /* --- Readability guard --- */

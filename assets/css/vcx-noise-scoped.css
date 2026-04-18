@@ -11,12 +11,14 @@
    so cards no longer float on flat cream.
    ========================================================================== */
 
-/* Host section — becomes positioning context for the texture layer. */
+/* Host section — becomes positioning context for the texture layer.         */
+/* NO overflow:hidden here — it would clip hovers/shadows from cards and     */
+/* break :not(fixed) floating children positioned relative to the section.   */
+/* NO isolation:isolate here — the global noise-bg already puts sections at  */
+/* z-index 2 (creating a stacking context anyway), and isolating would trap  */
+/* mix-blend-mode so the scoped grain cannot multiply against the page bg.   */
 [data-vcx-texture] {
   position: relative;
-  overflow: hidden;
-  /* New stacking context so the canvas never leaks across section boundaries. */
-  isolation: isolate;
 }
 
 /* Content inside the section sits above the texture layer. */
@@ -25,13 +27,16 @@
   z-index: 1;
 }
 
-/* The injected texture layer itself. */
+/* The injected texture layer itself.                                         */
+/* Has an explicit cream base so mix-blend-mode: multiply on the canvas has   */
+/* a solid colour to multiply against — otherwise the grain is invisible     */
+/* when the section's own background is transparent.                          */
 .vcx-bg-texture {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
+  background: #F6F2EA; /* site cream — matches body/section flow */
 }
 
 /* Radial spotlight layer — warm gold top-center + teal accent bottom-right. */
