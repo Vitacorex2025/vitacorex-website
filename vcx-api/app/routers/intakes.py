@@ -11,9 +11,11 @@ from ..db import get_conn
 from ..models.intake import IntakeResponse
 from ..rate_limit import limiter
 from ..services.checklist import generate_initial_checklist
+from ..services.crm_webhook import forward_lead_to_crm
 from ..services.email_service import (
     send_admin_intake_notification,
     send_client_intake_confirmation,
+    send_owner_lead_notification,
 )
 from ..services.magic_link import build_magic_link, generate_token
 from ..services.triage import compute_triage_score, generate_matter_id
@@ -185,6 +187,31 @@ async def create_intake(
         matter_id=matter_id,
         service_type=service_type,
         triage_score=triage_score,
+    )
+
+    # Phase CRM: Forward lead to BloomlyTax VCX CRM (fire-and-forget)
+    forward_lead_to_crm(
+        name=full_name,
+        email=email,
+        phone=phone,
+        service=service_type,
+        message=message,
+        source="website_intake",
+        state=state,
+        urgency=urgency,
+        company=company,
+    )
+
+    # Phase CRM: Send owner notification with full lead details
+    send_owner_lead_notification(
+        name=full_name,
+        email=email,
+        phone=phone,
+        service=service_type,
+        message=message,
+        matter_id=matter_id,
+        urgency=urgency,
+        state=state,
     )
 
     return IntakeResponse(

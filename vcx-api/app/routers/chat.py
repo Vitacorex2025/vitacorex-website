@@ -38,6 +38,8 @@ from ..services.chat_attachments import (
     list_session_attachments,
     type_label,
 )
+from ..services.contact_extractor import maybe_forward_contact
+from ..services.crm_webhook import forward_lead_to_crm
 from ..services.intake_handoff import enhance_handoff
 from ..services.transcript_auth import generate_signed_token, verify_signed_token
 from ..services.upload_validator import validate_file
@@ -145,6 +147,20 @@ def post_message(request: Request, req: ChatRequest):
         req.session_id,
         resp.event_type or resp.status,
         f"topic={resp.topic or 'none'} status={resp.status}",
+    )
+
+    # Phase CRM: Auto-detect contact info in user message, forward to CRM once
+    maybe_forward_contact(
+        session_id=req.session_id,
+        message=req.message,
+        forward_fn=lambda name, email, phone, source: forward_lead_to_crm(
+            name=name,
+            email=email,
+            phone=phone,
+            service=effective_topic,
+            message=f"Auto-detected from chat session {req.session_id}",
+            source=source,
+        ),
     )
 
     return resp
@@ -360,6 +376,15 @@ def post_escalate(request: Request, req: EscalationRequest):
         req.session_id or "unknown",
         "escalation_submitted",
         f"lead_id={lead_id}",
+    )
+
+    # Phase CRM: Forward escalation to BloomlyTax CRM
+    forward_lead_to_crm(
+        name=req.name or "Chat Escalation",
+        email=req.email,
+        phone=req.phone,
+        message=req.notes,
+        source="chat_escalation",
     )
 
     return EscalationResponse(
