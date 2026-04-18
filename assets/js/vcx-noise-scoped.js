@@ -30,12 +30,16 @@
     }
   } catch (_) { /* noop */ }
 
-  // Tuning — matches vcx-noise-bg.js so the texture is visually coherent.
+  // Tuning — scoped sections now sit on a DARK neutral-950 backdrop, so
+  // grain must be LIGHT (180..255) for mix-blend-mode:overlay to lift the
+  // mid-tones without muddying the indigo/sky spotlights. Global noise-bg
+  // (vcx-noise-bg.js) keeps its dark-grain tuning because it still runs on
+  // the cream body background.
   var SIZE = 512;
-  var REFRESH_EVERY = 3;    // paint every 3rd frame
-  var PATTERN_ALPHA = 18;   // slightly stronger than global (16) so the
-                            // scoped section visibly lifts vs the page bg
-  var GRAIN_CHANNEL_MAX = 55; // dark grain (0..55) on light cream
+  var REFRESH_EVERY = 3;     // paint every 3rd frame
+  var PATTERN_ALPHA = 22;    // slightly stronger on dark bg so flecks read
+  var GRAIN_CHANNEL_MIN = 180;
+  var GRAIN_CHANNEL_MAX = 255; // light speckle on dark bg
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
@@ -98,8 +102,9 @@
       ensureBuffer();
       var data = imgData.data;
       var len = data.length;
+      var span = GRAIN_CHANNEL_MAX - GRAIN_CHANNEL_MIN;
       for (var i = 0; i < len; i += 4) {
-        var v = Math.random() * GRAIN_CHANNEL_MAX;
+        var v = GRAIN_CHANNEL_MIN + Math.random() * span;
         data[i] = v;
         data[i + 1] = v;
         data[i + 2] = v;
