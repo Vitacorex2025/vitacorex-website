@@ -99,15 +99,8 @@ class Extractor(HTMLParser):
             self.cur.append(ENTS.get(name, ''))
 
 
-PAGES = [
-    'pricing-and-engagement-tiers.html',
-    'sub-processors-and-dpa.html',
-    'security-and-compliance.html',
-    'sample-deliverable.html',
-    'privacy-policy.html',
-    'terms-of-use.html',
-    'faq.html',
-]
+import glob
+PAGES = sorted(glob.glob('*.html'))
 
 all_missing = {}
 for page in PAGES:
@@ -138,6 +131,8 @@ for page, items in all_missing.items():
     total += len(items)
     for tag, cls, s in items:
         show = s if len(s) < 160 else s[:157] + '...'
-        print(f'  <{tag:4s}> {show}')
+        # Strip non-ASCII for Windows console compatibility
+        safe = show.encode('ascii', 'replace').decode('ascii')
+        print(f'  <{tag:4s}> {safe}')
 
 print(f'\nTOTAL MISSING: {total}')
