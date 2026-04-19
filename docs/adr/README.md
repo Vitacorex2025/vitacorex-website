@@ -20,7 +20,7 @@ Every ADR:
 | ADR-004 | (TBD — historical) | — | pre-upgrade | — |
 | ADR-005 | Pricing Tier Architecture | accepted | P01 | `Upgrade 2026-04/Phases/P01 Pricing Reconciliation` |
 | ADR-006 | Navigation B2B/B2C Split | accepted | P02 | `Upgrade 2026-04/Phases/P02 Navigation Split B2B B2C` |
-| ADR-007 | Claims Inventory Classification | planned | P04 | `Upgrade 2026-04/Phases/P04 Proof and Claims Audit` |
+| ADR-007 | Claims Inventory Classification | proposed | P04 | `Upgrade 2026-04/Phases/P04 Proof and Claims Audit` |
 | ADR-008 | Sample Deliverable Standards | accepted | P03 | `Upgrade 2026-04/Phases/P03 Sample Deliverables` |
 | ADR-009 | Legal Disclaimer Architecture | planned | P05 | `Upgrade 2026-04/Phases/P05 Legal Language Hardening` |
 | ADR-010 | Partner Channel Terms | planned | P07 | `Upgrade 2026-04/Phases/P07 B2B Outbound and Partners` |
