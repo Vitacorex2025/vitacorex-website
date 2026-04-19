@@ -34,7 +34,7 @@
 <link href="assets/css/ui-shell.css" rel="stylesheet"/>
 <link href="assets/css/premium-fixes.css" rel="stylesheet"/>
 <link href="/assets/css/vcx-redesign.css?v=8" rel="stylesheet"/>
-<link href="/assets/css/vcx-premium-2.css?v=10" rel="stylesheet"/>
+<link href="/assets/css/vcx-premium-2.css?v=11" rel="stylesheet"/>
 <link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/>
 <link href="/assets/css/vcx-footer-fix.css" rel="stylesheet"/>
 <link href="/assets/css/vcx-a11y-fixes.css?v=1" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=3"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=4" defer></script>
@@ -117,6 +117,41 @@
 .pet-upl h2{color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;font-size:1.35rem;font-weight:800;margin:0 0 12px;}
 .pet-upl p{margin:0;font-size:.98rem;line-height:1.65;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;}
 
+/* Unified pricing matrix — ADR-005 canonical ladder at-a-glance */
+.pet-matrix-head{max-width:820px;margin:0 auto 36px;text-align:center;}
+.pet-matrix-table{background:#FFFFFF;border-radius:16px;box-shadow:0 10px 30px rgba(11,31,48,.08);border:1px solid rgba(23,58,99,.10);overflow:hidden;}
+.pet-matrix-row{display:grid;grid-template-columns:minmax(220px,1.7fr) repeat(3,1fr) 130px;gap:0;align-items:center;border-bottom:1px solid rgba(23,58,99,.08);transition:background .18s ease;}
+.pet-matrix-row:last-child{border-bottom:0;}
+.pet-matrix-row:hover:not(.pet-matrix-row--head){background:rgba(91,186,167,.05);}
+.pet-matrix-row--head{background:linear-gradient(180deg,#F3F8F7 0%,#E9F2F1 100%);}
+.pet-matrix-row--head .pet-matrix-cell{padding:14px 18px;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;}
+.pet-matrix-row--b2b{background:rgba(23,58,99,.025);}
+.pet-matrix-row--b2b:hover{background:rgba(23,58,99,.05) !important;}
+.pet-matrix-cell{padding:18px 18px;font-size:.9rem;line-height:1.4;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;}
+.pet-matrix-cell--svc{font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:.98rem;}
+.pet-matrix-cell--svc small{display:block;font-weight:600;font-size:.72rem;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+.pet-matrix-cell--price{font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:1.02rem;}
+.pet-matrix-cell--price small{display:block;font-weight:500;font-size:.78rem;color:#4A5A52 !important;-webkit-text-fill-color:#4A5A52 !important;margin-top:3px;letter-spacing:0;text-transform:none;}
+.pet-matrix-cell--empty{color:#9CAAA3 !important;-webkit-text-fill-color:#9CAAA3 !important;font-size:.85rem;font-style:italic;}
+.pet-matrix-cell--link a{color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;font-weight:700;font-size:.84rem;text-decoration:none;}
+.pet-matrix-cell--link a:hover{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;text-decoration:underline;}
+.pet-matrix-note{max-width:880px;margin:22px auto 0;text-align:center;font-size:.84rem;color:#4A5A52 !important;-webkit-text-fill-color:#4A5A52 !important;line-height:1.55;font-style:italic;}
+@media (max-width:1040px){
+  .pet-matrix-row{grid-template-columns:minmax(180px,1.5fr) repeat(3,1fr) 110px;}
+  .pet-matrix-cell{padding:14px 12px;font-size:.84rem;}
+  .pet-matrix-cell--svc{font-size:.88rem;}
+  .pet-matrix-cell--price{font-size:.94rem;}
+}
+@media (max-width:820px){
+  .pet-matrix-row{grid-template-columns:1fr 1fr;gap:2px 10px;padding:14px 16px;}
+  .pet-matrix-row--head{display:none;}
+  .pet-matrix-cell{padding:4px 0;}
+  .pet-matrix-cell--svc{grid-column:1 / -1;padding-bottom:8px;border-bottom:1px solid rgba(23,58,99,.08);margin-bottom:8px;}
+  .pet-matrix-cell--price::before,
+  .pet-matrix-cell--empty::before{content:attr(data-col) ': ';font-size:.66rem;font-weight:700;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px;}
+  .pet-matrix-cell--link{grid-column:1 / -1;padding-top:10px;text-align:right;}
+}
+
 @media (max-width:640px){
   .pet-hero{padding:48px 0 40px;}
   .pet-section{padding:48px 0;}
@@ -168,7 +203,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vitacorexllc.com/"},{"@type":"ListItem","position":2,"name":"Pricing and Engagement Tiers","item":"https://vitacorexllc.com/pricing-and-engagement-tiers.html"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":"VitaCoreX Consulting Engagements","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Revenue recovery, documentation, and workflow-governance consulting for operators, plus fixed-fee civil and small-claims documentation packets for private clients. Not a law firm.","provider":{"@type":"Organization","name":"VitaCoreX LLC","url":"https://vitacorexllc.com/","telephone":"+18887948292"},"areaServed":{"@type":"Country","name":"United States"},"offers":[{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 0-90 days aged","description":"Consulting success fee on recovered cash (0-90 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"15","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 91-180 days aged","description":"Consulting success fee on recovered cash (91-180 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"18","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 181+ days aged","description":"Consulting success fee on recovered cash (181+ day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"22.5","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Corporate Legal File Control — fixed scope","description":"Chronology cleanup, exhibit indexing, issue and gap log, counsel-ready packet assembly. Scaled to document volume.","priceSpecification":{"@type":"PriceSpecification","minPrice":"3500","priceCurrency":"USD","unitText":"per matter (starting at)"}},{"@type":"Offer","name":"Weekly Retainer — Preparation Desk","description":"Up to 3 cases per business day. Intake, chronology, exhibit order, gap log. Packet updates, status tracker, counsel coordination.","priceSpecification":{"@type":"UnitPriceSpecification","price":"1350","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Weekly Retainer — Managed Docket + Hearing Prep","description":"Everything in Preparation Desk. Administrative file management through judgment. Up to 1 scheduled hearing-support block per business day. Overflow at $110/hr.","priceSpecification":{"@type":"UnitPriceSpecification","price":"2150","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Weekly Retainer — Priority / Reserved Capacity Desk","description":"Preparation plus managed docket capacity. Online hearing-support participation by advance schedule. Priority daily status digest and routing discipline.","priceSpecification":{"@type":"UnitPriceSpecification","price":"3250","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Small Claims Documentation Packet","description":"Intake review, chronology, exhibit index, claim summary memo, print-ready format. Florida small claims under $8,000.","price":"149","priceCurrency":"USD"},{"@type":"Offer","name":"Attorney-Ready Civil Packet","description":"Deeper exhibit analysis, gap log, issue summary memo, counsel-ready tabs.","price":"219","priceCurrency":"USD"},{"@type":"Offer","name":"Managed Small Claims to Judgment","description":"End-to-end file management through pre-judgment, docket tracking, judgment packet assembly.","price":"725","priceCurrency":"USD"},{"@type":"Offer","name":"Hearing Attendance Support","description":"Documentation support during hearings. 2-hour minimum. Not legal representation.","priceSpecification":{"@type":"UnitPriceSpecification","price":"110","priceCurrency":"USD","unitText":"per hour","referenceQuantity":{"@type":"QuantitativeValue","value":"2","unitText":"hour minimum"}}}]}
+{"@context":"https://schema.org","@type":"Service","name":"VitaCoreX Consulting Engagements","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Revenue recovery, documentation, and workflow-governance consulting for operators, plus fixed-fee civil and small-claims documentation packets for private clients. Not a law firm.","provider":{"@type":"Organization","name":"VitaCoreX LLC","url":"https://vitacorexllc.com/","telephone":"+18887948292"},"areaServed":{"@type":"Country","name":"United States"},"offers":[{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 0-90 days aged","description":"Consulting success fee on recovered cash (0-90 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"15","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 91-180 days aged","description":"Consulting success fee on recovered cash (91-180 day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"18","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Pre-Collection Recovery Pilot — AR 181+ days aged","description":"Consulting success fee on recovered cash (181+ day AR). No setup fee.","priceSpecification":{"@type":"UnitPriceSpecification","price":"22.5","priceCurrency":"USD","unitText":"percent of recovered cash"}},{"@type":"Offer","name":"Corporate Legal File Control — fixed scope","description":"Chronology cleanup, exhibit indexing, issue and gap log, counsel-ready packet assembly. Scaled to document volume.","priceSpecification":{"@type":"PriceSpecification","minPrice":"3500","priceCurrency":"USD","unitText":"per matter (starting at)"}},{"@type":"Offer","name":"Weekly Retainer — Preparation Desk","description":"Up to 3 cases per business day. Intake, chronology, exhibit order, gap log. Packet updates, status tracker, counsel coordination.","priceSpecification":{"@type":"UnitPriceSpecification","price":"1350","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Weekly Retainer — Managed Docket + Hearing Prep","description":"Everything in Preparation Desk. Administrative file management through judgment. Up to 1 scheduled hearing-support block per business day. Overflow at $110/hr.","priceSpecification":{"@type":"UnitPriceSpecification","price":"2150","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Weekly Retainer — Priority / Reserved Capacity Desk","description":"Preparation plus managed docket capacity. Online hearing-support participation by advance schedule. Priority daily status digest and routing discipline.","priceSpecification":{"@type":"UnitPriceSpecification","price":"3250","priceCurrency":"USD","unitText":"per week"}},{"@type":"Offer","name":"Small Claims Documentation Packet","description":"Intake review, chronology, exhibit index, claim summary memo, print-ready format. Florida small claims under $8,000.","price":"149","priceCurrency":"USD"},{"@type":"Offer","name":"Attorney-Ready Civil Packet","description":"Deeper exhibit analysis, gap log, issue summary memo, counsel-ready tabs.","price":"219","priceCurrency":"USD"},{"@type":"Offer","name":"Managed Small Claims to Judgment","description":"End-to-end file management through pre-judgment, docket tracking, judgment packet assembly.","price":"725","priceCurrency":"USD"},{"@type":"Offer","name":"Hourly Consult & Hearing Attendance","description":"Advisory calls, prep consultations, and documentation support during hearings (on-site or remote). 1-hour minimum for consult/advisory; 2-hour minimum for hearing attendance. Not legal representation.","priceSpecification":{"@type":"UnitPriceSpecification","price":"110","priceCurrency":"USD","unitText":"per hour","referenceQuantity":{"@type":"QuantitativeValue","value":"1","unitText":"hour minimum (consult) / 2 hour minimum (hearing)"}}},{"@type":"Offer","name":"Contract Review — Base","description":"Single-document contract review with clause indexing and risk flagging.","price":"149","priceCurrency":"USD","url":"https://vitacorexllc.com/contract-review-service.html"},{"@type":"Offer","name":"Contract Review — Comprehensive","description":"Full contract review with negotiation-leverage markup and plain-language memo.","price":"219","priceCurrency":"USD","url":"https://vitacorexllc.com/contract-review-service.html"},{"@type":"Offer","name":"Contract Review — Multi-Document","description":"Multi-document review covering master agreement plus related addenda and side letters.","priceSpecification":{"@type":"PriceSpecification","minPrice":"349","priceCurrency":"USD","unitText":"per engagement (starting at)"},"url":"https://vitacorexllc.com/contract-review-service.html"},{"@type":"Offer","name":"Immigration Packet Review — Base","description":"USCIS packet review for a single petition with evidence index and form sequence check.","price":"149","priceCurrency":"USD","url":"https://vitacorexllc.com/immigration-packet-review.html"},{"@type":"Offer","name":"Immigration Packet Review — Comprehensive","description":"Comprehensive petition review with submission-readiness walkthrough and exhibit tabbing.","price":"219","priceCurrency":"USD","url":"https://vitacorexllc.com/immigration-packet-review.html"},{"@type":"Offer","name":"Immigration Packet Review — Full Packet Assembly","description":"Full USCIS packet assembly including evidence index, exhibit binder, and cover brief coordination.","priceSpecification":{"@type":"PriceSpecification","minPrice":"649","priceCurrency":"USD","unitText":"per packet (starting at)"},"url":"https://vitacorexllc.com/immigration-packet-review.html"},{"@type":"Offer","name":"Auto Deal Review — Quick","description":"Pre-signing analysis of dealer paperwork with threshold checks on doc fee, GAP, warranty.","price":"149","priceCurrency":"USD","url":"https://vitacorexllc.com/auto-deal-review.html"},{"@type":"Offer","name":"Auto Deal Review — Full Breakdown","description":"Full deal sheet analysis with true monthly payment, APR verification, and negotiation memo.","price":"219","priceCurrency":"USD","url":"https://vitacorexllc.com/auto-deal-review.html"},{"@type":"Offer","name":"Auto Deal Review — Rush","description":"48-hour rush turnaround add-on for time-sensitive deal reviews.","price":"49","priceCurrency":"USD","url":"https://vitacorexllc.com/auto-deal-review.html"},{"@type":"Offer","name":"LLC Formation Florida Packet","description":"Filing-ready LLC formation: Articles, operating-agreement draft, EIN application, registered-agent designation.","price":"299","priceCurrency":"USD","url":"https://vitacorexllc.com/llc-formation-florida.html"},{"@type":"Offer","name":"Turnkey Business Opening","description":"Coordinated formation, licensing, banking setup, and lease/vendor review across a 3-5 week project timeline.","price":"2500","priceCurrency":"USD","url":"https://vitacorexllc.com/llc-formation-florida.html"},{"@type":"Offer","name":"Diagnostic Review","description":"Flat-fee operational diagnostic with scorecard, gap log, and counsel-ready handoff recommendations.","price":"2500","priceCurrency":"USD","url":"https://vitacorexllc.com/diagnostic-review.html"},{"@type":"Offer","name":"Corporate Legal File Control — Ongoing Retainer","description":"Monthly retainer for multi-matter legal-ops desk, priority routing, and quarterly governance review.","priceSpecification":{"@type":"PriceSpecification","minPrice":"3500","priceCurrency":"USD","unitText":"MON"},"url":"https://vitacorexllc.com/corporate-legal-file-control.html"}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Pricing and Engagement Tiers","url":"https://vitacorexllc.com/pricing-and-engagement-tiers.html","description":"Master pricing index: corporate retainers and Free Pilot for operators, plus fixed-fee documentation packets for private clients.","datePublished":"2026-04-18","dateModified":"2026-04-18"}
@@ -183,8 +218,123 @@
 </div>
 </section>
 
+<!-- ═══════════════ UNIFIED PRICING MATRIX ═══════════════ -->
+<section id="matrix" class="pet-section pet-section--white">
+<div class="wrap">
+<div class="pet-matrix-head">
+<span class="pet-sec-head__eyebrow" data-page="pet_matrix_eyebrow">Unified pricing matrix</span>
+<h2 data-page="pet_matrix_h2">Every document service &mdash; at a glance.</h2>
+<p data-page="pet_matrix_intro">Published floors for all ten VitaCoreX service lines. Each row links to its detailed scope, turnaround, and deliverable page.</p>
+</div>
+
+<div class="pet-matrix-table" role="table" aria-label="VitaCoreX pricing matrix">
+
+<div class="pet-matrix-row pet-matrix-row--head" role="row">
+<div class="pet-matrix-cell" role="columnheader" data-page="pet_matrix_col_svc">Service line</div>
+<div class="pet-matrix-cell" role="columnheader" data-page="pet_matrix_col_t1">Base</div>
+<div class="pet-matrix-cell" role="columnheader" data-page="pet_matrix_col_t2">Expanded</div>
+<div class="pet-matrix-cell" role="columnheader" data-page="pet_matrix_col_t3">Premium / Scaled</div>
+<div class="pet-matrix-cell" role="columnheader" data-page="pet_matrix_col_link">Details</div>
+</div>
+
+<!-- Row 1: Contract Review -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r1_svc">Contract Review<small>Private client &middot; fixed fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r1_t1">$149<small>Base review</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r1_t2">$219<small>Comprehensive</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r1_t3">from $349<small>Multi-document</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="contract-review-service.html" data-page="pet_matrix_r1_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 2: Immigration Packet Review -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r2_svc">Immigration Packet Review<small>Private client &middot; fixed fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r2_t1">$149<small>Base review</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r2_t2">$219<small>Comprehensive</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r2_t3">from $649<small>Full packet assembly</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="immigration-packet-review.html" data-page="pet_matrix_r2_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 3: Auto Deal Review -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r3_svc">Auto Deal Review<small>Private client &middot; fixed fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r3_t1">$149<small>Quick review</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r3_t2">$219<small>Full breakdown</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r3_t3">+$49 rush<small>48-hour turnaround</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="auto-deal-review.html" data-page="pet_matrix_r3_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 4: Small Claims Documentation -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r4_svc">Small Claims Documentation<small>Private client &middot; fixed fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r4_t1">$149<small>Basic packet</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r4_t2">$219<small>Attorney-ready</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r4_t3">$725<small>Managed to judgment</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="small-claims-documentation.html" data-page="pet_matrix_r4_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 5: LLC Formation -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r5_svc">LLC Formation Florida<small>Private client &middot; formation</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r5_t1">$299<small>Filing-ready packet</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Expanded" data-page="pet_matrix_r5_t2">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r5_t3">$2,500<small>Turnkey opening</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="llc-formation-florida.html" data-page="pet_matrix_r5_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 6: Diagnostic Review -->
+<div class="pet-matrix-row pet-matrix-row--b2b" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r6_svc">Diagnostic Review<small>Operator &middot; flat fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r6_t1">$2,500<small>Flat fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Expanded" data-page="pet_matrix_r6_t2">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Premium" data-page="pet_matrix_r6_t3">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="diagnostic-review.html" data-page="pet_matrix_r6_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 7: Pre-Collection Recovery Pilot -->
+<div class="pet-matrix-row pet-matrix-row--b2b" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r7_svc">Pre-Collection Recovery Pilot<small>Operator &middot; success fee</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r7_t1">FREE<small>Qualified portfolios</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r7_t2">15&ndash;22.5%<small>Success fee by AR age</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Premium" data-page="pet_matrix_r7_t3">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="pre-collection-pilot.html" data-page="pet_matrix_r7_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 8: Corporate Legal File Control -->
+<div class="pet-matrix-row pet-matrix-row--b2b" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r8_svc">Corporate Legal File Control<small>Operator &middot; scoped or retainer</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r8_t1">from $3,500<small>Per matter</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Expanded" data-page="pet_matrix_r8_t2">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r8_t3">from $3,500/mo<small>Ongoing retainer</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="corporate-legal-file-control.html" data-page="pet_matrix_r8_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 9: Weekly Controlled-Operations Retainer -->
+<div class="pet-matrix-row pet-matrix-row--b2b" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r9_svc">Controlled-Operations Retainer<small>Operator &middot; weekly cadence</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r9_t1">$1,350/wk<small>Preparation Desk</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r9_t2">$2,150/wk<small>Managed + hearing prep</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Premium" data-page="pet_matrix_r9_t3">$3,250/wk<small>Priority / reserved</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="#b-tiers" data-page="pet_matrix_r9_link">See details &rarr;</a></div>
+</div>
+
+<!-- Row 10: Hourly Consult & Hearing Attendance -->
+<div class="pet-matrix-row" role="row">
+<div class="pet-matrix-cell pet-matrix-cell--svc" role="cell" data-page="pet_matrix_r10_svc">Hourly Consult &amp; Hearing Attendance<small>Add-on &middot; hourly</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Base" data-page="pet_matrix_r10_t1">$110/hr<small>1-hr consult minimum</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--price" role="cell" data-col="Expanded" data-page="pet_matrix_r10_t2">$110/hr<small>2-hr hearing minimum</small></div>
+<div class="pet-matrix-cell pet-matrix-cell--empty" role="cell" data-col="Premium" data-page="pet_matrix_r10_t3">&mdash;</div>
+<div class="pet-matrix-cell pet-matrix-cell--link" role="cell"><a href="small-claims-documentation.html#compare" data-page="pet_matrix_r10_link">See details &rarr;</a></div>
+</div>
+
+</div><!-- /pet-matrix-table -->
+
+<p class="pet-matrix-note" data-page="pet_matrix_note">All prices in USD. VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm, do not provide legal advice, and do not appear in court or file on your behalf.</p>
+</div>
+</section>
+
 <!-- ═══════════════ SECTION A: B2B (DOMINANT) ═══════════════ -->
-<section class="pet-section pet-section--white">
+<section id="b-tiers" class="pet-section pet-section--white">
 <div class="wrap">
 <div class="pet-sec-head">
 <span class="pet-aud-badge pet-aud-badge--b2b" data-page="pet_b2b_badge">For Companies</span>
@@ -274,7 +424,7 @@
 </section>
 
 <!-- ═══════════════ SECTION B: B2C (CURATED, SECONDARY) ═══════════════ -->
-<section class="pet-section pet-section--cream">
+<section id="c-tiers" class="pet-section pet-section--cream">
 <div class="wrap">
 <div class="pet-sec-head">
 <span class="pet-aud-badge pet-aud-badge--b2c" data-page="pet_b2c_badge">Private Clients</span>
@@ -452,7 +602,7 @@
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
 <script src="/assets/js/vcx-i18n.js?v=2" defer></script>
-<script src="/assets/js/vcx-translations.js?v=15" defer></script>
+<script src="/assets/js/vcx-translations.js?v=16" defer></script>
 <script src="/assets/js/vcx-page-translations.js?v=8" defer></script>
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/ui-shell.js" defer></script>

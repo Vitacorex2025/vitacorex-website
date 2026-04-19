@@ -1893,6 +1893,27 @@ en: {
   scd_hearing_title:            'Hourly Consult & Hearing Attendance',
   scd_hearing_minimums:         '1-hour minimum for consultation or remote advisory calls; 2-hour minimum for hearing attendance or company-rep support.',
   dr_flat_label:                '$2,500 flat',
+
+  /* P01 Step 1.11 — Unified pricing matrix */
+  pet_matrix_eyebrow:           'Unified pricing matrix',
+  pet_matrix_h2:                'Every document service — at a glance.',
+  pet_matrix_intro:             'Published floors for all ten VitaCoreX service lines. Each row links to its detailed scope, turnaround, and deliverable page.',
+  pet_matrix_col_svc:           'Service line',
+  pet_matrix_col_t1:            'Base',
+  pet_matrix_col_t2:            'Expanded',
+  pet_matrix_col_t3:            'Premium / Scaled',
+  pet_matrix_col_link:          'Details',
+  pet_matrix_r1_svc:            'Contract Review',
+  pet_matrix_r2_svc:            'Immigration Packet Review',
+  pet_matrix_r3_svc:            'Auto Deal Review',
+  pet_matrix_r4_svc:            'Small Claims Documentation',
+  pet_matrix_r5_svc:            'LLC Formation Florida',
+  pet_matrix_r6_svc:            'Diagnostic Review',
+  pet_matrix_r7_svc:            'Pre-Collection Recovery Pilot',
+  pet_matrix_r8_svc:            'Corporate Legal File Control',
+  pet_matrix_r9_svc:            'Controlled-Operations Retainer',
+  pet_matrix_r10_svc:           'Hourly Consult & Hearing Attendance',
+  pet_matrix_note:              'All prices in USD. VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm, do not provide legal advice, and do not appear in court or file on your behalf.',
 },
 
 /* ═══════════════════  RUSSIAN  ══════════════════════════════ */
@@ -3770,6 +3791,27 @@ ru: {
   scd_hearing_title:            'Часовая консультация и присутствие на слушании',
   scd_hearing_minimums:         'Минимум 1 час для консультаций и удалённых звонков; минимум 2 часа для присутствия на слушании или поддержки представителя компании.',
   dr_flat_label:                '$2,500 фикс',
+
+  /* P01 Step 1.11 — Unified pricing matrix */
+  pet_matrix_eyebrow:           'Единая матрица тарифов',
+  pet_matrix_h2:                'Все документарные услуги — на одном экране.',
+  pet_matrix_intro:             'Опубликованные минимумы по всем десяти направлениям VitaCoreX. Каждая строка ведёт на детальную страницу с объёмом, сроком и форматом результата.',
+  pet_matrix_col_svc:            'Направление',
+  pet_matrix_col_t1:            'База',
+  pet_matrix_col_t2:            'Расширенный',
+  pet_matrix_col_t3:            'Премиум / Масштаб',
+  pet_matrix_col_link:          'Детали',
+  pet_matrix_r1_svc:            'Проверка договоров',
+  pet_matrix_r2_svc:            'Иммиграционный пакет',
+  pet_matrix_r3_svc:            'Анализ автосделки',
+  pet_matrix_r4_svc:            'Small Claims — документация',
+  pet_matrix_r5_svc:            'Регистрация LLC во Флориде',
+  pet_matrix_r6_svc:            'Diagnostic Review',
+  pet_matrix_r7_svc:            'Pre-Collection Recovery — пилот',
+  pet_matrix_r8_svc:            'Corporate Legal File Control',
+  pet_matrix_r9_svc:            'Controlled-Operations ретейнер',
+  pet_matrix_r10_svc:           'Часовая консультация и присутствие на слушании',
+  pet_matrix_note:              'Все цены в USD. VitaCoreX LLC — консалтинговая компания по документообороту, процессам и возврату выручки. Мы не юридическая фирма, не даём юридических советов и не представляем клиентов в суде или при подаче документов.',
 },
 
 /* ═══════════════════  SPANISH  ══════════════════════════════ */
@@ -5647,6 +5689,27 @@ es: {
   scd_hearing_title:            'Consulta por hora y asistencia a audiencia',
   scd_hearing_minimums:         'Mínimo 1 hora para consulta o llamadas de asesoría remota; mínimo 2 horas para asistencia a audiencia o soporte del representante de la empresa.',
   dr_flat_label:                '$2,500 fijo',
+
+  /* P01 Step 1.11 — Unified pricing matrix */
+  pet_matrix_eyebrow:           'Matriz unificada de precios',
+  pet_matrix_h2:                'Todos los servicios documentales — de un vistazo.',
+  pet_matrix_intro:             'Pisos publicados para las diez líneas de servicio de VitaCoreX. Cada fila enlaza a su página de detalle con alcance, plazo y entregable.',
+  pet_matrix_col_svc:           'Línea de servicio',
+  pet_matrix_col_t1:            'Base',
+  pet_matrix_col_t2:            'Ampliado',
+  pet_matrix_col_t3:            'Premium / Escalado',
+  pet_matrix_col_link:          'Detalles',
+  pet_matrix_r1_svc:            'Revisión de contratos',
+  pet_matrix_r2_svc:            'Revisión de paquete de inmigración',
+  pet_matrix_r3_svc:            'Revisión de compra de auto',
+  pet_matrix_r4_svc:            'Documentación Small Claims',
+  pet_matrix_r5_svc:            'Formación de LLC en Florida',
+  pet_matrix_r6_svc:            'Diagnostic Review',
+  pet_matrix_r7_svc:            'Piloto Pre-Collection Recovery',
+  pet_matrix_r8_svc:            'Corporate Legal File Control',
+  pet_matrix_r9_svc:            'Retenedor Controlled-Operations',
+  pet_matrix_r10_svc:           'Consulta por hora y asistencia a audiencia',
+  pet_matrix_note:              'Todos los precios en USD. VitaCoreX LLC es una firma consultora de documentación, flujos de trabajo y recuperación de ingresos. No somos un bufete jurídico, no proporcionamos asesoría legal y no comparecemos en tribunales ni presentamos documentos en su nombre.',
 }
 
 };
