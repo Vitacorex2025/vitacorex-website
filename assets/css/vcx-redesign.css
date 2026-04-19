@@ -2546,8 +2546,14 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
 [class*="progress-fill"], [class*="bar-fill"], [class*="meter-fill"],
 .timeline-dot, .hero-orb { border-radius: 999px !important; }
 
-/* F9: Chat launcher — circular FAB */
-.vcx-cw-launcher { border-radius: 50% !important; min-width: auto !important; min-height: 48px !important; }
+/* F9: Chat launcher — circular FAB (legacy + new AI assistant) */
+.vcx-cw-launcher,
+.vcx-ai-fab,
+#vcxAiFab,
+.vcx-cal-fab { border-radius: 50% !important; min-width: auto !important; }
+.vcx-cw-launcher { min-height: 48px !important; }
+/* Kill any rounded-rect fallback on the ping halo and icons */
+.vcx-ai-fab__ping { border-radius: 50% !important; }
 
 /* F10: Lang switch */
 .lang-switch, .vcx-lang-switch { border-radius: 3px !important; padding: 3px !important; }

@@ -3733,11 +3733,24 @@ function normText(s) {
 }
 function isHtml(s) { return /<[a-z][^>]*>/i.test(s); }
 
+// Skip if an element OR any descendant is already owned by a structured
+// translator (data-page / data-i18n / data-v52 / data-common / data-tx).
+// Without this check we'd cache whatever text the structured translator
+// already wrote (often non-EN) as "original English", which produces stuck
+// translations when the user flips back to EN.
+function ownedByStructured(el) {
+  if (el.hasAttribute('data-common') || el.hasAttribute('data-tx') ||
+      el.hasAttribute('data-page')   || el.hasAttribute('data-i18n') ||
+      el.hasAttribute('data-v52')) return true;
+  if (el.querySelector('[data-page],[data-i18n],[data-v52],[data-common],[data-tx]')) return true;
+  return false;
+}
+
 function translatePage(lang) {
   if (lang === 'en') {
-    // Restore originals (skip elements handled by vcx-i18n.js / vcx-translations.js)
+    // Restore originals (skip elements handled by structured translators).
     document.querySelectorAll('[data-en-orig]').forEach(function(el) {
-      if (el.hasAttribute('data-common') || el.hasAttribute('data-tx') || el.hasAttribute('data-page') || el.hasAttribute('data-i18n') || el.hasAttribute('data-v52')) return;
+      if (ownedByStructured(el)) return;
       // If we cached the original HTML (rich paragraph case), restore innerHTML;
       // otherwise restore textContent.
       var html = el.getAttribute('data-en-orig-html');
@@ -3753,8 +3766,8 @@ function translatePage(lang) {
   var els = document.querySelectorAll(SELECTORS);
   els.forEach(function(el) {
     if (shouldSkip(el)) return;
-    // Skip elements handled by vcx-translations.js (data-page, data-i18n, data-v52)
-    if (el.hasAttribute('data-page') || el.hasAttribute('data-i18n') || el.hasAttribute('data-v52')) return;
+    // Skip elements owned by structured translators (direct OR via descendants).
+    if (ownedByStructured(el)) return;
 
     // Key is always the textContent (normalized). This lets us also translate
     // paragraphs that contain inline <a>/<strong> children by providing the
