@@ -91,6 +91,7 @@ const LITERAL = {
   smp_embed_pill_open:         'Open sample',
   smp_embed_pill_gated:        'Gated \u2014 request access',
   smp_embed_cta_open:          'See the sample',
+  smp_embed_cta_request:       'Request access',
   smp_embed_cta_library:       'Browse the full sample library',
   smp_embed_ar_leakage_title:  'AR Leakage Map',
   smp_embed_ar_leakage_desc:   'Aging-bucket ledger, leakage band, prioritized recovery roadmap \u2014 the document a CFO reviews before approving an AR consulting engagement. Representative engagement, numbers redacted.',
@@ -125,6 +126,15 @@ function renderCard(card) {
   const pillStateTxt = LITERAL[pillStateKey];
   const pillStateClass = card.gated ? ' vcx-sample-embed__pill--gated' : '';
 
+  // Step 3.5 — gated samples route their primary CTA to the request gate
+  // page with ?s=<slug>; open samples route straight to the sample URL.
+  const primaryHref = card.gated
+    ? 'samples/request-gated-sample.html?s=' + card.slug
+    : 'samples/' + card.slug + '.html';
+  const primaryCtaKey = card.gated ? 'smp_embed_cta_request' : 'smp_embed_cta_open';
+  const primaryCtaTxt = LITERAL[primaryCtaKey];
+  const primaryDataGated = card.gated ? ' data-gated-cta="1"' : '';
+
   return [
     '<article class="vcx-sample-embed__card" data-sample="' + card.slug + '">',
       '<div class="vcx-sample-embed__meta">',
@@ -135,7 +145,7 @@ function renderCard(card) {
       '<h2 class="vcx-sample-embed__title" data-page="' + card.titleKey + '">' + LITERAL[card.titleKey] + '</h2>',
       '<p class="vcx-sample-embed__desc" data-page="' + card.descKey + '">' + LITERAL[card.descKey] + '</p>',
       '<div class="vcx-sample-embed__ctas">',
-        '<a class="vcx-sample-embed__cta" href="samples/' + card.slug + '.html" data-page="smp_embed_cta_open">' + LITERAL.smp_embed_cta_open + '</a>',
+        '<a class="vcx-sample-embed__cta" href="' + primaryHref + '" data-page="' + primaryCtaKey + '"' + primaryDataGated + '>' + primaryCtaTxt + '</a>',
         '<a class="vcx-sample-embed__cta-secondary" href="sample-deliverable.html" data-page="smp_embed_cta_library">' + LITERAL.smp_embed_cta_library + '</a>',
       '</div>',
     '</article>',
