@@ -24,6 +24,14 @@ en: {
   hero_pill_2:        '90-day pilot standard',
   hero_pill_3:        'Counsel-ready file control',
 
+  /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
+  home_hero_eyebrow:  'Tampa, FL \u00B7 For companies and private clients',
+  home_hero_title:    'Revenue recovery for companies. Document packets for private clients.',
+  home_hero_lead:     'Companies: clean up aged AR, organize files, and prepare counsel-ready documentation \u2014 before agency or legal cost expands. Private clients: fixed-fee document packets before you sign, file, buy, or escalate. VitaCoreX is not a law firm and not a collection agency.',
+  home_hero_pill_1:   'Fixed-scope engagements',
+  home_hero_pill_2:   'Counsel-ready documentation',
+  home_hero_pill_3:   'Not a law firm \u00B7 Not a collection agency',
+
   stat_label_1:       'Solution lanes',
   stat_label_2:       'Pilot standard',
   stat_label_3:       'Response commitment',
@@ -1960,6 +1968,14 @@ ru: {
   hero_pill_2:        '90-дневный пилотный стандарт',
   hero_pill_3:        'Файлы готовые для юристов',
 
+  /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
+  home_hero_eyebrow:  'Тампа, Флорида \u00B7 Для компаний и частных клиентов',
+  home_hero_title:    'Возврат выручки — для компаний. Пакеты документов — для частных клиентов.',
+  home_hero_lead:     'Для компаний: собираем просроченную дебиторку, упорядочиваем дела и готовим документацию для юристов — до того, как агентство или юридические услуги увеличат ваши затраты. Для частных клиентов: пакеты документов с фиксированной ценой — перед подписанием, подачей, покупкой или эскалацией. VitaCoreX — не юридическая фирма и не коллекторское агентство.',
+  home_hero_pill_1:   'Фиксированный объём работ',
+  home_hero_pill_2:   'Документы, готовые для юристов',
+  home_hero_pill_3:   'Не юрфирма \u00B7 Не коллекторы',
+
   stat_label_1:       'Направления решений',
   stat_label_2:       'Стандарт пилота',
   stat_label_3:       'Обязательство по ответу',
@@ -3891,6 +3907,14 @@ es: {
   hero_pill_1:        'Para operadores y CFOs',
   hero_pill_2:        'Estandar piloto de 90 dias',
   hero_pill_3:        'Expedientes listos para abogados',
+
+  /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
+  home_hero_eyebrow:  'Tampa, FL \u00B7 Para empresas y clientes privados',
+  home_hero_title:    'Recuperacion de ingresos para empresas. Paquetes de documentos para clientes privados.',
+  home_hero_lead:     'Para empresas: limpiamos cuentas por cobrar vencidas, organizamos expedientes y preparamos documentacion lista para abogados \u2014 antes de que aumenten los costos de agencia o legales. Para clientes privados: paquetes de documentos con tarifa fija antes de firmar, presentar, comprar o escalar. VitaCoreX no es un bufete de abogados ni una agencia de cobro.',
+  home_hero_pill_1:   'Alcance fijo',
+  home_hero_pill_2:   'Documentacion lista para abogados',
+  home_hero_pill_3:   'No es bufete \u00B7 No es agencia de cobro',
 
   stat_label_1:       'Lineas de solucion',
   stat_label_2:       'Estandar de piloto',
