@@ -8,8 +8,8 @@
 
 /* --- Radial spotlight layer --- */
 /* Fixed pseudo-element anchored to viewport. Sits behind the noise canvas. */
-/* Warm gold accent near top centre + soft ink-blue accent lower right.     */
-/* Opacity is intentionally low on light cream (#F6F2EA) so cards stay crisp */
+/* Cool teal accent near top centre + soft ink-blue accent lower right.     */
+/* Tuned for the cool light body (#FAFCFC) — stays subtle on white. */
 body.vcx-bg-noise::before {
   content: "";
   position: fixed;
@@ -18,11 +18,11 @@ body.vcx-bg-noise::before {
   z-index: 0;
   background:
     radial-gradient(circle 640px at 50% 180px,
-      rgba(201, 164, 96, 0.14),
-      rgba(201, 164, 96, 0.04) 40%,
+      rgba(91, 186, 167, 0.10),
+      rgba(91, 186, 167, 0.03) 40%,
       transparent 70%),
     radial-gradient(circle 900px at 80% 70%,
-      rgba(23, 58, 99, 0.06),
+      rgba(23, 58, 99, 0.05),
       transparent 70%);
   will-change: auto;
 }
@@ -91,7 +91,7 @@ body.vcx-bg-noise .glass {
   body.vcx-bg-noise::before {
     background:
       radial-gradient(circle 640px at 50% 180px,
-        rgba(201, 164, 96, 0.10),
+        rgba(91, 186, 167, 0.08),
         transparent 70%);
   }
 }
@@ -103,7 +103,7 @@ body.vcx-bg-noise .glass {
   body.vcx-bg-noise::before {
     background:
       radial-gradient(circle 420px at 50% 120px,
-        rgba(201, 164, 96, 0.12),
+        rgba(91, 186, 167, 0.09),
         transparent 70%);
   }
 }
