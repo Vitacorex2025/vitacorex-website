@@ -147,18 +147,15 @@
       '<path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
       '<span class="vcx-back-link__label">' + pickLabel() + '</span>';
 
+    // Click handler: ALWAYS navigate to "/" (homepage). We deliberately do
+    // not call window.history.back() because Safari on iOS frequently
+    // restores a stale cached/blank state from bfcache when going back,
+    // which looked to users like "the button doesn't work". Hard-
+    // navigating to "/" gives predictable behaviour on every platform.
     link.addEventListener('click', function (ev) {
-      try {
-        var ref = document.referrer;
-        var sameOrigin = ref && ref.indexOf(location.origin) === 0;
-        if (sameOrigin && window.history.length > 1) {
-          ev.preventDefault();
-          window.history.back();
-          return;
-        }
-      } catch (_) { /* noop */ }
-      // If we fall through, the default href="/" navigation runs, so the
-      // user always ends up somewhere — never a dead click.
+      ev.preventDefault();
+      // Use assign() (not replace) so the browser keeps a forward entry.
+      window.location.assign('/');
     });
 
     document.addEventListener('vcx:locale-change', function () {
