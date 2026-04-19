@@ -28,22 +28,13 @@ body.vcx-bg-noise::before {
 }
 
 /* --- Noise canvas layer --- */
+/* NOTE: The animated grain is disabled by default because `mix-blend-mode:    */
+/* multiply` on dark hero sections creates a brownish/yellow muddy cast. */
+/* The radial spotlight above (body.vcx-bg-noise::before) carries the brand   */
+/* backdrop on its own; the grain was a cream-specific luxury that doesn't    */
+/* translate to the cool-white + dark-hero palette. */
 .vcx-noise-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  /* Sits just above the radial spotlight but below all page content.        */
-  z-index: 1;
-  /* image-rendering pixelated keeps grain sharp after upscale to viewport.  */
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  /* multiply darkens only where grain is dark — invisible on pure white,    */
-  /* gives subtle texture on cream, barely touches card surfaces.            */
-  mix-blend-mode: multiply;
-  /* Secondary opacity guard so noise can never overpower content readability */
-  opacity: 0.55;
+  display: none !important;
 }
 
 /* --- Content stacking --- */

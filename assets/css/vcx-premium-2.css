@@ -81,18 +81,18 @@
   100% { stroke-dashoffset: -1; opacity: 0.3; }
 }
 
-/* Holographic iridescent shimmer — shifts between warm and cool */
+/* Cool shimmer — brand teal + soft navy, no warm stops (avoids yellow bloom). */
 .vcx-hero-2__shimmer {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.20;
-  mix-blend-mode: color-dodge;
+  opacity: 0.16;
+  mix-blend-mode: screen;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(91,186,167,0.6), transparent),
-    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(180,140,255,0.4), transparent),
-    radial-gradient(ellipse 70% 55% at 50% 60%, rgba(255,200,100,0.35), transparent);
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(91,186,167,0.45), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(78,180,170,0.35), transparent),
+    radial-gradient(ellipse 70% 55% at 50% 60%, rgba(120,200,210,0.30), transparent);
   animation: vcxShimmer 10s ease-in-out infinite alternate;
 }
 
@@ -218,10 +218,41 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.45;
+  opacity: 0.22;
   z-index: 0;
-  filter: hue-rotate(120deg) saturate(0.5) brightness(0.6);
+  filter: hue-rotate(130deg) saturate(0.6) brightness(0.55);
   transform: scale(1.1);
+}
+
+/* Kill the legacy "cloud layer" white-screen wash over the hero. On the new
+   cool palette it reads as a milky haze that mutes the wave animation and the
+   teal gradient. Keep the markup for backwards compatibility but hide it. */
+.vcx-hero-2 .hero-cloud-layer,
+.vcx-hero-2__bg .hero-cloud-layer,
+body .hero-cloud-layer {
+  display: none !important;
+}
+
+/* Balanced dark overlay — saturated enough to keep waves vivid, dark enough
+   to maintain contrast for the eyebrow, title, body copy, and pill badges. */
+.vcx-hero-2__bg::after {
+  background: rgba(8, 25, 22, 0.42) !important;
+}
+
+/* Eyebrow + pill badges: bump readability back up after the overlay was
+   softened. The old 0.55 overlay gave these light-weight elements enough
+   contrast implicitly; on the new brighter hero they need explicit colour. */
+.vcx-hero-2 .vcx-hero-2__eyebrow,
+.vcx-hero-2 [class*="eyebrow"] {
+  color: #5BBAA7 !important;
+  -webkit-text-fill-color: #5BBAA7 !important;
+  opacity: 1 !important;
+}
+.vcx-hero-2__pill {
+  color: rgba(255, 255, 255, 0.95) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Hero pill badges — more subtle */
