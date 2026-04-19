@@ -1873,6 +1873,26 @@ en: {
   cta_briefs:         'View executive briefs',
   cta_workflow:       'View workflow',
   cta_deliverables:   'View deliverables',
+
+  /* ═══════════════════  P01 — Pricing reconciliation additions ═══════════════════ */
+  clfc_price_p:                 'From $3,500 per matter or $3,500/mo retainer. Fixed-scope or staged pricing confirmed after intake and document review — no billable-hour surprise logic for first-stage cleanup work.',
+  clfc_price_see_floor:         'See published floor →',
+  clfc_pricing_eyebrow:         'Published floor',
+  clfc_pricing_h2:              'Two ways to engage — scoped matter or ongoing retainer.',
+  clfc_pricing_scoped_title:    'Scoped matter',
+  clfc_pricing_scoped_price:    'From $3,500 per matter',
+  clfc_pricing_scoped_desc:     'Single-matter counsel-ready file preparation. Fixed scope, fixed price, fixed deliverable.',
+  clfc_pricing_retainer_title:  'Ongoing retainer',
+  clfc_pricing_retainer_price:  '$3,500/mo minimum',
+  clfc_pricing_retainer_desc:   'Dedicated legal-ops desk across multiple matters. Priority routing and quarterly governance review.',
+  clfc_pricing_scoped_cta:      'Request scoped intake →',
+  clfc_pricing_retainer_cta:    'Discuss retainer fit →',
+  clfc_pricing_note:            'Custom scope? Contact the director to discuss hybrid pricing.',
+  pcp_other_diag_cta:           'See Diagnostic Review details →',
+  sol_t1_cta:                   'See diagnostic details →',
+  scd_hearing_title:            'Hourly Consult & Hearing Attendance',
+  scd_hearing_minimums:         '1-hour minimum for consultation or remote advisory calls; 2-hour minimum for hearing attendance or company-rep support.',
+  dr_flat_label:                '$2,500 flat',
 },
 
 /* ═══════════════════  RUSSIAN  ══════════════════════════════ */
@@ -3730,6 +3750,26 @@ ru: {
   cta_briefs:         'Открыть материалы для руководства',
   cta_workflow:       'Посмотреть процесс',
   cta_deliverables:   'Посмотреть состав работ',
+
+  /* ═══════════════════  P01 — Pricing reconciliation additions ═══════════════════ */
+  clfc_price_p:                 'От $3,500 за дело или $3,500/мес ретейнер. Фиксированная сумма или поэтапная цена фиксируются после intake и разбора документов — без сюрпризов по почасовой логике на первом этапе.',
+  clfc_price_see_floor:         'Открыть опубликованный минимум →',
+  clfc_pricing_eyebrow:         'Опубликованный минимум',
+  clfc_pricing_h2:              'Два формата сотрудничества — конкретное дело или постоянный ретейнер.',
+  clfc_pricing_scoped_title:    'Конкретное дело',
+  clfc_pricing_scoped_price:    'От $3,500 за дело',
+  clfc_pricing_scoped_desc:     'Подготовка файла по одному делу до counsel-ready. Фиксированный объём, цена и результат.',
+  clfc_pricing_retainer_title:  'Постоянный ретейнер',
+  clfc_pricing_retainer_price:  'От $3,500/мес',
+  clfc_pricing_retainer_desc:   'Выделенный legal-ops desk по нескольким делам. Приоритетная маршрутизация и квартальный governance review.',
+  clfc_pricing_scoped_cta:      'Запросить intake по делу →',
+  clfc_pricing_retainer_cta:    'Обсудить ретейнер →',
+  clfc_pricing_note:            'Нужен другой объём? Свяжитесь с директором для гибридной модели.',
+  pcp_other_diag_cta:           'Открыть Diagnostic Review →',
+  sol_t1_cta:                   'Открыть детали диагностики →',
+  scd_hearing_title:            'Часовая консультация и присутствие на слушании',
+  scd_hearing_minimums:         'Минимум 1 час для консультаций и удалённых звонков; минимум 2 часа для присутствия на слушании или поддержки представителя компании.',
+  dr_flat_label:                '$2,500 фикс',
 },
 
 /* ═══════════════════  SPANISH  ══════════════════════════════ */
@@ -5587,6 +5627,26 @@ es: {
   cta_briefs:         'Revisar material ejecutivo',
   cta_workflow:       'Ver flujo de trabajo',
   cta_deliverables:   'Ver entregables',
+
+  /* ═══════════════════  P01 — Pricing reconciliation additions ═══════════════════ */
+  clfc_price_p:                 'Desde $3,500 por asunto o $3,500/mes de retenedor. Precio fijo o por etapas confirmado tras el intake y la revisión documental — sin sorpresas por horas facturables en la primera fase.',
+  clfc_price_see_floor:         'Ver piso publicado →',
+  clfc_pricing_eyebrow:         'Piso publicado',
+  clfc_pricing_h2:              'Dos formas de contratar — asunto delimitado o retenedor continuo.',
+  clfc_pricing_scoped_title:    'Asunto delimitado',
+  clfc_pricing_scoped_price:    'Desde $3,500 por asunto',
+  clfc_pricing_scoped_desc:     'Preparación counsel-ready de un solo asunto. Alcance, precio y entregable fijos.',
+  clfc_pricing_retainer_title:  'Retenedor continuo',
+  clfc_pricing_retainer_price:  '$3,500/mes mínimo',
+  clfc_pricing_retainer_desc:   'Mesa legal-ops dedicada para múltiples asuntos. Enrutamiento prioritario y revisión de governance trimestral.',
+  clfc_pricing_scoped_cta:      'Solicitar intake por asunto →',
+  clfc_pricing_retainer_cta:    'Discutir encaje de retenedor →',
+  clfc_pricing_note:            '¿Alcance personalizado? Contacte al director para un precio híbrido.',
+  pcp_other_diag_cta:           'Ver detalles de Diagnostic Review →',
+  sol_t1_cta:                   'Ver detalles del diagnóstico →',
+  scd_hearing_title:            'Consulta por hora y asistencia a audiencia',
+  scd_hearing_minimums:         'Mínimo 1 hora para consulta o llamadas de asesoría remota; mínimo 2 horas para asistencia a audiencia o soporte del representante de la empresa.',
+  dr_flat_label:                '$2,500 fijo',
 }
 
 };
