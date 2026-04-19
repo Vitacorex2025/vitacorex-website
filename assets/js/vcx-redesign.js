@@ -647,18 +647,25 @@
     resize();
     window.addEventListener('resize', resize);
 
-    // Aurora wave layers — each has unique speed, amplitude, frequency
+    // Aurora wave layers — each has unique speed, amplitude, frequency.
+    // Alphas bumped for vividness; additive compositing below brightens the
+    // overlap zones into bright teal crests instead of muddy semi-transparent
+    // bands over the dark hero background.
     var layers = [
-      { yBase: 0.52, amp: 0.18, freq: 0.7,  speed: 0.12, color: [45,180,165],  alpha: 0.28, width: 0.40 },
-      { yBase: 0.40, amp: 0.14, freq: 1.0,  speed: 0.20, color: [91,220,200],  alpha: 0.22, width: 0.35 },
-      { yBase: 0.65, amp: 0.20, freq: 0.5,  speed: 0.08, color: [35,140,125],  alpha: 0.30, width: 0.45 },
-      { yBase: 0.32, amp: 0.10, freq: 1.3,  speed: 0.25, color: [141,230,210], alpha: 0.18, width: 0.28 },
-      { yBase: 0.48, amp: 0.22, freq: 0.4,  speed: 0.06, color: [61,165,148],  alpha: 0.25, width: 0.38 }
+      { yBase: 0.52, amp: 0.18, freq: 0.7,  speed: 0.12, color: [70,210,190],  alpha: 0.42, width: 0.40 },
+      { yBase: 0.40, amp: 0.14, freq: 1.0,  speed: 0.20, color: [120,240,220], alpha: 0.34, width: 0.35 },
+      { yBase: 0.65, amp: 0.20, freq: 0.5,  speed: 0.08, color: [50,170,150],  alpha: 0.48, width: 0.45 },
+      { yBase: 0.32, amp: 0.10, freq: 1.3,  speed: 0.25, color: [160,245,225], alpha: 0.28, width: 0.28 },
+      { yBase: 0.48, amp: 0.22, freq: 0.4,  speed: 0.06, color: [80,195,175],  alpha: 0.40, width: 0.38 }
     ];
 
     function draw(now) {
       var t = now * 0.001;
       ctx.clearRect(0, 0, w, h);
+
+      // Additive blending — overlapping wave fills add up into vivid teal
+      // instead of alpha-blending into muddy semi-transparency.
+      ctx.globalCompositeOperation = 'lighter';
 
       for (var i = 0; i < layers.length; i++) {
         var L = layers[i];

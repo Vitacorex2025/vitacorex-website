@@ -150,12 +150,21 @@
 }
 
 
-/* Canvas aurora must render above clouds */
+/* Canvas aurora must render above clouds.
+   Screen blend + saturation filter = vivid teal waves over the dark hero.
+   Without these the low-alpha gradient fills baked into the canvas read as
+   semi-transparent mud over the dark bg; screen-blend drops the black
+   background pixels to transparent so only the bright teal fills survive,
+   and the saturation/contrast filter pushes the remaining teal into crisp
+   brand-colour waves. */
 .vcx-hero-2 .vcx-hero-canvas {
   position: absolute;
   inset: 0;
   z-index: 4 !important;
   pointer-events: none;
+  mix-blend-mode: screen;
+  filter: saturate(1.35) contrast(1.08) brightness(1.08);
+  will-change: opacity;
 }
 
 .vcx-hero-2__content {
