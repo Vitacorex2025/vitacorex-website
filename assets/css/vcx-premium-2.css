@@ -1354,12 +1354,12 @@ section.section:not(.band):nth-of-type(odd) {
   color: #FFFFFF !important;
 }
 
-/* ---- FOOTER — elegant dark teal ---- */
+/* ---- PAGE BODY — light background (readable) ---- */
 html {
-  background: #0B2420 !important;
+  background: #FAFCFC !important;
 }
 body {
-  background-color: transparent !important;
+  background-color: #FAFCFC !important;
 }
 .footer {
   background: #0B2420 !important;
