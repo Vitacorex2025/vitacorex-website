@@ -58,7 +58,9 @@
   // ---------- Audience classification (body[data-audience]) ----------
   var AUD_B2B = [
     'solutions.html', 'corporate-legal-file-control.html', 'revenue-recovery-workflow.html',
-    'revenue-recovery-florida.html', 'pre-collection-pilot.html', 'small-claims-documentation.html',
+    'revenue-recovery-florida.html', 'revenue-recovery-miami.html', 'revenue-recovery-orlando.html',
+    'revenue-recovery-tampa.html',
+    'pre-collection-pilot.html', 'small-claims-documentation.html',
     'industries.html', 'security-and-compliance.html', 'sample-deliverable.html',
     'structured-case-intake.html', 'partners.html',
     'case-study-fleet-logistics.html', 'case-study-healthcare-network.html', 'case-study-subscription-saas.html',
