@@ -2340,10 +2340,11 @@ body {
   line-height: 1.18;
   letter-spacing: -0.015em;
   color: #1A2F2A;
-  margin: 0 auto 16px;
+  margin: 0 auto 16px !important;
   text-align: center !important;
-  display: block;
-  width: 100%;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .vcx-routes__lede {
