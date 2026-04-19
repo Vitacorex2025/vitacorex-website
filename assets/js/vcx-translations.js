@@ -318,6 +318,15 @@ en: {
   footer_nav_terms:   'Terms of Use',
   footer_nav_cookie:  'Cookie Policy',
 
+  /* ── Dual-door footer (P02 Step 2.3 / ADR-006) ─────────────── */
+  footer_col_companies:  'For Companies',
+  footer_col_private:    'For Private Clients',
+  footer_col_company:    'Company',
+  footer_col_legal:      'Legal',
+  footer_nav_secure:     'Secure Coordination',
+  footer_nav_subproc:    'Sub-processors & DPA',
+  footer_nav_deadline_cal: 'Deadline Calendar',
+
   /* ── Dual-entry routes (home) ──────────────────────────────── */
   routes_eyebrow:     'Two ways to engage',
   routes_title:       'Who are you coming for?',
@@ -2228,6 +2237,15 @@ ru: {
   footer_nav_privacy: 'Политика конфиденциальности',
   footer_nav_terms:   'Условия использования',
   footer_nav_cookie:  'Политика cookie',
+
+  /* ── Dual-door footer (P02 Step 2.3 / ADR-006) ─────────────── */
+  footer_col_companies:  'Для компаний',
+  footer_col_private:    'Для частных клиентов',
+  footer_col_company:    'Компания',
+  footer_col_legal:      'Правовая информация',
+  footer_nav_secure:     'Безопасная координация',
+  footer_nav_subproc:    'Субобработчики и DPA',
+  footer_nav_deadline_cal: 'Календарь дедлайнов',
 
   /* ── Dual-entry routes (home) ──────────────────────────────── */
   routes_eyebrow:     'Два пути взаимодействия',
@@ -4151,6 +4169,15 @@ es: {
   footer_nav_privacy: 'Politica de privacidad',
   footer_nav_terms:   'Terminos de uso',
   footer_nav_cookie:  'Politica de cookies',
+
+  /* ── Dual-door footer (P02 Step 2.3 / ADR-006) ─────────────── */
+  footer_col_companies:  'Para empresas',
+  footer_col_private:    'Para clientes privados',
+  footer_col_company:    'Compañía',
+  footer_col_legal:      'Legal',
+  footer_nav_secure:     'Coordinación segura',
+  footer_nav_subproc:    'Subprocesadores y DPA',
+  footer_nav_deadline_cal: 'Calendario de plazos',
 
   /* ── Dual-entry routes (home) ──────────────────────────────── */
   routes_eyebrow:     'Dos vias para interactuar',

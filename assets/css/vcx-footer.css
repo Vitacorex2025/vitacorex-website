@@ -1,0 +1,132 @@
+/* VCX 4-column footer styles (P02 Step 2.3 / ADR-006)
+ * Applies only when vcx-footer.js adds .footer-grid--dual.
+ * Original .footer-grid-extended rules still apply as base layer;
+ * these rules override grid structure + column headers. */
+
+/* --- Grid layout --------------------------------------------------------- */
+
+.footer-grid.footer-grid--dual {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Company meta stays as its own row on top */
+.footer-grid--dual .footer-company {
+  grid-column: 1 / -1;
+}
+
+/* 4-column row */
+.footer-cols.footer-cols--dual {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.footer-group--dual {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.footer-group--dual h3 {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.2;
+}
+
+/* Audience accent strip above the header */
+.footer-group--dual h3::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+.footer-group--b2b h3::before {
+  background: linear-gradient(90deg, #0ea5a4, rgba(14, 165, 164, 0.3));
+}
+.footer-group--b2c h3::before {
+  background: linear-gradient(90deg, #a7c1e6, rgba(167, 193, 230, 0.3));
+}
+.footer-group--company h3::before,
+.footer-group--legal h3::before {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Links */
+.footer-links--dual {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.footer-links--dual a {
+  display: inline-block;
+  padding: 3px 0;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-links--dual a:hover,
+.footer-links--dual a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+/* --- Responsive --------------------------------------------------------- */
+
+@media (max-width: 1020px) {
+  .footer-cols.footer-cols--dual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-cols.footer-cols--dual {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .footer-grid.footer-grid--dual {
+    gap: 20px;
+  }
+  .footer-group--dual h3 {
+    font-size: 0.74rem;
+  }
+}
+
+/* --- Light-theme guard --------------------------------------------------
+ * Some pages load the footer on a light card background. Keep legibility. */
+
+body[data-audience="shared"] .footer-group--dual h3,
+body[data-audience="b2b"]    .footer-group--dual h3,
+body[data-audience="b2c"]    .footer-group--dual h3 {
+  color: inherit;
+}
+body[data-audience="shared"] .footer-links--dual a,
+body[data-audience="b2b"]    .footer-links--dual a,
+body[data-audience="b2c"]    .footer-links--dual a {
+  color: inherit;
+  opacity: 0.82;
+}
+body[data-audience="shared"] .footer-links--dual a:hover,
+body[data-audience="b2b"]    .footer-links--dual a:hover,
+body[data-audience="b2c"]    .footer-links--dual a:hover {
+  opacity: 1;
+}
+/* If existing footer uses dark palette (default), inherit won't override
+ * the light-palette lines above — original .footer rules already set
+ * white text, so :hover gets full white via existing cascade. */
