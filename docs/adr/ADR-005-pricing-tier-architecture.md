@@ -1,7 +1,7 @@
 # ADR-005 — Pricing Tier Architecture
 
-- **Status**: proposed (awaiting P01 kickoff)
-- **Date**: 2026-04-19 (draft)
+- **Status**: accepted
+- **Date**: 2026-04-19 (accepted at P01 kickoff)
 - **Phase**: P01 Pricing Reconciliation
 - **Supersedes**: none
 - **Obsidian**: [[Upgrade 2026-04/Phases/P01 Pricing Reconciliation]]

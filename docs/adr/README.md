@@ -18,7 +18,7 @@ Every ADR:
 | ADR-002 | (TBD — historical) | — | pre-upgrade | — |
 | ADR-003 | (TBD — historical) | — | pre-upgrade | — |
 | ADR-004 | (TBD — historical) | — | pre-upgrade | — |
-| ADR-005 | Pricing Tier Architecture | proposed | P01 | `Upgrade 2026-04/Phases/P01 Pricing Reconciliation` |
+| ADR-005 | Pricing Tier Architecture | accepted | P01 | `Upgrade 2026-04/Phases/P01 Pricing Reconciliation` |
 | ADR-006 | Navigation B2B/B2C Split | blocked-by-ADR-005 | P02 | `Upgrade 2026-04/Phases/P02 Navigation Split B2B B2C` |
 | ADR-007 | Claims Inventory Classification | planned | P04 | `Upgrade 2026-04/Phases/P04 Proof and Claims Audit` |
 | ADR-008 | Sample Deliverable Standards | planned | P03 | `Upgrade 2026-04/Phases/P03 Sample Deliverables` |
