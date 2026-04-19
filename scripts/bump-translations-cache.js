@@ -1,13 +1,14 @@
-/* P02 Step 2.7 — cache-bump vcx-translations.js?v=17 → v=18
+/* Cache-bump vcx-translations.js?v=FROM → v=TO
  * Run: node scripts/bump-translations-cache.js
+ * Edit FROM/TO below per release.
  */
 'use strict';
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SKIP_DIRS = new Set(['node_modules', '.git', 'docs', 'scripts']);
-const FROM = 'vcx-translations.js?v=17';
-const TO   = 'vcx-translations.js?v=18';
+const FROM = 'vcx-translations.js?v=18';
+const TO   = 'vcx-translations.js?v=19';
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
