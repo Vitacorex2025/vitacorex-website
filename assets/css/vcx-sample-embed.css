@@ -1,0 +1,201 @@
+/* ============================================================
+   VCX SAMPLE EMBED — service-page card component
+   P03 Step 3.4 · ADR-008 §embed-contract
+   Namespace: .vcx-sample-embed  (isolated; safe to drop onto
+   any service page without cascade collision)
+   Audience tints match /sample-deliverable.html hub cards:
+     --b2b navy    #173A63
+     --b2c teal    #2D8A82
+     --shared      #5E6C7B
+   Print-safe (samples are read-online; print is @ /samples/<slug>).
+   ============================================================ */
+
+.vcx-sample-embed {
+  --vse-border: #E1E6EC;
+  --vse-tint: #5E6C7B;
+  --vse-tint-soft: rgba(94, 108, 123, 0.08);
+  --vse-bg: #FFFFFF;
+  --vse-ink: #0F1A2B;
+  --vse-muted: #556479;
+  --vse-link: var(--vse-tint);
+  --vse-link-hover: #0B2A52;
+
+  display: block;
+  margin: 48px auto;
+  max-width: 1120px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: var(--vse-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.vcx-sample-embed[data-audience="b2b"] {
+  --vse-tint: #173A63;
+  --vse-tint-soft: rgba(23, 58, 99, 0.06);
+  --vse-link-hover: #0B2244;
+}
+.vcx-sample-embed[data-audience="b2c"] {
+  --vse-tint: #2D8A82;
+  --vse-tint-soft: rgba(45, 138, 130, 0.08);
+  --vse-link-hover: #1F645E;
+}
+.vcx-sample-embed[data-audience="shared"] {
+  --vse-tint: #5E6C7B;
+  --vse-tint-soft: rgba(94, 108, 123, 0.08);
+  --vse-link-hover: #3E4957;
+}
+
+.vcx-sample-embed__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 720px) {
+  .vcx-sample-embed--pair .vcx-sample-embed__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.vcx-sample-embed__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 28px;
+  background: var(--vse-bg);
+  border: 1px solid var(--vse-border);
+  border-top: 3px solid var(--vse-tint);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(15, 26, 43, 0.04);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  min-height: 220px;
+}
+.vcx-sample-embed__card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(15, 26, 43, 0.08);
+  border-color: #CED5DE;
+}
+
+.vcx-sample-embed__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.vcx-sample-embed__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vse-muted);
+}
+.vcx-sample-embed__pill {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  background: var(--vse-tint-soft);
+  color: var(--vse-tint);
+  border: 1px solid color-mix(in srgb, var(--vse-tint) 20%, transparent);
+}
+.vcx-sample-embed__pill--gated {
+  background: rgba(180, 66, 36, 0.08);
+  color: #9B3916;
+  border-color: rgba(180, 66, 36, 0.25);
+}
+
+.vcx-sample-embed__title {
+  margin: 4px 0 8px;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--vse-ink);
+}
+.vcx-sample-embed__desc {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--vse-muted);
+}
+
+.vcx-sample-embed__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.vcx-sample-embed__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #FFFFFF;
+  background: var(--vse-tint);
+  border: 1px solid var(--vse-tint);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.vcx-sample-embed__cta::after {
+  content: "\2009\2192";
+  margin-left: 4px;
+  transition: transform 160ms ease;
+}
+.vcx-sample-embed__cta:hover,
+.vcx-sample-embed__cta:focus-visible {
+  background: var(--vse-link-hover);
+  border-color: var(--vse-link-hover);
+  color: #FFFFFF;
+}
+.vcx-sample-embed__cta:hover::after,
+.vcx-sample-embed__cta:focus-visible::after {
+  transform: translateX(2px);
+}
+.vcx-sample-embed__cta:focus-visible {
+  outline: 2px solid var(--vse-tint);
+  outline-offset: 3px;
+}
+
+.vcx-sample-embed__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vse-muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 160ms ease;
+}
+.vcx-sample-embed__cta-secondary:hover,
+.vcx-sample-embed__cta-secondary:focus-visible {
+  color: var(--vse-tint);
+}
+.vcx-sample-embed__cta-secondary:focus-visible {
+  outline: 2px solid var(--vse-tint);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Compact mode on very small screens — drop the min-height */
+@media (max-width: 420px) {
+  .vcx-sample-embed__card {
+    min-height: 0;
+    padding: 20px 18px 22px;
+  }
+  .vcx-sample-embed__title { font-size: 19px; }
+  .vcx-sample-embed__desc  { font-size: 14px; }
+}
+
+/* Respect print: the embed doesn't need to print; the /samples/*.html
+   page handles print natively. Hide on print to keep service-page PDFs clean. */
+@media print {
+  .vcx-sample-embed { display: none !important; }
+}

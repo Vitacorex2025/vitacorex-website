@@ -7,8 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SKIP_DIRS = new Set(['node_modules', '.git', 'docs', 'scripts']);
-const FROM = 'vcx-translations.js?v=18';
-const TO   = 'vcx-translations.js?v=19';
+const FROM = 'vcx-translations.js?v=19';
+const TO   = 'vcx-translations.js?v=20';
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
