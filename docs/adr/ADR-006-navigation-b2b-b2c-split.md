@@ -151,6 +151,52 @@ This lets CSS and JS adapt per-page without URL changes:
 
 ---
 
+## §hero — Plain-language dual hero (Step 2.7 + 2.8 addendum, 2026-04-19)
+
+The original P02 decision (above) covered IA and nav structure. Two copy-level refinements landed in this phase before close:
+
+### Step 2.7 — Home hero rewrite
+
+Audit §2.1 flagged the old hero (`Institutional infrastructure for operators who…`) as the top bounce driver on `index.html` for B2C arrivals — they didn't recognize themselves in that vocabulary. The dual-door nav (2.2–2.3) was pointless if the hero still filtered buyers to a single audience.
+
+**Replaced the hero with a dual-audience lead paragraph** that names both buyer types by name, keeps B2B primary placement, and pre-stages P05 regulatory boundary language in the pill row.
+
+| Layer | New copy |
+|-------|----------|
+| Eyebrow | `Tampa, FL · For companies and private clients` |
+| Title | `Revenue recovery for companies.<br>Document packets for private clients.` |
+| Lead | `Companies: clean up aged AR, organize files, and prepare counsel-ready documentation — before agency or legal cost expands. Private clients: fixed-fee document packets before you sign, file, buy, or escalate. VitaCoreX is not a law firm and not a collection agency.` |
+| Pills | `Fixed-scope engagements` · `Counsel-ready documentation` · `Not a law firm · Not a collection agency` |
+
+**Namespace fix**: initial edit updated the generic `hero_*` i18n catalog keys — which are shared by `case-study-healthcare-network.html`, `sample-deliverable.html`, `secure-coordination.html`, and `security-and-compliance.html`. That would have spilled home-specific dual text onto four unrelated pages. Reverted the generic keys to pre-2.7 values and added 18 new `home_hero_*` entries (6 keys × EN/RU/ES) used only by `index.html`. Grep confirmed zero collision ripple.
+
+**UPL/FDCPA pre-staging**: the "not a law firm · not a collection agency" line lands ahead of P05 Legal Language Hardening. P05 can extend with full disclosures; the hero commitment stays fixed.
+
+### Step 2.8 — `industries.html` SEO-jargon purge
+
+Audit §7.2 flagged self-referential SEO copy on `industries.html` ("focused landing pages make the offer easier to trust and easier to rank", "industry-specific pages create tighter search intent"). That is webmaster vocabulary addressed to nobody — operators don't care how the page ranks; they care whether the page reflects their workflow.
+
+**Four visible phrases rewritten from webmaster voice to operator-to-operator voice**, plus the 4 corresponding `data-page` catalog entries updated across EN/RU/ES (12 catalog edits total at lines 833-834, 848, 850 EN; 2758-2759, 2773, 2775 RU; 4698-4699, 4713, 4715 ES).
+
+Also pre-staged: "We do not promise guaranteed outcomes or fixed dollar recovery" inside `indp_guard_t` — same P05 soft pre-close as the hero pill.
+
+### Dead-key residue (accepted technical debt)
+
+The legacy auto-translator dictionary `assets/js/vcx-page-translations.js` (lines 244, 289) contains English-keyed entries for the old industries strings ("Focused landing pages…", "Industry-specific pages…"). After Step 2.8 these become **harmless no-ops** — the English lookup keys no longer match any rendered HTML, so the lookup never fires. Documented here, scheduled for removal in P09 content refresh. Not blocking P02 close.
+
+### Cache-bump discipline
+
+Step 2.7 and 2.8 both ran `scripts/bump-translations-cache.js` (new in 2.7) which walks the tree and swaps `vcx-translations.js?v=N → ?v=N+1` atomically via split/join. Version sequence: 17 → 18 → 19. Skip set: `node_modules`, `.git`, `docs`, `scripts`. Walker confirms 22 pages bumped per run (27 total consumers; 5 are on noindex app shells that don't load the catalog).
+
+### Scope-contained non-goals
+
+- No nav or footer changes in 2.7/2.8 — the IA decision above is final.
+- No URL changes (rule holds).
+- No changes to the home dual-entry cards (Step 2.5 regression gate passed, and Step 2.9 re-verified: `verify-home-cards.js` → PASS).
+- No new pages (`business-plans.html`, `location-analysis.html`, `turnkey-opening.html` still deferred to P09).
+
+---
+
 ## Links
 
 - Obsidian phase: [[Upgrade 2026-04/Phases/P02 Navigation Split B2B B2C]]
