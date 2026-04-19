@@ -118,20 +118,24 @@
   .pcp-baseline__arrow{transform:rotate(90deg);padding:4px 0;}
 }
 
-/* A33: Alignment + overflow guards — keep section headers centered and prevent
-   grid rows from overflowing narrow viewports (auto-fit minmax had a hard
-   260-280px floor that pushed content off-screen under ~1040px). */
+/* A33v2: Force-center section heads and stop grid overflow — nuclear version.
+   Previous !important pass didn't land in some renders; we now use ID-level
+   specificity on a wrapper and tighten the grid floor to 200px. */
+html,body{overflow-x:clip !important;}
 .pcp-section,.pcp-final-cta{overflow-x:clip;}
-.pcp-section .wrap{width:100%;}
-.pcp-sec-head{text-align:center !important;margin-left:auto !important;margin-right:auto !important;}
-.pcp-sec-head h2,
-.pcp-sec-head p,
-.pcp-sec-head__eyebrow{text-align:center !important;}
-.pcp-qual-grid,
-.pcp-steps,
-.pcp-fees,
-.pcp-two-col{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)) !important;}
-.pcp-qual-card,.pcp-step,.pcp-fee,.pcp-col-card{min-width:0;}
+.pcp-section .wrap,.pcp-hero .wrap{width:100%;max-width:1160px;margin-left:auto !important;margin-right:auto !important;box-sizing:border-box;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-sec-head,
+body[data-vcx-page="pre-collection-pilot"] .pcp-sec-head *{text-align:center !important;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-sec-head{display:block !important;max-width:820px !important;margin-left:auto !important;margin-right:auto !important;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-sec-head h2{display:block !important;width:100% !important;max-width:100% !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;text-wrap:balance;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-qual-grid,
+body[data-vcx-page="pre-collection-pilot"] .pcp-steps,
+body[data-vcx-page="pre-collection-pilot"] .pcp-fees,
+body[data-vcx-page="pre-collection-pilot"] .pcp-two-col{grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr)) !important;width:100% !important;max-width:100% !important;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-qual-card,
+body[data-vcx-page="pre-collection-pilot"] .pcp-step,
+body[data-vcx-page="pre-collection-pilot"] .pcp-fee,
+body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;max-width:100% !important;box-sizing:border-box;}
 </style>
 </head><body data-vcx-page="pre-collection-pilot"><header class="vcx-header">
 <div class="wrap">
@@ -222,7 +226,7 @@
 <div class="wrap">
 <div class="pcp-sec-head">
 <span class="pcp-sec-head__eyebrow" data-page="pcp_qual_eyebrow">Who qualifies</span>
-<h2 data-page="pcp_qual_title">Qualification criteria</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_qual_title">Qualification criteria</h2>
 <p data-page="pcp_qual_intro">A focused profile gives the pilot a fair test. We run this only where the structure and documentation make a 90-day measurement credible.</p>
 </div>
 <div class="pcp-qual-grid">
@@ -260,7 +264,7 @@
 <div class="wrap">
 <div class="pcp-sec-head">
 <span class="pcp-sec-head__eyebrow" data-page="pcp_how_eyebrow">How it works</span>
-<h2 data-page="pcp_how_title">Three controlled phases over 90 days</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_how_title">Three controlled phases over 90 days</h2>
 <p data-page="pcp_how_intro">The pilot runs on your own operating data so the result is owned by you, not by a vendor dashboard.</p>
 </div>
 <div class="pcp-steps">
@@ -287,7 +291,7 @@
 <div class="wrap">
 <div class="pcp-sec-head">
 <span class="pcp-sec-head__eyebrow" data-page="pcp_fees_eyebrow">Success fee ladder</span>
-<h2 data-page="pcp_fees_title">Pay only on recovered cash</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_fees_title">Pay only on recovered cash</h2>
 <p data-page="pcp_fees_intro">You pay nothing for the diagnostic, the workflow design, or the pilot itself. Success fee applies to controlled recovery outcomes under the new workflow &mdash; not to the account face value. Fees start at 15% from structured recovery driven through the VitaCoreX system.</p>
 </div>
 
@@ -350,7 +354,7 @@
 <div class="wrap">
 <div class="pcp-sec-head">
 <span class="pcp-sec-head__eyebrow" data-page="pcp_scope_eyebrow">Scope</span>
-<h2 data-page="pcp_scope_title">What the free pilot includes &mdash; and what it does not</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_scope_title">What the free pilot includes &mdash; and what it does not</h2>
 <p data-page="pcp_scope_intro">Clear scope is how a pilot stays measurable. These boundaries protect both your operation and the integrity of the result.</p>
 </div>
 <div class="pcp-two-col">
@@ -380,7 +384,7 @@
 <div class="wrap">
 <div class="pcp-sec-head">
 <span class="pcp-sec-head__eyebrow" data-page="pcp_faq_eyebrow">FAQ</span>
-<h2 data-page="pcp_faq_title">What operators usually ask first</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_faq_title">What operators usually ask first</h2>
 </div>
 <div class="pcp-faq">
 <div class="pcp-faq__item">
