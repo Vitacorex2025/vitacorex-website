@@ -170,6 +170,24 @@
   .scd-section{padding:48px 0;}
   .scd-compare__rows{grid-template-columns:1fr;}
 }
+
+/* A33v2 — force-center headings + viewport containment + grid overflow guards */
+html,body{overflow-x:clip !important;}
+.scd-section,.scd-final-cta{overflow-x:clip;}
+.scd-section .wrap,.scd-hero .wrap{width:100%;max-width:1160px;margin-left:auto !important;margin-right:auto !important;box-sizing:border-box;}
+body[data-vcx-page="small-claims-documentation"] .scd-sec-head,
+body[data-vcx-page="small-claims-documentation"] .scd-sec-head *{text-align:center !important;}
+body[data-vcx-page="small-claims-documentation"] .scd-sec-head{display:block !important;max-width:820px !important;margin-left:auto !important;margin-right:auto !important;}
+body[data-vcx-page="small-claims-documentation"] .scd-sec-head h2,
+body[data-vcx-page="small-claims-documentation"] .scd-final-cta h2{display:block !important;width:100% !important;max-width:100% !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;text-wrap:balance;}
+body[data-vcx-page="small-claims-documentation"] .scd-tiers,
+body[data-vcx-page="small-claims-documentation"] .scd-retainers,
+body[data-vcx-page="small-claims-documentation"] .scd-guide{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)) !important;width:100% !important;max-width:100% !important;}
+body[data-vcx-page="small-claims-documentation"] .scd-tier,
+body[data-vcx-page="small-claims-documentation"] .scd-retainer,
+body[data-vcx-page="small-claims-documentation"] .scd-guide-card,
+body[data-vcx-page="small-claims-documentation"] .scd-item,
+body[data-vcx-page="small-claims-documentation"] .scd-option{min-width:0 !important;max-width:100% !important;box-sizing:border-box;}
 </style>
 </head><body data-vcx-page="small-claims-documentation"><header class="vcx-header">
 <div class="wrap">
@@ -260,7 +278,7 @@
 <div class="wrap">
 <div class="scd-sec-head">
 <span class="scd-sec-head__eyebrow" data-page="scd_tiers_eyebrow">Published pricing</span>
-<h2 data-page="scd_tiers_title">Per-case contracts and weekly service options</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="scd_tiers_title">Per-case contracts and weekly service options</h2>
 <p data-page="scd_tiers_intro">Flat-fee documentation work on the left, ongoing weekly support on the right. Every engagement is administrative preparation, not legal representation.</p>
 </div>
 
@@ -378,7 +396,7 @@
 <div class="wrap">
 <div class="scd-sec-head">
 <span class="scd-sec-head__eyebrow" data-page="scd_compare_eyebrow">Comparison</span>
-<h2 data-page="scd_compare_title">Where VitaCoreX packets sit vs generic document services</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="scd_compare_title">Where VitaCoreX packets sit vs generic document services</h2>
 <p data-page="scd_compare_intro">The difference is chronology and gap analysis, not just paperwork formatting.</p>
 </div>
 <div class="scd-compare">
@@ -403,7 +421,7 @@
 <div class="wrap">
 <div class="scd-sec-head">
 <span class="scd-sec-head__eyebrow" data-page="scd_guide_eyebrow">Pick the right tier</span>
-<h2 data-page="scd_guide_title">When to choose which tier</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="scd_guide_title">When to choose which tier</h2>
 </div>
 <div class="scd-guide">
 <div class="scd-guide-card">
@@ -426,7 +444,7 @@
 <div class="wrap">
 <div class="scd-sec-head">
 <span class="scd-sec-head__eyebrow" data-page="scd_faq_eyebrow">FAQ</span>
-<h2 data-page="scd_faq_title">What clients usually ask first</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="scd_faq_title">What clients usually ask first</h2>
 </div>
 <div class="scd-faq">
 <div class="scd-faq__item">
@@ -455,7 +473,7 @@
 
 <section class="scd-final-cta">
 <div class="wrap">
-<h2 data-page="scd_final_title">Start my packet</h2>
+<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="scd_final_title">Start my packet</h2>
 <p data-page="scd_final_lede">Send the matter detail through structured intake. Packet turnaround starts as soon as we confirm scope.</p>
 <div class="scd-hero__ctarow" style="justify-content:center;">
 <a class="scd-btn scd-btn--primary" href="structured-case-intake.html" data-page="scd_final_primary">Start my packet</a>
