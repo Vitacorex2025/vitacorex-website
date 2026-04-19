@@ -1722,7 +1722,7 @@ body {
 .vcx-bento-fingerprint {
   width: 80px;
   height: auto;
-  color: rgba(11,36,32,0.25);
+  color: rgba(45,138,130,0.42);
 }
 
 /* Card 3: chart */
@@ -2340,7 +2340,10 @@ body {
   line-height: 1.18;
   letter-spacing: -0.015em;
   color: #1A2F2A;
-  margin: 0 0 16px;
+  margin: 0 auto 16px;
+  text-align: center !important;
+  display: block;
+  width: 100%;
 }
 
 .vcx-routes__lede {
