@@ -1,0 +1,231 @@
+/* VCX dual-door nav styles (P02 / ADR-006)
+ * Applies to .vcx-main-nav.vcx-nav-dual (desktop)
+ * and     .vcx-mobile-nav.vcx-nav-dual--mobile (mobile)
+ * Lives as an overlay on the existing header. Does not touch home dual-entry cards. */
+
+/* -------------------------------- DESKTOP -------------------------------- */
+
+.vcx-main-nav.vcx-nav-dual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.vcx-nav-dual__door {
+  position: relative;
+}
+
+.vcx-nav-dual__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.925rem;
+  letter-spacing: 0.01em;
+  color: #0b2143;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+  white-space: nowrap;
+}
+.vcx-nav-dual__trigger:hover,
+.vcx-nav-dual__door.is-open .vcx-nav-dual__trigger {
+  background: rgba(23, 58, 99, .06);
+  border-color: rgba(23, 58, 99, .14);
+}
+.vcx-nav-dual__trigger:focus-visible {
+  outline: 2px solid #0ea5a4;
+  outline-offset: 2px;
+}
+
+/* B2B door — dominant weight */
+.vcx-nav-dual__door--b2b .vcx-nav-dual__trigger {
+  color: #0b2143;
+  background: linear-gradient(0deg, rgba(14, 165, 164, .08), rgba(14, 165, 164, .08)), transparent;
+  border-color: rgba(14, 165, 164, .22);
+}
+.vcx-nav-dual__door--b2b .vcx-nav-dual__trigger:hover,
+.vcx-nav-dual__door--b2b.is-open .vcx-nav-dual__trigger {
+  background: linear-gradient(0deg, rgba(14, 165, 164, .14), rgba(14, 165, 164, .14)), transparent;
+  border-color: rgba(14, 165, 164, .45);
+}
+
+/* B2C door — secondary */
+.vcx-nav-dual__door--b2c .vcx-nav-dual__trigger {
+  color: #1b3c6b;
+}
+
+.vcx-nav-dual__caret {
+  font-size: 0.75em;
+  transition: transform .2s ease;
+  line-height: 1;
+}
+.vcx-nav-dual__door.is-open .vcx-nav-dual__caret {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.vcx-nav-dual__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  max-width: 340px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(23, 58, 99, .1);
+  border-radius: 14px;
+  box-shadow: 0 20px 48px -18px rgba(10, 24, 48, .28), 0 6px 14px -6px rgba(10, 24, 48, .12);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 40;
+  animation: vcx-nav-pop .14s ease-out;
+}
+@keyframes vcx-nav-pop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vcx-nav-dual__item {
+  display: block;
+  padding: 9px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0b2143;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .15s ease, color .15s ease;
+  line-height: 1.35;
+}
+.vcx-nav-dual__item:hover,
+.vcx-nav-dual__item:focus-visible {
+  background: rgba(14, 165, 164, .1);
+  color: #083a3a;
+  outline: none;
+}
+.vcx-nav-dual__item.is-active {
+  background: rgba(14, 165, 164, .14);
+  color: #083a3a;
+  font-weight: 600;
+}
+
+/* Shared utility links — to the right */
+.vcx-nav-dual__utility {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  margin-left: auto;
+  padding-left: 8px;
+  border-left: 1px solid rgba(23, 58, 99, .1);
+  align-items: center;
+}
+.vcx-nav-dual__util-link {
+  padding: 6px 10px;
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: #1b3c6b;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .15s ease, color .15s ease;
+}
+.vcx-nav-dual__util-link:hover,
+.vcx-nav-dual__util-link:focus-visible {
+  background: rgba(23, 58, 99, .06);
+  color: #0b2143;
+  outline: none;
+}
+.vcx-nav-dual__util-link.is-active {
+  color: #083a3a;
+  font-weight: 600;
+}
+
+/* -------------------------------- MOBILE --------------------------------- */
+
+.vcx-mobile-nav.vcx-nav-dual--mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.vcx-nav-dual__m-section {
+  border-bottom: 1px solid rgba(23, 58, 99, .08);
+}
+.vcx-nav-dual__m-section[open] {
+  background: rgba(14, 165, 164, .04);
+}
+.vcx-nav-dual__m-section--b2b .vcx-nav-dual__m-trigger {
+  color: #083a3a;
+  font-weight: 700;
+}
+.vcx-nav-dual__m-section--b2c .vcx-nav-dual__m-trigger {
+  color: #1b3c6b;
+  font-weight: 600;
+}
+
+.vcx-nav-dual__m-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.vcx-nav-dual__m-trigger::-webkit-details-marker { display: none; }
+.vcx-nav-dual__m-section[open] .vcx-nav-dual__caret {
+  transform: rotate(180deg);
+}
+
+.vcx-nav-dual__m-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 4px 10px 12px;
+}
+.vcx-nav-dual__m-list .vcx-nav-dual__item {
+  padding: 10px 12px;
+  font-size: 0.92rem;
+}
+
+/* Utility (mobile, flat at bottom) */
+.vcx-nav-dual__utility--mobile {
+  flex-direction: column;
+  align-items: stretch;
+  margin: 8px 0 0;
+  padding: 8px 4px 0;
+  border-left: none;
+  border-top: 1px solid rgba(23, 58, 99, .1);
+  gap: 1px;
+}
+.vcx-nav-dual__utility--mobile .vcx-nav-dual__util-link {
+  padding: 10px 12px;
+  font-size: 0.92rem;
+}
+
+/* -------------------------------- AUDIENCE HOOKS --------------------------------
+ * body[data-audience="b2b" | "b2c" | "shared"] — for downstream per-audience styling.
+ * Currently just accent tweaks; P10 will layer analytics / GA4 dims on this. */
+
+body[data-audience="b2b"] .vcx-nav-dual__door--b2b .vcx-nav-dual__trigger {
+  background: linear-gradient(0deg, rgba(14, 165, 164, .18), rgba(14, 165, 164, .18)), transparent;
+  border-color: rgba(14, 165, 164, .5);
+}
+body[data-audience="b2c"] .vcx-nav-dual__door--b2c .vcx-nav-dual__trigger {
+  background: linear-gradient(0deg, rgba(23, 58, 99, .1), rgba(23, 58, 99, .1)), transparent;
+  border-color: rgba(23, 58, 99, .28);
+}
+
+/* -------------------------------- RESPONSIVE CUTOVER --------------------------------
+ * The existing header hides .vcx-main-nav on ≤720px and shows .vcx-mobile-nav.
+ * We respect that; nothing else to add here. */
