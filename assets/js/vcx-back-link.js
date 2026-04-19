@@ -92,14 +92,38 @@
     (document.head || document.documentElement).appendChild(style);
   }
 
-  // --- Find the best mount point inside the content flow ----------------
-  function findAnchor() {
-    // Prefer <main>, then first <section>, then <body>.
+  // --- Find the best mount point ----------------------------------------
+  // Rule: the link must NEVER sit inside a dark hero or on top of the site
+  // header. Target the FIRST content section that follows the hero and
+  // insert the link BEFORE it, so the link lives in the content column on
+  // the light body background, never over the dark hero visual.
+  function isHeroish(el) {
+    if (!el) return false;
+    var cls = (el.className || '').toString().toLowerCase();
+    return /\bhero\b|vcx-hero-2|pet-hero|pcp-hero|csfl-hero|rrw-hero|vcx-header-2/.test(cls)
+      || el.tagName === 'HEADER';
+  }
+  function findInsertionPoint() {
+    // 1. Prefer: the first body-level section that is NOT a hero and NOT
+    //    the site header. Insert the link BEFORE it, so it lands between
+    //    the hero and the first content block.
+    var bodyKids = document.body.children;
+    for (var i = 0; i < bodyKids.length; i++) {
+      var el = bodyKids[i];
+      if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') continue;
+      if (isHeroish(el)) continue;
+      // Skip header-adjacent shells like a top banner strip.
+      if (el.id === 'vcx-top-banner' || el.classList && el.classList.contains('vcx-top-banner')) continue;
+      if (el.tagName === 'MAIN' || el.tagName === 'SECTION' ||
+          el.tagName === 'ARTICLE' || el.tagName === 'DIV') {
+        return { parent: el.parentNode, before: el };
+      }
+    }
+    // 2. Fallback: inside <main> as first child.
     var main = document.querySelector('main');
-    if (main) return main;
-    var section = document.querySelector('body > section, body > .wrap, body > .vcx-hero-2, body > [class*="hero"]');
-    if (section) return section;
-    return document.body;
+    if (main) return { parent: main, before: main.firstChild };
+    // 3. Last resort: end of body.
+    return { parent: document.body, before: null };
   }
 
   // --- Build + mount -----------------------------------------------------
@@ -133,6 +157,8 @@
           return;
         }
       } catch (_) { /* noop */ }
+      // If we fall through, the default href="/" navigation runs, so the
+      // user always ends up somewhere — never a dead click.
     });
 
     document.addEventListener('vcx:locale-change', function () {
@@ -144,13 +170,11 @@
 
     wrap.appendChild(link);
 
-    // Inject as the FIRST child of <main> (or first <section>) so the link
-    // appears above the page's hero/title, inside the content column.
-    var anchor = findAnchor();
-    if (anchor.firstChild) {
-      anchor.insertBefore(wrap, anchor.firstChild);
+    var spot = findInsertionPoint();
+    if (spot.before) {
+      spot.parent.insertBefore(wrap, spot.before);
     } else {
-      anchor.appendChild(wrap);
+      spot.parent.appendChild(wrap);
     }
   }
 

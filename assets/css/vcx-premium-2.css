@@ -242,10 +242,24 @@ body .hero-cloud-layer {
   display: none !important;
 }
 
+/* CRITICAL: force an OPAQUE dark teal backdrop on the hero.
+   Without this, the light #FAFCFC body shows through the transparent hero
+   stacking context, and the 0.42 dark overlay over light body = grey mud
+   exactly where the canvas has no wave paint (top ~30% of the hero).
+   Locking the hero to solid #07201C means the overlay composites against
+   dark teal, so the top of the hero reads as deep teal and the screen-blend
+   canvas waves pop against a uniformly dark backdrop. */
+.vcx-hero-2 {
+  background: #07201C !important;
+}
+.vcx-hero-2__bg {
+  background: #07201C !important;
+}
+
 /* Balanced dark overlay — saturated enough to keep waves vivid, dark enough
    to maintain contrast for the eyebrow, title, body copy, and pill badges. */
 .vcx-hero-2__bg::after {
-  background: rgba(8, 25, 22, 0.42) !important;
+  background: rgba(8, 25, 22, 0.30) !important;
 }
 
 /* Eyebrow + pill badges: bump readability back up after the overlay was
