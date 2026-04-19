@@ -424,7 +424,7 @@ en: {
   pricing_strip_title:   'Two published price entries.',
   pricing_strip_lede:    'A free 90-day recovery pilot for qualified AR portfolios, and per-case packets plus weekly service options for small-claims and general-jurisdiction matters (from $149).',
   pricing_strip_pcp_tag: 'For qualified operators',
-  pricing_strip_pcp_title: 'Pre-Collection Pilot \u2014 free',
+  pricing_strip_pcp_title: 'Net Recovery Program Pilot \u2014 free',
   pricing_strip_pcp_desc: '90-day pilot on a live AR portfolio. Consulting success fee only on recovered cash (15 / 18 / 22.5% by aging).',
   pricing_strip_pcp_cta: 'See pilot terms \u2192',
   pricing_strip_scd_tag: 'For companies',
@@ -437,12 +437,12 @@ en: {
   pricing_strip_ret_cta: 'See retainer tiers \u2192',
 
   /* ── Footer nav additions ──────────────────────────────────── */
-  footer_nav_pcp:     'Pre-Collection Pilot',
+  footer_nav_pcp:     'Net Recovery Program',
   footer_nav_scd:     'Small Claims Packets',
 
   /* ── Pre-Collection Pilot (pcp_*) ──────────────────────────── */
   pcp_hero_eyebrow:   'Free for qualified portfolios',
-  pcp_hero_title:     'Pre-Collection Recovery Pilot \u2014 Free for qualified operators.',
+  pcp_hero_title:     'Net Recovery Program \u2014 Free Pilot for qualified operators.',
   pcp_hero_lede:      '90-day structured pilot on a live AR portfolio. Diagnostic, documented workflow change, and measured recovery against your own baseline. No setup fee, no contingency lock-in \u2014 only a consulting success fee on recovered cash.',
   pcp_cta_primary:    'Apply for the pilot',
   pcp_cta_secondary:  'See qualification criteria',
@@ -521,7 +521,7 @@ en: {
   pcp_faq_a4:         'No. We provide documentation, preparation, and workflow services. Legal strategy and advice are handled by licensed counsel.',
   pcp_faq_q5:         'How long until we see results?',
   pcp_faq_a5:         'Diagnostic in 7 days; first recovery cohort typically 30\u201345 days; full pilot report at day 90.',
-  pcp_final_title:    'Apply for the Pre-Collection Pilot',
+  pcp_final_title:    'Apply for the Net Recovery Program Pilot',
   pcp_final_lede:     'Qualification takes less than a week. If your portfolio fits, the diagnostic and the 90-day pilot begin at no setup cost.',
   pcp_final_primary:  'Apply for the pilot',
   pcp_final_secondary:'Request a private consultation instead',
@@ -628,7 +628,7 @@ en: {
   pet_b2b_intro:      'Three shapes operators actually use: a free pilot that proves recovery before dollars move, a fixed-scope file-control engagement that cleans the matter packet, and a weekly retainer that runs continuous governance across locations.',
 
   pet_b1_kicker:      'Tier B-1 \u00B7 Free for qualified portfolios',
-  pet_b1_title:       'Pre-Collection Recovery Pilot',
+  pet_b1_title:       'Net Recovery Program Pilot',
   pet_b1_price:       'FREE',
   pet_b1_price_small: 'for qualified operators',
   pet_b1_price_note:  'No setup fee. Consulting success fee only on recovered cash, by AR age band.',
@@ -1491,7 +1491,7 @@ en: {
   rrf_what_4_title:     'Counsel + collection coordination',
   rrf_what_4_desc:      'When a file needs licensed collection or counsel, we prepare the packet and hand off. We do not practice either ourselves.',
   rrf_pilot_eyebrow:    'Pilot',
-  rrf_pilot_title:      'Pre-Collection Pilot — free for qualified portfolios',
+  rrf_pilot_title:      'Net Recovery Program Pilot — free for qualified portfolios',
   rrf_pilot_intro:      '90-day structured engagement. No setup fee. Consulting success fee only on cash recovered during the pilot window.',
   rrf_fee1_range:       '0–90 days aged',
   rrf_fee1_label:       'of recovered cash',
@@ -2266,7 +2266,7 @@ ru: {
   pricing_strip_title:   'Две публикованные точки входа по цене.',
   pricing_strip_lede:    'Бесплатный 90-дневный recovery-пилот для квалифицированных AR-портфелей, и per-case пакеты + недельные service options для small-claims и general jurisdiction (от $149).',
   pricing_strip_pcp_tag: 'Для квалифицированных операторов',
-  pricing_strip_pcp_title: 'Pre-Collection Pilot — бесплатно',
+  pricing_strip_pcp_title: 'Net Recovery Program Pilot — бесплатно',
   pricing_strip_pcp_desc: '90-дневный пилот на живом AR-портфеле. Success fee только с фактически возвращённых денег (15 / 18 / 22,5% в зависимости от aging).',
   pricing_strip_pcp_cta: 'Условия пилота →',
   pricing_strip_scd_tag: 'Для компаний',
@@ -2279,12 +2279,12 @@ ru: {
   pricing_strip_ret_cta: 'Тарифы ретейнеров →',
 
   /* ── Footer nav additions ──────────────────────────────────── */
-  footer_nav_pcp:     'Pre-Collection Pilot',
+  footer_nav_pcp:     'Net Recovery Program',
   footer_nav_scd:     'Пакеты для small claims',
 
   /* ── Pre-Collection Pilot (pcp_*) ──────────────────────────── */
   pcp_hero_eyebrow:   'Бесплатно для квалифицированных портфелей',
-  pcp_hero_title:     'Pre-Collection Recovery Pilot — бесплатно для квалифицированных операторов.',
+  pcp_hero_title:     'Net Recovery Program — бесплатный пилот для квалифицированных операторов.',
   pcp_hero_lede:      '90-дневный структурированный пилот на живом AR-портфеле. Диагностика, документированное изменение workflow и измеренный возврат относительно вашего собственного baseline. Нет setup fee, нет contingency lock-in — только consulting success fee с фактически возвращённых денег.',
   pcp_cta_primary:    'Подать заявку на пилот',
   pcp_cta_secondary:  'Критерии квалификации',
@@ -2363,7 +2363,7 @@ ru: {
   pcp_faq_a4:         'Нет. Мы занимаемся документацией, подготовкой и workflow. Правовая стратегия и юридические советы — это зона лицензированного адвоката.',
   pcp_faq_q5:         'Через сколько виден результат?',
   pcp_faq_a5:         'Диагностика за 7 дней; первая когорта возвратов обычно 30–45 дней; полный отчёт пилота — на 90-й день.',
-  pcp_final_title:    'Подать заявку на Pre-Collection Pilot',
+  pcp_final_title:    'Подать заявку на Net Recovery Program Pilot',
   pcp_final_lede:     'Квалификация занимает меньше недели. Если портфель подходит, диагностика и 90-дневный пилот стартуют без setup fee.',
   pcp_final_primary:  'Подать заявку на пилот',
   pcp_final_secondary:'Запросить приватную консультацию',
@@ -2470,7 +2470,7 @@ ru: {
   pet_b2b_intro:      'Три формы, которые operators реально используют: бесплатный pilot, где recovery доказывается до любого движения средств; фиксированный scope на file control, приводящий папку дела в порядок; и еженедельный retainer для непрерывного governance по локациям.',
 
   pet_b1_kicker:      'Тариф B-1 \u00B7 Бесплатно для qualified портфелей',
-  pet_b1_title:       'Pre-Collection Recovery Pilot',
+  pet_b1_title:       'Net Recovery Program Pilot',
   pet_b1_price:       'БЕСПЛАТНО',
   pet_b1_price_small: 'для qualified operators',
   pet_b1_price_note:  'Без setup-взноса. Только consulting success fee с возвращённого cash, по возрастным группам AR.',
@@ -3349,7 +3349,7 @@ ru: {
   rrf_what_4_title:     'Counsel + collection координация',
   rrf_what_4_desc:      'Когда файл требует licensed collection или counsel, мы готовим packet и передаём. Сами ничем из этого не занимаемся.',
   rrf_pilot_eyebrow:    'Pilot',
-  rrf_pilot_title:      'Pre-Collection Pilot — бесплатно для квалифицированных portfolios',
+  rrf_pilot_title:      'Net Recovery Program Pilot — бесплатно для квалифицированных portfolios',
   rrf_pilot_intro:      '90-дневный структурированный engagement. Без setup fee. Consulting success fee только на cash, возвращённый в окно pilot.',
   rrf_fee1_range:       '0–90 дней aged',
   rrf_fee1_label:       'от возвращённого cash',
@@ -4123,7 +4123,7 @@ es: {
   pricing_strip_title:   'Dos puertas de entrada con precio publicado.',
   pricing_strip_lede:    'Piloto gratuito de 90 dias para portafolios AR calificados, y paquetes per-case mas opciones semanales para small claims y general jurisdiction (desde $149).',
   pricing_strip_pcp_tag: 'Para operadores calificados',
-  pricing_strip_pcp_title: 'Pre-Collection Pilot \u2014 gratis',
+  pricing_strip_pcp_title: 'Net Recovery Program Pilot \u2014 gratis',
   pricing_strip_pcp_desc: 'Piloto de 90 dias sobre un portafolio AR activo. Success fee de consultoria solo sobre el efectivo recuperado (15 / 18 / 22,5% segun aging).',
   pricing_strip_pcp_cta: 'Ver terminos del piloto \u2192',
   pricing_strip_scd_tag: 'Para empresas',
@@ -4136,12 +4136,12 @@ es: {
   pricing_strip_ret_cta: 'Ver tarifas de retainers \u2192',
 
   /* ── Footer nav additions ──────────────────────────────────── */
-  footer_nav_pcp:     'Piloto de pre-cobranza',
+  footer_nav_pcp:     'Net Recovery Program',
   footer_nav_scd:     'Paquetes Small Claims',
 
   /* ── Pre-Collection Pilot (pcp_*) ──────────────────────────── */
   pcp_hero_eyebrow:   'Gratis para portafolios calificados',
-  pcp_hero_title:     'Pre-Collection Recovery Pilot \u2014 gratis para operadores calificados.',
+  pcp_hero_title:     'Net Recovery Program \u2014 piloto gratuito para operadores calificados.',
   pcp_hero_lede:      'Piloto estructurado de 90 dias sobre un portafolio AR activo. Diagnostico, cambio de workflow documentado y recuperacion medida contra tu propio baseline. Sin setup fee, sin contingency lock-in \u2014 solo una success fee de consultoria sobre el efectivo recuperado.',
   pcp_cta_primary:    'Aplicar al piloto',
   pcp_cta_secondary:  'Ver criterios de calificacion',
@@ -4220,7 +4220,7 @@ es: {
   pcp_faq_a4:         'No. Proveemos servicios de documentacion, preparacion y workflow. La estrategia y el asesoramiento legales los maneja un counsel licenciado.',
   pcp_faq_q5:         'En cuanto se ven resultados?',
   pcp_faq_a5:         'Diagnostico en 7 dias; primera cohorte de recuperacion tipicamente a los 30\u201345 dias; reporte completo del piloto al dia 90.',
-  pcp_final_title:    'Aplicar al Pre-Collection Pilot',
+  pcp_final_title:    'Aplicar al Net Recovery Program Pilot',
   pcp_final_lede:     'La calificacion toma menos de una semana. Si el portafolio encaja, el diagnostico y el piloto de 90 dias arrancan sin setup.',
   pcp_final_primary:  'Aplicar al piloto',
   pcp_final_secondary:'Pedir una consulta privada',
@@ -4327,7 +4327,7 @@ es: {
   pet_b2b_intro:      'Tres formas que los operators usan de verdad: un pilot gratuito que prueba la recuperacion antes de mover dolares, un engagement de file control con scope fijo que ordena el paquete del asunto, y un retainer semanal que lleva governance continuo entre locaciones.',
 
   pet_b1_kicker:      'Tier B-1 \u00B7 Gratis para portfolios qualified',
-  pet_b1_title:       'Pre-Collection Recovery Pilot',
+  pet_b1_title:       'Net Recovery Program Pilot',
   pet_b1_price:       'GRATIS',
   pet_b1_price_small: 'para operators qualified',
   pet_b1_price_note:  'Sin setup fee. Solo consulting success fee sobre cash recuperado, por tramo de edad de AR.',
@@ -5206,7 +5206,7 @@ es: {
   rrf_what_4_title:     'Coordinacion counsel + cobranza',
   rrf_what_4_desc:      'Cuando un archivo necesita cobranza licenciada o counsel, preparamos el paquete y hacemos el handoff. No practicamos ninguna de las dos.',
   rrf_pilot_eyebrow:    'Pilot',
-  rrf_pilot_title:      'Pre-Collection Pilot — gratis para portfolios calificados',
+  rrf_pilot_title:      'Net Recovery Program Pilot — gratis para portfolios calificados',
   rrf_pilot_intro:      'Engagement estructurado de 90 dias. Sin setup fee. Consulting success fee solo sobre el cash recuperado en la ventana del pilot.',
   rrf_fee1_range:       '0–90 dias aged',
   rrf_fee1_label:       'del cash recuperado',
