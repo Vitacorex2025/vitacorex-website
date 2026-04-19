@@ -1,7 +1,7 @@
 # ADR-007 — Claims Inventory Classification
 
-- **Status**: proposed
-- **Date**: 2026-04-19 (proposed at P04 kickoff)
+- **Status**: accepted
+- **Date**: 2026-04-19 (proposed + accepted at P04 kickoff, user signed off via "все по плану")
 - **Phase**: P04 Proof and Claims Audit
 - **Supersedes**: none
 - **Depends on**: ADR-005 (Pricing Tier Architecture) · ADR-006 (Navigation B2B/B2C Split) · ADR-008 (Sample Deliverable Standards)
