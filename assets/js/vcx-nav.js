@@ -67,14 +67,18 @@
     'vitacorex-vs-traditional-agency.html',
     'industry-contract-services.html', 'industry-fleet-logistics.html',
     'industry-healthcare-dental.html', 'industry-subscription-recurring.html',
-    'pricing-and-engagement-tiers.html'
+    'pricing-and-engagement-tiers.html',
+    // P03 samples (B2B, under /samples/)
+    'ar-leakage-map.html', 'counsel-ready-packet.html', 'diagnostic-report.html'
   ];
   var AUD_B2C = [
     'contract-review-service.html', 'immigration-packet-review.html', 'auto-deal-review.html',
     'florida-small-claims-help.html', 'llc-formation-florida.html', 'business-plans.html',
     'additional-services.html', 'diagnostic-review.html',
     'i-130-petition.html', 'i-485-adjustment.html', 'n-400-naturalization.html',
-    'immigration-services-tampa.html'
+    'immigration-services-tampa.html',
+    // P03 samples (B2C, under /samples/)
+    'contract-risk-memo.html', 'immigration-evidence-index.html', 'auto-deal-cost-breakdown.html'
   ];
 
   function getAudience() {

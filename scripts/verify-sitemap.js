@@ -32,6 +32,16 @@ const EXPECTED_SHARED = [
   'privacy-policy.html','terms-of-use.html','cookie-policy.html',
   'secure-coordination.html','sub-processors-and-dpa.html','thank-you.html'
 ];
+// P03 Step 3.2 — Samples cluster under /samples/<slug>.html (ADR-008).
+const EXPECTED_SAMPLES = [
+  'samples/ar-leakage-map.html',
+  'samples/counsel-ready-packet.html',
+  'samples/diagnostic-report.html',
+  'samples/contract-risk-memo.html',
+  'samples/immigration-evidence-index.html',
+  'samples/auto-deal-cost-breakdown.html',
+  'samples/small-claims-chronology.html'
+];
 // Must NOT appear in sitemap.
 const FORBIDDEN = [
   '404.html','app.html','index.html','auto-purchase.html','business-plans.html',
@@ -60,6 +70,7 @@ function check(label, expected, requirePresent) {
 check('B2B cluster (' + EXPECTED_B2B.length + ' expected)', EXPECTED_B2B, true);
 check('B2C cluster (' + EXPECTED_B2C.length + ' expected)', EXPECTED_B2C, true);
 check('Shared pages (' + EXPECTED_SHARED.length + ' expected)', EXPECTED_SHARED, true);
+check('P03 samples cluster (' + EXPECTED_SAMPLES.length + ' expected)', EXPECTED_SAMPLES, true);
 check('Forbidden (' + FORBIDDEN.length + ' must be absent)', FORBIDDEN, false);
 
 // Home root

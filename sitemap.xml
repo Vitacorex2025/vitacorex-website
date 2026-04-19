@@ -264,6 +264,55 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ============================================================ -->
+  <!-- Sample deliverables (P03 · ADR-008) — 7 pages under /samples/ -->
+  <!-- ============================================================ -->
+  <!-- Samples · B2B -->
+  <url>
+    <loc>https://vitacorexllc.com/samples/ar-leakage-map.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/samples/counsel-ready-packet.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/samples/diagnostic-report.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Samples · B2C -->
+  <url>
+    <loc>https://vitacorexllc.com/samples/contract-risk-memo.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/samples/immigration-evidence-index.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/samples/auto-deal-cost-breakdown.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Samples · Shared -->
+  <url>
+    <loc>https://vitacorexllc.com/samples/small-claims-chronology.html</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Shared — Legal & compliance -->
   <url>
     <loc>https://vitacorexllc.com/privacy-policy.html</loc>

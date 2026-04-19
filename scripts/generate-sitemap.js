@@ -80,6 +80,22 @@ const SHARED_UTILITY = [
   'thank-you.html'
 ];
 
+// P03 Step 3.2 — Sample deliverables (ADR-008). Live under /samples/<slug>.html
+// and are audience-classified the same as B2B/B2C pages (body[data-audience]).
+const SAMPLES_B2B = [
+  'ar-leakage-map.html',           // gated
+  'counsel-ready-packet.html',     // gated
+  'diagnostic-report.html'         // ungated (replica of /sample-deliverable.html)
+];
+const SAMPLES_B2C = [
+  'contract-risk-memo.html',
+  'immigration-evidence-index.html',
+  'auto-deal-cost-breakdown.html'
+];
+const SAMPLES_SHARED = [
+  'small-claims-chronology.html'
+];
+
 // Pages intentionally DROPPED (redirect stubs + verification + 404 + auth + widgets)
 const DROPPED = new Set([
   '404.html', 'app.html', 'index.html',
@@ -212,6 +228,18 @@ urlEntry(BASE + '/llc-formation-florida.html', 'weekly', '0.8');
 out.push('  <!-- B2C · Diagnostic bridge -->');
 urlEntry(BASE + '/diagnostic-review.html', 'weekly', '0.7');
 
+// ---------- P03 samples (ADR-008) ----------
+out.push('');
+out.push('  <!-- ============================================================ -->');
+out.push('  <!-- Sample deliverables (P03 · ADR-008) — 7 pages under /samples/ -->');
+out.push('  <!-- ============================================================ -->');
+out.push('  <!-- Samples · B2B -->');
+SAMPLES_B2B.forEach(p => urlEntry(BASE + '/samples/' + p, 'monthly', '0.6'));
+out.push('  <!-- Samples · B2C -->');
+SAMPLES_B2C.forEach(p => urlEntry(BASE + '/samples/' + p, 'monthly', '0.6'));
+out.push('  <!-- Samples · Shared -->');
+SAMPLES_SHARED.forEach(p => urlEntry(BASE + '/samples/' + p, 'monthly', '0.6'));
+
 // ---------- Shared legal ----------
 cluster('Shared — Legal & compliance', SHARED_LEGAL, 'monthly', '0.5');
 
@@ -243,12 +271,14 @@ out.push('');
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), out.join('\n'), 'utf8');
 
 // ---------- Coverage report ----------
-const total = B2B.length + B2C.length + SHARED_CORE.length + SHARED_LEGAL.length + SHARED_UTILITY.length + APP_TOOLS.length + 1;
+const samplesTotal = SAMPLES_B2B.length + SAMPLES_B2C.length + SAMPLES_SHARED.length;
+const total = B2B.length + B2C.length + SHARED_CORE.length + SHARED_LEGAL.length + SHARED_UTILITY.length + APP_TOOLS.length + samplesTotal + 1;
 console.log('=== Sitemap generated ===');
 console.log('  Home:                1');
 console.log('  Shared core:         ' + SHARED_CORE.length);
 console.log('  B2B:                 ' + B2B.length);
 console.log('  B2C:                 ' + B2C.length);
+console.log('  Samples (B2B/B2C/shared): ' + SAMPLES_B2B.length + '/' + SAMPLES_B2C.length + '/' + SAMPLES_SHARED.length + ' = ' + samplesTotal);
 console.log('  Shared legal:        ' + SHARED_LEGAL.length);
 console.log('  Shared utility:      ' + SHARED_UTILITY.length);
 console.log('  App tools:           ' + APP_TOOLS.length);
