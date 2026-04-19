@@ -227,7 +227,7 @@
   /* ── Self-inject CSS ─────────────────────────────────────────────── */
   var cssLink = document.createElement('link');
   cssLink.rel = 'stylesheet';
-  cssLink.href = '/assets/css/vcx-chat-launcher.css';
+  cssLink.href = '/assets/css/vcx-chat-launcher.css?v=2';
   document.head.appendChild(cssLink);
 
   /* ── Build DOM ───────────────────────────────────────────────────── */
