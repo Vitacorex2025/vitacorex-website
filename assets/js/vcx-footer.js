@@ -134,8 +134,16 @@
   // Without this, .footer-meta renders as a single stacked column and the
   // outer 0.9fr:2fr split on .footer-company creates a large empty gap to
   // the right of the heading.
-  var IDENTITY_KEYS = ['footer_company', 'footer_est', 'footer_ein', 'footer_phone', 'footer_copy'];
+  // Copyright gets its OWN full-width row below the 2-col grid (see the
+  // .footer-meta__copyright block in CSS) — NOT in identity. At wide
+  // viewports the legal column's prose is short enough that a copyright
+  // stuck at the bottom of the identity column visually collides with
+  // the trailing legal paragraph. Pulling it out into its own row with
+  // a top rule eliminates the overlap and reads as a clear "signed-off"
+  // line below the legal block.
+  var IDENTITY_KEYS = ['footer_company', 'footer_est', 'footer_ein', 'footer_phone'];
   var LEGAL_KEYS    = ['footer_disc', 'footer_trust_line', 'footer_forms'];
+  var COPYRIGHT_KEY = 'footer_copy';
 
   // Read the i18n key from an element. Handles both attribute conventions
   // (data-common used by the nav, data-i18n used by main-site footer HTML)
@@ -162,6 +170,8 @@
     identityDiv.className = 'footer-meta__identity';
     var legalDiv = document.createElement('div');
     legalDiv.className = 'footer-meta__legal';
+    var copyrightDiv = document.createElement('div');
+    copyrightDiv.className = 'footer-meta__copyright';
 
     // Pull the h3 heading into the identity column so the "VITACOREX LLC"
     // title sits at the same Y as the first line of the legal column.
@@ -173,13 +183,14 @@
     var children = Array.prototype.slice.call(meta.children);
     children.forEach(function (el) {
       var k = readKey(el);
-      if (IDENTITY_KEYS.indexOf(k) >= 0) {
+      if (k === COPYRIGHT_KEY || (el.classList && el.classList.contains('footer-copyright'))) {
+        // Copyright — full-width row at the bottom. Route first so the
+        // class fallback wins over any accidental key match further down.
+        copyrightDiv.appendChild(el);
+      } else if (IDENTITY_KEYS.indexOf(k) >= 0) {
         identityDiv.appendChild(el);
       } else if (LEGAL_KEYS.indexOf(k) >= 0) {
         legalDiv.appendChild(el);
-      } else if (el.classList && el.classList.contains('footer-copyright')) {
-        // Copyright may not have a key on some pages — route by class
-        identityDiv.appendChild(el);
       } else if (el.classList && el.classList.contains('footer-trust-line')) {
         legalDiv.appendChild(el);
       } else if (el.classList && el.classList.contains('small-note') && !k) {
@@ -194,6 +205,9 @@
 
     meta.appendChild(identityDiv);
     meta.appendChild(legalDiv);
+    // Only append the copyright row if something actually got routed there
+    // (pages without a copyright line don't get an empty trailing row).
+    if (copyrightDiv.children.length) meta.appendChild(copyrightDiv);
     meta.classList.add('footer-meta--dual');
   }
 

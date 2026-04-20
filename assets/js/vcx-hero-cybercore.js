@@ -39,6 +39,22 @@
       video.remove();
     }
 
+    // Mark the parent hero section so the legacy animation layers from
+    // vcx-redesign.js (.vcx-leaf-container + .vcx-hero-canvas) stop
+    // rendering on top of the new scene. Both the JS (redesign.js checks
+    // this marker and early-returns) and the CSS (vcx-hero-cybercore.css
+    // display:none fallback) use the same selector, so the takeover is
+    // robust regardless of script ordering.
+    var heroSection = bgEl.closest('.vcx-hero-2');
+    if (heroSection) {
+      heroSection.setAttribute('data-hero-scene', 'cybercore');
+      // Remove any legacy layers that already got inserted (if cybercore.js
+      // loaded after redesign.js). CSS hides them too, but removing frees
+      // the canvas requestAnimationFrame loop and DOM cost.
+      var legacy = heroSection.querySelectorAll(':scope > .vcx-leaf-container, :scope > .vcx-hero-canvas');
+      for (var i = 0; i < legacy.length; i++) legacy[i].remove();
+    }
+
     var scene = document.createElement('div');
     scene.className = 'vcx-cybercore-scene';
     scene.setAttribute('role', 'img');

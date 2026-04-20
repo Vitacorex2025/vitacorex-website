@@ -170,6 +170,16 @@
   to   { background-position: -60px -30px, -60px -30px; }
 }
 
+/* ── Legacy animation takeover ──────────────────────────────────────
+ * When cybercore scene is active (marked by vcx-hero-cybercore.js), hide
+ * the bokeh-orbs + aurora-canvas layers that vcx-redesign.js injects as
+ * siblings of .vcx-hero-2__bg. Without this the old animations stack on
+ * top of the new scene (their z-index is 1/4, cybercore lives at z:0). */
+.vcx-hero-2[data-hero-scene="cybercore"] > .vcx-leaf-container,
+.vcx-hero-2[data-hero-scene="cybercore"] > .vcx-hero-canvas {
+  display: none !important;
+}
+
 /* ── Motion reduction: freeze beam rise + grid scroll, keep static look ── */
 @media (prefers-reduced-motion: reduce) {
   .vcx-cybercore-floor,

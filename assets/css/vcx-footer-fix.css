@@ -102,11 +102,30 @@ footer .footer-grid > div:not([class]) span {
 .footer-grid--dual .footer-company .footer-meta__legal   > p {
   margin: 0;
 }
-/* Copyright line gets a subtle top gap so it visually separates from the
- * phone line (they're both in the identity column). */
-.footer-grid--dual .footer-company .footer-meta__identity [data-common="footer_copy"] {
-  margin-top: 6px;
-  opacity: 0.75;
+/* Copyright is now its own full-width row BELOW the 2-col meta grid
+ * (routed there by vcx-footer.js structureMeta). Spans both columns with
+ * a subtle top rule so it reads as a clean signed-off line under the
+ * legal prose. Without this row-span, copyright sat at the bottom of the
+ * identity column and visually collided with the last legal paragraph at
+ * wide viewports where the legal column was shorter than identity. */
+.footer-grid--dual .footer-company .footer-meta__copyright {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+.footer-grid--dual .footer-company .footer-meta__copyright > * {
+  margin: 0;
+}
+/* Light-theme guard: main-site footer renders on a light gradient on
+ * public pages; use a darker rule colour so the separator stays visible. */
+body[data-audience="shared"] .footer-grid--dual .footer-company .footer-meta__copyright,
+body[data-audience="b2b"]    .footer-grid--dual .footer-company .footer-meta__copyright,
+body[data-audience="b2c"]    .footer-grid--dual .footer-company .footer-meta__copyright {
+  border-top-color: rgba(14, 32, 54, 0.08);
 }
 
 .footer-grid--dual .footer-company .foot-social {

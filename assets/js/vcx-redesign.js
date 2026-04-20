@@ -351,6 +351,10 @@
   function initLeafAnimation() {
     var hero = document.querySelector('.hero-premium') || document.querySelector('.vcx-hero-2');
     if (!hero || prefersReducedMotion) return;
+    // Opt-out: hero pages that use the cybercore scene (index.html) mark the
+    // section with data-hero-scene="cybercore" so this legacy orb layer is
+    // skipped entirely — prevents stacking on top of the new background.
+    if (hero.getAttribute('data-hero-scene') === 'cybercore') return;
 
     var container = document.createElement('div');
     container.className = 'vcx-leaf-container';
@@ -632,6 +636,9 @@
   function initHeroParticles() {
     var hero = document.querySelector('.hero-premium') || document.querySelector('.vcx-hero-2');
     if (!hero || prefersReducedMotion) return;
+    // Opt-out: skip aurora-wave canvas on pages using the cybercore scene.
+    // Same marker as initLeafAnimation above.
+    if (hero.getAttribute('data-hero-scene') === 'cybercore') return;
 
     var canvas = document.createElement('canvas');
     canvas.className = 'vcx-hero-canvas';
