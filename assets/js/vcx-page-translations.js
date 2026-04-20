@@ -2627,21 +2627,21 @@ add('Call us directly or book a 30-minute consultation to discuss your USCIS fil
     'Llámenos directamente o reserve una consulta de 30 minutos para discutir su presentación a USCIS y obtener una idea clara de qué documentos necesita y cómo podemos ayudarle a organizarlos.');
 
 /* --- llc-formation-florida.html --- */
-add('Florida Business Formation',
-    'Регистрация бизнеса во Флориде',
-    'Formación de Empresas en Florida');
-add('LLC Formation in Florida — Start Your Business',
-    'Регистрация LLC во Флориде — начните ваш бизнес',
-    'Formación de LLC en Florida — Inicie su Negocio');
-add('VitaCoreX LLC prepares the documents you need to form a Florida limited liability company, corporation, or other business entity. From Articles of Organization through EIN application to operating agreement drafting, we handle the paperwork so you can focus on building your business. Our team supports English, Russian, and Spanish speakers throughout the process.',
-    'VitaCoreX LLC готовит документы для создания LLC, корпорации или другого бизнес-юрлица во Флориде. От Articles of Organization через EIN до разработки operating agreement — мы занимаемся бумажной работой, чтобы вы сосредоточились на развитии бизнеса. Наша команда поддерживает англо-, русско- и испаноязычных клиентов на всех этапах.',
-    'VitaCoreX LLC prepara los documentos necesarios para formar una LLC, corporación u otra entidad comercial en Florida. Desde los Articles of Organization hasta la solicitud de EIN y la redacción del operating agreement, nos encargamos del papeleo para que usted se concentre en construir su negocio. Nuestro equipo apoya a hablantes de inglés, ruso y español durante todo el proceso.');
+add('U.S. Business Formation',
+    'Регистрация бизнеса в США',
+    'Formación de Empresas en EE. UU.');
+add('LLC Formation — Start Your Business',
+    'Регистрация LLC — начните ваш бизнес',
+    'Formación de LLC — Inicie su Negocio');
+add('VitaCoreX LLC prepares the documents you need to form a limited liability company, corporation, or other business entity in any U.S. state where permitted. From Articles of Organization through EIN application to operating agreement drafting, we handle the paperwork so you can focus on building your business. This page uses Florida as a concrete example because Sunbiz filings are our most common request — the same packet structure works nationwide, with state-specific details confirmed at intake. Our team supports English, Russian, and Spanish speakers throughout the process.',
+    'VitaCoreX LLC готовит документы для создания LLC, корпорации или другого бизнес-юрлица в любом штате США, где это разрешено. От Articles of Organization через EIN до разработки operating agreement — мы занимаемся бумажной работой, чтобы вы сосредоточились на развитии бизнеса. На этой странице Флорида используется как наглядный пример, потому что подачи через Sunbiz — наш самый частый запрос; такая же структура пакета работает по всей стране, а детали по конкретному штату уточняются на приёме. Наша команда поддерживает англо-, русско- и испаноязычных клиентов на всех этапах.',
+    'VitaCoreX LLC prepara los documentos necesarios para formar una LLC, corporación u otra entidad comercial en cualquier estado de EE. UU. donde esté permitido. Desde los Articles of Organization hasta la solicitud de EIN y la redacción del operating agreement, nos encargamos del papeleo para que usted se concentre en construir su negocio. Esta página utiliza Florida como ejemplo concreto porque las presentaciones en Sunbiz son nuestra solicitud más común — la misma estructura de paquete funciona a nivel nacional, con los detalles específicos del estado confirmados durante la admisión. Nuestro equipo apoya a hablantes de inglés, ruso y español durante todo el proceso.');
 add('Important: VitaCoreX is not a law firm and does not provide legal advice. We provide document preparation and organizational support for business formation filings. For legal strategy regarding entity structure, consult a licensed attorney or CPA.',
     'Важно: VitaCoreX не является юридической фирмой и не оказывает юридических консультаций. Мы предоставляем подготовку документов и организационную поддержку для регистрационных подач. За юридической стратегией по структуре юрлица обращайтесь к лицензированному адвокату или CPA.',
     'Importante: VitaCoreX no es una firma de abogados y no proporciona asesoría legal. Ofrecemos preparación de documentos y apoyo organizacional para las presentaciones de formación empresarial. Para estrategia legal sobre la estructura de la entidad, consulte a un abogado licenciado o CPA.');
-add('Florida LLC Formation Documents',
-    'Документы для регистрации LLC во Флориде',
-    'Documentos de Formación de LLC en Florida');
+add('LLC Formation Documents',
+    'Документы для регистрации LLC',
+    'Documentos de Formación de LLC');
 add('Florida is one of the most popular states for LLC formation in the United States, with no state income tax, strong asset protection statutes, and a streamlined filing process through the Division of Corporations (Sunbiz.org). Forming a Florida LLC requires filing Articles of Organization with the state, but a properly structured business needs several additional documents to operate effectively and maintain liability protection.',
     'Флорида — один из самых популярных штатов для регистрации LLC в США: отсутствие подоходного налога штата, сильные нормы защиты активов и упрощённая процедура подачи через Division of Corporations (Sunbiz.org). Создание флоридского LLC требует подачи Articles of Organization в штат, но правильно структурированный бизнес нуждается в нескольких дополнительных документах для эффективной работы и сохранения защиты от ответственности.',
     'Florida es uno de los estados más populares para la formación de LLC en Estados Unidos, sin impuesto estatal sobre la renta, con sólidas leyes de protección de activos y un proceso simplificado mediante la División de Corporaciones (Sunbiz.org). Formar una LLC en Florida requiere presentar Articles of Organization ante el estado, pero un negocio bien estructurado necesita varios documentos adicionales para operar con eficacia y mantener la protección de responsabilidad.');

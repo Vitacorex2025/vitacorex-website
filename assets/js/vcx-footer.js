@@ -40,8 +40,8 @@
         { k: 'nav_small_claims_desk', t: 'Small Claims & Civil Packet Desk', href: 'small-claims-documentation.html' },
         { k: 'nav_llc_formation',     t: 'LLC Formation',              href: 'llc-formation-florida.html' },
         { k: 'nav_business_plan',     t: 'Business Plan',              href: 'business-plans.html' },
-        { k: 'nav_location_analysis', t: 'Location Analysis',          href: 'additional-services.html#location-analysis' },
-        { k: 'nav_turnkey',           t: 'Turnkey Business Opening',   href: 'additional-services.html#turnkey' }
+        { k: 'nav_location_analysis', t: 'Location Analysis',          href: 'location-analysis.html' },
+        { k: 'nav_turnkey',           t: 'Turnkey Business Opening',   href: 'turnkey-business-opening.html' }
       ]
     },
     company: {
