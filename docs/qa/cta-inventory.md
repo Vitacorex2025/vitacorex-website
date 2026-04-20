@@ -1543,61 +1543,61 @@ idempotent: true
 | `index.html` | 142 | a | For Companies CFO &middot; Finance &middot; Legal Ops Reven… | `structured-case-intake.html` | in-body | shared | — |
 | `index.html` | 168 | a | Private Clients Individuals &middot; Families Company forma… | `additional-services.html` | in-body | shared | — |
 | `index.html` | 198 | a | Start with a confidential review &rarr; | `contact.html` | in-body | shared | — |
-| `index.html` | 253 | a | For qualified operators Net Recovery Program Pilot — free 9… | `pre-collection-pilot.html` | in-body | shared | — |
-| `index.html` | 259 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
-| `index.html` | 443 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 459 | a | View private-client services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 559 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
-| `index.html` | 572 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 585 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 598 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
-| `index.html` | 603 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
-| `index.html` | 608 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
-| `index.html` | 613 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
-| `index.html` | 620 | a | Review industry pages | `industries.html` | in-body | shared | — |
-| `index.html` | 621 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 673 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 674 | a | Review executive materials | `resources.html` | in-body | shared | — |
-| `index.html` | 738 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
-| `index.html` | 792 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
-| `index.html` | 860 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
-| `index.html` | 876 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 877 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
-| `index.html` | 1012 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
-| `index.html` | 1018 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
-| `index.html` | 1024 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
-| `index.html` | 1030 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
-| `index.html` | 1070 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 1071 | a | Review curated services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 1091 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 1092 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 1106 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
-| `index.html` | 1112 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `index.html` | 1113 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
-| `index.html` | 1119 | a | Home | `index.html` | footer | shared | — |
-| `index.html` | 1120 | a | Solutions | `solutions.html` | footer | shared | — |
-| `index.html` | 1121 | a | Industries | `industries.html` | footer | shared | — |
-| `index.html` | 1122 | a | About VitaCoreX | `about.html` | footer | shared | — |
-| `index.html` | 1123 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
-| `index.html` | 1124 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
-| `index.html` | 1125 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
-| `index.html` | 1126 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
-| `index.html` | 1127 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
-| `index.html` | 1128 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
-| `index.html` | 1129 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
-| `index.html` | 1130 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
-| `index.html` | 1131 | a | Partners | `partners.html` | footer | shared | — |
-| `index.html` | 1132 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
-| `index.html` | 1133 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
-| `index.html` | 1139 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
-| `index.html` | 1140 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
-| `index.html` | 1141 | a | Private consultation | `contact.html` | footer | shared | — |
-| `index.html` | 1142 | a | Careers | `careers.html` | footer | shared | — |
-| `index.html` | 1143 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
-| `index.html` | 1144 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
-| `index.html` | 1145 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
-| `index.html` | 1179 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
-| `index.html` | 1197 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 254 | a | For qualified operators Net Recovery Program Pilot — free 9… | `pre-collection-pilot.html` | in-body | shared | — |
+| `index.html` | 260 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
+| `index.html` | 445 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 461 | a | View private-client services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 561 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
+| `index.html` | 574 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 587 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 600 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
+| `index.html` | 605 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
+| `index.html` | 610 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
+| `index.html` | 615 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
+| `index.html` | 622 | a | Review industry pages | `industries.html` | in-body | shared | — |
+| `index.html` | 623 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 675 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 676 | a | Review executive materials | `resources.html` | in-body | shared | — |
+| `index.html` | 740 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
+| `index.html` | 794 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
+| `index.html` | 862 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
+| `index.html` | 878 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 879 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
+| `index.html` | 1014 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
+| `index.html` | 1020 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
+| `index.html` | 1026 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
+| `index.html` | 1032 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
+| `index.html` | 1072 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 1073 | a | Review curated services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 1093 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 1094 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 1108 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
+| `index.html` | 1114 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `index.html` | 1115 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `index.html` | 1121 | a | Home | `index.html` | footer | shared | — |
+| `index.html` | 1122 | a | Solutions | `solutions.html` | footer | shared | — |
+| `index.html` | 1123 | a | Industries | `industries.html` | footer | shared | — |
+| `index.html` | 1124 | a | About VitaCoreX | `about.html` | footer | shared | — |
+| `index.html` | 1125 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
+| `index.html` | 1126 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
+| `index.html` | 1127 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
+| `index.html` | 1128 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
+| `index.html` | 1129 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
+| `index.html` | 1130 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
+| `index.html` | 1131 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
+| `index.html` | 1132 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
+| `index.html` | 1133 | a | Partners | `partners.html` | footer | shared | — |
+| `index.html` | 1134 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
+| `index.html` | 1135 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
+| `index.html` | 1141 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
+| `index.html` | 1142 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
+| `index.html` | 1143 | a | Private consultation | `contact.html` | footer | shared | — |
+| `index.html` | 1144 | a | Careers | `careers.html` | footer | shared | — |
+| `index.html` | 1145 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
+| `index.html` | 1146 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
+| `index.html` | 1147 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
+| `index.html` | 1181 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 1199 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
 | `industries.html` | 62 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `industries.html` | 84 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `industries.html` | 84 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
