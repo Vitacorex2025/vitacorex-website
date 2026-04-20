@@ -904,28 +904,28 @@ idempotent: true
 | `case-study-fleet-logistics.html` | 149 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
 | `case-study-fleet-logistics.html` | 149 | a | Careers | `careers.html` | primary-nav | b2b | — |
 | `case-study-fleet-logistics.html` | 149 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `case-study-fleet-logistics.html` | 317 | a | Apply for the Pilot | `pre-collection-pilot.html` | in-body | b2b | — |
-| `case-study-fleet-logistics.html` | 318 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | b2b | — |
-| `case-study-fleet-logistics.html` | 330 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `case-study-fleet-logistics.html` | 336 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `case-study-fleet-logistics.html` | 337 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `case-study-fleet-logistics.html` | 343 | a | Home | `index.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 344 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 345 | a | Industries | `industries.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 346 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 347 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 348 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 349 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 350 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 351 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 352 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 353 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 359 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 360 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 361 | a | Careers | `careers.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 362 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 363 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `case-study-fleet-logistics.html` | 364 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 321 | a | Apply for the Pilot | `pre-collection-pilot.html` | in-body | b2b | — |
+| `case-study-fleet-logistics.html` | 322 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | b2b | — |
+| `case-study-fleet-logistics.html` | 334 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `case-study-fleet-logistics.html` | 340 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `case-study-fleet-logistics.html` | 341 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `case-study-fleet-logistics.html` | 347 | a | Home | `index.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 348 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 349 | a | Industries | `industries.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 350 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 351 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 352 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 353 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 354 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 355 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 356 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 357 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 363 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 364 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 365 | a | Careers | `careers.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 366 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 367 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 368 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 332 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `case-study-healthcare-network.html` | 354 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `case-study-healthcare-network.html` | 354 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
@@ -951,25 +951,25 @@ idempotent: true
 | `case-study-healthcare-network.html` | 387 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
 | `case-study-healthcare-network.html` | 387 | a | Careers | `careers.html` | primary-nav | b2b | — |
 | `case-study-healthcare-network.html` | 387 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `case-study-healthcare-network.html` | 566 | a | Open structured intake | `structured-case-intake.html?source=case-healthcare` | in-body | b2b | — |
-| `case-study-healthcare-network.html` | 567 | a | Review evidence standards | `index.html` | in-body | b2b | — |
-| `case-study-healthcare-network.html` | 585 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `case-study-healthcare-network.html` | 586 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `case-study-healthcare-network.html` | 592 | a | Home | `index.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 593 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 594 | a | Industries | `industries.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 595 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 596 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 597 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 598 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 599 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 605 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 606 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 607 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 608 | a | Careers | `careers.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 609 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 610 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `case-study-healthcare-network.html` | 611 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 570 | a | Open structured intake | `structured-case-intake.html?source=case-healthcare` | in-body | b2b | — |
+| `case-study-healthcare-network.html` | 571 | a | Review evidence standards | `index.html` | in-body | b2b | — |
+| `case-study-healthcare-network.html` | 589 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `case-study-healthcare-network.html` | 590 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `case-study-healthcare-network.html` | 596 | a | Home | `index.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 597 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 598 | a | Industries | `industries.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 599 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 600 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 601 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 602 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 603 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 609 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 610 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 611 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 612 | a | Careers | `careers.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 613 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 614 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 615 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 94 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `case-study-subscription-saas.html` | 116 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `case-study-subscription-saas.html` | 116 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
@@ -995,28 +995,28 @@ idempotent: true
 | `case-study-subscription-saas.html` | 149 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
 | `case-study-subscription-saas.html` | 149 | a | Careers | `careers.html` | primary-nav | b2b | — |
 | `case-study-subscription-saas.html` | 149 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `case-study-subscription-saas.html` | 317 | a | Apply for the Pilot | `pre-collection-pilot.html` | in-body | b2b | — |
-| `case-study-subscription-saas.html` | 318 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | b2b | — |
-| `case-study-subscription-saas.html` | 330 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `case-study-subscription-saas.html` | 336 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `case-study-subscription-saas.html` | 337 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `case-study-subscription-saas.html` | 343 | a | Home | `index.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 344 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 345 | a | Industries | `industries.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 346 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 347 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 348 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 349 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 350 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 351 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 352 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 353 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 359 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 360 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 361 | a | Careers | `careers.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 362 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 363 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `case-study-subscription-saas.html` | 364 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 321 | a | Apply for the Pilot | `pre-collection-pilot.html` | in-body | b2b | — |
+| `case-study-subscription-saas.html` | 322 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | b2b | — |
+| `case-study-subscription-saas.html` | 334 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `case-study-subscription-saas.html` | 340 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `case-study-subscription-saas.html` | 341 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `case-study-subscription-saas.html` | 347 | a | Home | `index.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 348 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 349 | a | Industries | `industries.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 350 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 351 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 352 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 353 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 354 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 355 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 356 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 357 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 363 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 364 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 365 | a | Careers | `careers.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 366 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 367 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 368 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `contact.html` | 35 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | shared | — |
 | `contact.html` | 57 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `contact.html` | 57 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
