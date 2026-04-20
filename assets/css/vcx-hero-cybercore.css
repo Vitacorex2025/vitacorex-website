@@ -292,15 +292,21 @@
  * teal base colour on .vcx-hero-2__bg that used to sit behind the old
  * video — left in, it bleeds through the cybercore radial glow and
  * warms the palette back toward green. */
-/* Hero eyebrow on particle scene: brighter mint (#7ED8C3 — same as
- * the particle color) with a soft cyan-mint glow so the tiny caps
- * line reads clearly against the noisy black background. Overrides
- * the default #5BBAA7 set in vcx-premium-2.css for this scene only. */
+/* Hero eyebrow on particle scene: near-white mint (#C8FBE9) with a
+ * heavier three-layer teal-cyan glow so the tiny caps line actually
+ * jumps off the particle-black bg. Also force-bold + slightly bigger
+ * font-size so it reads as a confident accent line rather than a
+ * faint label. Overrides the default #5BBAA7 from vcx-premium-2.css
+ * for this scene only. */
 .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-eyebrow {
-  color: #7ED8C3 !important;
+  color: #D4FBEE !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.18em !important;
   text-shadow:
-    0 0 8px rgba(126, 216, 195, 0.55),
-    0 0 16px rgba(91, 186, 167, 0.35);
+    0 0 6px  rgba(126, 216, 195, 0.95),
+    0 0 14px rgba(91, 186, 167, 0.75),
+    0 0 28px rgba(91, 186, 167, 0.45);
 }
 
 .vcx-hero-2[data-hero-scene="cybercore"] > .vcx-leaf-container,
