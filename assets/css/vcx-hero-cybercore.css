@@ -47,6 +47,33 @@
   isolation: isolate;
 }
 
+/* ── Fluid-particle scene override ───────────────────────────────────
+ * When vcx-hero-particles.js mounts, it injects .vcx-particles-canvas
+ * and (via the idempotent sweep in initHero) removes .vcx-cybercore-scene
+ * entirely. These rules make sure the canvas fills the hero bg, sits
+ * flat on a pure black base, and any cybercore DOM that somehow stayed
+ * is forced invisible so it can't stack on top of the particle field. */
+.vcx-particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__bg {
+  background-color: #030507 !important;
+}
+
+/* Rays/kernel/floor/column/beams — all hidden in particle-scene mode.
+ * They would otherwise paint on top of / through the canvas. */
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-cybercore-scene,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-cybercore-scene::before,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-cybercore-scene::after {
+  display: none !important;
+}
+
 /* ── Light-ray fan (TuringLanding reference) ─────────────────────────
  * Crepuscular-ray effect: a conic-gradient with alternating mint-teal
  * and transparent angular stops, origin anchored just above the hero
