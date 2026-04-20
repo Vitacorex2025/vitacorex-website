@@ -1,5 +1,6 @@
 /* vcx-sample.js — Sample page runtime.
  * Anchored by ADR-008 Sample Deliverable Standards.
+ * - Injects the branded top-nav bar with ← back link (v2+)
  * - Injects the sticky banner + diagonal watermark (idempotent, DOM-first)
  * - Reads page-local PAGE_DATA (inline, per-sample) and applies to [data-smp] targets
  * - Listens to vcx:lang-change so RU/ES switching works
@@ -8,6 +9,7 @@
 (function () {
   'use strict';
 
+  var TOPNAV_ID = 'vcx-sample-topnav';
   var BANNER_ID = 'vcx-sample-banner';
   var WATER_ID  = 'vcx-sample-watermark';
 
@@ -35,6 +37,48 @@
     return DEFAULTS[lang][key.replace(/^smp_/, '').replace('watermark_text', 'watermark').replace('banner_text', 'banner')] || '';
   }
 
+  // ---------- Branded top-nav (← back to samples hub) ----------
+  // Labels: EN / RU / ES
+  var TOPNAV_LABELS = {
+    back: { en: 'Sample Deliverables', ru: 'Образцы', es: 'Muestras' },
+    brand: { en: 'VitaCoreX LLC', ru: 'VitaCoreX LLC', es: 'VitaCoreX LLC' }
+  };
+
+  function ensureTopNav() {
+    if (document.getElementById(TOPNAV_ID)) return;
+    var lang = currentLang();
+    var backLabel  = TOPNAV_LABELS.back[lang]  || TOPNAV_LABELS.back.en;
+    var brandLabel = TOPNAV_LABELS.brand[lang] || TOPNAV_LABELS.brand.en;
+
+    var nav = document.createElement('nav');
+    nav.id = TOPNAV_ID;
+    nav.className = 'vcx-sample-topnav';
+    nav.setAttribute('aria-label', 'Sample navigation');
+
+    var back = document.createElement('a');
+    back.className = 'vcx-sample-topnav__back';
+    back.href = '/sample-deliverable.html';
+    back.innerHTML =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="currentColor" stroke-width="2.5" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
+      '<span>' + backLabel + '</span>';
+
+    var brand = document.createElement('a');
+    brand.className = 'vcx-sample-topnav__brand';
+    brand.href = '/';
+    brand.textContent = brandLabel;
+
+    nav.appendChild(back);
+    nav.appendChild(brand);
+
+    // Insert as the very first child of body — topnav must precede banner
+    var body = document.body;
+    if (body.firstChild) body.insertBefore(nav, body.firstChild);
+    else body.appendChild(nav);
+  }
+
   function ensureBanner() {
     var el = document.getElementById(BANNER_ID);
     if (!el) {
@@ -44,8 +88,17 @@
       el.setAttribute('role', 'status');
       el.setAttribute('aria-live', 'polite');
       var body = document.body;
-      if (body.firstChild) body.insertBefore(el, body.firstChild);
-      else body.appendChild(el);
+      // Insert after topnav (if present), else as first child
+      var topnav = document.getElementById(TOPNAV_ID);
+      if (topnav && topnav.nextSibling) {
+        body.insertBefore(el, topnav.nextSibling);
+      } else if (topnav) {
+        body.appendChild(el);
+      } else if (body.firstChild) {
+        body.insertBefore(el, body.firstChild);
+      } else {
+        body.appendChild(el);
+      }
     }
     return el;
   }
@@ -95,6 +148,7 @@
   }
 
   function boot() {
+    ensureTopNav();   // branded back-nav bar — must precede ensureBanner
     paint();
     document.addEventListener('vcx:lang-change', paint);
   }

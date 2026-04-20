@@ -1,8 +1,64 @@
 /* vcx-sample.css — Shared styles for /samples/*.html deliverables.
  * Anchored by ADR-008 Sample Deliverable Standards.
- * Covers: watermark, banner, cover, metadata table, TOC, sections, disclaimer, print.
+ * Covers: topnav, watermark, banner, cover, metadata table, TOC, sections, disclaimer, print.
  * Do NOT remove .vcx-sample-watermark — it is a regulatory control.
  */
+
+/* ── Branded top navigation bar ────────────────────── */
+/* Injected by vcx-sample.js. Dark VCX nav with ← back link. */
+.vcx-sample-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: #0b2143;
+  border-bottom: 2px solid rgba(14, 165, 164, .38);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 50px;
+  gap: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .28);
+}
+.vcx-sample-topnav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, .88);
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: color .15s ease;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+.vcx-sample-topnav__back svg {
+  flex-shrink: 0;
+  transition: transform .15s ease;
+}
+.vcx-sample-topnav__back:hover { color: #0ea5a4; }
+.vcx-sample-topnav__back:hover svg { transform: translateX(-3px); }
+.vcx-sample-topnav__back:focus-visible {
+  outline: 2px solid #0ea5a4;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.vcx-sample-topnav__brand {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .38);
+  text-decoration: none;
+  transition: color .15s ease;
+  white-space: nowrap;
+}
+.vcx-sample-topnav__brand:hover { color: rgba(255, 255, 255, .78); }
+@media (max-width: 480px) {
+  .vcx-sample-topnav__brand { display: none; }
+}
+@media print { .vcx-sample-topnav { display: none !important; } }
 
 :root {
   --smp-ink: #0e2036;
@@ -27,7 +83,7 @@ body.vcx-sample-body {
 /* ── Sticky top banner ─────────────────────────────── */
 .vcx-sample-banner {
   position: sticky;
-  top: 0;
+  top: 50px;  /* sits directly below the 50px branded topnav */
   z-index: 80;
   background: #fff8e6;
   border-bottom: 1px solid #e0c77a;
@@ -71,15 +127,21 @@ body.vcx-sample-body {
   z-index: 2;
 }
 
-/* ── Cover ─────────────────────────────────────────── */
+/* ── Cover — premium dark header matching VCX brand ─── */
+/* Negative side margins break out of .vcx-sample-doc's 24px padding so the
+ * cover runs edge-to-edge within the doc container, then re-applies matching
+ * padding so content aligns with the rest of the document. */
 .vcx-sample-cover {
-  border-top: 4px solid var(--smp-b2b);
-  padding: 40px 0 32px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--smp-rule);
+  background: linear-gradient(155deg, #0b2143 0%, #1a3a6e 55%, #0c3535 100%);
+  border-top: none;
+  border-bottom: 3px solid rgba(14, 165, 164, .35);
+  margin: -40px -24px 40px;   /* break out of doc container padding */
+  padding: 44px 24px 36px;
+  border-radius: 0;
 }
-body[data-audience="b2c"] .vcx-sample-cover { border-top-color: var(--smp-b2c); }
-body[data-audience="shared"] .vcx-sample-cover { border-top-color: var(--smp-shared); }
+/* audience-colour accent on border-bottom */
+body[data-audience="b2c"]    .vcx-sample-cover { border-bottom-color: rgba(95, 168, 211, .45); }
+body[data-audience="shared"] .vcx-sample-cover { border-bottom-color: rgba(122, 134, 153, .4); }
 
 .vcx-sample-cover__eyebrow {
   display: inline-block;
@@ -87,29 +149,37 @@ body[data-audience="shared"] .vcx-sample-cover { border-top-color: var(--smp-sha
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--smp-warn);
-  padding: 6px 12px;
-  background: #fff1e0;
+  color: #0ea5a4;
+  padding: 5px 12px;
+  background: rgba(14, 165, 164, .15);
+  border: 1px solid rgba(14, 165, 164, .35);
   border-radius: 3px;
   margin-bottom: 18px;
+}
+body[data-audience="b2c"] .vcx-sample-cover__eyebrow {
+  color: #5fa8d3;
+  background: rgba(95, 168, 211, .13);
+  border-color: rgba(95, 168, 211, .35);
 }
 .vcx-sample-cover h1 {
   font-size: clamp(26px, 3.6vw, 40px);
   line-height: 1.18;
   margin: 0 0 18px;
   font-weight: 800;
-  color: var(--smp-ink);
+  color: #ffffff;
 }
 .vcx-sample-cover__lead {
   font-size: 17px;
   line-height: 1.6;
-  color: var(--smp-ink-2);
+  color: rgba(255, 255, 255, .78);
   margin: 0 0 24px;
   max-width: 58ch;
 }
 .vcx-sample-cover__side {
-  border: 1px solid var(--smp-rule);
-  background: #f7f9fc;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   padding: 18px 20px;
   border-radius: 6px;
   margin-top: 8px;
@@ -120,9 +190,9 @@ body[data-audience="shared"] .vcx-sample-cover { border-top-color: var(--smp-sha
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 0 0 8px;
-  color: var(--smp-warn);
+  color: #0ea5a4;
 }
-.vcx-sample-cover__side p { font-size: 14px; line-height: 1.55; margin: 0; color: var(--smp-muted); }
+.vcx-sample-cover__side p { font-size: 14px; line-height: 1.55; margin: 0; color: rgba(255, 255, 255, .65); }
 
 /* ── Metadata table ────────────────────────────────── */
 .vcx-sample-meta {
