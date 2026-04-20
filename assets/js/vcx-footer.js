@@ -134,8 +134,24 @@
   // Without this, .footer-meta renders as a single stacked column and the
   // outer 0.9fr:2fr split on .footer-company creates a large empty gap to
   // the right of the heading.
-  var IDENTITY_KEYS = ['footer_est', 'footer_ein', 'footer_phone', 'footer_copy'];
-  var LEGAL_KEYS    = ['footer_disc', 'footer_trust_line'];
+  var IDENTITY_KEYS = ['footer_company', 'footer_est', 'footer_ein', 'footer_phone', 'footer_copy'];
+  var LEGAL_KEYS    = ['footer_disc', 'footer_trust_line', 'footer_forms'];
+
+  // Read the i18n key from an element. Handles both attribute conventions
+  // (data-common used by the nav, data-i18n used by main-site footer HTML)
+  // and falls back to the first nested child with a key (needed for the
+  // phone line where the outer <p> has no key but wraps
+  // <span data-i18n="footer_phone">).
+  function readKey(el) {
+    if (!el || !el.getAttribute) return '';
+    var k = el.getAttribute('data-common') || el.getAttribute('data-i18n');
+    if (k) return k;
+    if (el.querySelector) {
+      var nested = el.querySelector('[data-i18n], [data-common]');
+      if (nested) return nested.getAttribute('data-i18n') || nested.getAttribute('data-common') || '';
+    }
+    return '';
+  }
 
   function structureMeta(companyEl) {
     if (!companyEl) return;
@@ -156,19 +172,22 @@
 
     var children = Array.prototype.slice.call(meta.children);
     children.forEach(function (el) {
-      var dc = el.getAttribute && el.getAttribute('data-common');
-      dc = dc || '';
-      if (IDENTITY_KEYS.indexOf(dc) >= 0) {
+      var k = readKey(el);
+      if (IDENTITY_KEYS.indexOf(k) >= 0) {
         identityDiv.appendChild(el);
-      } else if (LEGAL_KEYS.indexOf(dc) >= 0) {
+      } else if (LEGAL_KEYS.indexOf(k) >= 0) {
         legalDiv.appendChild(el);
+      } else if (el.classList && el.classList.contains('footer-copyright')) {
+        // Copyright may not have a key on some pages — route by class
+        identityDiv.appendChild(el);
       } else if (el.classList && el.classList.contains('footer-trust-line')) {
         legalDiv.appendChild(el);
-      } else if (el.classList && el.classList.contains('small-note') && !dc) {
-        // Public-forms note (or other unkeyed small-note legal text) → legal column
+      } else if (el.classList && el.classList.contains('small-note') && !k) {
+        // Unkeyed small-note (rare) defaults to legal column — legal prose
+        // is the most common shape for stray small-notes in this block.
         legalDiv.appendChild(el);
       } else {
-        // Unknown element — keep it above, in identity column, to avoid data loss
+        // Anything else — keep it in the identity column to avoid data loss
         identityDiv.appendChild(el);
       }
     });
