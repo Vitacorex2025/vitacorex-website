@@ -74,6 +74,27 @@
   display: none !important;
 }
 
+/* ── Interior-page particle host (.hero.hero-premium) ────────────────
+ * Propagate the particle scene to the 24+ pages that use the premium
+ * hero layout (about, solutions, careers, industries, etc.). The JS
+ * (vcx-hero-particles.js: adoptPremiumHero) strips the sky-clouds
+ * video + poster and adds the .vcx-hero-particles-host class. These
+ * rules give the canvas the same near-black base and kill the legacy
+ * .hero-video green bg + orange radial gloss that styles.css and
+ * vcx-redesign.css stamp on by default. */
+section.hero.hero-premium.vcx-hero-particles-host {
+  background-color: #030507 !important;
+}
+section.hero.hero-premium.vcx-hero-particles-host > .hero-video {
+  background: #030507 !important;
+}
+/* Kill the ::before/::after radial gloss that would otherwise paint
+ * warm highlights on top of the mint particle field. */
+section.hero.hero-premium.vcx-hero-particles-host > .hero-video::before,
+section.hero.hero-premium.vcx-hero-particles-host > .hero-video::after {
+  display: none !important;
+}
+
 /* ── Light-ray fan (TuringLanding reference) ─────────────────────────
  * Crepuscular-ray effect: a conic-gradient with alternating mint-teal
  * and transparent angular stops, origin anchored just above the hero

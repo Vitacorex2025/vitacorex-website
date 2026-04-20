@@ -218,9 +218,39 @@
     });
   }
 
+  /* Promote a .hero.hero-premium section into a particle-scene container.
+   * Those pages (about, solutions, careers, etc.) have their sky-clouds
+   * video inside .hero-video absolute-positioned behind .hero-inner. We
+   * reuse .hero-video as the bg container: drop the <video> + poster,
+   * mark the section with data-hero-scene="cybercore" so CSS hooks fire,
+   * then let initHero mount the canvas inside. */
+  function adoptPremiumHero(section) {
+    if (!section || section.getAttribute('data-hero-scene') === 'cybercore') return null;
+    var hv = section.querySelector(':scope > .hero-video');
+    if (!hv) return null;
+    var vids = hv.querySelectorAll('video');
+    for (var v = 0; v < vids.length; v++) {
+      try { vids[v].pause(); } catch (e) { /* noop */ }
+      vids[v].remove();
+    }
+    var posters = hv.querySelectorAll('img');
+    for (var p = 0; p < posters.length; p++) posters[p].remove();
+    section.setAttribute('data-hero-scene', 'cybercore');
+    section.classList.add('vcx-hero-particles-host');
+    return hv;
+  }
+
   function init() {
+    // Primary hero (home): .vcx-hero-2__bg
     var bgs = document.querySelectorAll('.vcx-hero-2__bg');
     for (var i = 0; i < bgs.length; i++) initHero(bgs[i]);
+
+    // Interior pages: .hero.hero-premium > .hero-video
+    var premiums = document.querySelectorAll('section.hero.hero-premium');
+    for (var j = 0; j < premiums.length; j++) {
+      var bg = adoptPremiumHero(premiums[j]);
+      if (bg) initHero(bg);
+    }
   }
 
   if (document.readyState === 'loading') {
