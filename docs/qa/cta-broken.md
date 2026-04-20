@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-20T07:48:18Z
+generated: 2026-04-20T08:03:40Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,18 +14,16 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 2809
-- **Rows actively validated**: 2399
+- **Inventory rows parsed**: 2804
+- **Rows actively validated**: 2394
 - **Rows skipped (action-script / no target / self-ref)**: 410
-- **Broken rows (triage required)**: 22
-- **External unique URLs HEAD-checked**: 7
+- **Broken rows (triage required)**: 12
+- **External unique URLs HEAD-checked**: 6
 
 ### By failure reason
 
 | Reason | Count |
 |--------|-------|
-| internal-anchor-missing | 5 |
-| external-http-4xx | 5 |
 | external-http-opaque | 2 |
 | no-handler | 10 |
 
@@ -41,20 +39,10 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 | `app/review/index.html` | 119 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-contract-review/index.html` | 129 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-packet-room/index.html` | 96 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `case-study-healthcare-network.html` | 567 | a | Review evidence standards | `index.html#v52-evidence` | in-body | b2b | internal-anchor-missing | index.html#v52-evidence |
 | `corporate-legal-file-control.html` | 243 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
-| `faq.html` | 168 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html#roi-framework` | in-body | shared | internal-anchor-missing | pricing-and-engagement-tiers.html#roi-framework |
-| `faq.html` | 179 | a | Security & Compliance | `security-and-compliance.html#procurement-artifacts` | in-body | shared | internal-anchor-missing | security-and-compliance.html#procurement-artifacts |
-| `faq.html` | 249 | a | Security & Compliance | `security-and-compliance.html#incident-response` | in-body | shared | internal-anchor-missing | security-and-compliance.html#incident-response |
-| `immigration-services-tampa.html` | 166 | a | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | external | b2c | external-http-4xx | HTTP 404 |
 | `index.html` | 860 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 1179 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 1197 | button | (no label) | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `llc-formation-florida.html` | 230 | a | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | external | b2c | external-http-4xx | HTTP 404 |
-| `revenue-recovery-miami.html` | 135 | a | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | external | b2b | external-http-4xx | HTTP 404 |
-| `revenue-recovery-orlando.html` | 135 | a | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | external | b2b | external-http-4xx | HTTP 404 |
-| `revenue-recovery-tampa.html` | 135 | a | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | external | b2b | external-http-4xx | HTTP 404 |
-| `sub-processors-and-dpa.html` | 234 | a | Security & Compliance, Section 5 | `security-and-compliance.html#regulatory` | in-body | shared | internal-anchor-missing | security-and-compliance.html#regulatory |
 
 ## Methodology
 
