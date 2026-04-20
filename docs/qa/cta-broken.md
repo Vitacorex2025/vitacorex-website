@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-20T17:45:47Z
+generated: 2026-04-20T18:06:56Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,9 +14,9 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 2956
-- **Rows actively validated**: 2504
-- **Rows skipped (action-script / no target / self-ref)**: 452
+- **Inventory rows parsed**: 3083
+- **Rows actively validated**: 2610
+- **Rows skipped (action-script / no target / self-ref)**: 473
 - **Strict-broken rows (gate-enforced; triage required)**: 10
 - **External unique URLs HEAD-checked**: 5
 

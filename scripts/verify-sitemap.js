@@ -43,8 +43,10 @@ const EXPECTED_SAMPLES = [
   'samples/small-claims-chronology.html'
 ];
 // Must NOT appear in sitemap.
+// business-plans.html was a redirect stub — promoted to a full standalone page on 2026-04-20,
+// so it was removed from this list at that time (now has its own sitemap entry).
 const FORBIDDEN = [
-  '404.html','app.html','index.html','auto-purchase.html','business-plans.html',
+  '404.html','app.html','index.html','auto-purchase.html',
   'contracts.html','corporate-paralegal.html','immigration-documents.html','net-recovery.html',
   'google4ac6122041612c23.html','yandex_7c27f4f2ed32ff4d.html'
 ];

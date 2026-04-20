@@ -256,6 +256,27 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- B2C · Business plans & market research -->
+  <url>
+    <loc>https://vitacorexllc.com/business-plans.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- B2C · Location analysis (U.S.) -->
+  <url>
+    <loc>https://vitacorexllc.com/location-analysis.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- B2C · Turnkey business opening -->
+  <url>
+    <loc>https://vitacorexllc.com/turnkey-business-opening.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- B2C · Diagnostic bridge -->
   <url>
     <loc>https://vitacorexllc.com/diagnostic-review.html</loc>
