@@ -111,6 +111,14 @@
 .pcp-fee-guardrails__list li{position:relative;padding:5px 0 5px 20px;font-size:.9rem;line-height:1.5;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;}
 .pcp-fee-guardrails__list li::before{content:"\2713";position:absolute;left:0;top:5px;color:#1E6E68;font-weight:800;}
 
+/* Operating boundary — explicit scope/compliance anchor for success fees. */
+.pcp-operating-boundary{background:rgba(14,32,54,.045);border:1px solid rgba(14,32,54,.12);border-left:4px solid #0E2036;border-radius:10px;padding:22px 26px;margin:0 0 14px;}
+.pcp-operating-boundary__title{display:flex;align-items:center;gap:10px;font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0E2036 !important;-webkit-text-fill-color:#0E2036 !important;margin:0 0 12px;}
+.pcp-operating-boundary__title::before{content:"";display:inline-block;width:14px;height:14px;background:#0E2036;border-radius:3px;flex-shrink:0;}
+.pcp-operating-boundary__body{margin:0 0 10px;font-size:.94rem;line-height:1.6;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;}
+.pcp-operating-boundary__body:last-child{margin-bottom:0;}
+.pcp-operating-boundary__body strong{color:#0E2036 !important;-webkit-text-fill-color:#0E2036 !important;font-weight:700;}
+
 @media (max-width:640px){
   .pcp-hero{padding:48px 0 40px;}
   .pcp-section{padding:48px 0;}
@@ -343,6 +351,14 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 <li data-page="pcp_guard_3">Applies only to accounts processed under the pilot workflow and tracked through the system.</li>
 <li data-page="pcp_guard_4">No system recovery &mdash; no pilot success fee.</li>
 </ul>
+</div>
+
+<!-- Operating boundary — authoritative scope anchor sitting right next to the fee ladder. -->
+<div class="pcp-operating-boundary" role="note" aria-label="Important operating boundary">
+<div class="pcp-operating-boundary__title" data-page="pcp_opb_title">Important operating boundary</div>
+<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_1"><strong>VitaCoreX does not</strong> take assignment of receivables, does not hold client funds, does not collect payments under its own name, does not send legal demands, and does not contact consumers or debtors as a third-party collector.</p>
+<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_2"><strong>Success fees compensate</strong> workflow design, documentation control, portfolio segmentation, escalation readiness, internal recovery infrastructure, and client-side operating support.</p>
+<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_3">Any direct collection activity, legal demand, litigation, or regulated communication must be handled by the client, counsel, or a licensed provider where required.</p>
 </div>
 
 <div class="pcp-fee-disc">
