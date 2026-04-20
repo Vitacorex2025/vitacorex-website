@@ -1913,9 +1913,9 @@ add('FDCPA, FCCPA, and state-level compliance built into every workflow. Automat
 add('Trusted by Operators',
     'Доверие операторов',
     'Elegido por operadores');
-add('CFOs, compliance directors, and legal operations teams across Florida choose VitaCoreX for structured recovery infrastructure.',
-    'Финансовые директора, руководители комплаенса и юридических операций по всей Флориде выбирают VitaCoreX ради структурированной инфраструктуры возврата.',
-    'Directores financieros, de cumplimiento y de operaciones legales de toda Florida eligen VitaCoreX por su infraestructura estructurada de recuperación.');
+add('CFOs, compliance directors, and legal operations teams across the U.S. choose VitaCoreX for structured recovery infrastructure.',
+    'Финансовые директора, руководители комплаенса и юридических операций по всей территории США выбирают VitaCoreX ради структурированной инфраструктуры возврата.',
+    'Directores financieros, de cumplimiento y de operaciones legales de todo EE. UU. eligen VitaCoreX por su infraestructura estructurada de recuperación.');
 add('Based on structured AR methodology benchmarks. Sources: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.',
     'На основе отраслевых бенчмарков структурированной работы с дебиторкой. Источники: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.',
     'Basado en referencias de metodología estructurada de cuentas por cobrar. Fuentes: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.');
