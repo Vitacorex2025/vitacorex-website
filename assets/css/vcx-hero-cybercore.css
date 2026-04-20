@@ -38,23 +38,86 @@
   inset: 0;
   overflow: hidden;
   background:
-    /* Two subtle diagonal mint-teal gradient overlays (TuringLanding
-     * pattern) — one sweeping in from the top-left, one from the bottom-
-     * right — layered over the deep teal-navy base. No beams, no grid. */
-    linear-gradient(115deg, rgba(91, 186, 167, 0.18) 0%, rgba(91, 186, 167, 0.04) 35%, transparent 60%),
-    linear-gradient(295deg, rgba(126, 216, 195, 0.14) 0%, rgba(126, 216, 195, 0.03) 40%, transparent 65%),
-    radial-gradient(ellipse at 50% 105%, rgba(50, 190, 160, 0.32) 0%, transparent 55%),
+    /* Subtle radial bottom glow (floor falloff) + deep teal-navy base.
+     * Beam rays live on ::before (below) for cheaper rotate/blur compositing. */
+    radial-gradient(ellipse at 50% 105%, rgba(50, 190, 160, 0.28) 0%, transparent 55%),
     linear-gradient(180deg, var(--vcx-cc-bg-top) 0%, var(--vcx-cc-bg-bottom) 100%);
   perspective: 900px;
   pointer-events: none;
   isolation: isolate;
 }
 
-/* Stripes takeover: beams, grid floor, and central column were the
- * busy "cybercore" look that the user asked to retire in favor of the
- * cleaner TuringLanding background (dark base + subtle mint gradients
- * only). Leaving the DOM nodes in place but hiding them keeps the JS
- * idempotent — no rewiring needed. */
+/* ── Light-ray fan (TuringLanding reference) ─────────────────────────
+ * Crepuscular-ray effect: a conic-gradient with alternating mint-teal
+ * and transparent angular stops, origin anchored just above the hero
+ * near the left third, then blurred and slowly swayed. The narrow
+ * angular band (from ~130deg through ~215deg) keeps the rays fanning
+ * DOWN-RIGHT across the hero instead of filling all 360deg. Second
+ * pseudo-element (::after) is a soft bright kernel at the ray origin
+ * so the fan looks like it's emitting from a point of light. */
+.vcx-cybercore-scene::before {
+  content: "";
+  position: absolute;
+  inset: -15% -15% -15% -15%;
+  background: conic-gradient(
+    from 128deg at 22% -4%,
+    transparent 0deg,
+    rgba(91, 186, 167, 0.28)  3deg,
+    transparent 6deg,
+    transparent 12deg,
+    rgba(126, 216, 195, 0.22) 15deg,
+    transparent 19deg,
+    transparent 26deg,
+    rgba(91, 186, 167, 0.34)  30deg,
+    transparent 34deg,
+    transparent 42deg,
+    rgba(126, 216, 195, 0.26) 46deg,
+    transparent 50deg,
+    transparent 58deg,
+    rgba(91, 186, 167, 0.22)  62deg,
+    transparent 66deg,
+    transparent 75deg,
+    rgba(126, 216, 195, 0.2)  78deg,
+    transparent 82deg,
+    transparent 360deg
+  );
+  filter: blur(14px);
+  mix-blend-mode: screen;
+  animation: vcxCcRaysSway 22s ease-in-out infinite;
+  transform-origin: 22% 0%;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+
+.vcx-cybercore-scene::after {
+  content: "";
+  position: absolute;
+  top: -8%;
+  left: 14%;
+  width: 24%;
+  height: 30%;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(180, 240, 220, 0.35) 0%,
+    rgba(91, 186, 167, 0.2)  35%,
+    transparent 70%);
+  filter: blur(30px);
+  animation: vcxCcRaysKernel 6s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes vcxCcRaysSway {
+  0%, 100% { transform: rotate(-1.6deg); opacity: 0.88; }
+  50%      { transform: rotate(1.6deg);  opacity: 1;    }
+}
+@keyframes vcxCcRaysKernel {
+  from { opacity: 0.7; transform: scale(0.95); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+
+/* Retired cybercore layers — beams, grid floor, central column. DOM
+ * nodes stay (JS idempotent), just hidden. Replaced by the light-ray
+ * fan above which matches the TuringLanding reference. */
 .vcx-cybercore-floor,
 .vcx-cybercore-column,
 .vcx-cybercore-beams {
@@ -243,70 +306,28 @@
   }
 }
 
-/* ── Stats block (Turing-style pair on the right side) ─────────────
- * Two big numbers + labels, aligned flush to the bottom-right of the
- * hero section. Only visible on ≥1024px wide viewports — on mobile/
- * tablet the content column already fills the viewport and a stats
- * row would either clip or force a painful wrap. Scoped to cybercore
- * so it inherits the mint-teal chroma + the fade-slide-in cascade. */
-.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
-  display: none;
-}
-@media (min-width: 1024px) {
-  .vcx-hero-2[data-hero-scene="cybercore"] {
-    position: relative;
-  }
-  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
-    position: absolute;
-    right: clamp(32px, 5vw, 80px);
-    bottom: clamp(48px, 6vw, 96px);
-    display: flex;
-    gap: clamp(48px, 5vw, 80px);
-    align-items: flex-end;
-    z-index: 3;
-    pointer-events: none;
-    opacity: 0;
-    animation: vcxHeroFadeSlideIn 0.7s ease-out 0.85s forwards;
-  }
-  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat {
-    text-align: center;
-  }
-  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat__num {
-    font-size: clamp(2.75rem, 4.5vw, 4rem);
-    font-weight: 300;
-    line-height: 1;
-    color: #fff;
-    letter-spacing: -0.02em;
-    margin: 0 0 12px;
-    font-feature-settings: "tnum" 1, "lnum" 1;
-  }
-  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat__label {
-    font-size: .95rem;
-    color: rgba(255, 255, 255, 0.72);
-    font-weight: 400;
-    letter-spacing: .02em;
-    line-height: 1.35;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
+/* Stats block rules retired — the aside.vcx-hero-2__stats element was
+ * removed from index.html (user feedback: "2025 юса надо убрать"). The
+ * .vcx-hero-stat / .vcx-hero-2__stats classes are no longer emitted by
+ * any template, so no scoped rules remain. */
 
-/* ── Motion reduction: freeze beam rise + grid scroll, keep static look ── */
+/* ── Motion reduction: freeze beam rise + grid scroll + rays, keep static look ── */
 @media (prefers-reduced-motion: reduce) {
   .vcx-cybercore-floor,
   .vcx-cybercore-floor::after,
   .vcx-cybercore-column,
-  .vcx-cybercore-beam {
+  .vcx-cybercore-beam,
+  .vcx-cybercore-scene::before,
+  .vcx-cybercore-scene::after {
     animation: none !important;
   }
   .vcx-cybercore-beam {
     opacity: 0.5;
     transform: translateY(-20%);
+  }
+  .vcx-cybercore-scene::before {
+    transform: rotate(0deg);
+    opacity: 0.9;
   }
 }
 
