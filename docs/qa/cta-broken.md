@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-20T08:32:32Z
+generated: 2026-04-20T16:50:03Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,9 +14,9 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 2804
-- **Rows actively validated**: 2394
-- **Rows skipped (action-script / no target / self-ref)**: 410
+- **Inventory rows parsed**: 2955
+- **Rows actively validated**: 2503
+- **Rows skipped (action-script / no target / self-ref)**: 452
 - **Strict-broken rows (gate-enforced; triage required)**: 10
 - **External unique URLs HEAD-checked**: 6
 
@@ -40,10 +40,10 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 | `app/review/index.html` | 119 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-contract-review/index.html` | 129 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-packet-room/index.html` | 96 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `corporate-legal-file-control.html` | 243 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 860 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 1179 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 1197 | button | (no label) | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `corporate-legal-file-control.html` | 244 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
+| `index.html` | 756 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `index.html` | 1075 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `index.html` | 1093 | button | (no label) | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 
 ## Methodology
 
