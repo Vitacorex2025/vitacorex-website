@@ -166,27 +166,121 @@ section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
 
 /* Button contrast on dark hero — brighten the mint fill + darken
  * text so CTAs stay legible against the particle field. Applies to
- * .btn, .btn-primary, .vcx-btn-2 inside any of the new hosts. */
+ * .btn, .btn-primary, .vcx-btn-2, .scd-btn, .crs-btn, .adr-btn, etc
+ * inside any of the new hosts. Covers both the generic .btn family
+ * and the page-scoped prefixes that several templates ship (scd-*,
+ * crs-*, adr-* on small-claims / contract-review / auto-deal-review). */
 section.vcx-hero-particles-host--scd .btn-primary,
 section.vcx-hero-particles-host--scd .btn,
 section.vcx-hero-particles-host--sechead .btn-primary,
 section.vcx-hero-particles-host--sechead .btn,
 section.vcx-hero-particles-host--scd .vcx-btn-2--primary,
-section.vcx-hero-particles-host--sechead .vcx-btn-2--primary {
+section.vcx-hero-particles-host--sechead .vcx-btn-2--primary,
+section.vcx-hero-particles-host--scd .scd-btn--primary,
+section.vcx-hero-particles-host--scd .scd-btn,
+section.vcx-hero-particles-host--sechead .scd-btn--primary,
+section.vcx-hero-particles-host--sechead .scd-btn,
+section.vcx-hero-particles-host--scd .crs-btn--primary,
+section.vcx-hero-particles-host--sechead .crs-btn--primary,
+section.vcx-hero-particles-host--scd .adr-btn--primary,
+section.vcx-hero-particles-host--sechead .adr-btn--primary {
   background: #7ED8C3 !important;
   color: #051812 !important;
   border: 1px solid #7ED8C3 !important;
   box-shadow: 0 0 0 1px rgba(126, 216, 195, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+  text-shadow: none !important;
+}
+section.vcx-hero-particles-host--scd .btn-primary:hover,
+section.vcx-hero-particles-host--sechead .btn-primary:hover,
+section.vcx-hero-particles-host--scd .scd-btn--primary:hover,
+section.vcx-hero-particles-host--sechead .scd-btn--primary:hover,
+section.vcx-hero-particles-host--scd .crs-btn--primary:hover,
+section.vcx-hero-particles-host--sechead .crs-btn--primary:hover {
+  background: #9EE4D0 !important;
+  border-color: #9EE4D0 !important;
+  color: #051812 !important;
 }
 section.vcx-hero-particles-host--scd .btn-secondary,
 section.vcx-hero-particles-host--scd .btn-ghost,
 section.vcx-hero-particles-host--sechead .btn-secondary,
 section.vcx-hero-particles-host--sechead .btn-ghost,
 section.vcx-hero-particles-host--scd .vcx-btn-2--ghost,
-section.vcx-hero-particles-host--sechead .vcx-btn-2--ghost {
+section.vcx-hero-particles-host--sechead .vcx-btn-2--ghost,
+section.vcx-hero-particles-host--scd .scd-btn--ghost,
+section.vcx-hero-particles-host--scd .scd-btn--secondary,
+section.vcx-hero-particles-host--sechead .scd-btn--ghost,
+section.vcx-hero-particles-host--sechead .scd-btn--secondary,
+section.vcx-hero-particles-host--scd .crs-btn--ghost,
+section.vcx-hero-particles-host--sechead .crs-btn--ghost,
+section.vcx-hero-particles-host--scd .adr-btn--ghost,
+section.vcx-hero-particles-host--sechead .adr-btn--ghost {
   background: rgba(255, 255, 255, 0.06) !important;
   color: #E6FDF3 !important;
   border: 1px solid rgba(126, 216, 195, 0.55) !important;
+  text-shadow: none !important;
+}
+
+/* ── Breadcrumb reset + dark-scene colouring ─────────────────────────
+ * .vcx-breadcrumb wraps an <ol> which otherwise renders decimal
+ * markers ("1. Home, 2. Private Client Services, 3. ..."). None of
+ * the legacy CSS targets .vcx-breadcrumb, so we reset it here and
+ * add a › separator so the chain reads naturally. Light on dark
+ * when inside a particle-host section (the breadcrumb is not inside
+ * the host element, but on several of these pages it visually sits
+ * immediately above the hero; keep its default look light on soft
+ * bg, and provide the readable mint colour when it lands on the
+ * dark particle background). */
+nav.vcx-breadcrumb {
+  padding: 14px 0;
+  background: transparent;
+  position: relative;
+  z-index: 3;
+}
+nav.vcx-breadcrumb ol {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  align-items: center;
+  font-size: .88rem;
+  color: #4A6B66;
+}
+nav.vcx-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+}
+nav.vcx-breadcrumb li + li::before {
+  content: "›";
+  margin: 0 10px;
+  opacity: 0.55;
+  font-size: 1rem;
+  line-height: 1;
+}
+nav.vcx-breadcrumb a {
+  color: #2D8A82;
+  text-decoration: none;
+  transition: color .15s ease;
+}
+nav.vcx-breadcrumb a:hover {
+  color: #5BBAA7;
+  text-decoration: underline;
+}
+/* Dark-scene variant: if the page sets a dark background adjacent to
+ * the breadcrumb (sechead/scd hosts render the entire section dark),
+ * recolour the breadcrumb chain so its text + separator stay legible. */
+body:has(section.vcx-hero-particles-host--scd) nav.vcx-breadcrumb ol,
+body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb ol {
+  color: rgba(230, 253, 243, 0.72);
+}
+body:has(section.vcx-hero-particles-host--scd) nav.vcx-breadcrumb a,
+body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a {
+  color: #9EE4D0;
+}
+body:has(section.vcx-hero-particles-host--scd) nav.vcx-breadcrumb a:hover,
+body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
+  color: #D4FBEE;
 }
 
 /* ── Light-ray fan (TuringLanding reference) ─────────────────────────

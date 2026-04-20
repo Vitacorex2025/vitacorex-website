@@ -596,7 +596,7 @@ a.btn-secondary:hover {
 }
 
 .vcx-section-2--warm {
-  background: var(--bg-canvas, #F6F2EA);
+  background: var(--bg-canvas, #F4F7F6);
 }
 
 .vcx-section-2__header {
@@ -899,7 +899,7 @@ a.btn-secondary:hover {
 
 /* Light sections get subtle rounded top corners for "card" feel */
 .vcx-stack-section:not(.band):not(.vcx-stats-2):not(.vcx-bg-dark):not(.vcx-bg-ink):not(.vcx-bg-grid):not(.vcx-bg-dots):not(.vcx-bg-lines) {
-  background: var(--parchment, #F6F2EA);
+  background: var(--parchment, #F4F7F6);
 }
 
 /* Dark band sections get stronger shadow */
@@ -931,7 +931,7 @@ section.section:not(.band):nth-of-type(odd) {
 
 /* Dot matrix — subtle repeating dots */
 .vcx-bg-dots {
-  background-color: var(--parchment, #F6F2EA);
+  background-color: var(--parchment, #F4F7F6);
   background-image: radial-gradient(circle, rgba(91,186,167,0.10) 1px, transparent 1px);
   background-size: 20px 20px;
 }
@@ -2311,7 +2311,7 @@ body {
   position: relative;
   background:
     radial-gradient(ellipse 60% 80% at 50% 0%, rgba(91,186,167,0.07) 0%, transparent 60%),
-    linear-gradient(180deg, #F6F2EA 0%, #EFE9DC 100%);
+    linear-gradient(180deg, #F4F7F6 0%, #EFE9DC 100%);
   padding: 72px 32px 80px;
   border-top: 1px solid rgba(26,47,42,0.08);
   overflow: hidden;
@@ -2404,7 +2404,7 @@ body {
   display: block;
   text-decoration: none;
   color: inherit;
-  background: #FBF8F3;
+  background: #FFFFFF;
   border: 1px solid rgba(26,47,42,0.08);
   border-radius: 4px;
   overflow: hidden;
@@ -2426,7 +2426,7 @@ body {
 /* PRIMARY (B2B) — richer, ink-navy surface */
 .vcx-route--primary {
   background:
-    linear-gradient(180deg, #FBF8F3 0%, #F1EBDD 100%);
+    linear-gradient(180deg, #FFFFFF 0%, #F1EBDD 100%);
   border-color: rgba(26,47,42,0.12);
 }
 .vcx-route--primary .vcx-route__inner {
@@ -2435,7 +2435,7 @@ body {
 
 /* SECONDARY (Private) — lighter, ghost feel */
 .vcx-route--private {
-  background: #FBF8F3;
+  background: #FFFFFF;
 }
 
 /* Top row — tag + meta */
@@ -2554,7 +2554,7 @@ body {
 }
 .vcx-route__cta--primary {
   background: #2E4F46;
-  color: #F6F2EA;
+  color: #F4F7F6;
   border: 1px solid #2E4F46;
 }
 .vcx-route__cta--ghost {

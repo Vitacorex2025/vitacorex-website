@@ -8,8 +8,8 @@
 
 :root {
   /* BACKGROUNDS */
-  --bg-canvas:   #F6F2EA;   /* warm parchment — main page bg */
-  --bg-surface:  #FBF8F3;   /* slightly lighter surface */
+  --bg-canvas:   #F4F7F6;   /* warm parchment — main page bg */
+  --bg-surface:  #FFFFFF;   /* slightly lighter surface */
   --bg-elevated: #FFFFFF;   /* cards, modals */
   --bg-ink:      #1A2F2A;   /* dark sections, footer */
   --bg-ink-soft: #243D36;   /* slightly lighter dark */

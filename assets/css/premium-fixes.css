@@ -34,8 +34,11 @@
    PREMIUM DESIGN TOKENS — Restrained Advisory Palette
    ============================================================ */
 :root {
-  --vcx-bg-canvas: #F6F2EA;
-  --vcx-bg-surface: #FBF8F3;
+  /* Palette retuned from warm cream (F6F2EA / FBF8F3) to a cool
+   * mint-white to match the home page's fresh look — user directive:
+   * "ни каких бежевых цветов. цвет соответствующий странице хом". */
+  --vcx-bg-canvas: #F4F7F6;
+  --vcx-bg-surface: #FFFFFF;
   --vcx-bg-elevated: #FFFFFF;
   --vcx-ink-strong: #1A2F2A;
   --vcx-ink-body: #243548;

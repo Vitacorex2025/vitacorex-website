@@ -166,7 +166,7 @@
 
 /* --- Section-edge fade: cream body → teal pocket → cream body --------- */
 /* Both colours are light so the transition stays smooth; the fade band   */
-/* smooths the hue shift from warm cream (#F6F2EA) to teal-wash.          */
+/* smooths the hue shift from warm cream (#F4F7F6) to teal-wash.          */
 .vcx-routes[data-vcx-texture]::before,
 .vcx-routes[data-vcx-texture]::after,
 .vcx-bento-section[data-vcx-texture]::before,

@@ -1,7 +1,7 @@
 /* VCX Legal Assistant — ChatGPT-style full-page chat */
 
 body[data-vcx-page="legal-assistant"] {
-  background: var(--vcx-bg-canvas, #F6F2EA);
+  background: var(--vcx-bg-canvas, #F4F7F6);
   color: var(--vcx-ink-body, #2E4F46);
 }
 
@@ -84,7 +84,7 @@ body[data-vcx-page="legal-assistant"] .footer {
 .la-chat-input-area {
   border-top: 1px solid rgba(26, 47, 42, .08);
   padding: 16px 20px;
-  background: var(--vcx-bg-canvas, #F6F2EA);
+  background: var(--vcx-bg-canvas, #F4F7F6);
 }
 
 .la-chat-form {
@@ -98,7 +98,7 @@ body[data-vcx-page="legal-assistant"] .footer {
   gap: 8px;
   border: 1px solid rgba(26, 47, 42, .15);
   border-radius: 3px;
-  background: var(--vcx-bg-surface, #FBF8F3);
+  background: var(--vcx-bg-surface, #FFFFFF);
   padding: 8px 12px;
   transition: border-color .2s, box-shadow .2s;
 }
@@ -207,7 +207,7 @@ body[data-vcx-page="legal-assistant"] .footer {
 .suggestion-chip {
   appearance: none;
   border: 1px solid rgba(26, 47, 42, .12);
-  background: var(--vcx-bg-surface, #FBF8F3);
+  background: var(--vcx-bg-surface, #FFFFFF);
   color: var(--vcx-ink-body, #2E4F46);
   border-radius: 3px;
   padding: 8px 14px;
