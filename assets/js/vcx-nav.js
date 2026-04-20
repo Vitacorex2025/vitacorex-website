@@ -123,12 +123,14 @@
   // ---------- Home link builder (desktop) ----------
   // Rendered before the Companies door. Always clickable — on the home page
   // we only mark it .is-active so it reads as "current" without blocking a
-  // re-navigate. Uses absolute href="/" so /app/* sub-pages return to the
-  // real site root rather than their own local index.
+  // re-navigate. Uses absolute href="/index.html" (not bare "/") because
+  // some deployments/caches don't resolve the directory index reliably and
+  // the user lands on a white screen. The explicit document path is
+  // unambiguous and always serves the home page.
   function makeHomeLink() {
     var a = document.createElement('a');
     a.className = 'vcx-nav-dual__home' + (isActive('index.html') ? ' is-active' : '');
-    a.href = '/';
+    a.href = '/index.html';
     a.setAttribute('data-common', 'nav_home_chip');
     a.setAttribute('aria-label', tr('nav_home_chip_aria', 'Return to VitaCoreX home'));
     a.innerHTML =
@@ -143,11 +145,13 @@
   }
 
   // ---------- Home entry (mobile) ----------
+  // See makeHomeLink() above for why this uses explicit /index.html instead
+  // of bare "/".
   function makeMobileHomeLink() {
     var a = document.createElement('a');
     a.className = 'vcx-nav-dual__home vcx-nav-dual__home--mobile' +
                   (isActive('index.html') ? ' is-active' : '');
-    a.href = '/';
+    a.href = '/index.html';
     a.setAttribute('data-common', 'nav_home_chip');
     a.setAttribute('aria-label', tr('nav_home_chip_aria', 'Return to VitaCoreX home'));
     a.innerHTML =

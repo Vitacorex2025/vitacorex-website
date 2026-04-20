@@ -137,7 +137,10 @@
     var link = document.createElement('a');
     link.id = 'vcx-back-link';
     link.className = 'vcx-back-link';
-    link.href = '/';
+    /* Explicit /index.html (not bare "/") — some deployments/caches don't
+       serve the directory index for "/" reliably and the user lands on a
+       white screen. /index.html is unambiguous and always resolves. */
+    link.href = '/index.html';
     link.setAttribute('aria-label', pickLabel());
 
     link.innerHTML =
@@ -172,7 +175,10 @@
         window.history.back();
       } else {
         // Fallback: keep the forward entry (assign, not replace).
-        window.location.assign('/');
+        // Use explicit /index.html — bare "/" occasionally lands on a
+        // white screen behind certain caches/edges; the explicit path
+        // is unambiguous and always resolves to the home document.
+        window.location.assign('/index.html');
       }
     });
 
