@@ -1,0 +1,197 @@
+/**
+ * VitaCoreX Cybercore hero scene (vanilla port of the React cybercore-section-hero)
+ *
+ * Replaces the <video src="sky-clouds.mp4"> background inside .vcx-hero-2__bg
+ * with a fully CSS + lightweight JS animated scene: grid floor, central
+ * glowing column, and rising teal light beams. Colors retuned to VitaCoreX
+ * brand (deep navy base + teal/emerald beams) instead of the source's
+ * cyberpunk cyan/orange palette.
+ *
+ * Structure (built by vcx-hero-cybercore.js):
+ *   .vcx-hero-2__bg
+ *     └── .vcx-cybercore-scene
+ *           ├── .vcx-cybercore-floor         (animated grid + radial glow)
+ *           ├── .vcx-cybercore-column        (central vertical glow pillar)
+ *           └── .vcx-cybercore-beams
+ *                 └── .vcx-cybercore-beam.(primary|secondary) × N
+ *
+ * Respects prefers-reduced-motion: scene stays visible but animations freeze.
+ */
+
+:root {
+  --vcx-cc-bg-top:      #071725;
+  --vcx-cc-bg-bottom:   #0B1F30;
+  --vcx-cc-grid-line:   rgba(110, 215, 200, 0.10);
+  --vcx-cc-beam:        #6CE5D6;
+  --vcx-cc-beam-alt:    #A8D8C6;
+  --vcx-cc-glow-1:      rgba(64, 200, 180, 0.75);
+  --vcx-cc-glow-2:      rgba(0, 150, 135, 0.55);
+  --vcx-cc-highlight:   rgba(200, 230, 210, 0.8);
+}
+
+.vcx-cybercore-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 105%, rgba(45, 138, 130, 0.35) 0%, transparent 55%),
+    linear-gradient(180deg, var(--vcx-cc-bg-top) 0%, var(--vcx-cc-bg-bottom) 100%);
+  perspective: 900px;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+/* Grid floor — perspective-tilted, animated scroll toward the viewer.
+ * Uses two linear-gradients for a crossed grid. Very cheap to animate
+ * because only background-position changes. */
+.vcx-cybercore-floor {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  height: 65%;
+  background:
+    linear-gradient(var(--vcx-cc-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vcx-cc-grid-line) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px;
+  transform: rotateX(68deg) translateZ(0);
+  transform-origin: 50% 100%;
+  animation: vcxCcMoveGrid 9s linear infinite;
+  opacity: 0.9;
+  mask-image: linear-gradient(to top, #000 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 30%, transparent 100%);
+}
+
+/* Subtle glow pulsing at the vanishing point where the floor meets
+ * the horizon — makes the column appear to emit light downward. */
+.vcx-cybercore-floor::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -6%;
+  width: 50%;
+  height: 90%;
+  transform: translateX(-50%) rotateX(-68deg);
+  background: radial-gradient(ellipse at 50% 50%, var(--vcx-cc-glow-1) 0%, transparent 65%);
+  filter: blur(40px);
+  animation: vcxCcFloorGlow 5s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Central vertical light pillar — a soft vertical gradient that
+ * pulses faintly to anchor the composition. */
+.vcx-cybercore-column {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 28%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--vcx-cc-glow-2) 40%,
+    var(--vcx-cc-glow-1) 75%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  opacity: 0.6;
+  animation: vcxCcMainGlow 6s ease-in-out infinite alternate;
+}
+
+/* Beam container — fills the scene, beams are absolute-positioned
+ * inside it with randomized `left` from JS. */
+.vcx-cybercore-beams {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.vcx-cybercore-beam {
+  position: absolute;
+  bottom: 0;
+  height: 90%;
+  width: 1px;
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    var(--vcx-cc-beam) 40%,
+    var(--vcx-cc-beam) 80%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 6px var(--vcx-cc-glow-1),
+    0 0 12px var(--vcx-cc-glow-2);
+  opacity: 0;
+  animation:
+    vcxCcRise  var(--vcx-cc-rise, 6s) linear infinite,
+    vcxCcFade  var(--vcx-cc-fade, 6s) linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Secondary beams — warmer mint highlight, ~15% of total.
+ * Slightly wider + brighter glow to draw the eye. */
+.vcx-cybercore-beam.secondary {
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    var(--vcx-cc-beam-alt) 30%,
+    var(--vcx-cc-highlight) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 8px var(--vcx-cc-highlight),
+    0 0 16px rgba(200, 230, 210, 0.5);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────── */
+@keyframes vcxCcRise {
+  0%   { transform: translateY(100%); }
+  100% { transform: translateY(-5%); }
+}
+
+@keyframes vcxCcFade {
+  0%, 100% { opacity: 0; }
+  5%, 85%  { opacity: 0.85; }
+}
+
+@keyframes vcxCcFloorGlow {
+  0%, 100% { transform: translateX(-50%) rotateX(-68deg) scale(0.95); opacity: 0.65; }
+  50%      { transform: translateX(-50%) rotateX(-68deg) scale(1.05); opacity: 0.95; }
+}
+
+@keyframes vcxCcMainGlow {
+  from { opacity: 0.5; filter: blur(28px); }
+  to   { opacity: 0.7; filter: blur(20px); }
+}
+
+@keyframes vcxCcMoveGrid {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: -60px -30px, -60px -30px; }
+}
+
+/* ── Motion reduction: freeze beam rise + grid scroll, keep static look ── */
+@media (prefers-reduced-motion: reduce) {
+  .vcx-cybercore-floor,
+  .vcx-cybercore-floor::after,
+  .vcx-cybercore-column,
+  .vcx-cybercore-beam {
+    animation: none !important;
+  }
+  .vcx-cybercore-beam {
+    opacity: 0.5;
+    transform: translateY(-20%);
+  }
+}
+
+/* ── Mobile tuning: fewer visual layers, less blur cost ─────────── */
+@media (max-width: 720px) {
+  .vcx-cybercore-floor {
+    height: 55%;
+    background-size: 40px 40px, 40px 40px;
+  }
+  .vcx-cybercore-column {
+    width: 45%;
+    filter: blur(18px);
+  }
+}
