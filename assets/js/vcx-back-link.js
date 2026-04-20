@@ -147,15 +147,33 @@
       '<path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
       '<span class="vcx-back-link__label">' + pickLabel() + '</span>';
 
-    // Click handler: ALWAYS navigate to "/" (homepage). We deliberately do
-    // not call window.history.back() because Safari on iOS frequently
-    // restores a stale cached/blank state from bfcache when going back,
-    // which looked to users like "the button doesn't work". Hard-
-    // navigating to "/" gives predictable behaviour on every platform.
+    // Click handler: restore the documented contract (see file header).
+    // Strategy:
+    //   1. If there IS a real previous page in this tab's history AND it
+    //      was on the same origin → window.history.back(). That returns
+    //      the user to their actual previous VitaCoreX page, preserving
+    //      scroll position.
+    //   2. Otherwise (fresh tab, direct hit, or external referrer) →
+    //      fall through to "/" so the button never feels dead.
+    //
+    // iOS Safari bfcache note: the old "always go home" hack was added
+    // to dodge a stale-frame bug on back navigation. Modern iOS (15+)
+    // handles bfcache correctly for plain navigations; if staleness
+    // resurfaces, add a targeted pageshow handler later.
     link.addEventListener('click', function (ev) {
       ev.preventDefault();
-      // Use assign() (not replace) so the browser keeps a forward entry.
-      window.location.assign('/');
+      var sameOriginRef = false;
+      try {
+        var ref = document.referrer || '';
+        if (ref) sameOriginRef = (new URL(ref).origin === window.location.origin);
+      } catch (_) { sameOriginRef = false; }
+      // history.length >= 2 means there IS a back entry in this tab.
+      if (sameOriginRef && window.history.length > 1) {
+        window.history.back();
+      } else {
+        // Fallback: keep the forward entry (assign, not replace).
+        window.location.assign('/');
+      }
     });
 
     document.addEventListener('vcx:locale-change', function () {
