@@ -116,7 +116,7 @@
     var link = document.createElement('link');
     link.id = 'vcx-nav-css';
     link.rel = 'stylesheet';
-    link.href = 'assets/css/vcx-nav.css?v=1';
+    link.href = 'assets/css/vcx-nav.css?v=2';
     document.head.appendChild(link);
   }
 

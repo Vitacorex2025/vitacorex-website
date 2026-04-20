@@ -71,7 +71,12 @@
   transform: rotate(180deg);
 }
 
-/* Dropdown panel */
+/* Dropdown panel — hidden by default; shown only when the door is marked .is-open.
+ * Prior to this fix, `display: flex` was always on, so the panel was permanently
+ * in the render tree and never actually toggled — it was clipped out of sight by
+ * the header-shell's overflow:hidden and the main-nav's overflow:auto-hidden, and
+ * on top of that the page's dark-theme color rules made the text invisible even
+ * when the panel did leak through. See the P17 Evidence block for details. */
 .vcx-nav-dual__panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -83,16 +88,41 @@
   border: 1px solid rgba(23, 58, 99, .1);
   border-radius: 14px;
   box-shadow: 0 20px 48px -18px rgba(10, 24, 48, .28), 0 6px 14px -6px rgba(10, 24, 48, .12);
-  display: flex;
+  display: none;                 /* hidden by default — JS toggles via .is-open */
   flex-direction: column;
   gap: 2px;
   z-index: 40;
+}
+.vcx-nav-dual__door.is-open > .vcx-nav-dual__panel {
+  display: flex;
   animation: vcx-nav-pop .14s ease-out;
 }
 @keyframes vcx-nav-pop {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Let the dropdown escape its ancestor clippers. The header-shell uses
+ * overflow:hidden to keep backdrop-filter inside its rounded corners, and the
+ * main-nav uses overflow:auto-hidden for a legacy horizontal scroll style —
+ * both clip an absolutely-positioned dropdown that extends past them. We
+ * scope the overrides to pages where the dual-nav is actually rendered. */
+.vcx-main-nav.vcx-nav-dual { overflow: visible; }
+.vcx-header-shell:has(.vcx-nav-dual) { overflow: visible; }
+
+/* Hero sections and cards on the page use position:relative + z-index:2.
+ * When a dropdown is open, float the whole header above them. */
+.vcx-header:has(.vcx-nav-dual__door.is-open) { z-index: 1000; }
+
+/* Dark-theme cascade (vcx-redesign.css, vcx-premium-2.css) forces
+ * `color: rgba(255,255,255,.75) !important` on .vcx-main-nav a and
+ * .vcx-header *, which makes the dropdown items invisible on the white
+ * panel background. Neutralise it with an equally !important override
+ * scoped to the panel itself. */
+.vcx-nav-dual__panel .vcx-nav-dual__item { color: #0b2143 !important; }
+.vcx-nav-dual__panel .vcx-nav-dual__item:hover,
+.vcx-nav-dual__panel .vcx-nav-dual__item:focus-visible,
+.vcx-nav-dual__panel .vcx-nav-dual__item.is-active { color: #083a3a !important; }
 
 .vcx-nav-dual__item {
   display: block;
