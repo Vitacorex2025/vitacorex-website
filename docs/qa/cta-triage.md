@@ -5,6 +5,7 @@ generated: 2026-04-20
 hand-authored: true
 input: docs/qa/cta-broken.md (22 broken rows from P17 Step 17.2 `6896aff`)
 consumed_by: P17 Step 17.4 (fix round — per-page commits per disposition)
+status: final (sealed 2026-04-20 at P17 Step 17.7 phase close — see Retrospective section at bottom)
 ---
 
 # CTA Broken Triage — VitaCoreX Site
@@ -118,3 +119,46 @@ All 10 `no-handler` rows have an `id="..."` attribute and live inside an app/wid
 ## Regeneration
 
 This file is hand-authored. To refresh the upstream broken list: `node scripts/verify-cta-targets.js` → refreshes `docs/qa/cta-broken.md`. Dispositions below are authored once per triage cycle; re-triage only needed when new broken rows appear that aren't covered by Groups A-D above.
+
+## Retrospective (sealed at P17 Step 17.7 phase close — 2026-04-20)
+
+> This section is the close-out ledger for the triage file. It records what each triage group *actually produced* after Steps 17.4 + 17.5 + 17.6 landed, so a future auditor re-opening this file has the full decision chain without having to reconstruct it from commit history.
+
+### Outcomes per group (post-Steps 17.4 + 17.5 + 17.6)
+
+| Group | Disposition | Rows | Outcome | Commits |
+|-------|-------------|-----:|---------|---------|
+| **A** | `remove` (pivoted from `fix`) | 5 | LinkedIn `/company/vitacorex-llc` `<a>` tags deleted site-wide after pre-flight browser-UA curl proved BOTH candidate slugs 404. Post-fix verifier: `external-http-4xx` 5→0 ✅ | `cc3591b` |
+| **B** | `fix` | 5 | `#fragment` suffixes dropped from 5 hrefs (target pages have no matching IDs, re-adding deferred to P12/P13). Post-fix verifier: `internal-anchor-missing` 5→0 ✅ | `9fa150a` |
+| **C** | `invalid` | 2 | LinkedIn personal `/in/steven-miller-ab17783a5/` HTTP 999 bot-block — reachable in real browsers but opaque to HEAD checks from CI runner IPs. Post-Step-17.6 verifier refactor moved this class from gate-enforced `external-http-4xx` into advisory-only `external-http-opaque` bucket (stdout-only, NOT in `cta-broken.md` baseline, NOT gate-enforced). No fix needed — working as designed. | n/a (architecture change in `aaee054`) |
+| **D** | `invalid` | 10 | `<button id="X">` wired via external JS `addEventListener` — invisible to HTML-only auditor. Behavioral verification is [[tests/e2e/cta-click.spec.ts]] (Step 17.5 `b84730a`, drafted pending Playwright env provisioning; static-analysis substitutes cover today). These 10 rows permanently live in `cta-broken.md` baseline as known-invalid-by-design; CI gate architecture (Step 17.6) uses baseline-diff to distinguish "these 10 known" from "someone introduced 11th". | `b84730a` (spec) · `0577750` + `aaee054` + `4f9e882` (CI gate) |
+
+### Numbers
+
+- **Inventory** (pre-Step-17.4): 2809 CTAs across 76 HTML files
+- **Broken** (pre-Step-17.4): 22 rows = 5 Group A + 5 Group B + 2 Group C + 10 Group D
+- **Inventory** (post-Step-17.4): 2804 CTAs across 76 HTML files (-5 from Group A `<a>` deletions)
+- **Strict-broken** (post-Step-17.6 verifier refactor): 10 rows = Group D only (`no-handler`)
+- **Opaque** (advisory, post-Step-17.6): 2 rows = Group C only (LinkedIn HTTP 999)
+- **Total remaining**: 10 + 2 = 12 rows (exactly the 12 `invalid`-dispositioned rows from this file) — zero unresolved fixable rows
+
+### Architecture landed from this triage cycle
+
+1. **Baseline-diff CI gate** (`.github/workflows/qa-cta.yml` + `docs/qa/README.md`) — answers "is today's broken set exactly yesterday's?" not "is today's broken set empty?" — required because Groups C+D are known-invalid-by-design and cannot be cleared without changing the audit methodology itself.
+2. **strictBroken/opaqueBroken partition** (`scripts/verify-cta-targets.js`) — separates deterministic failure classes (gate-enforced) from IP/UA-dependent classes (advisory only). Discovered on CI Run 1 via Instagram HTTP 429 + formsubmit.co HTTP 403 false positives; HTTP 429 added to opaque bucket alongside 401/403/999.
+3. **`VCX_EMIT_OPAQUE=1` env var** — optional dump of opaque rows to gitignored `docs/qa/cta-opaque.md` for local triage; not committed because count varies by IP.
+4. **`VCX_BASE_URL` env var** (Playwright spec, Step 17.5) — roster fires against any base URL once Playwright env lands.
+5. **Step 17.4 stale-inventory lesson** (`docs/qa/README.md`) — CI MUST run `audit → verify` sequence; running `verify` alone against stale inventory silently reports wrong data.
+
+### Re-open protocol (post-P12/P13 restructure)
+
+This triage cycle is sealed. If P12 or P13 add new pages or restructure existing ones, the scanner is idempotent and re-runnable:
+
+```
+1. node scripts/audit-ctas.js       # regenerate inventory against new roster
+2. node scripts/verify-cta-targets.js  # regenerate broken list
+3. Delta triage: new Groups E, F, ... for any rows NOT covered by Groups A-D above
+4. Fix round + commit new baseline
+```
+
+The existing Groups A-D retain their dispositions (all closed per this Retrospective); only genuinely-new rows need new triage entries. Not a P17 re-open — this is the normal CTA regression cycle documented in `docs/qa/README.md` §Updating the baseline.
