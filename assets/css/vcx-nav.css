@@ -270,6 +270,105 @@ body[data-audience="b2c"] .vcx-nav-dual__door--b2c .vcx-nav-dual__trigger {
   border-color: rgba(23, 58, 99, .28);
 }
 
+/* -------------------------------- HOME LINK (DESKTOP) --------------------------------
+ * Sits as the very first child of .vcx-main-nav.vcx-nav-dual, before the two
+ * audience doors. Same pill language as .vcx-nav-dual__trigger so the row
+ * reads as "[Home] [For Companies ▾] [For Private Clients ▾]  …utility". */
+.vcx-nav-dual__home {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.925rem;
+  letter-spacing: 0.01em;
+  color: #0b2143;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+  margin-right: 4px;
+}
+.vcx-nav-dual__home:hover,
+.vcx-nav-dual__home:focus-visible {
+  background: rgba(23, 58, 99, .06);
+  border-color: rgba(23, 58, 99, .14);
+  color: #0b2143;
+  outline: none;
+}
+.vcx-nav-dual__home:focus-visible {
+  outline: 2px solid #0ea5a4;
+  outline-offset: 2px;
+}
+.vcx-nav-dual__home.is-active {
+  background: rgba(14, 165, 164, .12);
+  border-color: rgba(14, 165, 164, .40);
+  color: #083a3a;
+}
+.vcx-nav-dual__home .vcx-nav-dual__home-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.vcx-nav-dual__home:hover .vcx-nav-dual__home-icon {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Dark-theme header cascade (vcx-redesign.css / vcx-premium-2.css) forces
+ * white text on every descendant of .vcx-header. The dual-door doors
+ * override that; the Home pill needs the same treatment so its label and
+ * icon stay legible against the dark header. */
+.vcx-header .vcx-nav-dual__home,
+.vcx-header .vcx-nav-dual__home * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+.vcx-header .vcx-nav-dual__home {
+  border-color: rgba(255, 255, 255, .22);
+}
+.vcx-header .vcx-nav-dual__home:hover,
+.vcx-header .vcx-nav-dual__home:focus-visible {
+  background: rgba(91, 196, 184, .14);
+  border-color: rgba(91, 196, 184, .48);
+}
+.vcx-header .vcx-nav-dual__home.is-active {
+  background: rgba(91, 196, 184, .18);
+  border-color: rgba(91, 196, 184, .55);
+}
+
+/* -------------------------------- HOME LINK (MOBILE) --------------------------------
+ * Flat row at the top of the mobile nav, above the two collapsible sections. */
+.vcx-nav-dual__home--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #0b2143;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(23, 58, 99, .08);
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.vcx-nav-dual__home--mobile:hover,
+.vcx-nav-dual__home--mobile:focus-visible {
+  background: rgba(14, 165, 164, .06);
+  color: #083a3a;
+  outline: none;
+}
+.vcx-nav-dual__home--mobile.is-active {
+  background: rgba(14, 165, 164, .10);
+  color: #083a3a;
+}
+
 /* -------------------------------- RESPONSIVE CUTOVER --------------------------------
  * The existing header hides .vcx-main-nav on ≤720px and shows .vcx-mobile-nav.
  * We respect that; nothing else to add here. */

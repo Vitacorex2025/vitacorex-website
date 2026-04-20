@@ -171,8 +171,25 @@
   position: relative;
   z-index: 5;
   text-align: left;
-  max-width: 540px;
-  margin-left: 80px;
+  /* Centered container that matches the site-wide .wrap (max-width 1280px,
+     22px side padding). Keeps the hero headline's left edge aligned with
+     the header brand + nav row on every viewport width. */
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 22px;
+  padding-right: 22px;
+  box-sizing: border-box;
+}
+/* Keep the text column narrow (≈540px) for readable line-length, but now
+   it's anchored to the wrap's left edge instead of a hard 80px offset. */
+.vcx-hero-2__content .vcx-eyebrow,
+.vcx-hero-2__content .vcx-hero-2__title,
+.vcx-hero-2__content .vcx-hero-2__subtitle,
+.vcx-hero-2__content .vcx-hero-2__pills,
+.vcx-hero-2__content .vcx-hero-2__actions {
+  max-width: 620px;
 }
 
 .vcx-hero-2 .vcx-hero-2__title,

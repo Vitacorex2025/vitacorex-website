@@ -116,8 +116,49 @@
     var link = document.createElement('link');
     link.id = 'vcx-nav-css';
     link.rel = 'stylesheet';
-    link.href = 'assets/css/vcx-nav.css?v=3';
+    link.href = 'assets/css/vcx-nav.css?v=4';
     document.head.appendChild(link);
+  }
+
+  // ---------- Home link builder (desktop) ----------
+  // Rendered before the Companies door. Always clickable — on the home page
+  // we only mark it .is-active so it reads as "current" without blocking a
+  // re-navigate. Uses absolute href="/" so /app/* sub-pages return to the
+  // real site root rather than their own local index.
+  function makeHomeLink() {
+    var a = document.createElement('a');
+    a.className = 'vcx-nav-dual__home' + (isActive('index.html') ? ' is-active' : '');
+    a.href = '/';
+    a.setAttribute('data-common', 'nav_home_chip');
+    a.setAttribute('aria-label', tr('nav_home_chip_aria', 'Return to VitaCoreX home'));
+    a.innerHTML =
+      '<svg class="vcx-nav-dual__home-icon" width="14" height="14" viewBox="0 0 24 24" ' +
+      'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M3 11l9-8 9 8"/>' +
+      '<path d="M5 10v10a1 1 0 0 0 1 1h4v-7h4v7h4a1 1 0 0 0 1-1V10"/>' +
+      '</svg>' +
+      '<span class="vcx-nav-dual__home-label">' + escapeHtml(tr('nav_home_chip', 'Home')) + '</span>';
+    return a;
+  }
+
+  // ---------- Home entry (mobile) ----------
+  function makeMobileHomeLink() {
+    var a = document.createElement('a');
+    a.className = 'vcx-nav-dual__home vcx-nav-dual__home--mobile' +
+                  (isActive('index.html') ? ' is-active' : '');
+    a.href = '/';
+    a.setAttribute('data-common', 'nav_home_chip');
+    a.setAttribute('aria-label', tr('nav_home_chip_aria', 'Return to VitaCoreX home'));
+    a.innerHTML =
+      '<svg class="vcx-nav-dual__home-icon" width="15" height="15" viewBox="0 0 24 24" ' +
+      'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M3 11l9-8 9 8"/>' +
+      '<path d="M5 10v10a1 1 0 0 0 1 1h4v-7h4v7h4a1 1 0 0 0 1-1V10"/>' +
+      '</svg>' +
+      '<span class="vcx-nav-dual__home-label">' + escapeHtml(tr('nav_home_chip', 'Home')) + '</span>';
+    return a;
   }
 
   // ---------- Build desktop dual-door ----------
@@ -127,6 +168,8 @@
     host.setAttribute('aria-label', 'Primary');
     host.innerHTML = '';
 
+    // Home — placed first, before any dropdown door.
+    host.appendChild(makeHomeLink());
     // Door A — Companies (B2B, dominant)
     host.appendChild(makeDoor('companies', NAV.companies, 'b2b'));
     // Door B — Private Clients
@@ -223,6 +266,8 @@
     host.classList.add('vcx-nav-dual--mobile');
     host.innerHTML = '';
 
+    // Home — always the first entry, above the two audience doors.
+    host.appendChild(makeMobileHomeLink());
     // Companies section
     host.appendChild(makeMobileSection('companies', NAV.companies, 'b2b'));
     // Private Clients section
