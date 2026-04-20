@@ -147,6 +147,13 @@
     var legalDiv = document.createElement('div');
     legalDiv.className = 'footer-meta__legal';
 
+    // Pull the h3 heading into the identity column so the "VITACOREX LLC"
+    // title sits at the same Y as the first line of the legal column.
+    // Without this, h3 is a sibling above .footer-meta and creates a
+    // visible 3-row stack: heading / identity+legal / social.
+    var h3 = companyEl.querySelector(':scope > h3');
+    if (h3) identityDiv.appendChild(h3);
+
     var children = Array.prototype.slice.call(meta.children);
     children.forEach(function (el) {
       var dc = el.getAttribute && el.getAttribute('data-common');

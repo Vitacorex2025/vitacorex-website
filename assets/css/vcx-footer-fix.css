@@ -69,15 +69,21 @@ footer .footer-grid > div:not([class]) span {
   margin-bottom: 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.footer-grid--dual .footer-company h3 {
-  margin: 0 0 14px;
+/* h3 "VITACOREX LLC" lives inside .footer-meta__identity at runtime
+ * (moved there by vcx-footer.js structureMeta), so it sits on the same
+ * top line as the first element of .footer-meta__legal. The legacy
+ * selector below only fires in the pre-JS fallback where h3 is still
+ * a sibling of .footer-meta. */
+.footer-grid--dual .footer-company h3,
+.footer-grid--dual .footer-company .footer-meta__identity h3 {
+  margin: 0 0 8px;
   font-size: 0.92rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .footer-grid--dual .footer-company .footer-meta {
   display: grid;
-  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 2fr);
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2fr);
   gap: 6px 52px;
   align-items: start;
   margin: 0 0 14px;
