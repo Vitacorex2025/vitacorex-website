@@ -27,7 +27,7 @@ Every ADR:
 | ADR-011 | Checkout Architecture (Stripe) | planned | P08 | `Upgrade 2026-04/Phases/P08 B2C Checkout and Rush` |
 | ADR-012 | Blog Architecture | planned | P09 | `Upgrade 2026-04/Phases/P09 SEO Content Clusters` |
 | ADR-013 | Attribution Model (GA4 + CRM) | planned | P10 | `Upgrade 2026-04/Phases/P10 Analytics and CRM` |
-| ADR-014 | U.S.-wide Positioning Pivot | proposed | P11 | `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot` |
+| ADR-014 | U.S.-wide Positioning Pivot | accepted | P11 | `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot` |
 
 ## Writing an ADR
 

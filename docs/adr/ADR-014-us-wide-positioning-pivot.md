@@ -1,7 +1,7 @@
 # ADR-014 — U.S.-wide Positioning Pivot
 
-- **Status**: proposed (draft during 2026-04-19 audit intake; flips to accepted at P11 kickoff)
-- **Date**: 2026-04-19
+- **Status**: accepted (drafted 2026-04-19 during audit intake as `ec6e7b3`; flipped to accepted 2026-04-20 at P11 Step 11.1, with layer-by-layer implementation documented below)
+- **Date**: 2026-04-19 (drafted) · 2026-04-20 (accepted)
 - **Phase**: P11
 - **Supersedes**: none (ADR-009 is Legal Disclaimer Architecture under P05 — unrelated and retained)
 - **Depends on**: ADR-006 (navigation IA) + ADR-009 (legal disclaimer contract — delivered by P05)
@@ -125,9 +125,54 @@ Adding a second state (e.g., Texas) requires:
 
 **Reversible via**: revert P11 commits + restore Florida-first disclaimer variant as default + drop state banner component. Geo page URL preservation means SEO reversibility is clean.
 
+## Implementation record
+
+ADR-014 was drafted in `ec6e7b3` (2026-04-19 during audit intake) and flipped to accepted on 2026-04-20 at P11 Step 11.1. Layer-by-layer status as of the acceptance flip:
+
+### Layer 5 — Hero + footer + header (§5) — **shipped**
+
+- `5a7d1f1` · P11 Phase 1 — home hero eyebrow rewritten to "For companies and private clients across the United States"; header CTA + footer market language U.S.-wide; vendor-address pattern preserved in `<address>`; `Organization.areaServed` national.
+- `b4c2d48` · P11 Phase 1 follow-up — `bento_5_text` EN/RU/ES parity repair after initial rollout.
+
+### Layer 1 — National default pages (§1) — **partial**
+
+- `a6bb73c` · P11 Phase 2 batch 1 — 5 service pages state-neutralized at H1 + `<title>` + meta description level (revenue-recovery-workflow, pre-collection-pilot, solutions, industries, corporate-legal-file-control).
+- `779a4a8` · P11 Step 11.5 batch 2 — `additional-services.html` card5 + card8 + inline `PAGE_DATA` legacy blob + meta + JSON-LD FAQ state-neutralized; 3-locale coverage; 21 live-prod Playwright surface checks PASS.
+
+Remaining national-default sweep targets (Step 11.5 batches 3+ pending): additional service pages + samples library + proof/evidence surface per §1 list.
+
+### Layer 3 — Disclaimer rewrite (§3) — **shipped**
+
+- `56b8eee` · P11 Step 11.7 — UPL disclaimer rewritten across 5 service pages; `disclaimer_upl_national_*` keys added to `vcx-translations.js` with EN/RU/ES parity. Shipped wording uses "state-bar rules vary by state" framing rather than verbatim Appendix A text; intent preserved, cadence tuned during copy pass.
+- `a7a7d8b` · P11 Step 11.7 follow-up — partner-programme page UPL frame aligned.
+
+### Layer 2 — State-scoped carve-outs (§2) — **deferred to Step 11.6**
+
+The four state-scoped pages from §2 remain active on the site as of 2026-04-20 (`florida-small-claims-help.html`, `small-claims-documentation.html`, `llc-formation-florida.html`, `immigration-services-tampa.html`). Routing decision — retain-with-banner vs. 301-to-national-equivalent vs. hybrid — is the subject of Step 11.6.
+
+The `vcx-state-banner` component is **not yet built**. Its build is contingent on Step 11.6 routing decisions: if any §2 page is retained with state-scoped framing, the banner ships; if all §2 pages either 301 or are rewritten to national framing with card-level carve-outs (see refinement below), the banner is redundant and the ADR §2 banner requirement is waived.
+
+**Refinement — card-level state carve-outs (emerged during Step 11.5 batch 2)**: `additional-services.html` card4 ("Florida Official Source Locator") was retained as a Florida-specific research tool **embedded within an otherwise U.S.-wide page**. This is a narrower carve-out pattern than §2's page-level scoping — a single feature card carries state-specific scope while the parent page is national. The pattern is **additive** to §2 (does not invalidate page-level carve-outs) and should be applied when a future state-specific research tool is added to a national page without justifying full-page scoping.
+
+### Layer 4 — Geo page role pivot (§4) — **not yet shipped**
+
+All 5 geo pages from §4 remain active at their canonical URLs as of 2026-04-20 (`revenue-recovery-florida.html`, `revenue-recovery-miami.html`, `revenue-recovery-orlando.html`, `revenue-recovery-tampa.html`, `immigration-services-tampa.html`). No role-pivot copy work has shipped. Scheduled for Step 11.6 in conjunction with §2 routing decisions.
+
+### Layer 6 — Future-state rollout contract (§6) — **not yet shipped**
+
+`docs/positioning/state-rollout-playbook.md` scheduled for Step 11.7 (or shifted to Step 11.8 / P12 depending on P11 sub-batch ordering finalized in subsequent sessions).
+
+### Known divergences — all accepted
+
+1. **Disclaimer wording** — shipped copy uses "state-bar rules vary by state" framing rather than verbatim Appendix A text. Intent preserved; copy tuned for cadence.
+2. **Card-level carve-outs** — additive pattern not anticipated in original ADR draft. Documented above; does not invalidate §2.
+3. **State-banner build** — deferred pending Step 11.6 routing decisions. May be waived entirely if §2 pages route via 301 + card-level carve-outs on national replacements.
+
+These divergences are **accepted** — ADR-014 is the strategic contract; Implementation record is ground truth for downstream phases.
+
 ## Links
 
-- commit: ADR file merged as `ADR-014` draft on 2026-04-19 alongside audit intake; accepted flip deferred to P11 kickoff
+- commit: drafted `ec6e7b3` (2026-04-19 audit intake); accepted at P11 Step 11.1 (2026-04-20); see Implementation record above for shipped-layer commit SHAs
 - obsidian: [[Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot]]
 - upstream: `docs/adr/ADR-006-navigation-b2b-b2c-split.md` (nav IA) · `docs/adr/ADR-009-legal-disclaimer-architecture.md` (disclaimer contract, delivered by P05)
 - audit source: [[Upgrade 2026-04/Research/Site Audit 2026-04-19]] §5
