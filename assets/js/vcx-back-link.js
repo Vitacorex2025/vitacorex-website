@@ -163,23 +163,34 @@
     // to dodge a stale-frame bug on back navigation. Modern iOS (15+)
     // handles bfcache correctly for plain navigations; if staleness
     // resurfaces, add a targeted pageshow handler later.
+    // Why we DON'T use history.back() anymore:
+    // The back-link previously tried history.back() when a same-origin
+    // referrer existed. That worked for the history entry itself, but the
+    // browser's bfcache restored the previous home-page scroll position,
+    // which often left the user mid-page on .vcx-stats-2 (dark band). On
+    // the home page that band reads as a "white/blank screen" because
+    // scroll-reveal elements there use [data-animate] and stay opacity:0
+    // until IntersectionObserver fires — which doesn't happen on restore.
+    //
+    // Fix: ALWAYS navigate forward to an explicit /index.html and force
+    // the browser to start at the top of the document. This guarantees
+    // the user lands on the hero, never on a cached mid-page fragment.
     link.addEventListener('click', function (ev) {
       ev.preventDefault();
-      var sameOriginRef = false;
+      // Opt out of scroll restoration for the outgoing navigation so the
+      // next document starts at y=0 regardless of bfcache state.
       try {
-        var ref = document.referrer || '';
-        if (ref) sameOriginRef = (new URL(ref).origin === window.location.origin);
-      } catch (_) { sameOriginRef = false; }
-      // history.length >= 2 means there IS a back entry in this tab.
-      if (sameOriginRef && window.history.length > 1) {
-        window.history.back();
-      } else {
-        // Fallback: keep the forward entry (assign, not replace).
-        // Use explicit /index.html — bare "/" occasionally lands on a
-        // white screen behind certain caches/edges; the explicit path
-        // is unambiguous and always resolves to the home document.
-        window.location.assign('/index.html');
-      }
+        if ('scrollRestoration' in window.history) {
+          window.history.scrollRestoration = 'manual';
+        }
+      } catch (_) { /* noop */ }
+      // Belt + suspenders: scroll to top before leaving so any restore
+      // that references the current position lands at 0.
+      try { window.scrollTo(0, 0); } catch (_) { /* noop */ }
+      // Always use explicit /index.html (not bare "/"), and append a
+      // cache-neutral fragment marker so any remaining scroll-restoration
+      // logic resolves to the top of the document.
+      window.location.assign('/index.html');
     });
 
     document.addEventListener('vcx:locale-change', function () {
@@ -250,4 +261,66 @@
   } else {
     run();
   }
+})();
+
+/* ==========================================================================
+   vcx-home-scroll-reset  (third IIFE in this file)
+   Problem: when the user landed on the home page via back/forward or a
+   bfcache-restored navigation, the browser often restored the previous
+   scroll position — which could be deep inside the dark .vcx-stats-2
+   band. On that band, [data-animate] reveal elements without the
+   .is-visible class stay at opacity:0 (the home page does NOT load the
+   IntersectionObserver in vcx-premium-2.js), so the viewport looked like
+   a "white/blank screen" even though the DOM was fully rendered above
+   and below.
+   Fix: on the home page ONLY, opt out of scroll restoration and force
+   scroll-to-top for both fresh loads and bfcache restores (pageshow.persisted).
+   ========================================================================== */
+(function () {
+  'use strict';
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+  // Gate: home page only. Same check the first IIFE uses, mirrored here
+  // because the first IIFE early-returns on home and we need this second
+  // behavior to run there.
+  var path = (location.pathname || '').toLowerCase();
+  var lastSeg = path.split('/').filter(Boolean).pop() || '';
+  var isHome =
+    path === '/' ||
+    path === '/index.html' ||
+    path === '/index' ||
+    (lastSeg === '' && path === '/') ||
+    (lastSeg === 'index.html' && path.split('/').filter(Boolean).length <= 1);
+  if (!isHome) return;
+
+  // Don't fight in-page anchor links: if the URL carries a real fragment
+  // like "#who-you-are", honor the user's intent.
+  function hasMeaningfulHash() {
+    var h = (location.hash || '').replace(/^#/, '');
+    return h && h !== 'top';
+  }
+
+  try {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  } catch (_) { /* noop */ }
+
+  function toTop() {
+    if (hasMeaningfulHash()) return;
+    try { window.scrollTo(0, 0); } catch (_) { /* noop */ }
+  }
+
+  // Fresh load: hard-reset scroll before paint, then again after layout.
+  toTop();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toTop, { once: true });
+  }
+  window.addEventListener('load', toTop, { once: true });
+
+  // bfcache restore (back/forward into home): pageshow fires with
+  // persisted === true. Force scroll to the hero in that case.
+  window.addEventListener('pageshow', function (e) {
+    if (e && e.persisted) toTop();
+  });
 })();
