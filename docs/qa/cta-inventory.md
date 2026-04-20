@@ -228,12 +228,12 @@ idempotent: true
 | `app/contract-intelligence/index.html` | 264 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
 | `app/contract-intelligence/index.html` | 265 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
 | `app/contract-intelligence/index.html` | 277 | a | &larr; Private Client Services | `/additional-services.html` | in-body | shared | — |
-| `app/contract-intelligence/index.html` | 347 | button | Analyze contract | `vcxScanContract()` | action-script | shared | — |
-| `app/contract-intelligence/index.html` | 363 | form | form:vcxAdvisorForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
-| `app/contract-intelligence/index.html` | 378 | button | Submit for Advisor Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
-| `app/contract-intelligence/index.html` | 381 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
-| `app/contract-intelligence/index.html` | 408 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `app/contract-intelligence/index.html` | 409 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `app/contract-intelligence/index.html` | 354 | button | Analyze contract | `vcxScanContract()` | action-script | shared | — |
+| `app/contract-intelligence/index.html` | 370 | form | form:vcxAdvisorForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
+| `app/contract-intelligence/index.html` | 385 | button | Submit for Advisor Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
+| `app/contract-intelligence/index.html` | 388 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
+| `app/contract-intelligence/index.html` | 415 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `app/contract-intelligence/index.html` | 416 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
 | `app/deadline-calendar/index.html` | 39 | a | VitaCoreX LLCRevenue recovery and documentation infrastruct… | `/index.html` | primary-nav | shared | — |
 | `app/deadline-calendar/index.html` | 49 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `app/deadline-calendar/index.html` | 49 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
@@ -298,9 +298,9 @@ idempotent: true
 | `app/dealer-contract-check/index.html` | 165 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
 | `app/dealer-contract-check/index.html` | 165 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
 | `app/dealer-contract-check/index.html` | 173 | a | &larr; Private Client Services | `/additional-services.html` | in-body | shared | — |
-| `app/dealer-contract-check/index.html` | 246 | button | Check Deal Numbers | `vcxRunDealCheck()` | action-script | shared | — |
-| `app/dealer-contract-check/index.html` | 276 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `app/dealer-contract-check/index.html` | 277 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `app/dealer-contract-check/index.html` | 253 | button | Check Deal Numbers | `vcxRunDealCheck()` | action-script | shared | — |
+| `app/dealer-contract-check/index.html` | 283 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `app/dealer-contract-check/index.html` | 284 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
 | `app/immigration-forms/index.html` | 194 | a | VitaCoreX LLCPrivate revenue recovery and legal-file adviso… | `/index.html` | primary-nav | shared | — |
 | `app/immigration-forms/index.html` | 205 | a | Home | `/index.html` | primary-nav | shared | — |
 | `app/immigration-forms/index.html` | 206 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
@@ -327,14 +327,14 @@ idempotent: true
 | `app/immigration-forms/index.html` | 232 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
 | `app/immigration-forms/index.html` | 232 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
 | `app/immigration-forms/index.html` | 240 | a | &larr; Private Client Services | `/additional-services.html` | in-body | shared | — |
-| `app/immigration-forms/index.html` | 265 | button | 📷 Take photo | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
-| `app/immigration-forms/index.html` | 266 | button | 📋 Choose file | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
-| `app/immigration-forms/index.html` | 275 | button | Analyze packet | `vcxAnalyzeForm()` | action-script | shared | — |
-| `app/immigration-forms/index.html` | 288 | form | form:vcxPacketForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
-| `app/immigration-forms/index.html` | 303 | button | Submit for Packet Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
-| `app/immigration-forms/index.html` | 306 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
-| `app/immigration-forms/index.html` | 326 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `app/immigration-forms/index.html` | 327 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `app/immigration-forms/index.html` | 267 | button | 📷 Take photo | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 268 | button | 📋 Choose file | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 277 | button | Analyze packet | `vcxAnalyzeForm()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 290 | form | form:vcxPacketForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
+| `app/immigration-forms/index.html` | 305 | button | Submit for Packet Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
+| `app/immigration-forms/index.html` | 308 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
+| `app/immigration-forms/index.html` | 328 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `app/immigration-forms/index.html` | 329 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
 | `app/legal-assistant/index.html` | 26 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `/index.html` | primary-nav | shared | — |
 | `app/legal-assistant/index.html` | 48 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `app/legal-assistant/index.html` | 48 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
@@ -1302,7 +1302,7 @@ idempotent: true
 | `faq.html` | 243 | a | Security & Compliance | `security-and-compliance.html` | in-body | shared | — |
 | `faq.html` | 257 | a | Sample Deliverable | `sample-deliverable.html` | in-body | shared | — |
 | `faq.html` | 264 | a | Security & Compliance | `security-and-compliance.html` | in-body | shared | — |
-| `faq.html` | 433 | a | Contact Us — (888) 794-8292 | `/contact.html` | in-body | shared | — |
+| `faq.html` | 458 | a | Contact Us — (888) 794-8292 | `/contact.html` | in-body | shared | — |
 | `florida-small-claims-help.html` | 112 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2c | — |
 | `florida-small-claims-help.html` | 134 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
 | `florida-small-claims-help.html` | 134 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
