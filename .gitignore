@@ -12,3 +12,8 @@ vcx-api/app/models/__pycache__/
 *.db
 *.db-shm
 *.db-wal
+
+# Build / tooling ephemera
+node_modules/
+.tmp/
+package-lock.json
