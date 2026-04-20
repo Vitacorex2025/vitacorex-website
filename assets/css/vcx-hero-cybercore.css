@@ -19,17 +19,18 @@
  */
 
 :root {
-  /* Pure blue + turquoise palette — zero warm/green-mint tones.
-   * Earlier palette had A8D8C6 + cream highlights that read as warm/orange;
-   * swapped for sky-blue + blue-tinted white for cooler cyan-to-blue mix. */
-  --vcx-cc-bg-top:      #05132A;
-  --vcx-cc-bg-bottom:   #0A1E3D;
-  --vcx-cc-grid-line:   rgba(100, 180, 230, 0.10);
-  --vcx-cc-beam:        #5BC8E6;
-  --vcx-cc-beam-alt:    #7AB8FF;
-  --vcx-cc-glow-1:      rgba(80, 180, 220, 0.75);
-  --vcx-cc-glow-2:      rgba(40, 120, 180, 0.55);
-  --vcx-cc-highlight:   rgba(190, 220, 255, 0.85);
+  /* Mint bluish-green palette — brand teal #5BBAA7 as primary beam tone,
+   * lighter mint #7ED8C3 as secondary accent, with a deep teal-navy base.
+   * Reads as "minty aqua" — cooler than true green, warmer than pure cyan.
+   * All highlight tones are blue-tinted mint (NOT cream) to avoid warm drift. */
+  --vcx-cc-bg-top:      #051F1A;
+  --vcx-cc-bg-bottom:   #0A2E28;
+  --vcx-cc-grid-line:   rgba(120, 210, 190, 0.10);
+  --vcx-cc-beam:        #5BBAA7;
+  --vcx-cc-beam-alt:    #7ED8C3;
+  --vcx-cc-glow-1:      rgba(90, 200, 175, 0.75);
+  --vcx-cc-glow-2:      rgba(40, 140, 120, 0.55);
+  --vcx-cc-highlight:   rgba(200, 245, 225, 0.85);
 }
 
 .vcx-cybercore-scene {
@@ -37,8 +38,8 @@
   inset: 0;
   overflow: hidden;
   background:
-    /* Bottom glow — cool blue-cyan instead of teal-green */
-    radial-gradient(ellipse at 50% 105%, rgba(50, 140, 220, 0.38) 0%, transparent 55%),
+    /* Bottom glow — mint-teal (brand tone) for a minty bluish-green base */
+    radial-gradient(ellipse at 50% 105%, rgba(50, 190, 160, 0.38) 0%, transparent 55%),
     linear-gradient(180deg, var(--vcx-cc-bg-top) 0%, var(--vcx-cc-bg-bottom) 100%);
   perspective: 900px;
   pointer-events: none;
