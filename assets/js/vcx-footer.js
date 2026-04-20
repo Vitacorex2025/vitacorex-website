@@ -22,8 +22,8 @@
       items: [
         { k: 'nav_revenue_recovery',     t: 'Revenue Recovery',                         href: 'revenue-recovery-workflow.html' },
         { k: 'nav_clfc',                 t: 'Corporate Legal File Control',             href: 'corporate-legal-file-control.html' },
-        { k: 'nav_net_recovery_free',    t: 'Net Recovery Program — free pilot',        href: 'pre-collection-pilot.html' },
-        { k: 'nav_controlled_ops',       t: 'Controlled Operations Pilot — $8,500/mo',  href: 'solutions.html' },
+        { k: 'nav_net_recovery_free',    t: 'Qualified Net Recovery Pilot — $0 upfront', href: 'pre-collection-pilot.html' },
+        { k: 'nav_controlled_ops',       t: 'Paid Workflow Pilot — from $2,500/mo',      href: 'solutions.html' },
         { k: 'nav_small_claims_desk',    t: 'Small Claims & Civil Packet Desk',         href: 'small-claims-documentation.html' },
         { k: 'nav_industries',           t: 'Industries',                               href: 'industries.html' },
         { k: 'nav_pricing_hub',          t: 'Pricing',                                  href: 'pricing-and-engagement-tiers.html' },

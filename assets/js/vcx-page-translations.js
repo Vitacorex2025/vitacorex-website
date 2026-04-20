@@ -1529,9 +1529,9 @@ add('How much does VitaCoreX cost?',
     'Сколько стоит VitaCoreX?',
     '¿Cuánto cuesta VitaCoreX?');
 
-add('VitaCoreX offers three engagement tiers. (1) Diagnostic: a fixed-fee $2,500 revenue leakage audit delivered in 10 business days — identifies where cash is stuck and quantifies recovery upside. (2) 90-day Pilot: from $8,500/month, targeting 2.2–4.4× ROI on pilot fees through measured AR recovery. (3) Programme: custom retainer plus outcome-based fee for ongoing recovery infrastructure. Unlike traditional collection agencies that take 30–50% contingency, our fees are transparent and predictable, so clients keep the majority of recovered revenue.',
-    'VitaCoreX предлагает три уровня взаимодействия. (1) <strong>Диагностика</strong>: фиксированный гонорар $2,500 за аудит утечек выручки, доставляемый за 10 рабочих дней — выявляет, где застревает кэш, и количественно оценивает потенциал возврата. (2) <strong>90-дневный пилот</strong>: от $8,500/месяц, нацелен на ROI 2.2–4.4× на гонорары пилота через измеряемый возврат AR. (3) <strong>Программа</strong>: индивидуальный ретейнер плюс гонорар на основе результата за текущую инфраструктуру возврата. В отличие от традиционных агентств, берущих 30–50% contingency, наши гонорары прозрачны и предсказуемы, так что клиенты сохраняют большинство возвращённой выручки.',
-    'VitaCoreX ofrece tres niveles de contratación. (1) <strong>Diagnóstico</strong>: una auditoría de fuga de ingresos con honorario fijo de $2,500 entregada en 10 días hábiles — identifica dónde está atascado el efectivo y cuantifica el potencial de recuperación. (2) <strong>Piloto de 90 días</strong>: desde $8,500/mes, apuntando a un ROI de 2.2–4.4× sobre los honorarios del piloto mediante recuperación medida de AR. (3) <strong>Programa</strong>: retainer personalizado más honorario basado en resultados para infraestructura continua de recuperación. A diferencia de las agencias tradicionales que toman 30–50% de contingencia, nuestros honorarios son transparentes y predecibles, por lo que los clientes conservan la mayoría de los ingresos recuperados.');
+add('VitaCoreX offers three transparent engagement tiers. (1) Revenue Recovery Diagnostic: a fixed $1,500 fee for a two-week scoped assessment — best for companies that want a limited review before committing to an implementation or pilot. Fee is credited against a subsequent Paid Workflow Pilot if engaged within 30 days. (2) Paid Workflow Pilot: from $2,500/month — best for companies that need workflow buildout, documentation controls, dashboards, SOPs, and file readiness but do not qualify for the no-retainer recovery pilot. Fee is committed regardless of outcome; performance-linked component available on request. (3) Qualified Net Recovery Pilot: $0 upfront for approved portfolios, compensation is a consulting success fee only on eligible recovered cash (15 / 18 / 22.5% by AR age band) — best for U.S. companies with qualifying AR portfolios. Explicitly excludes: legal advice, licensed collection activity, consumer-facing third-party collection, court representation, and payment custody. All three tiers have published prices. VitaCoreX is not a law firm and is not a debt collector.',
+    'VitaCoreX предлагает три прозрачные ступени. (1) <strong>Revenue Recovery Diagnostic</strong>: фиксированный гонорар $1,500 за двухнедельный scoped-разбор — подходит компаниям, которым нужен ограниченный обзор до принятия обязательств. Сумма зачитывается в последующий Paid Workflow Pilot, если договор заключён в течение 30 дней. (2) <strong>Paid Workflow Pilot</strong>: от $2,500/мес — подходит компаниям, которым нужен buildout workflow, документационные контроли, дашборды, SOP и file readiness, но которые не проходят на no-retainer recovery pilot. Оплата фиксируется независимо от результата; performance-linked компонент доступен по запросу. (3) <strong>Qualified Net Recovery Pilot</strong>: $0 upfront для одобренных портфелей, компенсация — consulting success fee только с eligible возвращённых денег (15 / 18 / 22,5% по возрастным группам AR) — подходит U.S.-компаниям с квалифицирующимися AR-портфелями. Явно исключено: юридические советы, лицензированная collection-активность, consumer-facing third-party collection, представительство в суде, payment custody. У всех трёх ступеней цены опубликованы. VitaCoreX — не юридическая фирма и не сборщик долгов.',
+    'VitaCoreX ofrece tres niveles de contratación transparentes. (1) <strong>Revenue Recovery Diagnostic</strong>: una tarifa fija de $1,500 por una evaluación scoped de dos semanas — ideal para empresas que quieren una revisión limitada antes de comprometerse con una implementación o piloto. La tarifa se acredita al Paid Workflow Pilot posterior si se contrata dentro de 30 días. (2) <strong>Paid Workflow Pilot</strong>: desde $2,500/mes — ideal para empresas que necesitan buildout de workflow, controles documentales, dashboards, SOPs y file readiness pero no califican para el no-retainer recovery pilot. El pago se compromete independientemente del resultado; componente performance-linked disponible a solicitud. (3) <strong>Qualified Net Recovery Pilot</strong>: $0 upfront para portafolios aprobados, la compensación es una consulting success fee solo sobre efectivo recuperado elegible (15 / 18 / 22,5% por tramo de edad de AR) — ideal para empresas de EE. UU. con portafolios AR que califican. Excluye explícitamente: asesoramiento legal, actividad de cobranza licenciada, cobranza consumer-facing de terceros, representación en tribunal y custodia de pagos. Los tres niveles tienen precios publicados. VitaCoreX no es un bufete ni un cobrador de deudas.');
 
 add('How fast do we see results?',
     'Как быстро мы увидим результаты?',
@@ -3431,18 +3431,18 @@ add('Three entry points. Every commitment starts with a measurable scope.',
 add('Indicative ranges below reflect current pilot and programme structures. Final fee is confirmed after the confidential review and depends on matter volume, industry compliance scope, and integration complexity.',
     'Диапазоны ниже — ориентировочные, они отражают текущие структуры пилотов и программ. Итоговая стоимость подтверждается после конфиденциального разбора и зависит от объёма дел, compliance-рамок отрасли и сложности интеграции.',
     'Los rangos indicativos a continuación reflejan las estructuras actuales de pilotos y programas. La tarifa final se confirma tras la revisión confidencial y depende del volumen de asuntos, el alcance de cumplimiento de la industria y la complejidad de integración.');
-add('Diagnostic review',
-    'Диагностический разбор',
-    'Revisión diagnóstica');
-add('Starting $2,500',
-    'От $2,500',
-    'Desde $2,500');
-add('Two-week assessment',
-    'Оценка за две недели',
-    'Evaluación de dos semanas');
-add('Workflow audit, AR leakage map, file-control gap log, and a 12-month roadmap. Fee applied to subsequent pilot if engaged within 30 days.',
-    'Аудит workflow, карта утечек AR, журнал пробелов в контроле файлов и 12-месячный roadmap. Оплата засчитывается в следующий пилот при заключении договора в течение 30 дней.',
-    'Auditoría de flujo, mapa de fugas de AR, registro de brechas de control documental y hoja de ruta a 12 meses. La tarifa se aplica al piloto siguiente si se contrata dentro de 30 días.');
+add('Revenue Recovery Diagnostic',
+    'Revenue Recovery Diagnostic',
+    'Revenue Recovery Diagnostic');
+add('$1,500 fixed fee',
+    '$1,500 фиксированно',
+    '$1,500 tarifa fija');
+add('Two-week assessment · for companies that want a limited review before committing',
+    'Двухнедельная оценка · для компаний, которым нужен ограниченный разбор до принятия обязательств',
+    'Evaluación de dos semanas · para empresas que quieren una revisión limitada antes de comprometerse');
+add('Workflow audit, AR leakage map, file-control gap log, and a 12-month roadmap. Fee applied to a subsequent Paid Workflow Pilot if engaged within 30 days.',
+    'Аудит workflow, карта утечек AR, журнал пробелов в контроле файлов и 12-месячный roadmap. Сумма зачитывается в последующий Paid Workflow Pilot при заключении договора в течение 30 дней.',
+    'Auditoría de flujo, mapa de fugas de AR, registro de brechas de control documental y hoja de ruta a 12 meses. La tarifa se acredita al Paid Workflow Pilot posterior si se contrata dentro de 30 días.');
 add('Remote kickoff and data intake',
     'Удалённый kickoff и приём данных',
     'Arranque remoto y captura de datos');
@@ -3452,18 +3452,18 @@ add('Recovery-probability model for your AR mix',
 add('Written deliverable plus 45-min readout',
     'Письменный deliverable плюс 45-минутный readout',
     'Entregable escrito más lectura de 45 minutos');
-add('90-day controlled pilot',
-    'Контролируемый пилот на 90 дней',
-    'Piloto controlado de 90 días');
-add('From $8,500/mo',
-    'От $8,500/мес',
-    'Desde $8,500/mes');
-add('Performance-linked component available',
-    'Доступен компонент, привязанный к результату',
-    'Componente vinculado al desempeño disponible');
-add('Full workflow deployment for one business unit or one matter lane. Typical pilots report 2.2–4.4x ROI over the 90-day window, with measurable DSO reduction and pre-escalation recovery uplift.',
-    'Полное развёртывание workflow для одного бизнес-подразделения или одного направления дел. Типовые пилоты показывают 2.2–4.4x ROI за 90 дней с измеримым снижением DSO и ростом до-эскалационного возврата.',
-    'Despliegue completo del flujo para una unidad de negocio o una línea de asuntos. Los pilotos típicos reportan 2.2–4.4x ROI en 90 días, con reducción medible de DSO e incremento de recuperación previa a la escalada.');
+add('Paid Workflow Pilot',
+    'Paid Workflow Pilot',
+    'Paid Workflow Pilot');
+add('From $2,500/mo',
+    'От $2,500/мес',
+    'Desde $2,500/mes');
+add('For companies that need workflow buildout but do not qualify for the no-retainer recovery pilot',
+    'Для компаний, которым нужно выстроить workflow, но которые не проходят на no-retainer recovery pilot',
+    'Para empresas que necesitan buildout de workflow pero no califican para el no-retainer recovery pilot');
+add('Workflow deployment, documentation controls, dashboards, SOPs, and file readiness for one business unit or one matter lane. Monthly engagement; performance-linked components available where appropriate.',
+    'Развёртывание workflow, документационные контроли, дашборды, SOP и file readiness для одного бизнес-подразделения или одной категории дел. Ежемесячная оплата; performance-linked компоненты доступны по ситуации.',
+    'Despliegue de workflow, controles documentales, dashboards, SOPs y file readiness para una unidad de negocio o una línea de casos. Engagement mensual; componentes performance-linked disponibles cuando corresponde.');
 add('Documented SOPs and escalation ladder',
     'Документированные SOP и лестница эскалации',
     'SOPs documentados y escalera de escalación');
