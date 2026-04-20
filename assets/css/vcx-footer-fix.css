@@ -1,10 +1,17 @@
 /**
- * VitaCoreX Footer Spacing Fix
- * Fixes: "VitaCoreX LLCEstablished 2025" and "Phone:EIN:" text collision
- * Works globally on ALL pages.
+ * VitaCoreX Footer Spacing Fix + Unified Legal Block
+ * Fixes:
+ *   - "VitaCoreX LLCEstablished 2025" / "Phone:EIN:" text collision
+ *   - Disclosure paragraph stretching full container width (hard to read)
+ *   - Missing visual separation between disclosure / trust line / copyright
+ *
+ * Works globally on ALL pages that use any of:
+ *   footer.footer   (main site)
+ *   footer.vcx-footer (app pages)
+ *   .footer-grid / .footer-grid-extended / .footer-grid--dual
  */
 
-/* Elements inside footer-grid cells should stack vertically with gaps */
+/* ── Column stacking inside the meta grid ─────────────────────────── */
 .vcx-footer .footer-grid > div,
 .footer .footer-grid > div,
 footer .footer-grid > div {
@@ -26,12 +33,112 @@ footer .footer-grid span {
   line-height: 1.5 !important;
 }
 
-/* On mobile, single column */
+/* ── Unified disclosure block (footer_disc) ───────────────────────── */
+/* Caps line length for readability + adds subtle top rule so the legal
+   block visually separates from the company meta rows above it. */
+.vcx-footer .footer-disc,
+.footer .footer-disc,
+footer .footer-disc,
+.vcx-footer [data-common="footer_disc"],
+.vcx-footer [data-i18n="footer_disc"],
+.footer [data-common="footer_disc"],
+.footer [data-i18n="footer_disc"],
+footer [data-common="footer_disc"],
+footer [data-i18n="footer_disc"] {
+  max-width: 980px;
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+}
+
+/* Light-theme guard (main site footer renders on a light gradient) */
+body[data-audience="shared"] .footer .footer-disc,
+body[data-audience="shared"] .footer [data-i18n="footer_disc"],
+body[data-audience="b2b"]    .footer .footer-disc,
+body[data-audience="b2b"]    .footer [data-i18n="footer_disc"],
+body[data-audience="b2c"]    .footer .footer-disc,
+body[data-audience="b2c"]    .footer [data-i18n="footer_disc"],
+.footer .footer-meta .small-note[data-i18n="footer_disc"] {
+  color: rgba(14, 32, 54, 0.7);
+  border-top-color: rgba(14, 32, 54, 0.08);
+}
+
+/* ── Trust line (footer_trust_line) ───────────────────────────────── */
+/* Short badge row that sits immediately below the disclosure.
+   Uppercase caps + narrow font keeps it visually distinct from prose. */
+.vcx-footer .footer-trust-line,
+.footer .footer-trust-line,
+footer .footer-trust-line,
+.vcx-footer [data-common="footer_trust_line"],
+.vcx-footer [data-i18n="footer_trust_line"],
+.footer [data-common="footer_trust_line"],
+.footer [data-i18n="footer_trust_line"],
+footer [data-common="footer_trust_line"],
+footer [data-i18n="footer_trust_line"] {
+  max-width: 980px;
+  margin: 8px 0 0;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* Compact variant used inside app-page mini-footers */
+.vcx-footer .footer-trust-line--compact,
+.footer .footer-trust-line--compact,
+footer .footer-trust-line--compact {
+  margin-top: 6px;
+  font-size: 0.7rem;
+}
+
+/* Light-theme guard */
+body[data-audience="shared"] .footer .footer-trust-line,
+body[data-audience="shared"] .footer [data-i18n="footer_trust_line"],
+body[data-audience="b2b"]    .footer .footer-trust-line,
+body[data-audience="b2b"]    .footer [data-i18n="footer_trust_line"],
+body[data-audience="b2c"]    .footer .footer-trust-line,
+body[data-audience="b2c"]    .footer [data-i18n="footer_trust_line"],
+.footer .footer-meta .small-note[data-i18n="footer_trust_line"] {
+  color: rgba(14, 32, 54, 0.55);
+}
+
+/* ── Copyright sits below both ────────────────────────────────────── */
+.vcx-footer .footer-copyright,
+.footer .footer-copyright,
+footer .footer-copyright,
+.vcx-footer [data-common="footer_copy"],
+.vcx-footer [data-i18n="footer_copy"],
+.footer [data-common="footer_copy"],
+.footer [data-i18n="footer_copy"] {
+  margin-top: 10px;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .vcx-footer .footer-grid,
   .footer .footer-grid,
   footer .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
+  }
+  .vcx-footer .footer-disc,
+  .footer .footer-disc,
+  footer .footer-disc,
+  .vcx-footer [data-i18n="footer_disc"],
+  .footer [data-i18n="footer_disc"] {
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+  .vcx-footer .footer-trust-line,
+  .footer .footer-trust-line,
+  footer .footer-trust-line,
+  .vcx-footer [data-i18n="footer_trust_line"],
+  .footer [data-i18n="footer_trust_line"] {
+    font-size: 0.68rem;
   }
 }
