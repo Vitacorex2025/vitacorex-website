@@ -220,6 +220,37 @@ section.vcx-hero-particles-host--sechead .adr-btn--ghost {
   text-shadow: none !important;
 }
 
+/* ── Horizontal pricing override ─────────────────────────────────────
+ * The .fit-grid helper in styles.css applies a CSS Grid with
+ * `grid-template-columns: repeat(2, 1fr)`, forcing every child of
+ * the grid into a 2-column track. Single-tier pricing pages
+ * (turnkey-business-opening, location-analysis, business-plans)
+ * now mark their wrapper as .pricing-horizontal and lay the card
+ * out as a wide two-column block instead. Override the grid to a
+ * block, kill the forced card padding clamp, and make the card's
+ * own flex layout take over so left (price+CTA) sits next to
+ * right (feature list). Collapses to stacked below ~760px.
+ *
+ * User feedback:
+ *   "где цены одна коллонка лучше сделать горизонтально, чтобы
+ *    выглядело хорошо" */
+.fit-grid.pricing-horizontal {
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+}
+.fit-grid.pricing-horizontal > article.card {
+  padding: 36px 40px !important;
+  max-width: none !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+@media (max-width: 760px) {
+  .fit-grid.pricing-horizontal > article.card {
+    padding: 28px 22px !important;
+  }
+}
+
 /* ── Breadcrumb reset + dark-scene colouring ─────────────────────────
  * .vcx-breadcrumb wraps an <ol> which otherwise renders decimal
  * markers ("1. Home, 2. Private Client Services, 3. ..."). None of
