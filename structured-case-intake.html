@@ -140,6 +140,7 @@
 <option data-tx="service_individuals" value="Services for Individuals">Private Client Services</option>
 <option data-tx="service_other" value="Other">Other</option>
 </select>
+<p class="small-note vcx-engagement-disc" data-page="sci_engagement_disc" style="margin:8px 0 0;font-size:.8rem;line-height:1.5;color:#5E6C7B;">Submission does not create an attorney-client relationship, collection-agency relationship, fiduciary relationship, or acceptance of engagement. Scope is confirmed in writing only after intake review.</p>
 </div>
 <div class="field full">
 <label data-tx="field_message">Message / Situation summary *</label>
@@ -174,18 +175,57 @@
 </div>
 </details>
 </div>
+<div class="field full vcx-upload-scope-ack">
+<label class="vcx-upload-scope-ack__label" for="intakeUploadScopeAck" style="display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:rgba(184,134,11,.07);border:1px solid rgba(184,134,11,.25);border-left:4px solid #B8860B;border-radius:10px;cursor:pointer;margin:0;">
+<input aria-describedby="intakeUploadScopeAckNote" class="vcx-upload-scope-ack__input" id="intakeUploadScopeAck" name="upload_scope_acknowledged" required="" style="flex-shrink:0;margin-top:4px;width:18px;height:18px;cursor:pointer;" type="checkbox" value="Yes"/>
+<span class="vcx-upload-scope-ack__text" data-page="sci_upload_scope_ack" id="intakeUploadScopeAckNote" style="font-size:.88rem;line-height:1.55;color:#2F3E38;"><strong style="color:#7B5A0A;display:block;margin-bottom:4px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;">Required acknowledgement before upload</strong>I understand this public form is not for PHI, medical records, insurance records, payment-card data, bank account data, immigration identity documents, sealed court records, minors&rsquo; records, or other regulated/sensitive records. VitaCoreX will provide secure upload instructions after scope confirmation if such records are needed.</span>
+</label>
+</div>
 <div class="field full">
 <label data-tx="field_attachment">File attachment (optional)</label>
 <input accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.png,.jpg,.jpeg,.webp" aria-describedby="intakeFileNote" data-tx-accept="intake_attachment_note" name="attachment" type="file"/>
 </div>
 <div class="field full">
-<p class="small-note file-note" id="intakeFileNote">Attachment is optional. Use the public form for general business documents and non-regulated materials only.</p>
+<p class="small-note file-note" id="intakeFileNote">Attachment is optional. Use the public form for general business documents and non-regulated materials only &mdash; check the acknowledgement above before selecting a file.</p>
 </div>
 </div>
 <div class="cta-row">
-<button class="btn btn-primary" data-tx="intake_submit" id="intakeSubmitBtn" type="submit">Request structured intake</button>
+<button aria-disabled="true" class="btn btn-primary" data-tx="intake_submit" disabled="" id="intakeSubmitBtn" type="submit">Request structured intake</button>
 </div>
 <p aria-live="polite" class="form-status small-note" id="intakeFormStatus"></p>
+<p class="small-note" data-page="sci_submit_gate_hint" id="intakeSubmitGateHint" style="margin-top:8px;font-size:.78rem;color:#8B6B1F;">The submit button activates after the upload-scope acknowledgement is checked.</p>
+<script>
+(function(){
+  var form = document.getElementById('intakeForm');
+  if (!form) return;
+  var ack = document.getElementById('intakeUploadScopeAck');
+  var btn = document.getElementById('intakeSubmitBtn');
+  var hint = document.getElementById('intakeSubmitGateHint');
+  if (!ack || !btn) return;
+  function sync(){
+    var ok = !!ack.checked;
+    btn.disabled = !ok;
+    btn.setAttribute('aria-disabled', ok ? 'false' : 'true');
+    if (hint) hint.style.display = ok ? 'none' : '';
+  }
+  ack.addEventListener('change', sync);
+  ack.addEventListener('input', sync);
+  // Guard submit even if the button state is bypassed via DevTools or native validation fires differently.
+  form.addEventListener('submit', function(ev){
+    if (!ack.checked){
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      try { ack.reportValidity(); } catch(_){ }
+      if (hint) {
+        hint.style.display = '';
+        hint.style.color = '#8B4348';
+      }
+      return false;
+    }
+  }, true);
+  sync();
+})();
+</script>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_next" type="hidden" value="https://vitacorexllc.com/thank-you.html"/>
