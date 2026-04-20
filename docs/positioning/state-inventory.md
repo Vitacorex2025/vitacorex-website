@@ -116,6 +116,9 @@ Historical record — no current action needed. These surfaces have been shifted
 | 5 service pages UPL blocks | `56b8eee` | `scd_upl_text`/`pet_upl_text`/`crs_upl_text`/`ipr_upl_text`/`adr_upl_text` + footer variants: "Florida Bar rules on UPL" → "UPL rules vary by state" (EN/RU/ES) |
 | `partners.html` UPL | `a7a7d8b` | Florida Bar / Rule 4-5.4 / Chapter 454 FL Statutes reframed as illustrative examples rather than scope limits |
 | `additional-services.html` card5 + card8 | `779a4a8` | `as_card5_p`/`as_card5_li1`/`as_card5_scope` + `as_card8_h3`/`as_card8_p`/`as_card8_scope` EN/RU/ES state-neutralized; SEO meta + JSON-LD FAQ + inline PAGE_DATA aligned |
+| `i-130-petition.html` | `f438d60` | Title `\| VitaCoreX Tampa FL` → `\| VitaCoreX LLC`; meta description U.S.-wide ("available nationwide"); keywords drop `Tampa FL immigration` token; og:title + og:description + twitter:title + twitter:description mirror; JSON-LD `Service.areaServed` `{Place:Tampa, Florida}` → `{Country:United States}`. Preserved Cat. D ops anchors: `geo.region US-FL` meta, `geo.placename Tampa` meta, JSON-LD Organization block, body intro "throughout Tampa, Florida and nationwide", footer vendor signature. |
+| `i-485-adjustment.html` | `f438d60` | Same 8-edit pattern as i-130; meta description "Form I-485 Adjustment of Status document preparation and filing support, available nationwide..." |
+| `n-400-naturalization.html` | `f438d60` | Same 8-edit pattern as i-130; meta description "Form N-400 Application for Naturalization document preparation and citizenship interview support, available nationwide..." |
 
 ### Category F — Pending review (Step 11.5 batch 3+ or Step 11.6)
 
@@ -123,12 +126,13 @@ These surfaces have FL references that have **not been explicitly categorized** 
 
 | File | FL hits | Suspected disposition | Action |
 |------|---------|----------------------|--------|
-| `i-130-petition.html` | 2 Florida + 8 FL | **D** (Tampa FL in title = office location) OR **F** (could read as scope claim for federal-form service) | Review title framing in 11.5 batch 3 — if `<title>Form I-130 \| VitaCoreX Tampa FL</title>` is read as "VCX Tampa FL provides I-130 in FL only" by AI-overview, consider rewording to `<title>Form I-130 Petition \| VitaCoreX</title>` |
-| `i-485-adjustment.html` | 2 Florida + 8 FL | Same as I-130 | Same as I-130 |
-| `n-400-naturalization.html` | 2 Florida + 8 FL | Same as I-130 | Same as I-130 |
 | `immigration-documents.html` | 0 Florida + 1 FL | **D** (geo.region meta only) | No action — confirmed D |
 | `revenue-recovery-florida.html` | 14 Florida + 1 FL | **B** (geo page — role pivot pending) | See Cat. B |
 | `additional-services.html` | 7 Florida + 2 FL | **Mix C + D** — card4 (C) + Legal Assistant description (C) + FAQ Q1 (C) + SEO keywords (D) + footer (D) — all categorized | Confirmed — no action |
+
+**Resolved Cat. F → Cat. E flips** (2026-04-20, Step 11.6 design pass):
+
+- `i-130-petition.html` · `i-485-adjustment.html` · `n-400-naturalization.html` — shipped U.S.-wide framing in `f438d60` (P11 Step 11.5 batch 3); rows moved to Cat. E above.
 
 ### Category G — Out of scope
 
@@ -154,6 +158,8 @@ These surfaces have FL references that have **not been explicitly categorized** 
 | `404.html` | 1 Florida + 5 FL | Vendor identity on error page |
 
 ## Step 11.6 routing recommendations
+
+> **✅ RATIFIED 2026-04-20** — see [step-11-6-routing-decisions.md](./step-11-6-routing-decisions.md) for the binding contract. This section preserved as historical input / traceability record. For implementation, use the ratified contract; divergences from the table below are documented there.
 
 Input for next P11 sub-batch — not binding until ratified in Step 11.6 session.
 
@@ -198,6 +204,7 @@ When VCX adds a second state (e.g., Texas), the following updates land together 
 
 - ADR: [ADR-014 U.S.-wide Positioning Pivot](../adr/ADR-014-us-wide-positioning-pivot.md) (accepted 2026-04-20, `22bcdd0`)
 - ADR Implementation record §Layer 2 (card-level carve-out refinement)
-- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Session 3
+- Step 11.6 ratified routing contract: [step-11-6-routing-decisions.md](./step-11-6-routing-decisions.md) (ratified 2026-04-20)
+- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Sessions 3 + 4 + 5
 - Phase doc: `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot.md`
 - Audit source: `Upgrade 2026-04/Research/Site Audit 2026-04-19` §5
