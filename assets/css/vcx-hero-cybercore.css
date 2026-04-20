@@ -38,12 +38,27 @@
   inset: 0;
   overflow: hidden;
   background:
-    /* Bottom glow — mint-teal (brand tone) for a minty bluish-green base */
-    radial-gradient(ellipse at 50% 105%, rgba(50, 190, 160, 0.38) 0%, transparent 55%),
+    /* Two subtle diagonal mint-teal gradient overlays (TuringLanding
+     * pattern) — one sweeping in from the top-left, one from the bottom-
+     * right — layered over the deep teal-navy base. No beams, no grid. */
+    linear-gradient(115deg, rgba(91, 186, 167, 0.18) 0%, rgba(91, 186, 167, 0.04) 35%, transparent 60%),
+    linear-gradient(295deg, rgba(126, 216, 195, 0.14) 0%, rgba(126, 216, 195, 0.03) 40%, transparent 65%),
+    radial-gradient(ellipse at 50% 105%, rgba(50, 190, 160, 0.32) 0%, transparent 55%),
     linear-gradient(180deg, var(--vcx-cc-bg-top) 0%, var(--vcx-cc-bg-bottom) 100%);
   perspective: 900px;
   pointer-events: none;
   isolation: isolate;
+}
+
+/* Stripes takeover: beams, grid floor, and central column were the
+ * busy "cybercore" look that the user asked to retire in favor of the
+ * cleaner TuringLanding background (dark base + subtle mint gradients
+ * only). Leaving the DOM nodes in place but hiding them keeps the JS
+ * idempotent — no rewiring needed. */
+.vcx-cybercore-floor,
+.vcx-cybercore-column,
+.vcx-cybercore-beams {
+  display: none !important;
 }
 
 /* Grid floor — perspective-tilted, animated scroll toward the viewer.
