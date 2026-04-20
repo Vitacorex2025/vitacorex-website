@@ -176,12 +176,23 @@
 
 /* ── Legacy animation takeover ──────────────────────────────────────
  * When cybercore scene is active (marked by vcx-hero-cybercore.js), hide
- * the bokeh-orbs + aurora-canvas layers that vcx-redesign.js injects as
- * siblings of .vcx-hero-2__bg. Without this the old animations stack on
- * top of the new scene (their z-index is 1/4, cybercore lives at z:0). */
+ * every legacy hero animation layer that other scripts inject:
+ *   - .vcx-leaf-container / .vcx-hero-canvas (from vcx-redesign.js,
+ *     bokeh-orbs + aurora canvas, siblings of .vcx-hero-2__bg)
+ *   - .hero-cloud-layer (from site.js injectHeroClouds, parallax cloud
+ *     dots inside .vcx-hero-2__bg)
+ * Without these guards the old animations stack on top of the new scene
+ * (their z-index is 1/4, cybercore lives at z:0). Also strip the dark-
+ * teal base colour on .vcx-hero-2__bg that used to sit behind the old
+ * video — left in, it bleeds through the cybercore radial glow and
+ * warms the palette back toward green. */
 .vcx-hero-2[data-hero-scene="cybercore"] > .vcx-leaf-container,
-.vcx-hero-2[data-hero-scene="cybercore"] > .vcx-hero-canvas {
+.vcx-hero-2[data-hero-scene="cybercore"] > .vcx-hero-canvas,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__bg .hero-cloud-layer {
   display: none !important;
+}
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__bg {
+  background-color: transparent !important;
 }
 
 /* ── Hero content fade-slide-in entrance ───────────────────────────

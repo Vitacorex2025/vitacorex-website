@@ -40,20 +40,31 @@
     }
 
     // Mark the parent hero section so the legacy animation layers from
-    // vcx-redesign.js (.vcx-leaf-container + .vcx-hero-canvas) stop
-    // rendering on top of the new scene. Both the JS (redesign.js checks
-    // this marker and early-returns) and the CSS (vcx-hero-cybercore.css
+    // vcx-redesign.js (.vcx-leaf-container + .vcx-hero-canvas) and
+    // site.js (.hero-cloud-layer parallax divs) stop rendering on top
+    // of the new scene. Both the JS (redesign.js checks this marker
+    // and early-returns) and the CSS (vcx-hero-cybercore.css
     // display:none fallback) use the same selector, so the takeover is
     // robust regardless of script ordering.
     var heroSection = bgEl.closest('.vcx-hero-2');
     if (heroSection) {
       heroSection.setAttribute('data-hero-scene', 'cybercore');
       // Remove any legacy layers that already got inserted (if cybercore.js
-      // loaded after redesign.js). CSS hides them too, but removing frees
-      // the canvas requestAnimationFrame loop and DOM cost.
-      var legacy = heroSection.querySelectorAll(':scope > .vcx-leaf-container, :scope > .vcx-hero-canvas');
+      // loaded after redesign.js / site.js). CSS hides them too, but
+      // removing frees RAF loops and DOM cost.
+      var legacy = heroSection.querySelectorAll(
+        ':scope > .vcx-leaf-container, :scope > .vcx-hero-canvas, ' +
+        '.vcx-hero-2__bg .hero-cloud-layer'
+      );
       for (var i = 0; i < legacy.length; i++) legacy[i].remove();
     }
+
+    // Strip the inherited dark-teal base colour on .vcx-hero-2__bg that
+    // site.js / earlier stylesheets applied for the old video backdrop.
+    // Without this the base bleeds through the semi-transparent radial
+    // glow of the cybercore scene and warms the palette back toward
+    // green. Transparent lets the scene own the full palette.
+    bgEl.style.backgroundColor = 'transparent';
 
     var scene = document.createElement('div');
     scene.className = 'vcx-cybercore-scene';

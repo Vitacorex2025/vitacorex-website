@@ -435,6 +435,13 @@ if(careersForm){
 function injectHeroClouds(){
   const heroVideo=$('.hero-video') || document.querySelector('.vcx-hero-2__bg');
   if(!heroVideo || heroVideo.querySelector('.hero-cloud-layer')) return;
+  // Bail when the cybercore scene owns the hero. vcx-hero-cybercore.js
+  // sets data-hero-scene="cybercore" on the .vcx-hero-2 section before
+  // injecting its grid + beams. Adding the old parallax cloud layers on
+  // top would render pale dots over the new scene (the visible "old
+  // animation bleed-through" bug).
+  const heroSection=heroVideo.closest('.vcx-hero-2');
+  if(heroSection && heroSection.getAttribute('data-hero-scene')==='cybercore') return;
   const layer1=document.createElement('div');
   layer1.className='hero-cloud-layer layer-1';
   const layer2=document.createElement('div');
