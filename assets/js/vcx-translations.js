@@ -2029,6 +2029,14 @@ en: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'This service is available in Florida only. Other states are not currently served.',
   state_banner_rollout_cta:     'Interested in rollout to your state? →',
+
+  /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
+  vcx_claim_caveat_illustrative:          'illustrative',
+  vcx_claim_caveat_representative:        'representative example',
+  vcx_claim_caveat_composite:             'composite',
+  vcx_claim_caveat_paragraph_composite:   'Composite across engagement patterns. Not a single-client outcome.',
+  vcx_claim_caveat_paragraph_illustrative: 'Illustrative figures — individual engagements vary by portfolio condition at intake.',
+  cs_banner_composite_engagement:         'Composite engagement record. Based on patterns across VitaCoreX matters in this industry. Individual client details are not disclosed. Outcomes vary by portfolio condition at intake.',
 },
 
 /* ═══════════════════  RUSSIAN  ══════════════════════════════ */
@@ -4042,6 +4050,14 @@ ru: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'Эта услуга доступна только во Флориде. Другие штаты пока не обслуживаются.',
   state_banner_rollout_cta:     'Заинтересованы в расширении на ваш штат? →',
+
+  /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
+  vcx_claim_caveat_illustrative:          'иллюстративно',
+  vcx_claim_caveat_representative:        'репрезентативный пример',
+  vcx_claim_caveat_composite:             'обобщённое',
+  vcx_claim_caveat_paragraph_composite:   'Обобщено по совокупности обращений. Не результат отдельного клиента.',
+  vcx_claim_caveat_paragraph_illustrative: 'Иллюстративные данные — индивидуальные engagement\u2019ы зависят от состояния портфеля на момент приёма.',
+  cs_banner_composite_engagement:         'Обобщённая запись об engagement\u2019е. На основе паттернов обращений VitaCoreX в данной отрасли. Индивидуальные данные клиентов не раскрываются. Результаты зависят от состояния портфеля на момент приёма.',
 },
 
 /* ═══════════════════  SPANISH  ══════════════════════════════ */
@@ -6055,6 +6071,14 @@ es: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'Este servicio está disponible solo en Florida. Otros estados no son atendidos actualmente.',
   state_banner_rollout_cta:     '¿Interesado en expansión a su estado? →',
+
+  /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
+  vcx_claim_caveat_illustrative:          'ilustrativo',
+  vcx_claim_caveat_representative:        'ejemplo representativo',
+  vcx_claim_caveat_composite:             'compuesto',
+  vcx_claim_caveat_paragraph_composite:   'Compuesto a partir de patrones de engagements. No es el resultado de un cliente individual.',
+  vcx_claim_caveat_paragraph_illustrative: 'Cifras ilustrativas — los engagements individuales varían según el estado de la cartera al momento del ingreso.',
+  cs_banner_composite_engagement:         'Registro de engagement compuesto. Basado en patrones de asuntos de VitaCoreX en esta industria. Los detalles individuales de los clientes no se divulgan. Los resultados varían según el estado de la cartera al momento del ingreso.',
 }
 
 };

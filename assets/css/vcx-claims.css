@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════════════════
+ * vcx-claims.css — P04 Step 4.3 · ADR-007 §visible-caveat-contract
+ * ═══════════════════════════════════════════════════════════════════════
+ *
+ * Styles the two visible-caveat surfaces required by ADR-007:
+ *
+ *  1. `.vcx-claim-caveat`       — inline micro-label after a claim number
+ *                                 (single inline; hero / bento / KPI cells)
+ *                                 OR a <p> above/below a block with many numbers
+ *                                 (paragraph form for dense claim clusters).
+ *
+ *  2. `.vcx-case-study-banner`  — top-of-page composite disclosure band
+ *                                 for the 3 case-study pages
+ *                                 (healthcare-network, fleet-logistics, subscription-saas).
+ *
+ * Contract guarantees (per ADR-007 §91-127):
+ *
+ *   - Caveat is NEVER visually hidden, NEVER collapsed behind a tooltip,
+ *     NEVER footnote-only.
+ *   - Caveat color carries sufficient contrast in both light and print surfaces.
+ *   - Banner survives print-to-PDF (case study shared to procurement reviewer must retain disclosure).
+ *
+ * Verifier: scripts/verify-claims-discipline.js (Step 4.6) hard-fails if any
+ *   %, $, or "X of N" pattern ships outside ADR-005 pricing namespace,
+ *   outside an ADR-008 sample watermarked block, and outside a `<cite>`,
+ *   without a sibling `.vcx-claim-caveat` inside the same section.
+ *
+ * Theme note: palette uses temporary neutrals pending P15 design-token pass.
+ *   Tokens will flip to `var(--vcx-claim-caveat-fg)` etc. at P15 without
+ *   touching any HTML emission site.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Inline micro-label ────────────────────────────────────────────── */
+
+.vcx-claim-caveat {
+  font-size: 0.72em;
+  font-style: italic;
+  font-weight: normal;
+  color: #5E6C7B;
+  letter-spacing: 0.02em;
+  margin-left: 0.4em;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* Middot separator is a visual bridge between the number and its caveat.
+ * Some surfaces already have a "·" in copy; duplicate dots read fine,
+ * but omit the pseudo-element if ".vcx-claim-caveat--no-dot" is set. */
+.vcx-claim-caveat::before {
+  content: "· ";
+}
+.vcx-claim-caveat--no-dot::before {
+  content: "";
+}
+
+/* ── 2. Paragraph form ────────────────────────────────────────────────
+ * Applied on a <p class="vcx-claim-caveat vcx-claim-caveat--paragraph">
+ * sitting immediately above or below a block with multiple numbers.
+ * Drops the margin-left + no-wrap + dot prefix, keeps italic + muted color. */
+
+.vcx-claim-caveat--paragraph {
+  display: block;
+  font-size: 0.82em;
+  margin-left: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  white-space: normal;
+}
+.vcx-claim-caveat--paragraph::before {
+  content: "";
+}
+
+/* ── 3. Case-study composite banner ──────────────────────────────────
+ * Rendered once at top of each of the 3 case-study pages, above the hero.
+ * Amber-tinted to signal "read before interpreting numbers below" without
+ * being alarm-red. */
+
+.vcx-case-study-banner {
+  background: #FFF8E1;
+  border-left: 4px solid #D49A00;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #5A4400;
+  margin: 0 auto 24px;
+  max-width: 900px;
+}
+
+.vcx-case-study-banner strong {
+  color: #3D2E00;
+}
+
+.vcx-case-study-banner p {
+  margin: 0;
+}
+
+/* Accessible-name support: the banner MUST have role="note" +
+ * aria-label="Composite case study disclosure" in markup. CSS doesn't
+ * create accessibility semantics. */
+
+/* ── 4. Print discipline ─────────────────────────────────────────────
+ * Case studies printed to PDF for procurement review MUST retain the
+ * composite disclosure. Caveats stay visible; banner tightens contrast
+ * and disables its tint-background so ink usage stays sane. */
+
+@media print {
+  .vcx-claim-caveat {
+    color: #3A4A5B;
+  }
+  .vcx-case-study-banner {
+    background: #FFFFFF;
+    border: 1.5pt solid #5A4400;
+    color: #3D2E00;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ── 5. High-contrast preference ─────────────────────────────────────
+ * Some users prefer high contrast; swap caveat to near-black to keep
+ * it legible without breaking the italic/smaller-size visual hierarchy. */
+
+@media (prefers-contrast: more) {
+  .vcx-claim-caveat {
+    color: #2B3544;
+  }
+  .vcx-case-study-banner {
+    color: #3D2E00;
+    background: #FFF4C4;
+    border-left-width: 6px;
+  }
+}
