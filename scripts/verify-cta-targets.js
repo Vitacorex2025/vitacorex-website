@@ -628,8 +628,9 @@ async function main() {
   lines.push(`- **Rows actively validated**: ${totalChecked}`);
   lines.push(`- **Rows skipped (action-script / no target / self-ref)**: ${skipped.length}`);
   lines.push(`- **Strict-broken rows (gate-enforced; triage required)**: ${strictBroken.length}`);
-  lines.push(`- **Opaque rows (advisory only; NOT gate-enforced)**: ${opaqueBroken.length}`);
   lines.push(`- **External unique URLs HEAD-checked**: ${uniqExternalUrls.length}`);
+  lines.push('');
+  lines.push('_Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only; their count intentionally does not appear here because it varies between local dev and CI runner IPs (Instagram 429, formsubmit.co 403, LinkedIn 999). Run with VCX_EMIT_OPAQUE=1 to dump to gitignored docs/qa/cta-opaque.md._');
   lines.push('');
 
   if (Object.keys(reasonCount).length) {
