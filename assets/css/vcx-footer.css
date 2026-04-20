@@ -1,4 +1,4 @@
-/* VCX 4-column footer styles (P02 Step 2.3 / ADR-006)
+/* VCX 4-column footer styles (P02 Step 2.3 / ADR-006 / P11.4 state-tools row)
  * Applies only when vcx-footer.js adds .footer-grid--dual.
  * Original .footer-grid-extended rules still apply as base layer;
  * these rules override grid structure + column headers. */
@@ -7,7 +7,7 @@
 
 .footer-grid.footer-grid--dual {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   gap: 28px;
   align-items: start;
 }
@@ -86,6 +86,78 @@
   outline: none;
 }
 
+/* --- State Tools row (P11.4) --------------------------------------------
+ * Single inline strip below the 4-column grid. State-scoped links live
+ * here, not in the primary Private Clients column. Muted by design. */
+
+.footer-state-tools {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.footer-state-tools__label {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.58);
+  margin-right: 4px;
+}
+.footer-state-tools__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.footer-state-tools__links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  position: relative;
+}
+.footer-state-tools__links a + a::before {
+  content: '·';
+  position: absolute;
+  left: -11px;
+  color: rgba(255, 255, 255, 0.28);
+}
+.footer-state-tools__links a:hover,
+.footer-state-tools__links a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+/* Light-theme guard for state-tools row */
+body[data-audience="shared"] .footer-state-tools,
+body[data-audience="b2b"]    .footer-state-tools,
+body[data-audience="b2c"]    .footer-state-tools {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+body[data-audience="shared"] .footer-state-tools__label,
+body[data-audience="b2b"]    .footer-state-tools__label,
+body[data-audience="b2c"]    .footer-state-tools__label {
+  color: inherit;
+  opacity: 0.55;
+}
+body[data-audience="shared"] .footer-state-tools__links a,
+body[data-audience="b2b"]    .footer-state-tools__links a,
+body[data-audience="b2c"]    .footer-state-tools__links a {
+  color: inherit;
+  opacity: 0.72;
+}
+body[data-audience="shared"] .footer-state-tools__links a:hover,
+body[data-audience="b2b"]    .footer-state-tools__links a:hover,
+body[data-audience="b2c"]    .footer-state-tools__links a:hover {
+  opacity: 1;
+}
+
 /* --- Responsive --------------------------------------------------------- */
 
 @media (max-width: 1020px) {
@@ -105,6 +177,18 @@
   }
   .footer-group--dual h3 {
     font-size: 0.74rem;
+  }
+  .footer-state-tools {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 14px;
+  }
+  .footer-state-tools__links {
+    gap: 4px 14px;
+  }
+  .footer-state-tools__links a + a::before {
+    left: -9px;
   }
 }
 

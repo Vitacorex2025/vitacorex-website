@@ -37,7 +37,7 @@
         { k: 'nav_contract_review',   t: 'Contract Review',            href: 'contract-review-service.html' },
         { k: 'nav_immigration',       t: 'Immigration Packet',         href: 'immigration-packet-review.html' },
         { k: 'nav_auto_deal',         t: 'Auto Deal Review',           href: 'auto-deal-review.html' },
-        { k: 'nav_fl_small_claims',   t: 'Florida Small Claims',       href: 'florida-small-claims-help.html' },
+        { k: 'nav_small_claims_desk', t: 'Small Claims & Civil Packet Desk', href: 'small-claims-documentation.html' },
         { k: 'nav_llc_formation',     t: 'LLC Formation',              href: 'llc-formation-florida.html' },
         { k: 'nav_business_plan',     t: 'Business Plan',              href: 'business-plans.html' },
         { k: 'nav_location_analysis', t: 'Location Analysis',          href: 'additional-services.html#location-analysis' },
@@ -66,6 +66,16 @@
         { k: 'footer_nav_subproc',    t: 'Sub-processors & DPA',       href: 'sub-processors-and-dpa.html' },
         { k: 'nav_security_procurement', t: 'Security & Compliance',   href: 'security-and-compliance.html' }
       ]
+    },
+    // P11.4 — State Tools: Florida-specific entry points live here, not in primary nav.
+    // New states get appended here as they launch (TX/CA/NY/etc.).
+    stateTools: {
+      header: { k: 'footer_col_state_tools', t: 'State Tools' },
+      items: [
+        { k: 'nav_fl_small_claims',      t: 'Florida Small Claims',           href: 'florida-small-claims-help.html' },
+        { k: 'nav_fl_revenue_recovery',  t: 'Florida Revenue Recovery',       href: 'revenue-recovery-florida.html' },
+        { k: 'nav_fl_locator',           t: 'Florida Official Source Locator', href: 'additional-services.html#florida-locator' }
+      ]
     }
   };
 
@@ -89,7 +99,7 @@
     var link = document.createElement('link');
     link.id = 'vcx-footer-css';
     link.rel = 'stylesheet';
-    link.href = '/assets/css/vcx-footer.css?v=1';
+    link.href = '/assets/css/vcx-footer.css?v=2';
     document.head.appendChild(link);
   }
 
@@ -140,6 +150,30 @@
     cols.appendChild(buildColumn(COL.company,        'footer-group--company'));
     cols.appendChild(buildColumn(COL.legal,          'footer-group--legal'));
     footerGrid.appendChild(cols);
+
+    // P11.4 — State Tools row (inline strip below primary nav)
+    // Only render if stateTools is defined with at least one item
+    if (COL.stateTools && COL.stateTools.items && COL.stateTools.items.length) {
+      var stateRow = document.createElement('div');
+      stateRow.className = 'footer-state-tools';
+      var stateHeader = document.createElement('span');
+      stateHeader.className = 'footer-state-tools__label';
+      stateHeader.setAttribute('data-common', COL.stateTools.header.k);
+      stateHeader.textContent = tr(COL.stateTools.header.k, COL.stateTools.header.t) + ':';
+      stateRow.appendChild(stateHeader);
+      var stateLinks = document.createElement('nav');
+      stateLinks.className = 'footer-state-tools__links';
+      stateLinks.setAttribute('aria-label', COL.stateTools.header.t);
+      COL.stateTools.items.forEach(function (item) {
+        var a = document.createElement('a');
+        a.href = item.href;
+        a.setAttribute('data-common', item.k);
+        a.textContent = tr(item.k, item.t);
+        stateLinks.appendChild(a);
+      });
+      stateRow.appendChild(stateLinks);
+      footerGrid.appendChild(stateRow);
+    }
   }
 
   // ---------- Boot ----------
@@ -161,6 +195,17 @@
       });
       var links = g.querySelectorAll('.footer-links--dual a');
       links.forEach(function (a) {
+        var k = a.getAttribute('data-common');
+        if (k) a.textContent = tr(k, a.textContent);
+      });
+      // State Tools row — refresh label + links
+      var stateLabel = g.querySelector('.footer-state-tools__label');
+      if (stateLabel) {
+        var sk = stateLabel.getAttribute('data-common');
+        if (sk) stateLabel.textContent = tr(sk, stateLabel.textContent.replace(/:$/, '')) + ':';
+      }
+      var stateLinks = g.querySelectorAll('.footer-state-tools__links a');
+      stateLinks.forEach(function (a) {
         var k = a.getAttribute('data-common');
         if (k) a.textContent = tr(k, a.textContent);
       });
