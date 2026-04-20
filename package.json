@@ -1,0 +1,22 @@
+{
+  "name": "vitacorex-website",
+  "version": "0.0.0",
+  "private": true,
+  "description": "VitaCoreX marketing site — static HTML, no runtime build. This package.json exists only to expose named QA scripts per P17 Step 17.6; it ships no runtime dependencies.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "audit:cta": "node scripts/audit-ctas.js",
+    "verify:cta": "node scripts/verify-cta-targets.js",
+    "qa:cta": "npm run audit:cta && npm run verify:cta",
+    "qa:home-cards": "node scripts/verify-home-cards.js",
+    "qa:sitemap": "node scripts/verify-sitemap.js",
+    "qa:gated-samples": "node scripts/verify-gated-samples.js",
+    "qa:sample-schema": "node scripts/verify-sample-schema.js",
+    "qa:all": "npm run qa:cta && npm run qa:home-cards && npm run qa:sitemap && npm run qa:gated-samples && npm run qa:sample-schema",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {}
+}
