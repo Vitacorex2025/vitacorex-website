@@ -205,6 +205,7 @@ When VCX adds a second state (e.g., Texas), the following updates land together 
 - ADR: [ADR-014 U.S.-wide Positioning Pivot](../adr/ADR-014-us-wide-positioning-pivot.md) (accepted 2026-04-20, `22bcdd0`)
 - ADR Implementation record §Layer 2 (card-level carve-out refinement)
 - Step 11.6 ratified routing contract: [step-11-6-routing-decisions.md](./step-11-6-routing-decisions.md) (ratified 2026-04-20)
-- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Sessions 3 + 4 + 5
+- Step 11.7 state rollout playbook: [state-rollout-playbook.md](./state-rollout-playbook.md) (accepted 2026-04-20)
+- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Sessions 3 + 4 + 5 + 11
 - Phase doc: `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot.md`
 - Audit source: `Upgrade 2026-04/Research/Site Audit 2026-04-19` §5
