@@ -2025,6 +2025,10 @@ en: {
   smp_gate_lock_copy:           'This sample is delivered to qualified teams under NDA. Submit a short request and you\u2019ll be returned here immediately.',
   smp_gate_lock_cta_request:    'Request access',
   smp_gate_lock_cta_library:    'Browse the sample library',
+
+  /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
+  state_banner_fl_only:         'This service is available in Florida only. Other states are not currently served.',
+  state_banner_rollout_cta:     'Interested in rollout to your state? →',
 },
 
 /* ═══════════════════  RUSSIAN  ══════════════════════════════ */
@@ -4034,6 +4038,10 @@ ru: {
   smp_gate_lock_copy:           'Этот пример выдаётся квалифицированным командам под NDA. Отправьте короткий запрос \u2014 вы сразу вернётесь сюда.',
   smp_gate_lock_cta_request:    'Запросить доступ',
   smp_gate_lock_cta_library:    'Библиотека примеров',
+
+  /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
+  state_banner_fl_only:         'Эта услуга доступна только во Флориде. Другие штаты пока не обслуживаются.',
+  state_banner_rollout_cta:     'Заинтересованы в расширении на ваш штат? →',
 },
 
 /* ═══════════════════  SPANISH  ══════════════════════════════ */
@@ -6043,6 +6051,10 @@ es: {
   smp_gate_lock_copy:           'Esta muestra se entrega a equipos calificados bajo NDA. Envíe una solicitud corta y volverá aquí de inmediato.',
   smp_gate_lock_cta_request:    'Solicitar acceso',
   smp_gate_lock_cta_library:    'Biblioteca de muestras',
+
+  /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
+  state_banner_fl_only:         'Este servicio está disponible solo en Florida. Otros estados no son atendidos actualmente.',
+  state_banner_rollout_cta:     '¿Interesado en expansión a su estado? →',
 }
 
 };

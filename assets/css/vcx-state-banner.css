@@ -1,0 +1,104 @@
+/* ============================================================
+   VCX State Banner — muted informational scope indicator
+   ADR-014 §2 · Appendix B copy locked · built at P11 Step 11.6a
+   (ratified 2026-04-20 via `docs/positioning/step-11-6-routing-decisions.md`)
+
+   Purpose
+     Communicate that a state-scoped service (florida-small-claims-help,
+     llc-formation-florida) is available in Florida only. Muted /
+     informational cadence — this is a scope indicator, not an alert.
+
+   Usage (wired in Step 11.6b)
+     <aside class="vcx-state-banner"
+            role="note"
+            aria-label="Service scope: Florida only">
+       <div class="vcx-state-banner__copy"
+            data-page="state_banner_fl_only">
+         This service is available in Florida only. Other states are
+         not currently served.
+       </div>
+       <a class="vcx-state-banner__cta"
+          href="contact.html?intent=state-rollout-interest"
+          data-page="state_banner_rollout_cta">
+         Interested in rollout to your state? &rarr;
+       </a>
+     </aside>
+
+   Placement
+     First element inside <main> on state-scoped pages.
+
+   Accessibility
+     role="note" + aria-label signals scope context to screen readers.
+     Focus-visible outlines on CTA link. Respects reduced-motion.
+
+   Design tokens (from styles.css)
+     --vcx-cream           warm off-white background
+     --brand-primary       deep green accent border + CTA color
+     --vcx-ink-deep        primary text
+     --vcx-muted-deep      body copy
+     --vcx-navy-deep       CTA hover state
+   ============================================================ */
+
+.vcx-state-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding: 16px 24px;
+  margin: 0 0 24px;
+  background: var(--vcx-cream, #f5efe6);
+  border-left: 3px solid var(--brand-primary, #2E4F46);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--vcx-ink-deep, #0b1625);
+}
+
+.vcx-state-banner__copy {
+  flex: 1 1 320px;
+  color: var(--vcx-muted-deep, #4d5f74);
+}
+
+.vcx-state-banner__cta {
+  flex: 0 0 auto;
+  color: var(--brand-primary, #2E4F46);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: color 160ms;
+}
+
+.vcx-state-banner__cta:hover,
+.vcx-state-banner__cta:focus-visible {
+  color: var(--vcx-navy-deep, #0f2035);
+  text-decoration-thickness: 2px;
+}
+
+.vcx-state-banner__cta:focus-visible {
+  outline: 2px solid var(--brand-primary, #2E4F46);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Mobile: stack copy over CTA */
+@media (max-width: 640px) {
+  .vcx-state-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 18px;
+    font-size: 0.875rem;
+  }
+  .vcx-state-banner__cta {
+    white-space: normal;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .vcx-state-banner__cta {
+    transition: none;
+  }
+}
