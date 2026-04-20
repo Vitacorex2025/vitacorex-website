@@ -19,14 +19,17 @@
  */
 
 :root {
-  --vcx-cc-bg-top:      #071725;
-  --vcx-cc-bg-bottom:   #0B1F30;
-  --vcx-cc-grid-line:   rgba(110, 215, 200, 0.10);
-  --vcx-cc-beam:        #6CE5D6;
-  --vcx-cc-beam-alt:    #A8D8C6;
-  --vcx-cc-glow-1:      rgba(64, 200, 180, 0.75);
-  --vcx-cc-glow-2:      rgba(0, 150, 135, 0.55);
-  --vcx-cc-highlight:   rgba(200, 230, 210, 0.8);
+  /* Pure blue + turquoise palette — zero warm/green-mint tones.
+   * Earlier palette had A8D8C6 + cream highlights that read as warm/orange;
+   * swapped for sky-blue + blue-tinted white for cooler cyan-to-blue mix. */
+  --vcx-cc-bg-top:      #05132A;
+  --vcx-cc-bg-bottom:   #0A1E3D;
+  --vcx-cc-grid-line:   rgba(100, 180, 230, 0.10);
+  --vcx-cc-beam:        #5BC8E6;
+  --vcx-cc-beam-alt:    #7AB8FF;
+  --vcx-cc-glow-1:      rgba(80, 180, 220, 0.75);
+  --vcx-cc-glow-2:      rgba(40, 120, 180, 0.55);
+  --vcx-cc-highlight:   rgba(190, 220, 255, 0.85);
 }
 
 .vcx-cybercore-scene {
@@ -34,7 +37,8 @@
   inset: 0;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 105%, rgba(45, 138, 130, 0.35) 0%, transparent 55%),
+    /* Bottom glow — cool blue-cyan instead of teal-green */
+    radial-gradient(ellipse at 50% 105%, rgba(50, 140, 220, 0.38) 0%, transparent 55%),
     linear-gradient(180deg, var(--vcx-cc-bg-top) 0%, var(--vcx-cc-bg-bottom) 100%);
   perspective: 900px;
   pointer-events: none;
@@ -178,6 +182,38 @@
 .vcx-hero-2[data-hero-scene="cybercore"] > .vcx-leaf-container,
 .vcx-hero-2[data-hero-scene="cybercore"] > .vcx-hero-canvas {
   display: none !important;
+}
+
+/* ── Hero content fade-slide-in entrance ───────────────────────────
+ * Ported from the React ResponsiveHeroBanner animate-fade-slide-in-{1..4}
+ * pattern. Each child of .vcx-hero-2__content fades up from 20px with a
+ * stepped delay so the eyebrow → title → body → actions cascade in.
+ * Scoped to [data-hero-scene="cybercore"] so it only affects the new hero. */
+@keyframes vcxHeroFadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-eyebrow,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__title,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__subtitle,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__actions,
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__trust {
+  opacity: 0;
+  animation: vcxHeroFadeSlideIn 0.7s ease-out forwards;
+}
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-eyebrow        { animation-delay: 0.1s; }
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__title  { animation-delay: 0.25s; }
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__subtitle { animation-delay: 0.4s; }
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__subtitle--scope { animation-delay: 0.5s; }
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__actions  { animation-delay: 0.6s; }
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-hero-2__trust    { animation-delay: 0.75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ── Motion reduction: freeze beam rise + grid scroll, keep static look ── */
