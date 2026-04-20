@@ -95,6 +95,100 @@ section.hero.hero-premium.vcx-hero-particles-host > .hero-video::after {
   display: none !important;
 }
 
+/* ── Bespoke & fallback particle hosts ────────────────────────────────
+ * Cover two more hero patterns used across the site:
+ *  1. .scd-hero — small-claims-documentation bespoke hero
+ *  2. section.section with .section-head > h1 — private-client pages
+ *     (location-analysis, turnkey-business-opening, llc-formation-
+ *     florida, immigration-*, revenue-recovery-*, etc.) that lack a
+ *     dedicated hero banner and instead inline the title inside the
+ *     first content section.
+ * Shared rules: dark bg, positional context for the canvas, content
+ * z-index above canvas, light text, bright eyebrow, high-contrast
+ * buttons. */
+section.vcx-hero-particles-host--scd,
+section.vcx-hero-particles-host--sechead {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #030507 !important;
+  isolation: isolate;
+  color: #F4FBF8 !important;
+}
+
+/* Canvas sits behind the inline content */
+section.vcx-hero-particles-host--scd > .vcx-particles-canvas,
+section.vcx-hero-particles-host--sechead > .vcx-particles-canvas {
+  z-index: 0;
+}
+section.vcx-hero-particles-host--scd > *:not(.vcx-particles-canvas),
+section.vcx-hero-particles-host--sechead > *:not(.vcx-particles-canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section-head text on particle black: all-white title, soft body,
+ * bright mint eyebrow with glow. */
+section.vcx-hero-particles-host--sechead .section-head h1,
+section.vcx-hero-particles-host--sechead .section-head h2 {
+  color: #F4FBF8 !important;
+}
+section.vcx-hero-particles-host--sechead .section-head p,
+section.vcx-hero-particles-host--sechead .section-head li,
+section.vcx-hero-particles-host--sechead .section-head strong {
+  color: rgba(244, 251, 248, 0.86) !important;
+}
+section.vcx-hero-particles-host--sechead .section-head .eyebrow,
+section.vcx-hero-particles-host--sechead .section-head .vcx-eyebrow {
+  color: #D4FBEE !important;
+  font-weight: 700 !important;
+  text-shadow:
+    0 0 6px  rgba(126, 216, 195, 0.95),
+    0 0 14px rgba(91, 186, 167, 0.75),
+    0 0 28px rgba(91, 186, 167, 0.45);
+}
+
+/* SCD hero text on particle black */
+section.vcx-hero-particles-host--scd .scd-hero__title {
+  color: #F4FBF8 !important;
+}
+section.vcx-hero-particles-host--scd .scd-hero__lede,
+section.vcx-hero-particles-host--scd .scd-hero__sub {
+  color: rgba(244, 251, 248, 0.86) !important;
+}
+section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
+  color: #D4FBEE !important;
+  background: rgba(91, 186, 167, 0.18) !important;
+  border-color: rgba(126, 216, 195, 0.45) !important;
+  text-shadow:
+    0 0 6px  rgba(126, 216, 195, 0.95),
+    0 0 14px rgba(91, 186, 167, 0.75);
+}
+
+/* Button contrast on dark hero — brighten the mint fill + darken
+ * text so CTAs stay legible against the particle field. Applies to
+ * .btn, .btn-primary, .vcx-btn-2 inside any of the new hosts. */
+section.vcx-hero-particles-host--scd .btn-primary,
+section.vcx-hero-particles-host--scd .btn,
+section.vcx-hero-particles-host--sechead .btn-primary,
+section.vcx-hero-particles-host--sechead .btn,
+section.vcx-hero-particles-host--scd .vcx-btn-2--primary,
+section.vcx-hero-particles-host--sechead .vcx-btn-2--primary {
+  background: #7ED8C3 !important;
+  color: #051812 !important;
+  border: 1px solid #7ED8C3 !important;
+  box-shadow: 0 0 0 1px rgba(126, 216, 195, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+}
+section.vcx-hero-particles-host--scd .btn-secondary,
+section.vcx-hero-particles-host--scd .btn-ghost,
+section.vcx-hero-particles-host--sechead .btn-secondary,
+section.vcx-hero-particles-host--sechead .btn-ghost,
+section.vcx-hero-particles-host--scd .vcx-btn-2--ghost,
+section.vcx-hero-particles-host--sechead .vcx-btn-2--ghost {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #E6FDF3 !important;
+  border: 1px solid rgba(126, 216, 195, 0.55) !important;
+}
+
 /* ── Light-ray fan (TuringLanding reference) ─────────────────────────
  * Crepuscular-ray effect: a conic-gradient with alternating mint-teal
  * and transparent angular stops, origin anchored just above the hero

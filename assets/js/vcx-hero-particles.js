@@ -240,6 +240,34 @@
     return hv;
   }
 
+  /* Promote the small-claims-documentation bespoke hero (.scd-hero)
+   * into a particle container. The section itself hosts the canvas
+   * and its existing content gets z-index:2 via CSS so the canvas
+   * sits behind the eyebrow + title + CTAs. */
+  function adoptScdHero(section) {
+    if (!section || section.getAttribute('data-hero-scene') === 'cybercore') return null;
+    section.setAttribute('data-hero-scene', 'cybercore');
+    section.classList.add('vcx-hero-particles-host', 'vcx-hero-particles-host--scd');
+    return section;
+  }
+
+  /* Fallback for pages that have NO hero markup — just go straight
+   * into a <section class="section"><div class="wrap"><div
+   * class="section-head"><h1>…</h1></div></div></section> pattern
+   * (private-client pages like location-analysis, turnkey-business-
+   * opening, llc-formation-florida, etc.). Promote the first such
+   * section into a particle host: the section becomes the canvas
+   * container, its content gets z-index:2, bg goes near-black. Only
+   * called when no other hero canvas was mounted. */
+  function adoptSectionHeadHero(section) {
+    if (!section || section.getAttribute('data-hero-scene') === 'cybercore') return null;
+    var head = section.querySelector(':scope > .wrap > .section-head');
+    if (!head || !head.querySelector('h1')) return null;
+    section.setAttribute('data-hero-scene', 'cybercore');
+    section.classList.add('vcx-hero-particles-host', 'vcx-hero-particles-host--sechead');
+    return section;
+  }
+
   function init() {
     // Primary hero (home): .vcx-hero-2__bg
     var bgs = document.querySelectorAll('.vcx-hero-2__bg');
@@ -250,6 +278,24 @@
     for (var j = 0; j < premiums.length; j++) {
       var bg = adoptPremiumHero(premiums[j]);
       if (bg) initHero(bg);
+    }
+
+    // Bespoke .scd-hero (small-claims-documentation)
+    var scds = document.querySelectorAll('section.scd-hero');
+    for (var k = 0; k < scds.length; k++) {
+      var scdBg = adoptScdHero(scds[k]);
+      if (scdBg) initHero(scdBg);
+    }
+
+    // Fallback — pages with no dedicated hero: promote the first
+    // section.section that has a .section-head > h1. Skipped if any
+    // other particle canvas already landed above.
+    if (!document.querySelector('.vcx-particles-canvas')) {
+      var candidates = document.querySelectorAll('main > section.section, body > section.section');
+      for (var m = 0; m < candidates.length; m++) {
+        var secBg = adoptSectionHeadHero(candidates[m]);
+        if (secBg) { initHero(secBg); break; }
+      }
     }
   }
 
