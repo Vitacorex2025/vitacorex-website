@@ -554,7 +554,7 @@ en: {
   scd_tiers_title:    'Per-case contracts and weekly service options',
   scd_tiers_intro:    'Flat-fee documentation work on the left, ongoing weekly support on the right. Every engagement is administrative preparation, not legal representation.',
   scd_upl_label:      'UPL safeguard',
-  scd_upl_text:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to file. If your matter requires legal strategy, we recommend engaging counsel. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  scd_upl_text:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to file. If your matter requires legal strategy, we recommend engaging counsel. Unauthorized-practice-of-law rules vary by state; VitaCoreX provides administrative support only and does not provide legal advice, strategy, representation, or court appearance in any state.',
   scd_t1_name:        'Tier 1 \u00b7 Pro se',
   scd_t1_title:       'Small Claims Documentation Packet',
   scd_t1_price_label: 'one-time \u00b7 flat fee',
@@ -633,7 +633,7 @@ en: {
   scd_final_lede:     'Send the matter detail through structured intake. Packet turnaround starts as soon as we confirm scope.',
   scd_final_primary:  'Start my packet',
   scd_final_secondary:'Talk to us first',
-  scd_footer_upl:     'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to file. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  scd_footer_upl:     'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to file. Unauthorized-practice-of-law rules vary by state; we operate administrative-support-only in every state.',
 
   /* ── Pricing and Engagement Tiers (pet_*) ─────────────────── */
   pet_hero_eyebrow:   'Master pricing index',
@@ -761,7 +761,7 @@ en: {
 
   pet_upl_label:      'UPL safeguard',
   pet_upl_title:      'Documentation consulting, not legal services.',
-  pet_upl_text:       'VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Florida Bar rules on the Unauthorized Practice of Law apply. Consulting success fees apply to recovery work and are distinct from contingency collection fees; licensed collection activity is referred to partner agencies when appropriate.',
+  pet_upl_text:       'VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Unauthorized-practice-of-law rules vary by state; we operate administrative-support-only in every state. Consulting success fees apply to recovery work and are distinct from contingency collection fees; licensed collection activity is referred to partner agencies when appropriate.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
   sol_hero_eyebrow:   'Healthcare AR recovery \u2022 Dental collections \u2022 Subscription dunning',
@@ -1323,12 +1323,12 @@ en: {
   crs_faq_q5:           'Do you work with clients in any state?',
   crs_faq_a5:           'Yes — documentation packets are U.S.-wide. State-specific contract-law nuances (if any) are confirmed at intake; engagements are remote.',
   crs_upl_label:        'UPL safeguard',
-  crs_upl_text:         'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to use. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  crs_upl_text:         'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to use. Unauthorized-practice-of-law rules vary by state; VitaCoreX provides administrative support only and does not provide legal advice, strategy, representation, or court appearance in any state.',
   crs_final_title:      'Start my contract packet',
   crs_final_lede:       'Send the contract and the context. We return a counsel-ready packet in three business days.',
   crs_final_primary:    'Start my packet',
   crs_final_secondary:  'Talk to us first',
-  crs_footer_upl:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice or representation. Packets are prepared for you or your licensed attorney. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  crs_footer_upl:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice or representation. Packets are prepared for you or your licensed attorney. Unauthorized-practice-of-law rules vary by state; we operate administrative-support-only in every state.',
 
   /* ── ipr_* immigration-packet-review ── */
   ipr_hero_eyebrow:     'Documentation packets for USCIS filings',
@@ -1337,7 +1337,7 @@ en: {
   ipr_cta_primary:      'Start my packet review',
   ipr_cta_secondary:    'See packet pricing',
   ipr_upl_label:        'UPL safeguard · Read first',
-  ipr_upl_text:         'VitaCoreX LLC is not a law firm and does not provide immigration legal advice. We organize documentation and prepare packets. Petition strategy and filings remain with you or your licensed immigration attorney. Florida Bar rules on the Unauthorized Practice of Law apply. We do not select forms, advise on eligibility, or represent you before USCIS.',
+  ipr_upl_text:         'VitaCoreX LLC is not a law firm and does not provide immigration legal advice. We organize documentation and prepare packets. Petition strategy and filings remain with you or your licensed immigration attorney. Unauthorized-practice-of-law and immigration-services rules vary by jurisdiction; VitaCoreX does not select forms, advise on eligibility, represent you before USCIS, or refer you to attorneys.',
   ipr_what_eyebrow:     'What we do',
   ipr_what_title:       'Evidence organization, not legal strategy',
   ipr_what_intro:       'Clean documentation is the difference between a packet that moves and one that stalls. We organize evidence so your attorney (or you, pro se) can file with confidence.',
@@ -1409,7 +1409,7 @@ en: {
   ipr_final_lede:       'Send your evidence and petition context through structured intake. Packet turnaround begins once scope is confirmed.',
   ipr_final_primary:    'Start my packet',
   ipr_final_secondary:  'Talk to us first',
-  ipr_footer_upl:       'VitaCoreX LLC is not a law firm and does not provide immigration legal advice. We organize documentation and prepare packets. Petition strategy and filings remain with you or your licensed immigration attorney. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  ipr_footer_upl:       'VitaCoreX LLC is not a law firm and does not provide immigration legal advice. We organize documentation and prepare packets. Petition strategy and filings remain with you or your licensed immigration attorney. Unauthorized-practice-of-law and immigration-services rules vary by jurisdiction.',
 
   /* ── adr_* auto-deal-review ── */
   adr_hero_eyebrow:     'Dealer paperwork documentation review',
@@ -1484,12 +1484,12 @@ en: {
   adr_faq_q5:           'Will you negotiate for me?',
   adr_faq_a5:           'No. Documentation only. We flag concerns; you negotiate, or you engage an attorney.',
   adr_upl_label:        'UPL safeguard',
-  adr_upl_text:         'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our reviews are prepared for you or your licensed attorney. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  adr_upl_text:         'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our reviews are prepared for you or your licensed attorney. Unauthorized-practice-of-law rules vary by state; VitaCoreX provides administrative support only and does not provide legal advice, strategy, representation, or court appearance in any state.',
   adr_final_title:      'Send the contract',
   adr_final_lede:       'Upload the dealer packet and the quote. Two-page summary in your inbox within two business days — same day on rush.',
   adr_final_primary:    'Start my review',
   adr_final_secondary:  'Talk to us first',
-  adr_footer_upl:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice or representation. Florida Bar rules on the Unauthorized Practice of Law apply.',
+  adr_footer_upl:       'VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice or representation. Unauthorized-practice-of-law rules vary by state; we operate administrative-support-only in every state.',
 
   /* ── rrf_* revenue-recovery-florida ── */
   rrf_hero_eyebrow:     'Pre-collection discipline for Florida operators',
@@ -2548,7 +2548,7 @@ ru: {
   scd_tiers_title:    'Per-case контракты и недельные service options',
   scd_tiers_intro:    'Слева — плоские тарифы на документационную работу, справа — постоянная недельная поддержка. Все engagement-ы — административная подготовка, а не юридическое представительство.',
   scd_upl_label:      'UPL safeguard',
-  scd_upl_text:       'VitaCoreX LLC — консалтинговая фирма по документообороту и workflow. Мы не являемся юридической фирмой и не оказываем юридических советов, не представляем вас и не выступаем от вашего имени. Наши пакеты оформляются для того, чтобы вы или ваш лицензированный адвокат подали их. Если делу нужна правовая стратегия, мы рекомендуем привлечь counsel. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  scd_upl_text:       'VitaCoreX LLC — консалтинговая фирма по документообороту и workflow. Мы не являемся юридической фирмой и не оказываем юридических советов, не представляем вас и не выступаем от вашего имени. Наши пакеты оформляются для того, чтобы вы или ваш лицензированный адвокат подали их. Если делу нужна правовая стратегия, мы рекомендуем привлечь counsel. Правила Unauthorized Practice of Law различаются по штатам; VitaCoreX оказывает исключительно административную поддержку и не предоставляет юридических советов, стратегии, представительства или явки в суд ни в одном штате.',
   scd_t1_name:        'Tier 1 · Pro se',
   scd_t1_title:       'Пакет документов для Small Claims',
   scd_t1_price_label: 'разовая фикс-цена',
@@ -2627,7 +2627,7 @@ ru: {
   scd_final_lede:     'Опишите дело через structured intake. Как только scope подтверждён — начинается подготовка пакета.',
   scd_final_primary:  'Заказать пакет',
   scd_final_secondary:'Сначала обсудить',
-  scd_footer_upl:     'VitaCoreX LLC — консалтинговая фирма по документообороту и workflow. Мы не являемся юридической фирмой и не оказываем юридических советов, не представляем вас и не выступаем от вашего имени. Наши пакеты оформляются для того, чтобы вы или ваш лицензированный адвокат подали их. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  scd_footer_upl:     'VitaCoreX LLC — консалтинговая фирма по документообороту и workflow. Мы не являемся юридической фирмой и не оказываем юридических советов, не представляем вас и не выступаем от вашего имени. Наши пакеты оформляются для того, чтобы вы или ваш лицензированный адвокат подали их. Правила Unauthorized Practice of Law различаются по штатам; мы работаем исключительно в режиме административной поддержки во всех штатах.',
 
   /* ── Pricing and Engagement Tiers (pet_*) ─────────────────── */
   pet_hero_eyebrow:   'Мастер-индекс цен',
@@ -2755,7 +2755,7 @@ ru: {
 
   pet_upl_label:      'UPL safeguard',
   pet_upl_title:      'Консалтинг по документации, а не legal services.',
-  pet_upl_text:       'VitaCoreX LLC \u2014 консалтинговая фирма по документообороту, workflow и возврату выручки. Мы не юридическая фирма и не оказываем юридических советов, не представляем и не выступаем от вашего имени. Применяются правила Florida Bar по Unauthorized Practice of Law. Consulting success fees применяются к recovery-работе и отличны от contingency collection fees; лицензируемая collection-деятельность передаётся партнёрским агентствам, когда это уместно.',
+  pet_upl_text:       'VitaCoreX LLC \u2014 консалтинговая фирма по документообороту, workflow и возврату выручки. Мы не юридическая фирма и не оказываем юридических советов, не представляем и не выступаем от вашего имени. Правила Unauthorized Practice of Law различаются по штатам; мы работаем исключительно в режиме административной поддержки во всех штатах. Consulting success fees применяются к recovery-работе и отличны от contingency collection fees; лицензируемая collection-деятельность передаётся партнёрским агентствам, когда это уместно.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
   sol_hero_eyebrow:   'Healthcare AR recovery \u2022 Dental collections \u2022 Subscription dunning',
@@ -3333,12 +3333,12 @@ ru: {
   crs_faq_q5:           'Работаете ли с клиентами из других штатов?',
   crs_faq_a5:           'Да — documentation-пакеты доступны по всей территории США. Нюансы договорного права штата (если есть) уточняем на intake; работа удалённая.',
   crs_upl_label:        'UPL safeguard',
-  crs_upl_text:         'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов, представительства или выступления от вашего имени. Пакеты готовятся для вас или вашего лицензированного юриста. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  crs_upl_text:         'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов, представительства или выступления от вашего имени. Пакеты готовятся для вас или вашего лицензированного юриста. Правила Unauthorized Practice of Law различаются по штатам; VitaCoreX оказывает исключительно административную поддержку и не предоставляет юридических советов, стратегии, представительства или явки в суд ни в одном штате.',
   crs_final_title:      'Начать contract-пакет',
   crs_final_lede:       'Пришлите договор и контекст. Возвращаем counsel-ready пакет за три рабочих дня.',
   crs_final_primary:    'Начать мой пакет',
   crs_final_secondary:  'Сначала поговорим',
-  crs_footer_upl:       'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов или представительства. Пакеты готовятся для вас или вашего лицензированного юриста. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  crs_footer_upl:       'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов или представительства. Пакеты готовятся для вас или вашего лицензированного юриста. Правила Unauthorized Practice of Law различаются по штатам; мы работаем исключительно в режиме административной поддержки во всех штатах.',
 
   /* ── ipr_* immigration-packet-review ── */
   ipr_hero_eyebrow:     'Documentation-пакеты для подачи в USCIS',
@@ -3347,7 +3347,7 @@ ru: {
   ipr_cta_primary:      'Начать разбор пакета',
   ipr_cta_secondary:    'Посмотреть цены',
   ipr_upl_label:        'UPL safeguard · Прочтите в первую очередь',
-  ipr_upl_text:         'VitaCoreX LLC — не юридическая фирма и не даёт иммиграционно-правовых советов. Мы организуем документацию и готовим пакеты. Petition strategy и подача остаются за вами или вашим лицензированным иммиграционным адвокатом. Применяются правила Florida Bar по Unauthorized Practice of Law. Мы не выбираем формы, не оцениваем eligibility и не представляем вас в USCIS.',
+  ipr_upl_text:         'VitaCoreX LLC — не юридическая фирма и не даёт иммиграционно-правовых советов. Мы организуем документацию и готовим пакеты. Petition strategy и подача остаются за вами или вашим лицензированным иммиграционным адвокатом. Правила Unauthorized Practice of Law и регулирование иммиграционных услуг различаются по юрисдикциям; VitaCoreX не выбирает формы, не даёт мнений об eligibility, не представляет вас перед USCIS и не направляет к адвокатам.',
   ipr_what_eyebrow:     'Что мы делаем',
   ipr_what_title:       'Организация evidence, а не юридическая стратегия',
   ipr_what_intro:       'Чистая документация — разница между пакетом, который движется, и тем, что застрял. Мы организуем evidence так, чтобы ваш адвокат (или вы, pro se) подавали уверенно.',
@@ -3419,7 +3419,7 @@ ru: {
   ipr_final_lede:       'Пришлите evidence и petition-контекст через structured intake. Turnaround начинается после подтверждения scope.',
   ipr_final_primary:    'Начать мой пакет',
   ipr_final_secondary:  'Сначала поговорим',
-  ipr_footer_upl:       'VitaCoreX LLC — не юридическая фирма и не даёт иммиграционно-правовых советов. Мы организуем документацию и готовим пакеты. Petition strategy и подача остаются за вами или вашим лицензированным иммиграционным адвокатом. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  ipr_footer_upl:       'VitaCoreX LLC — не юридическая фирма и не даёт иммиграционно-правовых советов. Мы организуем документацию и готовим пакеты. Petition strategy и подача остаются за вами или вашим лицензированным иммиграционным адвокатом. Правила Unauthorized Practice of Law и регулирование иммиграционных услуг различаются по юрисдикциям.',
 
   /* ── adr_* auto-deal-review ── */
   adr_hero_eyebrow:     'Documentation-разбор дилерской бумажной папки',
@@ -3494,12 +3494,12 @@ ru: {
   adr_faq_q5:           'Будете ли торговаться за меня?',
   adr_faq_a5:           'Нет. Только documentation. Мы помечаем опасения; торгуетесь вы или адвокат.',
   adr_upl_label:        'UPL safeguard',
-  adr_upl_text:         'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов, представительства или выступлений от вашего имени. Разборы готовятся для вас или вашего лицензированного юриста. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  adr_upl_text:         'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов, представительства или выступлений от вашего имени. Разборы готовятся для вас или вашего лицензированного юриста. Правила Unauthorized Practice of Law различаются по штатам; VitaCoreX оказывает исключительно административную поддержку и не предоставляет юридических советов, стратегии, представительства или явки в суд ни в одном штате.',
   adr_final_title:      'Пришлите контракт',
   adr_final_lede:       'Загрузите дилерскую папку и исходный quote. Двухстраничный summary придёт в течение двух рабочих дней — в день обращения на rush.',
   adr_final_primary:    'Начать разбор',
   adr_final_secondary:  'Сначала поговорим',
-  adr_footer_upl:       'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов или представительства. Применяются правила Florida Bar по Unauthorized Practice of Law.',
+  adr_footer_upl:       'VitaCoreX LLC — консалтинговая фирма по документации и workflow. Мы не юридическая фирма и не предоставляем юридических советов или представительства. Правила Unauthorized Practice of Law различаются по штатам; мы работаем исключительно в режиме административной поддержки во всех штатах.',
 
   /* ── rrf_* revenue-recovery-florida ── */
   rrf_hero_eyebrow:     'Pre-collection дисциплина для Florida-операторов',
@@ -4557,7 +4557,7 @@ es: {
   scd_tiers_title:    'Contratos per-case y opciones de servicio semanal',
   scd_tiers_intro:    'Trabajo de documentacion a tarifa fija a la izquierda, soporte semanal continuo a la derecha. Cada compromiso es preparacion administrativa, no representacion legal.',
   scd_upl_label:      'UPL safeguard',
-  scd_upl_text:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Nuestros paquetes se preparan para que tu o tu abogado licenciado los presenten. Si tu asunto requiere estrategia legal, recomendamos contratar counsel. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  scd_upl_text:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Nuestros paquetes se preparan para que tu o tu abogado licenciado los presenten. Si tu asunto requiere estrategia legal, recomendamos contratar counsel. Las reglas de Unauthorized Practice of Law varian por estado; VitaCoreX presta unicamente soporte administrativo y no provee asesoramiento legal, estrategia, representacion ni comparecencia en ningun estado.',
   scd_t1_name:        'Tier 1 \u00b7 Pro se',
   scd_t1_title:       'Paquete de documentacion para Small Claims',
   scd_t1_price_label: 'tarifa plana unica',
@@ -4636,7 +4636,7 @@ es: {
   scd_final_lede:     'Envia el detalle del asunto via structured intake. El tiempo de entrega arranca cuando confirmamos scope.',
   scd_final_primary:  'Encargar mi paquete',
   scd_final_secondary:'Hablar primero',
-  scd_footer_upl:     'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Nuestros paquetes se preparan para que tu o tu abogado licenciado los presenten. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  scd_footer_upl:     'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Nuestros paquetes se preparan para que tu o tu abogado licenciado los presenten. Las reglas de Unauthorized Practice of Law varian por estado; operamos solo como soporte administrativo en todos los estados.',
 
   /* ── Pricing and Engagement Tiers (pet_*) ─────────────────── */
   pet_hero_eyebrow:   'Indice maestro de precios',
@@ -4764,7 +4764,7 @@ es: {
 
   pet_upl_label:      'UPL safeguard',
   pet_upl_title:      'Consultoria de documentacion, no legal services.',
-  pet_upl_text:       'VitaCoreX LLC es una firma de consultoria de documentacion, workflow y recuperacion de ingresos. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law. Los consulting success fees aplican al trabajo de recovery y son distintos de los contingency collection fees; la actividad licenciada de collection se deriva a agencias partner cuando corresponda.',
+  pet_upl_text:       'VitaCoreX LLC es una firma de consultoria de documentacion, workflow y recuperacion de ingresos. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Las reglas de Unauthorized Practice of Law varian por estado; operamos solo como soporte administrativo en todos los estados. Los consulting success fees aplican al trabajo de recovery y son distintos de los contingency collection fees; la actividad licenciada de collection se deriva a agencias partner cuando corresponda.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
   sol_hero_eyebrow:   'Recuperacion de AR en salud \u2022 Cobranzas dentales \u2022 Dunning de suscripciones',
@@ -5342,12 +5342,12 @@ es: {
   crs_faq_q5:           'Trabajan con clientes de cualquier estado?',
   crs_faq_a5:           'Si — los paquetes de documentacion son nacionales. Los matices de derecho contractual estatal (si los hay) se confirman en la admision; el trabajo es remoto.',
   crs_upl_label:        'UPL safeguard',
-  crs_upl_text:         'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, representacion ni comparecemos en tu nombre. Nuestros paquetes se preparan para ti o tu abogado licenciado. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  crs_upl_text:         'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, representacion ni comparecemos en tu nombre. Nuestros paquetes se preparan para ti o tu abogado licenciado. Las reglas de Unauthorized Practice of Law varian por estado; VitaCoreX presta unicamente soporte administrativo y no provee asesoramiento legal, estrategia, representacion ni comparecencia en ningun estado.',
   crs_final_title:      'Iniciar mi paquete de contrato',
   crs_final_lede:       'Envia el contrato y el contexto. Devolvemos un paquete counsel-ready en tres dias habiles.',
   crs_final_primary:    'Iniciar mi paquete',
   crs_final_secondary:  'Hablemos primero',
-  crs_footer_upl:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal ni representacion. Los paquetes se preparan para ti o tu abogado licenciado. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  crs_footer_upl:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal ni representacion. Los paquetes se preparan para ti o tu abogado licenciado. Las reglas de Unauthorized Practice of Law varian por estado; operamos solo como soporte administrativo en todos los estados.',
 
   /* ── ipr_* immigration-packet-review ── */
   ipr_hero_eyebrow:     'Paquetes de documentacion para tramites USCIS',
@@ -5356,7 +5356,7 @@ es: {
   ipr_cta_primary:      'Iniciar revision de paquete',
   ipr_cta_secondary:    'Ver precios',
   ipr_upl_label:        'UPL safeguard · Leer primero',
-  ipr_upl_text:         'VitaCoreX LLC no es un bufete y no da asesoramiento legal de inmigracion. Organizamos documentacion y preparamos paquetes. La estrategia y la presentacion quedan contigo o con tu abogado de inmigracion licenciado. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law. No seleccionamos formularios, no opinamos sobre elegibilidad ni te representamos ante USCIS.',
+  ipr_upl_text:         'VitaCoreX LLC no es un bufete y no da asesoramiento legal de inmigracion. Organizamos documentacion y preparamos paquetes. La estrategia y la presentacion quedan contigo o con tu abogado de inmigracion licenciado. Las reglas de Unauthorized Practice of Law y de servicios de inmigracion varian por jurisdiccion; VitaCoreX no selecciona formularios, no opina sobre elegibilidad, no te representa ante USCIS ni te deriva a abogados.',
   ipr_what_eyebrow:     'Que hacemos',
   ipr_what_title:       'Organizacion de evidencia, no estrategia legal',
   ipr_what_intro:       'La documentacion limpia es la diferencia entre un paquete que avanza y uno que se atasca. Organizamos la evidencia para que tu abogado (o tu, pro se) presente con confianza.',
@@ -5428,7 +5428,7 @@ es: {
   ipr_final_lede:       'Envia tu evidencia y el contexto de la peticion por el intake estructurado. El turnaround comienza al confirmar el scope.',
   ipr_final_primary:    'Iniciar mi paquete',
   ipr_final_secondary:  'Hablemos primero',
-  ipr_footer_upl:       'VitaCoreX LLC no es un bufete y no da asesoramiento legal de inmigracion. Organizamos documentacion y preparamos paquetes. La estrategia y la presentacion quedan contigo o con tu abogado de inmigracion licenciado. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  ipr_footer_upl:       'VitaCoreX LLC no es un bufete y no da asesoramiento legal de inmigracion. Organizamos documentacion y preparamos paquetes. La estrategia y la presentacion quedan contigo o con tu abogado de inmigracion licenciado. Las reglas de Unauthorized Practice of Law y de servicios de inmigracion varian por jurisdiccion.',
 
   /* ── adr_* auto-deal-review ── */
   adr_hero_eyebrow:     'Revision documental del paquete del dealer',
@@ -5503,12 +5503,12 @@ es: {
   adr_faq_q5:           'Van a negociar por mi?',
   adr_faq_a5:           'No. Solo documentacion. Nosotros marcamos preocupaciones; tu negocias, o contratas un abogado.',
   adr_upl_label:        'UPL safeguard',
-  adr_upl_text:         'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, representacion ni comparecemos en tu nombre. Nuestras revisiones se preparan para ti o tu abogado licenciado. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  adr_upl_text:         'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal, representacion ni comparecemos en tu nombre. Nuestras revisiones se preparan para ti o tu abogado licenciado. Las reglas de Unauthorized Practice of Law varian por estado; VitaCoreX presta unicamente soporte administrativo y no provee asesoramiento legal, estrategia, representacion ni comparecencia en ningun estado.',
   adr_final_title:      'Envia el contrato',
   adr_final_lede:       'Sube el paquete del dealer y la cotizacion. Resumen de dos paginas en tu inbox en dos dias habiles — el mismo dia en rush.',
   adr_final_primary:    'Iniciar mi revision',
   adr_final_secondary:  'Hablemos primero',
-  adr_footer_upl:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal ni representacion. Aplican las reglas de Florida Bar sobre Unauthorized Practice of Law.',
+  adr_footer_upl:       'VitaCoreX LLC es una firma de consultoria de documentacion y workflow. No somos un bufete y no damos asesoramiento legal ni representacion. Las reglas de Unauthorized Practice of Law varian por estado; operamos solo como soporte administrativo en todos los estados.',
 
   /* ── rrf_* revenue-recovery-florida ── */
   rrf_hero_eyebrow:     'Disciplina de pre-cobranza para operadores en Florida',
