@@ -228,6 +228,59 @@
   }
 }
 
+/* ── Stats block (Turing-style pair on the right side) ─────────────
+ * Two big numbers + labels, aligned flush to the bottom-right of the
+ * hero section. Only visible on ≥1024px wide viewports — on mobile/
+ * tablet the content column already fills the viewport and a stats
+ * row would either clip or force a painful wrap. Scoped to cybercore
+ * so it inherits the mint-teal chroma + the fade-slide-in cascade. */
+.vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .vcx-hero-2[data-hero-scene="cybercore"] {
+    position: relative;
+  }
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
+    position: absolute;
+    right: clamp(32px, 5vw, 80px);
+    bottom: clamp(48px, 6vw, 96px);
+    display: flex;
+    gap: clamp(48px, 5vw, 80px);
+    align-items: flex-end;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    animation: vcxHeroFadeSlideIn 0.7s ease-out 0.85s forwards;
+  }
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat {
+    text-align: center;
+  }
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat__num {
+    font-size: clamp(2.75rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-stat__label {
+    font-size: .95rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 1.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__stats {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ── Motion reduction: freeze beam rise + grid scroll, keep static look ── */
 @media (prefers-reduced-motion: reduce) {
   .vcx-cybercore-floor,
