@@ -128,6 +128,49 @@
     return group;
   }
 
+  // ---------- Structure .footer-meta children into 2 balanced columns ----------
+  // Identity column: Established, EIN, Phone, Copyright (short stacked facts).
+  // Legal column:    Disclaimer paragraph, trust line, public-forms note (long prose).
+  // Without this, .footer-meta renders as a single stacked column and the
+  // outer 0.9fr:2fr split on .footer-company creates a large empty gap to
+  // the right of the heading.
+  var IDENTITY_KEYS = ['footer_est', 'footer_ein', 'footer_phone', 'footer_copy'];
+  var LEGAL_KEYS    = ['footer_disc', 'footer_trust_line'];
+
+  function structureMeta(companyEl) {
+    if (!companyEl) return;
+    var meta = companyEl.querySelector('.footer-meta');
+    if (!meta || meta.classList.contains('footer-meta--dual')) return;
+
+    var identityDiv = document.createElement('div');
+    identityDiv.className = 'footer-meta__identity';
+    var legalDiv = document.createElement('div');
+    legalDiv.className = 'footer-meta__legal';
+
+    var children = Array.prototype.slice.call(meta.children);
+    children.forEach(function (el) {
+      var dc = el.getAttribute && el.getAttribute('data-common');
+      dc = dc || '';
+      if (IDENTITY_KEYS.indexOf(dc) >= 0) {
+        identityDiv.appendChild(el);
+      } else if (LEGAL_KEYS.indexOf(dc) >= 0) {
+        legalDiv.appendChild(el);
+      } else if (el.classList && el.classList.contains('footer-trust-line')) {
+        legalDiv.appendChild(el);
+      } else if (el.classList && el.classList.contains('small-note') && !dc) {
+        // Public-forms note (or other unkeyed small-note legal text) → legal column
+        legalDiv.appendChild(el);
+      } else {
+        // Unknown element — keep it above, in identity column, to avoid data loss
+        identityDiv.appendChild(el);
+      }
+    });
+
+    meta.appendChild(identityDiv);
+    meta.appendChild(legalDiv);
+    meta.classList.add('footer-meta--dual');
+  }
+
   // ---------- Transform the footer-grid ----------
   function transform(footerGrid) {
     if (!footerGrid || footerGrid.classList.contains('footer-grid--dual')) return;
@@ -139,8 +182,11 @@
     footerGrid.innerHTML = '';
     footerGrid.classList.add('footer-grid--dual');
 
-    // Meta row (top)
-    if (meta) footerGrid.appendChild(meta);
+    // Meta row (top) — structure its children into 2 balanced columns
+    if (meta) {
+      structureMeta(meta);
+      footerGrid.appendChild(meta);
+    }
 
     // Four-column row
     var cols = document.createElement('div');

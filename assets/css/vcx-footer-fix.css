@@ -44,61 +44,90 @@ footer .footer-grid > div:not([class]) span {
 }
 
 /* ── Main-site .footer-company meta row ───────────────────────────
- * On desktop, split into two aligned columns: identity (name, est, EIN,
- * phone) on the left, legal block (disc + trust + forms + copy) on the
- * right. Social goes below as its own strip. Collapses to one column
- * under 820px. */
+ * Layout (desktop):
+ *   VitaCoreX LLC                                          ← h3 heading
+ *   ──────────────────────────────────────────────────────
+ *   Established 2025      │ [Long legal disclaimer ...]
+ *   EIN: 41-4399148       │ [Trust line — short muted strip]
+ *   Phone (call/text): …  │ [Public-forms note]
+ *   © 2026 VitaCoreX LLC  │
+ *   ──────────────────────────────────────────────────────
+ *   [Instagram] [Facebook] [LinkedIn]                      ← social strip
+ *
+ * Identity facts (short, stacked) and legal prose (long, multi-paragraph)
+ * sit in independent columns so each column's rows are height-independent.
+ * The vcx-footer.js runtime wraps .footer-meta children into two wrappers
+ * (.footer-meta__identity + .footer-meta__legal) so columns don't share
+ * row tracks — which avoids the "Established / EIN / Phone spaced far
+ * apart to match the tall disclaimer" coupling bug that pure-grid layouts
+ * suffer from.
+ *
+ * Collapses to a single column under 820px. */
 .footer-grid--dual .footer-company {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
-  gap: 20px 40px;
-  align-items: start;
+  display: block;
   padding-bottom: 20px;
   margin-bottom: 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .footer-grid--dual .footer-company h3 {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0 0 8px;
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .footer-grid--dual .footer-company .footer-meta {
-  grid-column: 2;
-  grid-row: 1;
   display: grid;
-  gap: 6px;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 2fr);
+  gap: 6px 52px;
+  align-items: start;
+  margin: 0 0 14px;
 }
+.footer-grid--dual .footer-company .footer-meta > * {
+  margin: 0;
+}
+.footer-grid--dual .footer-company .footer-meta__identity,
+.footer-grid--dual .footer-company .footer-meta__legal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.footer-grid--dual .footer-company .footer-meta__identity > p,
+.footer-grid--dual .footer-company .footer-meta__legal   > p {
+  margin: 0;
+}
+/* Copyright line gets a subtle top gap so it visually separates from the
+ * phone line (they're both in the identity column). */
+.footer-grid--dual .footer-company .footer-meta__identity [data-common="footer_copy"] {
+  margin-top: 6px;
+  opacity: 0.75;
+}
+
 .footer-grid--dual .footer-company .foot-social {
-  grid-column: 1 / -1;
-  grid-row: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
   padding-top: 12px;
-  margin-top: 4px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Identity facts (name, est, EIN, phone) live in the left column:
- * promote them out of the meta grid via :nth-child. */
-.footer-grid--dual .footer-company .footer-meta [data-i18n="footer_est"],
-.footer-grid--dual .footer-company .footer-meta [data-i18n="footer_ein"],
-.footer-grid--dual .footer-company .footer-meta .small-note:has([data-i18n="footer_phone"]) {
-  color: inherit;
+/* ── Pre-JS fallback ───────────────────────────────────────────────
+ * If vcx-footer.js hasn't wrapped .footer-meta yet (or the page includes
+ * the stylesheet without the script), .footer-meta is a flat list of <p>s.
+ * Keep it as a clean single stacked column so the pre-JS render doesn't
+ * look broken. */
+.footer-grid--dual .footer-company .footer-meta:not(.footer-meta--dual) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* Collapse on narrow viewports */
+/* Collapse 2-col meta → single column on narrow viewports */
 @media (max-width: 820px) {
-  .footer-grid--dual .footer-company {
+  .footer-grid--dual .footer-company .footer-meta {
     grid-template-columns: 1fr;
     gap: 14px;
-  }
-  .footer-grid--dual .footer-company h3,
-  .footer-grid--dual .footer-company .footer-meta,
-  .footer-grid--dual .footer-company .foot-social {
-    grid-column: 1;
-    grid-row: auto;
   }
 }
 
