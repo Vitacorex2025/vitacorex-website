@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-20T08:03:40Z
+generated: 2026-04-20T08:30:06Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -17,22 +17,22 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 - **Inventory rows parsed**: 2804
 - **Rows actively validated**: 2394
 - **Rows skipped (action-script / no target / self-ref)**: 410
-- **Broken rows (triage required)**: 12
+- **Strict-broken rows (gate-enforced; triage required)**: 10
+- **Opaque rows (advisory only; NOT gate-enforced)**: 2
 - **External unique URLs HEAD-checked**: 6
 
-### By failure reason
+### Strict-broken by failure reason
 
 | Reason | Count |
 |--------|-------|
-| external-http-opaque | 2 |
 | no-handler | 10 |
 
-## Broken rows
+## Strict-broken rows (gate-enforced)
+
+> These rows fail the Step 17.6 CI regression gate. Each requires a triage disposition in `docs/qa/cta-triage.md` (fix / remove / defer / invalid-with-rationale) and an accompanying baseline re-commit when resolved.
 
 | File | Line | Element | Label | Target | Category | Audience | Reason | Detail |
 |------|------|---------|-------|--------|----------|----------|--------|--------|
-| `about.html` | 213 | a | View Steven Miller on LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | shared | external-http-opaque | HTTP 999 |
-| `about.html` | 253 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | shared | external-http-opaque | HTTP 999 |
 | `app/private-lookup/index.html` | 359 | button | New Route | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/private-lookup/index.html` | 449 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/private-lookup/index.html` | 450 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
@@ -63,7 +63,7 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 - User-Agent: `VitaCoreX-CTA-Verifier/1.0 (+https://vitacorexllc.com/)`
 - Unique URLs are HEAD-checked once (same URL referenced from many pages → single network call).
 - `HTTP 405` → automatic retry with `GET` (some CDNs reject `HEAD`).
-- `HTTP 401 / 403 / 999` → flagged `external-http-opaque`. These are typically bot-blocking responses (LinkedIn returns `999`, many sites return `403` to non-browser UAs). Treat as "likely-invalid, verify manually in browser" during Step 17.3 triage.
+- `HTTP 401 / 403 / 429 / 999` → flagged `external-http-opaque`. Examples: LinkedIn returns `999` to non-browser UAs, Instagram returns `429` to GitHub Actions runner IPs, formsubmit.co returns `403` to HEAD (accepts only POST with form data). These rows appear in the "Opaque (advisory)" section — they are NOT gate-enforced because response varies by IP/UA/time. Verify manually in a real browser if in doubt.
 
 ### Flag-derived failures (inherited from Step 17.1 auditor)
 

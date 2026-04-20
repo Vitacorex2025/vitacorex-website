@@ -69,11 +69,20 @@ actions/checkout@v4
 
 ### Why the gate is a baseline-diff, not verifier exit code
 
-The verifier exits `2` whenever broken rows exist in the inventory. The
-baseline state already has **12 known-invalid-by-design rows** (10 Group D
-`no-handler` + 2 Group C LinkedIn HTTP 999 bot-block — all triage-documented
-in `cta-triage.md`). A pure-exit-code gate would fail every build. We need to
-distinguish _"these 12 known rows"_ from _"someone just introduced a 13th"_.
+The verifier exits `2` whenever **strict-broken** rows exist. The
+baseline state has **10 known-invalid-by-design strict-broken rows** (Group D
+`no-handler` — `<button>` elements wired via external JS `addEventListener`
+calls that the HTML-only auditor cannot trace; behavioral verification is
+the P17 Step 17.5 Playwright spec). A pure-exit-code gate would fail every
+build. We need to distinguish _"these 10 known rows"_ from _"someone just
+introduced an 11th"_.
+
+**Opaque rows** (HTTP 401/403/429/999) are handled separately — they are NOT
+written to the committed `cta-broken.md` baseline because their response
+varies by IP/UA/time (Instagram returns 429 from GH Actions runner IPs,
+formsubmit.co returns 403 to HEAD, LinkedIn returns 999 to non-browser UAs).
+They are logged to stdout only, and optionally written to a gitignored
+`docs/qa/cta-opaque.md` when `VCX_EMIT_OPAQUE=1` is set.
 
 The gate is therefore:
 
@@ -131,11 +140,11 @@ When CI reports a new broken row:
 1. **Checkout the PR branch** (or pull the failing `main` commit locally).
 2. **Download the CI artifact** (`cta-baselines-<run-id>` from the failed run)
    or regenerate locally: `npm run qa:cta`.
-3. **Read `docs/qa/cta-broken.md`** — the new row will be in one of these reason
+3. **Read `docs/qa/cta-broken.md`** — the new row will appear in the
+   `## Strict-broken rows (gate-enforced)` section, in one of these reason
    buckets:
-   - `external-http-4xx` — target URL returns 4xx on HEAD+GET (+ browser UA)
+   - `external-http-4xx` — target URL returns 4xx (except 401/403/429; those are opaque)
    - `external-http-5xx` — server error; usually transient, retry once
-   - `external-http-opaque` — HTTP 999 (LinkedIn) or similar bot-block; NOT broken
    - `external-network-error` — DNS / timeout / TLS handshake
    - `internal-file-missing` — target HTML file does not exist in repo
    - `internal-anchor-missing` — file exists but `#fragment` has no matching `id`
@@ -146,6 +155,10 @@ When CI reports a new broken row:
      external JS `addEventListener`. Mark `invalid` if Step 17.5 Playwright spec
      proves wiring.
    - `unresolvable` — verifier cannot classify; investigate
+
+   Opaque rows (HTTP 401/403/429/999) do **not** appear in `cta-broken.md` —
+   they are logged to stdout during the run. Run `VCX_EMIT_OPAQUE=1 npm run verify:cta`
+   locally to dump them to gitignored `docs/qa/cta-opaque.md` for triage.
 
 4. **Decide disposition** and add a row to `docs/qa/cta-triage.md`:
    - `fix` — change href/onclick to correct target

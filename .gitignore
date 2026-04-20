@@ -17,3 +17,6 @@ vcx-api/app/models/__pycache__/
 node_modules/
 .tmp/
 package-lock.json
+
+# P17 QA advisory artifacts (generated, not baseline — IP-dependent)
+docs/qa/cta-opaque.md
