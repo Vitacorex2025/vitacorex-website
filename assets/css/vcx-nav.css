@@ -114,15 +114,29 @@
  * When a dropdown is open, float the whole header above them. */
 .vcx-header:has(.vcx-nav-dual__door.is-open) { z-index: 1000; }
 
-/* Dark-theme cascade (vcx-redesign.css, vcx-premium-2.css) forces
- * `color: rgba(255,255,255,.75) !important` on .vcx-main-nav a and
- * .vcx-header *, which makes the dropdown items invisible on the white
- * panel background. Neutralise it with an equally !important override
- * scoped to the panel itself. */
-.vcx-nav-dual__panel .vcx-nav-dual__item { color: #0b2143 !important; }
+/* Dark-theme cascade (vcx-redesign.css, vcx-premium-2.css) forces three
+ * text-painting properties on every descendant of .vcx-header:
+ *   color: #fff !important
+ *   -webkit-text-fill-color: #fff !important   (Safari/Chrome fill override)
+ *   text-shadow: 0 1px 3px rgba(0,0,0,.7) !important   (dark halo for glass)
+ *
+ * On our white dropdown panel that paints the text as a white glyph with a
+ * black halo — classic "hollow outline" look — and makes every menu item
+ * unreadable. We neutralise all three, scoped to the panel only, with
+ * matching !important so the dark-theme cascade can't reach inside. */
+.vcx-nav-dual__panel .vcx-nav-dual__item,
+.vcx-nav-dual__panel .vcx-nav-dual__item * {
+  color: #0b2143 !important;
+  -webkit-text-fill-color: #0b2143 !important;
+  text-shadow: none !important;
+}
 .vcx-nav-dual__panel .vcx-nav-dual__item:hover,
 .vcx-nav-dual__panel .vcx-nav-dual__item:focus-visible,
-.vcx-nav-dual__panel .vcx-nav-dual__item.is-active { color: #083a3a !important; }
+.vcx-nav-dual__panel .vcx-nav-dual__item.is-active {
+  color: #083a3a !important;
+  -webkit-text-fill-color: #083a3a !important;
+  text-shadow: none !important;
+}
 
 .vcx-nav-dual__item {
   display: block;

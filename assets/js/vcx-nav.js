@@ -116,7 +116,7 @@
     var link = document.createElement('link');
     link.id = 'vcx-nav-css';
     link.rel = 'stylesheet';
-    link.href = 'assets/css/vcx-nav.css?v=2';
+    link.href = 'assets/css/vcx-nav.css?v=3';
     document.head.appendChild(link);
   }
 
@@ -178,12 +178,28 @@
     });
     wrap.appendChild(panel);
 
-    // Event wiring
-    function open()  { btn.setAttribute('aria-expanded', 'true');  panel.hidden = false; wrap.classList.add('is-open'); }
+    // Event wiring — CLICK-ONLY. Hover-to-open was removed in P17 Step 17.0.3
+    // because it fired on every mouse-over (incl. just passing through the
+    // header area) and both doors ended up open simultaneously with no user
+    // intent. Click-to-toggle + close-others is the only model.
+    function closeSiblings() {
+      // Any other door that is currently open must close before we open ours.
+      var others = document.querySelectorAll('.vcx-nav-dual__door.is-open');
+      for (var i = 0; i < others.length; i++) {
+        if (others[i] !== wrap) {
+          var obtn = others[i].querySelector('.vcx-nav-dual__trigger');
+          var opanel = others[i].querySelector('.vcx-nav-dual__panel');
+          if (obtn) obtn.setAttribute('aria-expanded', 'false');
+          if (opanel) opanel.hidden = true;
+          others[i].classList.remove('is-open');
+        }
+      }
+    }
+    function open()  { closeSiblings(); btn.setAttribute('aria-expanded', 'true');  panel.hidden = false; wrap.classList.add('is-open'); }
     function close() { btn.setAttribute('aria-expanded', 'false'); panel.hidden = true;  wrap.classList.remove('is-open'); }
     function toggle() { (btn.getAttribute('aria-expanded') === 'true') ? close() : open(); }
 
-    btn.addEventListener('click', function (e) { e.preventDefault(); toggle(); });
+    btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); toggle(); });
     btn.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); var first = panel.querySelector('a'); if (first) first.focus(); }
       if (e.key === 'Escape') { close(); }
@@ -196,9 +212,6 @@
       if (e.key === 'Escape')    { close(); btn.focus(); }
       if (e.key === 'Tab')       { close(); }
     });
-    // Hover open on desktop (matches typical dropdown UX); disabled via CSS touch media
-    wrap.addEventListener('mouseenter', function () { if (!isTouch()) open(); });
-    wrap.addEventListener('mouseleave', function () { if (!isTouch()) close(); });
     // Close on outside click
     document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
 
