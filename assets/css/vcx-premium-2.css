@@ -1501,8 +1501,13 @@ body {
 .footer-grid-extended .footer-group + .footer-group {
   border-left: 1px solid rgba(255,255,255,0.08) !important;
 }
-/* Copyright & social — below the frame, centered */
-.footer-company .footer-meta p:last-of-type {
+/* Copyright & social — below the frame, centered.
+ * Scoped to .footer-grid-extended (the old card-framed layout).
+ * The new .footer-grid--dual layout has its own spacing and must NOT
+ * absolute-position these elements — doing so stacks phone / forms /
+ * copyright / social on top of each other (each wrapper's last <p>
+ * becomes p:last-of-type in the new structure). */
+.footer-grid-extended .footer-company .footer-meta p:last-of-type {
   position: absolute !important;
   bottom: 68px !important;
   left: 0 !important;
@@ -1514,7 +1519,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
-.footer-company .foot-social {
+.footer-grid-extended .footer-company .foot-social {
   position: absolute !important;
   bottom: 40px !important;
   left: 0 !important;
@@ -1524,7 +1529,7 @@ body {
   gap: 20px !important;
   margin-top: 0 !important;
 }
-.footer-company .foot-social a {
+.footer-grid-extended .footer-company .foot-social a {
   font-size: 0.8rem !important;
   color: rgba(238,233,222,0.45) !important;
   background: none !important;
@@ -1532,7 +1537,7 @@ body {
   padding: 0 !important;
   transition: color 0.2s ease !important;
 }
-.footer-company .foot-social a:hover {
+.footer-grid-extended .footer-company .foot-social a:hover {
   color: #fff !important;
 }
 
@@ -1548,8 +1553,11 @@ body {
     border-left: none !important;
     padding: 0 !important;
   }
-  /* Push company block to the very end */
-  .footer-company {
+  /* Push company block to the very end.
+   * Scoped to .footer-grid-extended (old card-framed layout) so the new
+   * .footer-grid--dual layout doesn't inherit display:none rules that
+   * would hide its h3 + .small-note paragraphs on mobile. */
+  .footer-grid-extended .footer-company {
     order: 10 !important;
     text-align: center !important;
     margin-top: 20px !important;
@@ -1560,12 +1568,12 @@ body {
     box-shadow: none !important;
   }
   /* Hide everything except copyright + social */
-  .footer-company h3,
-  .footer-company .footer-meta .small-note {
+  .footer-grid-extended .footer-company h3,
+  .footer-grid-extended .footer-company .footer-meta .small-note {
     display: none !important;
   }
   /* Show only copyright */
-  .footer-company .footer-meta p:last-of-type {
+  .footer-grid-extended .footer-company .footer-meta p:last-of-type {
     display: block !important;
     font-size: 0.72rem !important;
     color: rgba(238,233,222,0.35) !important;
@@ -1574,12 +1582,12 @@ body {
     padding: 0 !important;
   }
   /* Social — inline centered, subtle */
-  .footer-company .foot-social {
+  .footer-grid-extended .footer-company .foot-social {
     display: flex !important;
     justify-content: center !important;
     gap: 20px !important;
   }
-  .footer-company .foot-social a {
+  .footer-grid-extended .footer-company .foot-social a {
     font-size: 0.75rem !important;
     color: rgba(238,233,222,0.35) !important;
     background: none !important;
