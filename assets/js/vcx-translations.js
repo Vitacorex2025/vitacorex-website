@@ -2034,6 +2034,8 @@ en: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'This service is available in Florida only. Other states are not currently served.',
   state_banner_rollout_cta:     'Interested in rollout to your state? →',
+  state_banner_multi_state:     'This page focuses on Florida filings. LLC formation is available in every U.S. state where permitted — the target state is selected at intake.',
+  state_banner_multi_state_cta: 'Start intake for your state →',
 
   /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
   vcx_claim_caveat_illustrative:          'illustrative',
@@ -4060,6 +4062,8 @@ ru: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'Эта услуга доступна только во Флориде. Другие штаты пока не обслуживаются.',
   state_banner_rollout_cta:     'Заинтересованы в расширении на ваш штат? →',
+  state_banner_multi_state:     'Эта страница посвящена подаче во Флориде. Регистрация LLC доступна в любом штате США, где это разрешено — целевой штат выбирается на приёме.',
+  state_banner_multi_state_cta: 'Начать приём для вашего штата →',
 
   /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
   vcx_claim_caveat_illustrative:          'иллюстративно',
@@ -6086,6 +6090,8 @@ es: {
   /* ── State banner (ADR-014 §2 Appendix B · Step 11.6a) ── */
   state_banner_fl_only:         'Este servicio está disponible solo en Florida. Otros estados no son atendidos actualmente.',
   state_banner_rollout_cta:     '¿Interesado en expansión a su estado? →',
+  state_banner_multi_state:     'Esta página se centra en presentaciones en Florida. La formación de LLC está disponible en cualquier estado de EE. UU. donde esté permitido — el estado destino se selecciona en la admisión.',
+  state_banner_multi_state_cta: 'Iniciar admisión para su estado →',
 
   /* ── P04 Step 4.3 · ADR-007 §visible-caveat-contract ── */
   vcx_claim_caveat_illustrative:          'ilustrativo',

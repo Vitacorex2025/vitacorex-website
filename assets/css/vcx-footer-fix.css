@@ -1,41 +1,110 @@
 /**
- * VitaCoreX Footer Spacing Fix + Unified Legal Block
- * Fixes:
- *   - "VitaCoreX LLCEstablished 2025" / "Phone:EIN:" text collision
- *   - Disclosure paragraph stretching full container width (hard to read)
- *   - Missing visual separation between disclosure / trust line / copyright
+ * VitaCoreX Footer Layout + Unified Legal Block
  *
- * Works globally on ALL pages that use any of:
- *   footer.footer   (main site)
- *   footer.vcx-footer (app pages)
+ * Three concerns:
+ *   1. App-page mini-footers use bare <div> children inside .footer-grid
+ *      that would otherwise render "VitaCoreX LLCEstablished 2025" /
+ *      "Phone:EIN:" text collisions. Force-stack those.
+ *   2. Main-site footer has .footer-company meta block + 4-column .footer-cols--dual
+ *      grid (built by vcx-footer.js) + .footer-state-tools row. Grid layout
+ *      must NOT be force-stacked — only the meta/company block.
+ *   3. The unified footer_disc + footer_trust_line pair must read as a
+ *      single legal block: capped line length, subtle top rule, muted
+ *      trust strip below.
+ *
+ * Works globally on pages that use any of:
+ *   footer.footer       (main site)
+ *   footer.vcx-footer   (app pages)
  *   .footer-grid / .footer-grid-extended / .footer-grid--dual
  */
 
-/* ── Column stacking inside the meta grid ─────────────────────────── */
-.vcx-footer .footer-grid > div,
-.footer .footer-grid > div,
-footer .footer-grid > div {
+/* ── Bare-div stacking only ────────────────────────────────────────
+ * App-page footer uses untagged <div> children. Main-site footer uses
+ * named classes (.footer-company, .footer-cols, .footer-state-tools,
+ * .footer-group). Exclude all named wrappers so the 4-col grid and
+ * state-tools row keep their own layouts. */
+.vcx-footer .footer-grid > div:not([class]),
+.footer .footer-grid > div:not([class]),
+footer .footer-grid > div:not([class]) {
   display: flex !important;
   flex-direction: column !important;
   gap: 4px !important;
 }
 
-/* strong + span should have breathing room */
-.vcx-footer .footer-grid strong {
-  display: block !important;
-  margin-bottom: 2px !important;
+/* strong + span inside the bare meta cells still need breathing room */
+.vcx-footer .footer-grid > div:not([class]) strong {
+  display: block;
+  margin-bottom: 2px;
+}
+.vcx-footer .footer-grid > div:not([class]) span,
+.footer .footer-grid > div:not([class]) span,
+footer .footer-grid > div:not([class]) span {
+  display: block;
+  line-height: 1.5;
 }
 
-.vcx-footer .footer-grid span,
-.footer .footer-grid span,
-footer .footer-grid span {
-  display: block !important;
-  line-height: 1.5 !important;
+/* ── Main-site .footer-company meta row ───────────────────────────
+ * On desktop, split into two aligned columns: identity (name, est, EIN,
+ * phone) on the left, legal block (disc + trust + forms + copy) on the
+ * right. Social goes below as its own strip. Collapses to one column
+ * under 820px. */
+.footer-grid--dual .footer-company {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
+  gap: 20px 40px;
+  align-items: start;
+  padding-bottom: 20px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-grid--dual .footer-company h3 {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0 0 8px;
+}
+.footer-grid--dual .footer-company .footer-meta {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  gap: 6px;
+}
+.footer-grid--dual .footer-company .foot-social {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ── Unified disclosure block (footer_disc) ───────────────────────── */
-/* Caps line length for readability + adds subtle top rule so the legal
-   block visually separates from the company meta rows above it. */
+/* Identity facts (name, est, EIN, phone) live in the left column:
+ * promote them out of the meta grid via :nth-child. */
+.footer-grid--dual .footer-company .footer-meta [data-i18n="footer_est"],
+.footer-grid--dual .footer-company .footer-meta [data-i18n="footer_ein"],
+.footer-grid--dual .footer-company .footer-meta .small-note:has([data-i18n="footer_phone"]) {
+  color: inherit;
+}
+
+/* Collapse on narrow viewports */
+@media (max-width: 820px) {
+  .footer-grid--dual .footer-company {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .footer-grid--dual .footer-company h3,
+  .footer-grid--dual .footer-company .footer-meta,
+  .footer-grid--dual .footer-company .foot-social {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* ── Unified disclosure block (footer_disc) ───────────────────────
+ * Caps line length for readability + adds subtle top rule so the legal
+ * block visually separates from the identity facts above it. */
 .vcx-footer .footer-disc,
 .footer .footer-disc,
 footer .footer-disc,
@@ -45,14 +114,23 @@ footer .footer-disc,
 .footer [data-i18n="footer_disc"],
 footer [data-common="footer_disc"],
 footer [data-i18n="footer_disc"] {
-  max-width: 980px;
-  margin: 14px 0 0;
-  padding-top: 12px;
+  max-width: 920px;
+  margin: 10px 0 0;
+  padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.78rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.6);
   text-align: left;
+}
+
+/* Inside the new 2-col main-site layout the disc already has its own
+ * visual separation (the full row-border above), so drop the inline
+ * top rule to avoid doubling. */
+.footer-grid--dual .footer-company .footer-meta [data-i18n="footer_disc"] {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 6px;
 }
 
 /* Light-theme guard (main site footer renders on a light gradient) */
@@ -67,9 +145,9 @@ body[data-audience="b2c"]    .footer [data-i18n="footer_disc"],
   border-top-color: rgba(14, 32, 54, 0.08);
 }
 
-/* ── Trust line (footer_trust_line) ───────────────────────────────── */
-/* Short badge row that sits immediately below the disclosure.
-   Uppercase caps + narrow font keeps it visually distinct from prose. */
+/* ── Trust line (footer_trust_line) ───────────────────────────────
+ * Short muted strip directly under the disclosure. Narrow font so it
+ * reads as a caption, not prose. */
 .vcx-footer .footer-trust-line,
 .footer .footer-trust-line,
 footer .footer-trust-line,
@@ -79,8 +157,8 @@ footer .footer-trust-line,
 .footer [data-i18n="footer_trust_line"],
 footer [data-common="footer_trust_line"],
 footer [data-i18n="footer_trust_line"] {
-  max-width: 980px;
-  margin: 8px 0 0;
+  max-width: 920px;
+  margin: 6px 0 0;
   font-size: 0.72rem;
   line-height: 1.55;
   letter-spacing: 0.02em;
@@ -92,7 +170,7 @@ footer [data-i18n="footer_trust_line"] {
 .vcx-footer .footer-trust-line--compact,
 .footer .footer-trust-line--compact,
 footer .footer-trust-line--compact {
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: 0.7rem;
 }
 
@@ -118,11 +196,38 @@ footer .footer-copyright,
   margin-top: 10px;
 }
 
-/* ── Mobile ──────────────────────────────────────────────────────── */
+/* ── 4-col dual grid safety ───────────────────────────────────────
+ * Ensure the .footer-cols--dual grid stays as grid regardless of what
+ * other stylesheets do to generic div children. */
+.footer-grid--dual .footer-cols--dual {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+}
+@media (max-width: 1020px) {
+  .footer-grid--dual .footer-cols--dual {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid--dual .footer-cols--dual {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Column cell (footer-group--dual): each cell is a flex column.
+ * Overrides the generic bare-div rule above (which uses :not([class])
+ * so it shouldn't match .footer-group--dual anyway — but we set the
+ * flex-column layout explicitly for clarity). */
+.footer-grid--dual .footer-group--dual {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* ── Mobile tuning ──────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .vcx-footer .footer-grid,
-  .footer .footer-grid,
-  footer .footer-grid {
+  footer .vcx-footer .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
   }
