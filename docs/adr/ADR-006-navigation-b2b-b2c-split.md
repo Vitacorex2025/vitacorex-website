@@ -56,7 +56,7 @@ Adopt a **dual-door primary navigation** with explicit audience labels, URL pres
 | Immigration Packet | `immigration-packet-review.html` | 3-tier $149/$219/from $649 |
 | Auto Deal Review | `auto-deal-review.html` | $149/$219 + $49 rush |
 | Florida Small Claims | `florida-small-claims-help.html` | B2C-localized entry |
-| LLC Formation | `llc-formation-florida.html` | $299 / $2,500 Turnkey |
+| LLC Formation | `llc-formation-florida.html` | $199 / $2,500 Turnkey |
 | Business Plan | `business-plans.html` | from $1,250 |
 | Location Analysis | `location-analysis.html` *(P09 creates)* | from $495 |
 | Turnkey Business Opening | `turnkey-opening.html` *(P09 creates)* | $2,500 bundle |

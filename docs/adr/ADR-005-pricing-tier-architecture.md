@@ -17,7 +17,7 @@ Audit 2026-04-18 identified two critical pricing conflicts:
 2. **Immigration Packet**: `immigration-packet-review.html` shows $149 / $219. `additional-services.html` shows "starts from $649". Same mismatch.
 
 Secondary gaps:
-- LLC Formation price ($299) not published on dedicated `llc-formation-florida.html`
+- LLC Formation price ($199) not published on dedicated `llc-formation-florida.html`
 - Auto Deal rush add-on undefined
 - Net Recovery Program (free pilot) vs. Controlled Operations Pilot (paid $8,500/mo) not clearly disambiguated
 - Diagnostic Review ($2,500) referenced in brief but no dedicated page
@@ -43,7 +43,7 @@ Adopt a uniform 3-tier ladder for document services, with explicit disambiguatio
 
 | Service | Base | Turnkey |
 |---------|------|---------|
-| LLC Formation | $299 | $2,500 (turnkey business opening bundle) |
+| LLC Formation | $199 | $2,500 (turnkey business opening bundle) |
 | Business Plan | from $1,250 | custom |
 | Location Analysis | from $495 | custom |
 
