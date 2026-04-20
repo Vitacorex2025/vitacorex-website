@@ -15,30 +15,35 @@ consumed_by: P17 Step 17.4 (fix round — per-page commits per disposition)
 
 | Disposition | Count | Step 17.4 action |
 |-------------|------:|-------------------|
-| **fix** | 10 | Code change required — 5 LinkedIn slug corrections (1 find-replace across 5 files) + 5 internal-anchor-missing (drop `#fragment` from 5 hrefs) |
-| **remove** | 0 | — |
+| **fix** | 5 | Code change required — drop `#fragment` from 5 hrefs (internal-anchor-missing) |
+| **remove** | 5 | Delete dead LinkedIn company `<a>` tags on 5 metro/state pages — pivoted from `fix` after browser-UA pre-flight confirmed **both** candidate slugs (`/company/vitacorex-llc` + `/company/vitacorex`) return HTTP 404 (company page does not exist) |
 | **defer** | 0 | — |
 | **invalid** | 12 | No code change — document false-positive classes + refine auditor regex in a Step 17.1 follow-up (or accept as known limitation) |
 
 ## Triage decisions
 
-### Group A — LinkedIn company page slug correction (5 rows → **fix** · single find-replace)
+### Group A — LinkedIn company link removal (5 rows → **remove** · pivoted from `fix`)
 
-All 5 `revenue-recovery-*.html` + `immigration-services-tampa.html` + `llc-formation-florida.html` metro/state pages point to `https://www.linkedin.com/company/vitacorex-llc` which returns HTTP 404. **The JSON-LD at `index.html:1172` already uses the correct canonical slug `https://www.linkedin.com/company/vitacorex`** (without the `-llc` suffix). The visible-link hrefs are stale — they predate the LinkedIn URL standardization.
+**Pivot rationale**: initial disposition was `fix` — correct the slug from `/company/vitacorex-llc` to `/company/vitacorex` based on the canonical slug used by JSON-LD at `index.html:1172`. Pre-flight browser-UA curl executed at Step 17.4 start (`curl -I -A "Mozilla/5.0 ..."`) confirmed **both** slugs return HTTP 404:
 
-**Fix**: site-wide find-replace `linkedin.com/company/vitacorex-llc` → `linkedin.com/company/vitacorex` (1 commit covers all 5 files per phase-doc §Step 17.4 "one per logical group if 3+ pages share the fix").
+```
+vitacorex:     HTTP 404 (final=https://www.linkedin.com/company/vitacorex)
+vitacorex-llc: HTTP 404 (final=https://www.linkedin.com/company/vitacorex-llc)
+```
 
-| File | Line | Label | Current | Target |
-|------|-----:|-------|---------|--------|
-| `immigration-services-tampa.html` | 166 | LinkedIn | `https://www.linkedin.com/company/vitacorex-llc` | `https://www.linkedin.com/company/vitacorex` |
-| `llc-formation-florida.html` | 230 | LinkedIn | (same) | (same) |
-| `revenue-recovery-miami.html` | 135 | LinkedIn | (same) | (same) |
-| `revenue-recovery-orlando.html` | 135 | LinkedIn | (same) | (same) |
-| `revenue-recovery-tampa.html` | 135 | LinkedIn | (same) | (same) |
+The VitaCoreX LinkedIn **company page does not exist** on either slug. The visible-link hrefs are aspirational — they predate any actual company-page creation. Shipping a slug correction would swap one 404 for another. The JSON-LD `sameAs` reference in `index.html:1172` is the same bug class but out of P17 interactive-element scope (tracked as Step 17.1 follow-up).
 
-**Disposition**: **fix** · single commit · post-fix re-run `verify-cta-targets.js` → expect 5 rows cleared, `external-http-4xx` count drops 5 → 0.
+**Fix**: delete the `<a>` tag entirely on each of the 5 pages. The 4 remaining social links (Instagram, Facebook, GitHub + founder LinkedIn on `about.html`) stay intact. If/when a real LinkedIn company page is created later, the link can be re-added with the correct slug.
 
-**Verification note**: the corrected URL `https://www.linkedin.com/company/vitacorex` must itself HEAD-check 200/3xx. If LinkedIn also returns 404 on the canonical slug (company page truly does not exist), downgrade to **remove** — drop the LinkedIn links on these 5 pages and keep only the founder personal link on `about.html`. Pre-flight check: `curl -I https://www.linkedin.com/company/vitacorex -A "Mozilla/5.0"` before shipping the fix.
+| File | Line | Action | Before | After |
+|------|-----:|--------|--------|-------|
+| `immigration-services-tampa.html` | 166 | delete `<a>` | `<a href="...vitacorex-llc" ...>LinkedIn</a>` | (removed) |
+| `llc-formation-florida.html` | 230 | delete `<a>` | (same pattern) | (removed) |
+| `revenue-recovery-miami.html` | 135 | delete `<a>` | (same) | (removed) |
+| `revenue-recovery-orlando.html` | 135 | delete `<a>` | (same) | (removed) |
+| `revenue-recovery-tampa.html` | 135 | delete `<a>` | (same) | (removed) |
+
+**Disposition**: **remove** · single commit (`fix(cta): remove LinkedIn company link — no company page exists`) · post-fix re-run `verify-cta-targets.js` → expect 5 rows cleared, `external-http-4xx` count drops 5 → 0.
 
 ### Group B — Internal anchor fragments that don't exist in target (5 rows → **fix** · drop `#fragment`)
 
@@ -99,10 +104,11 @@ All 10 `no-handler` rows have an `id="..."` attribute and live inside an app/wid
 
 ## Step 17.4 plan
 
-1. **Commit 1** (`fix(cta): linkedin company slug — 5 metro pages`) — find-replace `linkedin.com/company/vitacorex-llc` → `linkedin.com/company/vitacorex` across 5 files. Pre-flight: browser + curl (`Mozilla/5.0` UA) HEAD-check the canonical URL first. If 404, pivot to `remove` (drop the link on all 5 pages).
-2. **Commit 2** (`fix(cta): internal-anchor-missing — drop fragments on 5 stale hrefs`) — drop `#fragment` from 5 hrefs (see Group B table). Option to add back when P12/P13 restructure introduces the sections.
-3. **Optional commit 3** (`chore(qa): ignore-list for LinkedIn bot-block HTTP 999`) — add `scripts/verify-cta-targets.ignore.json` with the 2 LinkedIn personal URLs + update verifier to consume it. Makes subsequent runs cleaner.
-4. **Post-fix smoke** — re-run `node scripts/verify-cta-targets.js`; expect **0 broken rows** for categories `external-http-4xx` + `internal-anchor-missing`; `external-http-opaque` + `no-handler` unchanged (both classes documented as known-invalid above). Exit code depends on whether ignore-list lands — with ignore-list: **exit 0**; without: exit 2 (12 remaining rows all `invalid`).
+1. **Commit 1** (`fix(cta): remove LinkedIn company link on 5 metro pages — no company page exists (P17 Step 17.4)`) — delete the LinkedIn `<a>` tag entirely on 5 files. Pivoted from slug-correction after pre-flight browser-UA curl confirmed both candidate slugs return 404.
+2. **Commit 2** (`fix(cta): drop stale #fragment anchors on 5 hrefs (P17 Step 17.4)`) — drop `#fragment` from 5 hrefs (see Group B table). Option to add back when P12/P13 restructure introduces the sections.
+3. **Commit 3** (`docs(qa): refresh cta-broken baseline post-Step-17.4 fixes`) — re-run verifier, commit regenerated `docs/qa/cta-broken.md` showing broken count drop 22 → 12 (remaining 12 all `invalid` per Groups C+D).
+4. **Optional commit 4** (`chore(qa): ignore-list for LinkedIn bot-block HTTP 999`) — add `scripts/verify-cta-targets.ignore.json` with the 2 LinkedIn personal URLs + update verifier to consume it. Deferred to Step 17.6 (CI gate hardening) if not shipped now.
+5. **Post-fix smoke** — re-run `node scripts/verify-cta-targets.js`; expect **0 broken rows** for categories `external-http-4xx` + `internal-anchor-missing`; `external-http-opaque` + `no-handler` unchanged (both classes documented as known-invalid above). Exit code depends on whether ignore-list lands — with ignore-list: **exit 0**; without: exit 2 (12 remaining rows all `invalid`).
 
 ## Notes for Step 17.5 + Step 17.6
 
