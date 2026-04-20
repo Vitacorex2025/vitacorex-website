@@ -200,12 +200,81 @@ When VCX adds a second state (e.g., Texas), the following updates land together 
 - **Category E entries** are permanent historical record — do not delete; they anchor commit-to-surface traceability
 - **Never delete Category D rows** — removing a legitimate ops anchor without ADR-level review is a regression
 
+## P11 Phase Closure (Step 11.8 smoke + close · 2026-04-20)
+
+P11 U.S.-wide Positioning Pivot **closed** on 2026-04-20 after a 14-commit execution sequence across 2 days. This section documents the final smoke report and phase close-out.
+
+### Step 11.8 smoke report
+
+Ten-item verification checklist per phase-doc contract + 1 residual-audit sweep:
+
+| # | Smoke check | Result | Evidence |
+|---|-------------|--------|----------|
+| 1 | `Tampa, FL` in header chrome | ✅ PASS | Header chrome `data-i18n="clock_sub_tampa"` renders "U.S. Eastern" byte-exact across 51 HTML files (Phase 1 `5a7d1f1`) |
+| 2 | `across Florida` in marketing copy | ✅ PASS | 0 matches (Phase 1 cleared hero + bento card 5 "across Florida" → "across the U.S.") |
+| 3 | `Florida Bar` on commercial pages | ✅ PASS | 0 matches on commercial pages; only matches on state-scoped `florida-small-claims-help.html` (exempt per checklist — state-guide page, retain-with-banner per 11.6 routing decision) |
+| 4 | Footer "Florida Revenue Recovery" / "Florida Small Claims Help" not in primary nav | ✅ PASS | Entries are in `vcx-footer.js COL.stateTools` block (Phase 1 design: inline strip below the 4-column primary grid, not primary nav columns) |
+| 5 | H1 on commercial pages = U.S.-wide / state-neutral language | ✅ PASS | All 6 commercial pages (contract-review, auto-deal, small-claims, immigration-tampa, revenue-recovery-workflow, solutions) + 3 federal USCIS form pages + 4 role-pivoted revenue-recovery-* pages |
+| 6 | Redirected FL pages HTTP 301/302 | ⚪ N/A | 11.6 design pass (`0f31db8`) ratified role-pivot over redirect: 5 role-pivot + 2 retain-with-banner + 1 retain-as-is + 0 redirects |
+| 7 | State-guide pages have self-canonical | ✅ PASS | `florida-small-claims-help.html` + `llc-formation-florida.html` have self-canonicals + 4× hreflang (preserved through 11.6b banner wiring) |
+| 8 | `verify-home-cards.js` PASS | ✅ PASS | Script output: "PASS: home dual-entry cards are untouched by the P02 cascade." All 11 `data-page` anchors + 2 `<a data-route>` wrappers intact |
+| 9 | `verify-sitemap.js` PASS | ✅ PASS | Script output: "PASS: sitemap coverage complete." 82 URLs; all 11 forbidden URLs absent; all 7 P03 samples present |
+| 10 | ADR-014 accepted + state-inventory.md committed | ✅ PASS | `22bcdd0` (Step 11.1) + `5d188c2` (Step 11.2) both shipped |
+| 11 | Residual scope-claim audit (non-checklist, added in-close) | ✅ PASS (post-fix) | Initial smoke uncovered 2 residuals on `404.html:10` + `faq.html:65`; fixed in Step 11.5 batch 5 (`a8a5cfd`); re-smoked live-prod = 0 residuals |
+
+### Phase commit ledger (14 commits across 2 days)
+
+**2026-04-19 (2 commits)**:
+
+1. `5a7d1f1` — P11 Phase 1 (Steps 11.3 + 11.4 + hero slice of 11.5): 51 HTML files header chrome neutralized + hero eyebrow + bento card 5 + footer nav
+2. `b4c2d48` — P11 Phase 1 follow-up: bento_5_text RU/ES translation parity
+
+**2026-04-19 (6 additional commits)**:
+
+3. `a6bb73c` — P11 Step 11.5 batch 1: 5 service-page rewrites
+4. `56b8eee` — P11 Step 11.7: UPL site-wide state-neutralization
+5. `a7a7d8b` — P11 Step 11.7 follow-up: Partner-programme UPL
+
+**2026-04-20 (13 commits)**:
+
+6. `779a4a8` — P11 Step 11.5 batch 2: additional-services.html state-neutral
+7. `22bcdd0` — P11 Step 11.1: ADR-014 proposed → accepted + Implementation record
+8. `5d188c2` — P11 Step 11.2: docs/positioning/state-inventory.md baseline
+9. `f438d60` — P11 Step 11.5 batch 3: i-130/i-485/n-400 immigration form pages U.S.-wide
+10. `0f31db8` — P11 Step 11.6 design pass: FL page routing decisions ratified + Cat. F → Cat. E flip
+11. `e10f5f2` — P11 Step 11.6a: vcx-state-banner component built standalone
+12. `3db8962` — P11 Step 11.6b: vcx-state-banner wired on 2 FL pages
+13. `e1fc1c7` — P11 Step 11.6c1: role-pivot immigration-services-tampa per ADR-014 §4
+14. `d3cfaec` — P11 Step 11.6c2a: role-pivot 3 metro revenue-recovery pages per ADR-014 §4
+15. `af8af9d` — P11 Step 11.6c2b: role-pivot revenue-recovery-florida per ADR-014 §4 (closes 11.6c2 batch; Step 11.6 family complete)
+16. `276b0d0` — P11 Step 11.7 follow-up: state-rollout-playbook.md per ADR-014 §6
+17. `65e38be` — P11 Step 11.5 batch 4: meta-keyword scope-claim sweep on about/faq/careers
+18. `a8a5cfd` — P11 Step 11.5 batch 5: 404 + faq subtitle residual cleanup (closes Step 11.5 family)
+19. **`<this commit>`** — P11 Step 11.8: smoke PASS + phase closed (docs-only)
+
+### Phase final status
+
+- **ADR-014**: accepted (`22bcdd0`); Implementation record documents decision-to-commit map + 3 known-accepted divergences
+- **state-inventory.md**: baseline shipped (`5d188c2`); Cat. F → Cat. E flip shipped (`0f31db8`); sibling docs cross-refs added (`276b0d0`); P11 Phase Closure section added (this commit)
+- **state-rollout-playbook.md**: shipped (`276b0d0`); unblocks future 2nd-state rollouts (TX/CA/NY/etc.) with single-source-of-truth R1–R8 contract
+- **step-11-6-routing-decisions.md**: shipped (`0f31db8`); ratified 8-FL-page routing disposition (2 retain-with-banner + 1 retain-as-is + 5 role-pivot + 0 redirects)
+- **vcx-state-banner component**: shipped (`e10f5f2` asset + `3db8962` wiring); 6 translation keys × EN/RU/ES locked per ADR-014 Appendix B
+- **Site-wide scope-claim drift**: 0 residual scope-claims on commercial pages, verified post-close via smoke
+- **Legitimate Cat. D anchors preserved**: ~210 geo.region / office / legal-fact / vendor-identity signals retained verbatim
+- **Legitimate state-scoped tools preserved**: `florida-small-claims-help.html` + `llc-formation-florida.html` + card4 Florida Official Source Locator on additional-services.html + FCCPA workflow references on revenue-recovery-workflow.html
+
+### Unblocked by P11 close
+
+- **P12 Homepage and Nav Simplification**: P11 completion is a P12 dependency per phase doc `blocks: [P12, P13]` frontmatter. P12 can now start (pending ADR-level design decisions on IA structure)
+- **P13 Content Deduplication and Canonical**: Same unblock as P12
+- **Future-state rollouts (TX/CA/NY/etc.)**: Unblocked by Step 11.7 follow-up `state-rollout-playbook.md` (`276b0d0`)
+
 ## Links
 
 - ADR: [ADR-014 U.S.-wide Positioning Pivot](../adr/ADR-014-us-wide-positioning-pivot.md) (accepted 2026-04-20, `22bcdd0`)
 - ADR Implementation record §Layer 2 (card-level carve-out refinement)
 - Step 11.6 ratified routing contract: [step-11-6-routing-decisions.md](./step-11-6-routing-decisions.md) (ratified 2026-04-20)
 - Step 11.7 state rollout playbook: [state-rollout-playbook.md](./state-rollout-playbook.md) (accepted 2026-04-20)
-- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Sessions 3 + 4 + 5 + 11
-- Phase doc: `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot.md`
+- Execution log: `Upgrade 2026-04/Execution-Log/2026-04-20.md` Sessions 3 + 4 + 5 + 11 + 12 + 13 + 14
+- Phase doc: `Upgrade 2026-04/Phases/P11 US-wide Positioning Pivot.md` (status: ✅ DONE 2026-04-20)
 - Audit source: `Upgrade 2026-04/Research/Site Audit 2026-04-19` §5
