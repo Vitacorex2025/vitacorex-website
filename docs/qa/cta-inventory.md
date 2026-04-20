@@ -1954,57 +1954,57 @@ idempotent: true
 | `partners.html` | 328 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
 | `partners.html` | 329 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
 | `partners.html` | 330 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 146 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 168 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `pre-collection-pilot.html` | 168 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `pre-collection-pilot.html` | 168 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `pre-collection-pilot.html` | 171 | a | Home | `index.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 171 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 184 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `pre-collection-pilot.html` | 184 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `pre-collection-pilot.html` | 184 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `pre-collection-pilot.html` | 186 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 196 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
-| `pre-collection-pilot.html` | 201 | a | Home | `index.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 201 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `pre-collection-pilot.html` | 220 | a | Apply for the pilot | `structured-case-intake.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 221 | a | See qualification criteria | `#qualify` | anchor | b2b | — |
-| `pre-collection-pilot.html` | 432 | a | See Controlled Operations tier &rarr; | `solutions.html#engagement-tiers` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 443 | a | See Diagnostic Review details &rarr; | `diagnostic-review.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 455 | a | Apply for the pilot | `structured-case-intake.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 456 | a | Request a private consultation instead | `contact.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 465 | a | See the sample | `samples/diagnostic-report.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 465 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
-| `pre-collection-pilot.html` | 473 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `pre-collection-pilot.html` | 479 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `pre-collection-pilot.html` | 480 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `pre-collection-pilot.html` | 486 | a | Home | `index.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 487 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 488 | a | Industries | `industries.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 489 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 490 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 491 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 492 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 493 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 494 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 500 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 501 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 502 | a | Careers | `careers.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 503 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 504 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `pre-collection-pilot.html` | 505 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 147 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 169 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `pre-collection-pilot.html` | 169 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `pre-collection-pilot.html` | 169 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `pre-collection-pilot.html` | 172 | a | Home | `index.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 172 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 185 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `pre-collection-pilot.html` | 185 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `pre-collection-pilot.html` | 185 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `pre-collection-pilot.html` | 187 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 197 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
+| `pre-collection-pilot.html` | 202 | a | Home | `index.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 202 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `pre-collection-pilot.html` | 221 | a | Apply for the pilot | `structured-case-intake.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 222 | a | See qualification criteria | `#qualify` | anchor | b2b | — |
+| `pre-collection-pilot.html` | 433 | a | See Controlled Operations tier &rarr; | `solutions.html#engagement-tiers` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 444 | a | See Diagnostic Review details &rarr; | `diagnostic-review.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 456 | a | Apply for the pilot | `structured-case-intake.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 457 | a | Request a private consultation instead | `contact.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 466 | a | See the sample | `samples/diagnostic-report.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 466 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 474 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `pre-collection-pilot.html` | 480 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `pre-collection-pilot.html` | 481 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `pre-collection-pilot.html` | 487 | a | Home | `index.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 488 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 489 | a | Industries | `industries.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 490 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 491 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 492 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 493 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 494 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 495 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 501 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 502 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 503 | a | Careers | `careers.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 504 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 505 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 506 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `pricing-and-engagement-tiers.html` | 168 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `pricing-and-engagement-tiers.html` | 190 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `pricing-and-engagement-tiers.html` | 190 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
@@ -2630,59 +2630,59 @@ idempotent: true
 | `small-claims-documentation.html` | 534 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
 | `small-claims-documentation.html` | 535 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
 | `small-claims-documentation.html` | 536 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
-| `solutions.html` | 63 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
-| `solutions.html` | 85 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `solutions.html` | 85 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `solutions.html` | 85 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `solutions.html` | 88 | a | Home | `index.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `solutions.html` | 88 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `solutions.html` | 101 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `solutions.html` | 101 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `solutions.html` | 101 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `solutions.html` | 103 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
-| `solutions.html` | 113 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
-| `solutions.html` | 118 | a | Home | `index.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `solutions.html` | 118 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `solutions.html` | 140 | a | 1 Revenue Recovery Infrastructure Pre-agency workflow desig… | `revenue-recovery-workflow.html` | in-body | b2b | — |
-| `solutions.html` | 150 | a | 2 Corporate Legal File Control Chronology cleanup, packet s… | `corporate-legal-file-control.html` | in-body | b2b | — |
-| `solutions.html` | 160 | a | 3 Structured Intake & Packet Build Best for routing, first-… | `structured-case-intake.html` | in-body | b2b | — |
-| `solutions.html` | 195 | a | Request confidential review | `structured-case-intake.html` | in-body | b2b | — |
-| `solutions.html` | 196 | a | Review industries | `industries.html` | in-body | b2b | — |
-| `solutions.html` | 197 | a | VitaCoreX vs collection agency | `vitacorex-vs-traditional-agency.html` | in-body | b2b | — |
-| `solutions.html` | 208 | a | See free pilot terms &rarr; | `pre-collection-pilot.html` | in-body | b2b | — |
-| `solutions.html` | 221 | a | See diagnostic details &rarr; | `diagnostic-review.html` | in-body | b2b | — |
-| `solutions.html` | 248 | a | Request indicative quote | `contact.html` | in-body | b2b | — |
-| `solutions.html` | 249 | a | Book 30-min intro | `https://calendly.com/vitacorex2025/30min` | external | b2b | new-tab |
-| `solutions.html` | 253 | a | See the sample | `samples/diagnostic-report.html` | in-body | b2b | — |
-| `solutions.html` | 253 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
-| `solutions.html` | 261 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `solutions.html` | 267 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `solutions.html` | 268 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `solutions.html` | 274 | a | Home | `index.html` | footer | b2b | — |
-| `solutions.html` | 275 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `solutions.html` | 276 | a | Industries | `industries.html` | footer | b2b | — |
-| `solutions.html` | 277 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `solutions.html` | 278 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `solutions.html` | 279 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `solutions.html` | 280 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `solutions.html` | 286 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `solutions.html` | 287 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `solutions.html` | 288 | a | Careers | `careers.html` | footer | b2b | — |
-| `solutions.html` | 289 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `solutions.html` | 290 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `solutions.html` | 291 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `solutions.html` | 64 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
+| `solutions.html` | 86 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `solutions.html` | 86 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `solutions.html` | 86 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `solutions.html` | 89 | a | Home | `index.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `solutions.html` | 89 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `solutions.html` | 102 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `solutions.html` | 102 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `solutions.html` | 102 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `solutions.html` | 104 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
+| `solutions.html` | 114 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
+| `solutions.html` | 119 | a | Home | `index.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `solutions.html` | 119 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `solutions.html` | 141 | a | 1 Revenue Recovery Infrastructure Pre-agency workflow desig… | `revenue-recovery-workflow.html` | in-body | b2b | — |
+| `solutions.html` | 151 | a | 2 Corporate Legal File Control Chronology cleanup, packet s… | `corporate-legal-file-control.html` | in-body | b2b | — |
+| `solutions.html` | 161 | a | 3 Structured Intake & Packet Build Best for routing, first-… | `structured-case-intake.html` | in-body | b2b | — |
+| `solutions.html` | 196 | a | Request confidential review | `structured-case-intake.html` | in-body | b2b | — |
+| `solutions.html` | 197 | a | Review industries | `industries.html` | in-body | b2b | — |
+| `solutions.html` | 198 | a | VitaCoreX vs collection agency | `vitacorex-vs-traditional-agency.html` | in-body | b2b | — |
+| `solutions.html` | 209 | a | See free pilot terms &rarr; | `pre-collection-pilot.html` | in-body | b2b | — |
+| `solutions.html` | 222 | a | See diagnostic details &rarr; | `diagnostic-review.html` | in-body | b2b | — |
+| `solutions.html` | 249 | a | Request indicative quote | `contact.html` | in-body | b2b | — |
+| `solutions.html` | 250 | a | Book 30-min intro | `https://calendly.com/vitacorex2025/30min` | external | b2b | new-tab |
+| `solutions.html` | 254 | a | See the sample | `samples/diagnostic-report.html` | in-body | b2b | — |
+| `solutions.html` | 254 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
+| `solutions.html` | 262 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `solutions.html` | 268 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `solutions.html` | 269 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `solutions.html` | 275 | a | Home | `index.html` | footer | b2b | — |
+| `solutions.html` | 276 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `solutions.html` | 277 | a | Industries | `industries.html` | footer | b2b | — |
+| `solutions.html` | 278 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `solutions.html` | 279 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `solutions.html` | 280 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `solutions.html` | 281 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `solutions.html` | 287 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `solutions.html` | 288 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `solutions.html` | 289 | a | Careers | `careers.html` | footer | b2b | — |
+| `solutions.html` | 290 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `solutions.html` | 291 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `solutions.html` | 292 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `structured-case-intake.html` | 26 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `structured-case-intake.html` | 48 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `structured-case-intake.html` | 48 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
