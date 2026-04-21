@@ -2535,35 +2535,35 @@ idempotent: true
 | `revenue-recovery-workflow.html` | 85 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
 | `revenue-recovery-workflow.html` | 89 | a | See pilot measurement plan | `#measurement-plan` | anchor | b2b | — |
 | `revenue-recovery-workflow.html` | 89 | a | Request a confidential review | `structured-case-intake.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 149 | a | Start pilot | `/app/vcx-recovery-pilot/` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 155 | a | Open intake | `/app/vcx-intake/` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 169 | form | form:vcxRoiCalc | `(self)` | form-submit | b2b | self-post, GET |
-| `revenue-recovery-workflow.html` | 199 | button | Calculate my estimate | `(self)` | form-submit | b2b | form-method:GET |
-| `revenue-recovery-workflow.html` | 200 | button | Use sample: $500K, 90-day, healthcare | `(handler)` | action-script | b2b | form-method:GET |
-| `revenue-recovery-workflow.html` | 230 | a | Healthcare & dentalPatient-balance and packet-discipline en… | `industry-healthcare-dental.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 231 | a | SubscriptionRecurring billing and churn-sensitive recovery… | `industry-subscription-recurring.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 232 | a | Fleet & logisticsDispersed operations with contract-heavy r… | `industry-fleet-logistics.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 233 | a | Contract servicesMulti-party documentation and escalation-c… | `industry-contract-services.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 237 | a | Request access | `samples/request-gated-sample.html?s=ar-leakage-map` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 237 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 237 | a | Request access | `samples/request-gated-sample.html?s=counsel-ready-packet` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 237 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 245 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `revenue-recovery-workflow.html` | 251 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `revenue-recovery-workflow.html` | 252 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `revenue-recovery-workflow.html` | 258 | a | Home | `index.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 259 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 260 | a | Industries | `industries.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 261 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 262 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 263 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 264 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 270 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 271 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 272 | a | Careers | `careers.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 273 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 274 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `revenue-recovery-workflow.html` | 275 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 154 | a | Start pilot | `/app/vcx-recovery-pilot/` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 160 | a | Open intake | `/app/vcx-intake/` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 174 | form | form:vcxRoiCalc | `(self)` | form-submit | b2b | self-post, GET |
+| `revenue-recovery-workflow.html` | 204 | button | Calculate my estimate | `(self)` | form-submit | b2b | form-method:GET |
+| `revenue-recovery-workflow.html` | 205 | button | Use sample: $500K, 90-day, healthcare | `(handler)` | action-script | b2b | form-method:GET |
+| `revenue-recovery-workflow.html` | 235 | a | Healthcare & dentalPatient-balance and packet-discipline en… | `industry-healthcare-dental.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 236 | a | SubscriptionRecurring billing and churn-sensitive recovery… | `industry-subscription-recurring.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 237 | a | Fleet & logisticsDispersed operations with contract-heavy r… | `industry-fleet-logistics.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 238 | a | Contract servicesMulti-party documentation and escalation-c… | `industry-contract-services.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 242 | a | Request access | `samples/request-gated-sample.html?s=ar-leakage-map` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 242 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 242 | a | Request access | `samples/request-gated-sample.html?s=counsel-ready-packet` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 242 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 250 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `revenue-recovery-workflow.html` | 256 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `revenue-recovery-workflow.html` | 257 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `revenue-recovery-workflow.html` | 263 | a | Home | `index.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 264 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 265 | a | Industries | `industries.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 266 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 267 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 268 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 269 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 275 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 276 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 277 | a | Careers | `careers.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 278 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 279 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 280 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `sample-deliverable.html` | 237 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `sample-deliverable.html` | 259 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `sample-deliverable.html` | 259 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
