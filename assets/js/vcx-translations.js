@@ -365,6 +365,27 @@ en: {
   routes_escape_q:    'Not sure where you fit?',
   routes_escape_cta:  'Start with a confidential review \u2192',
 
+  /* ── Quick access rail (home) ──────────────────────────────── */
+  quickaccess_eyebrow:              'Quick access',
+  quickaccess_title:                'Jump to what you need.',
+  quickaccess_lede:                 'Direct links to the most-requested engagement entry points. All intake is confidential; no active advice is issued from these pages.',
+  quickaccess_item_intake:          'Structured intake',
+  quickaccess_item_intake_sub:      'Case scoping form',
+  quickaccess_item_recovery:        'Recovery workflow',
+  quickaccess_item_recovery_sub:    'Pre-collection steps',
+  quickaccess_item_file:            'File control',
+  quickaccess_item_file_sub:        'Counsel-ready docs',
+  quickaccess_item_pricing:         'Pricing tiers',
+  quickaccess_item_pricing_sub:     'Fixed scope & fees',
+  quickaccess_item_briefs:          'Executive briefs',
+  quickaccess_item_briefs_sub:      'Proof & context',
+  quickaccess_item_private:         'Private clients',
+  quickaccess_item_private_sub:     'Defined-scope work',
+  quickaccess_item_contact:         'Confidential review',
+  quickaccess_item_contact_sub:     '24\u201348h response',
+  quickaccess_legal_strong:         'Scope reminder.',
+  quickaccess_legal_body:           'VitaCoreX LLC is a Florida-registered company. We are not a law firm, not a licensed collection agency, and we do not provide legal advice or collect debts on behalf of clients. All engagements are documentation and workflow support.',
+
   /* ── Bento trust grid (home) ───────────────────────────────── */
   bento_1_title:      'Counsel-Ready',
   bento_2_title:      'Audit-Grade Security',
@@ -1709,6 +1730,15 @@ en: {
   sci_gov_t:          'Governance',
   sci_gov_p:          'VitaCoreX is not a law firm and not a licensed collection agency. Legal strategy and legal advice remain with licensed counsel.',
 
+  /* ── Private Client Self-Service Tools (sci) ─────────────────── */
+  sci_selfserv_eyebrow:    'Private Client Self-Service Tools',
+  sci_selfserv_intro:      'Need a quick analysis before you submit? Use one of these tools first — results are instant and stay in your browser.',
+  sci_tool_contract:       'Contract review \u2192',
+  sci_tool_immigration:    'Immigration help \u2192',
+  sci_tool_dealer:         'Auto deal check \u2192',
+  sci_tool_legal_assistant:'Legal assistant \u2192',
+  sci_tool_deadlines:      'Deadline calendar \u2192',
+
   /* ── resources.html (executive briefs) ──────────────────────── */
   res_hero_eyebrow:   'Executive library',
   res_hero_title:     'Executive materials for owners, CFOs, operators, and counsel.',
@@ -2391,6 +2421,27 @@ ru: {
   route_priv_micro:   'Ограниченный объём \u00B7 фиксированный результат',
   routes_escape_q:    'Не уверены, где ваше место?',
   routes_escape_cta:  'Начните с конфиденциального разбора \u2192',
+
+  /* ── Quick access rail (home) ──────────────────────────────── */
+  quickaccess_eyebrow:              'Быстрый доступ',
+  quickaccess_title:                'Перейдите к нужному разделу.',
+  quickaccess_lede:                 'Прямые ссылки на самые востребованные точки входа. Весь приём конфиденциален; активные советы с этих страниц не выдаются.',
+  quickaccess_item_intake:          'Структурированный приём',
+  quickaccess_item_intake_sub:      'Форма описания дела',
+  quickaccess_item_recovery:        'Workflow возврата',
+  quickaccess_item_recovery_sub:    'Шаги до коллекторов',
+  quickaccess_item_file:            'Контроль файла',
+  quickaccess_item_file_sub:        'Документы для counsel',
+  quickaccess_item_pricing:         'Тарифы',
+  quickaccess_item_pricing_sub:     'Фиксированный scope и стоимость',
+  quickaccess_item_briefs:          'Исполнительные брифы',
+  quickaccess_item_briefs_sub:      'Доказательства и контекст',
+  quickaccess_item_private:         'Частные клиенты',
+  quickaccess_item_private_sub:     'Работа в рамках scope',
+  quickaccess_item_contact:         'Конфиденциальный разбор',
+  quickaccess_item_contact_sub:     'Ответ 24\u201348 ч',
+  quickaccess_legal_strong:         'Напоминание о scope.',
+  quickaccess_legal_body:           'VitaCoreX LLC — компания, зарегистрированная во Флориде. Мы не юридическая фирма, не лицензированное коллекторское агентство, и мы не предоставляем юридические советы и не взыскиваем долги от имени клиентов. Все engagement — это поддержка документации и workflow.',
 
   /* ── Bento trust grid (home) ───────────────────────────────── */
   bento_1_title:      'Counsel-Ready',
@@ -3749,6 +3800,15 @@ ru: {
   sci_gov_t:          'Governance',
   sci_gov_p:          'VitaCoreX не юридическая фирма и не лицензированное коллекторское агентство. Юридическая стратегия и советы остаются с лицензированным адвокатом.',
 
+  /* ── Private Client Self-Service Tools (sci) ─────────────────── */
+  sci_selfserv_eyebrow:    'Инструменты самообслуживания для частных клиентов',
+  sci_selfserv_intro:      'Нужен быстрый анализ перед отправкой? Используйте один из этих инструментов — результаты мгновенные и остаются в вашем браузере.',
+  sci_tool_contract:       'Проверка договоров \u2192',
+  sci_tool_immigration:    'Помощь с иммиграцией \u2192',
+  sci_tool_dealer:         'Проверка авто-сделки \u2192',
+  sci_tool_legal_assistant:'Юридический ассистент \u2192',
+  sci_tool_deadlines:      'Календарь дедлайнов \u2192',
+
   /* ── resources.html (executive briefs) ──────────────────────── */
   res_hero_eyebrow:   'Исполнительная библиотека',
   res_hero_title:     'Материалы для владельцев, CFO, операционных руководителей и counsel.',
@@ -4430,6 +4490,27 @@ es: {
   route_priv_micro:   'Alcance acotado \u00B7 entregable fijo',
   routes_escape_q:    'No estas seguro donde encajas?',
   routes_escape_cta:  'Comienza con una revision confidencial \u2192',
+
+  /* ── Quick access rail (home) ──────────────────────────────── */
+  quickaccess_eyebrow:              'Acceso rapido',
+  quickaccess_title:                'Salta a lo que necesitas.',
+  quickaccess_lede:                 'Enlaces directos a los puntos de entrada de engagement mas solicitados. Todo intake es confidencial; no se emite asesoramiento activo desde estas paginas.',
+  quickaccess_item_intake:          'Intake estructurado',
+  quickaccess_item_intake_sub:      'Formulario de alcance',
+  quickaccess_item_recovery:        'Workflow de recuperacion',
+  quickaccess_item_recovery_sub:    'Pasos pre-cobranza',
+  quickaccess_item_file:            'Control de archivo',
+  quickaccess_item_file_sub:        'Documentos para counsel',
+  quickaccess_item_pricing:         'Niveles de precio',
+  quickaccess_item_pricing_sub:     'Scope y tarifa fijos',
+  quickaccess_item_briefs:          'Briefs ejecutivos',
+  quickaccess_item_briefs_sub:      'Prueba y contexto',
+  quickaccess_item_private:         'Clientes privados',
+  quickaccess_item_private_sub:     'Trabajo con scope definido',
+  quickaccess_item_contact:         'Revision confidencial',
+  quickaccess_item_contact_sub:     'Respuesta 24\u201348h',
+  quickaccess_legal_strong:         'Recordatorio de scope.',
+  quickaccess_legal_body:           'VitaCoreX LLC es una compania registrada en Florida. No somos un bufete, ni una agencia de cobranza con licencia, y no damos asesoramiento legal ni cobramos deudas a nombre de clientes. Todos los engagements son soporte de documentacion y workflow.',
 
   /* ── Bento trust grid (home) ───────────────────────────────── */
   bento_1_title:      'Counsel-Ready',
@@ -5787,6 +5868,15 @@ es: {
   sci_conf_p:         'Usa el intake publico para documentos de negocio general y materiales no regulados. Para registros altamente sensibles o regulados, solicita primero coordinacion segura.',
   sci_gov_t:          'Governance',
   sci_gov_p:          'VitaCoreX no es un bufete ni una agencia de cobranza con licencia. Estrategia legal y asesoramiento siguen con counsel licenciado.',
+
+  /* ── Private Client Self-Service Tools (sci) ─────────────────── */
+  sci_selfserv_eyebrow:    'Herramientas autoservicio para cliente privado',
+  sci_selfserv_intro:      'Necesitas un analisis rapido antes de enviar? Usa una de estas herramientas primero — los resultados son instantaneos y permanecen en tu navegador.',
+  sci_tool_contract:       'Revision de contrato \u2192',
+  sci_tool_immigration:    'Ayuda inmigracion \u2192',
+  sci_tool_dealer:         'Revision deal auto \u2192',
+  sci_tool_legal_assistant:'Asistente legal \u2192',
+  sci_tool_deadlines:      'Calendario de plazos \u2192',
 
   /* ── resources.html (executive briefs) ──────────────────────── */
   res_hero_eyebrow:   'Biblioteca ejecutiva',
