@@ -387,6 +387,8 @@ a.btn-secondary, button.btn-secondary,
   cursor: pointer !important;
 }
 
+/* A11y bump: base #5BBAA7 failed 2.33:1 with white text.
+ * #1A5A54 → white = 7.5:1 (passes AA normal + AAA large). */
 .btn-primary,
 a.btn-primary,
 button.btn-primary,
@@ -394,8 +396,8 @@ button.btn-primary,
 .concierge-panel .btn-primary,
 .contact-concierge .btn-primary,
 [class*="vcx-"] .btn-primary {
-  background: #5BBAA7 !important;
-  background-image: none !important;
+  background: #1A5A54 !important;
+  background-image: linear-gradient(135deg, #1A5A54 0%, #236B64 100%) !important;
   color: #FFFFFF !important;
   border: none !important;
 }
@@ -407,11 +409,11 @@ a.btn-primary::before {
 a.btn-primary:hover,
 button.btn-primary:hover,
 .hero .btn-primary:hover {
-  background: #4DAE9B !important;
-  background-image: none !important;
+  background: #236B64 !important;
+  background-image: linear-gradient(135deg, #236B64 0%, #2D8A82 100%) !important;
   color: #FFFFFF !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(91,186,167,0.25) !important;
+  box-shadow: 0 4px 12px rgba(26,90,84,0.35) !important;
 }
 
 .btn-secondary,
@@ -429,18 +431,30 @@ a.btn-secondary:hover {
   transform: translateY(-1px) !important;
 }
 
-/* Secondary on dark/band sections — light variant */
-.band .btn-secondary,
-.vcx-bg-dark .btn-secondary {
+/* Secondary on DARK sections — light variant.
+ * CRITICAL a11y: was `.band .btn-secondary` which assumed all .band
+ * sections are dark. Many .band sections render on LIGHT gradients, so
+ * white-on-white-alpha text became invisible (ratio 1.00:1, audited
+ * 2026-04-20). Scope only to explicit .vcx-bg-dark / .vcx-bg-ink / dark
+ * band variants so light .band sections get the default dark-text variant
+ * from the base rule above. */
+.vcx-bg-dark .btn-secondary,
+.vcx-bg-ink .btn-secondary,
+.band.vcx-bg-dark .btn-secondary,
+.band.vcx-bg-ink .btn-secondary,
+.band.vcx-bg-glow .btn-secondary {
   background: rgba(255,255,255,0.06) !important;
-  color: rgba(255,255,255,0.85) !important;
-  border: 1px solid rgba(255,255,255,0.15) !important;
-}
-.band .btn-secondary:hover,
-.vcx-bg-dark .btn-secondary:hover {
-  background: rgba(255,255,255,0.12) !important;
   color: #FFFFFF !important;
-  border-color: rgba(255,255,255,0.30) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+}
+.vcx-bg-dark .btn-secondary:hover,
+.vcx-bg-ink .btn-secondary:hover,
+.band.vcx-bg-dark .btn-secondary:hover,
+.band.vcx-bg-ink .btn-secondary:hover,
+.band.vcx-bg-glow .btn-secondary:hover {
+  background: rgba(255,255,255,0.14) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255,255,255,0.55) !important;
 }
 
 /* ---- STATS COUNTER SECTION ---- */
