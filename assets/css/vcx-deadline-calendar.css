@@ -58,7 +58,7 @@ body[data-vcx-page="deadline-calendar"] {
   line-height: 1;
 }
 .dcal-kpi-value.danger { color: #DC2626; }
-.dcal-kpi-value.warning { color: #D97706; }
+.dcal-kpi-value.warning { color: #0E7490; }
 .dcal-kpi-label {
   font-size: .68rem; color: #6B8E89; font-weight: 600;
   text-transform: uppercase; letter-spacing: .04em; margin-top: 4px;
@@ -78,14 +78,14 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-risk-card:active { transform: scale(.97); }
 .dcal-risk-card.overdue { border-left: 3px solid #DC2626; }
-.dcal-risk-card.today { border-left: 3px solid #D97706; }
+.dcal-risk-card.today { border-left: 3px solid #0E7490; }
 .dcal-risk-card.tomorrow { border-left: 3px solid #2D8A82; }
 .dcal-risk-card.next_7_days { border-left: 3px solid #6B8E89; }
 .dcal-risk-count {
   font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: 2px;
 }
 .dcal-risk-card.overdue .dcal-risk-count { color: #DC2626; }
-.dcal-risk-card.today .dcal-risk-count { color: #D97706; }
+.dcal-risk-card.today .dcal-risk-count { color: #0E7490; }
 .dcal-risk-card.tomorrow .dcal-risk-count { color: #1A4F4A; }
 .dcal-risk-card.next_7_days .dcal-risk-count { color: #6B8E89; }
 .dcal-risk-label { font-size: .82rem; font-weight: 600; color: #2A4A46; }
@@ -129,7 +129,7 @@ body[data-vcx-page="deadline-calendar"] {
   width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
 }
 .dcal-event-dot.hearing { background: #DC2626; }
-.dcal-event-dot.payment { background: #D97706; }
+.dcal-event-dot.payment { background: #0E7490; }
 .dcal-event-dot.call { background: #2563EB; }
 .dcal-event-dot.followup { background: #2D8A82; }
 .dcal-event-dot.doc { background: #6B7280; }
@@ -237,14 +237,14 @@ body[data-vcx-page="deadline-calendar"] {
   transition: background .15s;
 }
 .dcal-event-item.priority-high { border-left: 3px solid #DC2626; }
-.dcal-event-item.priority-medium { border-left: 3px solid #D97706; }
+.dcal-event-item.priority-medium { border-left: 3px solid #0E7490; }
 .dcal-event-type-icon {
   width: 32px; height: 32px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   font-size: .85rem; flex-shrink: 0;
 }
 .dcal-event-type-icon.hearing { background: #FEF2F2; color: #DC2626; }
-.dcal-event-type-icon.payment { background: #FFFBEB; color: #D97706; }
+.dcal-event-type-icon.payment { background: #E0F7FA; color: #0E7490; }
 .dcal-event-type-icon.call { background: #EFF6FF; color: #2563EB; }
 .dcal-event-type-icon.followup { background: #F0FAF8; color: #2D8A82; }
 .dcal-event-type-icon.doc { background: #F3F4F6; color: #6B7280; }
@@ -368,11 +368,11 @@ body[data-vcx-page="deadline-calendar"] {
   cursor: pointer; -webkit-tap-highlight-color: transparent;
 }
 .dcal-priority-pill.low { color: #6B8E89; }
-.dcal-priority-pill.medium { color: #D97706; }
+.dcal-priority-pill.medium { color: #0E7490; }
 .dcal-priority-pill.high { color: #DC2626; }
 .dcal-priority-pill.active { color: #FFF; }
 .dcal-priority-pill.active.low { background: #6B8E89; border-color: #6B8E89; }
-.dcal-priority-pill.active.medium { background: #D97706; border-color: #D97706; }
+.dcal-priority-pill.active.medium { background: #0E7490; border-color: #0E7490; }
 .dcal-priority-pill.active.high { background: #DC2626; border-color: #DC2626; }
 
 /* ── Notification section ──────────────────────────────────────── */
@@ -513,7 +513,7 @@ body[data-vcx-page="deadline-calendar"] {
 
 /* Event type backgrounds */
 .dcal-cell-chip.hearing { background: #FEF2F2; }
-.dcal-cell-chip.payment { background: #FFFBEB; }
+.dcal-cell-chip.payment { background: #E0F7FA; }
 .dcal-cell-chip.call    { background: #EFF6FF; }
 .dcal-cell-chip.followup { background: #F0FAF8; }
 .dcal-cell-chip.doc     { background: #F3F4F6; }
@@ -523,7 +523,7 @@ body[data-vcx-page="deadline-calendar"] {
   width: 2px; min-height: 10px; border-radius: 1px; flex-shrink: 0;
 }
 .dcal-cell-chip.hearing .dcal-chip-bar  { background: #DC2626; }
-.dcal-cell-chip.payment .dcal-chip-bar  { background: #D97706; }
+.dcal-cell-chip.payment .dcal-chip-bar  { background: #0E7490; }
 .dcal-cell-chip.call .dcal-chip-bar     { background: #2563EB; }
 .dcal-cell-chip.followup .dcal-chip-bar { background: #2D8A82; }
 .dcal-cell-chip.doc .dcal-chip-bar      { background: #6B7280; }
@@ -534,7 +534,7 @@ body[data-vcx-page="deadline-calendar"] {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .dcal-cell-chip.hearing .dcal-chip-text  { color: #DC2626; }
-.dcal-cell-chip.payment .dcal-chip-text  { color: #92400E; }
+.dcal-cell-chip.payment .dcal-chip-text  { color: #155E75; }
 .dcal-cell-chip.call .dcal-chip-text     { color: #1E40AF; }
 .dcal-cell-chip.followup .dcal-chip-text { color: #1A4F4A; }
 .dcal-cell-chip.doc .dcal-chip-text      { color: #4B5563; }

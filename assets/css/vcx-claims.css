@@ -72,23 +72,24 @@
 
 /* ── 3. Case-study composite banner ──────────────────────────────────
  * Rendered once at top of each of the 3 case-study pages, above the hero.
- * Amber-tinted to signal "read before interpreting numbers below" without
- * being alarm-red. */
+ * Teal-tinted to signal "read before interpreting numbers below" without
+ * being alarm-red. Palette unified with the sitewide blue-turquoise scheme
+ * (no yellow/beige accents). */
 
 .vcx-case-study-banner {
-  background: #FFF8E1;
-  border-left: 4px solid #D49A00;
+  background: #EEF6F5;
+  border-left: 4px solid #2D8A82;
   border-radius: 0 4px 4px 0;
   padding: 14px 18px;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #5A4400;
+  color: #1A4F4A;
   margin: 0 auto 24px;
   max-width: 900px;
 }
 
 .vcx-case-study-banner strong {
-  color: #3D2E00;
+  color: #0F3532;
 }
 
 .vcx-case-study-banner p {
@@ -130,8 +131,8 @@
   }
   .vcx-case-study-banner {
     background: #FFFFFF;
-    border: 1.5pt solid #5A4400;
-    color: #3D2E00;
+    border: 1.5pt solid #1E6E68;
+    color: #0F3532;
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -146,8 +147,8 @@
     color: #2B3544;
   }
   .vcx-case-study-banner {
-    color: #3D2E00;
-    background: #FFF4C4;
+    color: #0F3532;
+    background: #D4FBEE;
     border-left-width: 6px;
   }
 }

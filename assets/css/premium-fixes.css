@@ -308,7 +308,7 @@ body[data-vcx-page="auto-deal-check"] a[href*="additional"] {
 body[data-vcx-page="contract-scanner"] a[href*="additional"]:hover,
 body[data-vcx-page="immigration-helper"] a[href*="additional"]:hover,
 body[data-vcx-page="auto-deal-check"] a[href*="additional"]:hover {
-  color: #e8cc8a !important;
+  color: #7ED8C3 !important;
 }
 
 /* --- 7j. Upload drop zone premium styling --- */
@@ -355,7 +355,7 @@ body[data-vcx-page="individual-services"] .hero-side .problem-item {
 }
 /* Gold eyebrow on LIGHT pages: use darker bronze for WCAG AA */
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
-  color: #6B5530 !important;
+  color: #155E75 !important;
 }
 
 /* 9b. Clock labels: bump size and fix contrast (#6a7d91/#70839a → #4D6070/#526A7E) */

@@ -9,7 +9,7 @@
   --vcx-muted: #5e7288;
   --vcx-line: rgba(14,32,54,.08);
   --vcx-navy: #153250;
-  --vcx-gold: #caa65b;
+  --vcx-gold: #2D8A82; /* legacy name kept for API stability; value is site teal */
 }
 
 html{scroll-padding-top:84px}
@@ -175,8 +175,8 @@ body{
   display:none;
 }
 @keyframes vcxPulse{
-  0%,100%{opacity:.75;box-shadow:0 0 0 0 rgba(202,166,91,.20)}
-  50%{opacity:1;box-shadow:0 0 0 8px rgba(202,166,91,0)}
+  0%,100%{opacity:.75;box-shadow:0 0 0 0 rgba(91,186,167,.20)}
+  50%{opacity:1;box-shadow:0 0 0 8px rgba(91,186,167,0)}
 }
 
 .vcx-time-chip{
@@ -1029,7 +1029,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   border-color:rgba(219,150,183,.42);
   background:
     linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
-    linear-gradient(135deg, #f6b45d 6%, #ee6f71 34%, #c9569d 64%, #6f63d0 100%);
+    linear-gradient(135deg, #5BBAA7 6%, #ee6f71 34%, #c9569d 64%, #6f63d0 100%);
   box-shadow:
     0 15px 24px rgba(119,63,113,.24),
     inset 0 1px 0 rgba(255,255,255,.38),
@@ -1060,16 +1060,16 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
     inset 0 -13px 22px rgba(18,82,46,.18);
 }
 
-.vcx-dock-icon.is-book .vcx-dock-text{color:#6a5b38}
+.vcx-dock-icon.is-book .vcx-dock-text{color:#2D8A82}
 .vcx-dock-icon.is-book .vcx-dock-iconbox{
-  border-color:rgba(209,184,118,.48);
+  border-color:rgba(126,216,195,.48);
   background:
-    linear-gradient(180deg, rgba(224,199,123,.98), rgba(175,136,57,.96)),
+    linear-gradient(180deg, rgba(126,216,195,.98), rgba(46,138,130,.96)),
     radial-gradient(120% 120% at 22% 18%, rgba(255,255,255,.34), transparent 44%);
   box-shadow:
-    0 15px 24px rgba(117,87,34,.24),
+    0 15px 24px rgba(46,138,130,.24),
     inset 0 1px 0 rgba(255,255,255,.42),
-    inset 0 -13px 22px rgba(98,71,28,.18);
+    inset 0 -13px 22px rgba(26,79,74,.18);
 }
 
 /* Service chips */
@@ -3295,7 +3295,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   border-color:rgba(232,170,201,.50);
   background:
     linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,0)),
-    linear-gradient(135deg, #f8c16f 6%, #f5877f 34%, #d764a7 64%, #7f73de 100%);
+    linear-gradient(135deg, #7ED8C3 6%, #f5877f 34%, #d764a7 64%, #7f73de 100%);
   box-shadow:
     0 14px 22px rgba(119,63,113,.18),
     inset 0 1px 0 rgba(255,255,255,.48),
@@ -3326,16 +3326,16 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
     inset 0 -10px 18px rgba(18,82,46,.14);
 }
 
-.vcx-dock-icon.is-book .vcx-dock-text{color:#6d5a31}
+.vcx-dock-icon.is-book .vcx-dock-text{color:#2D8A82}
 .vcx-dock-icon.is-book .vcx-dock-iconbox{
-  border-color:rgba(224,199,132,.54);
+  border-color:rgba(126,216,195,.54);
   background:
-    linear-gradient(180deg, rgba(236,212,140,.995), rgba(193,152,69,.985)),
+    linear-gradient(180deg, rgba(126,216,195,.995), rgba(46,138,130,.985)),
     radial-gradient(124% 124% at 22% 16%, rgba(255,255,255,.38), transparent 44%);
   box-shadow:
-    0 14px 22px rgba(117,87,34,.18),
+    0 14px 22px rgba(46,138,130,.18),
     inset 0 1px 0 rgba(255,255,255,.48),
-    inset 0 -10px 18px rgba(98,71,28,.14);
+    inset 0 -10px 18px rgba(26,79,74,.14);
 }
 
 .vcx-dock-chip.is-individuals{
@@ -3441,7 +3441,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   padding:9px 14px;
   border-radius:999px;
   border:1px solid rgba(168,135,76,.30);
-  background:linear-gradient(180deg, rgba(201,172,109,.94), rgba(171,139,78,.92));
+  background:linear-gradient(180deg, rgba(91,186,167,.94), rgba(46,138,130,.92));
   color:#13253b;
   font-size:.875rem;
   font-weight:700;
@@ -3510,7 +3510,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 }
 .web-project-submit{
   margin-inline:auto;
-  background:linear-gradient(180deg, rgba(201,172,109,.98), rgba(171,139,78,.95));
+  background:linear-gradient(180deg, rgba(91,186,167,.98), rgba(46,138,130,.95));
   color:#13253b;
   border:1px solid rgba(166,132,70,.34);
   box-shadow:0 14px 30px rgba(96,74,38,.18), inset 0 1px 0 rgba(255,255,255,.28);

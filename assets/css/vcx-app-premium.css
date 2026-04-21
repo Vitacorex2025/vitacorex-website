@@ -209,9 +209,9 @@ body[data-vcx-page] [style*="rgba(255,80,80"] {
 }
 body[data-vcx-page] .flag-medium,
 body[data-vcx-page] [style*="rgba(255,200,60"] {
-  background: #FFFBEB !important;
-  border-left: 3px solid #F59E0B !important;
-  color: #92400E !important;
+  background: #E0F7FA !important;
+  border-left: 3px solid #0E7490 !important;
+  color: #155E75 !important;
 }
 body[data-vcx-page] .flag-ok,
 body[data-vcx-page] .flag-info {
