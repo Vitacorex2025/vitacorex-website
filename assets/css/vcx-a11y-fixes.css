@@ -207,7 +207,33 @@ main > section:first-of-type h1,
 main > .vcx-hero-cybercore h1,
 .vcx-hero-cybercore h1,
 .vcx-hero h1,
-.vcx-hero-2 h1 {
+.vcx-hero-2 h1,
+/* Legacy `section.hero.hero-premium` pattern used by additional-services,
+ * industry-*, auto-purchase, business-plans, etc. h1 lives inside
+ * .hero-copy.glass inside .hero-grid.hero-grid-composed.wrap inside .hero.
+ * Those pages still use `text-align: start` from the page-local theme — force
+ * center to match the home hero policy. */
+section.hero h1,
+section.hero-premium h1,
+section.vcx-hero-particles-host h1,
+section.hero .hero-copy,
+section.hero-premium .hero-copy,
+section.hero .hero-copy > h1,
+section.hero-premium .hero-copy > h1,
+section.hero .hero-copy > p.lede,
+section.hero-premium .hero-copy > p.lede,
+section.hero .hero-copy .eyebrow,
+section.hero-premium .hero-copy .eyebrow {
+  text-align: center !important;
+}
+/* Center the hero-copy flex/grid container contents horizontally so the
+ * centered text isn't visually offset by a left-aligned column layout. */
+section.hero .hero-copy,
+section.hero-premium .hero-copy,
+section.vcx-hero-particles-host .hero-copy {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-items: center !important;
   text-align: center !important;
 }
 
