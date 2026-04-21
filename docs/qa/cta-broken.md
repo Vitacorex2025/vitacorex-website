@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-21T21:46:04Z
+generated: 2026-04-21T21:54:44Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,8 +14,8 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 3074
-- **Rows actively validated**: 2601
+- **Inventory rows parsed**: 3065
+- **Rows actively validated**: 2592
 - **Rows skipped (action-script / no target / self-ref)**: 473
 - **Strict-broken rows (gate-enforced; triage required)**: 10
 - **External unique URLs HEAD-checked**: 5
@@ -34,12 +34,12 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 
 | File | Line | Element | Label | Target | Category | Audience | Reason | Detail |
 |------|------|---------|-------|--------|----------|----------|--------|--------|
-| `app/private-lookup/index.html` | 361 | button | New Route | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/private-lookup/index.html` | 360 | button | New Route | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/private-lookup/index.html` | 452 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/private-lookup/index.html` | 453 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/private-lookup/index.html` | 454 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/review/index.html` | 124 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/vcx-contract-review/index.html` | 134 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/vcx-packet-room/index.html` | 101 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/review/index.html` | 122 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/vcx-contract-review/index.html` | 132 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/vcx-packet-room/index.html` | 99 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `corporate-legal-file-control.html` | 244 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 793 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 1121 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
