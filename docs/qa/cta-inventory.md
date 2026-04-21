@@ -1634,61 +1634,61 @@ idempotent: true
 | `index.html` | 225 | a | ☷ Executive briefsProof & context | `resources.html` | in-body | shared | — |
 | `index.html` | 229 | a | ◈ Private clientsDefined-scope work | `additional-services.html` | in-body | shared | — |
 | `index.html` | 233 | a | ✎ Confidential review24–48h response | `contact.html` | in-body | shared | — |
-| `index.html` | 292 | a | For approved AR portfolios Qualified Net Recovery Pilot — $… | `pre-collection-pilot.html` | in-body | shared | — |
-| `index.html` | 298 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
-| `index.html` | 377 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 393 | a | View private-client services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 493 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
-| `index.html` | 506 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 519 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 532 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
-| `index.html` | 537 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
-| `index.html` | 542 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
-| `index.html` | 547 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
-| `index.html` | 554 | a | Review industry pages | `industries.html` | in-body | shared | — |
-| `index.html` | 555 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 607 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 608 | a | Review executive materials | `resources.html` | in-body | shared | — |
-| `index.html` | 672 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
-| `index.html` | 726 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
-| `index.html` | 794 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
-| `index.html` | 810 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 811 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
-| `index.html` | 946 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
-| `index.html` | 952 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
-| `index.html` | 958 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
-| `index.html` | 964 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
-| `index.html` | 1004 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 1005 | a | Review curated services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 1025 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 1026 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 1040 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
-| `index.html` | 1046 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `index.html` | 1047 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
-| `index.html` | 1053 | a | Home | `index.html` | footer | shared | — |
-| `index.html` | 1054 | a | Solutions | `solutions.html` | footer | shared | — |
-| `index.html` | 1055 | a | Industries | `industries.html` | footer | shared | — |
-| `index.html` | 1056 | a | About VitaCoreX | `about.html` | footer | shared | — |
-| `index.html` | 1057 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
-| `index.html` | 1058 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
-| `index.html` | 1059 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
-| `index.html` | 1060 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
-| `index.html` | 1061 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
-| `index.html` | 1062 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
-| `index.html` | 1063 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
-| `index.html` | 1064 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
-| `index.html` | 1065 | a | Partners | `partners.html` | footer | shared | — |
-| `index.html` | 1066 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
-| `index.html` | 1067 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
-| `index.html` | 1073 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
-| `index.html` | 1074 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
-| `index.html` | 1075 | a | Private consultation | `contact.html` | footer | shared | — |
-| `index.html` | 1076 | a | Careers | `careers.html` | footer | shared | — |
-| `index.html` | 1077 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
-| `index.html` | 1078 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
-| `index.html` | 1079 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
-| `index.html` | 1113 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
-| `index.html` | 1131 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 291 | a | For approved AR portfolios Qualified Net Recovery Pilot — $… | `pre-collection-pilot.html` | in-body | shared | — |
+| `index.html` | 297 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
+| `index.html` | 376 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 392 | a | View private-client services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 492 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
+| `index.html` | 505 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 518 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 531 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
+| `index.html` | 536 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
+| `index.html` | 541 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
+| `index.html` | 546 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
+| `index.html` | 553 | a | Review industry pages | `industries.html` | in-body | shared | — |
+| `index.html` | 554 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 606 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 607 | a | Review executive materials | `resources.html` | in-body | shared | — |
+| `index.html` | 671 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
+| `index.html` | 725 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
+| `index.html` | 793 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
+| `index.html` | 809 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 810 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
+| `index.html` | 945 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
+| `index.html` | 951 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
+| `index.html` | 957 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
+| `index.html` | 963 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
+| `index.html` | 1003 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 1004 | a | Review curated services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 1024 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 1025 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 1046 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
+| `index.html` | 1052 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `index.html` | 1053 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `index.html` | 1059 | a | Home | `index.html` | footer | shared | — |
+| `index.html` | 1060 | a | Solutions | `solutions.html` | footer | shared | — |
+| `index.html` | 1061 | a | Industries | `industries.html` | footer | shared | — |
+| `index.html` | 1062 | a | About VitaCoreX | `about.html` | footer | shared | — |
+| `index.html` | 1063 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
+| `index.html` | 1064 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
+| `index.html` | 1065 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
+| `index.html` | 1066 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
+| `index.html` | 1067 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
+| `index.html` | 1068 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
+| `index.html` | 1069 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
+| `index.html` | 1070 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
+| `index.html` | 1071 | a | Partners | `partners.html` | footer | shared | — |
+| `index.html` | 1072 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
+| `index.html` | 1073 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
+| `index.html` | 1079 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
+| `index.html` | 1080 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
+| `index.html` | 1081 | a | Private consultation | `contact.html` | footer | shared | — |
+| `index.html` | 1082 | a | Careers | `careers.html` | footer | shared | — |
+| `index.html` | 1083 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
+| `index.html` | 1084 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
+| `index.html` | 1085 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
+| `index.html` | 1119 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 1137 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
 | `industries.html` | 62 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `industries.html` | 84 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `industries.html` | 84 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
@@ -2619,106 +2619,106 @@ idempotent: true
 | `sample-deliverable.html` | 463 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
 | `sample-deliverable.html` | 464 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
 | `sample-deliverable.html` | 465 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
-| `samples/ar-leakage-map.html` | 80 | a | Executive summary | `#sec-1` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 81 | a | Methodology | `#sec-2` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 82 | a | Findings across seven domains | `#sec-3` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 83 | a | Leakage band — low vs. recoverable | `#sec-4` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 84 | a | 90-day remediation roadmap | `#sec-5` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 85 | a | Out of scope | `#sec-6` | anchor | b2b | — |
-| `samples/ar-leakage-map.html` | 169 | a | Request the un-redacted version | `/sample-deliverable.html` | in-body | b2b | — |
-| `samples/ar-leakage-map.html` | 170 | a | Review security & procurement | `/security-and-compliance.html` | in-body | b2b | — |
-| `samples/auto-deal-cost-breakdown.html` | 79 | a | Top-line read | `#sec-1` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 80 | a | Six-domain rubric | `#sec-2` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 81 | a | Line-by-line flags | `#sec-3` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 82 | a | Negotiable band | `#sec-4` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 83 | a | Suggested script | `#sec-5` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 84 | a | Out of scope | `#sec-6` | anchor | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 168 | a | Order an auto deal review | `/sample-deliverable.html` | in-body | b2c | — |
-| `samples/auto-deal-cost-breakdown.html` | 169 | a | See tiers + rush | `/security-and-compliance.html` | in-body | b2c | — |
-| `samples/contract-risk-memo.html` | 79 | a | Top-line read | `#sec-1` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 80 | a | Ten-point rubric | `#sec-2` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 81 | a | Flagged items | `#sec-3` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 82 | a | Risk band | `#sec-4` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 83 | a | Suggested sequence | `#sec-5` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 84 | a | Out of scope | `#sec-6` | anchor | b2c | — |
-| `samples/contract-risk-memo.html` | 170 | a | Order a contract review | `/sample-deliverable.html` | in-body | b2c | — |
-| `samples/contract-risk-memo.html` | 171 | a | See tiers + pricing | `/security-and-compliance.html` | in-body | b2c | — |
-| `samples/counsel-ready-packet.html` | 80 | a | Readiness at a glance | `#sec-1` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 81 | a | Rubric — 12 items | `#sec-2` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 82 | a | Item-by-item findings | `#sec-3` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 83 | a | Gate threshold | `#sec-4` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 84 | a | Remediation sequence | `#sec-5` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 85 | a | Out of scope | `#sec-6` | anchor | b2b | — |
-| `samples/counsel-ready-packet.html` | 175 | a | Request the un-redacted rubric | `/sample-deliverable.html` | in-body | b2b | — |
-| `samples/counsel-ready-packet.html` | 176 | a | Security & procurement | `/security-and-compliance.html` | in-body | b2b | — |
-| `samples/diagnostic-report.html` | 79 | a | Executive summary | `#sec-1` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 80 | a | Methodology | `#sec-2` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 81 | a | Findings by domain | `#sec-3` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 82 | a | Recovery opportunity band | `#sec-4` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 83 | a | 90-day prioritized roadmap | `#sec-5` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 84 | a | Out of scope | `#sec-6` | anchor | b2b | — |
-| `samples/diagnostic-report.html` | 168 | a | Request the un-redacted version | `/sample-deliverable.html` | in-body | b2b | — |
-| `samples/diagnostic-report.html` | 169 | a | Review security & compliance | `/security-and-compliance.html` | in-body | b2b | — |
-| `samples/immigration-evidence-index.html` | 79 | a | What an index does | `#sec-1` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 80 | a | Required-evidence schedule | `#sec-2` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 81 | a | Exhibit list + page map | `#sec-3` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 82 | a | Categorization coverage | `#sec-4` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 83 | a | Handoff readiness | `#sec-5` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 84 | a | Out of scope | `#sec-6` | anchor | b2c | — |
-| `samples/immigration-evidence-index.html` | 172 | a | Order a packet review | `/sample-deliverable.html` | in-body | b2c | — |
-| `samples/immigration-evidence-index.html` | 173 | a | See tiers + pricing | `/security-and-compliance.html` | in-body | b2c | — |
-| `samples/request-gated-sample.html` | 70 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `/index.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 92 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `samples/request-gated-sample.html` | 92 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `samples/request-gated-sample.html` | 92 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `samples/request-gated-sample.html` | 95 | a | Home | `/index.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Executive Briefs & Proof | `/resources.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Private Client Services | `/additional-services.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Careers | `/careers.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 95 | a | Private Consultation | `/contact.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 108 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `samples/request-gated-sample.html` | 108 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `samples/request-gated-sample.html` | 108 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `samples/request-gated-sample.html` | 110 | a | VitaCoreX | `/index.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 120 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
-| `samples/request-gated-sample.html` | 125 | a | Home | `/index.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Executive Briefs & Proof | `/resources.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Private Client Services | `/additional-services.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Careers | `/careers.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 125 | a | Private Consultation | `/contact.html` | primary-nav | b2b | — |
-| `samples/request-gated-sample.html` | 146 | form | form:(unnamed) | `(self)` | form-submit | b2b | self-post, GET |
-| `samples/request-gated-sample.html` | 198 | button | Request access | `(self)` | form-submit | b2b | form-method:GET |
-| `samples/request-gated-sample.html` | 199 | a | Back to the sample library | `/sample-deliverable.html` | in-body | b2b | — |
-| `samples/request-gated-sample.html` | 209 | a | Open the sample | `#` | anchor | b2b | — |
-| `samples/request-gated-sample.html` | 210 | a | Send the request by email | `#` | anchor | b2b | — |
-| `samples/request-gated-sample.html` | 224 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `samples/request-gated-sample.html` | 232 | a | Home | `/index.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 233 | a | Solutions | `/solutions.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 234 | a | Industries | `/industries.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 235 | a | About VitaCoreX | `/about.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 236 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 237 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 238 | a | Executive Briefs & Proof | `/resources.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 244 | a | Sample Deliverables | `/sample-deliverable.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 245 | a | Structured Case Intake | `/structured-case-intake.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 246 | a | Private consultation | `/contact.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 247 | a | Privacy Policy | `/privacy-policy.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 248 | a | Terms of Use | `/terms-of-use.html` | footer | b2b | — |
-| `samples/request-gated-sample.html` | 249 | a | Cookie Policy | `/cookie-policy.html` | footer | b2b | — |
-| `samples/small-claims-chronology.html` | 79 | a | Case summary | `#sec-1` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 80 | a | Documentation rubric | `#sec-2` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 81 | a | Day-by-day chronology | `#sec-3` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 82 | a | Evidence index | `#sec-4` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 83 | a | Suggested filings + timing | `#sec-5` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 84 | a | Out of scope | `#sec-6` | anchor | shared | — |
-| `samples/small-claims-chronology.html` | 170 | a | See Florida Small Claims Help | `/sample-deliverable.html` | in-body | shared | — |
-| `samples/small-claims-chronology.html` | 171 | a | B2B Small Claims & Civil Packet Desk | `/security-and-compliance.html` | in-body | shared | — |
+| `samples/ar-leakage-map.html` | 82 | a | Executive summary | `#sec-1` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 83 | a | Methodology | `#sec-2` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 84 | a | Findings across seven domains | `#sec-3` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 85 | a | Leakage band — low vs. recoverable | `#sec-4` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 86 | a | 90-day remediation roadmap | `#sec-5` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 87 | a | Out of scope | `#sec-6` | anchor | b2b | — |
+| `samples/ar-leakage-map.html` | 171 | a | Request the un-redacted version | `/sample-deliverable.html` | in-body | b2b | — |
+| `samples/ar-leakage-map.html` | 172 | a | Review security & procurement | `/security-and-compliance.html` | in-body | b2b | — |
+| `samples/auto-deal-cost-breakdown.html` | 81 | a | Top-line read | `#sec-1` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 82 | a | Six-domain rubric | `#sec-2` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 83 | a | Line-by-line flags | `#sec-3` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 84 | a | Negotiable band | `#sec-4` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 85 | a | Suggested script | `#sec-5` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 86 | a | Out of scope | `#sec-6` | anchor | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 170 | a | Order an auto deal review | `/sample-deliverable.html` | in-body | b2c | — |
+| `samples/auto-deal-cost-breakdown.html` | 171 | a | See tiers + rush | `/security-and-compliance.html` | in-body | b2c | — |
+| `samples/contract-risk-memo.html` | 81 | a | Top-line read | `#sec-1` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 82 | a | Ten-point rubric | `#sec-2` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 83 | a | Flagged items | `#sec-3` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 84 | a | Risk band | `#sec-4` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 85 | a | Suggested sequence | `#sec-5` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 86 | a | Out of scope | `#sec-6` | anchor | b2c | — |
+| `samples/contract-risk-memo.html` | 172 | a | Order a contract review | `/sample-deliverable.html` | in-body | b2c | — |
+| `samples/contract-risk-memo.html` | 173 | a | See tiers + pricing | `/security-and-compliance.html` | in-body | b2c | — |
+| `samples/counsel-ready-packet.html` | 82 | a | Readiness at a glance | `#sec-1` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 83 | a | Rubric — 12 items | `#sec-2` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 84 | a | Item-by-item findings | `#sec-3` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 85 | a | Gate threshold | `#sec-4` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 86 | a | Remediation sequence | `#sec-5` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 87 | a | Out of scope | `#sec-6` | anchor | b2b | — |
+| `samples/counsel-ready-packet.html` | 177 | a | Request the un-redacted rubric | `/sample-deliverable.html` | in-body | b2b | — |
+| `samples/counsel-ready-packet.html` | 178 | a | Security & procurement | `/security-and-compliance.html` | in-body | b2b | — |
+| `samples/diagnostic-report.html` | 81 | a | Executive summary | `#sec-1` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 82 | a | Methodology | `#sec-2` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 83 | a | Findings by domain | `#sec-3` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 84 | a | Recovery opportunity band | `#sec-4` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 85 | a | 90-day prioritized roadmap | `#sec-5` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 86 | a | Out of scope | `#sec-6` | anchor | b2b | — |
+| `samples/diagnostic-report.html` | 170 | a | Request the un-redacted version | `/sample-deliverable.html` | in-body | b2b | — |
+| `samples/diagnostic-report.html` | 171 | a | Review security & compliance | `/security-and-compliance.html` | in-body | b2b | — |
+| `samples/immigration-evidence-index.html` | 81 | a | What an index does | `#sec-1` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 82 | a | Required-evidence schedule | `#sec-2` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 83 | a | Exhibit list + page map | `#sec-3` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 84 | a | Categorization coverage | `#sec-4` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 85 | a | Handoff readiness | `#sec-5` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 86 | a | Out of scope | `#sec-6` | anchor | b2c | — |
+| `samples/immigration-evidence-index.html` | 174 | a | Order a packet review | `/sample-deliverable.html` | in-body | b2c | — |
+| `samples/immigration-evidence-index.html` | 175 | a | See tiers + pricing | `/security-and-compliance.html` | in-body | b2c | — |
+| `samples/request-gated-sample.html` | 72 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `/index.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 94 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `samples/request-gated-sample.html` | 94 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `samples/request-gated-sample.html` | 94 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `samples/request-gated-sample.html` | 97 | a | Home | `/index.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Executive Briefs & Proof | `/resources.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Private Client Services | `/additional-services.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Careers | `/careers.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 97 | a | Private Consultation | `/contact.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 110 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `samples/request-gated-sample.html` | 110 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `samples/request-gated-sample.html` | 110 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `samples/request-gated-sample.html` | 112 | a | VitaCoreX | `/index.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 122 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
+| `samples/request-gated-sample.html` | 127 | a | Home | `/index.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Executive Briefs & Proof | `/resources.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Private Client Services | `/additional-services.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Careers | `/careers.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 127 | a | Private Consultation | `/contact.html` | primary-nav | b2b | — |
+| `samples/request-gated-sample.html` | 148 | form | form:(unnamed) | `(self)` | form-submit | b2b | self-post, GET |
+| `samples/request-gated-sample.html` | 200 | button | Request access | `(self)` | form-submit | b2b | form-method:GET |
+| `samples/request-gated-sample.html` | 201 | a | Back to the sample library | `/sample-deliverable.html` | in-body | b2b | — |
+| `samples/request-gated-sample.html` | 211 | a | Open the sample | `#` | anchor | b2b | — |
+| `samples/request-gated-sample.html` | 212 | a | Send the request by email | `#` | anchor | b2b | — |
+| `samples/request-gated-sample.html` | 226 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `samples/request-gated-sample.html` | 234 | a | Home | `/index.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 235 | a | Solutions | `/solutions.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 236 | a | Industries | `/industries.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 237 | a | About VitaCoreX | `/about.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 238 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 239 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 240 | a | Executive Briefs & Proof | `/resources.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 246 | a | Sample Deliverables | `/sample-deliverable.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 247 | a | Structured Case Intake | `/structured-case-intake.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 248 | a | Private consultation | `/contact.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 249 | a | Privacy Policy | `/privacy-policy.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 250 | a | Terms of Use | `/terms-of-use.html` | footer | b2b | — |
+| `samples/request-gated-sample.html` | 251 | a | Cookie Policy | `/cookie-policy.html` | footer | b2b | — |
+| `samples/small-claims-chronology.html` | 81 | a | Case summary | `#sec-1` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 82 | a | Documentation rubric | `#sec-2` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 83 | a | Day-by-day chronology | `#sec-3` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 84 | a | Evidence index | `#sec-4` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 85 | a | Suggested filings + timing | `#sec-5` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 86 | a | Out of scope | `#sec-6` | anchor | shared | — |
+| `samples/small-claims-chronology.html` | 172 | a | See Florida Small Claims Help | `/sample-deliverable.html` | in-body | shared | — |
+| `samples/small-claims-chronology.html` | 173 | a | B2B Small Claims & Civil Packet Desk | `/security-and-compliance.html` | in-body | shared | — |
 | `secure-coordination.html` | 569 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | shared | — |
 | `secure-coordination.html` | 591 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `secure-coordination.html` | 591 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
