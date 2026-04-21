@@ -512,7 +512,7 @@ a.btn-secondary:hover {
 .vcx-stats-2 .vcx-stat-2__label {
   display: block;
   font-size: 0.65rem !important;
-  color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.82) !important;
   margin-top: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1011,9 +1011,9 @@ section.section:not(.band):nth-of-type(odd) {
   color: rgba(238,233,222,0.72) !important;
 }
 
-/* Warm cream with diagonal fine lines */
+/* Cool parchment with diagonal fine lines (beige #F0EBE1 banned — palette parity with home) */
 .vcx-bg-lines {
-  background-color: #F0EBE1;
+  background-color: #F4F7F6;
   background-image:
     repeating-linear-gradient(
       135deg,
@@ -1240,7 +1240,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-lang-switch .lang-btn {
   background: none !important;
   border: none !important;
-  color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.82) !important;
   font-size: 0.72rem !important;
   font-weight: 600 !important;
   padding: 4px 8px !important;
@@ -1278,7 +1278,7 @@ section.section:not(.band):nth-of-type(odd) {
   backdrop-filter: none !important;
 }
 .vcx-metric-text {
-  color: rgba(255,255,255,0.45) !important;
+  color: rgba(255,255,255,0.78) !important;
   font-size: 0.72rem !important;
 }
 
@@ -2342,7 +2342,7 @@ body {
   position: relative;
   background:
     radial-gradient(ellipse 60% 80% at 50% 0%, rgba(91,186,167,0.07) 0%, transparent 60%),
-    linear-gradient(180deg, #F4F7F6 0%, #EFE9DC 100%);
+    linear-gradient(180deg, #F4F7F6 0%, #E7EEEC 100%);
   padding: 72px 32px 80px;
   border-top: 1px solid rgba(26,47,42,0.08);
   overflow: hidden;
@@ -2457,7 +2457,7 @@ body {
 /* PRIMARY (B2B) — richer, ink-navy surface */
 .vcx-route--primary {
   background:
-    linear-gradient(180deg, #FFFFFF 0%, #F1EBDD 100%);
+    linear-gradient(180deg, #FFFFFF 0%, #EDF4F1 100%);
   border-color: rgba(26,47,42,0.12);
 }
 .vcx-route--primary .vcx-route__inner {

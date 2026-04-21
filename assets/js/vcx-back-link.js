@@ -193,22 +193,20 @@
     //   2. Otherwise (fresh tab, direct hit, or external referrer) →
     //      fall through to "/" so the button never feels dead.
     //
-    // iOS Safari bfcache note: the old "always go home" hack was added
-    // to dodge a stale-frame bug on back navigation. Modern iOS (15+)
-    // handles bfcache correctly for plain navigations; if staleness
-    // resurfaces, add a targeted pageshow handler later.
-    // Why we DON'T use history.back() anymore:
-    // The back-link previously tried history.back() when a same-origin
-    // referrer existed. That worked for the history entry itself, but the
-    // browser's bfcache restored the previous home-page scroll position,
-    // which often left the user mid-page on .vcx-stats-2 (dark band). On
-    // the home page that band reads as a "white/blank screen" because
-    // scroll-reveal elements there use [data-animate] and stay opacity:0
-    // until IntersectionObserver fires — which doesn't happen on restore.
+    // iOS Safari bfcache + same-origin history.back() note:
     //
-    // Fix: ALWAYS navigate forward to an explicit /index.html and force
-    // the browser to start at the top of the document. This guarantees
-    // the user lands on the hero, never on a cached mid-page fragment.
+    // An earlier version used history.back() whenever the referrer was
+    // same-origin. On desktop and iOS that path restored the bfcache snapshot
+    // of the previous VitaCoreX page, which often left the user mid-scroll
+    // on a dark band whose [data-animate] content was still opacity:0
+    // (IntersectionObserver never fires on restore). Users reported it as
+    // "кнопка назад даёт белый экран" — a blank viewport.
+    //
+    // Fix: ALWAYS navigate forward to an explicit fallback URL (the page's
+    // <meta name="vcx-back-fallback"> or /index.html). This forces a fresh
+    // document with scrollRestoration=manual and y=0, so the user always
+    // lands at the top of the hero — never on a cached mid-page fragment,
+    // never on a blank-because-reveal-not-fired band.
     link.addEventListener('click', function (ev) {
       ev.preventDefault();
       // Opt out of scroll restoration for the outgoing navigation so the
@@ -220,30 +218,9 @@
       } catch (_) { /* noop */ }
       try { window.scrollTo(0, 0); } catch (_) { /* noop */ }
 
-      // Navigation strategy:
-      //   1. If there is a same-origin referrer (the user arrived via an
-      //      internal link), fall back to window.history.back() so they
-      //      return to their previous VitaCoreX page with scroll state.
-      //   2. Otherwise (fresh tab, direct hit, search-engine landing,
-      //      external referrer), navigate to the per-page fallback URL
-      //      (either from <meta name="vcx-back-fallback"> or /index.html).
-      // NOTE: Earlier versions hard-pinned /index.html due to a
-      // bfcache-restore bug specific to the home page's scroll-reveal
-      // (.vcx-stats-2 opacity:0). That bug does NOT apply when the
-      // previous page is an /app/* parent like /additional-services.html,
-      // so history.back() is safe here. If a destination-specific bug
-      // resurfaces, add a pageshow.persisted handler on that target.
-      var sameOriginReferrer = false;
-      try {
-        if (document.referrer) {
-          var refUrl = new URL(document.referrer);
-          sameOriginReferrer = (refUrl.origin === window.location.origin);
-        }
-      } catch (_) { /* noop — malformed referrer */ }
-
-      if (sameOriginReferrer && window.history.length > 1) {
-        try { window.history.back(); return; } catch (_) { /* fall through */ }
-      }
+      // Deterministic: always go to the declared fallback (page-owned meta
+      // override, or the library default /index.html). No history.back(),
+      // no bfcache restoration, no dependency on referrer state.
       window.location.assign(cfg.fallback);
     });
 

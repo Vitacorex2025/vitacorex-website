@@ -368,7 +368,7 @@ body[data-vcx-page] .vcx-footer .footer-grid {
 }
 body[data-vcx-page] .vcx-footer .footer-disc {
   font-size: 0.78rem !important;
-  color: rgba(255, 255, 255, 0.55) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   line-height: 1.5 !important;
   margin-top: 12px !important;
   padding-top: 12px !important;
@@ -376,7 +376,7 @@ body[data-vcx-page] .vcx-footer .footer-disc {
 }
 body[data-vcx-page] .vcx-footer .footer-copy {
   font-size: 0.75rem !important;
-  color: rgba(255, 255, 255, 0.4) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   margin-top: 8px !important;
 }
 
