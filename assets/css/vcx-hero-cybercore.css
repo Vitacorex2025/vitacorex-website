@@ -695,8 +695,19 @@ section.vcx-hero-particles-host--scd .scd-hero__lede    { animation-delay: 0.4s;
 section.vcx-hero-particles-host--scd .scd-hero__sub     { animation-delay: 0.5s; }
 section.vcx-hero-particles-host--scd .scd-hero__ctarow  { animation-delay: 0.6s; }
 
-/* 3. Bespoke light-bg heroes (fsch/adr/crs/rrf) — NOT promoted to
- *    a particle host, styled locally via each page's inline <style>. */
+/* 3. Bespoke light-bg heroes — NOT promoted to a particle host,
+ *    styled locally via each page's inline <style>. Covers every
+ *    *-hero class variant used across subpages:
+ *      .fsch-hero  — florida-small-claims-help
+ *      .adr-hero   — auto-deal-review
+ *      .crs-hero   — contract-review-service
+ *      .rrf-hero   — revenue-recovery-florida/miami/orlando/tampa
+ *      .ipr-hero   — immigration-packet-review  (added 2026-04-20)
+ *      .csfl-hero  — case-study-fleet-logistics (added 2026-04-20)
+ *      .cssa-hero  — case-study-subscription-saas (added 2026-04-20)
+ *      .pcp-hero   — pre-collection-pilot        (added 2026-04-20)
+ *      .pet-hero   — pricing-and-engagement-tiers (added 2026-04-20)
+ *      .prt-hero   — partners                    (added 2026-04-20) */
 section.fsch-hero .fsch-hero__eyebrow,
 section.fsch-hero .fsch-hero__title,
 section.fsch-hero .fsch-hero__lede,
@@ -712,26 +723,74 @@ section.crs-hero .crs-hero__ctarow,
 section.rrf-hero .rrf-hero__eyebrow,
 section.rrf-hero .rrf-hero__title,
 section.rrf-hero .rrf-hero__lede,
-section.rrf-hero .rrf-hero__ctarow {
+section.rrf-hero .rrf-hero__ctarow,
+section.ipr-hero .ipr-hero__eyebrow,
+section.ipr-hero .ipr-hero__title,
+section.ipr-hero .ipr-hero__lede,
+section.ipr-hero .ipr-hero__ctarow,
+section.csfl-hero .csfl-hero__eyebrow,
+section.csfl-hero .csfl-hero__title,
+section.csfl-hero .csfl-hero__lede,
+section.csfl-hero .csfl-hero__ctarow,
+section.cssa-hero .cssa-hero__eyebrow,
+section.cssa-hero .cssa-hero__title,
+section.cssa-hero .cssa-hero__lede,
+section.cssa-hero .cssa-hero__ctarow,
+section.pcp-hero .pcp-hero__eyebrow,
+section.pcp-hero .pcp-hero__title,
+section.pcp-hero .pcp-hero__lede,
+section.pcp-hero .pcp-hero__ctarow,
+section.pet-hero .pet-hero__eyebrow,
+section.pet-hero .pet-hero__title,
+section.pet-hero .pet-hero__lede,
+section.pet-hero .pet-hero__ctarow,
+section.prt-hero .prt-hero__eyebrow,
+section.prt-hero .prt-hero__title,
+section.prt-hero .prt-hero__lede,
+section.prt-hero .prt-hero__ctarow {
   opacity: 0;
   animation: vcxHeroFadeSlideIn 0.7s ease-out forwards;
 }
 section.fsch-hero .fsch-hero__eyebrow,
 section.adr-hero .adr-hero__eyebrow,
 section.crs-hero .crs-hero__eyebrow,
-section.rrf-hero .rrf-hero__eyebrow { animation-delay: 0.1s; }
+section.rrf-hero .rrf-hero__eyebrow,
+section.ipr-hero .ipr-hero__eyebrow,
+section.csfl-hero .csfl-hero__eyebrow,
+section.cssa-hero .cssa-hero__eyebrow,
+section.pcp-hero .pcp-hero__eyebrow,
+section.pet-hero .pet-hero__eyebrow,
+section.prt-hero .prt-hero__eyebrow { animation-delay: 0.1s; }
 section.fsch-hero .fsch-hero__title,
 section.adr-hero .adr-hero__title,
 section.crs-hero .crs-hero__title,
-section.rrf-hero .rrf-hero__title   { animation-delay: 0.25s; }
+section.rrf-hero .rrf-hero__title,
+section.ipr-hero .ipr-hero__title,
+section.csfl-hero .csfl-hero__title,
+section.cssa-hero .cssa-hero__title,
+section.pcp-hero .pcp-hero__title,
+section.pet-hero .pet-hero__title,
+section.prt-hero .prt-hero__title   { animation-delay: 0.25s; }
 section.fsch-hero .fsch-hero__lede,
 section.adr-hero .adr-hero__lede,
 section.crs-hero .crs-hero__lede,
-section.rrf-hero .rrf-hero__lede    { animation-delay: 0.4s; }
+section.rrf-hero .rrf-hero__lede,
+section.ipr-hero .ipr-hero__lede,
+section.csfl-hero .csfl-hero__lede,
+section.cssa-hero .cssa-hero__lede,
+section.pcp-hero .pcp-hero__lede,
+section.pet-hero .pet-hero__lede,
+section.prt-hero .prt-hero__lede    { animation-delay: 0.4s; }
 section.fsch-hero .fsch-hero__ctarow,
 section.adr-hero .adr-hero__ctarow,
 section.crs-hero .crs-hero__ctarow,
-section.rrf-hero .rrf-hero__ctarow  { animation-delay: 0.6s; }
+section.rrf-hero .rrf-hero__ctarow,
+section.ipr-hero .ipr-hero__ctarow,
+section.csfl-hero .csfl-hero__ctarow,
+section.cssa-hero .cssa-hero__ctarow,
+section.pcp-hero .pcp-hero__ctarow,
+section.pet-hero .pet-hero__ctarow,
+section.prt-hero .prt-hero__ctarow  { animation-delay: 0.6s; }
 
 /* Motion reduction — no cascade, content static and visible. */
 @media (prefers-reduced-motion: reduce) {
@@ -756,7 +815,31 @@ section.rrf-hero .rrf-hero__ctarow  { animation-delay: 0.6s; }
   section.rrf-hero .rrf-hero__eyebrow,
   section.rrf-hero .rrf-hero__title,
   section.rrf-hero .rrf-hero__lede,
-  section.rrf-hero .rrf-hero__ctarow {
+  section.rrf-hero .rrf-hero__ctarow,
+  section.ipr-hero .ipr-hero__eyebrow,
+  section.ipr-hero .ipr-hero__title,
+  section.ipr-hero .ipr-hero__lede,
+  section.ipr-hero .ipr-hero__ctarow,
+  section.csfl-hero .csfl-hero__eyebrow,
+  section.csfl-hero .csfl-hero__title,
+  section.csfl-hero .csfl-hero__lede,
+  section.csfl-hero .csfl-hero__ctarow,
+  section.cssa-hero .cssa-hero__eyebrow,
+  section.cssa-hero .cssa-hero__title,
+  section.cssa-hero .cssa-hero__lede,
+  section.cssa-hero .cssa-hero__ctarow,
+  section.pcp-hero .pcp-hero__eyebrow,
+  section.pcp-hero .pcp-hero__title,
+  section.pcp-hero .pcp-hero__lede,
+  section.pcp-hero .pcp-hero__ctarow,
+  section.pet-hero .pet-hero__eyebrow,
+  section.pet-hero .pet-hero__title,
+  section.pet-hero .pet-hero__lede,
+  section.pet-hero .pet-hero__ctarow,
+  section.prt-hero .prt-hero__eyebrow,
+  section.prt-hero .prt-hero__title,
+  section.prt-hero .prt-hero__lede,
+  section.prt-hero .prt-hero__ctarow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

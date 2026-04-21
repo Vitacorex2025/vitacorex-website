@@ -333,24 +333,31 @@ body .hero-cloud-layer {
   position: relative;
 }
 
+/* A11y: base #5BBAA7 failed WCAG AA against white text (2.33:1).
+ * Darken to #1A5A54 base + gradient to #236B64. White on #1A5A54 = 7.5:1
+ * (AAA normal), on #236B64 = 6.3:1 (AA normal). Matches the c563295 fix
+ * on the generic .btn-primary — applied here to the hero/B2B variant. */
 .vcx-btn-2--primary {
-  background: #5BBAA7;
+  background: #1A5A54;
+  background-image: linear-gradient(135deg, #1A5A54 0%, #236B64 100%);
   color: #FFFFFF;
 }
 .vcx-btn-2--primary:hover {
-  background: #4DAE9B;
+  background: #236B64;
+  background-image: linear-gradient(135deg, #236B64 0%, #2D8A82 100%);
   color: #FFFFFF;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26,90,84,0.35);
 }
 
 .vcx-btn-2--ghost {
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.35);
 }
 .vcx-btn-2--ghost:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.30);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.55);
   color: #FFFFFF;
   transform: translateY(-1px);
 }

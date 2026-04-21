@@ -684,6 +684,13 @@ h3,
     display:grid;
     gap:6px;
     padding-top:2px;
+    /* Constrain nav to viewport height so it can't overflow off-screen when header is fixed.
+       22 links × ~40px can easily exceed 844px viewport. Make it scrollable inside the header. */
+    max-height:calc(100vh - 120px);
+    max-height:calc(100dvh - 120px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
   }
   .vcx-mobile-nav[hidden]{display:none !important}
   .vcx-mobile-nav a{
