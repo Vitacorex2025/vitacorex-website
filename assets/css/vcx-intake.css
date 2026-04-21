@@ -41,7 +41,7 @@ body[data-vcx-page="vcx-intake"] {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--vcx-brand-primary, #B8860B);
+  background: var(--vcx-brand-primary, #2D8A82);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,8 +105,8 @@ body[data-vcx-page="vcx-intake"] {
 
 /* --- Active step ----------------------------------------- */
 .vi-step.is-active .vi-step-circle {
-  background: var(--vcx-brand-primary, #B8860B);
-  border-color: var(--vcx-brand-primary, #B8860B);
+  background: var(--vcx-brand-primary, #2D8A82);
+  border-color: var(--vcx-brand-primary, #2D8A82);
   color: #FFFFFF;
 }
 

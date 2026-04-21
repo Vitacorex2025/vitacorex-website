@@ -72,11 +72,11 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-upload-zone:hover {
-  border-color: var(--vcx-brand-primary, #B8860B);
+  border-color: var(--vcx-brand-primary, #2D8A82);
 }
 
 .cr-upload-zone.is-dragover {
-  border-color: var(--vcx-brand-gold, #DAA520);
+  border-color: var(--vcx-brand-gold, #2D8A82);
   background: rgba(218, 165, 32, 0.06);
 }
 
