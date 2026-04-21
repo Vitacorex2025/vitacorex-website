@@ -519,6 +519,35 @@
   .vcx-pinned-rail__dots { display: none; }
 }
 
+/* ------------------------------------------------------------
+   Safari iOS 17 sticky-failure fallback: when JS detects that
+   position:sticky did not pin as expected, the --fallback class
+   reverts the desktop layout to the same static stack used on
+   mobile. Triggered by vcx-rails.js sentinel check. */
+.vcx-pinned-rail--fallback .vcx-pinned-rail__stage {
+  position: static;
+  height: auto;
+  grid-template-columns: 1fr;
+  min-height: 0;
+}
+.vcx-pinned-rail--fallback .vcx-pinned-rail__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  min-height: 360px;
+  border-radius: 0;
+}
+.vcx-pinned-rail--fallback .vcx-pinned-rail__viewport::-webkit-scrollbar { display: none; }
+.vcx-pinned-rail--fallback .vcx-pinned-rail__track {
+  transform: none !important;
+}
+.vcx-pinned-rail--fallback .vcx-pinned-rail__card {
+  scroll-snap-align: start;
+  flex: 0 0 88%;
+}
+.vcx-pinned-rail--fallback .vcx-pinned-rail__dots { display: none; }
+
 /* ============================================================
    6. DASHBOARD RAIL (wide tiles with metric + chart area)
    ------------------------------------------------------------ */

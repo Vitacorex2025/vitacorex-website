@@ -202,6 +202,58 @@
       window.addEventListener('scroll', onScroll, { passive: true });
     }
 
+    // ---- Safari iOS 17 sticky-failure sentinel --------------------------
+    // Known issue: position:sticky on an element inside certain ancestor
+    // contexts (overflow:clip, contain:paint, transformed ancestors) fails
+    // to pin in Safari iOS 17.0–17.2. Insert a transparent sentinel just
+    // above the sticky stage and use IntersectionObserver to verify that,
+    // when the sentinel has scrolled out of view, the stage is actually
+    // pinned at its configured top offset. If not, add a fallback class
+    // so CSS can revert to a static stack layout.
+    if (window.innerWidth >= 900 &&
+        'IntersectionObserver' in window &&
+        window.getComputedStyle) {
+      var sentinel = document.createElement('div');
+      sentinel.className = 'vcx-pinned-rail__sentinel';
+      sentinel.setAttribute('aria-hidden', 'true');
+      // Non-zero height so IO fires reliably; visually invisible.
+      sentinel.style.cssText =
+        'position:absolute;top:0;left:0;width:1px;height:1px;' +
+        'pointer-events:none;opacity:0;';
+      if (getComputedStyle(pinned).position === 'static') {
+        pinned.style.position = 'relative';
+      }
+      pinned.insertBefore(sentinel, pinned.firstChild);
+
+      var stickyChecked = false;
+      var stickyIO = new IntersectionObserver(function (entries) {
+        if (stickyChecked) return;
+        entries.forEach(function (entry) {
+          // When sentinel leaves the top of the viewport, stage should
+          // be pinned. Verify within one rAF to allow layout to settle.
+          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+            stickyChecked = true;
+            stickyIO.disconnect();
+            requestAnimationFrame(function () {
+              var cs = window.getComputedStyle(stage);
+              var rect = stage.getBoundingClientRect();
+              // Read the CSS "top" as the intended pin offset.
+              var intendedTop = parseFloat(cs.top) || 0;
+              // Stage must be at/near intendedTop and actually "sticky".
+              // A 4px tolerance handles subpixel rounding.
+              var isPinnedAsExpected =
+                cs.position === 'sticky' &&
+                Math.abs(rect.top - intendedTop) < 4;
+              if (!isPinnedAsExpected) {
+                pinned.classList.add('vcx-pinned-rail--fallback');
+              }
+            });
+          }
+        });
+      }, { threshold: [0, 1] });
+      stickyIO.observe(sentinel);
+    }
+
     // Mobile scroll → track dots
     viewport.addEventListener('scroll', function () {
       if (window.innerWidth >= 900) return;
