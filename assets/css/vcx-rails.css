@@ -1,0 +1,901 @@
+/* ============================================================
+   VCX RAILS + HERO UNIFICATION — v1.0 (2026-04-21)
+   ------------------------------------------------------------
+   Additive component library.
+   - Rail system: horizontal scrollable card rails, pinned
+     scroll-right, dashboard-style wide rails, narrow tool shelves.
+   - Hero unification: additive modifiers on top of the existing
+     .vcx-hero-2 homepage hero (which stays the source of truth).
+   - Rules for legal guard, proof notes, texture utilities.
+
+   Palette (homepage canonical, DO NOT ADD NEW COLOR):
+     --vcx-teal:       #2D8A82
+     --vcx-teal-hover: #1A4F4A
+     --vcx-teal-deep:  #0F2F2C
+     --vcx-accent:     #5BC4B8
+     --vcx-accent-alt: #5BBAA7
+     --vcx-ink:        #1A2F2A
+     --vcx-ink-body:   #2E4F46
+     --vcx-ink-muted:  #5E6C7B
+     --vcx-parchment:  #EEE9DE
+     --vcx-canvas:     #F4F7F6
+
+   CONTRAST RULE (hard):
+     No dark text on dark bg. No light text on light bg.
+     All state variants (hover/focus/disabled/placeholder) obey.
+
+   Reduced motion: all transitions + animations collapse under
+   @media (prefers-reduced-motion: reduce).
+   ============================================================ */
+
+:root {
+  --vcx-rail-card-w:        clamp(280px, 78vw, 360px);
+  --vcx-rail-card-w-wide:   clamp(300px, 82vw, 440px);
+  --vcx-rail-card-w-narrow: clamp(220px, 60vw, 280px);
+  --vcx-rail-card-h:        minmax(220px, auto);
+  --vcx-rail-gap:           clamp(16px, 2vw, 24px);
+  --vcx-rail-pad-x:         clamp(16px, 4vw, 32px);
+  --vcx-rail-radius:        14px;
+  --vcx-rail-shadow:        0 2px 8px rgba(26,47,42,.06), 0 12px 32px rgba(26,47,42,.08);
+  --vcx-rail-border:        1px solid rgba(26,47,42,.10);
+  --vcx-rail-teal:          #2D8A82;
+  --vcx-rail-teal-hover:    #1A4F4A;
+  --vcx-rail-teal-deep:     #0F2F2C;
+  --vcx-rail-accent:        #5BC4B8;
+  --vcx-rail-accent-alt:    #5BBAA7;
+  --vcx-rail-ink:           #1A2F2A;
+  --vcx-rail-ink-body:      #2E4F46;
+  --vcx-rail-ink-muted:     #5E6C7B;
+  --vcx-rail-parchment:     #EEE9DE;
+  --vcx-rail-canvas:        #F4F7F6;
+  --vcx-rail-card-bg:       #FFFFFF;
+  --vcx-rail-card-bg-dark:  #102B27;
+}
+
+/* ============================================================
+   1. RAIL SECTION (container)
+   ------------------------------------------------------------ */
+.vcx-rail-section {
+  position: relative;
+  padding: clamp(56px, 8vw, 112px) 0;
+  background: var(--vcx-rail-canvas);
+  color: var(--vcx-rail-ink);
+}
+.vcx-rail-section--dark {
+  background: var(--vcx-rail-teal-deep);
+  color: #FFFFFF;
+}
+.vcx-rail-section--parchment {
+  background: var(--vcx-rail-parchment);
+}
+.vcx-rail-section--teal {
+  background: linear-gradient(180deg, #0A1A15 0%, #122A22 50%, #0A1A15 100%);
+  color: #FFFFFF;
+}
+
+/* Rail head (title + description) */
+.vcx-rail-head {
+  max-width: 1280px;
+  margin: 0 auto clamp(28px, 4vw, 56px);
+  padding: 0 var(--vcx-rail-pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.vcx-rail-head--center {
+  align-items: center;
+  text-align: center;
+}
+.vcx-rail-head__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vcx-rail-teal);
+}
+.vcx-rail-section--dark .vcx-rail-head__eyebrow,
+.vcx-rail-section--teal .vcx-rail-head__eyebrow {
+  color: var(--vcx-rail-accent);
+}
+.vcx-rail-head__title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--vcx-rail-ink);
+  margin: 0;
+}
+.vcx-rail-section--dark .vcx-rail-head__title,
+.vcx-rail-section--teal .vcx-rail-head__title {
+  color: #FFFFFF;
+}
+.vcx-rail-head__lede {
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--vcx-rail-ink-body);
+  max-width: 680px;
+  margin: 0;
+}
+.vcx-rail-section--dark .vcx-rail-head__lede,
+.vcx-rail-section--teal .vcx-rail-head__lede {
+  color: rgba(255,255,255,0.82);
+}
+.vcx-rail-head__nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+.vcx-rail-head--center .vcx-rail-head__nav {
+  justify-content: center;
+}
+
+/* ============================================================
+   2. RAIL (horizontal scroll strip of uniform cards)
+   ------------------------------------------------------------ */
+.vcx-rail {
+  position: relative;
+  overflow: hidden;
+}
+.vcx-rail__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: var(--vcx-rail-pad-x);
+  scrollbar-width: none;
+}
+.vcx-rail__viewport::-webkit-scrollbar { display: none; }
+
+.vcx-rail__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--vcx-rail-card-w);
+  gap: var(--vcx-rail-gap);
+  padding: 4px var(--vcx-rail-pad-x) 16px;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+.vcx-rail--wide .vcx-rail__track {
+  grid-auto-columns: var(--vcx-rail-card-w-wide);
+}
+.vcx-rail--narrow .vcx-rail__track {
+  grid-auto-columns: var(--vcx-rail-card-w-narrow);
+}
+/* On desktop wide viewports, center the track inside the wrap */
+@media (min-width: 1200px) {
+  .vcx-rail__track {
+    padding-left: max(var(--vcx-rail-pad-x), calc((100vw - 1280px) / 2 + 22px));
+    padding-right: max(var(--vcx-rail-pad-x), calc((100vw - 1280px) / 2 + 22px));
+  }
+}
+
+/* ============================================================
+   3. RAIL CARD (uniform tile inside a rail)
+   ------------------------------------------------------------ */
+.vcx-rail-card {
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 24px 24px 20px;
+  background: var(--vcx-rail-card-bg);
+  border: var(--vcx-rail-border);
+  border-radius: var(--vcx-rail-radius);
+  color: var(--vcx-rail-ink);
+  text-decoration: none;
+  transition: transform 240ms cubic-bezier(.16,1,.3,1),
+              box-shadow 240ms cubic-bezier(.16,1,.3,1),
+              border-color 240ms ease;
+  overflow: hidden;
+}
+.vcx-rail-card:hover,
+.vcx-rail-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--vcx-rail-shadow);
+  border-color: rgba(45,138,130,0.28);
+  outline: none;
+}
+.vcx-rail-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(45,138,130,0.35), var(--vcx-rail-shadow);
+}
+.vcx-rail-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--vcx-rail-teal) 0%, var(--vcx-rail-accent) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms cubic-bezier(.16,1,.3,1);
+}
+.vcx-rail-card:hover::before,
+.vcx-rail-card:focus-visible::before { transform: scaleX(1); }
+
+.vcx-rail-card__icon {
+  width: 44px; height: 44px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  background: rgba(45,138,130,0.08);
+  border-radius: 10px;
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: var(--vcx-rail-teal);
+}
+.vcx-rail-card__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vcx-rail-teal);
+  margin-bottom: 8px;
+}
+.vcx-rail-card__title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--vcx-rail-ink);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.vcx-rail-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--vcx-rail-ink-body);
+  margin: 0;
+  flex-grow: 1;
+}
+.vcx-rail-card__meta {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--vcx-rail-ink-muted);
+  letter-spacing: 0.02em;
+}
+.vcx-rail-card__cta {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--vcx-rail-teal);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.vcx-rail-card:hover .vcx-rail-card__cta,
+.vcx-rail-card:focus-visible .vcx-rail-card__cta {
+  gap: 10px;
+  color: var(--vcx-rail-teal-hover);
+}
+
+/* Dark card variant (for dark sections) */
+.vcx-rail-section--dark .vcx-rail-card,
+.vcx-rail-section--teal .vcx-rail-card,
+.vcx-rail-card--dark {
+  background: var(--vcx-rail-card-bg-dark);
+  border-color: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+.vcx-rail-section--dark .vcx-rail-card__title,
+.vcx-rail-section--teal .vcx-rail-card__title,
+.vcx-rail-card--dark .vcx-rail-card__title {
+  color: #FFFFFF;
+}
+.vcx-rail-section--dark .vcx-rail-card__desc,
+.vcx-rail-section--teal .vcx-rail-card__desc,
+.vcx-rail-card--dark .vcx-rail-card__desc {
+  color: rgba(255,255,255,0.82);
+}
+.vcx-rail-section--dark .vcx-rail-card__meta,
+.vcx-rail-section--teal .vcx-rail-card__meta,
+.vcx-rail-card--dark .vcx-rail-card__meta {
+  color: rgba(255,255,255,0.62);
+}
+.vcx-rail-section--dark .vcx-rail-card__icon,
+.vcx-rail-section--teal .vcx-rail-card__icon,
+.vcx-rail-card--dark .vcx-rail-card__icon {
+  background: rgba(91,196,184,0.14);
+  color: var(--vcx-rail-accent);
+}
+.vcx-rail-section--dark .vcx-rail-card__cta,
+.vcx-rail-section--teal .vcx-rail-card__cta,
+.vcx-rail-card--dark .vcx-rail-card__cta {
+  color: var(--vcx-rail-accent);
+}
+.vcx-rail-section--dark .vcx-rail-card__eyebrow,
+.vcx-rail-section--teal .vcx-rail-card__eyebrow,
+.vcx-rail-card--dark .vcx-rail-card__eyebrow {
+  color: var(--vcx-rail-accent);
+}
+
+/* ============================================================
+   4. RAIL NAV BUTTONS (prev/next + keyboard)
+   ------------------------------------------------------------ */
+.vcx-rail-btn {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(45,138,130,0.25);
+  background: #FFFFFF;
+  color: var(--vcx-rail-teal);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.vcx-rail-btn:hover:not([disabled]),
+.vcx-rail-btn:focus-visible {
+  background: var(--vcx-rail-teal);
+  color: #FFFFFF;
+  border-color: var(--vcx-rail-teal);
+  outline: none;
+  transform: scale(1.05);
+}
+.vcx-rail-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(45,138,130,0.30);
+}
+.vcx-rail-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.vcx-rail-section--dark .vcx-rail-btn,
+.vcx-rail-section--teal .vcx-rail-btn {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.28);
+  color: var(--vcx-rail-accent);
+}
+.vcx-rail-section--dark .vcx-rail-btn:hover:not([disabled]),
+.vcx-rail-section--teal .vcx-rail-btn:hover:not([disabled]) {
+  background: var(--vcx-rail-accent);
+  color: var(--vcx-rail-teal-deep);
+  border-color: var(--vcx-rail-accent);
+}
+.vcx-rail-btn__icon {
+  width: 16px; height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Progress (optional indicator) */
+.vcx-rail-progress {
+  height: 2px;
+  background: rgba(45,138,130,0.10);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 16px var(--vcx-rail-pad-x) 0;
+  max-width: 1280px;
+  margin-left: auto; margin-right: auto;
+}
+.vcx-rail-progress__bar {
+  height: 100%;
+  width: 10%;
+  background: var(--vcx-rail-teal);
+  transition: width 240ms ease, transform 240ms ease;
+  transform-origin: left;
+}
+
+/* ============================================================
+   5. PINNED RAIL (scroll-driven: fix content, advance cards)
+   ------------------------------------------------------------
+   The parent is taller than viewport; JS pins the first child
+   and translates .vcx-pinned-rail__track based on scroll.
+   Falls back gracefully to static stack on small viewports. */
+.vcx-pinned-rail {
+  position: relative;
+  padding: 0;
+}
+.vcx-pinned-rail__stage {
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 120px);
+  min-height: 480px;
+  display: grid;
+  grid-template-columns: minmax(320px, 38%) 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--vcx-rail-pad-x);
+  box-sizing: border-box;
+  align-items: center;
+}
+.vcx-pinned-rail__anchor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.vcx-pinned-rail__title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--vcx-rail-ink);
+  margin: 0;
+}
+.vcx-pinned-rail__lede {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--vcx-rail-ink-body);
+  max-width: 480px;
+  margin: 0;
+}
+.vcx-pinned-rail__count {
+  font-size: 0.78rem;
+  color: var(--vcx-rail-ink-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.vcx-pinned-rail__viewport {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.vcx-pinned-rail__track {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  align-items: stretch;
+  will-change: transform;
+  transition: transform 420ms cubic-bezier(.16,1,.3,1);
+}
+.vcx-pinned-rail__card {
+  flex: 0 0 min(88%, 420px);
+  background: var(--vcx-rail-card-bg);
+  border: var(--vcx-rail-border);
+  border-radius: var(--vcx-rail-radius);
+  padding: 28px;
+  box-shadow: var(--vcx-rail-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--vcx-rail-ink);
+}
+.vcx-pinned-rail__card h3 {
+  font-family: 'Georgia', serif;
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--vcx-rail-ink);
+}
+.vcx-pinned-rail__card p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--vcx-rail-ink-body);
+  margin: 0;
+}
+.vcx-pinned-rail__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.86);
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+.vcx-pinned-rail__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(45,138,130,0.25);
+  transition: background 180ms ease, transform 180ms ease;
+}
+.vcx-pinned-rail__dot.is-active {
+  background: var(--vcx-rail-teal);
+  transform: scale(1.25);
+}
+
+/* Fallback on narrow viewports: render as stacked list, no pin */
+@media (max-width: 899px) {
+  .vcx-pinned-rail__stage {
+    position: static;
+    height: auto;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .vcx-pinned-rail__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    min-height: 360px;
+    border-radius: 0;
+  }
+  .vcx-pinned-rail__viewport::-webkit-scrollbar { display: none; }
+  .vcx-pinned-rail__track {
+    transform: none !important;
+  }
+  .vcx-pinned-rail__card {
+    scroll-snap-align: start;
+    flex: 0 0 88%;
+  }
+  .vcx-pinned-rail__dots { display: none; }
+}
+
+/* ============================================================
+   6. DASHBOARD RAIL (wide tiles with metric + chart area)
+   ------------------------------------------------------------ */
+.vcx-dashboard-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(280px, 80vw, 440px);
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: var(--vcx-rail-pad-x);
+  padding: 4px var(--vcx-rail-pad-x) 20px;
+  scrollbar-width: none;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+.vcx-dashboard-rail::-webkit-scrollbar { display: none; }
+@media (min-width: 1200px) {
+  .vcx-dashboard-rail {
+    padding-left: max(var(--vcx-rail-pad-x), calc((100vw - 1280px) / 2 + 22px));
+    padding-right: max(var(--vcx-rail-pad-x), calc((100vw - 1280px) / 2 + 22px));
+  }
+}
+.vcx-dashboard-rail__tile {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: #FFFFFF;
+  border: var(--vcx-rail-border);
+  border-radius: var(--vcx-rail-radius);
+  min-height: 240px;
+  color: var(--vcx-rail-ink);
+}
+.vcx-dashboard-rail__tile--dark {
+  background: var(--vcx-rail-card-bg-dark);
+  border-color: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+.vcx-dashboard-rail__metric {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1;
+  color: var(--vcx-rail-teal);
+  letter-spacing: -0.02em;
+}
+.vcx-dashboard-rail__tile--dark .vcx-dashboard-rail__metric {
+  color: var(--vcx-rail-accent);
+}
+.vcx-dashboard-rail__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vcx-rail-ink-muted);
+}
+.vcx-dashboard-rail__tile--dark .vcx-dashboard-rail__label {
+  color: rgba(255,255,255,0.62);
+}
+.vcx-dashboard-rail__body {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--vcx-rail-ink-body);
+}
+.vcx-dashboard-rail__tile--dark .vcx-dashboard-rail__body {
+  color: rgba(255,255,255,0.82);
+}
+
+/* ============================================================
+   7. TOOL SHELF (slim horizontal list of tool/entry points)
+   ------------------------------------------------------------ */
+.vcx-tool-shelf {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(200px, 260px);
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px var(--vcx-rail-pad-x) 12px;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.vcx-tool-shelf::-webkit-scrollbar { display: none; }
+@media (min-width: 1200px) {
+  .vcx-tool-shelf {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+.vcx-tool-shelf__item {
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: var(--vcx-rail-border);
+  border-radius: 12px;
+  color: var(--vcx-rail-ink);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.vcx-tool-shelf__item:hover,
+.vcx-tool-shelf__item:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--vcx-rail-teal);
+  box-shadow: 0 4px 12px rgba(45,138,130,0.14);
+  outline: none;
+}
+.vcx-tool-shelf__item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(45,138,130,0.28);
+}
+.vcx-tool-shelf__ico {
+  width: 28px; height: 28px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 16px;
+  border-radius: 8px;
+  background: rgba(45,138,130,0.10);
+  color: var(--vcx-rail-teal);
+  flex: 0 0 auto;
+}
+.vcx-tool-shelf__label {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--vcx-rail-ink);
+  line-height: 1.25;
+}
+.vcx-tool-shelf__sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--vcx-rail-ink-muted);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   8. PROOF NOTE + LEGAL BOUNDARY
+   ------------------------------------------------------------ */
+.vcx-proof-note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(45,138,130,0.06);
+  border: 1px solid rgba(45,138,130,0.18);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--vcx-rail-ink-body);
+  max-width: 680px;
+}
+.vcx-rail-section--dark .vcx-proof-note,
+.vcx-rail-section--teal .vcx-proof-note {
+  background: rgba(91,196,184,0.08);
+  border-color: rgba(91,196,184,0.28);
+  color: rgba(255,255,255,0.88);
+}
+.vcx-proof-note::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--vcx-rail-teal);
+  margin-top: 8px;
+  flex: 0 0 auto;
+}
+
+/* Legal boundary: ALWAYS visible, never hidden in carousel/rail. */
+.vcx-legal-boundary {
+  display: block;
+  padding: 16px 20px;
+  background: rgba(154,106,32,0.06);
+  border: 1px solid rgba(154,106,32,0.22);
+  border-left: 3px solid #9A6A20;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--vcx-rail-ink-body);
+  max-width: 920px;
+  margin: clamp(20px, 3vw, 32px) auto 0;
+}
+.vcx-legal-boundary strong {
+  color: var(--vcx-rail-ink);
+  font-weight: 600;
+}
+.vcx-rail-section--dark .vcx-legal-boundary,
+.vcx-rail-section--teal .vcx-legal-boundary {
+  background: rgba(154,106,32,0.14);
+  border-color: rgba(212,168,83,0.40);
+  border-left-color: #D4A853;
+  color: rgba(255,255,255,0.90);
+}
+.vcx-rail-section--dark .vcx-legal-boundary strong,
+.vcx-rail-section--teal .vcx-legal-boundary strong {
+  color: #FFFFFF;
+}
+
+/* ============================================================
+   9. HERO UNIFICATION — additive modifiers on .vcx-hero-2
+   ------------------------------------------------------------
+   .vcx-hero-2 stays the canonical homepage hero. These add
+   responsive padding variants for other page types:
+     .vcx-hero-2.vcx-hero--compact  → service pages (shorter)
+     .vcx-hero-2.vcx-hero--app      → in-app pages (minimal chrome)
+     .vcx-hero-2.vcx-hero--legal    → disclaimer-heavy pages
+   ------------------------------------------------------------ */
+.vcx-hero-2.vcx-hero--compact {
+  padding: 40px 32px 32px !important;
+}
+.vcx-hero-2.vcx-hero--compact .vcx-hero-2__title,
+.vcx-hero-2.vcx-hero--compact h1 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem) !important;
+}
+.vcx-hero-2.vcx-hero--compact .vcx-hero-2__subtitle {
+  margin-bottom: 16px !important;
+}
+.vcx-hero-2.vcx-hero--compact .vcx-hero-2__trust {
+  margin-top: 14px !important;
+}
+
+.vcx-hero-2.vcx-hero--app {
+  padding: 32px 28px 24px !important;
+  min-height: auto !important;
+}
+.vcx-hero-2.vcx-hero--app .vcx-hero-2__title,
+.vcx-hero-2.vcx-hero--app h1 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
+  margin-bottom: 10px !important;
+}
+.vcx-hero-2.vcx-hero--app .vcx-hero-2__subtitle {
+  max-width: 620px !important;
+  margin-bottom: 14px !important;
+}
+
+.vcx-hero-2.vcx-hero--legal {
+  padding: 48px 32px 36px !important;
+}
+.vcx-hero-2.vcx-hero--legal .vcx-hero-2__subtitle--scope {
+  color: rgba(255,255,255,0.85) !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.85) !important;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  padding-top: 14px;
+  margin-top: 18px !important;
+}
+
+/* Generic .vcx-hero (non vcx-hero-2 page, e.g. legacy pages). */
+.vcx-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #07201C;
+  color: #FFFFFF;
+  padding: clamp(56px, 8vw, 96px) clamp(22px, 4vw, 32px);
+  overflow: hidden;
+}
+.vcx-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+.vcx-hero__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vcx-rail-accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.vcx-hero__title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 16px;
+}
+.vcx-hero__subtitle {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.82);
+  max-width: 560px;
+  margin: 0 0 24px;
+}
+.vcx-hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   10. RESPONSIVE GUARDS
+   ------------------------------------------------------------ */
+@media (max-width: 639px) {
+  :root {
+    --vcx-rail-card-w:        min(82vw, 320px);
+    --vcx-rail-card-w-wide:   min(88vw, 380px);
+    --vcx-rail-card-w-narrow: min(70vw, 260px);
+  }
+  .vcx-rail-card { padding: 20px 18px; }
+  .vcx-rail-head__title { font-size: clamp(1.4rem, 5.5vw, 1.8rem); }
+  .vcx-dashboard-rail__tile { padding: 20px; min-height: 200px; }
+}
+
+@media (max-width: 430px) {
+  .vcx-rail-head { gap: 10px; }
+  .vcx-rail-head__lede { font-size: 0.92rem; }
+  .vcx-rail-card__title { font-size: 1.05rem; }
+  .vcx-rail-card__desc { font-size: 0.82rem; }
+}
+
+/* ============================================================
+   11. REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .vcx-rail-card,
+  .vcx-rail-card::before,
+  .vcx-rail-btn,
+  .vcx-tool-shelf__item,
+  .vcx-pinned-rail__track,
+  .vcx-dashboard-rail__tile,
+  .vcx-rail-progress__bar {
+    transition: none !important;
+    animation: none !important;
+  }
+  .vcx-rail-card:hover,
+  .vcx-rail-card:focus-visible {
+    transform: none !important;
+  }
+  .vcx-rail-btn:hover:not([disabled]),
+  .vcx-rail-btn:focus-visible {
+    transform: none !important;
+  }
+  .vcx-pinned-rail__track {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   12. TEXTURE / DECORATIVE UTILITIES
+   ------------------------------------------------------------ */
+.vcx-rail-section[data-vcx-texture]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(45,138,130,0.04), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(91,196,184,0.04), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+.vcx-rail-section[data-vcx-texture] > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   13. SAFETY — NEVER light-on-light or dark-on-dark
+   ------------------------------------------------------------
+   Defensive baseline for rail elements nested inside unknown
+   parents. Explicit colors on all interactive + text nodes so
+   a parent's master override doesn't leak through. */
+.vcx-rail-section .vcx-rail-card,
+.vcx-rail-section .vcx-rail-card * {
+  -webkit-text-fill-color: currentColor;
+}
+/* If the rail sits inside a dark band accidentally, still look right. */
+.vcx-bg-dark .vcx-rail-card:not(.vcx-rail-card--dark),
+.vcx-bg-ink  .vcx-rail-card:not(.vcx-rail-card--dark) {
+  background: var(--vcx-rail-card-bg-dark);
+  border-color: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+}
+.vcx-bg-dark .vcx-rail-card:not(.vcx-rail-card--dark) .vcx-rail-card__title,
+.vcx-bg-ink  .vcx-rail-card:not(.vcx-rail-card--dark) .vcx-rail-card__title { color: #FFFFFF; }
+.vcx-bg-dark .vcx-rail-card:not(.vcx-rail-card--dark) .vcx-rail-card__desc,
+.vcx-bg-ink  .vcx-rail-card:not(.vcx-rail-card--dark) .vcx-rail-card__desc { color: rgba(255,255,255,0.82); }
