@@ -597,14 +597,21 @@ h3,
 
 /* ===== MOBILE / APP / WEBVIEW ===== */
 @media (max-width: 900px){
-  html{scroll-padding-top:66px}
-  body{padding-bottom:134px}
+  html{scroll-padding-top:86px}
+  body{padding-bottom:134px;padding-top:calc(env(safe-area-inset-top, 0px) + 68px)}
 
+  /* Force fixed on mobile: ancestor overflow:hidden on <body> demotes sticky to relative,
+     which makes the header scroll away and the menu button unreachable after scroll. */
   .vcx-header{
+    position:fixed !important;
     top:0 !important;
-    padding-top:env(safe-area-inset-top, 0px) !important;
+    left:0 !important;
+    right:0 !important;
+    padding:6px 8px 0 !important;
+    padding-top:calc(env(safe-area-inset-top, 0px) + 6px) !important;
     margin-bottom:0 !important;
   }
+  .vcx-header > .wrap{max-width:100%;padding:0}
   .vcx-header-shell{
     padding:4px 8px 4px !important;
     border-radius:18px;
