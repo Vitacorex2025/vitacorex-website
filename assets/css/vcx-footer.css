@@ -237,10 +237,11 @@ footer > .footer-bottom,
   padding: 20px 32px 0;
   box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
@@ -250,6 +251,7 @@ footer > .footer-bottom,
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.78);
   opacity: 1;
+  text-align: center;
 }
 
 .footer-bottom__social {
@@ -257,6 +259,7 @@ footer > .footer-bottom,
   flex-wrap: wrap;
   gap: 12px 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .footer-bottom__social a {
@@ -291,12 +294,35 @@ footer > .footer-bottom,
   footer > .footer-bottom,
   .footer > .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
     padding: 16px 20px 0;
     margin-top: 24px;
   }
   .footer-bottom__social {
     gap: 10px 18px;
+    justify-content: center;
   }
+}
+
+/* ============================================================
+ * FLOATING BADGE — MOBILE GUARD
+ * ------------------------------------------------------------
+ * The vertical "Private Advisory" side tab (.vcx-exclusive-badge)
+ * is designed for wide viewports where it sits flush against the
+ * right edge, clear of the content column. On narrow viewports
+ * (< 720px) the content column widens to the screen edge, so the
+ * badge intrudes INTO the hero text area and reads as broken
+ * chrome. Hide it below 720px — the same content is already
+ * surfaced in-flow by .vcx-exclusive-badge--inline variants and
+ * the dual-door nav CTAs, so nothing is lost.
+ *
+ * The !important wins against the cascade chain in vcx-redesign.css
+ * (base rule at :995) and vcx-noise-bg.css (fixed-position safeguard
+ * at :64) which would otherwise keep the badge visible.
+ * ============================================================ */
+@media (max-width: 720px) {
+  .vcx-exclusive-badge { display: none !important; }
 }
