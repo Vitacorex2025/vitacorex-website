@@ -27,10 +27,40 @@
     (lastSeg === 'index.html' && path.split('/').filter(Boolean).length <= 1);
   if (isHome) return;
 
+  // --- Per-page config ---------------------------------------------------
+  // Pages can override the default back-link label + fallback destination
+  // declaratively via <meta> tags in <head>:
+  //   <meta name="vcx-back-label"    content="Private Client Services">
+  //   <meta name="vcx-back-fallback" content="/additional-services.html">
+  // When a label meta is present, it takes precedence over the locale-based
+  // defaults (so an /app/* page can read "Private Client Services" instead
+  // of the generic "Back"). Locale-specific overrides are supported via
+  // suffixed attributes:
+  //   <meta name="vcx-back-label"    content="Private Client Services"
+  //         data-ru="Личные клиенты" data-es="Clientes privados">
+  // The fallback URL is used when there is no same-origin referrer (direct
+  // hits, new tabs, external landings).
+  function readConfig() {
+    var lm = document.querySelector('meta[name="vcx-back-label"]');
+    var fm = document.querySelector('meta[name="vcx-back-fallback"]');
+    return {
+      labelEl: lm,
+      fallback: (fm && fm.getAttribute('content')) || '/index.html'
+    };
+  }
+
   // --- Locale labels -----------------------------------------------------
   var LABELS = { en: 'Back', ru: 'Назад', es: 'Atrás' };
   function pickLabel() {
     var lang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase().slice(0, 2);
+    var cfg = readConfig();
+    if (cfg.labelEl) {
+      // Per-locale override via data-* attributes on the meta tag.
+      var locAttr = cfg.labelEl.getAttribute('data-' + lang);
+      if (locAttr) return locAttr;
+      var content = cfg.labelEl.getAttribute('content');
+      if (content) return content;
+    }
     return LABELS[lang] || LABELS.en;
   }
 
@@ -134,13 +164,17 @@
     var wrap = document.createElement('div');
     wrap.className = 'vcx-back-link-wrap';
 
+    var cfg = readConfig();
+
     var link = document.createElement('a');
     link.id = 'vcx-back-link';
     link.className = 'vcx-back-link';
-    /* Explicit /index.html (not bare "/") — some deployments/caches don't
-       serve the directory index for "/" reliably and the user lands on a
-       white screen. /index.html is unambiguous and always resolves. */
-    link.href = '/index.html';
+    /* Explicit fallback URL from <meta name="vcx-back-fallback"> when set,
+       otherwise /index.html. /index.html is unambiguous (some deployments
+       do not serve the directory index for "/" reliably) and always
+       resolves. Individual /app/* pages override via the meta tag to land
+       on their parent section (e.g. /additional-services.html). */
+    link.href = cfg.fallback;
     link.setAttribute('aria-label', pickLabel());
 
     link.innerHTML =
@@ -184,13 +218,33 @@
           window.history.scrollRestoration = 'manual';
         }
       } catch (_) { /* noop */ }
-      // Belt + suspenders: scroll to top before leaving so any restore
-      // that references the current position lands at 0.
       try { window.scrollTo(0, 0); } catch (_) { /* noop */ }
-      // Always use explicit /index.html (not bare "/"), and append a
-      // cache-neutral fragment marker so any remaining scroll-restoration
-      // logic resolves to the top of the document.
-      window.location.assign('/index.html');
+
+      // Navigation strategy:
+      //   1. If there is a same-origin referrer (the user arrived via an
+      //      internal link), fall back to window.history.back() so they
+      //      return to their previous VitaCoreX page with scroll state.
+      //   2. Otherwise (fresh tab, direct hit, search-engine landing,
+      //      external referrer), navigate to the per-page fallback URL
+      //      (either from <meta name="vcx-back-fallback"> or /index.html).
+      // NOTE: Earlier versions hard-pinned /index.html due to a
+      // bfcache-restore bug specific to the home page's scroll-reveal
+      // (.vcx-stats-2 opacity:0). That bug does NOT apply when the
+      // previous page is an /app/* parent like /additional-services.html,
+      // so history.back() is safe here. If a destination-specific bug
+      // resurfaces, add a pageshow.persisted handler on that target.
+      var sameOriginReferrer = false;
+      try {
+        if (document.referrer) {
+          var refUrl = new URL(document.referrer);
+          sameOriginReferrer = (refUrl.origin === window.location.origin);
+        }
+      } catch (_) { /* noop — malformed referrer */ }
+
+      if (sameOriginReferrer && window.history.length > 1) {
+        try { window.history.back(); return; } catch (_) { /* fall through */ }
+      }
+      window.location.assign(cfg.fallback);
     });
 
     document.addEventListener('vcx:locale-change', function () {

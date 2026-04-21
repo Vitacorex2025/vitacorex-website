@@ -9,7 +9,7 @@ document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, 
 (function(){
   const shell = {
     en: {
-      brand_tag: 'Revenue recovery and documentation infrastructure',
+      brand_tag: 'Revenue recovery, documentation control, and client workspaces.',
       home: 'Home',
       file: 'Corporate Legal File Control',
       recovery: 'Revenue Recovery Infrastructure',
@@ -39,7 +39,7 @@ document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, 
       metric_bar_short: 'Structured Intake \u2022 File Control'
     },
     ru: {
-      brand_tag: 'Инфраструктура возврата выручки и контроля документации',
+      brand_tag: 'Возврат выручки, контроль документации и клиентские рабочие пространства.',
       home: 'Главная',
       file: 'Контроль корпоративной юридической документации',
       recovery: 'Инфраструктура возврата выручки',
@@ -69,7 +69,7 @@ document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, 
       metric_bar_short: 'Приём \u2022 Контроль документов'
     },
     es: {
-      brand_tag: 'Infraestructura de recuperación de ingresos y control documental',
+      brand_tag: 'Recuperación de ingresos, control de documentación y espacios de trabajo para clientes.',
       home: 'Inicio',
       file: 'Control corporativo de archivos legales',
       recovery: 'Infraestructura de recuperación de ingresos',

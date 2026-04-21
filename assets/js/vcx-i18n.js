@@ -66,7 +66,7 @@ w.VCX_I18N = {
   en: {
     // Brand
     brand_name:     'VitaCoreX LLC',
-    brand_tag:      'Revenue recovery and documentation infrastructure',
+    brand_tag:      'Revenue recovery, documentation control, and client workspaces.',
     brand_city:     'Tampa, Florida, U.S.',
 
     // Navigation
@@ -154,7 +154,7 @@ w.VCX_I18N = {
 
   ru: {
     brand_name:     'VitaCoreX LLC',
-    brand_tag:      'Инфраструктура возврата выручки и контроля документации',
+    brand_tag:      'Возврат выручки, контроль документации и клиентские рабочие пространства.',
     brand_city:     'Тампа, Флорида, США',
 
     nav_home:       'Главная',
@@ -233,7 +233,7 @@ w.VCX_I18N = {
 
   es: {
     brand_name:     'VitaCoreX LLC',
-    brand_tag:      'Infraestructura de recuperación de ingresos y control de documentación',
+    brand_tag:      'Recuperación de ingresos, control de documentación y espacios de trabajo para clientes.',
     brand_city:     'Tampa, Florida, EE.UU.',
 
     nav_home:       'Inicio',

@@ -1926,7 +1926,7 @@ en: {
   exclusive_badge:    'Private Advisory',
 
   /* ── Shared CTA labels (data-common) ───────────────────────── */
-  brand_tag:          'Revenue recovery and documentation infrastructure',
+  brand_tag:          'Revenue recovery, documentation control, and client workspaces.',
   clock_vcx:          'VitaCoreX Time',
   clock_local:        'Your Time',
   clock_local_sub:    'Local',
@@ -3995,7 +3995,7 @@ ru: {
 
   exclusive_badge:    'Частный консалтинг',
 
-  brand_tag:          'Инфраструктура возврата выручки и контроля документации',
+  brand_tag:          'Возврат выручки, контроль документации и клиентские рабочие пространства.',
   clock_vcx:          'Время VitaCoreX',
   clock_local:        'Ваше время',
   clock_local_sub:    'Локально',
@@ -6064,7 +6064,7 @@ es: {
 
   exclusive_badge:    'Consultoria privada',
 
-  brand_tag:          'Infraestructura de recuperacion de ingresos y control de documentacion',
+  brand_tag:          'Recuperacion de ingresos, control de documentacion y espacios de trabajo para clientes.',
   clock_vcx:          'Hora VitaCoreX',
   clock_local:        'Tu hora',
   clock_local_sub:    'Local',
