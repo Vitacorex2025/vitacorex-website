@@ -171,73 +171,7 @@ section:not(.hero):not(.band):not(.vcx-bg-dark):not(.vcx-bg-ink):not([style*="ba
   color: #1F2A29 !important;
 }
 
-/* ---- 8. Hero title centering (site-wide) ----
- * User policy: "везде должны быть хом херо" — all hero titles must match the
- * home-page centered hero. Several service/landing pages (pricing-and-engagement-
- * tiers, small-claims-documentation, additional-services, pre-collection-pilot,
- * vitacorex-vs-traditional-agency) render the hero title with `text-align:start`
- * and were shifted left on desktop. Force-center every hero/page heading that
- * uses the `-hero__title` BEM suffix plus a few legacy selectors.
- */
-[class$="-hero__title"],
-[class*="-hero__title"],
-.pet-hero__title,
-.scd-hero__title,
-.pcp-hero__title,
-.pet-hero__subtitle,
-.scd-hero__subtitle,
-.pcp-hero__subtitle,
-[class$="-hero__subtitle"],
-[class$="-hero__kicker"],
-[class$="-hero__meta"],
-.pet-hero,
-.scd-hero,
-.pcp-hero,
-[class$="-hero"] > .wrap > *,
-.pet-hero .wrap,
-.scd-hero .wrap,
-.pcp-hero .wrap {
-  text-align: center !important;
-}
-
-/* Page-level h1 on service/legal pages that sit outside hero (e.g. additional-
- * services "Private-client advisory", pricing "Documentation consulting, not
- * legal services"). Center those too. */
-main > section:first-of-type h1,
-main > .vcx-hero-cybercore h1,
-.vcx-hero-cybercore h1,
-.vcx-hero h1,
-.vcx-hero-2 h1,
-/* Legacy `section.hero.hero-premium` pattern used by additional-services,
- * industry-*, auto-purchase, business-plans, etc. h1 lives inside
- * .hero-copy.glass inside .hero-grid.hero-grid-composed.wrap inside .hero.
- * Those pages still use `text-align: start` from the page-local theme — force
- * center to match the home hero policy. */
-section.hero h1,
-section.hero-premium h1,
-section.vcx-hero-particles-host h1,
-section.hero .hero-copy,
-section.hero-premium .hero-copy,
-section.hero .hero-copy > h1,
-section.hero-premium .hero-copy > h1,
-section.hero .hero-copy > p.lede,
-section.hero-premium .hero-copy > p.lede,
-section.hero .hero-copy .eyebrow,
-section.hero-premium .hero-copy .eyebrow {
-  text-align: center !important;
-}
-/* Center the hero-copy flex/grid container contents horizontally so the
- * centered text isn't visually offset by a left-aligned column layout. */
-section.hero .hero-copy,
-section.hero-premium .hero-copy,
-section.vcx-hero-particles-host .hero-copy {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-/* ---- 9. small-claims-documentation contrast fixes ----
+/* ---- 8. small-claims-documentation contrast fixes ----
  * Ghost button "Compare packages": white on 6%-white glass = contrast 1.07.
  * Boost fill to 18% + add white border so it reads against the dark hero. */
 .scd-btn--ghost,
@@ -280,7 +214,7 @@ main .scd-upl .scd-upl__label {
   -webkit-text-fill-color: #FFFFFF !important;
 }
 
-/* ---- 10. Cool-parchment surface tokens (legacy "cream" naming kept) ----
+/* ---- 9. Cool-parchment surface tokens (legacy "cream" naming kept) ----
  * Ensure nothing falls back to a warm beige. Legacy tokens already store cool
  * values, but some utility classes explicitly set background:#F6F2EA (warm).
  * Re-point them to the cool parchment #F4F7F6 used on the home page. */
