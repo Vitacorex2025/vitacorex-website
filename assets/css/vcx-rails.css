@@ -719,7 +719,10 @@
   flex: 0 0 auto;
 }
 
-/* Legal boundary: ALWAYS visible, never hidden in carousel/rail. */
+/* Legal boundary: ALWAYS visible, never hidden in carousel/rail.
+ * max-width uses min(920px, calc(100% - 32px)) so on narrow viewports
+ * the box keeps a 16px gutter on each side instead of clipping to
+ * viewport edges (parent .vcx-rail-section has horizontal padding: 0). */
 .vcx-legal-boundary {
   display: block;
   padding: 16px 20px;
@@ -730,7 +733,8 @@
   font-size: 0.82rem;
   line-height: 1.7;
   color: var(--vcx-rail-ink-body);
-  max-width: 920px;
+  max-width: min(920px, calc(100% - 32px));
+  box-sizing: border-box;
   margin: clamp(20px, 3vw, 32px) auto 0;
 }
 .vcx-legal-boundary strong {

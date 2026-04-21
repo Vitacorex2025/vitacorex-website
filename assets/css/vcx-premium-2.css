@@ -519,6 +519,16 @@ a.btn-secondary:hover {
   font-weight: 500;
 }
 
+/* Illustrative-figures caveat must survive the dark gradient bg.
+ * Base .vcx-claim-caveat (vcx-claims.css) paints #5E6C7B slate-grey
+ * which reads ~1.8:1 on #0A1A15 — invisible. Light-on-dark override
+ * restores WCAG 4.5:1 while preserving italic + muted register. */
+.vcx-stats-2 .vcx-claim-caveat,
+.vcx-stats-2 .vcx-claim-caveat--paragraph {
+  color: rgba(255,255,255,0.72) !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.72) !important;
+}
+
 /* ---- SERVICE CARDS 2.0 ---- */
 .vcx-card-grid-2 {
   display: grid;

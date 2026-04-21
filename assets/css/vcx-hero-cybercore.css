@@ -147,16 +147,28 @@ section.vcx-hero-particles-host--sechead .section-head .vcx-eyebrow {
     0 0 28px rgba(91, 186, 167, 0.45);
 }
 
-/* SCD hero text on particle black */
+/* SCD hero text on particle black.
+ *
+ * CRITICAL: small-claims-documentation.html inlines page-local CSS with
+ * `-webkit-text-fill-color:#0F1F1B !important` on .scd-hero__title,
+ * `-webkit-text-fill-color:#1E6E68 !important` on .scd-hero__eyebrow,
+ * and `-webkit-text-fill-color:#2F3E38 !important` on .scd-hero__lede.
+ * In Chromium that property visually wins over `color` regardless of
+ * specificity — so without mirroring the fill colour here the title
+ * would render near-black on the particle-black scene (invisible).
+ * Mirror fill + color on all three elements to beat the inline rules. */
 section.vcx-hero-particles-host--scd .scd-hero__title {
   color: #F4FBF8 !important;
+  -webkit-text-fill-color: #F4FBF8 !important;
 }
 section.vcx-hero-particles-host--scd .scd-hero__lede,
 section.vcx-hero-particles-host--scd .scd-hero__sub {
   color: rgba(244, 251, 248, 0.86) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.86) !important;
 }
 section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
   color: #D4FBEE !important;
+  -webkit-text-fill-color: #D4FBEE !important;
   background: rgba(91, 186, 167, 0.18) !important;
   border-color: rgba(126, 216, 195, 0.45) !important;
   text-shadow:
