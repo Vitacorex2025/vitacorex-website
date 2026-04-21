@@ -539,7 +539,12 @@ function applyConsent(consent){
     gtag('js', new Date());
     gtag('config', ids.ga4, {anonymize_ip:true});
   }
-  if(ids.apolloAppId){
+  if(ids.apolloAppId && typeof loadApolloTracker === 'function'){
+    // loadApolloTracker is defined only when the Apollo snippet is
+    // injected server-side. Guard the call so consent-update does not
+    // throw on pages that ship without Apollo wired (ReferenceError
+    // was surfacing on every index.html load, aborting the rest of
+    // applyConsent). No-op otherwise.
     loadApolloTracker(ids.apolloAppId);
   }
   if(ids.clarity){

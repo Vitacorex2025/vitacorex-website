@@ -176,6 +176,62 @@ section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
     0 0 14px rgba(91, 186, 167, 0.75);
 }
 
+/* ── Samples library cover promotion ──────────────────────────────
+ * User feedback 2026-04-21 (RU): "вся библиотека примеров не
+ * соответсвует дезайну главной страницы. должны быть херо и общий
+ * дезайн главной страницы" — promote the <header class="vcx-sample-
+ * cover"> on /samples/*.html to a particle host so each sample page
+ * opens with the same cybercore scene as the home hero.
+ *
+ * The cover is selected as header.vcx-hero-particles-host--samplecover
+ * (not `section.` — covers are <header> elements). Mirror the --scd
+ * contract: near-black bg + particle canvas at z-index 0, content at
+ * z-index 2, mint eyebrow with glow, bright white title + soft lede. */
+header.vcx-hero-particles-host--samplecover {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #030507 !important;
+  background-image: none !important;
+  isolation: isolate;
+  color: #F4FBF8 !important;
+}
+header.vcx-hero-particles-host--samplecover > .vcx-particles-canvas {
+  z-index: 0;
+}
+header.vcx-hero-particles-host--samplecover > *:not(.vcx-particles-canvas) {
+  position: relative;
+  z-index: 2;
+}
+header.vcx-hero-particles-host--samplecover h1 {
+  color: #F4FBF8 !important;
+  -webkit-text-fill-color: #F4FBF8 !important;
+}
+header.vcx-hero-particles-host--samplecover .vcx-sample-cover__lead {
+  color: rgba(244, 251, 248, 0.86) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.86) !important;
+}
+header.vcx-hero-particles-host--samplecover .vcx-sample-cover__eyebrow {
+  color: #D4FBEE !important;
+  -webkit-text-fill-color: #D4FBEE !important;
+  background: rgba(91, 186, 167, 0.18) !important;
+  border: 1px solid rgba(126, 216, 195, 0.45) !important;
+  text-shadow:
+    0 0 6px  rgba(126, 216, 195, 0.95),
+    0 0 14px rgba(91, 186, 167, 0.75);
+}
+header.vcx-hero-particles-host--samplecover .vcx-sample-cover__side {
+  background: rgba(126, 216, 195, 0.08) !important;
+  border: 1px solid rgba(126, 216, 195, 0.24) !important;
+}
+header.vcx-hero-particles-host--samplecover .vcx-sample-cover__side h3 {
+  color: #D4FBEE !important;
+  -webkit-text-fill-color: #D4FBEE !important;
+}
+header.vcx-hero-particles-host--samplecover .vcx-sample-cover__side p {
+  color: rgba(244, 251, 248, 0.78) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.78) !important;
+}
+
 /* ── Bespoke hero dark-scene takeover ──────────────────────────────
  * User feedback 2026-04-21 (RU): "во многих местах отсутсвует херо
  * как на хом странице. надо сделать везде херо как на хом скрин" —
@@ -461,6 +517,7 @@ section.vcx-hero-particles-host--scd .adr-btn--primary,
 section.vcx-hero-particles-host--sechead .adr-btn--primary {
   background: #7ED8C3 !important;
   color: #051812 !important;
+  -webkit-text-fill-color: #051812 !important;
   border: 1px solid #7ED8C3 !important;
   box-shadow: 0 0 0 1px rgba(126, 216, 195, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45) !important;
   text-shadow: none !important;
@@ -474,6 +531,7 @@ section.vcx-hero-particles-host--sechead .crs-btn--primary:hover {
   background: #9EE4D0 !important;
   border-color: #9EE4D0 !important;
   color: #051812 !important;
+  -webkit-text-fill-color: #051812 !important;
 }
 section.vcx-hero-particles-host--scd .btn-secondary,
 section.vcx-hero-particles-host--scd .btn-ghost,
@@ -491,6 +549,7 @@ section.vcx-hero-particles-host--scd .adr-btn--ghost,
 section.vcx-hero-particles-host--sechead .adr-btn--ghost {
   background: rgba(255, 255, 255, 0.06) !important;
   color: #E6FDF3 !important;
+  -webkit-text-fill-color: #E6FDF3 !important;
   border: 1px solid rgba(126, 216, 195, 0.55) !important;
   text-shadow: none !important;
 }

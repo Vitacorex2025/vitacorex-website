@@ -268,6 +268,25 @@
     return section;
   }
 
+  /* Promote the samples-library redacted-deliverable cover
+   * (.vcx-sample-cover on /samples/*.html) to a particle host so the
+   * sample pages open with the same cybercore hero language as the
+   * home page + every marketing subpage.
+   *
+   * User feedback 2026-04-21 (RU): "вся библиотека примеров не
+   * соответсвует дезайну главной страницы. должны быть херо и общий
+   * дезайн главной страницы". The existing cover is a dark navy
+   * gradient — close to cybercore already, but lacks particles.
+   *
+   * Unlike other adopters, this one targets a <header> element
+   * (the cover IS the hero on sample pages), not a <section>. */
+  function adoptSampleCover(cover) {
+    if (!cover || cover.getAttribute('data-hero-scene') === 'cybercore') return null;
+    cover.setAttribute('data-hero-scene', 'cybercore');
+    cover.classList.add('vcx-hero-particles-host', 'vcx-hero-particles-host--samplecover');
+    return cover;
+  }
+
   /* Promote bespoke page-scoped heroes (fsch-, adr-, crs-, rrf-, ipr-,
    * csfl-, cssa-, pcp-, pet-, prt-hero) — each lives as a bare
    * <section class="XXX-hero"><div class="wrap">…</div></section>
@@ -307,6 +326,17 @@
     for (var k = 0; k < scds.length; k++) {
       var scdBg = adoptScdHero(scds[k]);
       if (scdBg) initHero(scdBg);
+    }
+
+    // Samples library covers (/samples/*.html). The cover is a <header>,
+    // not a <section>, so it's selected separately. Each sample page
+    // has exactly one cover; the adopter is no-op if the element is
+    // missing (hub page sample-deliverable.html uses .hero-premium
+    // instead and is covered by adoptPremiumHero above).
+    var sampleCovers = document.querySelectorAll('header.vcx-sample-cover');
+    for (var sc = 0; sc < sampleCovers.length; sc++) {
+      var sampleBg = adoptSampleCover(sampleCovers[sc]);
+      if (sampleBg) initHero(sampleBg);
     }
 
     // Bespoke page-scoped heroes — 10 classes that share the same

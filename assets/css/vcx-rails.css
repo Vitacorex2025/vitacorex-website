@@ -737,6 +737,36 @@
   box-sizing: border-box;
   margin: clamp(20px, 3vw, 32px) auto 0;
 }
+
+/* Scope strip: white background wrapper above the footer.
+ * Hosts .vcx-legal-boundary--teal (the white+teal variant of the
+ * amber legal-boundary pill — user feedback 2026-04-21 RU asked to
+ * relocate the Scope reminder to the bottom of the page and recolour
+ * to match the teal/mint palette of the rest of the home design). */
+.vcx-scope-strip {
+  padding: clamp(32px, 4vw, 56px) 0 clamp(20px, 3vw, 32px);
+  background: #FFFFFF;
+  border-top: 1px solid rgba(26,79,74,0.06);
+}
+.vcx-scope-strip .wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 32px);
+}
+.vcx-legal-boundary--teal {
+  background: #FFFFFF;
+  border: 1px solid rgba(45,138,130,0.24);
+  border-left: 3px solid #2D8A82;
+  color: #2F3E38;
+  box-shadow: 0 4px 16px rgba(45,138,130,0.06);
+  /* max-width inherits min(920px, calc(100% - 32px)) from base rule;
+   * margin: 0 auto keeps it centered inside .vcx-scope-strip .wrap. */
+  margin: 0 auto;
+}
+.vcx-legal-boundary--teal strong {
+  color: #1E6E68;
+  font-weight: 700;
+}
 .vcx-legal-boundary strong {
   color: var(--vcx-rail-ink);
   font-weight: 600;
