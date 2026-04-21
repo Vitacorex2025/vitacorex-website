@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-21T14:23:02Z
+generated: 2026-04-21T14:45:42Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
