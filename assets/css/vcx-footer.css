@@ -218,28 +218,37 @@ body[data-audience="b2c"]    .footer-links--dual a:hover {
 /* ============================================================
  * FOOTER BOTTOM BAR (copyright + social, below all columns)
  * ------------------------------------------------------------
- * Sits below the footer-grid as the last row of the footer.
- * Separated by a top border. Copyright on the left, social
- * icons on the right. On mobile, stacked.
+ * Placed as a direct child of <footer>, AFTER the
+ * .footer-grid/.wrap container. Because it is OUTSIDE the
+ * .wrap centering container, we re-apply the same max-width +
+ * horizontal auto-margin + padding here so it aligns with the
+ * column grid above it rather than hugging the viewport edges.
+ *
+ * Footer palette is universally dark (see .footer base rules
+ * in styles.css — `background: linear-gradient(180deg,#0e1b2d,#09111d)`),
+ * so we keep white-on-dark styling unconditionally. No
+ * body[data-audience] guards — all footers are dark.
  * ============================================================ */
 
-.footer-bottom {
-  grid-column: 1 / -1;
+footer > .footer-bottom,
+.footer > .footer-bottom {
+  max-width: 1280px;
+  margin: 28px auto 0;
+  padding: 20px 32px 0;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .footer-bottom__copy {
   margin: 0;
   font-size: 0.82rem;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
   opacity: 1;
 }
 
@@ -254,7 +263,7 @@ body[data-audience="b2c"]    .footer-links--dual a:hover {
   display: inline-flex;
   align-items: center;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -265,43 +274,26 @@ body[data-audience="b2c"]    .footer-links--dual a:hover {
   outline: none;
 }
 
-/* Make the .footer-bottom work even when the footer uses the
- * legacy .footer-grid-extended (not the dual grid). The parent
- * .footer-grid uses display:grid via base styles, but some
- * pages use display:flex. Force full width either way. */
+/* Fallback: if .footer-bottom somehow ends up INSIDE .footer-grid
+ * (future-proofing in case we re-migrate as a grid child) it needs
+ * to span the full grid row and skip the duplicate max-width. */
 .footer-grid > .footer-bottom,
 .footer-grid-extended > .footer-bottom {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 28px 0 0;
+  padding: 20px 0 0;
   flex-basis: 100%;
   width: 100%;
 }
 
-/* Light-theme guard */
-body[data-audience="shared"] .footer-bottom,
-body[data-audience="b2b"]    .footer-bottom,
-body[data-audience="b2c"]    .footer-bottom {
-  border-top-color: rgba(0, 0, 0, 0.1);
-}
-body[data-audience="shared"] .footer-bottom__copy,
-body[data-audience="b2b"]    .footer-bottom__copy,
-body[data-audience="b2c"]    .footer-bottom__copy,
-body[data-audience="shared"] .footer-bottom__social a,
-body[data-audience="b2b"]    .footer-bottom__social a,
-body[data-audience="b2c"]    .footer-bottom__social a {
-  color: inherit;
-  opacity: 0.72;
-}
-body[data-audience="shared"] .footer-bottom__social a:hover,
-body[data-audience="b2b"]    .footer-bottom__social a:hover,
-body[data-audience="b2c"]    .footer-bottom__social a:hover {
-  opacity: 1;
-}
-
 @media (max-width: 560px) {
-  .footer-bottom {
+  footer > .footer-bottom,
+  .footer > .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
-    padding-top: 16px;
+    padding: 16px 20px 0;
     margin-top: 24px;
   }
   .footer-bottom__social {
