@@ -99,7 +99,7 @@
     var link = document.createElement('link');
     link.id = 'vcx-footer-css';
     link.rel = 'stylesheet';
-    link.href = '/assets/css/vcx-footer.css?v=2';
+    link.href = '/assets/css/vcx-footer.css?v=4';
     document.head.appendChild(link);
   }
 
