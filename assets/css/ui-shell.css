@@ -3440,7 +3440,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   min-height:38px;
   padding:9px 14px;
   border-radius:999px;
-  border:1px solid rgba(168,135,76,.30);
+  border:1px solid rgba(45,138,130,.30);
   background:linear-gradient(180deg, rgba(91,186,167,.94), rgba(46,138,130,.92));
   color:#13253b;
   font-size:.875rem;
@@ -3448,17 +3448,17 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   line-height:1.2;
   letter-spacing:.01em;
   text-align:center;
-  box-shadow:0 8px 18px rgba(96,74,38,.14), inset 0 1px 0 rgba(255,255,255,.24);
+  box-shadow:0 8px 18px rgba(26,79,74,.14), inset 0 1px 0 rgba(255,255,255,.24);
   cursor:pointer;
   transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
 .footer-project-btn:hover{
   transform:translateY(-1px);
   filter:brightness(1.02);
-  box-shadow:0 14px 28px rgba(96,74,38,.20), inset 0 1px 0 rgba(255,255,255,.32);
+  box-shadow:0 14px 28px rgba(26,79,74,.20), inset 0 1px 0 rgba(255,255,255,.32);
 }
 .footer-project-btn:focus-visible{
-  outline:2px solid rgba(184,156,97,.48);
+  outline:2px solid rgba(45,138,130,.48);
   outline-offset:3px;
 }
 #webProjectModal{
@@ -3512,8 +3512,8 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   margin-inline:auto;
   background:linear-gradient(180deg, rgba(91,186,167,.98), rgba(46,138,130,.95));
   color:#13253b;
-  border:1px solid rgba(166,132,70,.34);
-  box-shadow:0 14px 30px rgba(96,74,38,.18), inset 0 1px 0 rgba(255,255,255,.28);
+  border:1px solid rgba(45,138,130,.34);
+  box-shadow:0 14px 30px rgba(26,79,74,.18), inset 0 1px 0 rgba(255,255,255,.28);
 }
 .web-project-submit:hover{
   filter:brightness(1.02);

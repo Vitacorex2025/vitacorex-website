@@ -14,7 +14,7 @@
 
   var STATUS_COLORS = {
     intake_received: { bg: '#4A6B62', label: 'Intake Received' },
-    triage: { bg: '#9A6A20', label: 'In Triage' },
+    triage: { bg: '#0E7490', label: 'In Triage' },
     under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
@@ -101,7 +101,7 @@
         return;
       }
       if (res.status === 429) {
-        queueList.innerHTML = '<p style="color:#9A6A20;">Rate limited. Please wait a moment and refresh.</p>';
+        queueList.innerHTML = '<p style="color:#0E7490;">Rate limited. Please wait a moment and refresh.</p>';
         return;
       }
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -183,7 +183,7 @@
         headers: { Authorization: 'Bearer ' + matterToken },
       });
       if (res.status === 429) {
-        detailPanel.innerHTML = '<p style="color:#9A6A20;">Rate limited. Please wait a moment and try again.</p>';
+        detailPanel.innerHTML = '<p style="color:#0E7490;">Rate limited. Please wait a moment and try again.</p>';
         return;
       }
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -211,7 +211,7 @@
     html += '<span class="rq-badge" style="background:' + st.bg + ';">' + esc(st.label) + '</span>';
     html += ' <span style="font-size:.85rem;color:var(--vcx-ink-muted,#7BAE9E);">' + esc(m.service_type) + ' &mdash; ' + esc(m.urgency) + '</span>';
     html += '</div>';
-    html += '<button id="rqCloseDetail" style="padding:8px 16px;border:1px solid rgba(26,47,42,.12);border-radius:8px;background:var(--vcx-bg-surface,#FBF8F3);cursor:pointer;font-size:.85rem;">Close</button>';
+    html += '<button id="rqCloseDetail" style="padding:8px 16px;border:1px solid rgba(26,47,42,.12);border-radius:8px;background:var(--vcx-bg-surface,#F2F8F7);cursor:pointer;font-size:.85rem;">Close</button>';
     html += '</div>';
 
     // Triage score
@@ -224,7 +224,7 @@
     }
 
     // Status update form
-    html += '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(26,47,42,.06);border-radius:10px;padding:16px 20px;margin-bottom:20px;">';
+    html += '<div style="background:var(--vcx-bg-surface,#F2F8F7);border:1px solid rgba(26,47,42,.06);border-radius:10px;padding:16px 20px;margin-bottom:20px;">';
     html += '<h3 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Update Status</h3>';
     html += '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">';
     html += '<select id="rqNewStatus" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(26,47,42,.12);font-size:.85rem;">';
@@ -306,7 +306,7 @@
         });
         if (res.status === 429) {
           statusEl.textContent = 'Rate limited. Please wait and try again.';
-          statusEl.style.color = '#9A6A20';
+          statusEl.style.color = '#0E7490';
           return;
         }
         if (!res.ok) throw new Error('HTTP ' + res.status);

@@ -187,11 +187,11 @@
         if (data.ok && data.analysis) {
           renderAIPanel(improvePanel, data.analysis, true, 'AI Improvement Suggestions');
         } else {
-          improvePanel.innerHTML = '<p style="font-size:.82rem;color:#F5A623;">Could not generate improvements. ' + (data.error || '') + '</p>';
+          improvePanel.innerHTML = '<p style="font-size:.82rem;color:#0E7490;">Could not generate improvements. ' + (data.error || '') + '</p>';
         }
       })
       .catch(function () {
-        improvePanel.innerHTML = '<p style="font-size:.82rem;color:#F5A623;">AI improvement service unavailable.</p>';
+        improvePanel.innerHTML = '<p style="font-size:.82rem;color:#0E7490;">AI improvement service unavailable.</p>';
       });
   }
 
@@ -356,7 +356,7 @@
 
     // Risk score bar
     if (data.risk_score !== null && data.risk_score !== undefined) {
-      var scoreColor = data.risk_score >= 50 ? '#E63757' : data.risk_score >= 25 ? '#F5A623' : '#38B249';
+      var scoreColor = data.risk_score >= 50 ? '#E63757' : data.risk_score >= 25 ? '#0E7490' : '#38B249';
       html += '<div style="margin-bottom:20px;">';
       html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;">';
       html += '<span style="font-size:.85rem;font-weight:600;">Risk Score</span>';
@@ -392,7 +392,7 @@
           riskLabel = 'HIGH RISK';
         } else if (riskLabel === 'caution') {
           riskBg = 'rgba(245,166,35,.06)';
-          riskColor = '#F5A623';
+          riskColor = '#0E7490';
           riskLabel = 'CAUTION';
         } else {
           riskLabel = 'STANDARD';
@@ -425,7 +425,7 @@
       html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Issue Summary</h3>';
       for (var b = 0; b < buckets.length; b++) {
         var bkt = buckets[b];
-        var bktColor = bkt.severity === 'high' ? '#E63757' : bkt.severity === 'medium' ? '#F5A623' : 'var(--vcx-ink-muted,#7BAE9E)';
+        var bktColor = bkt.severity === 'high' ? '#E63757' : bkt.severity === 'medium' ? '#0E7490' : 'var(--vcx-ink-muted,#7BAE9E)';
         var bktBg = bkt.severity === 'high' ? 'rgba(230,55,87,.06)' : bkt.severity === 'medium' ? 'rgba(245,166,35,.06)' : 'rgba(26,47,42,.03)';
         html += '<div style="background:' + bktBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:16px;margin-bottom:12px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
@@ -457,7 +457,7 @@
       html += '<h3 style="font-size:1rem;margin:0 0 14px;color:var(--vcx-brand-primary,#2E4F46);">Missing Protections (' + missingProt.length + ')</h3>';
       for (var mp = 0; mp < missingProt.length; mp++) {
         var prot = missingProt[mp];
-        var protColor = prot.severity === 'high' ? '#E63757' : '#F5A623';
+        var protColor = prot.severity === 'high' ? '#E63757' : '#0E7490';
         var protBg = prot.severity === 'high' ? 'rgba(230,55,87,.06)' : 'rgba(245,166,35,.06)';
         html += '<div style="background:' + protBg + ';border:1px solid rgba(26,47,42,.06);border-radius:8px;padding:14px 16px;margin-bottom:10px;">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px;">';
@@ -549,7 +549,7 @@
     if (!resultPanel) return;
     resultPanel.style.display = 'block';
     var color = level === 'error' ? '#E63757'
-              : level === 'warn'  ? '#F5A623'
+              : level === 'warn'  ? '#0E7490'
               : 'var(--vcx-ink-muted,#7BAE9E)';
     resultPanel.innerHTML = '<p style="color:' + color + ';font-size:.9rem;">' + escapeHtml(msg) + '</p>';
   }

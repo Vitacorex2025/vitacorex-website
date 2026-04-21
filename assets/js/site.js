@@ -158,6 +158,21 @@ function fmt(date,tz){ return new Intl.DateTimeFormat([], {hour:'2-digit',minute
 function clocks(){ const d=new Date(); $$('.clock-vcx').forEach(el=>el.textContent=fmt(d,'America/New_York')); const local=new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit',hour12:false}).format(d); $$('.clock-local').forEach(el=>el.textContent=local); }
 clocks(); setInterval(clocks,1000);
 const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), {threshold:.14}); $$('.reveal').forEach(el=>io.observe(el));
+// BFCACHE RESTORE: when user navigates back via browser gesture (mouse thumb, trackpad swipe, etc.),
+// the page is restored from bfcache without running scripts. IntersectionObserver doesn't re-fire,
+// so .reveal elements already in viewport stay at opacity:0 — appearing as a white screen.
+// On pageshow with e.persisted=true, force-reveal all in-viewport .reveal and [data-animate] elements.
+window.addEventListener('pageshow', function(e){
+  if(!e.persisted) return;
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  document.querySelectorAll('.reveal, [data-animate]').forEach(function(el){
+    var r = el.getBoundingClientRect();
+    if(r.top < vh && r.bottom > 0){
+      el.classList.add('visible');
+      el.classList.add('is-visible');
+    }
+  });
+});
 $$('.bar-fill').forEach(el=>{ const w=el.dataset.width||0; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ el.style.width=w+'%'; ob.disconnect(); }}); ob.observe(el); });
 $$('[data-count-to]').forEach(el=>{ const target=parseFloat(el.dataset.countTo), suffix=el.dataset.suffix||''; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ let start=null; const dur=1300; const step=ts=>{ if(!start) start=ts; const p=Math.min((ts-start)/dur,1); const val=target*p; el.textContent=(Number.isInteger(target)?Math.round(val):val.toFixed(1))+suffix; if(p<1) requestAnimationFrame(step); }; requestAnimationFrame(step); ob.disconnect(); }}); ob.observe(el); });
 $$('.tilt-card').forEach(card=>{

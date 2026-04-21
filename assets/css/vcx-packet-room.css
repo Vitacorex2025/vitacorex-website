@@ -60,7 +60,7 @@ body[data-vcx-page="vcx-packet-room"] {
   border-radius: var(--vcx-radius-sm, 4px);
   font-size: 12px;
   font-weight: 600;
-  background: var(--vcx-bg-muted, #EDE8DF);
+  background: var(--vcx-bg-muted, #E5EEEC);
   color: var(--vcx-ink-body, #2E4F46);
 }
 
@@ -204,6 +204,6 @@ body[data-vcx-page="vcx-packet-room"] {
   border-radius: var(--vcx-radius-sm, 4px);
   font-size: 12px;
   font-weight: 600;
-  background: var(--vcx-bg-muted, #EDE8DF);
+  background: var(--vcx-bg-muted, #E5EEEC);
   color: var(--vcx-ink-body, #2E4F46);
 }

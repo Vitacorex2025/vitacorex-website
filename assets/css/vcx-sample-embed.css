@@ -102,9 +102,9 @@
   border: 1px solid color-mix(in srgb, var(--vse-tint) 20%, transparent);
 }
 .vcx-sample-embed__pill--gated {
-  background: rgba(154, 106, 32, 0.10);
-  color: #9A6A20;
-  border-color: rgba(154, 106, 32, 0.28);
+  background: rgba(14, 116, 144, 0.10);
+  color: #0E7490;
+  border-color: rgba(14, 116, 144, 0.28);
 }
 
 .vcx-sample-embed__title {

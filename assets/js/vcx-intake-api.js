@@ -126,7 +126,7 @@
       '<p style="font-size:.95rem;line-height:1.6;max-width:580px;margin-bottom:16px;">' +
       escHTML(data.next_step) +
       '</p>' +
-      '<div style="background:var(--vcx-bg-surface,#FBF8F3);border:1px solid rgba(26,47,42,.08);border-radius:10px;padding:20px 24px;margin-bottom:20px;">' +
+      '<div style="background:var(--vcx-bg-surface,#F2F8F7);border:1px solid rgba(26,47,42,.08);border-radius:10px;padding:20px 24px;margin-bottom:20px;">' +
       '<h3 style="font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;color:var(--vcx-brand-primary,#2E4F46);">Your Checklist</h3>' +
       '<ul style="list-style:none;padding:0;margin:0;">' +
       items +

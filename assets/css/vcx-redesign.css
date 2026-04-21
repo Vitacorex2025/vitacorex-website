@@ -23,8 +23,8 @@
   --vcx-r-parchment:    #F5F9F8;           /* barely mint bg */
 
   /* Birch-bark accent for warm contrast */
-  --vcx-r-birch:        #D4C4A8;           /* birch bark */
-  --vcx-r-birch-light:  #E8DFC9;           /* light bark */
+  --vcx-r-birch:        #A8C9C4;           /* birch bark */
+  --vcx-r-birch-light:  #D4E5E1;           /* light bark */
   --vcx-r-sage:         #6EC8BC;           /* fresh sage-teal */
 
   /* Glass layers */
@@ -100,7 +100,7 @@
   --vcx-line-soft:       rgba(26,79,74,.10);
   --vcx-line-strong:     rgba(26,79,74,.16);
   --vcx-success:         #2F6B57;
-  --vcx-warning:         #9A6A20;
+  --vcx-warning:         #0E7490;
   --vcx-danger:          #8B4348;
   --vcx-info:            #4AB0A4;
 
@@ -2142,8 +2142,8 @@ body {
 }
 [class*="badge-warning"],
 [class*="status-warning"] {
-  background: rgba(154,106,32,0.12) !important;
-  color: #9A6A20 !important;
+  background: rgba(14,116,144,0.12) !important;
+  color: #0E7490 !important;
 }
 [class*="badge-danger"],
 [class*="status-danger"] {

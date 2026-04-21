@@ -22,7 +22,7 @@ import os, sys
 TEAL = HexColor("#2D8A82")
 DARK = HexColor("#1A2F2A")
 MUTED = HexColor("#4A6B62")
-LIGHT_BG = HexColor("#F6F2EA")
+LIGHT_BG = HexColor("#EEF6F5")
 LIGHT_TEAL = HexColor("#E8F4F2")
 ACCENT = HexColor("#3D9E94")
 RED_ACCENT = HexColor("#8B4348")

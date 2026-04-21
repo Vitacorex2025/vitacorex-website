@@ -39,7 +39,7 @@
   // Status badge colors
   var STATUS_COLORS = {
     intake_received: { bg: '#4A6B62', label: 'Intake Received' },
-    triage: { bg: '#9A6A20', label: 'In Triage' },
+    triage: { bg: '#0E7490', label: 'In Triage' },
     under_review: { bg: '#2E4F46', label: 'Under Review' },
     action_needed: { bg: '#8B4348', label: 'Action Needed' },
     deliverable_ready: { bg: '#2F6B57', label: 'Deliverable Ready' },
@@ -159,7 +159,7 @@
       html += '<div class="card" style="margin-bottom:20px;padding:20px 24px;">';
       html += '<h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">Deliverables</h3>';
       m.deliverables.forEach(function (d) {
-        var dst = d.status === 'ready' || d.status === 'delivered' ? '#2F6B57' : '#9A6A20';
+        var dst = d.status === 'ready' || d.status === 'delivered' ? '#2F6B57' : '#0E7490';
         html += '<div style="padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
         html += '<span style="font-weight:600;font-size:.9rem;">' + esc(d.title) + '</span>';
         html += ' <span style="font-size:.75rem;padding:3px 8px;border-radius:10px;background:' + dst + ';color:#fff;">' + esc(d.status) + '</span>';

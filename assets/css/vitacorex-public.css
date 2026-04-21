@@ -3,8 +3,8 @@
   --bg-elevated:#0c1a29;
   --surface:#102235;
   --surface-strong:#142a40;
-  --surface-soft:#eff2eb;
-  --surface-soft-2:#f7f3e8;
+  --surface-soft:#EEF6F5;
+  --surface-soft-2:#F2F8F7;
   --ink:#ecf2f7;
   --ink-strong:#f8fbfd;
   --ink-soft:#aec0cf;
@@ -17,7 +17,7 @@
   --accent-soft:rgba(91,186,167,.18);
   --success:#7cc7a6;
   --alert:#0E7490;
-  --danger:#ea8e7b;
+  --danger:#c64340;
   --shadow:0 26px 64px rgba(2,10,18,.36);
   --shadow-soft:0 16px 36px rgba(10,21,34,.12);
   --radius-xl:28px;
@@ -56,7 +56,7 @@ body{
 body[data-surface="soft"]{
   background:
     radial-gradient(circle at top, rgba(91,186,167,.08), transparent 24%),
-    linear-gradient(180deg, #f8f5ee 0%, #f2efe6 34%, #ece8dc 100%);
+    linear-gradient(180deg, #F4FAF9 0%, #EEF6F5 34%, #E5EEEC 100%);
   color:#122335;
 }
 

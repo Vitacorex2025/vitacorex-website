@@ -32,12 +32,12 @@
 
   /* STATUS — noble, not neon */
   --status-success: #2F6B57;
-  --status-warning: #9A6A20;
+  --status-warning: #0E7490;
   --status-danger:  #8B4348;
   --status-info:    #355E8A;
 
   --status-success-bg: rgba(47,107,87,.08);
-  --status-warning-bg: rgba(154,106,32,.08);
+  --status-warning-bg: rgba(14,116,144,.08);
   --status-danger-bg:  rgba(139,67,72,.08);
   --status-info-bg:    rgba(53,94,138,.08);
 
@@ -128,7 +128,7 @@ footer,
 .site-footer,
 .vcx-footer {
   --bg-elevated: var(--bg-ink-soft);
-  --ink-strong:  #EEE9DE;
+  --ink-strong:  #EEF6F5;
   --ink-body:    #C8D2DC;
   --ink-muted:   #7A8EA0;
   --line-soft:   rgba(238,233,222,.08);

@@ -459,7 +459,7 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.ok && data.analysis) {
-          area.innerHTML = '<div style="background:#FBF8F3;border:1px solid rgba(26,47,42,.08);border-radius:3px;padding:20px 24px;">'
+          area.innerHTML = '<div style="background:#F2F8F7;border:1px solid rgba(26,47,42,.08);border-radius:3px;padding:20px 24px;">'
             + '<h4 style="font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2D8A82;margin:0 0 12px;">AI Analysis Results</h4>'
             + '<div style="font-size:.88rem;line-height:1.7;color:#243D36;white-space:pre-wrap;">' + escHtml(data.analysis) + '</div>'
             + '<p style="font-size:.75rem;color:#8A98A8;margin:12px 0 0;">Powered by AI \u2014 not legal advice</p>'
@@ -488,7 +488,7 @@
     if (!area) return;
 
     if (btn) { btn.disabled = true; btn.textContent = 'Generating review\u2026'; }
-    area.innerHTML = '<p style="font-size:.85rem;color:#9A6A20;"><em>AI is reviewing your contract for negotiation points\u2026 This may take 20\u201340 seconds.</em></p>';
+    area.innerHTML = '<p style="font-size:.85rem;color:#0E7490;"><em>AI is reviewing your contract for negotiation points\u2026 This may take 20\u201340 seconds.</em></p>';
 
     var contractType = (el('vcxContractType') || {}).value || '';
     var fd = new FormData();

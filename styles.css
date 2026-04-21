@@ -820,9 +820,9 @@ body{padding-bottom:140px;}
 }
 
 [data-page="b2b_badge"].audience-badge{
-  background:linear-gradient(135deg,#af8b4d 0%,#cfb071 100%);
-  color:#12263d;
-  box-shadow:0 12px 24px rgba(127,93,36,.18);
+  background:linear-gradient(135deg,#1A4F4A 0%,#2D8A82 100%);
+  color:#f7fbff;
+  box-shadow:0 12px 24px rgba(26,79,74,.22);
 }
 
 [data-page="ind_cta"].btn{
@@ -833,10 +833,10 @@ body{padding-bottom:140px;}
 }
 
 [data-page="b2b_cta"].btn{
-  background:linear-gradient(135deg,#af8b4d 0%,#cfb071 100%);
-  border-color:rgba(91,186,167,.3);
-  color:#12263d;
-  box-shadow:0 14px 28px rgba(127,93,36,.18);
+  background:linear-gradient(135deg,#1A4F4A 0%,#2D8A82 100%);
+  border-color:rgba(45,138,130,.3);
+  color:#f7fbff;
+  box-shadow:0 14px 28px rgba(26,79,74,.22);
 }
 
 [data-page="ind_cta"].btn:hover,

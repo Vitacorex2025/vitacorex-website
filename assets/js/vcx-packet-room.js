@@ -266,7 +266,7 @@
 
     var html = '';
     matters.forEach(function (m) {
-      var statusColor = m.status === 'intake_received' ? '#F5A623'
+      var statusColor = m.status === 'intake_received' ? '#0E7490'
                       : m.status === 'in_review' ? '#2E4F46'
                       : m.status === 'complete' ? '#38B249'
                       : '#7BAE9E';
@@ -456,7 +456,7 @@
     var html = '';
     items.forEach(function (d) {
       var statusColor = d.status === 'delivered' ? '#38B249'
-                      : d.status === 'in_progress' ? '#F5A623'
+                      : d.status === 'in_progress' ? '#0E7490'
                       : '#7BAE9E';
       html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,47,42,.06);">';
       html += '<div>';

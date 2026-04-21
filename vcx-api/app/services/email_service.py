@@ -101,7 +101,7 @@ def send_client_intake_confirmation(
   <p>Your intake has been received and assigned matter number
      <strong>{_esc(matter_id)}</strong>.</p>
   <p><strong>Next step:</strong> {_esc(next_step)}</p>
-  <div style="margin:24px 0;padding:16px 20px;background:#F6F2EA;border-radius:8px;">
+  <div style="margin:24px 0;padding:16px 20px;background:#EEF6F5;border-radius:8px;">
     <p style="margin:0 0 8px;font-weight:600;">Your Secure Status Page</p>
     <p style="margin:0 0 10px;font-size:14px;color:#5E6C7B;">
       Bookmark this link to check your matter status and upload documents.
@@ -193,7 +193,7 @@ def send_status_change_notification(
     note_block = ""
     if note:
         note_block = (
-            f'<p style="margin:12px 0;padding:12px 16px;background:#F6F2EA;'
+            f'<p style="margin:12px 0;padding:12px 16px;background:#EEF6F5;'
             f'border-radius:6px;font-size:14px;">{_esc(note)}</p>'
         )
 
@@ -284,7 +284,7 @@ def send_owner_lead_notification(
       <td style="padding:8px 12px;border-bottom:1px solid #eee;">{_esc(matter_id)}</td>
     </tr>
   </table>
-  <div style="margin:20px 0;padding:16px;background:#F6F2EA;border-radius:8px;">
+  <div style="margin:20px 0;padding:16px;background:#EEF6F5;border-radius:8px;">
     <p style="margin:0 0 8px;font-weight:600;">Client Message</p>
     <p style="margin:0;white-space:pre-wrap;">{_esc(message)}</p>
   </div>

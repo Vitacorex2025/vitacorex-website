@@ -66,7 +66,7 @@
   --smp-muted: #4a5a72;
   --smp-rule: #d8dee8;
   --smp-bg: #ffffff;
-  --smp-warn: #b84a00;
+  --smp-warn: #0E7490;
   --smp-b2b: #1f7a8c;
   --smp-b2c: #5fa8d3;
   --smp-shared: #7a8699;
@@ -112,7 +112,7 @@ body.vcx-sample-body {
   font-weight: 900;
   font-size: clamp(48px, 8vw, 140px);
   letter-spacing: 0.06em;
-  color: #b84a00;
+  color: #0E7490;
   transform: rotate(-28deg);
   white-space: nowrap;
   text-transform: uppercase;
@@ -293,7 +293,7 @@ body[data-audience="b2c"] .vcx-sample-mile { border-left-color: var(--smp-b2c); 
   display: inline-block; padding: 12px 20px; border-radius: 4px; text-decoration: none;
   font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
 }
-.vcx-sample-cta__row a.primary { background: #f2a56a; color: #0e2036; }
+.vcx-sample-cta__row a.primary { background: linear-gradient(180deg, #7ED8C3 0%, #2D8A82 100%); color: #051812; }
 .vcx-sample-cta__row a.secondary { background: transparent; border: 1px solid #556a8a; color: #cdd6e3; }
 
 /* Footer disclaimer */
@@ -310,7 +310,7 @@ body[data-audience="b2c"] .vcx-sample-mile { border-left-color: var(--smp-b2c); 
     size: A4;
     margin: 18mm 14mm;
     @top-center { content: "Sample deliverable — Redacted replica — VitaCoreX LLC"; font-size: 9pt; color: #888; }
-    @bottom-center { content: "SAMPLE — NOT A CLIENT DELIVERABLE · Page " counter(page); font-size: 9pt; color: #b84a00; font-weight: 700; }
+    @bottom-center { content: "SAMPLE — NOT A CLIENT DELIVERABLE · Page " counter(page); font-size: 9pt; color: #0E7490; font-weight: 700; }
   }
   body.vcx-sample-body { background: #fff; color: #000; }
   .vcx-sample-banner, header, footer, .vcx-site-header, .vcx-site-footer,
