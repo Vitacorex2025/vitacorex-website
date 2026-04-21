@@ -849,26 +849,26 @@ idempotent: true
 | `business-plans.html` | 124 | a | Private Consultation | `contact.html` | primary-nav | b2c | — |
 | `business-plans.html` | 132 | a | Home | `index.html` | primary-nav | b2c | — |
 | `business-plans.html` | 133 | a | Private Client Services | `additional-services.html` | primary-nav | b2c | — |
-| `business-plans.html` | 246 | a | Request business plan | `structured-case-intake.html?service=business-plan` | in-body | b2c | — |
-| `business-plans.html` | 257 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `business-plans.html` | 258 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
-| `business-plans.html` | 269 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `business-plans.html` | 274 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `business-plans.html` | 275 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
-| `business-plans.html` | 276 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
-| `business-plans.html` | 282 | a | Home | `index.html` | footer | b2c | — |
-| `business-plans.html` | 283 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `business-plans.html` | 284 | a | Industries | `industries.html` | footer | b2c | — |
-| `business-plans.html` | 285 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `business-plans.html` | 286 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `business-plans.html` | 287 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `business-plans.html` | 288 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `business-plans.html` | 294 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `business-plans.html` | 295 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `business-plans.html` | 296 | a | Careers | `careers.html` | footer | b2c | — |
-| `business-plans.html` | 297 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `business-plans.html` | 298 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `business-plans.html` | 299 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `business-plans.html` | 239 | a | Request business plan | `structured-case-intake.html?service=business-plan` | in-body | b2c | — |
+| `business-plans.html` | 261 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `business-plans.html` | 262 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
+| `business-plans.html` | 273 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `business-plans.html` | 278 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `business-plans.html` | 279 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `business-plans.html` | 280 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
+| `business-plans.html` | 286 | a | Home | `index.html` | footer | b2c | — |
+| `business-plans.html` | 287 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `business-plans.html` | 288 | a | Industries | `industries.html` | footer | b2c | — |
+| `business-plans.html` | 289 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `business-plans.html` | 290 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `business-plans.html` | 291 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `business-plans.html` | 292 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `business-plans.html` | 298 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `business-plans.html` | 299 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `business-plans.html` | 300 | a | Careers | `careers.html` | footer | b2c | — |
+| `business-plans.html` | 301 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `business-plans.html` | 302 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `business-plans.html` | 303 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
 | `careers.html` | 28 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | shared | — |
 | `careers.html` | 50 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `careers.html` | 50 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
@@ -1621,67 +1621,67 @@ idempotent: true
 | `index.html` | 96 | a | Private Client Services | `additional-services.html` | primary-nav | shared | — |
 | `index.html` | 96 | a | Careers | `careers.html` | primary-nav | shared | — |
 | `index.html` | 96 | a | Private Consultation | `contact.html` | primary-nav | shared | — |
-| `index.html` | 119 | a | Start structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 120 | a | View services | `solutions.html` | in-body | shared | — |
-| `index.html` | 121 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | shared | — |
-| `index.html` | 140 | a | For Companies CFO &middot; Finance &middot; Legal Ops Reven… | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 166 | a | Private Clients Individuals &middot; Families Company forma… | `additional-services.html` | in-body | shared | — |
-| `index.html` | 196 | a | Start with a confidential review &rarr; | `contact.html` | in-body | shared | — |
-| `index.html` | 252 | a | For approved AR portfolios Qualified Net Recovery Pilot — $… | `pre-collection-pilot.html` | in-body | shared | — |
-| `index.html` | 258 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
-| `index.html` | 337 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 353 | a | View private-client services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 453 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
-| `index.html` | 466 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 479 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 492 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
-| `index.html` | 497 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
-| `index.html` | 502 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
-| `index.html` | 507 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
-| `index.html` | 514 | a | Review industry pages | `industries.html` | in-body | shared | — |
-| `index.html` | 515 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 567 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 568 | a | Review executive materials | `resources.html` | in-body | shared | — |
-| `index.html` | 632 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
-| `index.html` | 686 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
-| `index.html` | 754 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
-| `index.html` | 770 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
-| `index.html` | 771 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
-| `index.html` | 906 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
-| `index.html` | 912 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
-| `index.html` | 918 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
-| `index.html` | 924 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
-| `index.html` | 964 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 965 | a | Review curated services | `additional-services.html` | in-body | shared | — |
-| `index.html` | 985 | a | Request private consultation | `contact.html` | in-body | shared | — |
-| `index.html` | 986 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `index.html` | 1000 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
-| `index.html` | 1006 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `index.html` | 1007 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
-| `index.html` | 1013 | a | Home | `index.html` | footer | shared | — |
-| `index.html` | 1014 | a | Solutions | `solutions.html` | footer | shared | — |
-| `index.html` | 1015 | a | Industries | `industries.html` | footer | shared | — |
-| `index.html` | 1016 | a | About VitaCoreX | `about.html` | footer | shared | — |
-| `index.html` | 1017 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
-| `index.html` | 1018 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
-| `index.html` | 1019 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
-| `index.html` | 1020 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
-| `index.html` | 1021 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
-| `index.html` | 1022 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
-| `index.html` | 1023 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
-| `index.html` | 1024 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
-| `index.html` | 1025 | a | Partners | `partners.html` | footer | shared | — |
-| `index.html` | 1026 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
-| `index.html` | 1027 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
-| `index.html` | 1033 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
-| `index.html` | 1034 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
-| `index.html` | 1035 | a | Private consultation | `contact.html` | footer | shared | — |
-| `index.html` | 1036 | a | Careers | `careers.html` | footer | shared | — |
-| `index.html` | 1037 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
-| `index.html` | 1038 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
-| `index.html` | 1039 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
-| `index.html` | 1073 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
-| `index.html` | 1091 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 118 | a | Start structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 119 | a | View services | `solutions.html` | in-body | shared | — |
+| `index.html` | 120 | a | See pricing | `pricing-and-engagement-tiers.html` | in-body | shared | — |
+| `index.html` | 139 | a | For Companies CFO &middot; Finance &middot; Legal Ops Reven… | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 165 | a | Private Clients Individuals &middot; Families Company forma… | `additional-services.html` | in-body | shared | — |
+| `index.html` | 195 | a | Start with a confidential review &rarr; | `contact.html` | in-body | shared | — |
+| `index.html` | 251 | a | For approved AR portfolios Qualified Net Recovery Pilot — $… | `pre-collection-pilot.html` | in-body | shared | — |
+| `index.html` | 257 | a | For companies Small Claims & General Jurisdiction — from $1… | `small-claims-documentation.html` | in-body | shared | — |
+| `index.html` | 336 | a | Request company review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 352 | a | View private-client services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 452 | a | View workflow | `revenue-recovery-workflow.html` | in-body | shared | — |
+| `index.html` | 465 | a | View deliverables | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 478 | a | Request a confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 491 | a | Healthcare & dental Documentation control and pre-agency wo… | `industry-healthcare-dental.html` | in-body | shared | — |
+| `index.html` | 496 | a | Subscription & recurring payments Retention-sensitive recov… | `industry-subscription-recurring.html` | in-body | shared | — |
+| `index.html` | 501 | a | Fleet & logistics Recovery workflows and file discipline fo… | `industry-fleet-logistics.html` | in-body | shared | — |
+| `index.html` | 506 | a | Contract-heavy services Cash-control and counsel-ready pack… | `industry-contract-services.html` | in-body | shared | — |
+| `index.html` | 513 | a | Review industry pages | `industries.html` | in-body | shared | — |
+| `index.html` | 514 | a | Request confidential review | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 566 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 567 | a | Review executive materials | `resources.html` | in-body | shared | — |
+| `index.html` | 631 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
+| `index.html` | 685 | a | Run your own ROI estimate → | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
+| `index.html` | 753 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler |
+| `index.html` | 769 | a | Review legal file control | `corporate-legal-file-control.html` | in-body | shared | — |
+| `index.html` | 770 | a | Schedule strategy consultation | `https://calendly.com/vitacorex2025/30min` | external | shared | new-tab |
+| `index.html` | 905 | a | Open PDF | `assets/pdf/lead-magnet-healthcare.pdf` | in-body | shared | new-tab |
+| `index.html` | 911 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
+| `index.html` | 917 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
+| `index.html` | 923 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
+| `index.html` | 963 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 964 | a | Review curated services | `additional-services.html` | in-body | shared | — |
+| `index.html` | 984 | a | Request private consultation | `contact.html` | in-body | shared | — |
+| `index.html` | 985 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `index.html` | 999 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
+| `index.html` | 1005 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `index.html` | 1006 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `index.html` | 1012 | a | Home | `index.html` | footer | shared | — |
+| `index.html` | 1013 | a | Solutions | `solutions.html` | footer | shared | — |
+| `index.html` | 1014 | a | Industries | `industries.html` | footer | shared | — |
+| `index.html` | 1015 | a | About VitaCoreX | `about.html` | footer | shared | — |
+| `index.html` | 1016 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
+| `index.html` | 1017 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | shared | — |
+| `index.html` | 1018 | a | Small Claims Packets | `small-claims-documentation.html` | footer | shared | — |
+| `index.html` | 1019 | a | Contract Review | `contract-review-service.html` | footer | shared | — |
+| `index.html` | 1020 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | shared | — |
+| `index.html` | 1021 | a | Auto Deal Review | `auto-deal-review.html` | footer | shared | — |
+| `index.html` | 1022 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
+| `index.html` | 1023 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
+| `index.html` | 1024 | a | Partners | `partners.html` | footer | shared | — |
+| `index.html` | 1025 | a | Case Study: Fleet Logistics | `case-study-fleet-logistics.html` | footer | shared | — |
+| `index.html` | 1026 | a | Case Study: SaaS Recovery | `case-study-subscription-saas.html` | footer | shared | — |
+| `index.html` | 1032 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
+| `index.html` | 1033 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
+| `index.html` | 1034 | a | Private consultation | `contact.html` | footer | shared | — |
+| `index.html` | 1035 | a | Careers | `careers.html` | footer | shared | — |
+| `index.html` | 1036 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
+| `index.html` | 1037 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
+| `index.html` | 1038 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
+| `index.html` | 1072 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler |
+| `index.html` | 1090 | button | (no label) | `(handler)` | form-submit | shared | no-handler |
 | `industries.html` | 62 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `industries.html` | 84 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `industries.html` | 84 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
@@ -1980,26 +1980,26 @@ idempotent: true
 | `location-analysis.html` | 124 | a | Private Consultation | `contact.html` | primary-nav | b2c | — |
 | `location-analysis.html` | 132 | a | Home | `index.html` | primary-nav | b2c | — |
 | `location-analysis.html` | 133 | a | Private Client Services | `additional-services.html` | primary-nav | b2c | — |
-| `location-analysis.html` | 246 | a | Request location review | `structured-case-intake.html?service=location-analysis` | in-body | b2c | — |
-| `location-analysis.html` | 257 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `location-analysis.html` | 258 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
-| `location-analysis.html` | 269 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `location-analysis.html` | 274 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `location-analysis.html` | 275 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
-| `location-analysis.html` | 276 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
-| `location-analysis.html` | 282 | a | Home | `index.html` | footer | b2c | — |
-| `location-analysis.html` | 283 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `location-analysis.html` | 284 | a | Industries | `industries.html` | footer | b2c | — |
-| `location-analysis.html` | 285 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `location-analysis.html` | 286 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `location-analysis.html` | 287 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `location-analysis.html` | 288 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `location-analysis.html` | 294 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `location-analysis.html` | 295 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `location-analysis.html` | 296 | a | Careers | `careers.html` | footer | b2c | — |
-| `location-analysis.html` | 297 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `location-analysis.html` | 298 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `location-analysis.html` | 299 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `location-analysis.html` | 239 | a | Request location review | `structured-case-intake.html?service=location-analysis` | in-body | b2c | — |
+| `location-analysis.html` | 261 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `location-analysis.html` | 262 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
+| `location-analysis.html` | 273 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `location-analysis.html` | 278 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `location-analysis.html` | 279 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `location-analysis.html` | 280 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
+| `location-analysis.html` | 286 | a | Home | `index.html` | footer | b2c | — |
+| `location-analysis.html` | 287 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `location-analysis.html` | 288 | a | Industries | `industries.html` | footer | b2c | — |
+| `location-analysis.html` | 289 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `location-analysis.html` | 290 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `location-analysis.html` | 291 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `location-analysis.html` | 292 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `location-analysis.html` | 298 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `location-analysis.html` | 299 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `location-analysis.html` | 300 | a | Careers | `careers.html` | footer | b2c | — |
+| `location-analysis.html` | 301 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `location-analysis.html` | 302 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `location-analysis.html` | 303 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
 | `n-400-naturalization.html` | 64 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2c | — |
 | `n-400-naturalization.html` | 86 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
 | `n-400-naturalization.html` | 86 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
@@ -3112,26 +3112,26 @@ idempotent: true
 | `turnkey-business-opening.html` | 124 | a | Private Consultation | `contact.html` | primary-nav | b2c | — |
 | `turnkey-business-opening.html` | 132 | a | Home | `index.html` | primary-nav | b2c | — |
 | `turnkey-business-opening.html` | 133 | a | Private Client Services | `additional-services.html` | primary-nav | b2c | — |
-| `turnkey-business-opening.html` | 248 | a | Request turnkey plan | `structured-case-intake.html?service=turnkey` | in-body | b2c | — |
-| `turnkey-business-opening.html` | 259 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `turnkey-business-opening.html` | 260 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
-| `turnkey-business-opening.html` | 271 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `turnkey-business-opening.html` | 276 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `turnkey-business-opening.html` | 277 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
-| `turnkey-business-opening.html` | 278 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
-| `turnkey-business-opening.html` | 284 | a | Home | `index.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 285 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 286 | a | Industries | `industries.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 287 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 288 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 289 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 290 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 296 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 297 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 298 | a | Careers | `careers.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 299 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 300 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `turnkey-business-opening.html` | 301 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 240 | a | Request turnkey plan | `structured-case-intake.html?service=turnkey` | in-body | b2c | — |
+| `turnkey-business-opening.html` | 263 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `turnkey-business-opening.html` | 264 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
+| `turnkey-business-opening.html` | 275 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `turnkey-business-opening.html` | 280 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `turnkey-business-opening.html` | 281 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `turnkey-business-opening.html` | 282 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
+| `turnkey-business-opening.html` | 288 | a | Home | `index.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 289 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 290 | a | Industries | `industries.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 291 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 292 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 293 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 294 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 300 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 301 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 302 | a | Careers | `careers.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 303 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 304 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 305 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
 | `vitacorex-vs-traditional-agency.html` | 81 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 89 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `vitacorex-vs-traditional-agency.html` | 89 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |

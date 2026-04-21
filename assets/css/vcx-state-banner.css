@@ -47,8 +47,9 @@
   gap: 16px 24px;
   padding: 16px 24px;
   margin: 0 0 24px;
-  background: var(--vcx-cream, #f5efe6);
-  border-left: 3px solid var(--brand-primary, #2E4F46);
+  background: rgba(91,186,167,.08);
+  border: 1px solid rgba(91,186,167,.3);
+  border-left: 4px solid #2D8A82;
   border-radius: 6px;
   font-size: 0.9375rem;
   line-height: 1.5;

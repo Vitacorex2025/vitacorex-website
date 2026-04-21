@@ -999,11 +999,11 @@ body{
 
 /* v60 luxury standard refinement */
 :root{
-  --vcx-cream:#f5efe6;
+  --vcx-cream:#F4F7F6;
   --vcx-ink-deep:#0b1625;
   --vcx-muted-deep:#4d5f74;
   --vcx-navy-deep:#0f2035;
-  --vcx-gold-soft:#d9c29b;
+  --vcx-gold-soft:#5BBAA7;
   --vcx-shadow-lux:0 28px 88px rgba(9,22,38,.12);
 }
 body{

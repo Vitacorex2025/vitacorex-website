@@ -65,28 +65,39 @@ footer .footer-grid > div:not([class]) span {
  * Collapses to a single column under 820px. */
 .footer-grid--dual .footer-company {
   display: block;
-  padding-bottom: 20px;
-  margin-bottom: 4px;
+  padding: 8px 0 28px;
+  margin-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 /* h3 "VITACOREX LLC" lives inside .footer-meta__identity at runtime
  * (moved there by vcx-footer.js structureMeta), so it sits on the same
  * top line as the first element of .footer-meta__legal. The legacy
  * selector below only fires in the pre-JS fallback where h3 is still
- * a sibling of .footer-meta. */
+ * a sibling of .footer-meta. Premium-weight heading — larger, tighter
+ * letter-spacing for confidence, more breathing room below. */
 .footer-grid--dual .footer-company h3,
 .footer-grid--dual .footer-company .footer-meta__identity h3 {
-  margin: 0 0 8px;
-  font-size: 0.92rem;
-  letter-spacing: 0.12em;
+  margin: 0 0 14px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: 1.2;
 }
+/* Premium top-row layout: identity column 1fr (breathing room for the
+ * VITACOREX LLC heading + stacked facts) + legal column 2.3fr (full-
+ * bleed legal prose, no 920px cap). Wider gap (72px) creates visible
+ * separation. On < 820px collapses to single column (see media query). */
 .footer-grid--dual .footer-company .footer-meta {
   display: grid;
-  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2fr);
-  gap: 6px 52px;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 2.3fr);
+  gap: 8px 72px;
   align-items: start;
-  margin: 0 0 14px;
+  margin: 0 0 18px;
+}
+.footer-grid--dual .footer-company .footer-meta__identity > .small-note {
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 .footer-grid--dual .footer-company .footer-meta > * {
   margin: 0;
@@ -168,13 +179,13 @@ footer .footer-disc,
 .footer [data-i18n="footer_disc"],
 footer [data-common="footer_disc"],
 footer [data-i18n="footer_disc"] {
-  max-width: 920px;
+  max-width: none;
   margin: 10px 0 0;
   padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.78rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
   text-align: left;
 }
 
@@ -211,12 +222,12 @@ footer .footer-trust-line,
 .footer [data-i18n="footer_trust_line"],
 footer [data-common="footer_trust_line"],
 footer [data-i18n="footer_trust_line"] {
-  max-width: 920px;
-  margin: 6px 0 0;
-  font-size: 0.72rem;
+  max-width: none;
+  margin: 8px 0 0;
+  font-size: 0.76rem;
   line-height: 1.55;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.58);
   font-weight: 500;
 }
 
