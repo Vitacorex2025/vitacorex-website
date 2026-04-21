@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-21T16:32:59Z
+generated: 2026-04-21T17:10:45Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -40,7 +40,7 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 | `app/review/index.html` | 122 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-contract-review/index.html` | 132 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/vcx-packet-room/index.html` | 99 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `corporate-legal-file-control.html` | 247 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
+| `corporate-legal-file-control.html` | 244 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 794 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 1113 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `index.html` | 1131 | button | (no label) | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |

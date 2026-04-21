@@ -879,6 +879,63 @@
 .vcx-rail-section[data-vcx-texture] > * { position: relative; z-index: 1; }
 
 /* ============================================================
+   12b. TAG GRID — compact non-interactive pill list
+   ------------------------------------------------------------
+   Use to replace long vertical <ul> lists with a visual tag
+   grid (deliverable chips, output tags, etc). Keeps scannable
+   density without horizontal scroll. */
+.vcx-tag-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+}
+.vcx-tag-grid > li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(45,138,130,0.08);
+  border: 1px solid rgba(45,138,130,0.22);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--vcx-rail-ink);
+  -webkit-text-fill-color: var(--vcx-rail-ink);
+  font-weight: 500;
+  letter-spacing: 0.002em;
+  white-space: nowrap;
+}
+.vcx-tag-grid > li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vcx-rail-teal);
+  flex: 0 0 auto;
+}
+.vcx-rail-section--dark .vcx-tag-grid > li,
+.vcx-rail-section--teal .vcx-tag-grid > li {
+  background: rgba(91,196,184,0.10);
+  border-color: rgba(91,196,184,0.32);
+  color: #FFFFFF;
+  -webkit-text-fill-color: #FFFFFF;
+}
+.vcx-rail-section--dark .vcx-tag-grid > li::before,
+.vcx-rail-section--teal .vcx-tag-grid > li::before {
+  background: var(--vcx-rail-accent);
+}
+@media (max-width: 480px) {
+  .vcx-tag-grid > li {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    white-space: normal;
+  }
+}
+
+/* ============================================================
    13. SAFETY — NEVER light-on-light or dark-on-dark
    ------------------------------------------------------------
    Defensive baseline for rail elements nested inside unknown

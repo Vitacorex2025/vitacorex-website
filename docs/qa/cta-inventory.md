@@ -1238,28 +1238,28 @@ idempotent: true
 | `corporate-legal-file-control.html` | 88 | a | See published floor &rarr; | `#pricing` | anchor | b2b | — |
 | `corporate-legal-file-control.html` | 107 | a | Request scoped review | `structured-case-intake.html` | in-body | b2b | — |
 | `corporate-legal-file-control.html` | 119 | a | Request retainer scope | `contact.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 247 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler |
-| `corporate-legal-file-control.html` | 279 | a | Open review desk | `/app/vcx-contract-review/` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 285 | a | Open packet room | `/app/vcx-packet-room/` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 299 | a | Healthcare & dentalPatient-balance and packet-discipline en… | `industry-healthcare-dental.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 300 | a | SubscriptionRecurring billing and churn-sensitive recovery… | `industry-subscription-recurring.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 301 | a | Fleet & logisticsDispersed operations with contract-heavy r… | `industry-fleet-logistics.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 302 | a | Contract servicesMulti-party documentation and escalation-c… | `industry-contract-services.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 319 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `corporate-legal-file-control.html` | 320 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `corporate-legal-file-control.html` | 326 | a | Home | `index.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 327 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 328 | a | Industries | `industries.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 329 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 330 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 331 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 332 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 338 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 339 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 340 | a | Careers | `careers.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 341 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 342 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `corporate-legal-file-control.html` | 343 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 244 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler |
+| `corporate-legal-file-control.html` | 281 | a | Open review desk | `/app/vcx-contract-review/` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 287 | a | Open packet room | `/app/vcx-packet-room/` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 301 | a | Healthcare & dentalPatient-balance and packet-discipline en… | `industry-healthcare-dental.html` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 302 | a | SubscriptionRecurring billing and churn-sensitive recovery… | `industry-subscription-recurring.html` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 303 | a | Fleet & logisticsDispersed operations with contract-heavy r… | `industry-fleet-logistics.html` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 304 | a | Contract servicesMulti-party documentation and escalation-c… | `industry-contract-services.html` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 321 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `corporate-legal-file-control.html` | 322 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `corporate-legal-file-control.html` | 328 | a | Home | `index.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 329 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 330 | a | Industries | `industries.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 331 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 332 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 333 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 334 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 340 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 341 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 342 | a | Careers | `careers.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 343 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 344 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 345 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `corporate-paralegal.html` | 30 | a | corporate-legal-file-control.html | `corporate-legal-file-control.html` | in-body | shared | — |
 | `corporate-paralegal.html` | 38 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
 | `corporate-paralegal.html` | 44 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
