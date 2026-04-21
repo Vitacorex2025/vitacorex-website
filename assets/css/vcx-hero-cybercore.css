@@ -200,7 +200,14 @@ section.vcx-hero-particles-host--bespoke > *:not(.vcx-particles-canvas) {
 
 /* Title → white; lede → soft white; flips the dark-on-light ink-green
  * default baked into each page's inline style. Matches the home
- * .vcx-hero-2__title colour. */
+ * .vcx-hero-2__title colour.
+ *
+ * CRITICAL: every bespoke page's inline <style> also sets
+ * `-webkit-text-fill-color: <dark-ink> !important`. In Chromium that
+ * property visually wins over `color` regardless of CSS specificity,
+ * so we MUST also force the fill colour or the title still paints
+ * #0F1F1B on the near-black scene. Mirror fill + color on all three
+ * text elements below. */
 section.vcx-hero-particles-host--bespoke .fsch-hero__title,
 section.vcx-hero-particles-host--bespoke .adr-hero__title,
 section.vcx-hero-particles-host--bespoke .crs-hero__title,
@@ -212,6 +219,7 @@ section.vcx-hero-particles-host--bespoke .pcp-hero__title,
 section.vcx-hero-particles-host--bespoke .pet-hero__title,
 section.vcx-hero-particles-host--bespoke .prt-hero__title {
   color: #F4FBF8 !important;
+  -webkit-text-fill-color: #F4FBF8 !important;
 }
 section.vcx-hero-particles-host--bespoke .fsch-hero__lede,
 section.vcx-hero-particles-host--bespoke .adr-hero__lede,
@@ -224,11 +232,14 @@ section.vcx-hero-particles-host--bespoke .pcp-hero__lede,
 section.vcx-hero-particles-host--bespoke .pet-hero__lede,
 section.vcx-hero-particles-host--bespoke .prt-hero__lede {
   color: rgba(244, 251, 248, 0.86) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.86) !important;
 }
 
 /* Eyebrow → bright mint (#D4FBEE) with 3-layer teal-cyan glow +
  * translucent mint bg pill + translucent mint border. Mirrors the
- * --scd/--sechead styling so the label jumps off particle-black. */
+ * --scd/--sechead styling so the label jumps off particle-black.
+ * Again: -webkit-text-fill-color must be forced to beat each page's
+ * inline `-webkit-text-fill-color:#1E6E68 !important`. */
 section.vcx-hero-particles-host--bespoke .fsch-hero__eyebrow,
 section.vcx-hero-particles-host--bespoke .adr-hero__eyebrow,
 section.vcx-hero-particles-host--bespoke .crs-hero__eyebrow,
@@ -240,6 +251,7 @@ section.vcx-hero-particles-host--bespoke .pcp-hero__eyebrow,
 section.vcx-hero-particles-host--bespoke .pet-hero__eyebrow,
 section.vcx-hero-particles-host--bespoke .prt-hero__eyebrow {
   color: #D4FBEE !important;
+  -webkit-text-fill-color: #D4FBEE !important;
   background: rgba(91, 186, 167, 0.18) !important;
   border: 1px solid rgba(126, 216, 195, 0.45) !important;
   text-shadow:
@@ -251,7 +263,12 @@ section.vcx-hero-particles-host--bespoke .prt-hero__eyebrow {
 /* Primary CTA → bright mint fill + near-black ink. The base pages
  * use #5BBAA7 fill which reads as muddy on any bg and fails AA. We
  * brighten to #7ED8C3 over particle-black: contrast with #051812 =
- * 11.6:1 (AAA large + AAA normal). Matches --scd/--sechead hosts. */
+ * 11.6:1 (AAA large + AAA normal). Matches --scd/--sechead hosts.
+ *
+ * -webkit-text-fill-color duplicated for the same reason as title:
+ * inline page rules set `-webkit-text-fill-color:#FFFFFF !important`
+ * which makes the label white-on-mint (2.1:1 — fails AA). Force the
+ * near-black ink on both properties. */
 section.vcx-hero-particles-host--bespoke .fsch-btn--primary,
 section.vcx-hero-particles-host--bespoke .adr-btn--primary,
 section.vcx-hero-particles-host--bespoke .crs-btn--primary,
@@ -264,6 +281,7 @@ section.vcx-hero-particles-host--bespoke .pet-btn--primary,
 section.vcx-hero-particles-host--bespoke .prt-btn--primary {
   background: #7ED8C3 !important;
   color: #051812 !important;
+  -webkit-text-fill-color: #051812 !important;
   border: 1px solid #7ED8C3 !important;
   box-shadow: 0 0 0 1px rgba(126, 216, 195, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45) !important;
   text-shadow: none !important;
@@ -281,6 +299,7 @@ section.vcx-hero-particles-host--bespoke .prt-btn--primary:hover {
   background: #9EE4D0 !important;
   border-color: #9EE4D0 !important;
   color: #051812 !important;
+  -webkit-text-fill-color: #051812 !important;
 }
 
 /* Ghost CTA → translucent mint-bordered pill. Base pages use
@@ -297,6 +316,7 @@ section.vcx-hero-particles-host--bespoke .pet-btn--ghost,
 section.vcx-hero-particles-host--bespoke .prt-btn--ghost {
   background: rgba(255, 255, 255, 0.06) !important;
   color: #E6FDF3 !important;
+  -webkit-text-fill-color: #E6FDF3 !important;
   border: 1px solid rgba(126, 216, 195, 0.55) !important;
   text-shadow: none !important;
 }
@@ -313,6 +333,83 @@ section.vcx-hero-particles-host--bespoke .prt-btn--ghost:hover {
   background: rgba(126, 216, 195, 0.14) !important;
   border-color: rgba(126, 216, 195, 0.85) !important;
   color: #F4FBF8 !important;
+  -webkit-text-fill-color: #F4FBF8 !important;
+}
+
+/* ── Universal hero-scope text rescue ────────────────────────────────
+ * Safety net: any direct text element inside a promoted bespoke hero
+ * (h1/h2/h3/h4/p/span/strong/em/small/a:not(.btn)/li/div/label) gets
+ * forced to legible white even if the page's inline styles set a dark
+ * ink via -webkit-text-fill-color. This catches stats rows, captions,
+ * micro-notes, and anything the page adds inside the hero that isn't
+ * caught by the title/lede/eyebrow class matchers above.
+ *
+ * User feedback 2026-04-21 (RU): "на всех херо надо сделать читаемый
+ * текст, это касается и кнопок. на черном темное и черное не читается"
+ *
+ * The CTA primary/ghost rules above still win (higher selector
+ * specificity via class chain), so CTAs keep their own palette. */
+section.vcx-hero-particles-host--bespoke h1,
+section.vcx-hero-particles-host--bespoke h2,
+section.vcx-hero-particles-host--bespoke h3,
+section.vcx-hero-particles-host--bespoke h4 {
+  color: #F4FBF8 !important;
+  -webkit-text-fill-color: #F4FBF8 !important;
+}
+section.vcx-hero-particles-host--bespoke p,
+section.vcx-hero-particles-host--bespoke li,
+section.vcx-hero-particles-host--bespoke label,
+section.vcx-hero-particles-host--bespoke small,
+section.vcx-hero-particles-host--bespoke span:not([class*="eyebrow"]):not([class*="badge"]):not([class*="pill"]):not([class*="chip"]),
+section.vcx-hero-particles-host--bespoke strong,
+section.vcx-hero-particles-host--bespoke em,
+section.vcx-hero-particles-host--bespoke time {
+  color: rgba(244, 251, 248, 0.92) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.92) !important;
+}
+
+/* In-hero metric / stats row — every bespoke page that ships an
+ * inline stats block (e.g. "3 solution lanes / 90-day pilot standard
+ * / 24-48h response commitment / 100% counsel-ready file standard")
+ * tends to use a numeric <div> next to a caption. Numbers → bright
+ * mint, captions → soft white. Matches any element whose class
+ * contains "stat", "metric", "num" inside a promoted hero. */
+section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="num"],
+section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="value"],
+section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="figure"],
+section.vcx-hero-particles-host--bespoke [class*="metric"] [class*="num"],
+section.vcx-hero-particles-host--bespoke [class*="metric"] [class*="value"],
+section.vcx-hero-particles-host--bespoke [class*="stat__num"],
+section.vcx-hero-particles-host--bespoke .pcp-hero__stat-num,
+section.vcx-hero-particles-host--bespoke .pet-hero__stat-num,
+section.vcx-hero-particles-host--bespoke .prt-hero__stat-num {
+  color: #D4FBEE !important;
+  -webkit-text-fill-color: #D4FBEE !important;
+  text-shadow:
+    0 0 6px  rgba(126, 216, 195, 0.6),
+    0 0 14px rgba(91, 186, 167, 0.4) !important;
+}
+section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="label"],
+section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="caption"],
+section.vcx-hero-particles-host--bespoke [class*="metric"] [class*="label"],
+section.vcx-hero-particles-host--bespoke [class*="metric"] [class*="caption"],
+section.vcx-hero-particles-host--bespoke .pcp-hero__stat-label,
+section.vcx-hero-particles-host--bespoke .pet-hero__stat-label,
+section.vcx-hero-particles-host--bespoke .prt-hero__stat-label {
+  color: rgba(244, 251, 248, 0.82) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.82) !important;
+}
+
+/* Caveat / footnote inside hero (e.g. "Illustrative data — individual
+ * engagements depend on portfolio state at intake time") — small
+ * faded text. Keep soft white at ~0.72 alpha so it reads as
+ * secondary copy. */
+section.vcx-hero-particles-host--bespoke [class*="caveat"],
+section.vcx-hero-particles-host--bespoke [class*="footnote"],
+section.vcx-hero-particles-host--bespoke [class*="disclaim"],
+section.vcx-hero-particles-host--bespoke [class*="small-note"] {
+  color: rgba(244, 251, 248, 0.72) !important;
+  -webkit-text-fill-color: rgba(244, 251, 248, 0.72) !important;
 }
 
 /* Some bespoke pages show an in-hero "Этa услуга доступна только во
@@ -384,6 +481,63 @@ section.vcx-hero-particles-host--sechead .adr-btn--ghost {
   color: #E6FDF3 !important;
   border: 1px solid rgba(126, 216, 195, 0.55) !important;
   text-shadow: none !important;
+}
+
+/* ── Founder card mobile layout (about.html leadership section) ───
+ * User feedback 2026-04-21 (RU): "в мобильной версии блок: Кто
+ * руководит VitaCoreX ... не правильно сформирован, что то сломано" —
+ * the founder card is rendered via an inline `grid-template-columns:
+ * 180px 1fr` style on the .vcx-founder-card element. That locks a
+ * 180px photo column at every viewport size, crushing the Steven
+ * Miller bio text into a ~150px gutter on a 390px mobile screen.
+ *
+ * External CSS must use !important to defeat inline styles. Below
+ * mobile breakpoint we collapse the 2-column grid to a single
+ * centered column: photo on top, bio underneath. Also shrink the
+ * outer padding so the card doesn't run edge-to-edge of the viewport. */
+.vcx-founder-card {
+  /* Desktop: inline style defines the grid; don't touch unless mobile. */
+}
+@media (max-width: 720px) {
+  .vcx-founder-card {
+    grid-template-columns: 1fr !important;
+    padding: 28px 22px !important;
+    gap: 22px !important;
+    justify-items: center !important;
+    text-align: left;
+  }
+  .vcx-founder-card .vcx-founder-photo {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 auto;
+  }
+  .vcx-founder-card .vcx-founder-photo img,
+  .vcx-founder-card .vcx-founder-photo > div {
+    width: 140px !important;
+    height: 140px !important;
+  }
+  .vcx-founder-card .vcx-founder-body {
+    width: 100%;
+  }
+  /* The header row (name + role) was flex with baseline align + gap;
+     on mobile it looks better stacked. */
+  .vcx-founder-card .vcx-founder-body > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+  /* CTA row inside the card — give each button full width so they
+     stack cleanly instead of wrapping at awkward breakpoints. */
+  .vcx-founder-card .vcx-founder-body > div:last-child {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .vcx-founder-card .vcx-founder-body > div:last-child > a {
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
 }
 
 /* ── Horizontal pricing override ─────────────────────────────────────
