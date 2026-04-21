@@ -268,6 +268,28 @@
     return section;
   }
 
+  /* Promote bespoke page-scoped heroes (fsch-, adr-, crs-, rrf-, ipr-,
+   * csfl-, cssa-, pcp-, pet-, prt-hero) — each lives as a bare
+   * <section class="XXX-hero"><div class="wrap">…</div></section>
+   * with an inline light-gradient background in the page <style>.
+   *
+   * User feedback 2026-04-21 (RU): "во многих местах отсутсвует херо
+   * как на хом странице. надо сделать везде херо как на хом скрин" —
+   * extend the cybercore particle scene to every subpage hero so the
+   * visual language matches the home page.
+   *
+   * Contract: add data-hero-scene="cybercore" + the shared host class
+   * + a --bespoke modifier. The section becomes the canvas parent;
+   * CSS in vcx-hero-cybercore.css paints it dark and forces content
+   * above the canvas. The existing fade-slide-in cascade on
+   * .XXX-hero__eyebrow/__title/__lede/__ctarow keeps working. */
+  function adoptBespokeHero(section) {
+    if (!section || section.getAttribute('data-hero-scene') === 'cybercore') return null;
+    section.setAttribute('data-hero-scene', 'cybercore');
+    section.classList.add('vcx-hero-particles-host', 'vcx-hero-particles-host--bespoke');
+    return section;
+  }
+
   function init() {
     // Primary hero (home): .vcx-hero-2__bg
     var bgs = document.querySelectorAll('.vcx-hero-2__bg');
@@ -285,6 +307,21 @@
     for (var k = 0; k < scds.length; k++) {
       var scdBg = adoptScdHero(scds[k]);
       if (scdBg) initHero(scdBg);
+    }
+
+    // Bespoke page-scoped heroes — 10 classes that share the same
+    // layout pattern (eyebrow pill, big title, lede, cta row) but
+    // paint a light-gradient bg inline. Promote each to a dark
+    // particle host so they match the home cybercore hero.
+    var bespokeSelector =
+      'section.fsch-hero, section.adr-hero, section.crs-hero, ' +
+      'section.rrf-hero, section.ipr-hero, section.csfl-hero, ' +
+      'section.cssa-hero, section.pcp-hero, section.pet-hero, ' +
+      'section.prt-hero';
+    var bespokes = document.querySelectorAll(bespokeSelector);
+    for (var b = 0; b < bespokes.length; b++) {
+      var bBg = adoptBespokeHero(bespokes[b]);
+      if (bBg) initHero(bBg);
     }
 
     // Fallback — pages with no dedicated hero: promote the first

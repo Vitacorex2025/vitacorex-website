@@ -164,6 +164,172 @@ section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
     0 0 14px rgba(91, 186, 167, 0.75);
 }
 
+/* ── Bespoke hero dark-scene takeover ──────────────────────────────
+ * User feedback 2026-04-21 (RU): "во многих местах отсутсвует херо
+ * как на хом странице. надо сделать везде херо как на хом скрин" —
+ * every bespoke hero must look like the home cybercore scene
+ * (near-black bg + mint particle field + glowing mint eyebrow +
+ * white title + soft white lede + high-contrast mint CTA).
+ *
+ * Covered classes (adopted by vcx-hero-particles.js adoptBespokeHero):
+ *   .fsch-hero, .adr-hero, .crs-hero, .rrf-hero, .ipr-hero,
+ *   .csfl-hero, .cssa-hero, .pcp-hero, .pet-hero, .prt-hero
+ *
+ * Each page ships an inline <style> with light-gradient bg +
+ * ink-green title + teal primary button that fails AA on white.
+ * The --bespoke host class stacks higher specificity + !important
+ * so those inline rules lose without needing edits to every page. */
+section.vcx-hero-particles-host--bespoke {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #030507 !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(126, 216, 195, 0.18) !important;
+  isolation: isolate;
+  color: #F4FBF8 !important;
+}
+
+/* Canvas sits behind content */
+section.vcx-hero-particles-host--bespoke > .vcx-particles-canvas {
+  z-index: 0;
+}
+section.vcx-hero-particles-host--bespoke > *:not(.vcx-particles-canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title → white; lede → soft white; flips the dark-on-light ink-green
+ * default baked into each page's inline style. Matches the home
+ * .vcx-hero-2__title colour. */
+section.vcx-hero-particles-host--bespoke .fsch-hero__title,
+section.vcx-hero-particles-host--bespoke .adr-hero__title,
+section.vcx-hero-particles-host--bespoke .crs-hero__title,
+section.vcx-hero-particles-host--bespoke .rrf-hero__title,
+section.vcx-hero-particles-host--bespoke .ipr-hero__title,
+section.vcx-hero-particles-host--bespoke .csfl-hero__title,
+section.vcx-hero-particles-host--bespoke .cssa-hero__title,
+section.vcx-hero-particles-host--bespoke .pcp-hero__title,
+section.vcx-hero-particles-host--bespoke .pet-hero__title,
+section.vcx-hero-particles-host--bespoke .prt-hero__title {
+  color: #F4FBF8 !important;
+}
+section.vcx-hero-particles-host--bespoke .fsch-hero__lede,
+section.vcx-hero-particles-host--bespoke .adr-hero__lede,
+section.vcx-hero-particles-host--bespoke .crs-hero__lede,
+section.vcx-hero-particles-host--bespoke .rrf-hero__lede,
+section.vcx-hero-particles-host--bespoke .ipr-hero__lede,
+section.vcx-hero-particles-host--bespoke .csfl-hero__lede,
+section.vcx-hero-particles-host--bespoke .cssa-hero__lede,
+section.vcx-hero-particles-host--bespoke .pcp-hero__lede,
+section.vcx-hero-particles-host--bespoke .pet-hero__lede,
+section.vcx-hero-particles-host--bespoke .prt-hero__lede {
+  color: rgba(244, 251, 248, 0.86) !important;
+}
+
+/* Eyebrow → bright mint (#D4FBEE) with 3-layer teal-cyan glow +
+ * translucent mint bg pill + translucent mint border. Mirrors the
+ * --scd/--sechead styling so the label jumps off particle-black. */
+section.vcx-hero-particles-host--bespoke .fsch-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .adr-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .crs-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .rrf-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .ipr-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .csfl-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .cssa-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .pcp-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .pet-hero__eyebrow,
+section.vcx-hero-particles-host--bespoke .prt-hero__eyebrow {
+  color: #D4FBEE !important;
+  background: rgba(91, 186, 167, 0.18) !important;
+  border: 1px solid rgba(126, 216, 195, 0.45) !important;
+  text-shadow:
+    0 0 6px  rgba(126, 216, 195, 0.95),
+    0 0 14px rgba(91, 186, 167, 0.75),
+    0 0 28px rgba(91, 186, 167, 0.45) !important;
+}
+
+/* Primary CTA → bright mint fill + near-black ink. The base pages
+ * use #5BBAA7 fill which reads as muddy on any bg and fails AA. We
+ * brighten to #7ED8C3 over particle-black: contrast with #051812 =
+ * 11.6:1 (AAA large + AAA normal). Matches --scd/--sechead hosts. */
+section.vcx-hero-particles-host--bespoke .fsch-btn--primary,
+section.vcx-hero-particles-host--bespoke .adr-btn--primary,
+section.vcx-hero-particles-host--bespoke .crs-btn--primary,
+section.vcx-hero-particles-host--bespoke .rrf-btn--primary,
+section.vcx-hero-particles-host--bespoke .ipr-btn--primary,
+section.vcx-hero-particles-host--bespoke .csfl-btn--primary,
+section.vcx-hero-particles-host--bespoke .cssa-btn--primary,
+section.vcx-hero-particles-host--bespoke .pcp-btn--primary,
+section.vcx-hero-particles-host--bespoke .pet-btn--primary,
+section.vcx-hero-particles-host--bespoke .prt-btn--primary {
+  background: #7ED8C3 !important;
+  color: #051812 !important;
+  border: 1px solid #7ED8C3 !important;
+  box-shadow: 0 0 0 1px rgba(126, 216, 195, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+  text-shadow: none !important;
+}
+section.vcx-hero-particles-host--bespoke .fsch-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .adr-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .crs-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .rrf-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .ipr-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .csfl-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .cssa-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .pcp-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .pet-btn--primary:hover,
+section.vcx-hero-particles-host--bespoke .prt-btn--primary:hover {
+  background: #9EE4D0 !important;
+  border-color: #9EE4D0 !important;
+  color: #051812 !important;
+}
+
+/* Ghost CTA → translucent mint-bordered pill. Base pages use
+ * teal border + dark-teal text which is invisible on near-black. */
+section.vcx-hero-particles-host--bespoke .fsch-btn--ghost,
+section.vcx-hero-particles-host--bespoke .adr-btn--ghost,
+section.vcx-hero-particles-host--bespoke .crs-btn--ghost,
+section.vcx-hero-particles-host--bespoke .rrf-btn--ghost,
+section.vcx-hero-particles-host--bespoke .ipr-btn--ghost,
+section.vcx-hero-particles-host--bespoke .csfl-btn--ghost,
+section.vcx-hero-particles-host--bespoke .cssa-btn--ghost,
+section.vcx-hero-particles-host--bespoke .pcp-btn--ghost,
+section.vcx-hero-particles-host--bespoke .pet-btn--ghost,
+section.vcx-hero-particles-host--bespoke .prt-btn--ghost {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #E6FDF3 !important;
+  border: 1px solid rgba(126, 216, 195, 0.55) !important;
+  text-shadow: none !important;
+}
+section.vcx-hero-particles-host--bespoke .fsch-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .adr-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .crs-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .rrf-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .ipr-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .csfl-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .cssa-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .pcp-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .pet-btn--ghost:hover,
+section.vcx-hero-particles-host--bespoke .prt-btn--ghost:hover {
+  background: rgba(126, 216, 195, 0.14) !important;
+  border-color: rgba(126, 216, 195, 0.85) !important;
+  color: #F4FBF8 !important;
+}
+
+/* Some bespoke pages show an in-hero "Этa услуга доступна только во
+ * Флориде" info banner (.fsch-alert, .rrf-alert, etc.) that was
+ * styled cream-on-white. Make it translucent mint so it reads on
+ * the dark scene. Narrow selector — only inside the promoted host. */
+section.vcx-hero-particles-host--bespoke [class*="-alert"],
+section.vcx-hero-particles-host--bespoke [class*="-notice"] {
+  background: rgba(126, 216, 195, 0.10) !important;
+  border: 1px solid rgba(126, 216, 195, 0.32) !important;
+  color: rgba(244, 251, 248, 0.92) !important;
+}
+section.vcx-hero-particles-host--bespoke [class*="-alert"] a,
+section.vcx-hero-particles-host--bespoke [class*="-notice"] a {
+  color: #9EE4D0 !important;
+}
+
 /* Button contrast on dark hero — brighten the mint fill + darken
  * text so CTAs stay legible against the particle field. Applies to
  * .btn, .btn-primary, .vcx-btn-2, .scd-btn, .crs-btn, .adr-btn, etc
