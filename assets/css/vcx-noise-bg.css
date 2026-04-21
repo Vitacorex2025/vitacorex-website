@@ -22,7 +22,7 @@ body.vcx-bg-noise::before {
       rgba(91, 186, 167, 0.03) 40%,
       transparent 70%),
     radial-gradient(circle 900px at 80% 70%,
-      rgba(23, 58, 99, 0.05),
+      rgba(26, 79, 74, 0.05),
       transparent 70%);
   will-change: auto;
 }

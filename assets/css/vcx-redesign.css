@@ -2433,6 +2433,51 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 /* B13 — Dark mini-steps (active state) */
 .mini-step.active, .mini-step.active * { color: #FFF !important; -webkit-text-fill-color: #FFF !important; }
 
+/* B14 — Dark teal gradient sections on service/case-study pages.
+   These use linear-gradient(135deg, #0F2F2C 0%, #1A4F4A 100%) (or similar dark teal),
+   so headings and body copy MUST be white — otherwise B-series master override
+   h1..h6 { color: #000 !important } at line 2253 renders them unreadable.
+   Covers: final-CTA sections, UPL-safeguard callouts, vs-traditional dim cell,
+   exit-intent modal header. */
+[class*="-final-cta"],
+.adr-upl, .crs-upl, .fsch-upl, .ipr-upl, .pet-upl, .rrf-upl, .scd-upl,
+.cmp-table .cmp-dim, .vcx-exit-head {
+  color: #FFF !important;
+}
+[class*="-final-cta"] h1, [class*="-final-cta"] h2, [class*="-final-cta"] h3, [class*="-final-cta"] h4,
+[class*="-final-cta"] span, [class*="-final-cta"] li, [class*="-final-cta"] strong,
+[class*="-final-cta"] a:not(.btn):not([class*="-btn"]),
+.adr-upl *, .crs-upl *, .fsch-upl *, .ipr-upl *, .pet-upl *, .rrf-upl *, .scd-upl *,
+.cmp-table .cmp-dim *, .vcx-exit-head * {
+  color: #FFF !important; -webkit-text-fill-color: #FFF !important;
+  text-shadow: none !important;
+}
+[class*="-final-cta"] p,
+.adr-upl p, .crs-upl p, .fsch-upl p, .ipr-upl p, .pet-upl p, .rrf-upl p, .scd-upl p {
+  color: rgba(255,255,255,.92) !important; -webkit-text-fill-color: rgba(255,255,255,.92) !important;
+}
+/* Ghost/secondary buttons on dark CTA: white border + white text on transparent */
+[class*="-final-cta"] .btn-secondary, [class*="-final-cta"] a.btn-secondary,
+[class*="-final-cta"] [class$="--ghost"], [class*="-final-cta"] a[class$="--ghost"] {
+  background: transparent !important; color: #FFF !important; -webkit-text-fill-color: #FFF !important;
+  border: 2px solid #FFF !important;
+}
+[class*="-final-cta"] .btn-secondary:hover, [class*="-final-cta"] a.btn-secondary:hover,
+[class*="-final-cta"] [class$="--ghost"]:hover, [class*="-final-cta"] a[class$="--ghost"]:hover {
+  background: rgba(255,255,255,.08) !important; border-color: #5BC4B8 !important;
+}
+/* Primary button on dark CTA: solid teal with white text */
+[class*="-final-cta"] .btn-primary, [class*="-final-cta"] a.btn-primary,
+[class*="-final-cta"] [class$="--primary"]:not(.btn-secondary),
+[class*="-final-cta"] a[class$="--primary"]:not(.btn-secondary) {
+  background: #2D8A82 !important; color: #FFF !important; -webkit-text-fill-color: #FFF !important;
+  border: 2px solid #2D8A82 !important;
+}
+[class*="-final-cta"] .btn-primary:hover, [class*="-final-cta"] a.btn-primary:hover,
+[class*="-final-cta"] [class$="--primary"]:hover, [class*="-final-cta"] a[class$="--primary"]:hover {
+  background: #1A4F4A !important; border-color: #1A4F4A !important;
+}
+
 /* ── C) BUTTONS ─────────────────────────────────────────────────── */
 .btn-primary, a.btn-primary, button.btn-primary,
 .hero .btn-primary, .concierge-panel .btn-primary {

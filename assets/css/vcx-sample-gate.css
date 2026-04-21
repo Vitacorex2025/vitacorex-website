@@ -1,11 +1,11 @@
 /* P03 Step 3.5 — Sample gate form + access-check overlay
  * Namespaced .vcx-gate* — no cascade collision with site/sample CSS.
- * Audience tint fixed to B2B navy (only B2B samples are gated per ADR-008).
+ * Audience tint aligned to home-page brand teal (was navy; rebrand 2026-04).
  */
 
 .vcx-gate {
-  --vg-tint: #173A63;
-  --vg-tint-soft: #173A631a;
+  --vg-tint: #1A4F4A;
+  --vg-tint-soft: #1A4F4A1a;
   --vg-border: #e3e7ec;
   --vg-bg: #f7f9fb;
   --vg-ok: #16794c;
@@ -300,7 +300,7 @@
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #173A63;
+  color: #1A4F4A;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -325,9 +325,9 @@
 }
 
 .vcx-gate-lock__cta {
-  background: #173A63;
+  background: #1A4F4A;
   color: #fff;
-  border: 1px solid #173A63;
+  border: 1px solid #1A4F4A;
   border-radius: 6px;
   padding: 11px 18px;
   font-size: 14px;
@@ -341,7 +341,7 @@
 
 .vcx-gate-lock__secondary {
   background: #fff;
-  color: #173A63;
+  color: #1A4F4A;
   border: 1px solid #d6dee7;
   border-radius: 6px;
   padding: 11px 18px;

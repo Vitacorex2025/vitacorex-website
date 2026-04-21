@@ -3,10 +3,10 @@
    P03 Step 3.4 · ADR-008 §embed-contract
    Namespace: .vcx-sample-embed  (isolated; safe to drop onto
    any service page without cascade collision)
-   Audience tints match /sample-deliverable.html hub cards:
-     --b2b navy    #173A63
-     --b2c teal    #2D8A82
-     --shared      #5E6C7B
+   Audience tints — aligned with home-page canonical palette:
+     --b2b teal-primary  #2D8A82  (was navy #173A63)
+     --b2c teal-accent   #5BC4B8
+     --shared slate      #5E6C7B
    Print-safe (samples are read-online; print is @ /samples/<slug>).
    ============================================================ */
 
@@ -30,14 +30,14 @@
 }
 
 .vcx-sample-embed[data-audience="b2b"] {
-  --vse-tint: #173A63;
-  --vse-tint-soft: rgba(23, 58, 99, 0.06);
-  --vse-link-hover: #0B2244;
-}
-.vcx-sample-embed[data-audience="b2c"] {
   --vse-tint: #2D8A82;
   --vse-tint-soft: rgba(45, 138, 130, 0.08);
-  --vse-link-hover: #1F645E;
+  --vse-link-hover: #1A4F4A;
+}
+.vcx-sample-embed[data-audience="b2c"] {
+  --vse-tint: #1A4F4A;
+  --vse-tint-soft: rgba(26, 79, 74, 0.08);
+  --vse-link-hover: #0F2F2C;
 }
 .vcx-sample-embed[data-audience="shared"] {
   --vse-tint: #5E6C7B;
@@ -102,9 +102,9 @@
   border: 1px solid color-mix(in srgb, var(--vse-tint) 20%, transparent);
 }
 .vcx-sample-embed__pill--gated {
-  background: rgba(180, 66, 36, 0.08);
-  color: #9B3916;
-  border-color: rgba(180, 66, 36, 0.25);
+  background: rgba(154, 106, 32, 0.10);
+  color: #9A6A20;
+  border-color: rgba(154, 106, 32, 0.28);
 }
 
 .vcx-sample-embed__title {

@@ -55,7 +55,7 @@
         'background:rgba(255,255,255,0.86);',
         'color:#0F1F1B !important;',
         '-webkit-text-fill-color:#0F1F1B !important;',
-        'border:1px solid rgba(23,58,99,0.14);',
+        'border:1px solid rgba(26,79,74,0.14);',
         'border-radius:999px;',
         'font-family:inherit;',
         'font-size:.86rem;',

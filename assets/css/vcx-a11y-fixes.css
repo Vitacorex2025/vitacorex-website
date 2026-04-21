@@ -86,17 +86,30 @@ a.btn-secondary:hover,
   border-color: #1A5A54 !important;
 }
 
-/* Hero (dark bg) variant — white text on translucent bg with white border */
+/* Hero (dark bg) variant — white text on translucent bg with white border.
+   -webkit-text-fill-color must be set explicitly: vcx-redesign.css line 2278
+   forces `-webkit-text-fill-color:#000 !important` on .hero .btn-secondary,
+   which wins over `color:#FFF` even though a11y-fixes loads later. Setting
+   the fill to match the color here neutralizes the black-ink bleed that
+   makes hero ghost-buttons unreadable on cybercore particle heroes. */
 .hero .btn-secondary,
 .hero a.btn-secondary,
-.hero-premium .btn-secondary {
+.hero-premium .btn-secondary,
+.hero-premium a.btn-secondary,
+.vcx-hero-particles-host .btn-secondary,
+.vcx-hero-particles-host a.btn-secondary {
   color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   background: rgba(255, 255, 255, 0.10) !important;
   border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  text-shadow: none !important;
 }
 .hero .btn-secondary:hover,
-.hero a.btn-secondary:hover {
+.hero a.btn-secondary:hover,
+.hero-premium .btn-secondary:hover,
+.vcx-hero-particles-host .btn-secondary:hover {
   color: #0E2D2A !important;
+  -webkit-text-fill-color: #0E2D2A !important;
   background: rgba(255, 255, 255, 0.95) !important;
   border-color: #FFFFFF !important;
 }
