@@ -75,14 +75,19 @@ footer .footer-grid > div:not([class]) span {
  * selector below only fires in the pre-JS fallback where h3 is still
  * a sibling of .footer-meta. Premium-weight heading — larger, tighter
  * letter-spacing for confidence, more breathing room below. */
+/* NOTE: vcx-premium-2.css:1444 locks .footer-group h3 with !important on
+ * font-size/weight/letter-spacing/margin-bottom. Since h3 sits inside
+ * .footer-company (a .footer-group), that rule wins regardless of our
+ * selector specificity without !important. We re-raise with !important
+ * scoped to .footer-grid--dual so only the new dual layout is affected. */
 .footer-grid--dual .footer-company h3,
 .footer-grid--dual .footer-company .footer-meta__identity h3 {
-  margin: 0 0 14px;
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.2;
+  margin: 0 0 14px !important;
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
 }
 /* Premium top-row layout: identity column 1fr (breathing room for the
  * VITACOREX LLC heading + stacked facts) + legal column 2.3fr (full-
@@ -95,9 +100,22 @@ footer .footer-grid > div:not([class]) span {
   align-items: start;
   margin: 0 0 18px;
 }
-.footer-grid--dual .footer-company .footer-meta__identity > .small-note {
-  font-size: 0.92rem;
-  line-height: 1.6;
+/* NOTE: vcx-premium-2.css:1451 locks .footer-meta .small-note at
+ * font-size:0.78rem !important, and premium-fixes.css:548 locks
+ * footer.footer p at font-size:0.8125rem !important line-height:1.65.
+ * We re-raise the identity + legal prose inside the dual layout so the
+ * top row reads premium (not the cramped stock .small-note size). */
+.footer-grid--dual .footer-company .footer-meta__identity > .small-note,
+.footer-grid--dual .footer-company .footer-meta__identity > p.small-note {
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+}
+.footer-grid--dual .footer-company .footer-meta__legal > .small-note,
+.footer-grid--dual .footer-company .footer-meta__legal > p.small-note,
+.footer-grid--dual .footer-company .footer-meta__legal > p {
+  font-size: 0.9rem !important;
+  line-height: 1.65 !important;
+  color: rgba(238, 233, 222, 0.72) !important;
 }
 .footer-grid--dual .footer-company .footer-meta > * {
   margin: 0;
