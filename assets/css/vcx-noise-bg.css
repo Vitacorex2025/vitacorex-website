@@ -44,7 +44,12 @@ body.vcx-bg-noise::before {
 /* Private Advisory side tab (.vcx-exclusive-badge), chat/calendar launchers,      */
 /* exit-intent popup, and any other body-level floating CTA. Those elements stay   */
 /* fixed with their own z-index from their own CSS.                                */
-body.vcx-bg-noise > header,
+/* IMPORTANT: `header` is intentionally EXCLUDED from this rule. The header is      */
+/* already positioned (sticky on desktop / fixed on mobile) by ui-shell.css with    */
+/* z-index:120. Forcing it to position:relative + z-index:2 here used to put bespoke */
+/* page sections (.adr-section, .fsch-hero, etc. — also z-index:2) on top of the    */
+/* fixed mobile header, making the menu button unclickable after scroll. Let the    */
+/* header own its own stacking context. */
 body.vcx-bg-noise > main,
 body.vcx-bg-noise > section,
 body.vcx-bg-noise > footer,
