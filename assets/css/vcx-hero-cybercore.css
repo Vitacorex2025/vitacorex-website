@@ -626,3 +626,139 @@ body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
     filter: blur(18px);
   }
 }
+
+/* ── Hero cascade ported to every subpage hero variant ──────────────
+ * User feedback 2026-04-20 (RU): "проверь каждое что бы анимации
+ * работала на заголовках как на хом странице" — every subpage hero
+ * heading must animate like the home hero. Home uses
+ * vcxHeroFadeSlideIn (defined above) on children of
+ * .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content.
+ *
+ * Subpages use different DOM patterns. Map each to the same cascade:
+ *   1. .vcx-hero-particles-host--sechead  → .section-head children
+ *      (llc-formation-florida, turnkey-business-opening,
+ *       location-analysis, business-plans, state pages)
+ *   2. .vcx-hero-particles-host--scd       → .scd-hero__* children
+ *      (small-claims-documentation)
+ *   3. section.fsch-hero/adr-hero/crs-hero/rrf-hero → bespoke light
+ *      heroes that are NOT promoted to a particle host by
+ *      vcx-hero-particles.js. Still animate the cascade so they feel
+ *      alive.
+ *
+ * Cascade timing (ported from home): eyebrow 0.1s → title 0.25s →
+ * subtitle/lede 0.4s → CTAs 0.6s.  Each child keeps opacity:0 until
+ * its animation starts (no flash of styled content).
+ *
+ * Note on `.reveal` interaction: .section-head often carries .reveal,
+ * which fades the CONTAINER from 0→1 on scroll-into-view via JS. For
+ * the FIRST .section-head (the hero) this is redundant — we force
+ * the container visible here so the per-child cascade plays
+ * unobstructed on load. */
+
+/* 1. Particle-promoted section-head hero */
+section.vcx-hero-particles-host--sechead > .wrap > .section-head.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+section.vcx-hero-particles-host--sechead .section-head .eyebrow,
+section.vcx-hero-particles-host--sechead .section-head .vcx-eyebrow,
+section.vcx-hero-particles-host--sechead .section-head h1,
+section.vcx-hero-particles-host--sechead .section-head > h2,
+section.vcx-hero-particles-host--sechead .section-head > p,
+section.vcx-hero-particles-host--sechead .section-head .section-intro,
+section.vcx-hero-particles-host--sechead .section-head .hero-ctas,
+section.vcx-hero-particles-host--sechead .section-head .cta-row {
+  opacity: 0;
+  animation: vcxHeroFadeSlideIn 0.7s ease-out forwards;
+}
+section.vcx-hero-particles-host--sechead .section-head .eyebrow,
+section.vcx-hero-particles-host--sechead .section-head .vcx-eyebrow { animation-delay: 0.1s; }
+section.vcx-hero-particles-host--sechead .section-head h1,
+section.vcx-hero-particles-host--sechead .section-head > h2       { animation-delay: 0.25s; }
+section.vcx-hero-particles-host--sechead .section-head .section-intro,
+section.vcx-hero-particles-host--sechead .section-head > p        { animation-delay: 0.4s; }
+section.vcx-hero-particles-host--sechead .section-head .hero-ctas,
+section.vcx-hero-particles-host--sechead .section-head .cta-row   { animation-delay: 0.6s; }
+
+/* 2. Particle-promoted .scd-hero */
+section.vcx-hero-particles-host--scd .scd-hero__eyebrow,
+section.vcx-hero-particles-host--scd .scd-hero__title,
+section.vcx-hero-particles-host--scd .scd-hero__lede,
+section.vcx-hero-particles-host--scd .scd-hero__sub,
+section.vcx-hero-particles-host--scd .scd-hero__ctarow {
+  opacity: 0;
+  animation: vcxHeroFadeSlideIn 0.7s ease-out forwards;
+}
+section.vcx-hero-particles-host--scd .scd-hero__eyebrow { animation-delay: 0.1s; }
+section.vcx-hero-particles-host--scd .scd-hero__title   { animation-delay: 0.25s; }
+section.vcx-hero-particles-host--scd .scd-hero__lede    { animation-delay: 0.4s; }
+section.vcx-hero-particles-host--scd .scd-hero__sub     { animation-delay: 0.5s; }
+section.vcx-hero-particles-host--scd .scd-hero__ctarow  { animation-delay: 0.6s; }
+
+/* 3. Bespoke light-bg heroes (fsch/adr/crs/rrf) — NOT promoted to
+ *    a particle host, styled locally via each page's inline <style>. */
+section.fsch-hero .fsch-hero__eyebrow,
+section.fsch-hero .fsch-hero__title,
+section.fsch-hero .fsch-hero__lede,
+section.fsch-hero .fsch-hero__ctarow,
+section.adr-hero .adr-hero__eyebrow,
+section.adr-hero .adr-hero__title,
+section.adr-hero .adr-hero__lede,
+section.adr-hero .adr-hero__ctarow,
+section.crs-hero .crs-hero__eyebrow,
+section.crs-hero .crs-hero__title,
+section.crs-hero .crs-hero__lede,
+section.crs-hero .crs-hero__ctarow,
+section.rrf-hero .rrf-hero__eyebrow,
+section.rrf-hero .rrf-hero__title,
+section.rrf-hero .rrf-hero__lede,
+section.rrf-hero .rrf-hero__ctarow {
+  opacity: 0;
+  animation: vcxHeroFadeSlideIn 0.7s ease-out forwards;
+}
+section.fsch-hero .fsch-hero__eyebrow,
+section.adr-hero .adr-hero__eyebrow,
+section.crs-hero .crs-hero__eyebrow,
+section.rrf-hero .rrf-hero__eyebrow { animation-delay: 0.1s; }
+section.fsch-hero .fsch-hero__title,
+section.adr-hero .adr-hero__title,
+section.crs-hero .crs-hero__title,
+section.rrf-hero .rrf-hero__title   { animation-delay: 0.25s; }
+section.fsch-hero .fsch-hero__lede,
+section.adr-hero .adr-hero__lede,
+section.crs-hero .crs-hero__lede,
+section.rrf-hero .rrf-hero__lede    { animation-delay: 0.4s; }
+section.fsch-hero .fsch-hero__ctarow,
+section.adr-hero .adr-hero__ctarow,
+section.crs-hero .crs-hero__ctarow,
+section.rrf-hero .rrf-hero__ctarow  { animation-delay: 0.6s; }
+
+/* Motion reduction — no cascade, content static and visible. */
+@media (prefers-reduced-motion: reduce) {
+  section.vcx-hero-particles-host--sechead .section-head > *,
+  section.vcx-hero-particles-host--scd .scd-hero__eyebrow,
+  section.vcx-hero-particles-host--scd .scd-hero__title,
+  section.vcx-hero-particles-host--scd .scd-hero__lede,
+  section.vcx-hero-particles-host--scd .scd-hero__sub,
+  section.vcx-hero-particles-host--scd .scd-hero__ctarow,
+  section.fsch-hero .fsch-hero__eyebrow,
+  section.fsch-hero .fsch-hero__title,
+  section.fsch-hero .fsch-hero__lede,
+  section.fsch-hero .fsch-hero__ctarow,
+  section.adr-hero .adr-hero__eyebrow,
+  section.adr-hero .adr-hero__title,
+  section.adr-hero .adr-hero__lede,
+  section.adr-hero .adr-hero__ctarow,
+  section.crs-hero .crs-hero__eyebrow,
+  section.crs-hero .crs-hero__title,
+  section.crs-hero .crs-hero__lede,
+  section.crs-hero .crs-hero__ctarow,
+  section.rrf-hero .rrf-hero__eyebrow,
+  section.rrf-hero .rrf-hero__title,
+  section.rrf-hero .rrf-hero__lede,
+  section.rrf-hero .rrf-hero__ctarow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
