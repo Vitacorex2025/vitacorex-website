@@ -203,8 +203,8 @@ idempotent: true
 | `additional-services.html` | 345 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
 | `additional-services.html` | 346 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
 | `additional-services.html` | 347 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
-| `app.html` | 42 | a | Open secure sign-in | `/app/sign-in/` | in-body | shared | — |
-| `app.html` | 43 | a | Return to public review | `/contact.html` | in-body | shared | — |
+| `app.html` | 40 | a | Open secure sign-in | `/app/sign-in/` | in-body | shared | — |
+| `app.html` | 41 | a | Return to public review | `/contact.html` | in-body | shared | — |
 | `app/contract-intelligence/index.html` | 208 | a | VitaCoreX LLC Private revenue recovery and legal-file advis… | `/index.html` | primary-nav | shared | — |
 | `app/contract-intelligence/index.html` | 228 | a | Home | `/index.html` | primary-nav | shared | — |
 | `app/contract-intelligence/index.html` | 229 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
