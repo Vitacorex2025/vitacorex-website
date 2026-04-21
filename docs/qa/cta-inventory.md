@@ -2712,107 +2712,107 @@ idempotent: true
 | `samples/small-claims-chronology.html` | 84 | a | Out of scope | `#sec-6` | anchor | shared | — |
 | `samples/small-claims-chronology.html` | 170 | a | See Florida Small Claims Help | `/sample-deliverable.html` | in-body | shared | — |
 | `samples/small-claims-chronology.html` | 171 | a | B2B Small Claims & Civil Packet Desk | `/security-and-compliance.html` | in-body | shared | — |
-| `secure-coordination.html` | 566 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 588 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
-| `secure-coordination.html` | 588 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
-| `secure-coordination.html` | 588 | button | ES | `(handler)` | action-script | shared | delegated:data-lang=es |
-| `secure-coordination.html` | 591 | a | Home | `index.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Executive Briefs & Proof | `resources.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Private Client Services | `additional-services.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Careers | `careers.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 591 | a | Private Consultation | `contact.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 604 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
-| `secure-coordination.html` | 604 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
-| `secure-coordination.html` | 604 | button | ES | `(handler)` | action-script | shared | delegated:data-lang=es |
-| `secure-coordination.html` | 606 | a | VitaCoreX | `index.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 616 | button | ☰ Menu | `(handler)` | action-script | shared | aria-wired:controls |
-| `secure-coordination.html` | 621 | a | Home | `index.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Executive Briefs & Proof | `resources.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Private Client Services | `additional-services.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Careers | `careers.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 621 | a | Private Consultation | `contact.html` | primary-nav | shared | — |
-| `secure-coordination.html` | 663 | a | Open posture page &rarr; | `security-and-compliance.html` | in-body | shared | — |
-| `secure-coordination.html` | 669 | a | Open sub-processor list &rarr; | `sub-processors-and-dpa.html` | in-body | shared | — |
-| `secure-coordination.html` | 898 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `secure-coordination.html` | 899 | a | Request vendor onboarding pack | `contact.html?subject=vendor-onboarding` | in-body | shared | — |
-| `secure-coordination.html` | 900 | a | Read Security & Compliance posture | `security-and-compliance.html` | in-body | shared | — |
-| `secure-coordination.html` | 917 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `secure-coordination.html` | 918 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
-| `secure-coordination.html` | 924 | a | Home | `index.html` | footer | shared | — |
-| `secure-coordination.html` | 925 | a | Solutions | `solutions.html` | footer | shared | — |
-| `secure-coordination.html` | 926 | a | Industries | `industries.html` | footer | shared | — |
-| `secure-coordination.html` | 927 | a | About VitaCoreX | `about.html` | footer | shared | — |
-| `secure-coordination.html` | 928 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
-| `secure-coordination.html` | 929 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
-| `secure-coordination.html` | 930 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
-| `secure-coordination.html` | 931 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | shared | — |
-| `secure-coordination.html` | 932 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | shared | — |
-| `secure-coordination.html` | 933 | a | Sample Deliverable | `sample-deliverable.html` | footer | shared | — |
-| `secure-coordination.html` | 934 | a | Security & Compliance | `security-and-compliance.html` | footer | shared | — |
-| `secure-coordination.html` | 935 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | shared | — |
-| `secure-coordination.html` | 936 | a | Secure Coordination Protocol | `secure-coordination.html` | footer | shared | — |
-| `secure-coordination.html` | 942 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
-| `secure-coordination.html` | 943 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
-| `secure-coordination.html` | 944 | a | Private consultation | `contact.html` | footer | shared | — |
-| `secure-coordination.html` | 945 | a | Careers | `careers.html` | footer | shared | — |
-| `secure-coordination.html` | 946 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
-| `secure-coordination.html` | 947 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
-| `secure-coordination.html` | 948 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
-| `security-and-compliance.html` | 364 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 386 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `security-and-compliance.html` | 386 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `security-and-compliance.html` | 386 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `security-and-compliance.html` | 389 | a | Home | `index.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 389 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 402 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
-| `security-and-compliance.html` | 402 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
-| `security-and-compliance.html` | 402 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
-| `security-and-compliance.html` | 404 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 414 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
-| `security-and-compliance.html` | 419 | a | Home | `index.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Careers | `careers.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 419 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
-| `security-and-compliance.html` | 618 | a | Request vendor onboarding pack | `contact.html?subject=vendor-onboarding` | in-body | b2b | — |
-| `security-and-compliance.html` | 619 | a | Open structured intake | `structured-case-intake.html` | in-body | b2b | — |
-| `security-and-compliance.html` | 637 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `security-and-compliance.html` | 638 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
-| `security-and-compliance.html` | 644 | a | Home | `index.html` | footer | b2b | — |
-| `security-and-compliance.html` | 645 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `security-and-compliance.html` | 646 | a | Industries | `industries.html` | footer | b2b | — |
-| `security-and-compliance.html` | 647 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `security-and-compliance.html` | 648 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `security-and-compliance.html` | 649 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `security-and-compliance.html` | 650 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `security-and-compliance.html` | 651 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
-| `security-and-compliance.html` | 652 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | b2b | — |
-| `security-and-compliance.html` | 653 | a | Sample Deliverable | `sample-deliverable.html` | footer | b2b | — |
-| `security-and-compliance.html` | 654 | a | Security & Compliance | `security-and-compliance.html` | footer | b2b | — |
-| `security-and-compliance.html` | 655 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | b2b | — |
-| `security-and-compliance.html` | 656 | a | Secure Coordination Protocol | `secure-coordination.html` | footer | b2b | — |
-| `security-and-compliance.html` | 662 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `security-and-compliance.html` | 663 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | b2b | — |
-| `security-and-compliance.html` | 664 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `security-and-compliance.html` | 665 | a | Careers | `careers.html` | footer | b2b | — |
-| `security-and-compliance.html` | 666 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `security-and-compliance.html` | 667 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `security-and-compliance.html` | 668 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `secure-coordination.html` | 571 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 593 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
+| `secure-coordination.html` | 593 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
+| `secure-coordination.html` | 593 | button | ES | `(handler)` | action-script | shared | delegated:data-lang=es |
+| `secure-coordination.html` | 596 | a | Home | `index.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Executive Briefs & Proof | `resources.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Private Client Services | `additional-services.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Careers | `careers.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 596 | a | Private Consultation | `contact.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 609 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
+| `secure-coordination.html` | 609 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
+| `secure-coordination.html` | 609 | button | ES | `(handler)` | action-script | shared | delegated:data-lang=es |
+| `secure-coordination.html` | 611 | a | VitaCoreX | `index.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 621 | button | ☰ Menu | `(handler)` | action-script | shared | aria-wired:controls |
+| `secure-coordination.html` | 626 | a | Home | `index.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Executive Briefs & Proof | `resources.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Private Client Services | `additional-services.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Careers | `careers.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 626 | a | Private Consultation | `contact.html` | primary-nav | shared | — |
+| `secure-coordination.html` | 668 | a | Open posture page &rarr; | `security-and-compliance.html` | in-body | shared | — |
+| `secure-coordination.html` | 674 | a | Open sub-processor list &rarr; | `sub-processors-and-dpa.html` | in-body | shared | — |
+| `secure-coordination.html` | 903 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `secure-coordination.html` | 904 | a | Request vendor onboarding pack | `contact.html?subject=vendor-onboarding` | in-body | shared | — |
+| `secure-coordination.html` | 905 | a | Read Security & Compliance posture | `security-and-compliance.html` | in-body | shared | — |
+| `secure-coordination.html` | 922 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `secure-coordination.html` | 923 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `secure-coordination.html` | 929 | a | Home | `index.html` | footer | shared | — |
+| `secure-coordination.html` | 930 | a | Solutions | `solutions.html` | footer | shared | — |
+| `secure-coordination.html` | 931 | a | Industries | `industries.html` | footer | shared | — |
+| `secure-coordination.html` | 932 | a | About VitaCoreX | `about.html` | footer | shared | — |
+| `secure-coordination.html` | 933 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
+| `secure-coordination.html` | 934 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
+| `secure-coordination.html` | 935 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
+| `secure-coordination.html` | 936 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | shared | — |
+| `secure-coordination.html` | 937 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | shared | — |
+| `secure-coordination.html` | 938 | a | Sample Deliverable | `sample-deliverable.html` | footer | shared | — |
+| `secure-coordination.html` | 939 | a | Security & Compliance | `security-and-compliance.html` | footer | shared | — |
+| `secure-coordination.html` | 940 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | shared | — |
+| `secure-coordination.html` | 941 | a | Secure Coordination Protocol | `secure-coordination.html` | footer | shared | — |
+| `secure-coordination.html` | 947 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
+| `secure-coordination.html` | 948 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | shared | — |
+| `secure-coordination.html` | 949 | a | Private consultation | `contact.html` | footer | shared | — |
+| `secure-coordination.html` | 950 | a | Careers | `careers.html` | footer | shared | — |
+| `secure-coordination.html` | 951 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
+| `secure-coordination.html` | 952 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
+| `secure-coordination.html` | 953 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
+| `security-and-compliance.html` | 367 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 389 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `security-and-compliance.html` | 389 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `security-and-compliance.html` | 389 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `security-and-compliance.html` | 392 | a | Home | `index.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 392 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 405 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
+| `security-and-compliance.html` | 405 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
+| `security-and-compliance.html` | 405 | button | ES | `(handler)` | action-script | b2b | delegated:data-lang=es |
+| `security-and-compliance.html` | 407 | a | VitaCoreX | `index.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 417 | button | ☰ Menu | `(handler)` | action-script | b2b | aria-wired:controls |
+| `security-and-compliance.html` | 422 | a | Home | `index.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Structured Case Intake | `structured-case-intake.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Executive Briefs & Proof | `resources.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Private Client Services | `additional-services.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Careers | `careers.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 422 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
+| `security-and-compliance.html` | 621 | a | Request vendor onboarding pack | `contact.html?subject=vendor-onboarding` | in-body | b2b | — |
+| `security-and-compliance.html` | 622 | a | Open structured intake | `structured-case-intake.html` | in-body | b2b | — |
+| `security-and-compliance.html` | 640 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `security-and-compliance.html` | 641 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `security-and-compliance.html` | 647 | a | Home | `index.html` | footer | b2b | — |
+| `security-and-compliance.html` | 648 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `security-and-compliance.html` | 649 | a | Industries | `industries.html` | footer | b2b | — |
+| `security-and-compliance.html` | 650 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `security-and-compliance.html` | 651 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `security-and-compliance.html` | 652 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `security-and-compliance.html` | 653 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `security-and-compliance.html` | 654 | a | Case Study: Healthcare Network | `case-study-healthcare-network.html` | footer | b2b | — |
+| `security-and-compliance.html` | 655 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | b2b | — |
+| `security-and-compliance.html` | 656 | a | Sample Deliverable | `sample-deliverable.html` | footer | b2b | — |
+| `security-and-compliance.html` | 657 | a | Security & Compliance | `security-and-compliance.html` | footer | b2b | — |
+| `security-and-compliance.html` | 658 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | b2b | — |
+| `security-and-compliance.html` | 659 | a | Secure Coordination Protocol | `secure-coordination.html` | footer | b2b | — |
+| `security-and-compliance.html` | 665 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `security-and-compliance.html` | 666 | a | Deadline Calendar | `/app/deadline-calendar/` | footer | b2b | — |
+| `security-and-compliance.html` | 667 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `security-and-compliance.html` | 668 | a | Careers | `careers.html` | footer | b2b | — |
+| `security-and-compliance.html` | 669 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `security-and-compliance.html` | 670 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `security-and-compliance.html` | 671 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `small-claims-documentation.html` | 198 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `small-claims-documentation.html` | 220 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `small-claims-documentation.html` | 220 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |

@@ -118,6 +118,8 @@ h1{font-size:clamp(2rem,3.2vw,3.15rem);max-width:11ch;margin:12px 0 10px}.lead{f
 @media (max-width:1100px){
   .hero-grid-premium,.pilot-layout,.audience-split{grid-template-columns:1fr}
   .leak-grid{grid-template-columns:repeat(2,1fr)}
+  /* 5-card grid: last orphan spans full width so there's no empty slot */
+  .leak-grid > :nth-child(5):last-child{grid-column:1 / -1}
   .proof-band,.cta-banner{flex-direction:column;align-items:flex-start}
   .proof-points{min-width:0;width:100%}
 }
