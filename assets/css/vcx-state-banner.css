@@ -97,6 +97,36 @@
   }
 }
 
+/* Compact modifier: tighter vertical rhythm, used when banner copy is
+   concise (e.g. "available in all 50 states — target selected at intake")
+   and does not need to feel like a warning block. */
+.vcx-state-banner--compact {
+  gap: 10px 20px;
+  padding: 10px 18px;
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.vcx-state-banner--compact .vcx-state-banner__copy {
+  flex: 1 1 260px;
+}
+
+@media (max-width: 640px) {
+  .vcx-state-banner--compact {
+    gap: 6px;
+    padding: 10px 14px;
+    margin: 0 0 14px;
+    font-size: 0.8125rem;
+  }
+  /* In column layout (mobile), `flex: 1 1 260px` gives the copy div a
+     260px flex-basis on its height, leaving a tall blank gap before the
+     CTA. Reset the basis so the banner hugs its content. */
+  .vcx-state-banner--compact .vcx-state-banner__copy {
+    flex: 0 0 auto;
+  }
+}
+
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .vcx-state-banner__cta {
