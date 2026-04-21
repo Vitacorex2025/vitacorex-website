@@ -2303,24 +2303,24 @@ idempotent: true
 | `resources.html` | 87 | a | Open PDF | `assets/pdf/healthcare-cfo-brief.pdf` | in-body | shared | new-tab |
 | `resources.html` | 87 | a | Open PDF | `assets/pdf/dental-institutional-deck.pdf` | in-body | shared | new-tab |
 | `resources.html` | 87 | a | Open PDF | `assets/pdf/precollection-executive-review.pdf` | in-body | shared | new-tab |
-| `resources.html` | 124 | a | Review industry pages | `industries.html` | in-body | shared | — |
-| `resources.html` | 125 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
-| `resources.html` | 136 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
-| `resources.html` | 142 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
-| `resources.html` | 143 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
-| `resources.html` | 149 | a | Home | `index.html` | footer | shared | — |
-| `resources.html` | 150 | a | Solutions | `solutions.html` | footer | shared | — |
-| `resources.html` | 151 | a | Industries | `industries.html` | footer | shared | — |
-| `resources.html` | 152 | a | About VitaCoreX | `about.html` | footer | shared | — |
-| `resources.html` | 153 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
-| `resources.html` | 154 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
-| `resources.html` | 155 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
-| `resources.html` | 161 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
-| `resources.html` | 162 | a | Private consultation | `contact.html` | footer | shared | — |
-| `resources.html` | 163 | a | Careers | `careers.html` | footer | shared | — |
-| `resources.html` | 164 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
-| `resources.html` | 165 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
-| `resources.html` | 166 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
+| `resources.html` | 135 | a | Review industry pages | `industries.html` | in-body | shared | — |
+| `resources.html` | 136 | a | Open structured intake | `structured-case-intake.html` | in-body | shared | — |
+| `resources.html` | 147 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
+| `resources.html` | 153 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
+| `resources.html` | 154 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `resources.html` | 160 | a | Home | `index.html` | footer | shared | — |
+| `resources.html` | 161 | a | Solutions | `solutions.html` | footer | shared | — |
+| `resources.html` | 162 | a | Industries | `industries.html` | footer | shared | — |
+| `resources.html` | 163 | a | About VitaCoreX | `about.html` | footer | shared | — |
+| `resources.html` | 164 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | shared | — |
+| `resources.html` | 165 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | shared | — |
+| `resources.html` | 166 | a | Executive Briefs & Proof | `resources.html` | footer | shared | — |
+| `resources.html` | 172 | a | Structured Case Intake | `structured-case-intake.html` | footer | shared | — |
+| `resources.html` | 173 | a | Private consultation | `contact.html` | footer | shared | — |
+| `resources.html` | 174 | a | Careers | `careers.html` | footer | shared | — |
+| `resources.html` | 175 | a | Privacy Policy | `privacy-policy.html` | footer | shared | — |
+| `resources.html` | 176 | a | Terms of Use | `terms-of-use.html` | footer | shared | — |
+| `resources.html` | 177 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
 | `revenue-recovery-florida.html` | 110 | a | VitaCoreX LLC Revenue recovery and documentation infrastruc… | `index.html` | primary-nav | b2b | — |
 | `revenue-recovery-florida.html` | 132 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `revenue-recovery-florida.html` | 132 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |
