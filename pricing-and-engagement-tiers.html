@@ -37,7 +37,7 @@
 <link href="/assets/css/vcx-premium-2.css?v=20" rel="stylesheet"/>
 <link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/>
 <link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/>
-<link href="/assets/css/vcx-a11y-fixes.css?v=10" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=5"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script>
+<link href="/assets/css/vcx-a11y-fixes.css?v=10" rel="stylesheet"/><link href="/assets/css/vcx-retainer-promo.css?v=1" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=5"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script>
 <script src="assets/js/shell-i18n.js?v=3" defer></script>
 <script src="/assets/js/vcx-premium-fx.js" defer></script>
 <style>
@@ -389,7 +389,7 @@
 </article>
 
 <!-- Tier B-3: Weekly Retainer -->
-<article class="pet-tier">
+<article class="pet-tier" id="pet-retainers">
 <p class="pet-tier__kicker" data-page="pet_b3_kicker">Tier B-3 &middot; Weekly retainer</p>
 <h3 class="pet-tier__title" data-page="pet_b3_title">Recovery + File-Control Retainer</h3>
 <p class="pet-tier__price" data-page="pet_b3_price">$1,350&ndash;$3,250 <small data-page="pet_b3_price_small">/ week</small></p>
@@ -398,21 +398,51 @@
 <span data-page="pet_b3_for_label">For</span>
 <p data-page="pet_b3_for_text">Multi-location operators needing continuous workflow governance, weekly reporting, and escalation discipline.</p>
 </div>
+
+<!-- Retainer onboarding promo banner (Phase 1) -->
+<aside class="vcx-retainer-promo" role="complementary" aria-label="Retainer onboarding offer">
+  <div class="vcx-retainer-promo__body">
+    <span class="vcx-retainer-promo__eyebrow" data-page="retainer_promo_eyebrow">Limited onboarding offer</span>
+    <p class="vcx-retainer-promo__title" data-page="retainer_promo_title">First month at 50% off &mdash; qualified retainers only.</p>
+    <p class="vcx-retainer-promo__lede" data-page="retainer_promo_lede">During early-stage diagnostic we are subsidizing the first retainer week for operators who clear a short eligibility review. Locks in the discounted rate for the opening engagement block; standard rate thereafter.</p>
+    <div class="vcx-retainer-promo__row">
+      <span class="vcx-retainer-promo__code">
+        <span class="vcx-retainer-promo__code-label" data-page="retainer_promo_code_label">Apply code</span>
+        <span data-page="retainer_promo_code">RETAINER50</span>
+      </span>
+      <a class="vcx-retainer-promo__cta" href="structured-case-intake.html?promo=early-retainer" data-page="retainer_promo_cta_qualify">Apply for early-retainer qualification &rarr;</a>
+    </div>
+    <small class="vcx-retainer-promo__disclaimer" data-page="retainer_promo_disclaimer">Eligibility review required. Applies to the first retainer week only. Not combinable with other offers. VitaCoreX LLC reserves the right to limit availability.</small>
+  </div>
+</aside>
+
 <div class="pet-retainer-levels">
 <div class="pet-retainer-level">
 <span class="pet-retainer-level__label" data-page="pet_b3_lvl_starter_label">Preparation Desk</span>
 <div class="pet-retainer-level__price">$1,350<small data-page="pet_b3_lvl_starter_unit"> /wk</small></div>
 <p class="pet-retainer-level__desc" data-page="pet_b3_lvl_starter_desc">Up to 3 cases/business day. Intake, chronology, exhibit order, gap log, packet updates, counsel coordination.</p>
+<span class="vcx-retainer-plashka">
+  <span class="vcx-retainer-plashka__label" data-page="retainer_promo_first_month">First month</span>
+  <span class="vcx-retainer-plashka__price">$675<small> /wk</small></span>
+</span>
 </div>
 <div class="pet-retainer-level">
 <span class="pet-retainer-level__label" data-page="pet_b3_lvl_growth_label">Managed Docket + Hearing Prep</span>
 <div class="pet-retainer-level__price">$2,150<small data-page="pet_b3_lvl_growth_unit"> /wk</small></div>
 <p class="pet-retainer-level__desc" data-page="pet_b3_lvl_growth_desc">Everything in Preparation Desk + administrative file management through judgment, up to 1 hearing-support block/day. Overflow $110/hr (1-hr consult min / 2-hr hearing min).</p>
+<span class="vcx-retainer-plashka">
+  <span class="vcx-retainer-plashka__label" data-page="retainer_promo_first_month">First month</span>
+  <span class="vcx-retainer-plashka__price">$1,075<small> /wk</small></span>
+</span>
 </div>
 <div class="pet-retainer-level">
 <span class="pet-retainer-level__label" data-page="pet_b3_lvl_exec_label">Priority / Reserved Capacity Desk</span>
 <div class="pet-retainer-level__price">$3,250<small data-page="pet_b3_lvl_exec_unit"> /wk</small></div>
 <p class="pet-retainer-level__desc" data-page="pet_b3_lvl_exec_desc">Preparation + managed docket + online hearing-support by advance schedule. Priority daily status digest and routing discipline.</p>
+<span class="vcx-retainer-plashka">
+  <span class="vcx-retainer-plashka__label" data-page="retainer_promo_first_month">First month</span>
+  <span class="vcx-retainer-plashka__price">$1,625<small> /wk</small></span>
+</span>
 </div>
 </div>
 <div class="pet-tier__micro" data-page="pet_b3_micro">Workflow governance, documentation discipline, and escalation coordination. Not legal services.</div>

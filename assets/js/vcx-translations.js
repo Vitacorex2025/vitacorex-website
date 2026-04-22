@@ -722,6 +722,16 @@ en: {
   pet_b3_micro:       'Workflow governance, documentation discipline, and escalation coordination. Not legal services.',
   pet_b3_cta:         'Request retainer scope \u2192',
 
+  // Retainer onboarding promo (Phase 1)
+  retainer_promo_eyebrow:    'Limited onboarding offer',
+  retainer_promo_title:      'First month at 50% off \u2014 qualified retainers only.',
+  retainer_promo_lede:       'During early-stage diagnostic we are subsidizing the first retainer week for operators who clear a short eligibility review. Locks in the discounted rate for the opening engagement block; standard rate thereafter.',
+  retainer_promo_code_label: 'Apply code',
+  retainer_promo_code:       'RETAINER50',
+  retainer_promo_first_month:'First month',
+  retainer_promo_cta_qualify:'Apply for early-retainer qualification \u2192',
+  retainer_promo_disclaimer: 'Eligibility review required. Applies to the first retainer week only. Not combinable with other offers. VitaCoreX LLC reserves the right to limit availability.',
+
   pet_b2c_badge:      'Private Clients',
   pet_b2c_title:      'Fixed-fee packets and documentation support \u2014 counsel-ready, transparent pricing.',
   pet_b2c_intro:      'For individuals and small business owners handling Florida small-claims or civil matters. Counsel-ready documentation prepared for you or your attorney to file. VitaCoreX is not a law firm and does not file or appear on your behalf.',
@@ -2775,6 +2785,16 @@ ru: {
   pet_b3_lvl_exec_desc:     'Preparation + managed docket + онлайн hearing-support по заранее согласованному расписанию. Приоритетный daily status и routing.',
   pet_b3_micro:       'Governance workflow, документационная дисциплина и эскалационная координация. Не legal services.',
   pet_b3_cta:         'Запросить scope retainer \u2192',
+
+  // Retainer onboarding promo (Phase 1)
+  retainer_promo_eyebrow:    'Ограниченное onboarding-предложение',
+  retainer_promo_title:      'Первый месяц \u2014 50% off. Только для квалифицированных retainer.',
+  retainer_promo_lede:       'На этапе ранней диагностики мы субсидируем первую неделю retainer для operators, которые проходят короткий eligibility-review. Скидка фиксируется на первый engagement-блок; дальше \u2014 стандартная ставка.',
+  retainer_promo_code_label: 'Применить код',
+  retainer_promo_code:       'RETAINER50',
+  retainer_promo_first_month:'Первый месяц',
+  retainer_promo_cta_qualify:'Подать заявку на квалификацию retainer \u2192',
+  retainer_promo_disclaimer: 'Требуется eligibility-review. Применяется только к первой неделе retainer. Не комбинируется с другими предложениями. VitaCoreX LLC оставляет за собой право ограничить доступность.',
 
   pet_b2c_badge:      'Частные клиенты',
   pet_b2c_title:      'Пакеты по фиксированной цене и documentation support \u2014 counsel-ready, прозрачные цены.',
@@ -4844,6 +4864,16 @@ es: {
   pet_b3_lvl_exec_desc:     'Preparation + managed docket + hearing-support online por calendario acordado. Digest diario de status y routing prioritario.',
   pet_b3_micro:       'Governance de workflow, disciplina documental y coordinacion de escalaciones. No legal services.',
   pet_b3_cta:         'Pedir scope del retainer \u2192',
+
+  // Retainer onboarding promo (Phase 1)
+  retainer_promo_eyebrow:    'Oferta limitada de onboarding',
+  retainer_promo_title:      'Primer mes al 50% de descuento \u2014 solo retainers calificados.',
+  retainer_promo_lede:       'Durante el diagnostico temprano estamos subsidiando la primera semana de retainer para operators que aprueban una revision corta de elegibilidad. Fija la tarifa con descuento para el primer bloque de engagement; tarifa estandar despues.',
+  retainer_promo_code_label: 'Aplicar codigo',
+  retainer_promo_code:       'RETAINER50',
+  retainer_promo_first_month:'Primer mes',
+  retainer_promo_cta_qualify:'Solicitar calificacion de retainer \u2192',
+  retainer_promo_disclaimer: 'Se requiere revision de elegibilidad. Aplica solo a la primera semana del retainer. No combinable con otras ofertas. VitaCoreX LLC se reserva el derecho de limitar la disponibilidad.',
 
   pet_b2c_badge:      'Clientes privados',
   pet_b2c_title:      'Paquetes de tarifa fija y documentation support \u2014 counsel-ready, precios transparentes.',
