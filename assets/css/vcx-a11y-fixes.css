@@ -322,3 +322,43 @@ main .scd-upl .scd-upl__label {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ---- 12. Page-prefixed -sec-head h2 centering (site-wide) ----
+ * Same bug pattern as Section 11, across many other pages that define their
+ * own BEM-prefixed section-head class inline. Each parent is declared with:
+ *   max-width: 780px | 820px;
+ *   margin: 0 auto <gap>;
+ *   text-align: center;
+ * which correctly centers the BLOCK in the viewport. But the inner <h2>
+ * inherits the global h2 constraint (max-width: 14ch–24ch, margin: 0), so the
+ * narrow h2 sticks to the LEFT edge of its 780/820 parent while the eyebrow
+ * and paragraph around it stay centered. Auto margins on the h2 itself re-
+ * center the block without disturbing its line-length.
+ *
+ * Affected parents (confirmed centered via `margin:0 auto` + `text-align:center`):
+ *   .adr-sec-head  — auto-deal-review.html
+ *   .crs-sec-head  — contract-review-service.html
+ *   .ipr-sec-head  — immigration-packet-review.html
+ *   .prt-sec-head  — partners.html
+ *   .pcp-sec-head  — pre-collection-pilot.html
+ *   .pet-sec-head  — pricing-and-engagement-tiers.html
+ *   .rrf-sec-head  — revenue-recovery-florida.html
+ *   .scd-sec-head  — small-claims-documentation.html
+ *
+ * Deliberately NOT included — these are declared with `margin:0 0 28px` (no
+ * auto on sides) so the block itself is intentionally left-aligned; their h2
+ * sitting against the left edge is correct:
+ *   .csfl-sec-head — case-study-fleet-logistics.html
+ *   .cssa-sec-head — case-study-subscription-saas.html
+ */
+.adr-sec-head h2,
+.crs-sec-head h2,
+.ipr-sec-head h2,
+.prt-sec-head h2,
+.pcp-sec-head h2,
+.pet-sec-head h2,
+.rrf-sec-head h2,
+.scd-sec-head h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
