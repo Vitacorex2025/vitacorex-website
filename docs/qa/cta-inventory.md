@@ -13,7 +13,7 @@ idempotent: true
 
 ## Summary
 
-- **Total interactive elements**: 3066
+- **Total interactive elements**: 3067
 - **Files audited**: 78
 - **Unclassified rows (must be 0)**: 0
 
@@ -23,7 +23,7 @@ idempotent: true
 |----------|-------|
 | primary-nav | 1098 |
 | footer | 888 |
-| in-body | 323 |
+| in-body | 324 |
 | form-submit | 67 |
 | external | 135 |
 | mailto | 7 |
@@ -35,7 +35,7 @@ idempotent: true
 
 | Audience | Count |
 |----------|-------|
-| b2b | 1158 |
+| b2b | 1159 |
 | b2c | 719 |
 | shared | 1189 |
 
@@ -60,11 +60,11 @@ idempotent: true
 | `secure-coordination.html` | 52 |
 | `app/vcx-recovery-pilot/index.html` | 51 |
 | `auto-deal-review.html` | 51 |
+| `small-claims-documentation.html` | 50 |
 | `app/legal-assistant/index.html` | 49 |
 | `llc-formation-florida.html` | 49 |
 | `revenue-recovery-florida.html` | 49 |
 | `security-and-compliance.html` | 49 |
-| `small-claims-documentation.html` | 49 |
 | `about.html` | 48 |
 | `contact.html` | 48 |
 | `business-plans.html` | 47 |
@@ -2825,28 +2825,29 @@ idempotent: true
 | `small-claims-documentation.html` | 253 | a | Private Consultation | `contact.html` | primary-nav | b2b | — |
 | `small-claims-documentation.html` | 272 | a | Start my packet | `structured-case-intake.html` | in-body | b2b | — |
 | `small-claims-documentation.html` | 273 | a | Compare packages | `#compare` | anchor | b2b | — |
-| `small-claims-documentation.html` | 480 | a | Start my packet | `structured-case-intake.html` | in-body | b2b | — |
-| `small-claims-documentation.html` | 481 | a | Talk to us first | `contact.html` | in-body | b2b | — |
-| `small-claims-documentation.html` | 496 | a | See the sample | `samples/small-claims-chronology.html` | in-body | b2b | — |
-| `small-claims-documentation.html` | 496 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
-| `small-claims-documentation.html` | 504 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `small-claims-documentation.html` | 512 | a | Home | `index.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 513 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 514 | a | Industries | `industries.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 515 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 516 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 517 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 518 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 519 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 520 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 526 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 527 | a | Private consultation | `contact.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 528 | a | Careers | `careers.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 529 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 530 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 531 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
-| `small-claims-documentation.html` | 538 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
-| `small-claims-documentation.html` | 539 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
+| `small-claims-documentation.html` | 358 | a | Apply for early-retainer qualification &rarr; | `structured-case-intake.html?promo=early-retainer` | in-body | b2b | — |
+| `small-claims-documentation.html` | 509 | a | Start my packet | `structured-case-intake.html` | in-body | b2b | — |
+| `small-claims-documentation.html` | 510 | a | Talk to us first | `contact.html` | in-body | b2b | — |
+| `small-claims-documentation.html` | 525 | a | See the sample | `samples/small-claims-chronology.html` | in-body | b2b | — |
+| `small-claims-documentation.html` | 525 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2b | — |
+| `small-claims-documentation.html` | 533 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `small-claims-documentation.html` | 541 | a | Home | `index.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 542 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 543 | a | Industries | `industries.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 544 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 545 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 546 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 547 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 548 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 549 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 555 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 556 | a | Private consultation | `contact.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 557 | a | Careers | `careers.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 558 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 559 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 560 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `small-claims-documentation.html` | 567 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2b | new-tab |
+| `small-claims-documentation.html` | 568 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2b | new-tab |
 | `solutions.html` | 64 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2b | — |
 | `solutions.html` | 86 | button | EN | `(handler)` | action-script | b2b | delegated:data-lang=en |
 | `solutions.html` | 86 | button | RU | `(handler)` | action-script | b2b | delegated:data-lang=ru |

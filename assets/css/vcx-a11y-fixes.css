@@ -407,3 +407,21 @@ main .scd-upl .scd-upl__label {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ---- 14. .pet-matrix-head h2 centering (pricing-and-engagement-tiers.html) ----
+ * Same root cause as Sections 11-13. The parent `.pet-matrix-head` is declared
+ * with `max-width:820px; margin:0 auto 36px; text-align:center;` which centers
+ * the BLOCK, but the inner h2 ("Every document service — at a glance.")
+ * inherits the global ui-shell.css constraint:
+ *   h2 { max-width: 24ch !important; margin: 0 0 10px !important }
+ * Result: the narrow 24ch h2 block hugs the LEFT edge of its 820px parent
+ * while the eyebrow pill and intro paragraph stay centered. Auto margins on
+ * the h2 itself restore center alignment without disturbing line-length.
+ *
+ * This is a distinct class family from `-sec-head` (Section 12), not a typo,
+ * so it gets its own rule rather than being merged into the sec-head group.
+ */
+.pet-matrix-head h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
