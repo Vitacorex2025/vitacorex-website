@@ -13,7 +13,7 @@ idempotent: true
 
 ## Summary
 
-- **Total interactive elements**: 3065
+- **Total interactive elements**: 3066
 - **Files audited**: 78
 - **Unclassified rows (must be 0)**: 0
 
@@ -23,7 +23,7 @@ idempotent: true
 |----------|-------|
 | primary-nav | 1098 |
 | footer | 888 |
-| in-body | 322 |
+| in-body | 323 |
 | form-submit | 67 |
 | external | 135 |
 | mailto | 7 |
@@ -35,7 +35,7 @@ idempotent: true
 
 | Audience | Count |
 |----------|-------|
-| b2b | 1157 |
+| b2b | 1158 |
 | b2c | 719 |
 | shared | 1189 |
 
@@ -2170,28 +2170,29 @@ idempotent: true
 | `pricing-and-engagement-tiers.html` | 327 | a | See details &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
 | `pricing-and-engagement-tiers.html` | 366 | a | See Pilot details &rarr; | `pre-collection-pilot.html` | in-body | b2b | — |
 | `pricing-and-engagement-tiers.html` | 388 | a | Review file control &rarr; | `corporate-legal-file-control.html` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 419 | a | Request retainer scope &rarr; | `contact.html` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 455 | a | See packet details &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 477 | a | See packet details &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 498 | a | Book managed file &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 511 | a | Add hearing support &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
-| `pricing-and-engagement-tiers.html` | 565 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `pricing-and-engagement-tiers.html` | 572 | a | Home | `index.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 573 | a | Solutions | `solutions.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 574 | a | Industries | `industries.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 575 | a | About VitaCoreX | `about.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 576 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 577 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 578 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 584 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 585 | a | Security & Compliance | `security-and-compliance.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 586 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 587 | a | Sample Deliverable | `sample-deliverable.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 588 | a | Procurement FAQ | `faq.html#procurement-faq` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 589 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 595 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 596 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
-| `pricing-and-engagement-tiers.html` | 597 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 413 | a | Apply for early-retainer qualification &rarr; | `structured-case-intake.html?promo=early-retainer` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 449 | a | Request retainer scope &rarr; | `contact.html` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 485 | a | See packet details &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 507 | a | See packet details &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 528 | a | Book managed file &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 541 | a | Add hearing support &rarr; | `small-claims-documentation.html#compare` | in-body | b2b | — |
+| `pricing-and-engagement-tiers.html` | 595 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
+| `pricing-and-engagement-tiers.html` | 602 | a | Home | `index.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 603 | a | Solutions | `solutions.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 604 | a | Industries | `industries.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 605 | a | About VitaCoreX | `about.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 606 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 607 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 608 | a | Executive Briefs & Proof | `resources.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 614 | a | Pricing & Engagement Tiers | `pricing-and-engagement-tiers.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 615 | a | Security & Compliance | `security-and-compliance.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 616 | a | Sub-processors & DPA | `sub-processors-and-dpa.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 617 | a | Sample Deliverable | `sample-deliverable.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 618 | a | Procurement FAQ | `faq.html#procurement-faq` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 619 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 625 | a | Privacy Policy | `privacy-policy.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 626 | a | Terms of Use | `terms-of-use.html` | footer | b2b | — |
+| `pricing-and-engagement-tiers.html` | 627 | a | Cookie Policy | `cookie-policy.html` | footer | b2b | — |
 | `privacy-policy.html` | 56 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | shared | — |
 | `privacy-policy.html` | 78 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `privacy-policy.html` | 78 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
