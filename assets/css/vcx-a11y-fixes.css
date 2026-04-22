@@ -18,13 +18,34 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
   color: #1A5A54 !important;
 }
 
-/* Restore white eyebrow inside hero (dark teal background) */
+/* Restore white eyebrow inside hero (dark teal background).
+   Covers every hero variant in the codebase:
+     section.hero, section.hero-premium — legacy pattern (most service pages)
+     .vcx-hero, .vcx-hero-2                — redesign hero variants
+     .vcx-hero-cybercore                   — particle/cybercore hero
+     .vcx-hero-particles-host              — 50+ landing/service pages incl.
+                                             vitacorex-vs-traditional-agency
+   Without these, .eyebrow inherits the #1A5A54 light-surface color from
+   the block above and renders as dark-teal-on-dark-teal (invisible). */
 .hero .eyebrow,
 .hero-premium .eyebrow,
 .hero span.eyebrow,
+.vcx-hero .eyebrow,
+.vcx-hero-2 .eyebrow,
+.vcx-hero-cybercore .eyebrow,
+.vcx-hero-particles-host .eyebrow,
 body .hero .eyebrow,
-body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .hero .eyebrow {
+body .vcx-hero .eyebrow,
+body .vcx-hero-2 .eyebrow,
+body .vcx-hero-cybercore .eyebrow,
+body .vcx-hero-particles-host .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .hero .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-hero .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-hero-2 .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-hero-cybercore .eyebrow,
+body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .vcx-hero-particles-host .eyebrow {
   color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
 }
 
 /* ---- 2. Pill text on light backgrounds ---- */
@@ -37,10 +58,15 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
   color: #1A5A54 !important;
 }
 
-/* Keep pill white inside hero (dark) context */
+/* Keep pill white inside hero (dark) context — all hero variants */
 .hero .pill,
-.hero-premium .pill {
+.hero-premium .pill,
+.vcx-hero .pill,
+.vcx-hero-2 .pill,
+.vcx-hero-cybercore .pill,
+.vcx-hero-particles-host .pill {
   color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
 }
 
 /* ---- 3. Primary CTA button ---- */
@@ -127,6 +153,20 @@ section.band.vcx-bg-dark .btn-secondary {
 section.band .small-note,
 .section .small-note {
   color: #2F3A3A !important;
+}
+
+/* Dark hero variants: small-note inherits the navy/slate color from
+   the block above (#2F3A3A / page defaults like #374E63) which is dark-
+   on-dark on particle/cybercore heroes. Force readable white/light
+   whenever the small-note sits inside a dark hero. */
+.hero .small-note,
+.hero-premium .small-note,
+.vcx-hero .small-note,
+.vcx-hero-2 .small-note,
+.vcx-hero-cybercore .small-note,
+.vcx-hero-particles-host .small-note {
+  color: rgba(255, 255, 255, 0.90) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.90) !important;
 }
 
 /* ---- 6. Audience badge light + workflow chip ---- */
