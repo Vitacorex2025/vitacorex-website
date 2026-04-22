@@ -305,3 +305,20 @@ main .scd-upl .scd-upl__label {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* ---- 11. Florida small-claims .fsch-sec-head h2 centering ----
+ * Parent .fsch-sec-head (inline CSS in florida-small-claims-help.html):
+ *   max-width: 780px; margin: 0 auto; text-align: center;
+ * Intended to center the whole head block in the section. But the h2 inside
+ * inherits global `h2 { max-width: 14ch }` from styles.css with margin:0,
+ * so the narrow h2 (≈405px at desktop, ≈280px at mobile) floats to the LEFT
+ * edge of the 780 parent. text-align:center only centers text within the
+ * narrow h2 box, leaving the h2 visually offset from the viewport center.
+ *
+ * Force auto margins so the h2 centers within its .fsch-sec-head parent.
+ * Keeps 14ch line-length control (readable line width) but makes the block
+ * sit in the middle like the eyebrow and intro paragraph already do. */
+.fsch-sec-head h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
