@@ -99,17 +99,26 @@
   font-style:italic;
 }
 
-/* ---- FIRST MONTH plashka inside each .pet-retainer-level card ---- */
-.pet-retainer-level{ position:relative; }  /* enables absolute plashka */
-
+/* ---- FIRST MONTH plashka inside each .pet-retainer-level card ----
+   Promote the card to a flex column so the plashka hugs the bottom edge
+   regardless of description length (cards are stretched equal-height by
+   the parent grid). Description takes the remaining space. */
+.pet-retainer-level{
+  display:flex;
+  flex-direction:column;
+}
+.pet-retainer-level .pet-retainer-level__desc{
+  flex:1 1 auto;          /* push plashka to bottom on short descriptions */
+}
 .vcx-retainer-plashka{
   display:block;
-  margin:6px 0 0;
+  margin:8px 0 0;         /* small gap above plashka */
   padding:6px 8px 5px;
   border-radius:8px;
   background:linear-gradient(135deg,#D4275C 0%,#A41D48 100%);
   box-shadow:0 4px 12px rgba(212,39,92,.22);
   text-align:center;
+  align-self:stretch;     /* full width of flex column */
 }
 .vcx-retainer-plashka__label{
   display:block;
