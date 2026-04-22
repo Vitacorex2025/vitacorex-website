@@ -263,3 +263,45 @@ main .scd-upl .scd-upl__label {
 .surface--cream {
   background-color: #F4F7F6 !important;
 }
+
+/* ---- 10. Particle-hero section-head alignment (match home hero) ----
+ * vcx-hero-particles.js promotes the top .section > .section-head to a dark
+ * particle hero on some pages (vitacorex-vs-traditional-agency,
+ * revenue-recovery-workflow, case-study-healthcare-network, sample-deliverable,
+ * secure-coordination, security-and-compliance).
+ *
+ * Markup keeps inline style="text-align:center" which centers text inside
+ * narrow 12ch/70ch blocks whose margins are 0 — result is "centered text
+ * hugging the left edge." The home hero (.vcx-hero-2) is left-aligned with
+ * full-width title, and this pattern should match that visual.
+ *
+ * Override inline centering, strip h1 narrow cap, kill auto-margins on the
+ * small-note. Scoped to .vcx-hero-particles-host so regular mid-page
+ * section-heads (solutions, industries, etc.) stay untouched. */
+.vcx-hero-particles-host .section-head,
+.vcx-hero-particles-host--sechead .section-head {
+  text-align: left !important;
+}
+.vcx-hero-particles-host .section-head h1,
+.vcx-hero-particles-host--sechead .section-head h1 {
+  max-width: none !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.vcx-hero-particles-host .section-head .eyebrow,
+.vcx-hero-particles-host--sechead .section-head .eyebrow {
+  text-align: left !important;
+}
+.vcx-hero-particles-host .section-head .section-intro,
+.vcx-hero-particles-host--sechead .section-head .section-intro {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.vcx-hero-particles-host > .wrap > .small-note,
+.vcx-hero-particles-host--sechead > .wrap > .small-note {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
