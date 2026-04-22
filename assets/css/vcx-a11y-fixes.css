@@ -362,3 +362,48 @@ main .scd-upl .scd-upl__label {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ---- 13. Page-prefixed -final-cta h2 centering (dark CTA banners) ----
+ * Same root cause as Sections 11 & 12, applied to the dark gradient final-CTA
+ * bands at the bottom of every service / case-study page. Each parent section
+ * is declared with `text-align:center` and spans the full viewport, the lead
+ * paragraph sets its own `max-width:640px; margin:auto` and stays centered,
+ * and the CTA buttons sit inside a flex row with `justify-content:center`.
+ *
+ * The h2 is the only element left without an auto-margin, so the inherited
+ * global `h2 { max-width: 24ch !important; margin: 0 0 10px !important }` from
+ * ui-shell.css pins the h2 block to the LEFT edge of the viewport, even though
+ * `text-align:center` centers the TEXT within that narrow 24ch box.
+ *
+ * Confirmed via Playwright on pre-collection-pilot.html where the h2 "Apply
+ * for the Qualified Net Recovery Pilot" rendered left-shifted while the lead
+ * and both CTA buttons rendered centered.
+ *
+ * Fix: auto margins on the h2 to recenter the block under its eyebrow/lead.
+ *
+ * Affected sections (all share identical inline CSS: gradient bg + padding +
+ * text-align:center + h2 margin:0 0 14px + p max-width:640px margin:auto):
+ *   .adr-final-cta   — auto-deal-review.html
+ *   .crs-final-cta   — contract-review-service.html
+ *   .csfl-final-cta  — case-study-fleet-logistics.html
+ *   .cssa-final-cta  — case-study-subscription-saas.html
+ *   .fsch-final-cta  — florida-small-claims-help.html
+ *   .ipr-final-cta   — immigration-packet-review.html
+ *   .pcp-final-cta   — pre-collection-pilot.html
+ *   .prt-final-cta   — partners.html
+ *   .rrf-final-cta   — revenue-recovery-florida.html
+ *   .scd-final-cta   — small-claims-documentation.html
+ */
+.adr-final-cta h2,
+.crs-final-cta h2,
+.csfl-final-cta h2,
+.cssa-final-cta h2,
+.fsch-final-cta h2,
+.ipr-final-cta h2,
+.pcp-final-cta h2,
+.prt-final-cta h2,
+.rrf-final-cta h2,
+.scd-final-cta h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
