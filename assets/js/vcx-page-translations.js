@@ -3961,13 +3961,13 @@ add('Federal Employer Identification Number filed with the IRS. Non-resident app
     'Федеральный Employer Identification Number подаётся в IRS. Заявки для нерезидентов ведутся с координацией ITIN при необходимости.',
     'Número federal de identificación del empleador presentado ante el IRS. Solicitudes de no residentes tramitadas con coordinación de ITIN cuando se requiere.');
 add('Operating Agreement',
-    'Operating Agreement',
+    'Операционное соглашение',
     'Acuerdo operativo');
 add('Single-member or multi-member template customized to your ownership, capital, and distribution structure. Bank-accepted format.',
     'Шаблон для single-member или multi-member, настроенный под вашу структуру владения, капитала и распределения. Формат, принимаемый банками.',
     'Plantilla de un solo miembro o múltiples miembros personalizada según su estructura de propiedad, capital y distribución. Formato aceptado por bancos.');
 add('Registered agent',
-    'Registered agent',
+    'Зарегистрированный агент',
     'Agente registrado');
 add('Florida registered agent address for service of process. One-year included with turnkey; renewable.',
     'Адрес registered agent во Флориде для вручения процессуальных документов. Один год включён в turnkey; с возможностью продления.',
@@ -4184,10 +4184,16 @@ add('Important: VitaCoreX LLC reviews auto-purchase documents and explains line 
     '<strong>Важно:</strong> VitaCoreX LLC проверяет документы по покупке автомобиля и объясняет строки договора и типичную рыночную практику. Мы <strong>не юридическая фирма</strong>, не оказываем юридических консультаций и не представляем клиентов в спорах с дилерами или кредиторами. По вопросам обмана потребителей, lemon-law или судебных разбирательств мы направляем к адвокатам по защите прав потребителей. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
     '<strong>Importante:</strong> VitaCoreX LLC revisa documentos de compra de automóviles y explica las partidas y la práctica típica del mercado. <strong>No somos bufete de abogados</strong>, no damos asesoría legal ni representamos clientes en disputas con concesionarios o prestamistas. Para reclamos por prácticas engañosas, casos de ley lemon o litigios, le derivamos a abogados de protección al consumidor. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
 
-/* ─── AUTO PAGE FAQ-ish paragraph ──────────────────────────── */
-add('No \u2014 we don\'t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You use it in the F&I office or take it to a consumer-protection attorney. That\'s the whole service.',
-    'Нет \u2014 мы вас не представляем. Мы даём конкретный письменный список того, с чем нужно спорить (строки, которые попросить удалить менеджера по финансированию, суммы для оспаривания, вопросы, раскрывающие наценку на ставку). Вы используете это в кабинете F&I или передаёте адвокату по защите прав потребителей. Это вся услуга.',
-    'No \u2014 no le representamos. Le damos una lista específica por escrito de lo que debe impugnar (líneas para pedir al gerente de financiación que retire, montos a disputar, preguntas que revelan el recargo de tasa). Usted lo usa en la oficina de F&I o lo lleva a un abogado de protección al consumidor. Ese es todo el servicio.');
+/* ─── AUTO PAGE FAQ-ish paragraphs ─────────────────────────── */
+add('No \u2014 we don\'t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You deliver it. Most clients save 10\u201320\u00d7 the review fee.',
+    'Нет \u2014 мы вас не представляем. Мы даём вам конкретный письменный список того, с чем нужно спорить (строки, которые попросить удалить менеджера по финансированию, суммы для оспаривания, вопросы, раскрывающие наценку на ставку). Вы озвучиваете это сами. Большинство клиентов экономят в 10\u201320\u00d7 больше стоимости проверки.',
+    'No \u2014 no le representamos. Le entregamos una lista específica por escrito de lo que debe impugnar (líneas para pedir al gerente de financiación que retire, montos a disputar, preguntas que revelan el recargo de tasa). Usted la usa. La mayoría de los clientes ahorra 10\u201320\u00d7 el costo de la revisión.');
+add('Yes, often. Pick "Same day" in the urgency field. We turn same-day reviews around in 2\u20134 hours during business hours. For after-hours or weekend deals, submit anyway \u2014 we\'ll tell you which specific numbers to push back on before you sign.',
+    'Да, часто. Выберите «В тот же день» в поле срочности. В рабочие часы мы возвращаем проверку за 2\u20134 часа. Для сделок вечером или в выходные всё равно отправляйте заявку \u2014 мы сообщим, какие конкретные цифры нужно оспорить до подписания.',
+    'Sí, a menudo. Seleccione «El mismo día» en el campo de urgencia. En horario laboral devolvemos revisiones el mismo día en 2\u20134 horas. Para tratos nocturnos o de fin de semana, envíe de todos modos \u2014 le indicaremos qué cifras específicas debe impugnar antes de firmar.');
+add('We read the fine print for you and put the red flags in a single short checklist. You walk into the dealer (or sign the e-pad) knowing exactly what to push back on.',
+    'Мы читаем мелкий шрифт за вас и собираем красные флаги в один короткий чек-лист. Вы приходите к дилеру (или подписываете e-pad), точно зная, что оспорить.',
+    'Leemos la letra pequeña por usted y colocamos las señales de alerta en una sola lista breve. Llega al concesionario (o firma en el e-pad) sabiendo exactamente qué impugnar.');
 
 /* ─── STATE OPTIONS (select/option) ────────────────────────── */
 add('Florida', 'Флорида', 'Florida');
