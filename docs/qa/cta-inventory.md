@@ -13,30 +13,30 @@ idempotent: true
 
 ## Summary
 
-- **Total interactive elements**: 3067
-- **Files audited**: 78
+- **Total interactive elements**: 3151
+- **Files audited**: 82
 - **Unclassified rows (must be 0)**: 0
 
 ### By category
 
 | Category | Count |
 |----------|-------|
-| primary-nav | 1098 |
-| footer | 888 |
-| in-body | 324 |
-| form-submit | 67 |
+| primary-nav | 1102 |
+| footer | 936 |
+| in-body | 333 |
+| form-submit | 73 |
 | external | 135 |
 | mailto | 7 |
-| tel | 68 |
+| tel | 73 |
 | anchor | 56 |
-| action-script | 424 |
+| action-script | 436 |
 
 ### By audience
 
 | Audience | Count |
 |----------|-------|
 | b2b | 1159 |
-| b2c | 719 |
+| b2c | 803 |
 | shared | 1189 |
 
 ### By file (top 30 by CTA count)
@@ -52,17 +52,17 @@ idempotent: true
 | `structured-case-intake.html` | 54 |
 | `app/private-lookup/index.html` | 53 |
 | `florida-small-claims-help.html` | 53 |
+| `immigration-packet-review.html` | 53 |
 | `solutions.html` | 53 |
+| `auto-deal-review.html` | 52 |
 | `contract-review-service.html` | 52 |
 | `corporate-legal-file-control.html` | 52 |
-| `immigration-packet-review.html` | 52 |
 | `pre-collection-pilot.html` | 52 |
 | `secure-coordination.html` | 52 |
 | `app/vcx-recovery-pilot/index.html` | 51 |
-| `auto-deal-review.html` | 51 |
+| `llc-formation-florida.html` | 50 |
 | `small-claims-documentation.html` | 50 |
 | `app/legal-assistant/index.html` | 49 |
-| `llc-formation-florida.html` | 49 |
 | `revenue-recovery-florida.html` | 49 |
 | `security-and-compliance.html` | 49 |
 | `about.html` | 48 |
@@ -768,30 +768,31 @@ idempotent: true
 | `auto-deal-review.html` | 166 | a | Private Consultation | `contact.html` | primary-nav | b2c | — |
 | `auto-deal-review.html` | 185 | a | Send me the contract | `structured-case-intake.html?tier=auto` | in-body | b2c | — |
 | `auto-deal-review.html` | 186 | a | See review pricing | `#pricing` | anchor | b2c | — |
-| `auto-deal-review.html` | 240 | a | Order quick review | `structured-case-intake.html?tier=auto-basic` | in-body | b2c | — |
-| `auto-deal-review.html` | 256 | a | Order full breakdown | `structured-case-intake.html?tier=auto-full` | in-body | b2c | — |
-| `auto-deal-review.html` | 374 | a | Start my review | `structured-case-intake.html?tier=auto` | in-body | b2c | — |
-| `auto-deal-review.html` | 375 | a | Talk to us first | `contact.html` | in-body | b2c | — |
-| `auto-deal-review.html` | 389 | a | See the sample | `samples/auto-deal-cost-breakdown.html` | in-body | b2c | — |
-| `auto-deal-review.html` | 389 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2c | — |
-| `auto-deal-review.html` | 397 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `auto-deal-review.html` | 405 | a | Home | `index.html` | footer | b2c | — |
-| `auto-deal-review.html` | 406 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `auto-deal-review.html` | 407 | a | Industries | `industries.html` | footer | b2c | — |
-| `auto-deal-review.html` | 408 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `auto-deal-review.html` | 409 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `auto-deal-review.html` | 410 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2c | — |
-| `auto-deal-review.html` | 411 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2c | — |
-| `auto-deal-review.html` | 412 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `auto-deal-review.html` | 413 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `auto-deal-review.html` | 419 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `auto-deal-review.html` | 420 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `auto-deal-review.html` | 421 | a | Careers | `careers.html` | footer | b2c | — |
-| `auto-deal-review.html` | 422 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `auto-deal-review.html` | 423 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `auto-deal-review.html` | 424 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
-| `auto-deal-review.html` | 431 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `auto-deal-review.html` | 432 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `auto-deal-review.html` | 188 | a | Signing today? Use our 60-second same-day intake &rarr; | `private-intake-auto.html` | in-body | b2c | — |
+| `auto-deal-review.html` | 241 | a | Order quick review | `structured-case-intake.html?tier=auto-basic` | in-body | b2c | — |
+| `auto-deal-review.html` | 257 | a | Order full breakdown | `structured-case-intake.html?tier=auto-full` | in-body | b2c | — |
+| `auto-deal-review.html` | 375 | a | Start my review | `structured-case-intake.html?tier=auto` | in-body | b2c | — |
+| `auto-deal-review.html` | 376 | a | Talk to us first | `contact.html` | in-body | b2c | — |
+| `auto-deal-review.html` | 390 | a | See the sample | `samples/auto-deal-cost-breakdown.html` | in-body | b2c | — |
+| `auto-deal-review.html` | 390 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2c | — |
+| `auto-deal-review.html` | 398 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `auto-deal-review.html` | 406 | a | Home | `index.html` | footer | b2c | — |
+| `auto-deal-review.html` | 407 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `auto-deal-review.html` | 408 | a | Industries | `industries.html` | footer | b2c | — |
+| `auto-deal-review.html` | 409 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `auto-deal-review.html` | 410 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `auto-deal-review.html` | 411 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2c | — |
+| `auto-deal-review.html` | 412 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2c | — |
+| `auto-deal-review.html` | 413 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `auto-deal-review.html` | 414 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `auto-deal-review.html` | 420 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `auto-deal-review.html` | 421 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `auto-deal-review.html` | 422 | a | Careers | `careers.html` | footer | b2c | — |
+| `auto-deal-review.html` | 423 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `auto-deal-review.html` | 424 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `auto-deal-review.html` | 425 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `auto-deal-review.html` | 432 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `auto-deal-review.html` | 433 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
 | `auto-purchase.html` | 35 | a | additional-services.html | `additional-services.html` | in-body | shared | — |
 | `auto-purchase.html` | 43 | a | (888) 794-8292 | `tel:+18887948292` | tel | shared | — |
 | `auto-purchase.html` | 51 | a | Home | `index.html` | footer | shared | — |
@@ -1504,31 +1505,32 @@ idempotent: true
 | `immigration-packet-review.html` | 166 | a | Private Consultation | `contact.html` | primary-nav | b2c | — |
 | `immigration-packet-review.html` | 185 | a | Start my packet review | `structured-case-intake.html?tier=immigration` | in-body | b2c | — |
 | `immigration-packet-review.html` | 186 | a | See packet pricing | `#pricing` | anchor | b2c | — |
-| `immigration-packet-review.html` | 249 | a | Order packet | `structured-case-intake.html?tier=immigration-basic` | in-body | b2c | — |
-| `immigration-packet-review.html` | 265 | a | Order comprehensive | `structured-case-intake.html?tier=immigration-comprehensive` | in-body | b2c | — |
-| `immigration-packet-review.html` | 281 | a | Request custom scope | `structured-case-intake.html?tier=immigration-complex` | in-body | b2c | — |
-| `immigration-packet-review.html` | 381 | a | Start my packet | `structured-case-intake.html?tier=immigration` | in-body | b2c | — |
-| `immigration-packet-review.html` | 382 | a | Talk to us first | `contact.html` | in-body | b2c | — |
-| `immigration-packet-review.html` | 396 | a | See the sample | `samples/immigration-evidence-index.html` | in-body | b2c | — |
-| `immigration-packet-review.html` | 396 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2c | — |
-| `immigration-packet-review.html` | 404 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `immigration-packet-review.html` | 412 | a | Home | `index.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 413 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 414 | a | Industries | `industries.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 415 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 416 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 417 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 418 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 419 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 420 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 426 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 427 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 428 | a | Careers | `careers.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 429 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 430 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 431 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
-| `immigration-packet-review.html` | 438 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `immigration-packet-review.html` | 439 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `immigration-packet-review.html` | 188 | a | Just a single case? Use our 60-second private-client intake… | `private-intake-immigration.html` | in-body | b2c | — |
+| `immigration-packet-review.html` | 250 | a | Order packet | `structured-case-intake.html?tier=immigration-basic` | in-body | b2c | — |
+| `immigration-packet-review.html` | 266 | a | Order comprehensive | `structured-case-intake.html?tier=immigration-comprehensive` | in-body | b2c | — |
+| `immigration-packet-review.html` | 282 | a | Request custom scope | `structured-case-intake.html?tier=immigration-complex` | in-body | b2c | — |
+| `immigration-packet-review.html` | 382 | a | Start my packet | `structured-case-intake.html?tier=immigration` | in-body | b2c | — |
+| `immigration-packet-review.html` | 383 | a | Talk to us first | `contact.html` | in-body | b2c | — |
+| `immigration-packet-review.html` | 397 | a | See the sample | `samples/immigration-evidence-index.html` | in-body | b2c | — |
+| `immigration-packet-review.html` | 397 | a | Browse the full sample library | `sample-deliverable.html` | in-body | b2c | — |
+| `immigration-packet-review.html` | 405 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `immigration-packet-review.html` | 413 | a | Home | `index.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 414 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 415 | a | Industries | `industries.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 416 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 417 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 418 | a | Net Recovery Program | `pre-collection-pilot.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 419 | a | Small Claims Packets | `small-claims-documentation.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 420 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 421 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 427 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 428 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 429 | a | Careers | `careers.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 430 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 431 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 432 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `immigration-packet-review.html` | 439 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `immigration-packet-review.html` | 440 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
 | `immigration-services-tampa.html` | 67 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
 | `immigration-services-tampa.html` | 89 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
 | `immigration-services-tampa.html` | 89 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
@@ -1918,27 +1920,28 @@ idempotent: true
 | `llc-formation-florida.html` | 134 | a | Home | `index.html` | primary-nav | b2c | — |
 | `llc-formation-florida.html` | 135 | a | Additional Services | `additional-services.html` | primary-nav | b2c | — |
 | `llc-formation-florida.html` | 155 | a | Start intake for your state &rarr; | `structured-case-intake.html?service=llc-formation` | in-body | b2c | — |
-| `llc-formation-florida.html` | 255 | a | Order formation packet | `structured-case-intake.html?service=llc-formation` | in-body | b2c | — |
-| `llc-formation-florida.html` | 271 | a | Request turnkey plan | `structured-case-intake.html?service=turnkey` | in-body | b2c | — |
-| `llc-formation-florida.html` | 282 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `llc-formation-florida.html` | 283 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
-| `llc-formation-florida.html` | 294 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `llc-formation-florida.html` | 301 | a | Home | `index.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 302 | a | Solutions | `solutions.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 303 | a | Industries | `industries.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 304 | a | About VitaCoreX | `about.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 305 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 306 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 307 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 313 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 314 | a | Private consultation | `contact.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 315 | a | Careers | `careers.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 316 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 317 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 318 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
-| `llc-formation-florida.html` | 325 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
-| `llc-formation-florida.html` | 326 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
-| `llc-formation-florida.html` | 327 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
+| `llc-formation-florida.html` | 157 | a | Private client? Use our 60-second business-setup intake &ra… | `private-intake-business.html` | in-body | b2c | — |
+| `llc-formation-florida.html` | 256 | a | Order formation packet | `structured-case-intake.html?service=llc-formation` | in-body | b2c | — |
+| `llc-formation-florida.html` | 272 | a | Request turnkey plan | `structured-case-intake.html?service=turnkey` | in-body | b2c | — |
+| `llc-formation-florida.html` | 283 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `llc-formation-florida.html` | 284 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
+| `llc-formation-florida.html` | 295 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `llc-formation-florida.html` | 302 | a | Home | `index.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 303 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 304 | a | Industries | `industries.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 305 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 306 | a | Revenue Recovery Infrastructure | `revenue-recovery-workflow.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 307 | a | Corporate Legal File Control | `corporate-legal-file-control.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 308 | a | Executive Briefs & Proof | `resources.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 314 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 315 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 316 | a | Careers | `careers.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 317 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 318 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 319 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `llc-formation-florida.html` | 326 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `llc-formation-florida.html` | 327 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `llc-formation-florida.html` | 328 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | b2c | new-tab |
 | `location-analysis.html` | 69 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
 | `location-analysis.html` | 91 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
 | `location-analysis.html` | 91 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
@@ -2252,6 +2255,87 @@ idempotent: true
 | `privacy-policy.html` | 268 | a | Cookie Policy | `cookie-policy.html` | footer | shared | — |
 | `privacy-policy.html` | 275 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | shared | new-tab |
 | `privacy-policy.html` | 276 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | shared | new-tab |
+| `private-intake-auto.html` | 63 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
+| `private-intake-auto.html` | 72 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
+| `private-intake-auto.html` | 73 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
+| `private-intake-auto.html` | 74 | button | ES | `(handler)` | action-script | b2c | delegated:data-lang=es |
+| `private-intake-auto.html` | 109 | form | form:intakeAutoForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | POST |
+| `private-intake-auto.html` | 175 | a | Privacy Policy | `privacy-policy.html` | in-body | b2c | new-tab, missing-noopener |
+| `private-intake-auto.html` | 178 | button | Request my contract review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | form-method:POST |
+| `private-intake-auto.html` | 264 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `private-intake-auto.html` | 271 | a | Home | `index.html` | footer | b2c | — |
+| `private-intake-auto.html` | 272 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `private-intake-auto.html` | 273 | a | Industries | `industries.html` | footer | b2c | — |
+| `private-intake-auto.html` | 274 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `private-intake-auto.html` | 275 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | b2c | — |
+| `private-intake-auto.html` | 276 | a | LLC Formation | `llc-formation-florida.html` | footer | b2c | — |
+| `private-intake-auto.html` | 277 | a | Auto Deal Review | `auto-deal-review.html` | footer | b2c | — |
+| `private-intake-auto.html` | 283 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `private-intake-auto.html` | 284 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `private-intake-auto.html` | 285 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `private-intake-auto.html` | 286 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `private-intake-auto.html` | 287 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `private-intake-business.html` | 63 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
+| `private-intake-business.html` | 72 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
+| `private-intake-business.html` | 73 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
+| `private-intake-business.html` | 74 | button | ES | `(handler)` | action-script | b2c | delegated:data-lang=es |
+| `private-intake-business.html` | 109 | form | form:intakeBusinessForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | POST |
+| `private-intake-business.html` | 183 | a | Privacy Policy | `privacy-policy.html` | in-body | b2c | new-tab, missing-noopener |
+| `private-intake-business.html` | 186 | button | Request my setup plan | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | form-method:POST |
+| `private-intake-business.html` | 272 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `private-intake-business.html` | 279 | a | Home | `index.html` | footer | b2c | — |
+| `private-intake-business.html` | 280 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `private-intake-business.html` | 281 | a | Industries | `industries.html` | footer | b2c | — |
+| `private-intake-business.html` | 282 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `private-intake-business.html` | 283 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | b2c | — |
+| `private-intake-business.html` | 284 | a | LLC Formation | `llc-formation-florida.html` | footer | b2c | — |
+| `private-intake-business.html` | 285 | a | Auto Deal Review | `auto-deal-review.html` | footer | b2c | — |
+| `private-intake-business.html` | 291 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `private-intake-business.html` | 292 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `private-intake-business.html` | 293 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `private-intake-business.html` | 294 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `private-intake-business.html` | 295 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 63 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
+| `private-intake-immigration.html` | 72 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
+| `private-intake-immigration.html` | 73 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
+| `private-intake-immigration.html` | 74 | button | ES | `(handler)` | action-script | b2c | delegated:data-lang=es |
+| `private-intake-immigration.html` | 109 | form | form:intakeImmigrationForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | POST |
+| `private-intake-immigration.html` | 164 | a | Privacy Policy | `privacy-policy.html` | in-body | b2c | new-tab, missing-noopener |
+| `private-intake-immigration.html` | 167 | button | Request my packet review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | b2c | form-method:POST |
+| `private-intake-immigration.html` | 227 | a | Privacy Policy | `privacy-policy.html` | in-body | b2c | — |
+| `private-intake-immigration.html` | 245 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `private-intake-immigration.html` | 252 | a | Home | `index.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 253 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 254 | a | Industries | `industries.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 255 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 256 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 257 | a | LLC Formation | `llc-formation-florida.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 258 | a | Auto Deal Review | `auto-deal-review.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 264 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 265 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 266 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 267 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `private-intake-immigration.html` | 268 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
+| `private-thank-you.html` | 59 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | b2c | — |
+| `private-thank-you.html` | 68 | button | EN | `(handler)` | action-script | b2c | delegated:data-lang=en |
+| `private-thank-you.html` | 69 | button | RU | `(handler)` | action-script | b2c | delegated:data-lang=ru |
+| `private-thank-you.html` | 70 | button | ES | `(handler)` | action-script | b2c | delegated:data-lang=es |
+| `private-thank-you.html` | 103 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `private-thank-you.html` | 107 | a | Back to home | `index.html` | in-body | b2c | — |
+| `private-thank-you.html` | 108 | a | Read executive briefs | `resources.html` | in-body | b2c | — |
+| `private-thank-you.html` | 123 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `private-thank-you.html` | 130 | a | Home | `index.html` | footer | b2c | — |
+| `private-thank-you.html` | 131 | a | Solutions | `solutions.html` | footer | b2c | — |
+| `private-thank-you.html` | 132 | a | Industries | `industries.html` | footer | b2c | — |
+| `private-thank-you.html` | 133 | a | About VitaCoreX | `about.html` | footer | b2c | — |
+| `private-thank-you.html` | 134 | a | Immigration Packet Review | `immigration-packet-review.html` | footer | b2c | — |
+| `private-thank-you.html` | 135 | a | LLC Formation | `llc-formation-florida.html` | footer | b2c | — |
+| `private-thank-you.html` | 136 | a | Auto Deal Review | `auto-deal-review.html` | footer | b2c | — |
+| `private-thank-you.html` | 142 | a | Structured Case Intake | `structured-case-intake.html` | footer | b2c | — |
+| `private-thank-you.html` | 143 | a | Private consultation | `contact.html` | footer | b2c | — |
+| `private-thank-you.html` | 144 | a | Privacy Policy | `privacy-policy.html` | footer | b2c | — |
+| `private-thank-you.html` | 145 | a | Terms of Use | `terms-of-use.html` | footer | b2c | — |
+| `private-thank-you.html` | 146 | a | Cookie Policy | `cookie-policy.html` | footer | b2c | — |
 | `resources.html` | 28 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `index.html` | primary-nav | shared | — |
 | `resources.html` | 50 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `resources.html` | 50 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
