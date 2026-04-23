@@ -63,11 +63,11 @@ Enhanced Conversions hash email + phone from the form and send them to Google to
 2. Download `campaigns.csv` (in this folder).
 3. In Ads Editor: **Account → Import → From file → Select campaigns.csv**.
 4. Review the 3 campaigns it imports:
-   - VCX — Private — Immigration (EN)
-   - VCX — Private — Business Setup (EN)
-   - VCX — Private — Auto Purchase (EN)
-5. For each campaign, confirm the daily budget (default in CSV: $20/day = $600/mo per campaign). Adjust to your actual monthly budget before posting.
-6. Click **Post** to push to Google Ads.
+   - VCX — Private — Immigration (EN) — **active at $50/mo ($1.67/day)**
+   - VCX — Private — Business Setup (EN) — **placeholder, Paused**
+   - VCX — Private — Auto Purchase (EN) — **placeholder, Paused**
+5. Budget strategy at $50/mo total — see **Section 3** for the rationale. Immigration is the only campaign you'll un-pause at launch.
+6. Click **Post** to push to Google Ads. All 3 campaigns land as **Paused** so nothing runs until you explicitly enable.
 
 ### Phase E — Ad copy finalization (15 min)
 
@@ -96,29 +96,66 @@ Enable one campaign at a time, monitor for 48 hours, then enable the next. Never
 
 ## 3. Budget guidance
 
-**Minimum viable**: $15/day per campaign × 3 campaigns = **$1,350/mo**.
-Below that, Google's ML has too little data to optimize. You can run 1 campaign at $30/day first, see what converts, then scale.
+### Active plan: $50/month test budget — **Immigration only**
 
-**Recommended starter**: $30/day per campaign × 3 = **$2,700/mo** for 2–3 weeks, then rebalance toward the winner.
+You're starting with $50/month. That's a data-collection budget, not a sales-volume budget. The smart play at this budget is to **concentrate all $50 on one campaign** (Immigration) so Smart Bidding gets a usable signal, instead of spreading $16/mo across 3 campaigns (too thin for ML to optimize).
+
+**Active:**
+- **VCX — Private — Immigration** — $1.67/day × 30 days ≈ $50.10/mo
+
+**Placeholder (stays Paused at launch):**
+- **VCX — Private — Business Setup** — $1.00/day placeholder (will activate once Immigration has a winning pattern + you scale budget)
+- **VCX — Private — Auto Purchase** — $1.00/day placeholder (same)
+
+**Why Immigration first:**
+1. USCIS-specific search queries have the highest intent-to-fill-form rate in our 3 verticals.
+2. CPCs on USCIS packet keywords average $1.50–$3.00 — cheaper than LLC/dealer keywords.
+3. At $1.67/day with CPC ~$2.00, you get ~25 clicks/month. With a 5–8% form-fill rate that's ~2 leads/month — enough to see which keywords convert.
+
+**Expected math at $50/mo:**
+- ~25 clicks/month → ~1000 impressions/month
+- ~2 leads/month → data to rank keywords by conversion rate
+- After 4 weeks, pause bottom 50% of keywords and scale the rest
+
+### When to increase the budget
+
+When any of these fire, bump budget:
+- Immigration hits ≥3 leads in its first 2 weeks → scale Immigration to $3/day ($90/mo)
+- Immigration hits ≥5 leads → un-pause Business at $1.50/day
+- Immigration + Business both converting → un-pause Auto at $1/day
+- Any campaign hits $120 spend with <1 lead → diagnose (keywords, ad copy, or landing match), then decide pause vs. rework
 
 **Target CPA** (cost per acquisition / cost per lead):
 - Immigration: $25–$60 per lead (high-volume, moderate-intent)
 - Business setup: $40–$120 per lead (high-intent, high LTV)
 - Auto purchase: $20–$50 per lead (urgency-driven)
 
-If your average cost per click settles below $3 for immigration or auto, and below $8 for business, you're in good shape. Above that, tighten the keyword match types (Phrase > Broad).
+### Scale path (when you want more sales, not just data)
+
+For actual sales volume, you need $1,000+/mo per campaign. The honest ladder:
+
+| Monthly budget | Expected leads/mo | What it buys you |
+|---|---|---|
+| **$50** (current) | 2–3 | Data collection for 1 service, prove economics |
+| $300 | 10–15 | Enough for Smart Bidding to start optimizing |
+| $1,000 | 35–50 | Reliable monthly lead flow, 1 service |
+| $3,000 | 100–150 | All 3 services active + Smart Bidding tight |
+
+If the goal is "more sales this month," $50 will not move the needle. It's the right budget to **test the economics without risk**. If you want sales volume quickly, set aside $1,000 minimum.
 
 ---
 
 ## 4. Geo + language strategy
 
-**Starter (recommended for MVP):**
+**Active:**
 - **Geo:** United States. Florida boosted +25% bid adjustment (home state, fastest intake).
-- **Language:** English campaigns only. Add Russian + Spanish in Phase 2 once you have conversion data.
+- **Language:** English campaigns only at launch. **Russian + Spanish landing pages are already built** (the site switches EN/RU/ES via the top-right toggle, full translations in `assets/js/vcx-page-translations.js`) — but at $50/mo you don't split the budget across languages yet.
 
-**Expansion (Phase 2, after 2–3 weeks of data):**
-- Clone the 3 English campaigns as RU and ES variants.
-- Point them at the same landing pages (they auto-translate via `vcx-i18n.js` when the user clicks the EN/RU/ES switch, but for Google Ads we should build dedicated RU/ES landing variants for Quality Score — that's Phase 2 work).
+**Expansion (when budget scales past $300/mo):**
+- Clone the Immigration campaign as a Russian variant (RU keywords in `ru-ad-copy.md`).
+- Clone the Immigration campaign as a Spanish variant (ES keywords in `es-ad-copy.md`).
+- Point all 3 language campaigns at the same EN landing page — it auto-translates based on the user's browser/locale setting. Google Ads Quality Score treats this as acceptable if the translated content is real (it is — text-matching translations are applied at page load).
+- Alternative (Phase 2+): Build URL-routed RU/ES landings (`/ru/private-intake-immigration.html`) for cleaner Quality Score signal. Not needed at current budget.
 
 ---
 
@@ -147,8 +184,10 @@ If your average cost per click settles below $3 for immigration or auto, and bel
 | File | What it is |
 |---|---|
 | `README.md` | This document |
-| `campaigns.csv` | Google Ads Editor bulk import for 3 campaigns |
-| `ad-copy.md` | Full RSA headline + description sets for each ad group |
+| `campaigns.csv` | Google Ads Editor bulk import for 3 campaigns (Immigration $50/mo active, Business + Auto placeholders) |
+| `ad-copy.md` | Full RSA headline + description sets for each ad group (EN) |
+| `ru-ad-copy.md` | Russian RSA copy for future RU campaign expansion |
+| `es-ad-copy.md` | Spanish RSA copy for future ES campaign expansion |
 | `keywords.md` | Keyword lists (Phrase + Exact) per ad group + shared negative keyword list |
 | `conversion-actions.md` | Exact GA4 event-parameter mapping + enhanced-conversions setup |
 

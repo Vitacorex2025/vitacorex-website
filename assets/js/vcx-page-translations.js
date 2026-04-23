@@ -3693,12 +3693,488 @@ add('VitaCoreX is not a law firm and not a licensed collection agency. Legal str
     'VitaCoreX не является юридической фирмой и не является лицензированным коллекторским агентством. Юридическая стратегия и советы остаются за лицензированным counsel.',
     'VitaCoreX no es un bufete ni una agencia de cobranza con licencia. La estrategia legal y los consejos legales permanecen con abogados con licencia.');
 
+// ─── PRIVATE CLIENT INTAKE PAGES (Google Ads funnel) ────────
+// Immigration / Business setup / Auto purchase review
+// Pages: private-intake-{immigration,business,auto}.html, private-thank-you.html
+
+// Shared bullets/trust/form labels
+add('Bilingual: English, Russian, Spanish',
+    'Двуязычная поддержка: английский, русский, испанский',
+    'Soporte bilingüe: inglés, ruso, español');
+add('Reply within 1 business day',
+    'Ответ в течение 1 рабочего дня',
+    'Respuesta en 1 día hábil');
+add('Florida-registered LLC',
+    'Компания зарегистрирована во Флориде',
+    'LLC registrada en Florida');
+add('Not a law firm',
+    'Не юридическая фирма',
+    'No es un bufete de abogados');
+add('No legal advice',
+    'Без юридических советов',
+    'Sin asesoría legal');
+add('Not legal advice',
+    'Не юридический совет',
+    'No es asesoría legal');
+add('Non-residents welcome',
+    'Нерезиденты приветствуются',
+    'No residentes bienvenidos');
+add('Bilingual team',
+    'Двуязычная команда',
+    'Equipo bilingüe');
+add('Fast turnaround',
+    'Быстрый разбор',
+    'Respuesta rápida');
+add('Request help',
+    'Запросить помощь',
+    'Solicitar ayuda');
+add('Full name',
+    'Полное имя',
+    'Nombre completo');
+add('Email',
+    'Email',
+    'Correo electrónico');
+add('Phone',
+    'Телефон',
+    'Teléfono');
+add('Brief note (optional)',
+    'Краткий комментарий (необязательно)',
+    'Nota breve (opcional)');
+add('Select one',
+    'Выберите',
+    'Seleccione una opción');
+add('Select state',
+    'Выберите штат',
+    'Seleccione el estado');
+add('Other / not sure',
+    'Другое / не уверен',
+    'Otro / no estoy seguro');
+add('We reply within 1 business day · No spam · You can opt out anytime',
+    'Ответим в течение 1 рабочего дня · без спама · можно отписаться в любой момент',
+    'Respondemos en 1 día hábil · sin spam · puede darse de baja en cualquier momento');
+add('I agree to be contacted by VitaCoreX LLC about this request. I\u2019ve read the Privacy Policy. I understand VitaCoreX is not a law firm and does not provide legal advice.',
+    'Я согласен(на), что VitaCoreX LLC свяжется со мной по этому запросу. Я прочитал(а) Политику конфиденциальности. Я понимаю, что VitaCoreX не является юридической фирмой и не даёт юридических консультаций.',
+    'Acepto que VitaCoreX LLC me contacte sobre esta solicitud. He leído la Política de Privacidad. Entiendo que VitaCoreX no es un bufete y no proporciona asesoría legal.');
+add('Frequently asked',
+    'Часто задаваемые вопросы',
+    'Preguntas frecuentes');
+add('Quick answers before you fill the form.',
+    'Быстрые ответы перед заполнением формы.',
+    'Respuestas rápidas antes de completar el formulario.');
+
+// ─── IMMIGRATION PAGE ───
+add('Immigration documentation support',
+    'Поддержка документации по иммиграции',
+    'Soporte documental de inmigración');
+add('USCIS packet help \u2014 organized, translated, ready for your attorney.',
+    'Помощь с пакетом USCIS \u2014 организуем, переводим, готовим для вашего адвоката.',
+    'Ayuda con el paquete USCIS \u2014 organizado, traducido y listo para su abogado.');
+add('Send us what you have. We return a clean, counsel-ready packet with missing items flagged, translations coordinated, and the whole file in one place. Bilingual team. Florida-registered LLC.',
+    'Пришлите то, что у вас есть. Вернём чистый, готовый для юриста пакет: отметим недостающее, скоординируем переводы и соберём весь файл в одном месте. Двуязычная команда. LLC во Флориде.',
+    'Envíenos lo que tiene. Le devolvemos un paquete limpio listo para abogado, con los ítems faltantes marcados, las traducciones coordinadas y todo el expediente en un solo lugar. Equipo bilingüe. LLC de Florida.');
+add('I-130 · I-485 · I-765 · N-400 · work-visa support',
+    'Поддержка по I-130 · I-485 · I-765 · N-400 · рабочим визам',
+    'Soporte para I-130 · I-485 · I-765 · N-400 · visas de trabajo');
+add('From $149 · typical packet ready in 3\u20135 business days',
+    'От $149 · типичный пакет готов за 3\u20135 рабочих дней',
+    'Desde $149 · paquete típico listo en 3\u20135 días hábiles');
+add('Tell us about your case',
+    'Расскажите о вашем деле',
+    'Cuéntenos sobre su caso');
+add('Takes about 60 seconds. No attorney intake yet \u2014 we only need enough to route the file.',
+    'Занимает около 60 секунд. Это не юридический intake \u2014 только данные для маршрутизации дела.',
+    'Toma unos 60 segundos. No es una admisión legal aún \u2014 solo necesitamos lo básico para encaminar el caso.');
+add('Which USCIS matter?',
+    'По какому делу USCIS?',
+    '¿Qué asunto de USCIS?');
+add('State you live in',
+    'Штат проживания',
+    'Estado donde vive');
+add('I-130 \u2014 Family petition',
+    'I-130 \u2014 семейная петиция',
+    'I-130 \u2014 petición familiar');
+add('I-485 \u2014 Adjustment of status / green card',
+    'I-485 \u2014 смена статуса / грин-карта',
+    'I-485 \u2014 ajuste de estatus / green card');
+add('I-765 \u2014 Work authorization (EAD)',
+    'I-765 \u2014 разрешение на работу (EAD)',
+    'I-765 \u2014 autorización de trabajo (EAD)');
+add('N-400 \u2014 Naturalization / citizenship',
+    'N-400 \u2014 натурализация / гражданство',
+    'N-400 \u2014 naturalización / ciudadanía');
+add('Work visa (H-1B / O-1 / L-1)',
+    'Рабочая виза (H-1B / O-1 / L-1)',
+    'Visa de trabajo (H-1B / O-1 / L-1)');
+add('DACA renewal',
+    'Продление DACA',
+    'Renovación de DACA');
+add('Request my packet review',
+    'Запросить разбор моего пакета',
+    'Solicitar revisión de mi paquete');
+add('Documentation support \u2014 not legal representation.',
+    'Поддержка документации \u2014 не юридическое представительство.',
+    'Soporte documental \u2014 no es representación legal.');
+add('We organize, translate, flag gaps, and prepare counsel-ready packets. Your attorney (or the one we introduce you to) handles the legal work.',
+    'Организуем, переводим, помечаем пробелы и готовим пакеты, готовые для юриста. Юридическую работу ведёт ваш адвокат (или тот, кого мы порекомендуем).',
+    'Organizamos, traducimos, marcamos omisiones y preparamos paquetes listos para abogado. Su abogado (o uno que le recomendamos) maneja el trabajo legal.');
+add('What we actually do',
+    'Что мы реально делаем',
+    'Lo que realmente hacemos');
+add('Organized packet',
+    'Организованный пакет',
+    'Paquete organizado');
+add('Every document labeled, sorted, and indexed the way USCIS examiners expect. Digital and print-ready.',
+    'Каждый документ подписан, отсортирован и проиндексирован так, как ожидают ревизоры USCIS. Готово в цифровом и печатном виде.',
+    'Cada documento etiquetado, ordenado e indexado como lo esperan los examinadores de USCIS. Listo en digital y para imprimir.');
+add('Certified translations',
+    'Сертифицированные переводы',
+    'Traducciones certificadas');
+add('We coordinate certified English translations for birth certificates, marriage certificates, diplomas, and other supporting records.',
+    'Координируем сертифицированные переводы на английский для свидетельств о рождении, браке, дипломов и других подтверждающих документов.',
+    'Coordinamos traducciones certificadas al inglés para actas de nacimiento, matrimonio, diplomas y otros documentos de soporte.');
+add('Gap flagging',
+    'Выявление пробелов',
+    'Detección de omisiones');
+add('Missing affidavits? Medical exam not attached? We mark every gap in a short checklist you can hand to your attorney.',
+    'Нет аффидевитов? Не приложен медосмотр? Отмечаем каждый пробел в коротком чек-листе, который можно передать адвокату.',
+    '¿Faltan declaraciones juradas? ¿No se adjunta el examen médico? Marcamos cada omisión en una lista corta que puede entregar a su abogado.');
+add('English, Russian, Spanish. Intake and follow-up in the language you actually think in.',
+    'Английский, русский, испанский. Первичный приём и дальнейшее сопровождение на языке, на котором вы думаете.',
+    'Inglés, ruso, español. Admisión y seguimiento en el idioma en el que realmente piensa.');
+add('Do you give immigration legal advice?',
+    'Вы даёте юридические советы по иммиграции?',
+    '¿Brindan asesoría legal de inmigración?');
+add('No. We are not attorneys and we do not advise on eligibility, filing strategy, or case outcomes. We prepare documentation \u2014 your attorney uses it. If you don\u2019t have an attorney, we can point you to immigration-licensed practitioners.',
+    'Нет. Мы не адвокаты и не консультируем по праву на подачу, стратегии или исходу дела. Мы готовим документацию \u2014 её использует ваш адвокат. Если адвоката нет, можем порекомендовать лицензированных иммиграционных практиков.',
+    'No. No somos abogados y no asesoramos sobre elegibilidad, estrategia de presentación ni resultados del caso. Preparamos la documentación \u2014 su abogado la utiliza. Si no tiene abogado, podemos referirle a profesionales con licencia en inmigración.');
+add('How much does a packet cost?',
+    'Сколько стоит пакет?',
+    '¿Cuánto cuesta un paquete?');
+add('Standard packet review starts at $149. Comprehensive reviews (multiple forms, certified translations, affidavit coordination) are $219\u2013$399 depending on scope. You see a scope quote before any work starts.',
+    'Стандартный разбор пакета \u2014 от $149. Комплексные проверки (несколько форм, сертифицированные переводы, координация аффидевитов) \u2014 $219\u2013$399 в зависимости от объёма. Цена согласуется до начала работ.',
+    'La revisión estándar del paquete comienza en $149. Las revisiones integrales (varios formularios, traducciones certificadas, coordinación de declaraciones juradas) cuestan $219\u2013$399 según el alcance. Verá la cotización antes de comenzar.');
+add('How fast can you turn this around?',
+    'Как быстро вы сделаете?',
+    '¿Qué tan rápido pueden entregarlo?');
+add('Typical packet is ready in 3\u20135 business days from the moment we have all source documents. Rush options (48 hours / same day) are available if we confirm source-document completeness at intake.',
+    'Типичный пакет готов за 3\u20135 рабочих дней с момента получения всех исходных документов. Срочные опции (48 часов / в тот же день) доступны при подтверждении комплектности документов на первичном приёме.',
+    'El paquete típico está listo en 3\u20135 días hábiles desde que tenemos todos los documentos de origen. Hay opciones urgentes (48 horas / mismo día) si confirmamos la completitud documental en la admisión.');
+add('Is my data safe?',
+    'Мои данные в безопасности?',
+    '¿Mis datos están seguros?');
+add('Yes. Documents live in access-controlled workspaces with audit logs. We do not sell or share data. Full details in our Privacy Policy.',
+    'Да. Документы хранятся в рабочих пространствах с контролем доступа и журналами аудита. Мы не продаём и не передаём данные. Подробности в Политике конфиденциальности.',
+    'Sí. Los documentos residen en espacios de trabajo con control de acceso y registros de auditoría. No vendemos ni compartimos datos. Detalles completos en nuestra Política de Privacidad.');
+add('Can I request service in Russian or Spanish?',
+    'Можно получать услуги на русском или испанском?',
+    '¿Puedo solicitar el servicio en ruso o español?');
+add('Yes. Our intake, follow-up, and document annotations can be delivered in English, Russian, or Spanish. Mention your preferred language in the note field or switch the page language using the top-right toggle.',
+    'Да. Первичный приём, сопровождение и комментарии к документам можно получать на английском, русском или испанском. Укажите предпочитаемый язык в поле комментария или переключите язык в правом верхнем углу.',
+    'Sí. Nuestra admisión, seguimiento y anotaciones se pueden entregar en inglés, ruso o español. Mencione su idioma preferido en el campo de comentarios o cambie el idioma de la página con el botón superior derecho.');
+
+// ─── BUSINESS PAGE ───
+add('Business setup support',
+    'Поддержка при открытии компании',
+    'Soporte para crear su empresa');
+add('Start a US company \u2014 formation, EIN, and turnkey setup done for you.',
+    'Открыть компанию в США \u2014 регистрация, EIN и turnkey-пакет под ключ.',
+    'Abra una empresa en EE. UU. \u2014 formación, EIN y paquete llave en mano hecho por nosotros.');
+add('LLC or C-corp formation, EIN application, registered agent, operating agreement, and bank-ready document stack. US residents and non-residents welcome. Bilingual team.',
+    'Создание LLC или C-corp, оформление EIN, registered agent, operating agreement и пакет документов для банка. Резиденты США и нерезиденты приветствуются. Двуязычная команда.',
+    'Formación de LLC o C-corp, solicitud de EIN, agente registrado, acuerdo operativo y pila documental lista para banco. Residentes de EE. UU. y no residentes bienvenidos. Equipo bilingüe.');
+add('Florida, Delaware, Wyoming, Texas, any state',
+    'Флорида, Делавэр, Вайоминг, Техас, любой штат',
+    'Florida, Delaware, Wyoming, Texas, cualquier estado');
+add('LLC · C-corp · EIN · Operating Agreement · registered agent',
+    'LLC · C-corp · EIN · Operating Agreement · registered agent',
+    'LLC · C-corp · EIN · Acuerdo operativo · agente registrado');
+add('From $299 filing + state fee · typical setup 5\u201310 business days',
+    'От $299 + госпошлина штата · типичная настройка за 5\u201310 рабочих дней',
+    'Desde $299 + tarifa estatal · configuración típica en 5\u201310 días hábiles');
+add('Tell us what you want to set up',
+    'Расскажите, что вы хотите оформить',
+    'Cuéntenos qué desea configurar');
+add('Takes about 60 seconds. We\u2019ll send a scope quote and next steps by email within 1 business day.',
+    'Занимает около 60 секунд. Пришлём расчёт и следующие шаги по email в течение 1 рабочего дня.',
+    'Toma unos 60 segundos. Le enviaremos una cotización y los próximos pasos por correo en 1 día hábil.');
+add('What do you need?',
+    'Что вам нужно?',
+    '¿Qué necesita?');
+add('State to register in',
+    'В каком штате регистрировать',
+    'Estado donde registrar');
+add('Are you a US resident?',
+    'Вы резидент США?',
+    '¿Es residente de EE. UU.?');
+add('LLC formation',
+    'Создание LLC',
+    'Formación de LLC');
+add('C-corp formation',
+    'Создание C-corp',
+    'Formación de C-corp');
+add('EIN application only',
+    'Только оформление EIN',
+    'Solo solicitud de EIN');
+add('Turnkey package (LLC + EIN + agent + operating agreement + bank docs)',
+    'Turnkey-пакет (LLC + EIN + агент + operating agreement + документы для банка)',
+    'Paquete llave en mano (LLC + EIN + agente + acuerdo operativo + documentos bancarios)');
+add('Registered agent / compliance',
+    'Registered agent / комплаенс',
+    'Agente registrado / cumplimiento');
+add('Restructure or re-file existing entity',
+    'Реструктуризация или переоформление существующей компании',
+    'Reestructurar o volver a presentar entidad existente');
+add('US citizen or green card',
+    'Гражданин США или обладатель грин-карты',
+    'Ciudadano de EE. UU. o titular de green card');
+add('US visa holder (H1B, L1, etc.)',
+    'Обладатель визы США (H1B, L1 и т. д.)',
+    'Titular de visa de EE. UU. (H1B, L1, etc.)');
+add('Non-resident (living abroad)',
+    'Нерезидент (проживаю за рубежом)',
+    'No residente (vive en el extranjero)');
+add('Request my setup plan',
+    'Запросить мой план открытия',
+    'Solicitar mi plan de configuración');
+add('What\u2019s included',
+    'Что включено',
+    'Qué incluye');
+add('From incorporation to "ready to invoice a client."',
+    'От регистрации до «готов выставлять счета клиентам».',
+    'Desde la incorporación hasta "listo para facturar a un cliente".');
+add('We handle the state filing, IRS paperwork, operating documents, and the stack of forms your bank needs. You get one organized workspace with everything.',
+    'Берём на себя регистрацию в штате, бумаги для IRS, operating documents и пакет форм, которые нужны банку. У вас одно организованное рабочее пространство со всем необходимым.',
+    'Nos encargamos del registro estatal, papeleo del IRS, documentos operativos y la pila de formularios que requiere su banco. Obtiene un espacio de trabajo organizado con todo.');
+add('State filing',
+    'Регистрация в штате',
+    'Presentación estatal');
+add('Articles of Organization or Incorporation filed with the Secretary of State. Name search, entity number, and certified copy.',
+    'Articles of Organization или Incorporation подаются в Secretary of State. Поиск названия, номер компании и заверенная копия.',
+    'Articles of Organization o Incorporation presentados ante el Secretary of State. Búsqueda de nombre, número de entidad y copia certificada.');
+add('EIN application',
+    'Оформление EIN',
+    'Solicitud de EIN');
+add('Federal Employer Identification Number filed with the IRS. Non-resident applications handled with ITIN coordination when needed.',
+    'Федеральный Employer Identification Number подаётся в IRS. Заявки для нерезидентов ведутся с координацией ITIN при необходимости.',
+    'Número federal de identificación del empleador presentado ante el IRS. Solicitudes de no residentes tramitadas con coordinación de ITIN cuando se requiere.');
+add('Operating Agreement',
+    'Operating Agreement',
+    'Acuerdo operativo');
+add('Single-member or multi-member template customized to your ownership, capital, and distribution structure. Bank-accepted format.',
+    'Шаблон для single-member или multi-member, настроенный под вашу структуру владения, капитала и распределения. Формат, принимаемый банками.',
+    'Plantilla de un solo miembro o múltiples miembros personalizada según su estructura de propiedad, capital y distribución. Formato aceptado por bancos.');
+add('Registered agent',
+    'Registered agent',
+    'Agente registrado');
+add('Florida registered agent address for service of process. One-year included with turnkey; renewable.',
+    'Адрес registered agent во Флориде для вручения процессуальных документов. Один год включён в turnkey; с возможностью продления.',
+    'Dirección de agente registrado en Florida para notificaciones legales. Un año incluido con paquete llave en mano; renovable.');
+add('Bank-ready stack',
+    'Пакет для банка',
+    'Pila lista para banco');
+add('The exact document set US banks and fintechs (Mercury, Relay, Wise, Chase) ask for. Zipped, organized, ready to upload.',
+    'Точный комплект документов, который просят банки США и финтех (Mercury, Relay, Wise, Chase). В архиве, организованно, готово к загрузке.',
+    'El conjunto exacto de documentos que piden los bancos y fintech de EE. UU. (Mercury, Relay, Wise, Chase). Comprimido, organizado, listo para cargar.');
+add('Bilingual support',
+    'Двуязычная поддержка',
+    'Soporte bilingüe');
+add('English, Russian, Spanish. Intake, document review, and follow-up in the language you think in.',
+    'Английский, русский, испанский. Первичный приём, разбор документов и сопровождение на языке, на котором вы думаете.',
+    'Inglés, ruso, español. Admisión, revisión documental y seguimiento en el idioma en el que piensa.');
+add('Can I form a US LLC if I don\u2019t live in the US?',
+    'Могу ли я создать LLC в США, если не живу в США?',
+    '¿Puedo formar una LLC en EE. UU. si no vivo en EE. UU.?');
+add('Yes. Non-residents can own and operate US LLCs. You don\u2019t need a US address, SSN, or visa to form the entity \u2014 but some banks will ask for additional KYC. We prepare the document stack that fintechs and banks actually accept.',
+    'Да. Нерезиденты могут владеть и управлять LLC в США. Для регистрации не нужны американский адрес, SSN или виза \u2014 но некоторые банки запросят дополнительный KYC. Мы готовим пакет документов, который реально принимают банки и финтех.',
+    'Sí. Los no residentes pueden poseer y operar LLC en EE. UU. No necesita dirección de EE. UU., SSN ni visa para formar la entidad \u2014 pero algunos bancos pedirán KYC adicional. Preparamos la pila documental que los bancos y fintech realmente aceptan.');
+add('Which state should I register in?',
+    'В каком штате регистрироваться?',
+    '¿En qué estado debo registrarme?');
+add('For most small businesses, register in the state where you actually operate. Delaware and Wyoming are popular for investors and privacy; Florida is our home state. We\u2019ll recommend a state based on your activity on the intake call \u2014 not based on affiliate fees.',
+    'Большинству малых бизнесов стоит регистрироваться в том штате, где вы реально работаете. Делавэр и Вайоминг популярны для инвесторов и приватности; Флорида \u2014 наш домашний штат. Рекомендацию дадим по вашему бизнесу на первичном звонке \u2014 не по партнёрским выплатам.',
+    'Para la mayoría de pequeñas empresas, regístrese en el estado donde realmente opera. Delaware y Wyoming son populares para inversores y privacidad; Florida es nuestro estado sede. Recomendaremos un estado según su actividad en la llamada inicial \u2014 no por comisiones de afiliado.');
+add('How much does this cost?',
+    'Сколько это стоит?',
+    '¿Cuánto cuesta?');
+add('Our filing fee starts at $299 (plus the state\u2019s fee, which varies $70\u2013$500). Turnkey packages (LLC + EIN + agent + operating agreement + bank-ready docs) are $599\u2013$899 depending on state. You see a scope quote before any work starts.',
+    'Наша комиссия за подачу \u2014 от $299 (плюс пошлина штата $70\u2013$500). Turnkey-пакеты (LLC + EIN + агент + operating agreement + документы для банка) \u2014 $599\u2013$899 в зависимости от штата. Цена согласуется до начала работ.',
+    'Nuestra tarifa de presentación comienza en $299 (más la tarifa estatal, que varía $70\u2013$500). Los paquetes llave en mano (LLC + EIN + agente + acuerdo operativo + documentos listos para banco) cuestan $599\u2013$899 según el estado. Verá la cotización antes de comenzar.');
+add('How fast is the setup?',
+    'Как быстро настройка?',
+    '¿Qué tan rápida es la configuración?');
+add('State filing: 1\u201310 business days (depends on state). EIN: 2\u201315 business days (1\u20132 days for US residents, 2\u20133 weeks for non-residents via fax). Turnkey typical total: 5\u201310 business days for US residents, 10\u201320 for non-residents.',
+    'Регистрация в штате: 1\u201310 рабочих дней (зависит от штата). EIN: 2\u201315 рабочих дней (1\u20132 дня для резидентов США, 2\u20133 недели для нерезидентов через факс). Turnkey-итог: 5\u201310 рабочих дней для резидентов США, 10\u201320 для нерезидентов.',
+    'Presentación estatal: 1\u201310 días hábiles (según estado). EIN: 2\u201315 días hábiles (1\u20132 días para residentes de EE. UU., 2\u20133 semanas para no residentes por fax). Total típico llave en mano: 5\u201310 días hábiles para residentes de EE. UU., 10\u201320 para no residentes.');
+add('Do you help with taxes or bookkeeping?',
+    'Помогаете ли с налогами или бухгалтерией?',
+    '¿Ayudan con impuestos o contabilidad?');
+add('We do not file tax returns or provide tax advice \u2014 that\u2019s a CPA\u2019s job. We do prepare documentation your CPA asks for (BOI filing, Form SS-4, state annual reports, etc.). We can refer you to bilingual CPAs we work with.',
+    'Мы не подаём налоговые декларации и не даём налоговых советов \u2014 это работа CPA. Мы готовим документы, которые запрашивает ваш CPA (BOI filing, Form SS-4, ежегодные отчёты штата и т. д.). Можем порекомендовать двуязычных CPA, с которыми мы работаем.',
+    'No presentamos declaraciones de impuestos ni damos asesoría fiscal \u2014 ese es el trabajo de un CPA. Sí preparamos documentación que su CPA solicita (BOI, formulario SS-4, informes anuales estatales, etc.). Podemos referirle a CPA bilingües con los que trabajamos.');
+
+// ─── AUTO PAGE ───
+add('Auto purchase documentation review',
+    'Разбор документов на покупку автомобиля',
+    'Revisión documental de compra de vehículo');
+add('Don\u2019t sign that dealer contract yet \u2014 let us check it first.',
+    'Не подписывайте контракт в дилершипе \u2014 дайте нам проверить первыми.',
+    'No firme ese contrato del concesionario todavía \u2014 déjenos revisarlo primero.');
+add('Send us the buyer\u2019s order, finance contract, or add-on sheet. We flag hidden fees, duplicated packages, warranty gaps, and financing red flags. Quick turnaround so you don\u2019t lose the deal.',
+    'Пришлите buyer\u2019s order, финансовый контракт или перечень add-on. Отметим скрытые платежи, дублирование пакетов, пробелы в гарантии и опасные места в финансировании. Быстрый разбор, чтобы не потерять сделку.',
+    'Envíenos el buyer\u2019s order, el contrato de financiamiento o la hoja de add-ons. Señalamos cargos ocultos, paquetes duplicados, omisiones de garantía y señales de alerta de financiamiento. Respuesta rápida para no perder la oferta.');
+add('Used and new · dealer and private-party',
+    'Б/у и новые · дилер и частная продажа',
+    'Usados y nuevos · concesionario y venta particular');
+add('Finance contract · buyer\u2019s order · add-ons review',
+    'Финансовый контракт · buyer\u2019s order · разбор add-on',
+    'Contrato de financiamiento · buyer\u2019s order · revisión de add-ons');
+add('From $89 · typical return in 4\u201324 hours',
+    'От $89 · типичный разбор за 4\u201324 часа',
+    'Desde $89 · entrega típica en 4\u201324 horas');
+add('Tell us about the deal',
+    'Расскажите о сделке',
+    'Cuéntenos sobre la oferta');
+add('Takes about 60 seconds. Send us the paperwork after \u2014 we\u2019ll tell you what to send.',
+    'Занимает около 60 секунд. Документы пришлёте потом \u2014 мы скажем, что именно нужно.',
+    'Toma unos 60 segundos. Envíe el papeleo después \u2014 le diremos qué mandar.');
+add('What do you need reviewed?',
+    'Что нужно проверить?',
+    '¿Qué necesita revisar?');
+add('How urgent?',
+    'Насколько срочно?',
+    '¿Qué tan urgente?');
+add('State the deal is in',
+    'Штат сделки',
+    'Estado de la transacción');
+add('Dealer buyer\u2019s order / purchase agreement',
+    'Buyer\u2019s order дилера / договор купли-продажи',
+    'Buyer\u2019s order del concesionario / contrato de compra');
+add('Finance contract (retail installment)',
+    'Финансовый контракт (retail installment)',
+    'Contrato de financiamiento (retail installment)');
+add('Lease agreement',
+    'Договор лизинга',
+    'Contrato de arrendamiento');
+add('Add-ons / warranty / GAP / service contract',
+    'Add-ons / гарантия / GAP / сервисный контракт',
+    'Add-ons / garantía / GAP / contrato de servicio');
+add('Private-party bill of sale',
+    'Bill of sale от частного продавца',
+    'Bill of sale de venta particular');
+add('Pre-purchase \u2014 help me decide before signing',
+    'До покупки \u2014 помогите решить до подписания',
+    'Antes de comprar \u2014 ayúdenme a decidir antes de firmar');
+add('Post-signing \u2014 I already signed, something\u2019s wrong',
+    'После подписания \u2014 я уже подписал(а), что-то не так',
+    'Después de firmar \u2014 ya firmé, algo está mal');
+add('Same day \u2014 signing today',
+    'Сегодня \u2014 подписываю сегодня',
+    'Mismo día \u2014 firmo hoy');
+add('Within 24 hours',
+    'В течение 24 часов',
+    'Dentro de 24 horas');
+add('Within 2\u20133 business days',
+    'В течение 2\u20133 рабочих дней',
+    'Dentro de 2\u20133 días hábiles');
+add('No rush \u2014 planning ahead',
+    'Не срочно \u2014 планирую заранее',
+    'Sin prisa \u2014 planificando con antelación');
+add('Request my contract review',
+    'Запросить разбор моего контракта',
+    'Solicitar la revisión de mi contrato');
+add('We reply within 1 business day · same-day option available · No spam',
+    'Ответим в течение 1 рабочего дня · доступен same-day вариант · без спама',
+    'Respondemos en 1 día hábil · opción mismo día disponible · sin spam');
+add('What we check',
+    'Что мы проверяем',
+    'Lo que revisamos');
+add('The paperwork traps that cost buyers the most money.',
+    'Ловушки в бумагах, которые больше всего обходятся покупателям.',
+    'Las trampas del papeleo que más dinero cuestan a los compradores.');
+add('We read the fine print for you and put the red flags in a single short checklist. You walk into the dealer (or sign the e-pad) knowing exactly what to push back on.',
+    'Читаем мелкий шрифт за вас и собираем красные флаги в один короткий чек-лист. Вы входите в дилершип (или подписываете e-pad), чётко зная, на что давить.',
+    'Leemos la letra pequeña por usted y ponemos las señales de alerta en una lista corta. Entra al concesionario (o firma el e-pad) sabiendo exactamente qué objetar.');
+add('Hidden & duplicated fees',
+    'Скрытые и дублированные комиссии',
+    'Cargos ocultos y duplicados');
+add('Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, "market adjustment" \u2014 we flag which are negotiable, which are illegal, and which are duplicated across line items.',
+    'Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, «market adjustment» \u2014 отмечаем, какие обсуждаемы, какие незаконны и какие дублируются между строк.',
+    'Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, "market adjustment" \u2014 marcamos cuáles son negociables, cuáles ilegales y cuáles aparecen duplicados entre líneas.');
+add('Finance rate vs. buy rate',
+    'Ставка контракта vs. buy rate',
+    'Tasa del contrato vs. buy rate');
+add('We compare the rate on your contract against typical buy rates for your credit tier so you know if the dealer marked it up.',
+    'Сравниваем ставку в вашем контракте с типичными buy rate для вашего кредитного рейтинга \u2014 чтобы вы видели наценку дилера.',
+    'Comparamos la tasa de su contrato con las buy rates típicas para su nivel de crédito, para que sepa si el concesionario le aplicó margen.');
+add('Add-ons audit',
+    'Аудит add-ons',
+    'Auditoría de add-ons');
+add('GAP, extended warranty, tire-and-wheel, maintenance packages, key replacement. We show the actual value vs. what you\u2019re charged and whether you can cancel post-signing.',
+    'GAP, расширенная гарантия, tire-and-wheel, пакеты обслуживания, замена ключей. Показываем реальную ценность vs. сумму в контракте и можно ли отменить после подписания.',
+    'GAP, garantía extendida, tire-and-wheel, paquetes de mantenimiento, reemplazo de llave. Mostramos el valor real vs. lo que le cobran y si puede cancelar tras firmar.');
+add('Total cost breakdown',
+    'Разбор общей стоимости',
+    'Desglose del costo total');
+add('The actual out-the-door number vs. the advertised price. Tax, tag, title, doc, add-ons, financing charges \u2014 in one clean summary.',
+    'Реальная сумма out-the-door vs. рекламируемая цена. Налог, tag, title, doc, add-ons, проценты \u2014 в одной чистой сводке.',
+    'El número real out-the-door vs. el precio anunciado. Impuesto, tag, title, doc, add-ons, cargos financieros \u2014 en un resumen limpio.');
+add('Cancellation windows',
+    'Окна отмены',
+    'Ventanas de cancelación');
+add('State-specific rules on what you can cancel after signing (GAP, warranty, unwinding the deal). We mark every deadline.',
+    'Правила штатов для отмены после подписания (GAP, гарантия, расторжение сделки). Отмечаем каждый срок.',
+    'Reglas específicas por estado sobre qué puede cancelar tras firmar (GAP, garantía, anulación del trato). Marcamos cada plazo.');
+add('English, Russian, Spanish. We\u2019ve reviewed hundreds of deals for bilingual families \u2014 we know what the pressure sounds like.',
+    'Английский, русский, испанский. Мы разобрали сотни сделок для двуязычных семей \u2014 знаем, как звучит давление.',
+    'Inglés, ruso, español. Hemos revisado cientos de transacciones para familias bilingües \u2014 sabemos cómo suena la presión.');
+add('I\u2019m at the dealership right now. Can you help today?',
+    'Я прямо сейчас в дилершипе. Поможете сегодня?',
+    'Estoy ahora mismo en el concesionario. ¿Pueden ayudar hoy?');
+add('Yes, often. Pick "Same day" in the urgency field. We turn same-day reviews around in 2\u20134 hours during business hours. For after-hours or weekend deals, submit anyway \u2014 we\u2019ll tell you which specific numbers to push back on before you sign.',
+    'Да, часто. Выберите «Сегодня» в поле срочности. Same-day разборы делаем за 2\u20134 часа в рабочее время. Для сделок вне рабочего времени или на выходных \u2014 отправляйте всё равно, скажем, на какие конкретные цифры давить до подписания.',
+    'Sí, a menudo. Seleccione "Mismo día" en el campo de urgencia. Hacemos revisiones mismo día en 2\u20134 horas durante horario de oficina. Para tratos fuera de horario o fin de semana, envíe de todos modos \u2014 le diremos qué números específicos objetar antes de firmar.');
+add('How much does a review cost?',
+    'Сколько стоит разбор?',
+    '¿Cuánto cuesta una revisión?');
+add('Quick contract review starts at $89. Full breakdown (finance contract + add-ons + total-cost summary) is $149. Post-signing dispute review with cancellation pathway is $219. You see the scope quote before work starts.',
+    'Быстрый разбор контракта \u2014 от $89. Полный разбор (финансовый контракт + add-ons + сводка общей стоимости) \u2014 $149. Разбор после подписания с путём отмены \u2014 $219. Цена согласуется до начала работ.',
+    'La revisión rápida del contrato comienza en $89. El desglose completo (contrato de financiamiento + add-ons + resumen de costo total) es $149. La revisión post-firma con ruta de cancelación es $219. Verá la cotización antes de comenzar.');
+add('Can you negotiate with the dealer for me?',
+    'Можете договариваться с дилером за меня?',
+    '¿Pueden negociar con el concesionario por mí?');
+add('No \u2014 we don\u2019t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You deliver it. Most clients save 10\u201320x the review fee.',
+    'Нет \u2014 мы вас не представляем. Даём конкретный письменный список, на что давить (строки для удаления у finance manager, суммы для оспаривания, вопросы, выявляющие наценку). Передаёте вы. Большинство клиентов экономят 10\u201320x стоимости разбора.',
+    'No \u2014 no le representamos. Le damos una lista escrita específica de qué objetar (líneas que pedir al finance manager que elimine, montos a disputar, preguntas que revelan el margen). Usted lo entrega. La mayoría de clientes ahorra 10\u201320x la tarifa de revisión.');
+add('Already signed \u2014 can you still help?',
+    'Уже подписал \u2014 всё ещё можете помочь?',
+    'Ya firmé \u2014 ¿todavía pueden ayudar?');
+add('Yes. Pick "Post-signing." Many states have cancellation windows for GAP, extended warranty, and the deal itself. We identify which apply in your state and what you need to send to cancel. If the dealer committed fraud, we refer you to a consumer-protection attorney.',
+    'Да. Выберите «После подписания». Во многих штатах есть окна отмены для GAP, расширенной гарантии и самой сделки. Определяем, что применимо в вашем штате и что нужно отправить для отмены. Если дилер совершил мошенничество \u2014 направим к consumer-protection адвокату.',
+    'Sí. Seleccione "Después de firmar". Muchos estados tienen ventanas de cancelación para GAP, garantía extendida y la propia transacción. Identificamos cuáles aplican en su estado y qué necesita enviar para cancelar. Si el concesionario cometió fraude, le referimos a un abogado de protección al consumidor.');
+add('Do you do pre-purchase inspections?',
+    'Делаете ли pre-purchase осмотры?',
+    '¿Hacen inspecciones previas a la compra?');
+add('No mechanical inspection \u2014 we only review paperwork. For mechanical inspection we recommend a pre-purchase inspection by an independent shop. We can flag dealer-inspection gaps in the paperwork (e.g., no frame check, no diagnostic report).',
+    'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
+    'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
+
+// ─── SOFT CTA LINES (on existing landings) ───
+add('Just a single case? Use our 60-second private-client intake \u2192',
+    'Единичный случай? Заполните наш 60-секундный intake для частных клиентов \u2192',
+    '¿Un solo caso? Use nuestra admisión privada de 60 segundos \u2192');
+add('Single-owner setup? Use our 60-second business-setup intake \u2192',
+    'Настройка одного владельца? Заполните наш 60-секундный intake \u2192',
+    '¿Configuración de un solo propietario? Use nuestra admisión de 60 segundos \u2192');
+add('Signing today? Use our 60-second same-day intake \u2192',
+    'Подписываете сегодня? Заполните наш 60-секундный same-day intake \u2192',
+    '¿Firma hoy? Use nuestra admisión urgente de 60 segundos \u2192');
+
 /* ================================================================
    TRANSLATION ENGINE — walks the DOM and replaces text
    ================================================================ */
 
 // Elements to translate (content area only, skip nav/header/footer handled by shell-i18n)
-var SELECTORS = 'h1, h2, h3, p, li, span.eyebrow, span.pill, a.btn, a.btn-primary, a.btn-secondary, label, option, button[type="submit"], .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3';
+var SELECTORS = 'h1, h2, h3, p, li, span.eyebrow, span.pill, a.btn, a.btn-primary, a.btn-secondary, label, option, button[type="submit"], .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3, .pci-hero__eyebrow, .pci-form-card__eyebrow, .pci-form-card__title, .pci-form-card__sub, .pci-sec-head__eyebrow, .pci-trustbar span, .pci-bullets li, .pci-form-note, .pci-disc, .pci-ty-card__eyebrow, .pci-ty-card__lede, .pci-ty-kpi__label, .pci-ty-kpi__value, .pci-cta-soft a';
 
 // Skip elements already handled by shell-i18n
 var SKIP_PARENTS = ['vcx-main-nav', 'vcx-mobile-nav', 'footer', 'vcx-header-meta', 'vcx-lang-switch'];

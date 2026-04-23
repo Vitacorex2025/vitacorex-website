@@ -1,5 +1,5 @@
 Campaign,Ad group,Keyword,Match type,Max CPC,Status,Final URL,Campaign budget,Campaign status
-VCX - Private - Immigration,USCIS packet review,immigration packet review,Exact,3.50,Enabled,https://vitacorexllc.com/private-intake-immigration.html,20.00,Paused
+VCX - Private - Immigration,USCIS packet review,immigration packet review,Exact,3.50,Enabled,https://vitacorexllc.com/private-intake-immigration.html,1.67,Paused
 VCX - Private - Immigration,USCIS packet review,uscis packet help,Exact,3.50,Enabled,,,
 VCX - Private - Immigration,USCIS packet review,uscis documentation help,Exact,3.50,Enabled,,,
 VCX - Private - Immigration,USCIS packet review,immigration paperwork help,Exact,3.50,Enabled,,,
@@ -54,7 +54,7 @@ VCX - Private - Immigration,Certified translations,certified translation i-130,P
 VCX - Private - Immigration,Certified translations,russian english translation uscis,Phrase,2.50,Enabled,,,
 VCX - Private - Immigration,Certified translations,spanish english translation uscis,Phrase,2.50,Enabled,,,
 VCX - Private - Immigration,Certified translations,immigration document translation,Phrase,2.50,Enabled,,,
-VCX - Private - Business Setup,LLC formation generic,llc formation service,Exact,5.00,Enabled,https://vitacorexllc.com/private-intake-business.html,20.00,Paused
+VCX - Private - Business Setup,LLC formation generic,llc formation service,Exact,5.00,Enabled,https://vitacorexllc.com/private-intake-business.html,1.00,Paused
 VCX - Private - Business Setup,LLC formation generic,form an llc,Exact,5.00,Enabled,,,
 VCX - Private - Business Setup,LLC formation generic,open an llc,Exact,5.00,Enabled,,,
 VCX - Private - Business Setup,LLC formation generic,start an llc online,Exact,5.00,Enabled,,,
@@ -108,7 +108,7 @@ VCX - Private - Business Setup,State specific,florida llc setup,Phrase,4.50,Enab
 VCX - Private - Business Setup,State specific,delaware llc formation,Phrase,4.50,Enabled,,,
 VCX - Private - Business Setup,State specific,wyoming llc formation,Phrase,4.50,Enabled,,,
 VCX - Private - Business Setup,State specific,cheapest state to form llc,Phrase,4.00,Enabled,,,
-VCX - Private - Auto Purchase,Dealer contract review,car dealer contract review,Exact,3.00,Enabled,https://vitacorexllc.com/private-intake-auto.html,20.00,Paused
+VCX - Private - Auto Purchase,Dealer contract review,car dealer contract review,Exact,3.00,Enabled,https://vitacorexllc.com/private-intake-auto.html,1.00,Paused
 VCX - Private - Auto Purchase,Dealer contract review,auto purchase contract review,Exact,3.00,Enabled,,,
 VCX - Private - Auto Purchase,Dealer contract review,used car contract review,Exact,3.00,Enabled,,,
 VCX - Private - Auto Purchase,Dealer contract review,dealer contract review,Phrase,2.50,Enabled,,,

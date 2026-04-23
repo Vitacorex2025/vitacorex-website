@@ -151,7 +151,7 @@
 
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
 <script src="/assets/js/vcx-i18n.js?v=3" defer></script>
-<script src="/assets/js/vcx-page-translations.js?v=10" defer></script>
+<script src="/assets/js/vcx-page-translations.js?v=11" defer></script>
 <script src="assets/js/site.js?v=3" defer></script>
 <script src="assets/js/ui-shell.js" defer></script>
 <script src="assets/js/premium-fixes.js" defer></script>
@@ -163,60 +163,147 @@
 <script src="/assets/js/vcx-footer.js?v=8" defer></script>
 
 <script>
-// Service-aware copy branching + GA4 conversion
+// Service-aware + language-aware copy branching + GA4 conversion
 (function(){
   'use strict';
 
   var COPY = {
-    immigration: {
-      eyebrow: 'Immigration packet — received',
-      title: 'Thank you. Your immigration request is in.',
-      lede: 'A bilingual VitaCoreX specialist will review what you sent, line up the missing items, and reply with a scope quote within 1 business day. If your deadline is tight, call or text so we can prioritize.',
-      response: '1 business day',
-      next: 'Document checklist + quote',
-      resource_href: 'immigration-packet-review.html',
-      resource_label: 'Immigration service details'
+    en: {
+      immigration: {
+        eyebrow: 'Immigration packet \u2014 received',
+        title: 'Thank you. Your immigration request is in.',
+        lede: 'A bilingual VitaCoreX specialist will review what you sent, line up the missing items, and reply with a scope quote within 1 business day. If your deadline is tight, call or text so we can prioritize.',
+        response: '1 business day',
+        next: 'Document checklist + quote',
+        resource_href: 'immigration-packet-review.html',
+        resource_label: 'Immigration service details'
+      },
+      business: {
+        eyebrow: 'Business setup \u2014 received',
+        title: 'Thank you. Your company-setup request is in.',
+        lede: 'A VitaCoreX specialist will confirm the state, package, and bank-readiness plan, then send a scope quote within 1 business day. For non-resident setups we\u2019ll outline the ITIN/EIN timeline so you know what to expect.',
+        response: '1 business day',
+        next: 'State + package quote',
+        resource_href: 'llc-formation-florida.html',
+        resource_label: 'LLC formation details'
+      },
+      auto: {
+        eyebrow: 'Car purchase review \u2014 received',
+        title: 'Thank you. Your contract review is in.',
+        lede: 'A VitaCoreX specialist will tell you exactly what paperwork to send (buyer\u2019s order, finance contract, add-on sheet) and start the review. Same-day requests are prioritized during business hours.',
+        response: 'Same day / 1 business day',
+        next: 'Document request + review',
+        resource_href: 'auto-deal-review.html',
+        resource_label: 'Auto deal review details'
+      },
+      _default: {
+        eyebrow: 'Request received',
+        title: 'Thank you. We got your request.',
+        lede: 'A VitaCoreX specialist will review your details and reply within 1 business day. If you need faster turnaround, call or text the number below.',
+        response: '1 business day',
+        next: 'Scope & quote by email',
+        resource_href: 'resources.html',
+        resource_label: 'Read executive briefs'
+      }
     },
-    business: {
-      eyebrow: 'Business setup — received',
-      title: 'Thank you. Your company-setup request is in.',
-      lede: 'A VitaCoreX specialist will confirm the state, package, and bank-readiness plan, then send a scope quote within 1 business day. For non-resident setups we\u2019ll outline the ITIN/EIN timeline so you know what to expect.',
-      response: '1 business day',
-      next: 'State + package quote',
-      resource_href: 'llc-formation-florida.html',
-      resource_label: 'LLC formation details'
+    ru: {
+      immigration: {
+        eyebrow: 'Иммиграционный пакет \u2014 получен',
+        title: 'Спасибо. Ваш иммиграционный запрос принят.',
+        lede: 'Двуязычный специалист VitaCoreX разберёт то, что вы прислали, подготовит список недостающего и вернётся с расчётом в течение 1 рабочего дня. Если сроки горят \u2014 позвоните или напишите, мы ускорим.',
+        response: '1 рабочий день',
+        next: 'Чек-лист документов + расчёт',
+        resource_href: 'immigration-packet-review.html',
+        resource_label: 'Подробности по иммиграционной услуге'
+      },
+      business: {
+        eyebrow: 'Открытие компании \u2014 получено',
+        title: 'Спасибо. Ваш запрос на открытие компании принят.',
+        lede: 'Специалист VitaCoreX подтвердит штат, пакет и план подготовки к банку, затем пришлёт расчёт в течение 1 рабочего дня. Для нерезидентов распишем сроки ITIN/EIN, чтобы вы понимали, чего ждать.',
+        response: '1 рабочий день',
+        next: 'Расчёт по штату и пакету',
+        resource_href: 'llc-formation-florida.html',
+        resource_label: 'Подробности по открытию LLC'
+      },
+      auto: {
+        eyebrow: 'Разбор покупки авто \u2014 получен',
+        title: 'Спасибо. Ваш запрос на разбор контракта принят.',
+        lede: 'Специалист VitaCoreX скажет, какие именно бумаги прислать (buyer\u2019s order, финансовый контракт, лист add-on) и начнёт разбор. Same-day запросы приоритет в рабочее время.',
+        response: 'Сегодня / 1 рабочий день',
+        next: 'Запрос документов + разбор',
+        resource_href: 'auto-deal-review.html',
+        resource_label: 'Подробности по auto deal review'
+      },
+      _default: {
+        eyebrow: 'Запрос получен',
+        title: 'Спасибо. Мы получили ваш запрос.',
+        lede: 'Специалист VitaCoreX рассмотрит детали и ответит в течение 1 рабочего дня. Если нужен более быстрый разбор \u2014 позвоните или напишите на номер ниже.',
+        response: '1 рабочий день',
+        next: 'Расчёт по email',
+        resource_href: 'resources.html',
+        resource_label: 'Читать executive briefs'
+      }
     },
-    auto: {
-      eyebrow: 'Car purchase review — received',
-      title: 'Thank you. Your contract review is in.',
-      lede: 'A VitaCoreX specialist will tell you exactly what paperwork to send (buyer\u2019s order, finance contract, add-on sheet) and start the review. Same-day requests are prioritized during business hours.',
-      response: 'Same day / 1 business day',
-      next: 'Document request + review',
-      resource_href: 'auto-deal-review.html',
-      resource_label: 'Auto deal review details'
-    },
-    _default: {
-      eyebrow: 'Request received',
-      title: 'Thank you. We got your request.',
-      lede: 'A VitaCoreX specialist will review your details and reply within 1 business day. If you need faster turnaround, call or text the number below.',
-      response: '1 business day',
-      next: 'Scope & quote by email',
-      resource_href: 'resources.html',
-      resource_label: 'Read executive briefs'
+    es: {
+      immigration: {
+        eyebrow: 'Paquete de inmigración \u2014 recibido',
+        title: 'Gracias. Su solicitud de inmigración fue recibida.',
+        lede: 'Un especialista bilingüe de VitaCoreX revisará lo que envió, listará los ítems faltantes y responderá con una cotización en 1 día hábil. Si el plazo aprieta, llame o escriba para priorizar.',
+        response: '1 día hábil',
+        next: 'Lista de documentos + cotización',
+        resource_href: 'immigration-packet-review.html',
+        resource_label: 'Detalles del servicio de inmigración'
+      },
+      business: {
+        eyebrow: 'Apertura de empresa \u2014 recibido',
+        title: 'Gracias. Su solicitud de apertura fue recibida.',
+        lede: 'Un especialista de VitaCoreX confirmará el estado, el paquete y el plan para el banco, luego enviará una cotización en 1 día hábil. Para no residentes detallaremos el cronograma de ITIN/EIN.',
+        response: '1 día hábil',
+        next: 'Cotización por estado y paquete',
+        resource_href: 'llc-formation-florida.html',
+        resource_label: 'Detalles de formación de LLC'
+      },
+      auto: {
+        eyebrow: 'Revisión de compra de vehículo \u2014 recibida',
+        title: 'Gracias. Su revisión de contrato fue recibida.',
+        lede: 'Un especialista de VitaCoreX le dirá exactamente qué papeleo enviar (buyer\u2019s order, contrato de financiamiento, hoja de add-ons) y comenzará la revisión. Las solicitudes del mismo día tienen prioridad en horario de oficina.',
+        response: 'Mismo día / 1 día hábil',
+        next: 'Solicitud de documentos + revisión',
+        resource_href: 'auto-deal-review.html',
+        resource_label: 'Detalles de la revisión de auto'
+      },
+      _default: {
+        eyebrow: 'Solicitud recibida',
+        title: 'Gracias. Recibimos su solicitud.',
+        lede: 'Un especialista de VitaCoreX revisará los detalles y responderá en 1 día hábil. Si necesita una respuesta más rápida, llame o escriba al número de abajo.',
+        response: '1 día hábil',
+        next: 'Cotización por correo',
+        resource_href: 'resources.html',
+        resource_label: 'Leer executive briefs'
+      }
     }
   };
+
+  function getLang(){
+    try{
+      var s = localStorage.getItem('vcx_lang');
+      if(s === 'ru' || s === 'es' || s === 'en') return s;
+    }catch(e){}
+    return 'en';
+  }
 
   function detectService(){
     try{
       var p = new URLSearchParams(window.location.search);
       var s = (p.get('service') || '').toLowerCase();
-      if (COPY[s]) return s;
+      if (COPY.en[s]) return s;
     }catch(e){}
     return '_default';
   }
 
-  function applyCopy(service){
-    var c = COPY[service];
+  function applyCopy(service, lang){
+    var table = COPY[lang] || COPY.en;
+    var c = table[service] || COPY.en[service] || COPY.en._default;
     var set = function(id, val){ var el = document.getElementById(id); if(el && val) el.textContent = val; };
     set('tyEyebrow', c.eyebrow);
     set('tyTitle', c.title);
@@ -257,8 +344,14 @@
   }
 
   var svc = detectService();
-  applyCopy(svc);
+  applyCopy(svc, getLang());
   fireConversion(svc === '_default' ? 'unknown' : svc);
+
+  // Re-apply on language change (keeps thank-you copy in sync with switcher)
+  document.addEventListener('vcx:lang-change', function(e){
+    var lang = (e.detail && e.detail.lang) || getLang();
+    applyCopy(svc, lang);
+  });
 })();
 </script>
 </body>
