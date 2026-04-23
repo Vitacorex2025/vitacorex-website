@@ -12,7 +12,10 @@
    Key = English text (trimmed), Value = {ru: '...', es: '...'}
    ──────────────────────────────────────────────────────────── */
 var T = {};
-function add(en, ru, es){ T[en] = {ru: ru, es: es}; }
+// Normalize the key the same way the DOM lookup does (see normText below).
+// Without this, keys written with en-dash (–) don't match DOM text whose
+// lookup canonicalises to em-dash (—), so the translation silently misses.
+function add(en, ru, es){ T[normText(en)] = {ru: ru, es: es}; }
 
 // ─── ABOUT PAGE ──────────────────────────────────────────────
 add('About VitaCoreX',
