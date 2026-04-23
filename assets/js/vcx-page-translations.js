@@ -3889,7 +3889,7 @@ add('Florida, Delaware, Wyoming, Texas, any state',
     'Флорида, Делавэр, Вайоминг, Техас, любой штат',
     'Florida, Delaware, Wyoming, Texas, cualquier estado');
 add('LLC · C-corp · EIN · Operating Agreement · registered agent',
-    'LLC · C-corp · EIN · Operating Agreement · registered agent',
+    'LLC · C-corp · EIN · Операционное соглашение · зарегистрированный агент',
     'LLC · C-corp · EIN · Acuerdo operativo · agente registrado');
 add('From $299 filing + state fee · typical setup 5\u201310 business days',
     'От $299 + госпошлина штата · типичная настройка за 5\u201310 рабочих дней',
@@ -4172,6 +4172,45 @@ add('Signing today? Use our 60-second same-day intake \u2192',
     'Подписываете сегодня? Заполните наш 60-секундный same-day intake \u2192',
     '¿Firma hoy? Use nuestra admisión urgente de 60 segundos \u2192');
 
+/* ─── DISCLAIMERS (private-intake .pci-disc) ─────────────────
+   HTML values include <strong> tags matching the source markup. */
+add('Important: VitaCoreX LLC is a Florida-registered company providing remote documentation and administrative support. We are not a law firm, do not provide legal or immigration advice, and do not represent clients before USCIS, EOIR, or any court. We assemble documentation that you or your attorney use. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
+    '<strong>Важно:</strong> VitaCoreX LLC \u2014 зарегистрированная во Флориде компания, оказывающая удалённые услуги по документации и административной поддержке. Мы <strong>не юридическая фирма</strong>, не оказываем юридических или иммиграционных консультаций и не представляем клиентов в USCIS, EOIR или любом суде. Мы готовим документы, которые вы или ваш адвокат используете. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
+    '<strong>Importante:</strong> VitaCoreX LLC es una empresa registrada en Florida que ofrece apoyo remoto de documentación y administración. <strong>No somos bufete de abogados</strong>, no damos asesoría legal ni de inmigración, y no representamos clientes ante USCIS, EOIR ni ningún tribunal. Preparamos documentos que usted o su abogado utilizan. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
+add('Important: VitaCoreX LLC prepares and files business-formation documents as a third-party filer. We are not a law firm, do not provide legal, tax, or immigration advice, and do not act as CPAs or attorneys. For tax strategy, complex ownership structures, or immigration-linked formation (EB-5, L-1, E-2), we refer you to licensed counsel. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
+    '<strong>Важно:</strong> VitaCoreX LLC готовит и подаёт документы по регистрации бизнеса как сторонний файлер. Мы <strong>не юридическая фирма</strong>, не оказываем юридических, налоговых или иммиграционных консультаций и не действуем в качестве CPA или адвокатов. По вопросам налоговой стратегии, сложных структур собственности или иммиграционной регистрации (EB-5, L-1, E-2) мы направляем к лицензированным консультантам. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
+    '<strong>Importante:</strong> VitaCoreX LLC prepara y presenta documentos de formación empresarial como tramitador tercero. <strong>No somos bufete de abogados</strong>, no damos asesoría legal, fiscal ni de inmigración, y no actuamos como CPA ni abogados. Para estrategia fiscal, estructuras de propiedad complejas o formación vinculada a inmigración (EB-5, L-1, E-2) le derivamos a asesores con licencia. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
+add('Important: VitaCoreX LLC reviews auto-purchase documents and explains line items and typical market practice. We are not a law firm, do not provide legal advice, and do not represent clients in disputes with dealers or lenders. For deceptive-practice claims, lemon-law cases, or litigation, we refer you to consumer-protection attorneys. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
+    '<strong>Важно:</strong> VitaCoreX LLC проверяет документы по покупке автомобиля и объясняет строки договора и типичную рыночную практику. Мы <strong>не юридическая фирма</strong>, не оказываем юридических консультаций и не представляем клиентов в спорах с дилерами или кредиторами. По вопросам обмана потребителей, lemon-law или судебных разбирательств мы направляем к адвокатам по защите прав потребителей. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
+    '<strong>Importante:</strong> VitaCoreX LLC revisa documentos de compra de automóviles y explica las partidas y la práctica típica del mercado. <strong>No somos bufete de abogados</strong>, no damos asesoría legal ni representamos clientes en disputas con concesionarios o prestamistas. Para reclamos por prácticas engañosas, casos de ley lemon o litigios, le derivamos a abogados de protección al consumidor. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
+
+/* ─── AUTO PAGE FAQ-ish paragraph ──────────────────────────── */
+add('No \u2014 we don\'t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You use it in the F&I office or take it to a consumer-protection attorney. That\'s the whole service.',
+    'Нет \u2014 мы вас не представляем. Мы даём конкретный письменный список того, с чем нужно спорить (строки, которые попросить удалить менеджера по финансированию, суммы для оспаривания, вопросы, раскрывающие наценку на ставку). Вы используете это в кабинете F&I или передаёте адвокату по защите прав потребителей. Это вся услуга.',
+    'No \u2014 no le representamos. Le damos una lista específica por escrito de lo que debe impugnar (líneas para pedir al gerente de financiación que retire, montos a disputar, preguntas que revelan el recargo de tasa). Usted lo usa en la oficina de F&I o lo lleva a un abogado de protección al consumidor. Ese es todo el servicio.');
+
+/* ─── STATE OPTIONS (select/option) ────────────────────────── */
+add('Florida', 'Флорида', 'Florida');
+add('Delaware', 'Делавэр', 'Delaware');
+add('Wyoming', 'Вайоминг', 'Wyoming');
+add('Texas', 'Техас', 'Texas');
+add('California', 'Калифорния', 'California');
+add('New York', 'Нью-Йорк', 'Nueva York');
+
+/* ─── THANK-YOU PAGE (kpi labels + CTA + small-note) ──────── */
+add('Next step',
+    'Следующий шаг',
+    'Siguiente paso');
+add('Direct line',
+    'Прямая линия',
+    'Línea directa');
+add('Back to home',
+    'Вернуться на главную',
+    'Volver al inicio');
+add('VitaCoreX LLC is a Florida-registered company providing remote documentation and administrative support. Not a law firm. No legal advice. No debt collection.',
+    'VitaCoreX LLC \u2014 зарегистрированная во Флориде компания, оказывающая удалённые услуги по документации и административной поддержке. Не юридическая фирма. Без юридических консультаций. Не занимается взысканием долгов.',
+    'VitaCoreX LLC es una empresa registrada en Florida que ofrece apoyo remoto de documentación y administración. No es un bufete de abogados. Sin asesoría legal. Sin cobro de deudas.');
+
 /* ================================================================
    TRANSLATION ENGINE — walks the DOM and replaces text
    ================================================================ */
@@ -4252,7 +4291,32 @@ function translatePage(lang) {
     // paragraphs that contain inline <a>/<strong> children by providing the
     // translated value as an innerHTML snippet (with the links restored).
     var hasChildren = el.children.length > 0;
-    var textKey = normText(el.getAttribute('data-en-orig') || el.textContent);
+    // If the element has a required-field marker (<span class="req">*</span>),
+    // exclude it from the key so dictionary entries like "Full name" still match
+    // labels whose DOM textContent is "Full name *". The span is re-appended
+    // after translation below.
+    var reqSpan = null;
+    for (var ci = 0; ci < el.children.length; ci++) {
+      if (el.children[ci].classList && el.children[ci].classList.contains('req')) {
+        reqSpan = el.children[ci];
+        break;
+      }
+    }
+    var rawText;
+    if (el.hasAttribute('data-en-orig')) {
+      rawText = el.getAttribute('data-en-orig');
+    } else if (reqSpan) {
+      var buf = '';
+      for (var ni = 0; ni < el.childNodes.length; ni++) {
+        var node = el.childNodes[ni];
+        if (node === reqSpan) continue;
+        buf += node.textContent;
+      }
+      rawText = buf;
+    } else {
+      rawText = el.textContent;
+    }
+    var textKey = normText(rawText);
     if (!textKey) return;
 
     // Save original English (both text and, if children exist, innerHTML so we
@@ -4267,9 +4331,12 @@ function translatePage(lang) {
     var entry = T[textKey];
     if (entry && entry[lang]) {
       var val = entry[lang];
-      // Use innerHTML if the translated value contains markup OR the element
-      // originally had children (so we preserve the structure / inline links).
-      if (isHtml(val) || hasChildren) {
+      if (reqSpan) {
+        // Preserve the required-field marker after the translated label text.
+        el.innerHTML = val + ' <span class="req">*</span>';
+      } else if (isHtml(val) || hasChildren) {
+        // Use innerHTML if the translated value contains markup OR the element
+        // originally had children (so we preserve the structure / inline links).
         el.innerHTML = val;
       } else {
         el.textContent = val;
