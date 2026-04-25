@@ -677,7 +677,7 @@ function renderGenerationResults(result) {
     html += '<div class="vcx-gen-section">';
     html += '<p style="color:#8B4348;font-weight:600;margin:0 0 10px;">Unable to generate reliable suggestions.</p>';
     html += '<p style="color:#7BAE9E;font-size:0.875rem;margin:0 0 14px;">The extracted text is insufficient for accurate clause analysis. This typically occurs with image-based PDFs, scanned documents, or encrypted files. Please use the manual review route below for a thorough assessment.</p>';
-    html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule manual contract review &#8594;</a>';
+    html += '<a class="vcx-cta-btn" href="/contact.html" target="_blank" rel="noopener">Schedule manual contract review &#8594;</a>';
     html += '</div>';
     html += '</div>';
     return html;
@@ -892,7 +892,7 @@ function renderResults(analysis, filename) {
 
   html += '<div class="vcx-result-cta">';
   html += '<p class="vcx-result-lead">This is a pattern-based pre-check. Findings depend on clause wording and document quality. An advisor review provides full interpretation.</p>';
-  html += '<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';
+  html += '<a class="vcx-cta-btn" href="/contact.html" target="_blank" rel="noopener">Schedule contract review call &#8594;</a>';
   if(analysis.hasText) {
     html += '<br style="display:block;content:\'\';margin-top:12px;">';
     html += '<button class="vcx-cta-btn" type="button" onclick="vcxGenerateStronger()" style="margin-top:12px;cursor:pointer;">View Stronger Clause Suggestions &#8594;</button>';
@@ -1004,7 +1004,7 @@ function vcxScanContract() {
 window.vcxScanContract = vcxScanContract;
 
 function showReadError(area, filename) {
-  area.innerHTML = '<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> Please try saving as .txt, or use the manual review option below.</div><div class="vcx-result-cta"><a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
+  area.innerHTML = '<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> Please try saving as .txt, or use the manual review option below.</div><div class="vcx-result-cta"><a class="vcx-cta-btn" href="/contact.html" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
   area.hidden = false;
 }
 

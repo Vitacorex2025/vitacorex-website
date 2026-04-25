@@ -453,7 +453,7 @@ function renderImmigrationResults(r) {
 
   html+='<div class="vcx-result-cta">';
   html+='<p class="vcx-result-lead">This is a pattern-based pre-check only. USCIS requirements change frequently and vary by case. An advisor review ensures packet completeness before filing.</p>';
-  html+='<a class="vcx-cta-btn" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Schedule packet review call &#8594;</a>';
+  html+='<a class="vcx-cta-btn" href="/contact.html" target="_blank" rel="noopener">Schedule packet review call &#8594;</a>';
   html+='</div>';
   html+='<p class="vcx-disc">Pattern-based pre-check only &#8212; not legal advice. USCIS requirements vary by case. Consult a qualified immigration attorney before filing.</p>';
   html+='</div>';
@@ -530,7 +530,7 @@ function vcxAnalyzeForm(){
         if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
       };
       reader.onerror=function(){
-        area.innerHTML='<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> <a href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
+        area.innerHTML='<div class="vcx-analysis-result"><div class="vcx-result-notice vcx-notice-warning"><strong>Could not read file.</strong> <a href="/contact.html" target="_blank" rel="noopener">Request manual review &#8594;</a></div></div>';
         area.hidden=false;
         if(btn){btn.disabled=false;btn.textContent='Analyze packet';}
       };
