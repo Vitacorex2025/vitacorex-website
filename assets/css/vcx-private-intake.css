@@ -12,6 +12,11 @@
 .pci-hero__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:40px;align-items:start;}
 .pci-hero__eyebrow{display:inline-block;background:rgba(14, 79, 92,.14);color:#06283D;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px;}
 .pci-hero__title{font-family:'Cormorant Garamond','Source Serif Pro',Georgia,serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.12;font-weight:500;color:#0E4F5C;letter-spacing:-.01em;margin:0 0 18px;}
+/* Per-page hero accent: italic emphasis on key word + turquoise underline */
+.pci-hero__title em{font-style:italic;font-weight:400;color:#0891B2;background:linear-gradient(180deg,transparent 70%,rgba(8,145,178,.18) 70%);padding:0 .08em;}
+/* Refined form card: thin turquoise vertical accent stripe on left edge */
+.pci-form-card{position:relative;overflow:hidden;}
+.pci-form-card::before{content:'';position:absolute;top:0;bottom:0;left:0;width:3px;background:linear-gradient(180deg,#0891B2 0%,#06B6D4 50%,#0891B2 100%);pointer-events:none;}
 .pci-hero__lede{font-size:clamp(1rem,1.25vw,1.1rem);line-height:1.6;color:#5A6274;margin:0 0 22px;}
 
 .pci-bullets{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px;}
