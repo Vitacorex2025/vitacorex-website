@@ -1,0 +1,141 @@
+/* ============================================================
+   VCX PRACTICES — Three Practices block (Master Plan §10 §1)
+   Replaces "Two ways to engage" routing with three equal cards:
+   Corporate Advisory · Founders & Owners · Private Affairs
+   ============================================================ */
+
+.practices {
+  padding: var(--space-16, 8rem) 0;
+  background: var(--color-paper, #F5F2EC);
+}
+
+.practices .container {
+  width: 100%;
+  max-width: var(--container-max, 1180px);
+  margin: 0 auto;
+  padding: 0 var(--container-pad, 1.5rem);
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4, 2rem);
+  margin-top: var(--space-8, 4rem);
+}
+
+@media (max-width: 960px) {
+  .practice-grid { grid-template-columns: 1fr; }
+}
+
+.practice-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 1.5rem);
+  padding: var(--space-6, 3rem);
+  background: var(--color-bone, #FFFFFF);
+  border: 1px solid var(--color-rule, #D9D3C7);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--dur-fast, 180ms) var(--ease, ease),
+              transform var(--dur-fast, 180ms) var(--ease, ease);
+}
+
+.practice-card:hover,
+.practice-card:focus-visible {
+  border-color: var(--color-ink, #0B1F3A);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.practice-eyebrow {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted, #5A6274);
+  margin: 0;
+}
+
+.practice-title {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: var(--fs-2xl, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-ink, #0B1F3A);
+  margin: 0;
+}
+
+.practice-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-base, 1rem);
+  line-height: 1.55;
+  color: var(--color-ink, #0B1F3A);
+  margin: 0;
+}
+
+.practice-scope {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1, 0.5rem);
+  border-top: 1px solid var(--color-rule, #D9D3C7);
+  padding-top: var(--space-3, 1.5rem);
+}
+
+.practice-scope li {
+  font-size: var(--fs-sm, 0.875rem);
+  color: var(--color-muted, #5A6274);
+  line-height: 1.5;
+}
+
+.practice-cta {
+  margin-top: auto;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-sm, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-ink, #0B1F3A);
+  padding-top: var(--space-3, 1.5rem);
+  border-top: 1px solid var(--color-rule, #D9D3C7);
+}
+
+.practices-eyebrow {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted, #5A6274);
+  margin: 0 0 var(--space-2, 1rem);
+  text-align: center;
+}
+
+.practices-headline {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: var(--fs-3xl, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-ink, #0B1F3A);
+  margin: 0 0 var(--space-3, 1.5rem);
+  text-align: center;
+}
+
+.practices-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-lg, 1.125rem);
+  line-height: 1.5;
+  color: var(--color-muted, #5A6274);
+  max-width: 56ch;
+  margin: 0 auto var(--space-6, 3rem);
+  text-align: center;
+}
+
+.practices-footer {
+  text-align: center;
+  margin-top: var(--space-8, 4rem);
+  font-size: var(--fs-sm, 0.875rem);
+  color: var(--color-muted, #5A6274);
+}
