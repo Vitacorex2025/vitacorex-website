@@ -206,6 +206,127 @@ footer,
   margin-right: auto !important;
 }
 
+/* ============================================================
+   HEADER + FOOTER — refined turquoise advisory aesthetic
+   Conservative + elegant. Thin gradient accents, refined typography.
+   ============================================================ */
+
+/* Header: thin gradient accent rule at very top (matches hero) */
+.vcx-header,
+header.vcx-header {
+  position: relative;
+}
+.vcx-header::after,
+header.vcx-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(8, 145, 178, .35) 25%,
+    rgba(6, 182, 212, .55) 50%,
+    rgba(8, 145, 178, .35) 75%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* Header nav link hover: refined turquoise glow */
+.vcx-main-nav a,
+.vcx-mobile-nav a {
+  transition: color var(--dur-fast, 180ms) var(--ease, ease),
+              background-color var(--dur-fast, 180ms) var(--ease, ease);
+}
+.vcx-main-nav a:hover,
+.vcx-mobile-nav a:hover {
+  color: var(--color-highlight, #06B6D4) !important;
+}
+
+/* Footer: thin gradient accent rule at top */
+.footer,
+footer.footer,
+.site-footer {
+  position: relative;
+  background: linear-gradient(180deg,
+    var(--color-ink, #0E4F5C) 0%,
+    #0A3D48 100%) !important;
+}
+.footer::before,
+footer.footer::before,
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(8, 145, 178, .45) 25%,
+    rgba(6, 182, 212, .65) 50%,
+    rgba(8, 145, 178, .45) 75%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* Footer column titles — refined uppercase letterspacing */
+.footer h3, .footer h5,
+footer.footer h3, footer.footer h5,
+.footer-group h3, .footer-col h5 {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: var(--fs-xs, 0.75rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, .65) !important;
+  margin: 0 0 var(--space-3, 1.5rem) !important;
+}
+
+/* Footer links — refined hover with subtle turquoise underline */
+.footer a, .site-footer a, footer.footer a {
+  color: rgba(255, 255, 255, .82) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast, 180ms) var(--ease, ease),
+              border-color var(--dur-fast, 180ms) var(--ease, ease);
+}
+.footer a:hover, .site-footer a:hover, footer.footer a:hover {
+  color: var(--color-highlight, #06B6D4) !important;
+  border-bottom-color: var(--color-highlight, #06B6D4);
+}
+
+/* Footer copyright + legal — refined micro-typography */
+.footer-bottom__copy,
+.footer-copy,
+.footer-firm-line,
+.footer-scope,
+.footer-discipline,
+.footer-trust-line {
+  font-size: var(--fs-xs, 0.75rem) !important;
+  color: rgba(255, 255, 255, .58) !important;
+  line-height: 1.6;
+}
+
+/* Footer scope reminder — slightly emphasized */
+.footer-scope {
+  max-width: 80ch;
+  color: rgba(255, 255, 255, .68) !important;
+}
+
+/* Footer canonical phrase ("Engagement by letter…") — uppercase pin */
+.footer-discipline,
+.footer-bottom__discipline,
+[data-page="footer_discipline"],
+[data-i18n="footer_discipline"],
+[data-common="footer_discipline"] {
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(8, 145, 178, .85) !important;
+  font-size: 0.7rem !important;
+}
+
 /* Reduced motion — accessibility baseline */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
