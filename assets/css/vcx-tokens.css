@@ -183,6 +183,29 @@ footer,
   --color-rule:    rgba(248, 250, 251, .14);
 }
 
+/* ============================================================
+   Rule 3: Section headlines must NOT inherit legacy 14ch/24ch/30ch
+   max-width or margin-left:0 from styles.css + ui-shell.css.
+   Override globally for all v2 redesign section headlines.
+   ============================================================ */
+.practices-headline,
+.practices-eyebrow,
+.practices-lead,
+.practices-footer,
+.vcx-hero-advisory__title,
+.vcx-engagement-tiers h2,
+.vcx-engagement-tiers h3,
+[data-page="tiers_headline"],
+[data-page="tiers_eyebrow"],
+[data-page="tiers_lead"],
+[data-page="tier1_title"],
+[data-page="tier2_title"],
+[data-page="tier3_title"] {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Reduced motion — accessibility baseline */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -136,6 +136,12 @@
 }
 
 .practices-headline {
+  /* Override legacy h2 max-width 14ch/24ch/30ch + margin-left:0 from
+     styles.css and ui-shell.css that pinned narrow headlines to the left.
+     Section headlines must center across full container width. */
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
   font-size: var(--fs-3xl, 3rem);
   font-weight: 500;
