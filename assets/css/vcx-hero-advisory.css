@@ -1,0 +1,145 @@
+/* ============================================================
+   VCX HERO — Advisory restrained (Master Plan §06 §10)
+   Replaces vcx-hero-cybercore.css particle/dark-gradient hero.
+   References: Wachtell, Cravath, A&M, FTI, BRG.
+   ============================================================ */
+
+.vcx-hero-advisory {
+  position: relative;
+  background: var(--color-paper, #F5F2EC);
+  padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
+  border-bottom: 1px solid var(--color-rule, #D9D3C7);
+  overflow: hidden;
+}
+
+.vcx-hero-advisory__container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.vcx-hero-advisory__inner {
+  max-width: 720px;
+}
+
+.vcx-hero-advisory__eyebrow {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted, #5A6274);
+  margin: 0 0 var(--space-3, 1.5rem);
+}
+
+.vcx-hero-advisory__title {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-ink, #0B1F3A);
+  margin: 0 0 var(--space-4, 2rem);
+}
+
+.vcx-hero-advisory__lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--color-ink, #0B1F3A);
+  margin: 0 0 var(--space-3, 1.5rem);
+  max-width: 56ch;
+}
+
+.vcx-hero-advisory__scope {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-base, 1rem);
+  line-height: 1.55;
+  color: var(--color-muted, #5A6274);
+  margin: 0 0 var(--space-6, 3rem);
+  max-width: 64ch;
+}
+
+.vcx-hero-advisory__actions {
+  display: flex;
+  gap: var(--space-3, 1.5rem);
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 var(--space-4, 2rem);
+}
+
+.vcx-hero-advisory__cta {
+  display: inline-block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-base, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 14px 28px;
+  background: var(--color-ink, #0B1F3A);
+  color: var(--color-paper, #F5F2EC);
+  text-decoration: none;
+  border: 1px solid var(--color-ink, #0B1F3A);
+  transition: background var(--dur-fast, 180ms) var(--ease, ease),
+              color var(--dur-fast, 180ms) var(--ease, ease);
+}
+
+.vcx-hero-advisory__cta:hover,
+.vcx-hero-advisory__cta:focus-visible {
+  background: var(--color-accent, #6B2C2C);
+  border-color: var(--color-accent, #6B2C2C);
+  color: var(--color-paper, #F5F2EC);
+  outline: none;
+}
+
+.vcx-hero-advisory__link {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-sm, 0.875rem);
+  font-weight: 500;
+  color: var(--color-ink, #0B1F3A);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-rule, #D9D3C7);
+  padding-bottom: 2px;
+  transition: border-color var(--dur-fast, 180ms) var(--ease, ease);
+}
+
+.vcx-hero-advisory__link:hover {
+  border-color: var(--color-ink, #0B1F3A);
+}
+
+.vcx-hero-advisory__discipline {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--color-muted, #5A6274);
+  margin: var(--space-6, 3rem) 0 0;
+  padding-top: var(--space-4, 2rem);
+  border-top: 1px solid var(--color-rule, #D9D3C7);
+  max-width: 64ch;
+}
+
+.vcx-hero-advisory__discipline strong {
+  color: var(--color-ink, #0B1F3A);
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .vcx-hero-advisory {
+    padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 6vw, 4rem);
+  }
+  .vcx-hero-advisory__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .vcx-hero-advisory__cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Override any leaking cybercore styles */
+.vcx-hero-2,
+.vcx-hero-2__bg {
+  display: none !important;
+}
