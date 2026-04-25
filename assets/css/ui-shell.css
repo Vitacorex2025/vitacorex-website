@@ -338,9 +338,15 @@ h2,
   font-size:clamp(1.45rem,2vw,2.35rem) !important;
   line-height:1.12 !important;
   letter-spacing:-.025em !important;
-  margin:0 0 10px !important;
-  max-width:24ch !important;
+  margin:0 auto 10px !important;
+  max-width:none !important;
   text-wrap:balance;
+}
+/* Center-aligned section heads — keep narrow constraint but center the box */
+.section-head h2,
+.widget-head h2{
+  max-width:36ch !important;
+  text-align:center !important;
 }
 h3,
 .card h3,
@@ -1374,7 +1380,7 @@ h2,
   line-height:1.16 !important;
   letter-spacing:-.022em !important;
   margin:0 0 8px !important;
-  max-width:30ch !important;
+  max-width:none !important;
   text-wrap:balance;
 }
 
@@ -1413,7 +1419,7 @@ h3,
 }
 
 .section > .wrap > h2:first-child{
-  max-width:30ch !important;
+  max-width:none !important;
   margin:0 0 8px !important;
 }
 
@@ -2599,7 +2605,7 @@ body[data-vcx-page="revenue-recovery"] .row{
   }
 
   .hero-grid.hero-grid-composed .hero-copy h1{
-    max-width:14ch !important;
+    max-width:none !important;
     margin:12px 0 10px !important;
   }
 
@@ -2691,7 +2697,7 @@ body[data-vcx-page="revenue-recovery"] .row{
   }
 
   .hero-grid.hero-grid-composed .hero-copy h1{
-    max-width:14ch !important;
+    max-width:none !important;
   }
 
   .hero-grid.hero-grid-composed .hero-side > .problem-item{
@@ -3069,7 +3075,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   }
 
   .hero-grid.hero-grid-composed .hero-copy h1{
-    max-width:14ch !important;
+    max-width:none !important;
   }
 
   .hero-grid.hero-grid-composed .hero-side{
