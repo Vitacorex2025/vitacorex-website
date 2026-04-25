@@ -17,8 +17,8 @@
   --vcx-r-navy-soft:    #2D8A82;           /* mint accent */
   --vcx-r-gold:         #5BC4B8;           /* bright mint accent */
   --vcx-r-gold-light:   #8FD8CE;           /* soft mint */
-  --vcx-r-gold-muted:   rgba(91,196,184,0.08);  /* barely mint */
-  --vcx-r-gold-glow:    rgba(91,196,184,0.15);  /* subtle glow */
+  --vcx-r-gold-muted:   rgba(8,145,178,0.08);  /* barely mint */
+  --vcx-r-gold-glow:    rgba(8,145,178,0.15);  /* subtle glow */
   --vcx-r-warm-white:   #FAFCFC;           /* near-white */
   --vcx-r-parchment:    #F5F9F8;           /* barely mint bg */
 
@@ -76,15 +76,15 @@
   --ink-faint:    #666666;
   --brand-primary:   #2D8A82;
   --brand-secondary: #3a7a74;
-  --brand-hover:     #1A4F4A;
+  --brand-hover:     #0E4F5C;
   --accent-gold:     #5BC4B8;
   --accent-gold-dk:  #4AB0A4;
   --accent-gold-lt:  #8FD8CE;
   --status-info:     #4AB0A4;
   --status-info-bg:  rgba(74,176,164,.08);
-  --line-soft:    rgba(26,79,74,.10);
-  --line-strong:  rgba(26,79,74,.16);
-  --line-gold:    rgba(91,196,184,.22);
+  --line-soft:    rgba(14,79,92,.10);
+  --line-strong:  rgba(14,79,92,.16);
+  --line-gold:    rgba(8,145,178,.22);
 
   /* --- premium-fixes.css :root overrides --- */
   --vcx-bg-canvas:       #FAFCFC;
@@ -97,20 +97,20 @@
   --vcx-brand-secondary: #3a7a74;
   --vcx-accent-premium:  #5BC4B8;
   --vcx-accent-premium-2:#4AB0A4;
-  --vcx-line-soft:       rgba(26,79,74,.10);
-  --vcx-line-strong:     rgba(26,79,74,.16);
+  --vcx-line-soft:       rgba(14,79,92,.10);
+  --vcx-line-strong:     rgba(14,79,92,.16);
   --vcx-success:         #2F6B57;
   --vcx-warning:         #0E7490;
   --vcx-danger:          #8B4348;
   --vcx-info:            #4AB0A4;
 
   /* --- ui-shell.css :root overrides --- */
-  --vcx-ink:     #1A4F4A;
+  --vcx-ink:     #0E4F5C;
   --vcx-navy:    #2D8A82;
   --vcx-accent:  #5BC4B8;
 
   /* --- private-lookup.css overrides --- */
-  --vcx-navy-card: #1A4F4A;
+  --vcx-navy-card: #0E4F5C;
 }
 
 
@@ -496,7 +496,7 @@
 .vcx-testimonial-name {
   font-size: 0.90rem;
   font-weight: 700;
-  color: var(--ink-strong, #1A4F4A);
+  color: var(--ink-strong, #0E4F5C);
 }
 
 .vcx-testimonial-role {
@@ -1112,7 +1112,7 @@
 .vcx-header,
 .vcx-topbar,
 header {
-  background: linear-gradient(180deg, #0E3330 0%, #153F3B 100%) !important;
+  background: linear-gradient(180deg, #0E4F5C 0%, #155E75 100%) !important;
 }
 /* KILL the white glass overlay from frozen CSS */
 .vcx-header-shell,
@@ -1151,9 +1151,9 @@ header {
   border-color: rgba(255,255,255,.40) !important;
 }
 .vcx-main-nav a.active, .main-nav a.active {
-  background: rgba(91,196,184,.20) !important;
+  background: rgba(8,145,178,.20) !important;
   color: #FFF !important;
-  border-color: rgba(91,196,184,.40) !important;
+  border-color: rgba(8,145,178,.40) !important;
 }
 
 /* --- Logo/emblem — premium treatment on dark bg --- */
@@ -1296,7 +1296,7 @@ h1, h2, h3 {
 
 /* --- Footer --- */
 .footer {
-  background: #0C2D2A !important;
+  background: #06283D !important;
   color: #FFFFFF !important;
 }
 
@@ -1405,7 +1405,7 @@ a.vcx-hero-advisory__cta,
 /* --- Cookie banner match --- */
 .cookie-banner,
 .consent-banner {
-  background: #0C2D2A !important;
+  background: #06283D !important;
 }
 
 .cookie-btn.primary {
@@ -1427,40 +1427,40 @@ p { color: var(--color-ink, #0E4F5C) !important; }
 /* --- Clock and language bar — VERY DARK bg, WHITE text, black outline --- */
 .vcx-topbar, .clock-bar { background: #0A2825 !important; color: #FFFFFF !important; }
 .clock-label, .clock-val { color: #FFFFFF !important; text-shadow: 0 1px 2px rgba(0,0,0,0.60) !important; }
-.lang-btn { color: #FFFFFF !important; border-color: rgba(91,196,184,0.30) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.50) !important; }
-.lang-btn.active { background: rgba(91,196,184,0.20) !important; color: #5BC4B8 !important; }
+.lang-btn { color: #FFFFFF !important; border-color: rgba(8,145,178,0.30) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.50) !important; }
+.lang-btn.active { background: rgba(8,145,178,0.20) !important; color: #5BC4B8 !important; }
 
 /* --- Hero overrides — VERY DARK bg so white text pops --- */
-.hero, .hero-video-wrap { background-color: #0C2D2A !important; }
+.hero, .hero-video-wrap { background-color: #06283D !important; }
 .hero-glass, .hero-content { color: #FFFFFF !important; }
 
 /* --- Proof pills --- */
-.proof-pill { color: #3D9E94 !important; border-color: rgba(91,196,184,0.15) !important; background: rgba(91,196,184,0.06) !important; }
+.proof-pill { color: #3D9E94 !important; border-color: rgba(8,145,178,0.15) !important; background: rgba(8,145,178,0.06) !important; }
 
 /* --- Lux icon numbers --- */
 .lux-icon { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #ECF9F6 !important; }
 
 /* --- Audience cards --- */
 .audience-badge { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #ECF9F6 !important; }
-.audience-badge-light { background: linear-gradient(135deg, rgba(91,196,184,0.15), rgba(91,196,184,0.08)) !important; color: #2D8A82 !important; }
+.audience-badge-light { background: linear-gradient(135deg, rgba(8,145,178,0.15), rgba(8,145,178,0.08)) !important; color: #2D8A82 !important; }
 
 /* --- Timeline --- */
 .timeline-dot { background: linear-gradient(135deg, #5BC4B8, #8FD8CE) !important; }
 
 /* --- Authority cards --- */
-.authority-card { border-color: rgba(91,196,184,0.10) !important; }
+.authority-card { border-color: rgba(8,145,178,0.10) !important; }
 .authority-list li::before { color: #5BC4B8 !important; }
 
 /* --- Chip cloud --- */
-.workflow-chip { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; border-color: rgba(91,196,184,0.18) !important; }
+.workflow-chip { background: rgba(8,145,178,0.10) !important; color: #2D8A82 !important; border-color: rgba(8,145,178,0.18) !important; }
 
 /* --- Industry cards --- */
-.industry-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
+.industry-card .pill { background: rgba(8,145,178,0.12) !important; color: #2D8A82 !important; }
 .industry-card h3 { color: var(--color-ink, #0E4F5C) !important; }
 
 /* --- Fit cards --- */
-.fit-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
-.fit-card-muted .pill { background: rgba(91,196,184,0.06) !important; color: #3a7a74 !important; }
+.fit-card .pill { background: rgba(8,145,178,0.12) !important; color: #2D8A82 !important; }
+.fit-card-muted .pill { background: rgba(8,145,178,0.06) !important; color: #3a7a74 !important; }
 
 /* --- Service cards --- */
 .service-card-lux .service-index { color: #5BC4B8 !important; opacity: 1 !important; }
@@ -1474,7 +1474,7 @@ p { color: var(--color-ink, #0E4F5C) !important; }
 }
 .btn-primary:hover, a.btn-primary:hover {
   background: linear-gradient(135deg, #3D9E94 0%, #5BC4B8 100%) !important;
-  box-shadow: 0 18px 36px rgba(45,138,130,0.24), 0 0 20px rgba(91,196,184,0.12) !important;
+  box-shadow: 0 18px 36px rgba(45,138,130,0.24), 0 0 20px rgba(8,145,178,0.12) !important;
 }
 .btn-secondary, a.btn-secondary {
   border-color: rgba(45,138,130,0.15) !important;
@@ -1483,19 +1483,19 @@ p { color: var(--color-ink, #0E4F5C) !important; }
 }
 .btn-secondary:hover, a.btn-secondary:hover {
   border-color: #5BC4B8 !important;
-  background: rgba(91,196,184,0.05) !important;
+  background: rgba(8,145,178,0.05) !important;
 }
 
 /* --- Cookie banner --- */
 .cookie-banner, .consent-banner, [class*="cookie-bar"] {
-  background: linear-gradient(135deg, rgba(26,79,74,0.96), rgba(30,92,87,0.94)) !important;
+  background: linear-gradient(135deg, rgba(14,79,92,0.96), rgba(30,92,87,0.94)) !important;
 }
-.cookie-btn { color: #D4F2EC !important; border-color: rgba(91,196,184,0.25) !important; }
+.cookie-btn { color: #D4F2EC !important; border-color: rgba(8,145,178,0.25) !important; }
 
 /* --- Engine/diagnostic cards --- */
 .engine-card {
   background: rgba(242,250,250,0.95) !important;
-  border-color: rgba(91,196,184,0.12) !important;
+  border-color: rgba(8,145,178,0.12) !important;
 }
 
 /* --- KPI tiles and bars --- */
@@ -1503,16 +1503,16 @@ p { color: var(--color-ink, #0E4F5C) !important; }
 [class*="bar-fill"], [class*="bar-segment"] { background: #5BC4B8 !important; }
 [class*="viz-row"] { background: linear-gradient(90deg, #5BC4B8, #8FD8CE) !important; }
 
-/* --- Header deep overrides — DARKER bg for contrast --- */
+/* --- Header deep overrides — turquoise gradient for contrast --- */
 .vcx-header, .vcx-dock, header, .site-header {
-  background: linear-gradient(180deg, #0E3330 0%, #153F3B 100%) !important;
+  background: linear-gradient(180deg, #0E4F5C 0%, #155E75 100%) !important;
 }
 .vcx-header a, header a, .site-header a {
   color: #FFFFFF !important;
   text-shadow: 0 1px 3px rgba(0,0,0,0.70) !important;
 }
 .vcx-header a:hover, header a:hover { color: #5BC4B8 !important; }
-.vcx-menu-btn { color: #FFFFFF !important; border-color: rgba(91,196,184,0.30) !important; }
+.vcx-menu-btn { color: #FFFFFF !important; border-color: rgba(8,145,178,0.30) !important; }
 
 /* --- Nav and breadcrumbs --- */
 .vcx-nav a, nav.main-nav a { color: #2D8A82 !important; }
@@ -1530,17 +1530,17 @@ p { color: var(--color-ink, #0E4F5C) !important; }
 
 /* --- Form inputs --- */
 select, input, textarea {
-  border-color: rgba(91,196,184,0.20) !important;
+  border-color: rgba(8,145,178,0.20) !important;
   color: var(--color-ink, #0E4F5C) !important;
 }
 select:focus, input:focus, textarea:focus {
   border-color: #5BC4B8 !important;
-  box-shadow: 0 0 0 3px rgba(91,196,184,0.15) !important;
+  box-shadow: 0 0 0 3px rgba(8,145,178,0.15) !important;
   outline-color: #5BC4B8 !important;
 }
 
 /* --- Resource cards --- */
-.resource-card .meta .pill { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; }
+.resource-card .meta .pill { background: rgba(8,145,178,0.10) !important; color: #2D8A82 !important; }
 
 /* --- SEO cards --- */
 .seo-card h3 { color: var(--color-ink, #0E4F5C) !important; }
@@ -1550,14 +1550,14 @@ select:focus, input:focus, textarea:focus {
 .concierge-phone small { color: rgba(208,240,234,0.80) !important; }
 
 /* --- Deliverable cards --- */
-.deliverable-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
+.deliverable-card .pill { background: rgba(8,145,178,0.12) !important; color: #2D8A82 !important; }
 
 /* --- Box shadows global cleanup --- */
 .card, .lux-card, .glass, .service-card-lux, .authority-card, .engine-card, .seo-card, .resource-card, .industry-card, .deliverable-card {
-  box-shadow: 0 4px 24px rgba(26,79,74,0.08) !important;
+  box-shadow: 0 4px 24px rgba(14,79,92,0.08) !important;
 }
 .card:hover, .lux-card:hover, .service-card-lux:hover, .industry-card:hover {
-  box-shadow: 0 12px 40px rgba(91,196,184,0.12) !important;
+  box-shadow: 0 12px 40px rgba(8,145,178,0.12) !important;
 }
 
 /* --- Mobile menu / nav links (ui-shell.css .vcx-mobile-nav a) --- */
@@ -1571,7 +1571,7 @@ select:focus, input:focus, textarea:focus {
   font-weight: 600 !important;
   font-size: 0.88rem !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
-  box-shadow: 0 2px 10px rgba(26,79,74,0.20) !important;
+  box-shadow: 0 2px 10px rgba(14,79,92,0.20) !important;
   border-radius: 12px !important;
   padding: 12px 16px !important;
   min-height: 44px !important;
@@ -1584,7 +1584,7 @@ select:focus, input:focus, textarea:focus {
   color: #FFFFFF !important;
   background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   border-color: rgba(255,255,255,0.18) !important;
-  box-shadow: 0 6px 20px rgba(26,79,74,0.30) !important;
+  box-shadow: 0 6px 20px rgba(14,79,92,0.30) !important;
   transform: translateY(-1px);
 }
 /* Mobile brand text — on dark header bg, must be WHITE with black outline */
@@ -1602,23 +1602,23 @@ select:focus, input:focus, textarea:focus {
 /* --- Chat launcher colors --- */
 .vcx-cw-fab { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; }
 .vcx-cw-fab:hover { background: linear-gradient(135deg, #3D9E94, #5BC4B8) !important; }
-.vcx-cw-panel-head { background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important; }
+.vcx-cw-panel-head { background: linear-gradient(135deg, #0E4F5C, #2D8A82) !important; }
 .vcx-cw-send-btn { background: #5BC4B8 !important; color: #fff !important; }
 .vcx-cw-send-btn:hover { background: #4AB0A4 !important; }
-[class*="vcx-cw-chip"] { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; border-color: rgba(91,196,184,0.20) !important; }
+[class*="vcx-cw-chip"] { background: rgba(8,145,178,0.10) !important; color: #2D8A82 !important; border-color: rgba(8,145,178,0.20) !important; }
 
 /* --- Contract review page colors --- */
 .cr-tab.active, [class*="cr-tab"].active {
   color: #2D8A82 !important;
   border-bottom-color: #5BC4B8 !important;
 }
-.cr-gen-type-card--selected { border-color: #5BC4B8 !important; box-shadow: 0 0 0 2px rgba(91,196,184,0.25) !important; }
+.cr-gen-type-card--selected { border-color: #5BC4B8 !important; box-shadow: 0 0 0 2px rgba(8,145,178,0.25) !important; }
 .cr-gen-submit { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #fff !important; }
 
 /* --- Legal assistant page colors --- */
 .vcx-la-topic-btn.active { background: #5BC4B8 !important; color: #fff !important; }
 .vcx-la-send { background: #5BC4B8 !important; }
-.vcx-la-header { background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important; }
+.vcx-la-header { background: linear-gradient(135deg, #0E4F5C, #2D8A82) !important; }
 
 /* --- Sign-in page --- */
 [class*="sign-in"] .btn-primary { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; }
@@ -1627,7 +1627,7 @@ select:focus, input:focus, textarea:focus {
 *:focus-visible { outline-color: #5BC4B8 !important; }
 
 /* --- Link underlines --- */
-a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(91,196,184,0.30) !important; }
+a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(8,145,178,0.30) !important; }
 
 /* --- Proof band counters --- */
 [data-count-to] { color: #5BC4B8 !important; }
@@ -1636,14 +1636,14 @@ a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(91,196,184
 /* --- CTA banner --- */
 .cta-banner {
   background: rgba(242,250,250,0.85) !important;
-  border-color: rgba(91,196,184,0.15) !important;
+  border-color: rgba(8,145,178,0.15) !important;
 }
 .cta-banner h2 { color: var(--color-ink, #0E4F5C) !important; }
 
 /* --- Private lookup page overrides --- */
 [class*="lookup-card"], [class*="lookup-result"] {
   background: rgba(242,250,250,0.95) !important;
-  border-color: rgba(91,196,184,0.12) !important;
+  border-color: rgba(8,145,178,0.12) !important;
 }
 
 /* --- Comprehensive rgba shadow replacement --- */
@@ -1671,7 +1671,7 @@ a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(91,196,184
 body .eyebrow,
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
   color: #2D8A82 !important;
-  background: rgba(91,196,184,0.08) !important;
+  background: rgba(8,145,178,0.08) !important;
 }
 /* Hero eyebrow: white on dark with frosted glass */
 .hero .eyebrow,
@@ -1679,7 +1679,7 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 body .hero .eyebrow,
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .hero .eyebrow {
   color: #FFFFFF !important;
-  background: rgba(26,79,74,0.65) !important;
+  background: rgba(14,79,92,0.65) !important;
 }
 
 /* --- Any stray muted-blue text from frozen styles.css --- */
@@ -1752,12 +1752,12 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 
 /* --- Modal overlay (was rgba(7,18,32,.45)) --- */
 .modal {
-  background: rgba(26,79,74,0.45) !important;
+  background: rgba(14,79,92,0.45) !important;
 }
 
 /* --- Service index numbers (was var(--navy)) --- */
 .service-index {
-  background: rgba(91,196,184,0.10) !important;
+  background: rgba(8,145,178,0.10) !important;
   color: #2D8A82 !important;
 }
 
@@ -1785,7 +1785,7 @@ body {
 
 /* --- Glass cards (was rgba(255,255,255,.80)) --- */
 .glass {
-  border-color: rgba(91,196,184,0.12) !important;
+  border-color: rgba(8,145,178,0.12) !important;
 }
 
 /* --- Ensure text on dark sections is light and readable --- */
@@ -1811,8 +1811,8 @@ body {
 .hero-premium .eyebrow,
 .hero span.eyebrow {
   color: #FFFFFF !important;
-  background: rgba(26,79,74,0.65) !important;
-  border: 1px solid rgba(91,196,184,0.30) !important;
+  background: rgba(14,79,92,0.65) !important;
+  border: 1px solid rgba(8,145,178,0.30) !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.30) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
@@ -1820,12 +1820,12 @@ body {
 }
 .hero .eyebrow::before {
   background: #5BC4B8 !important;
-  box-shadow: 0 0 8px rgba(91,196,184,0.60) !important;
+  box-shadow: 0 0 8px rgba(8,145,178,0.60) !important;
 }
 .hero .proof-pill {
   color: #FFFFFF !important;
-  border-color: rgba(91,196,184,0.40) !important;
-  background: rgba(26,79,74,0.55) !important;
+  border-color: rgba(8,145,178,0.40) !important;
+  background: rgba(14,79,92,0.55) !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.40) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
@@ -1883,7 +1883,7 @@ body {
 .hero .btn-secondary {
   background: rgba(255,255,255,0.92) !important;
   color: var(--color-ink, #0E4F5C) !important;
-  border-color: rgba(91,196,184,0.30) !important;
+  border-color: rgba(8,145,178,0.30) !important;
   backdrop-filter: blur(8px) !important;
 }
 
@@ -1899,17 +1899,17 @@ body {
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   box-shadow:
-    0 4px 16px rgba(26,79,74,0.25),
-    0 0 0 1px rgba(91,196,184,0.10),
+    0 4px 16px rgba(14,79,92,0.25),
+    0 0 0 1px rgba(8,145,178,0.10),
     inset 0 1px 0 rgba(255,255,255,0.10) !important;
   transition: all 0.3s var(--vcx-r-ease) !important;
   cursor: pointer !important;
 }
 .vcx-menu-btn:hover {
-  background: linear-gradient(135deg, rgba(91,196,184,0.90), rgba(74,176,164,0.85)) !important;
+  background: linear-gradient(135deg, rgba(8,145,178,0.90), rgba(74,176,164,0.85)) !important;
   box-shadow:
-    0 8px 28px rgba(91,196,184,0.30),
-    0 0 0 1px rgba(91,196,184,0.20),
+    0 8px 28px rgba(8,145,178,0.30),
+    0 0 0 1px rgba(8,145,178,0.20),
     inset 0 1px 0 rgba(255,255,255,0.15) !important;
   transform: translateY(-1px) !important;
 }
@@ -1931,11 +1931,11 @@ body {
 .concierge-panel,
 .contact-concierge {
   background:
-    linear-gradient(135deg, #0C2D2A 0%, #153F3B 55%, #1A4F4A 100%),
-    radial-gradient(120% 140% at 0% 0%, rgba(91,196,184,0.10), transparent 42%) !important;
+    linear-gradient(135deg, #06283D 0%, #155E75 55%, #0E4F5C 100%),
+    radial-gradient(120% 140% at 0% 0%, rgba(8,145,178,0.10), transparent 42%) !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(91,196,184,0.18) !important;
-  box-shadow: 0 34px 92px rgba(26,79,74,0.25) !important;
+  border: 1px solid rgba(8,145,178,0.18) !important;
+  box-shadow: 0 34px 92px rgba(14,79,92,0.25) !important;
   border-radius: 12px !important;
 }
 .concierge-panel h2,
@@ -1951,7 +1951,7 @@ body {
 }
 .concierge-panel .eyebrow,
 .contact-concierge .eyebrow {
-  background: rgba(91,196,184,0.15) !important;
+  background: rgba(8,145,178,0.15) !important;
   color: #8FD8CE !important;
   border: none !important;
   box-shadow: none !important;
@@ -1959,11 +1959,11 @@ body {
 .concierge-panel .eyebrow::before,
 .contact-concierge .eyebrow::before {
   background: #5BC4B8 !important;
-  box-shadow: 0 0 6px rgba(91,196,184,0.50) !important;
+  box-shadow: 0 0 6px rgba(8,145,178,0.50) !important;
 }
 .concierge-phone {
-  background: rgba(91,196,184,0.08) !important;
-  border: 1px solid rgba(91,196,184,0.20) !important;
+  background: rgba(8,145,178,0.08) !important;
+  border: 1px solid rgba(8,145,178,0.20) !important;
   border-radius: 12px !important;
 }
 .concierge-phone span {
@@ -1973,7 +1973,7 @@ body {
   color: #FFFFFF !important;
   text-shadow:
     0 2px 4px rgba(0,0,0,0.30),
-    0 0 30px rgba(91,196,184,0.25) !important;
+    0 0 30px rgba(8,145,178,0.25) !important;
 }
 .concierge-phone small {
   color: rgba(176,232,224,0.75) !important;
@@ -1983,22 +1983,22 @@ body {
 .contact-concierge .btn-primary {
   background: linear-gradient(135deg, #5BC4B8, #4AB0A4) !important;
   color: #fff !important;
-  box-shadow: 0 12px 32px rgba(91,196,184,0.30) !important;
+  box-shadow: 0 12px 32px rgba(8,145,178,0.30) !important;
 }
 .concierge-panel .btn-primary:hover,
 .contact-concierge .btn-primary:hover {
   background: linear-gradient(135deg, #8FD8CE, #5BC4B8) !important;
-  box-shadow: 0 16px 40px rgba(91,196,184,0.40) !important;
+  box-shadow: 0 16px 40px rgba(8,145,178,0.40) !important;
 }
 .concierge-panel .btn-secondary,
 .contact-concierge .btn-secondary {
   background: rgba(255,255,255,0.10) !important;
   color: #ECF9F6 !important;
-  border-color: rgba(91,196,184,0.30) !important;
+  border-color: rgba(8,145,178,0.30) !important;
 }
 .concierge-panel .btn-secondary:hover,
 .contact-concierge .btn-secondary:hover {
-  background: rgba(91,196,184,0.15) !important;
+  background: rgba(8,145,178,0.15) !important;
   color: #FFFFFF !important;
 }
 
@@ -2006,7 +2006,7 @@ body {
    18. HERO VIDEO BG — Override frozen blue
    ================================================================ */
 .hero-video {
-  background: #0C2D2A !important;
+  background: #06283D !important;
 }
 .hero-video video,
 .hero-video img {
@@ -2069,8 +2069,8 @@ body {
 /* --- App page headers (ui-shell.css: --vcx-navy) --- */
 .vcx-dock,
 .vcx-top-rail {
-  background: linear-gradient(180deg, #1A4F4A, #236A64) !important;
-  border-bottom: 1px solid rgba(91,196,184,0.15) !important;
+  background: linear-gradient(180deg, #0E4F5C, #236A64) !important;
+  border-bottom: 1px solid rgba(8,145,178,0.15) !important;
 }
 .vcx-dock a,
 .vcx-top-rail a {
@@ -2088,7 +2088,7 @@ body {
 .vcx-side-nav,
 [class*="sidebar"] {
   background: #FAFCFC !important;
-  border-right-color: rgba(91,196,184,0.12) !important;
+  border-right-color: rgba(8,145,178,0.12) !important;
 }
 .vcx-side-nav a,
 [class*="sidebar"] a {
@@ -2099,7 +2099,7 @@ body {
 [class*="sidebar"] a:hover,
 [class*="sidebar"] a.active {
   color: #5BC4B8 !important;
-  background: rgba(91,196,184,0.08) !important;
+  background: rgba(8,145,178,0.08) !important;
 }
 
 /* --- App tabs --- */
@@ -2120,7 +2120,7 @@ body {
 [class*="panel-head"],
 .vcx-la-header,
 .vcx-cw-panel-head {
-  background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important;
+  background: linear-gradient(135deg, #0E4F5C, #2D8A82) !important;
   color: #FFF !important;
 }
 /* KILL dark bg from section heads on main site */
@@ -2135,14 +2135,14 @@ body {
 [class*="rp-card"],
 [class*="pr-card"],
 [class*="packet-card"] {
-  border-color: rgba(91,196,184,0.12) !important;
-  box-shadow: 0 4px 24px rgba(26,79,74,0.06) !important;
+  border-color: rgba(8,145,178,0.12) !important;
+  box-shadow: 0 4px 24px rgba(14,79,92,0.06) !important;
 }
 [class*="vcx-card"]:hover,
 [class*="intake-card"]:hover,
 [class*="rp-card"]:hover {
-  border-color: rgba(91,196,184,0.25) !important;
-  box-shadow: 0 12px 40px rgba(91,196,184,0.10) !important;
+  border-color: rgba(8,145,178,0.25) !important;
+  box-shadow: 0 12px 40px rgba(8,145,178,0.10) !important;
 }
 
 /* --- App status badges / pills --- */
@@ -2181,9 +2181,9 @@ body {
 .topic-chip,
 [class*="vcx-la-topic"],
 [class*="vcx-cw-chip"] {
-  background: rgba(91,196,184,0.10) !important;
+  background: rgba(8,145,178,0.10) !important;
   color: #2D8A82 !important;
-  border-color: rgba(91,196,184,0.20) !important;
+  border-color: rgba(8,145,178,0.20) !important;
 }
 .topic-chip:hover,
 .topic-chip.active,
@@ -2208,7 +2208,7 @@ body {
 [class*="cr-"] input,
 [class*="cr-"] select,
 [class*="cr-"] textarea {
-  border-color: rgba(91,196,184,0.20) !important;
+  border-color: rgba(8,145,178,0.20) !important;
   color: var(--color-ink, #0E4F5C) !important;
 }
 [class*="vcx-"] input:focus,
@@ -2218,30 +2218,30 @@ body {
 [class*="cr-"] select:focus,
 [class*="cr-"] textarea:focus {
   border-color: #5BC4B8 !important;
-  box-shadow: 0 0 0 3px rgba(91,196,184,0.15) !important;
+  box-shadow: 0 0 0 3px rgba(8,145,178,0.15) !important;
 }
 
 /* --- Immigration/Contract Intelligence dark page overlay --- */
 body[data-vcx-page="immigration-helper"],
 body[data-vcx-page="contract-scanner"] {
-  background: linear-gradient(180deg, #1A4F4A 0%, #236A64 100%) !important;
+  background: linear-gradient(180deg, #0E4F5C 0%, #236A64 100%) !important;
 }
 body[data-vcx-page="immigration-helper"] .vcx-glass-card,
 body[data-vcx-page="contract-scanner"] .vcx-glass-card {
   background: rgba(242,250,250,0.06) !important;
-  border-color: rgba(91,196,184,0.15) !important;
+  border-color: rgba(8,145,178,0.15) !important;
   backdrop-filter: blur(16px) !important;
 }
 
 /* --- Private lookup dark theme override --- */
 body[data-vcx-private-lookup="true"] {
-  background: linear-gradient(180deg, #1A4F4A 0%, #236A64 50%, #1A4F4A 100%) !important;
+  background: linear-gradient(180deg, #0E4F5C 0%, #236A64 50%, #0E4F5C 100%) !important;
 }
 
 /* --- Footer dark section readability --- */
 .footer,
 footer {
-  background: #0C2D2A !important;
+  background: #06283D !important;
   color: #FFFFFF !important;
 }
 .footer a,
@@ -2445,7 +2445,7 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 .mini-step.active, .mini-step.active * { color: #FFF !important; -webkit-text-fill-color: #FFF !important; }
 
 /* B14 — Dark teal gradient sections on service/case-study pages.
-   These use linear-gradient(135deg, #0F2F2C 0%, #1A4F4A 100%) (or similar dark teal),
+   These use linear-gradient(135deg, #0F2F2C 0%, #0E4F5C 100%) (or similar dark teal),
    so headings and body copy MUST be white — otherwise B-series master override
    h1..h6 { color: var(--color-ink, #0E4F5C) !important } at line 2253 renders them unreadable.
    Covers: final-CTA sections, UPL-safeguard callouts, exit-intent modal header.
@@ -2468,7 +2468,7 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 }
 /* B14b — Mobile-only: .cmp-dim cell becomes a dark teal gradient in card-stack
    layout, so white text is required ONLY at that breakpoint. Desktop keeps the
-   dark teal (#1A4F4A) text on the light cell background defined inline. */
+   dark teal (#0E4F5C) text on the light cell background defined inline. */
 @media (max-width: 720px) {
   .cmp-table .cmp-dim,
   .cmp-table .cmp-dim * {
@@ -2500,7 +2500,7 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 }
 [class*="-final-cta"] .btn-primary:hover, [class*="-final-cta"] a.btn-primary:hover,
 [class*="-final-cta"] [class$="--primary"]:hover, [class*="-final-cta"] a[class$="--primary"]:hover {
-  background: #1A4F4A !important; border-color: #1A4F4A !important;
+  background: #0E4F5C !important; border-color: #0E4F5C !important;
 }
 
 /* ── C) BUTTONS ─────────────────────────────────────────────────── */
@@ -2736,7 +2736,7 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91,196,184,0.025) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(8,145,178,0.025) 0%, transparent 70%);
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
