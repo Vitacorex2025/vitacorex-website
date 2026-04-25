@@ -6,7 +6,7 @@
 
 .practices {
   padding: var(--space-16, 8rem) 0;
-  background: var(--color-paper, #F5F2EC);
+  background: var(--color-paper, #F8FAFB);
 }
 
 .practices .container {
@@ -33,7 +33,7 @@
   gap: var(--space-3, 1.5rem);
   padding: var(--space-6, 3rem);
   background: var(--color-bone, #FFFFFF);
-  border: 1px solid var(--color-rule, #D9D3C7);
+  border: 1px solid var(--color-rule, #E1E5EA);
   text-decoration: none;
   color: inherit;
   transition: border-color var(--dur-fast, 180ms) var(--ease, ease),
@@ -81,7 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1, 0.5rem);
-  border-top: 1px solid var(--color-rule, #D9D3C7);
+  border-top: 1px solid var(--color-rule, #E1E5EA);
   padding-top: var(--space-3, 1.5rem);
 }
 
@@ -99,7 +99,7 @@
   letter-spacing: 0.04em;
   color: var(--color-ink, #0B1F3A);
   padding-top: var(--space-3, 1.5rem);
-  border-top: 1px solid var(--color-rule, #D9D3C7);
+  border-top: 1px solid var(--color-rule, #E1E5EA);
 }
 
 .practices-eyebrow {

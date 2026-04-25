@@ -257,11 +257,11 @@ main .scd-upl .scd-upl__label {
 /* ---- 9. Cool-parchment surface tokens (legacy "cream" naming kept) ----
  * Ensure nothing falls back to a warm beige. Legacy tokens already store cool
  * values, but some utility classes explicitly set background:#F6F2EA (warm).
- * Re-point them to the cool parchment #F4F7F6 used on the home page. */
+ * Re-point them to the cool parchment #F8FAFB used on the home page. */
 .vcx-surface-cream,
 .vcx-bg-cream,
 .surface--cream {
-  background-color: #F4F7F6 !important;
+  background-color: #F8FAFB !important;
 }
 
 /* ---- 10. Particle-hero section-head alignment (match home hero) ----

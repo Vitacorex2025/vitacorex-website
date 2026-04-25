@@ -3,7 +3,7 @@
   --bg-elevated:#0c1a29;
   --surface:#102235;
   --surface-strong:#142a40;
-  --surface-soft:#EEF6F5;
+  --surface-soft:#F8FAFB;
   --surface-soft-2:#F2F8F7;
   --ink:#ecf2f7;
   --ink-strong:#f8fbfd;
@@ -56,7 +56,7 @@ body{
 body[data-surface="soft"]{
   background:
     radial-gradient(circle at top, rgba(91,186,167,.08), transparent 24%),
-    linear-gradient(180deg, #F4FAF9 0%, #EEF6F5 34%, #E5EEEC 100%);
+    linear-gradient(180deg, #F4FAF9 0%, #F8FAFB 34%, #E5EEEC 100%);
   color:#122335;
 }
 
@@ -820,7 +820,7 @@ summary:focus{
 }
 
 body[data-surface="soft"] .file-pill{
-  background:#EEF6F5;
+  background:#F8FAFB;
   border-color:rgba(18,35,53,.14);
   color:#43586c;
 }
@@ -984,7 +984,7 @@ body[data-surface="soft"] .chip{
 
 body[data-surface="soft"] .surface-preview{
   border-color:rgba(18,35,53,.08);
-  background:linear-gradient(180deg, #F4F7F6 0%, #E8EFED 100%);
+  background:linear-gradient(180deg, #F8FAFB 0%, #E8EFED 100%);
 }
 
 .surface-preview-header{

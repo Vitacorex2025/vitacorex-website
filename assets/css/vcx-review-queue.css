@@ -1,7 +1,7 @@
 /* VCX Review Queue — admin dashboard styles */
 
 body[data-vcx-page="review-queue"] {
-  background: var(--vcx-bg-canvas, #F4F7F6);
+  background: var(--vcx-bg-canvas, #F8FAFB);
   color: var(--vcx-ink-body, #2E4F46);
 }
 

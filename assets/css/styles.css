@@ -1001,7 +1001,7 @@ body{
 
 /* v60 luxury standard refinement */
 :root{
-  --vcx-cream:#F4F7F6;
+  --vcx-cream:#F8FAFB;
   --vcx-ink-deep:#0b1625;
   --vcx-muted-deep:#4d5f74;
   --vcx-navy-deep:#0f2035;
@@ -1012,7 +1012,7 @@ body{
   background:
     radial-gradient(1200px 540px at 15% 0%, rgba(217,194,155,.14), transparent 56%),
     radial-gradient(960px 480px at 85% 10%, rgba(78,119,165,.10), transparent 54%),
-    linear-gradient(180deg,#eef4fa 0%,#EEF6F5 26%,#f7fafd 58%,#edf2f7 100%);
+    linear-gradient(180deg,#eef4fa 0%,#F8FAFB 26%,#f7fafd 58%,#edf2f7 100%);
   color:var(--vcx-ink-deep);
 }
 .hero h1,

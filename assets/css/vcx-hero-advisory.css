@@ -6,9 +6,9 @@
 
 .vcx-hero-advisory {
   position: relative;
-  background: var(--color-paper, #F5F2EC);
+  background: var(--color-paper, #F8FAFB);
   padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
-  border-bottom: 1px solid var(--color-rule, #D9D3C7);
+  border-bottom: 1px solid var(--color-rule, #E1E5EA);
   overflow: hidden;
 }
 
@@ -78,7 +78,7 @@
   letter-spacing: 0.02em;
   padding: 14px 28px;
   background: var(--color-ink, #0B1F3A);
-  color: var(--color-paper, #F5F2EC);
+  color: var(--color-paper, #F8FAFB);
   text-decoration: none;
   border: 1px solid var(--color-ink, #0B1F3A);
   transition: background var(--dur-fast, 180ms) var(--ease, ease),
@@ -89,7 +89,7 @@
 .vcx-hero-advisory__cta:focus-visible {
   background: var(--color-accent, #6B2C2C);
   border-color: var(--color-accent, #6B2C2C);
-  color: var(--color-paper, #F5F2EC);
+  color: var(--color-paper, #F8FAFB);
   outline: none;
 }
 
@@ -99,7 +99,7 @@
   font-weight: 500;
   color: var(--color-ink, #0B1F3A);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-rule, #D9D3C7);
+  border-bottom: 1px solid var(--color-rule, #E1E5EA);
   padding-bottom: 2px;
   transition: border-color var(--dur-fast, 180ms) var(--ease, ease);
 }
@@ -115,7 +115,7 @@
   color: var(--color-muted, #5A6274);
   margin: var(--space-6, 3rem) 0 0;
   padding-top: var(--space-4, 2rem);
-  border-top: 1px solid var(--color-rule, #D9D3C7);
+  border-top: 1px solid var(--color-rule, #E1E5EA);
   max-width: 64ch;
 }
 

@@ -17,8 +17,8 @@
      --vcx-ink:        #1A2F2A
      --vcx-ink-body:   #2E4F46
      --vcx-ink-muted:  #5E6C7B
-     --vcx-parchment:  #EEF6F5
-     --vcx-canvas:     #F4F7F6
+     --vcx-parchment:  #F8FAFB
+     --vcx-canvas:     #F8FAFB
 
    CONTRAST RULE (hard):
      No dark text on dark bg. No light text on light bg.
@@ -46,8 +46,8 @@
   --vcx-rail-ink:           #1A2F2A;
   --vcx-rail-ink-body:      #2E4F46;
   --vcx-rail-ink-muted:     #5E6C7B;
-  --vcx-rail-parchment:     #EEF6F5;
-  --vcx-rail-canvas:        #F4F7F6;
+  --vcx-rail-parchment:     #F8FAFB;
+  --vcx-rail-canvas:        #F8FAFB;
   --vcx-rail-card-bg:       #FFFFFF;
   --vcx-rail-card-bg-dark:  #102B27;
 }

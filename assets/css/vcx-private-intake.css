@@ -7,7 +7,7 @@
    ============================================================================= */
 
 /* Hero + form card ------------------------------------------------------ */
-.pci-hero{background:linear-gradient(180deg,#FFFFFF 0%,#F5F2EC 100%);padding:56px 0 28px;border-bottom:1px solid rgba(11,31,58,.08);}
+.pci-hero{background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFB 100%);padding:56px 0 28px;border-bottom:1px solid rgba(11,31,58,.08);}
 .pci-hero .wrap{max-width:1080px;}
 .pci-hero__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:40px;align-items:start;}
 .pci-hero__eyebrow{display:inline-block;background:rgba(11,31,58,.14);color:#000814;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px;}
@@ -48,7 +48,7 @@
 
 /* Content sections ------------------------------------------------------ */
 .pci-section{padding:48px 0;}
-.pci-section--cream{background:#F5F2EC;}
+.pci-section--cream{background:#F8FAFB;}
 .pci-section--white{background:#FFFFFF;}
 .pci-section .wrap{max-width:1080px;}
 
@@ -83,7 +83,7 @@
 .pci-ty-card h1{font-size:clamp(1.5rem,2.8vw,2.05rem);color:#0B1F3A;margin:0 0 12px;font-weight:800;letter-spacing:-.01em;}
 .pci-ty-card__lede{color:#5A6274;font-size:1.02rem;line-height:1.6;margin:0 0 24px;}
 .pci-ty-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 auto 26px;max-width:560px;}
-.pci-ty-kpi__item{background:#F5F2EC;border-radius:12px;padding:16px 14px;border:1px solid rgba(11,31,58,.06);}
+.pci-ty-kpi__item{background:#F8FAFB;border-radius:12px;padding:16px 14px;border:1px solid rgba(11,31,58,.06);}
 .pci-ty-kpi__label{display:block;color:#000814;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
 .pci-ty-kpi__value{color:#0B1F3A;font-size:.98rem;font-weight:700;line-height:1.3;}
 .pci-ty-cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px;}

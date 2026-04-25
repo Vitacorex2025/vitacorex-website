@@ -364,7 +364,7 @@ body .hero-cloud-layer {
 
 .vcx-btn-2--dark {
   background: #1A2F2A;
-  color: #EEF6F5;
+  color: #F8FAFB;
 }
 .vcx-btn-2--dark:hover {
   background: #243D36;
@@ -620,14 +620,14 @@ a.btn-secondary:hover {
   background: var(--bg-ink, #1A2F2A);
 }
 .vcx-section-2--dark .vcx-section-2__title {
-  color: #EEF6F5;
+  color: #F8FAFB;
 }
 .vcx-section-2--dark .vcx-section-2__desc {
   color: #7A8EA0;
 }
 
 .vcx-section-2--warm {
-  background: var(--bg-canvas, #F4F7F6);
+  background: var(--bg-canvas, #F8FAFB);
 }
 
 .vcx-section-2__header {
@@ -770,7 +770,7 @@ a.btn-secondary:hover {
 .vcx-footer-2__brand {
   font-family: 'Georgia', serif;
   font-size: 1.5rem;
-  color: #EEF6F5;
+  color: #F8FAFB;
   margin-bottom: 16px;
 }
 
@@ -799,7 +799,7 @@ a.btn-secondary:hover {
   transition: color 160ms ease;
 }
 .vcx-footer-2 a:hover {
-  color: #EEF6F5;
+  color: #F8FAFB;
 }
 
 .vcx-footer-2__bottom {
@@ -846,7 +846,7 @@ a.btn-secondary:hover {
 .vcx-cta-band-2__title {
   font-family: 'Georgia', serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: #EEF6F5;
+  color: #F8FAFB;
   margin-bottom: 16px;
   position: relative;
 }
@@ -930,7 +930,7 @@ a.btn-secondary:hover {
 
 /* Light sections get subtle rounded top corners for "card" feel */
 .vcx-stack-section:not(.band):not(.vcx-stats-2):not(.vcx-bg-dark):not(.vcx-bg-ink):not(.vcx-bg-grid):not(.vcx-bg-dots):not(.vcx-bg-lines) {
-  background: var(--parchment, #F4F7F6);
+  background: var(--parchment, #F8FAFB);
 }
 
 /* Dark band sections get stronger shadow */
@@ -962,7 +962,7 @@ section.section:not(.band):nth-of-type(odd) {
 
 /* Dot matrix — subtle repeating dots */
 .vcx-bg-dots {
-  background-color: var(--parchment, #F4F7F6);
+  background-color: var(--parchment, #F8FAFB);
   background-image: radial-gradient(circle, rgba(91,186,167,0.10) 1px, transparent 1px);
   background-size: 20px 20px;
 }
@@ -1013,7 +1013,7 @@ section.section:not(.band):nth-of-type(odd) {
 
 /* Cool parchment with diagonal fine lines (beige #F0EBE1 banned — palette parity with home) */
 .vcx-bg-lines {
-  background-color: #F4F7F6;
+  background-color: #F8FAFB;
   background-image:
     repeating-linear-gradient(
       135deg,
@@ -1049,7 +1049,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-bg-glow .eyebrow,
 .vcx-bg-glow h2,
 .vcx-bg-glow h3 {
-  color: #EEF6F5 !important;
+  color: #F8FAFB !important;
 }
 .vcx-bg-glow p,
 .vcx-bg-glow li {
@@ -1131,7 +1131,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-header-2__logo {
   font-family: 'Georgia', serif;
   font-size: 1.35rem;
-  color: #EEF6F5;
+  color: #F8FAFB;
   text-decoration: none;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -1162,7 +1162,7 @@ section.section:not(.band):nth-of-type(odd) {
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
 }
 .vcx-header-2__link:hover {
-  color: #EEF6F5;
+  color: #F8FAFB;
 }
 .vcx-header-2__link:hover::after,
 .vcx-header-2__link.active::after {
@@ -2342,7 +2342,7 @@ body {
   position: relative;
   background:
     radial-gradient(ellipse 60% 80% at 50% 0%, rgba(91,186,167,0.07) 0%, transparent 60%),
-    linear-gradient(180deg, #F4F7F6 0%, #E7EEEC 100%);
+    linear-gradient(180deg, #F8FAFB 0%, #E7EEEC 100%);
   padding: 72px 32px 80px;
   border-top: 1px solid rgba(26,47,42,0.08);
   overflow: hidden;
@@ -2585,7 +2585,7 @@ body {
 }
 .vcx-route__cta--primary {
   background: #2E4F46;
-  color: #F4F7F6;
+  color: #F8FAFB;
   border: 1px solid #2E4F46;
 }
 .vcx-route__cta--ghost {

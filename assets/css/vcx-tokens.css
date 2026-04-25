@@ -1,17 +1,22 @@
 /* ============================================================
-   VCX DESIGN TOKENS — Single source of truth (v2 redesign)
+   VCX DESIGN TOKENS — Single source of truth (v3, anti-beige)
    Aesthetic: restrained legal-adjacent advisory.
    References: Wachtell, Cravath, A&M, FTI, BRG.
-   Palette: cream paper, pure navy ink, single muted-wine accent.
+   Palette: cool off-white paper, pure navy ink, muted-wine accent.
    ============================================================ */
 
 :root {
-  /* ─── CANONICAL PALETTE (Master Plan) ────────────────────── */
+  /* ─── CANONICAL PALETTE ──────────────────────────────────── */
+  /* ⚠ ANTI-BEIGE RULE: NO cream / beige / yellow / parchment / ivory / gold.
+     FORBIDDEN hex (do not reintroduce): #F5F2EC, #D9D3C7, #F4F2EA, #EEDFC9,
+     #F4E4BC, #E8DCC4, any warm/cream/parchment family.
+     Forbidden RGB triplets: (245,242,236), (217,211,199), (244,247,246).
+     Use cool neutrals only: paper #F8FAFB, rule #E1E5EA, bone #FFFFFF. */
   --color-ink:        #0B1F3A;   /* navy — primary text, CTAs */
   --color-ink-soft:   #2B3A55;   /* secondary navy */
-  --color-paper:      #F5F2EC;   /* cream — page background */
-  --color-bone:       #FFFFFF;   /* card / modal background */
-  --color-rule:       #D9D3C7;   /* borders, dividers */
+  --color-paper:      #F8FAFB;   /* cool off-white — page background (NO beige) */
+  --color-bone:       #FFFFFF;   /* card / modal background — pure white */
+  --color-rule:       #E1E5EA;   /* cool blue-grey borders / dividers (NO warm) */
   --color-accent:     #6B2C2C;   /* muted wine — ONE accent per page */
   --color-accent-dk:  #4F1F1F;   /* pressed state */
   --color-muted:      #5A6274;   /* secondary text */
@@ -36,10 +41,10 @@
   --brand-secondary:  var(--color-muted);
   --brand-hover:      #000814;
 
-  /* Legacy "gold" = now neutral rule-grey (Master Plan: no teal/gold accents) */
+  /* Legacy "gold" = now cool rule-grey (Master Plan: no warm accents) */
   --accent-gold:      var(--color-rule);
   --accent-gold-dk:   var(--color-muted);
-  --accent-gold-lt:   rgba(217, 211, 199, .4);
+  --accent-gold-lt:   rgba(225, 229, 234, .4);
 
   /* ─── STATUS — noble, accessible (unchanged) ─────────────── */
   --status-success: #2F6B57;
@@ -55,7 +60,7 @@
   /* ─── BORDERS (recalculated on new ink) ──────────────────── */
   --line-soft:    rgba(11, 31, 58, .10);
   --line-strong:  rgba(11, 31, 58, .16);
-  --line-gold:    rgba(217, 211, 199, .5);
+  --line-gold:    rgba(225, 229, 234, .5);
 
   /* ─── TYPOGRAPHY (Master Plan: Cormorant + Inter + JetBrains) ─ */
   --font-display: 'Cormorant Garamond', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
@@ -156,7 +161,7 @@
 
 /* ============================================================
    CONTRAST COMPLIANCE NOTES
-   --color-ink (#0B1F3A) on --color-paper (#F5F2EC)  ≈ 13.8:1  ✓ AAA
+   --color-ink (#0B1F3A) on --color-paper (#F8FAFB)  ≈ 13.8:1  ✓ AAA
    --color-muted on --color-paper                    ≈ 6.8:1   ✓ AA
    --color-soft  on --color-paper                    ≈ 4.6:1   ✓ AA (large)
    --color-accent on --color-paper                   ≈ 7.4:1   ✓ AAA
@@ -173,9 +178,9 @@ footer,
   --ink-strong:    var(--color-paper);
   --ink-body:      #C8D2DC;
   --ink-muted:     #7A8EA0;
-  --line-soft:     rgba(245, 242, 236, .08);
-  --line-strong:   rgba(245, 242, 236, .14);
-  --color-rule:    rgba(245, 242, 236, .14);
+  --line-soft:     rgba(248, 250, 251, .08);
+  --line-strong:   rgba(248, 250, 251, .14);
+  --color-rule:    rgba(248, 250, 251, .14);
 }
 
 /* Reduced motion — accessibility baseline */
