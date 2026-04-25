@@ -19,14 +19,14 @@
  */
 
 :root {
-  /* Mint bluish-green palette — brand teal #5BBAA7 as primary beam tone,
+  /* Mint bluish-green palette — brand teal #0891B2 as primary beam tone,
    * lighter mint #7ED8C3 as secondary accent, with a deep teal-navy base.
    * Reads as "minty aqua" — cooler than true green, warmer than pure cyan.
    * All highlight tones are blue-tinted mint (NOT cream) to avoid warm drift. */
   --vcx-cc-bg-top:      #051F1A;
   --vcx-cc-bg-bottom:   #0A2E28;
   --vcx-cc-grid-line:   rgba(120, 210, 190, 0.10);
-  --vcx-cc-beam:        #5BBAA7;
+  --vcx-cc-beam:        #0891B2;
   --vcx-cc-beam-alt:    #7ED8C3;
   --vcx-cc-glow-1:      rgba(90, 200, 175, 0.75);
   --vcx-cc-glow-2:      rgba(40, 140, 120, 0.55);
@@ -143,8 +143,8 @@ section.vcx-hero-particles-host--sechead .section-head .vcx-eyebrow {
   font-weight: 700 !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.95),
-    0 0 14px rgba(91, 186, 167, 0.75),
-    0 0 28px rgba(91, 186, 167, 0.45);
+    0 0 14px rgba(8, 145, 178, 0.75),
+    0 0 28px rgba(8, 145, 178, 0.45);
 }
 
 /* SCD hero text on particle black.
@@ -169,11 +169,11 @@ section.vcx-hero-particles-host--scd .scd-hero__sub {
 section.vcx-hero-particles-host--scd .scd-hero__eyebrow {
   color: #D4FBEE !important;
   -webkit-text-fill-color: #D4FBEE !important;
-  background: rgba(91, 186, 167, 0.18) !important;
+  background: rgba(8, 145, 178, 0.18) !important;
   border-color: rgba(126, 216, 195, 0.45) !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.95),
-    0 0 14px rgba(91, 186, 167, 0.75);
+    0 0 14px rgba(8, 145, 178, 0.75);
 }
 
 /* ── Samples library cover promotion ──────────────────────────────
@@ -213,11 +213,11 @@ header.vcx-hero-particles-host--samplecover .vcx-sample-cover__lead {
 header.vcx-hero-particles-host--samplecover .vcx-sample-cover__eyebrow {
   color: #D4FBEE !important;
   -webkit-text-fill-color: #D4FBEE !important;
-  background: rgba(91, 186, 167, 0.18) !important;
+  background: rgba(8, 145, 178, 0.18) !important;
   border: 1px solid rgba(126, 216, 195, 0.45) !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.95),
-    0 0 14px rgba(91, 186, 167, 0.75);
+    0 0 14px rgba(8, 145, 178, 0.75);
 }
 header.vcx-hero-particles-host--samplecover .vcx-sample-cover__side {
   background: rgba(126, 216, 195, 0.08) !important;
@@ -320,16 +320,16 @@ section.vcx-hero-particles-host--bespoke .pet-hero__eyebrow,
 section.vcx-hero-particles-host--bespoke .prt-hero__eyebrow {
   color: #D4FBEE !important;
   -webkit-text-fill-color: #D4FBEE !important;
-  background: rgba(91, 186, 167, 0.18) !important;
+  background: rgba(8, 145, 178, 0.18) !important;
   border: 1px solid rgba(126, 216, 195, 0.45) !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.95),
-    0 0 14px rgba(91, 186, 167, 0.75),
-    0 0 28px rgba(91, 186, 167, 0.45) !important;
+    0 0 14px rgba(8, 145, 178, 0.75),
+    0 0 28px rgba(8, 145, 178, 0.45) !important;
 }
 
 /* Primary CTA → bright mint fill + near-black ink. The base pages
- * use #5BBAA7 fill which reads as muddy on any bg and fails AA. We
+ * use #0891B2 fill which reads as muddy on any bg and fails AA. We
  * brighten to #7ED8C3 over particle-black: contrast with #051812 =
  * 11.6:1 (AAA large + AAA normal). Matches --scd/--sechead hosts.
  *
@@ -455,7 +455,7 @@ section.vcx-hero-particles-host--bespoke .prt-hero__stat-num {
   -webkit-text-fill-color: #D4FBEE !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.6),
-    0 0 14px rgba(91, 186, 167, 0.4) !important;
+    0 0 14px rgba(8, 145, 178, 0.4) !important;
 }
 section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="label"],
 section.vcx-hero-particles-host--bespoke [class*="stat"] [class*="caption"],
@@ -681,12 +681,12 @@ nav.vcx-breadcrumb li + li::before {
   line-height: 1;
 }
 nav.vcx-breadcrumb a {
-  color: #2D8A82;
+  color: #0891B2;
   text-decoration: none;
   transition: color .15s ease;
 }
 nav.vcx-breadcrumb a:hover {
-  color: #5BBAA7;
+  color: #0891B2;
   text-decoration: underline;
 }
 /* Dark-scene variant: if the page sets a dark background adjacent to
@@ -720,19 +720,19 @@ body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
   background: conic-gradient(
     from 128deg at 22% -4%,
     transparent 0deg,
-    rgba(91, 186, 167, 0.28)  3deg,
+    rgba(8, 145, 178, 0.28)  3deg,
     transparent 6deg,
     transparent 12deg,
     rgba(126, 216, 195, 0.22) 15deg,
     transparent 19deg,
     transparent 26deg,
-    rgba(91, 186, 167, 0.34)  30deg,
+    rgba(8, 145, 178, 0.34)  30deg,
     transparent 34deg,
     transparent 42deg,
     rgba(126, 216, 195, 0.26) 46deg,
     transparent 50deg,
     transparent 58deg,
-    rgba(91, 186, 167, 0.22)  62deg,
+    rgba(8, 145, 178, 0.22)  62deg,
     transparent 66deg,
     transparent 75deg,
     rgba(126, 216, 195, 0.2)  78deg,
@@ -756,7 +756,7 @@ body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
   height: 30%;
   background: radial-gradient(ellipse at 50% 50%,
     rgba(180, 240, 220, 0.35) 0%,
-    rgba(91, 186, 167, 0.2)  35%,
+    rgba(8, 145, 178, 0.2)  35%,
     transparent 70%);
   filter: blur(30px);
   animation: vcxCcRaysKernel 6s ease-in-out infinite alternate;
@@ -927,7 +927,7 @@ body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
  * heavier three-layer teal-cyan glow so the tiny caps line actually
  * jumps off the particle-black bg. Also force-bold + slightly bigger
  * font-size so it reads as a confident accent line rather than a
- * faint label. Overrides the default #5BBAA7 from vcx-premium-2.css
+ * faint label. Overrides the default #0891B2 from vcx-premium-2.css
  * for this scene only. */
 .vcx-hero-2[data-hero-scene="cybercore"] .vcx-hero-2__content > .vcx-eyebrow {
   color: #D4FBEE !important;
@@ -936,8 +936,8 @@ body:has(section.vcx-hero-particles-host--sechead) nav.vcx-breadcrumb a:hover {
   letter-spacing: 0.18em !important;
   text-shadow:
     0 0 6px  rgba(126, 216, 195, 0.95),
-    0 0 14px rgba(91, 186, 167, 0.75),
-    0 0 28px rgba(91, 186, 167, 0.45);
+    0 0 14px rgba(8, 145, 178, 0.75),
+    0 0 28px rgba(8, 145, 178, 0.45);
 }
 
 .vcx-hero-2[data-hero-scene="cybercore"] > .vcx-leaf-container,

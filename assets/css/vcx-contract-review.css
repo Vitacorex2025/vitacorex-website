@@ -37,7 +37,7 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-tier-card--info {
-  border-top-color: var(--vcx-status-info, #5BBAA7);
+  border-top-color: var(--vcx-status-info, #0891B2);
 }
 
 .cr-tier-card--warning {
@@ -72,12 +72,12 @@ body[data-vcx-page="vcx-contract-review"] {
 }
 
 .cr-upload-zone:hover {
-  border-color: var(--vcx-brand-primary, #2D8A82);
+  border-color: var(--vcx-brand-primary, #0891B2);
 }
 
 .cr-upload-zone.is-dragover {
-  border-color: var(--vcx-brand-gold, #2D8A82);
-  background: rgba(91, 186, 167, 0.06);
+  border-color: var(--vcx-brand-gold, #0891B2);
+  background: rgba(8, 145, 178, 0.06);
 }
 
 /* --- Results panel --------------------------------------- */

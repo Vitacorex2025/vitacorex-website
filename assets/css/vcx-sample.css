@@ -61,7 +61,7 @@
 @media print { .vcx-sample-topnav { display: none !important; } }
 
 :root {
-  --smp-ink: #0e2036;
+  --smp-ink: #0E4F5C;
   --smp-ink-2: #243b5c;
   --smp-muted: #4a5a72;
   --smp-rule: #d8dee8;
@@ -86,7 +86,7 @@ body.vcx-sample-body {
   top: 50px;  /* sits directly below the 50px branded topnav */
   z-index: 80;
   background: #E0F7FA;
-  border-bottom: 1px solid #2D8A82;
+  border-bottom: 1px solid #0891B2;
   color: #155E75;
   font-size: 13px;
   text-align: center;
@@ -284,7 +284,7 @@ body[data-audience="b2c"] .vcx-sample-mile { border-left-color: var(--smp-b2c); 
 
 /* Closing CTA */
 .vcx-sample-cta {
-  margin: 64px 0 32px; padding: 28px 32px; background: #0e2036; color: #fff; border-radius: 6px;
+  margin: 64px 0 32px; padding: 28px 32px; background: #0E4F5C; color: #fff; border-radius: 6px;
 }
 .vcx-sample-cta h2 { font-size: 22px; margin: 0 0 10px; color: #fff; font-weight: 800; }
 .vcx-sample-cta p { font-size: 15px; line-height: 1.6; margin: 0 0 16px; color: #cdd6e3; max-width: 58ch; }
@@ -293,7 +293,7 @@ body[data-audience="b2c"] .vcx-sample-mile { border-left-color: var(--smp-b2c); 
   display: inline-block; padding: 12px 20px; border-radius: 4px; text-decoration: none;
   font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
 }
-.vcx-sample-cta__row a.primary { background: linear-gradient(180deg, #7ED8C3 0%, #2D8A82 100%); color: #051812; }
+.vcx-sample-cta__row a.primary { background: linear-gradient(180deg, #7ED8C3 0%, #0891B2 100%); color: #051812; }
 .vcx-sample-cta__row a.secondary { background: transparent; border: 1px solid #556a8a; color: #cdd6e3; }
 
 /* Footer disclaimer */
@@ -319,7 +319,7 @@ body[data-audience="b2c"] .vcx-sample-mile { border-left-color: var(--smp-b2c); 
   .vcx-sample-watermark { display: none !important; /* replaced by @page box */ }
   .vcx-sample-doc { max-width: none; padding: 0; }
   .vcx-sample-section { page-break-before: always; break-before: page; margin: 0 0 24pt; }
-  .vcx-sample-cover { page-break-after: always; break-after: page; border-top: 4pt solid #0e2036; }
+  .vcx-sample-cover { page-break-after: always; break-after: page; border-top: 4pt solid #0E4F5C; }
   .vcx-sample-toc { page-break-after: always; break-after: page; }
   a { color: inherit !important; text-decoration: none !important; }
   .vcx-sample-finding, .vcx-sample-band__k, .vcx-sample-mile { page-break-inside: avoid; break-inside: avoid; }

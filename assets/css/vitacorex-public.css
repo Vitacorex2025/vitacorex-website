@@ -12,9 +12,9 @@
   --line:rgba(255,255,255,.1);
   --line-strong:rgba(255,255,255,.18);
   --line-soft:rgba(16,34,53,.12);
-  --accent:#2D8A82;
+  --accent:#0891B2;
   --accent-strong:#7ED8C3;
-  --accent-soft:rgba(91,186,167,.18);
+  --accent-soft:rgba(8, 145, 178,.18);
   --success:#7cc7a6;
   --alert:#0E7490;
   --danger:#c64340;
@@ -45,7 +45,7 @@ body{
   touch-action:manipulation;
   -ms-touch-action:manipulation;
   background:
-    radial-gradient(circle at top, rgba(91,186,167,.12), transparent 24%),
+    radial-gradient(circle at top, rgba(8, 145, 178,.12), transparent 24%),
     linear-gradient(180deg, #07131f 0%, #081624 38%, #0d1c2b 100%);
   color:var(--ink);
   font-family:Inter,"Segoe UI",sans-serif;
@@ -55,7 +55,7 @@ body{
 
 body[data-surface="soft"]{
   background:
-    radial-gradient(circle at top, rgba(91,186,167,.08), transparent 24%),
+    radial-gradient(circle at top, rgba(8, 145, 178,.08), transparent 24%),
     linear-gradient(180deg, #F4FAF9 0%, #F8FAFB 34%, #E5EEEC 100%);
   color:#122335;
 }
@@ -347,7 +347,7 @@ body[data-surface="soft"] .mobile-menu a[aria-current="page"]{
 }
 
 .btn-primary{
-  background:linear-gradient(180deg, #7ED8C3 0%, #2D8A82 100%);
+  background:linear-gradient(180deg, #7ED8C3 0%, #0891B2 100%);
   color:#051812;
   box-shadow:0 18px 34px rgba(0,0,0,.24);
 }
@@ -677,7 +677,7 @@ body[data-surface="soft"] .stat-label{
   height:40px;
   margin-bottom:16px;
   border-radius:999px;
-  background:rgba(91,186,167,.16);
+  background:rgba(8, 145, 178,.16);
   color:var(--accent-strong);
   font-weight:800;
 }
@@ -687,7 +687,7 @@ body[data-surface="soft"] .stat-label{
 }
 
 .comparison-card--negative{
-  border-color:rgba(91,186,167,.24);
+  border-color:rgba(8, 145, 178,.24);
 }
 
 .meta-card{
@@ -1012,7 +1012,7 @@ body[data-surface="soft"] .surface-preview-footer strong{
   min-height:30px;
   padding:0 12px;
   border-radius:999px;
-  background:rgba(91,186,167,.16);
+  background:rgba(8, 145, 178,.16);
   color:var(--alert);
   font-size:.78rem;
   font-weight:800;
@@ -1023,7 +1023,7 @@ body[data-surface="soft"] .surface-preview-footer strong{
 
 body[data-surface="soft"] .surface-badge{
   color:#7d5200;
-  background:rgba(91,186,167,.26);
+  background:rgba(8, 145, 178,.26);
 }
 
 .surface-preview-grid{

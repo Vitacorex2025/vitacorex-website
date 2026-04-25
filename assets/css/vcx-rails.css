@@ -9,11 +9,11 @@
    - Rules for legal guard, proof notes, texture utilities.
 
    Palette (homepage canonical, DO NOT ADD NEW COLOR):
-     --vcx-teal:       #2D8A82
-     --vcx-teal-hover: #1A4F4A
+     --vcx-teal:       #0891B2
+     --vcx-teal-hover: #0E4F5C
      --vcx-teal-deep:  #0F2F2C
-     --vcx-accent:     #5BC4B8
-     --vcx-accent-alt: #5BBAA7
+     --vcx-accent:     #06B6D4
+     --vcx-accent-alt: #0891B2
      --vcx-ink:        #1A2F2A
      --vcx-ink-body:   #2E4F46
      --vcx-ink-muted:  #5E6C7B
@@ -38,11 +38,11 @@
   --vcx-rail-radius:        14px;
   --vcx-rail-shadow:        0 2px 8px rgba(26,47,42,.06), 0 12px 32px rgba(26,47,42,.08);
   --vcx-rail-border:        1px solid rgba(26,47,42,.10);
-  --vcx-rail-teal:          #2D8A82;
-  --vcx-rail-teal-hover:    #1A4F4A;
+  --vcx-rail-teal:          #0891B2;
+  --vcx-rail-teal-hover:    #0E4F5C;
   --vcx-rail-teal-deep:     #0F2F2C;
-  --vcx-rail-accent:        #5BC4B8;
-  --vcx-rail-accent-alt:    #5BBAA7;
+  --vcx-rail-accent:        #06B6D4;
+  --vcx-rail-accent-alt:    #0891B2;
   --vcx-rail-ink:           #1A2F2A;
   --vcx-rail-ink-body:      #2E4F46;
   --vcx-rail-ink-muted:     #5E6C7B;
@@ -196,11 +196,11 @@
 .vcx-rail-card:focus-visible {
   transform: translateY(-4px);
   box-shadow: var(--vcx-rail-shadow);
-  border-color: rgba(45,138,130,0.28);
+  border-color: rgba(8, 145, 178,0.28);
   outline: none;
 }
 .vcx-rail-card:focus-visible {
-  box-shadow: 0 0 0 3px rgba(45,138,130,0.35), var(--vcx-rail-shadow);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178,0.35), var(--vcx-rail-shadow);
 }
 .vcx-rail-card::before {
   content: '';
@@ -219,7 +219,7 @@
   width: 44px; height: 44px;
   display: inline-flex;
   align-items: center; justify-content: center;
-  background: rgba(45,138,130,0.08);
+  background: rgba(8, 145, 178,0.08);
   border-radius: 10px;
   font-size: 22px;
   margin-bottom: 16px;
@@ -317,7 +317,7 @@
   align-items: center; justify-content: center;
   width: 38px; height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(45,138,130,0.25);
+  border: 1px solid rgba(8, 145, 178,0.25);
   background: #FFFFFF;
   color: var(--vcx-rail-teal);
   cursor: pointer;
@@ -332,7 +332,7 @@
   transform: scale(1.05);
 }
 .vcx-rail-btn:focus-visible {
-  box-shadow: 0 0 0 3px rgba(45,138,130,0.30);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178,0.30);
 }
 .vcx-rail-btn[disabled] {
   opacity: 0.35;
@@ -362,7 +362,7 @@
 /* Progress (optional indicator) */
 .vcx-rail-progress {
   height: 2px;
-  background: rgba(45,138,130,0.10);
+  background: rgba(8, 145, 178,0.10);
   border-radius: 2px;
   overflow: hidden;
   margin: 16px var(--vcx-rail-pad-x) 0;
@@ -484,7 +484,7 @@
 .vcx-pinned-rail__dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: rgba(45,138,130,0.25);
+  background: rgba(8, 145, 178,0.25);
   transition: background 180ms ease, transform 180ms ease;
 }
 .vcx-pinned-rail__dot.is-active {
@@ -658,11 +658,11 @@
 .vcx-tool-shelf__item:focus-visible {
   transform: translateY(-2px);
   border-color: var(--vcx-rail-teal);
-  box-shadow: 0 4px 12px rgba(45,138,130,0.14);
+  box-shadow: 0 4px 12px rgba(8, 145, 178,0.14);
   outline: none;
 }
 .vcx-tool-shelf__item:focus-visible {
-  box-shadow: 0 0 0 3px rgba(45,138,130,0.28);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178,0.28);
 }
 .vcx-tool-shelf__ico {
   width: 28px; height: 28px;
@@ -670,7 +670,7 @@
   align-items: center; justify-content: center;
   font-size: 16px;
   border-radius: 8px;
-  background: rgba(45,138,130,0.10);
+  background: rgba(8, 145, 178,0.10);
   color: var(--vcx-rail-teal);
   flex: 0 0 auto;
 }
@@ -696,8 +696,8 @@
   align-items: flex-start;
   gap: 8px;
   padding: 10px 14px;
-  background: rgba(45,138,130,0.06);
-  border: 1px solid rgba(45,138,130,0.18);
+  background: rgba(8, 145, 178,0.06);
+  border: 1px solid rgba(8, 145, 178,0.18);
   border-radius: 10px;
   font-size: 0.82rem;
   line-height: 1.55;
@@ -755,10 +755,10 @@
 }
 .vcx-legal-boundary--teal {
   background: #FFFFFF;
-  border: 1px solid rgba(45,138,130,0.24);
-  border-left: 3px solid #2D8A82;
+  border: 1px solid rgba(8, 145, 178,0.24);
+  border-left: 3px solid #0891B2;
   color: #2F3E38;
-  box-shadow: 0 4px 16px rgba(45,138,130,0.06);
+  box-shadow: 0 4px 16px rgba(8, 145, 178,0.06);
   /* max-width inherits min(920px, calc(100% - 32px)) from base rule;
    * margin: 0 auto keeps it centered inside .vcx-scope-strip .wrap. */
   margin: 0 auto;
@@ -774,7 +774,7 @@
 .vcx-rail-section--dark .vcx-legal-boundary,
 .vcx-rail-section--teal .vcx-legal-boundary {
   background: rgba(14,116,144,0.14);
-  border-color: rgba(91,186,167,0.40);
+  border-color: rgba(8, 145, 178,0.40);
   border-left-color: #7ED8C3;
   color: rgba(255,255,255,0.90);
 }
@@ -934,7 +934,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 10% 10%, rgba(45,138,130,0.04), transparent 40%),
+    radial-gradient(circle at 10% 10%, rgba(8, 145, 178,0.04), transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(91,196,184,0.04), transparent 40%);
   pointer-events: none;
   z-index: 0;
@@ -960,8 +960,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 14px;
-  background: rgba(45,138,130,0.08);
-  border: 1px solid rgba(45,138,130,0.22);
+  background: rgba(8, 145, 178,0.08);
+  border: 1px solid rgba(8, 145, 178,0.22);
   border-radius: 999px;
   font-size: 0.85rem;
   line-height: 1.35;
@@ -1012,8 +1012,8 @@
   transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 .vcx-tag-grid > li:has(> a):hover {
-  border-color: rgba(45,138,130,0.55);
-  background: rgba(45,138,130,0.12);
+  border-color: rgba(8, 145, 178,0.55);
+  background: rgba(8, 145, 178,0.12);
   transform: translateY(-1px);
 }
 .vcx-rail-section--dark .vcx-tag-grid > li:has(> a):hover,

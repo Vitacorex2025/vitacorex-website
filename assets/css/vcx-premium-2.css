@@ -25,7 +25,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-gold, #5BBAA7);
+  color: var(--accent-gold, #0891B2);
   margin-bottom: 16px;
   display: block;
 }
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: #0C2D2A;
+  background: #06283D;
   overflow: hidden;
   padding: 48px 32px 40px;
 }
@@ -70,7 +70,7 @@
   height: 100%;
 }
 .vcx-hero-2__paths path {
-  stroke: rgba(91,186,167,0.7);
+  stroke: rgba(8, 145, 178,0.7);
   fill: none;
   stroke-linecap: round;
 }
@@ -90,7 +90,7 @@
   opacity: 0.16;
   mix-blend-mode: screen;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(91,186,167,0.45), transparent),
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(8, 145, 178,0.45), transparent),
     radial-gradient(ellipse 60% 50% at 80% 30%, rgba(78,180,170,0.35), transparent),
     radial-gradient(ellipse 70% 55% at 50% 60%, rgba(120,200,210,0.30), transparent);
   animation: vcxShimmer 10s ease-in-out infinite alternate;
@@ -113,7 +113,7 @@
 
 .vcx-hero-2__orb--1 {
   width: 800px; height: 800px;
-  background: radial-gradient(circle, #5BBAA7 0%, transparent 60%);
+  background: radial-gradient(circle, #0891B2 0%, transparent 60%);
   top: -200px; right: -100px;
   animation: vcxOrbFloat1 14s ease-in-out infinite alternate;
 }
@@ -215,7 +215,7 @@
 }
 
 .vcx-hero-2 .vcx-eyebrow {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
   font-size: 0.6875rem !important;
   letter-spacing: 0.14em !important;
   margin-bottom: 14px !important;
@@ -223,8 +223,8 @@
 
 .vcx-hero-2 .vcx-hero-2__pill {
   color: rgba(141,212,197,0.85) !important;
-  background: rgba(91,186,167,0.08) !important;
-  border-color: rgba(91,186,167,0.18) !important;
+  background: rgba(8, 145, 178,0.08) !important;
+  border-color: rgba(8, 145, 178,0.18) !important;
   font-size: 0.78rem !important;
   padding: 6px 14px !important;
 }
@@ -284,8 +284,8 @@ body .hero-cloud-layer {
    contrast implicitly; on the new brighter hero they need explicit colour. */
 .vcx-hero-2 .vcx-hero-2__eyebrow,
 .vcx-hero-2 [class*="eyebrow"] {
-  color: #5BBAA7 !important;
-  -webkit-text-fill-color: #5BBAA7 !important;
+  color: #0891B2 !important;
+  -webkit-text-fill-color: #0891B2 !important;
   opacity: 1 !important;
 }
 .vcx-hero-2__pill {
@@ -308,9 +308,9 @@ body .hero-cloud-layer {
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: rgba(91,186,167,0.10);
+  background: rgba(8, 145, 178,0.10);
   color: rgba(141,212,197,0.85);
-  border: 1px solid rgba(91,186,167,0.18);
+  border: 1px solid rgba(8, 145, 178,0.18);
   backdrop-filter: blur(8px);
   letter-spacing: 0.02em;
 }
@@ -333,7 +333,7 @@ body .hero-cloud-layer {
   position: relative;
 }
 
-/* A11y: base #5BBAA7 failed WCAG AA against white text (2.33:1).
+/* A11y: base #0891B2 failed WCAG AA against white text (2.33:1).
  * Darken to #1A5A54 base + gradient to #236B64. White on #1A5A54 = 7.5:1
  * (AAA normal), on #236B64 = 6.3:1 (AA normal). Matches the c563295 fix
  * on the generic .btn-primary — applied here to the hero/B2B variant. */
@@ -344,7 +344,7 @@ body .hero-cloud-layer {
 }
 .vcx-btn-2--primary:hover {
   background: #236B64;
-  background-image: linear-gradient(135deg, #236B64 0%, #2D8A82 100%);
+  background-image: linear-gradient(135deg, #236B64 0%, #0891B2 100%);
   color: #FFFFFF;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(26,90,84,0.35);
@@ -394,7 +394,7 @@ a.btn-secondary, button.btn-secondary,
   cursor: pointer !important;
 }
 
-/* A11y bump: base #5BBAA7 failed 2.33:1 with white text.
+/* A11y bump: base #0891B2 failed 2.33:1 with white text.
  * #1A5A54 → white = 7.5:1 (passes AA normal + AAA large). */
 .btn-primary,
 a.btn-primary,
@@ -417,7 +417,7 @@ a.btn-primary:hover,
 button.btn-primary:hover,
 .hero .btn-primary:hover {
   background: #236B64 !important;
-  background-image: linear-gradient(135deg, #236B64 0%, #2D8A82 100%) !important;
+  background-image: linear-gradient(135deg, #236B64 0%, #0891B2 100%) !important;
   color: #FFFFFF !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(26,90,84,0.35) !important;
@@ -470,8 +470,8 @@ a.btn-secondary:hover {
   background: linear-gradient(180deg, #0A1A15 0%, #122A22 50%, #0A1A15 100%);
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(91,186,167,0.08);
-  border-bottom: 1px solid rgba(91,186,167,0.08);
+  border-top: 1px solid rgba(8, 145, 178,0.08);
+  border-bottom: 1px solid rgba(8, 145, 178,0.08);
 }
 
 .vcx-stats-2__grid {
@@ -484,7 +484,7 @@ a.btn-secondary:hover {
 }
 .vcx-stats-2__grid > div {
   padding: 32px 16px;
-  border-right: 1px solid rgba(91,186,167,0.10);
+  border-right: 1px solid rgba(8, 145, 178,0.10);
 }
 .vcx-stats-2__grid > div:last-child {
   border-right: none;
@@ -497,7 +497,7 @@ a.btn-secondary:hover {
   font-variant-numeric: tabular-nums !important;
   min-width: 2ch;
   display: inline-block;
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
   line-height: 1 !important;
   letter-spacing: -0.03em;
 }
@@ -553,7 +553,7 @@ a.btn-secondary:hover {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-gold, #5BBAA7), var(--accent-gold-dk, #3D8E7E));
+  background: linear-gradient(90deg, var(--accent-gold, #0891B2), var(--accent-gold-dk, #3D8E7E));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
@@ -562,7 +562,7 @@ a.btn-secondary:hover {
 .vcx-card-2:hover {
   transform: translateY(-6px);
   box-shadow: 0 2px 8px rgba(26,47,42,.08), 0 12px 32px rgba(26,47,42,.08);
-  border-color: rgba(91,186,167,0.22);
+  border-color: rgba(8, 145, 178,0.22);
 }
 .vcx-card-2:hover::before {
   transform: scaleX(1);
@@ -571,14 +571,14 @@ a.btn-secondary:hover {
 .vcx-card-2__icon {
   width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(91,186,167,0.08);
+  background: rgba(8, 145, 178,0.08);
   border-radius: 12px;
   font-size: 26px;
   margin-bottom: 24px;
   transition: background 240ms ease;
 }
 .vcx-card-2:hover .vcx-card-2__icon {
-  background: rgba(91,186,167,0.14);
+  background: rgba(8, 145, 178,0.14);
 }
 
 .vcx-card-2__title {
@@ -608,7 +608,7 @@ a.btn-secondary:hover {
 }
 .vcx-card-2__link:hover {
   gap: 10px;
-  color: var(--accent-gold, #5BBAA7);
+  color: var(--accent-gold, #0891B2);
 }
 
 /* ---- SECTION HEADERS ---- */
@@ -666,7 +666,7 @@ a.btn-secondary:hover {
 }
 
 .vcx-testimonial-2__stars {
-  color: #2D8A82;
+  color: #0891B2;
   font-size: 16px;
   letter-spacing: 2px;
   margin-bottom: 16px;
@@ -709,7 +709,7 @@ a.btn-secondary:hover {
   left: 28px;
   right: 28px;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-gold, #5BBAA7), var(--accent-gold-dk, #3D8E7E));
+  background: linear-gradient(90deg, var(--accent-gold, #0891B2), var(--accent-gold-dk, #3D8E7E));
   opacity: 0.3;
 }
 
@@ -724,7 +724,7 @@ a.btn-secondary:hover {
   width: 56px; height: 56px;
   border-radius: 50%;
   background: var(--bg-elevated, #fff);
-  border: 2px solid var(--accent-gold, #5BBAA7);
+  border: 2px solid var(--accent-gold, #0891B2);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 20px;
   font-size: 24px;
@@ -733,10 +733,10 @@ a.btn-secondary:hover {
   transition: all 300ms ease;
 }
 .vcx-timeline-2__step:hover .vcx-timeline-2__dot {
-  background: var(--accent-gold, #5BBAA7);
+  background: var(--accent-gold, #0891B2);
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 4px 16px rgba(91,186,167,0.3);
+  box-shadow: 0 4px 16px rgba(8, 145, 178,0.3);
 }
 
 .vcx-timeline-2__label {
@@ -786,7 +786,7 @@ a.btn-secondary:hover {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-gold, #5BBAA7);
+  color: var(--accent-gold, #0891B2);
   margin-bottom: 20px;
 }
 
@@ -837,7 +837,7 @@ a.btn-secondary:hover {
   content: '';
   position: absolute;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(91,186,167,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(8, 145, 178,0.08) 0%, transparent 70%);
   top: -200px; left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -946,8 +946,8 @@ a.btn-secondary:hover {
 .vcx-bg-grid {
   background-color: #FFFFFF !important;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px) !important;
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(8, 145, 178,0.18) 39px, rgba(8, 145, 178,0.18) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(8, 145, 178,0.18) 39px, rgba(8, 145, 178,0.18) 40px) !important;
   background-size: 40px 40px !important;
 }
 
@@ -955,15 +955,15 @@ a.btn-secondary:hover {
 section.section:not(.band):nth-of-type(odd) {
   background-color: #FFFFFF !important;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.18) 39px, rgba(91,186,167,0.18) 40px) !important;
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(8, 145, 178,0.18) 39px, rgba(8, 145, 178,0.18) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(8, 145, 178,0.18) 39px, rgba(8, 145, 178,0.18) 40px) !important;
   background-size: 40px 40px !important;
 }
 
 /* Dot matrix — subtle repeating dots */
 .vcx-bg-dots {
   background-color: var(--parchment, #F8FAFB);
-  background-image: radial-gradient(circle, rgba(91,186,167,0.10) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(8, 145, 178,0.10) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -971,8 +971,8 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-bg-dark {
   background-color: #0B2A24 !important;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91,186,167,0.07) 39px, rgba(91,186,167,0.07) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91,186,167,0.07) 39px, rgba(91,186,167,0.07) 40px);
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(8, 145, 178,0.07) 39px, rgba(8, 145, 178,0.07) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(8, 145, 178,0.07) 39px, rgba(8, 145, 178,0.07) 40px);
   background-size: 40px 40px;
 }
 
@@ -980,7 +980,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-bg-ink {
   background-color: #091E1A !important;
   background-image:
-    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(91,186,167,0.08), transparent 70%),
+    radial-gradient(ellipse 120% 80% at 30% 100%, rgba(8, 145, 178,0.08), transparent 70%),
     radial-gradient(ellipse 100% 60% at 80% 0%, rgba(61,142,126,0.06), transparent 60%);
 }
 
@@ -1003,7 +1003,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-bg-dark .eyebrow, .vcx-bg-dark .vcx-eyebrow-premium,
 .vcx-bg-ink .eyebrow, .vcx-bg-ink .vcx-eyebrow-premium,
 .vcx-bg-glow .eyebrow, .vcx-bg-glow .vcx-eyebrow-premium {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
 }
 .vcx-bg-dark .section-intro,
 .vcx-bg-ink .section-intro,
@@ -1019,8 +1019,8 @@ section.section:not(.band):nth-of-type(odd) {
       135deg,
       transparent,
       transparent 14px,
-      rgba(91,186,167,0.04) 14px,
-      rgba(91,186,167,0.04) 15px
+      rgba(8, 145, 178,0.04) 14px,
+      rgba(8, 145, 178,0.04) 15px
     );
 }
 
@@ -1035,7 +1035,7 @@ section.section:not(.band):nth-of-type(odd) {
   position: absolute;
   inset: -50%;
   background:
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(91,186,167,0.12), transparent),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(8, 145, 178,0.12), transparent),
     radial-gradient(ellipse 40% 50% at 80% 20%, rgba(61,142,126,0.08), transparent);
   animation: vcxGlowDrift 16s ease-in-out infinite alternate;
   pointer-events: none;
@@ -1070,22 +1070,22 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-bg-ink .card, .vcx-bg-ink .widget-card,
 .vcx-bg-glow .card, .vcx-bg-glow .widget-card {
   background: rgba(255,255,255,0.05) !important;
-  border-color: rgba(91,186,167,0.15) !important;
+  border-color: rgba(8, 145, 178,0.15) !important;
 }
 
 /* Testimonial cards in dark — glass effect */
 .vcx-bg-ink .testimonial-card, .vcx-bg-ink .vcx-testimonial-card,
 .vcx-bg-dark .testimonial-card, .vcx-bg-dark .vcx-testimonial-card {
   background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(91,186,167,0.12) !important;
+  border: 1px solid rgba(8, 145, 178,0.12) !important;
 }
 
 /* Impact section items */
 .vcx-bg-dark .vcx-impact-item, .vcx-bg-ink .vcx-impact-item {
-  border-color: rgba(91,186,167,0.10) !important;
+  border-color: rgba(8, 145, 178,0.10) !important;
 }
 .vcx-bg-dark .vcx-impact-number, .vcx-bg-ink .vcx-impact-number {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
 }
 .vcx-bg-dark .vcx-impact-label, .vcx-bg-ink .vcx-impact-label {
   color: rgba(238,233,222,0.70) !important;
@@ -1104,7 +1104,7 @@ section.section:not(.band):nth-of-type(odd) {
 /* Concierge panel in dark bg */
 .vcx-bg-dark .concierge-panel {
   background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(91,186,167,0.12) !important;
+  border-color: rgba(8, 145, 178,0.12) !important;
 }
 
 /* ---- NAVIGATION UPGRADE ---- */
@@ -1156,7 +1156,7 @@ section.section:not(.band):nth-of-type(odd) {
   bottom: -4px;
   left: 0; right: 0;
   height: 1.5px;
-  background: var(--accent-gold, #5BBAA7);
+  background: var(--accent-gold, #0891B2);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
@@ -1193,7 +1193,7 @@ section.section:not(.band):nth-of-type(odd) {
 .vcx-lang-2__btn.active,
 .vcx-lang-2__btn:hover {
   color: var(--bg-ink, #1A2F2A);
-  background: var(--accent-gold, #5BBAA7);
+  background: var(--accent-gold, #0891B2);
 }
 
 /* ---- DIVIDER LINE ---- */
@@ -1210,7 +1210,7 @@ section.section:not(.band):nth-of-type(odd) {
   box-shadow: none !important;
 }
 .vcx-header-navrow {
-  border-top: 1px solid rgba(91,186,167,0.10) !important;
+  border-top: 1px solid rgba(8, 145, 178,0.10) !important;
   margin-top: 6px !important;
   padding-top: 6px !important;
 }
@@ -1225,7 +1225,7 @@ section.section:not(.band):nth-of-type(odd) {
   gap: 8px !important;
 }
 .vcx-time-value {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
   font-weight: 600 !important;
 }
 
@@ -1255,7 +1255,7 @@ section.section:not(.band):nth-of-type(odd) {
 }
 .vcx-lang-switch .lang-btn.active {
   color: #0A1E1A !important;
-  background: #5BBAA7 !important;
+  background: #0891B2 !important;
 }
 
 /* Brand text */
@@ -1301,7 +1301,7 @@ section.section:not(.band):nth-of-type(odd) {
 }
 .vcx-main-nav a.active {
   color: #FFFFFF !important;
-  background: rgba(91,186,167,0.18) !important;
+  background: rgba(8, 145, 178,0.18) !important;
 }
 .vcx-main-nav a.is-long {
   font-size: 0.72rem !important;
@@ -1343,14 +1343,14 @@ section.section:not(.band):nth-of-type(odd) {
 .mobile-nav a.active,
 [class*="mobile-menu"] a:hover,
 [class*="mobile-nav"] a:hover {
-  background: rgba(91,186,167,0.18) !important;
+  background: rgba(8, 145, 178,0.18) !important;
   background-image: none !important;
   color: #fff !important;
-  border-bottom-color: rgba(91,186,167,0.6) !important;
+  border-bottom-color: rgba(8, 145, 178,0.6) !important;
   box-shadow: none !important;
   transform: none !important;
   border-radius: 0 !important;
-  text-shadow: 0 0 8px rgba(91,186,167,0.4) !important;
+  text-shadow: 0 0 8px rgba(8, 145, 178,0.4) !important;
 }
 
 /* ---- MENU OPEN STATE — header becomes full-viewport glass ---- */
@@ -1484,7 +1484,7 @@ body {
   font-size: 0.78rem !important;
 }
 .footer-phone-link {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
 }
 .footer-links a,
 .foot-social a {
@@ -1499,7 +1499,7 @@ body {
   text-decoration: none !important;
 }
 .footer .small-note a {
-  color: #5BBAA7 !important;
+  color: #0891B2 !important;
 }
 .footer .exclusive-badge,
 .footer .footer-project-btn {
@@ -1700,8 +1700,8 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 .vcx-bento-card:hover {
-  border-color: rgba(91,186,167,0.4);
-  box-shadow: 0 4px 20px rgba(91,186,167,0.12);
+  border-color: rgba(8, 145, 178,0.4);
+  box-shadow: 0 4px 20px rgba(8, 145, 178,0.12);
 }
 .vcx-bento-card__inner {
   padding: 24px;
@@ -1749,7 +1749,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  color: rgba(91,186,167,0.25);
+  color: rgba(8, 145, 178,0.25);
 }
 .vcx-bento-big-number {
   position: relative;
@@ -1781,7 +1781,7 @@ body {
 .vcx-bento-fingerprint {
   width: 80px;
   height: auto;
-  color: rgba(45,138,130,0.42);
+  color: rgba(8, 145, 178,0.42);
 }
 
 /* Card 3: chart */
@@ -1830,7 +1830,7 @@ body {
   border-radius: 12px 0 0 0;
   padding: 16px;
   min-height: 180px;
-  background: rgba(91,186,167,0.06);
+  background: rgba(8, 145, 178,0.06);
 }
 .vcx-bento-code-dots {
   display: flex;
@@ -1859,7 +1859,7 @@ body {
   border-top: none;
   border-radius: 0;
   position: relative;
-  background: rgba(91,186,167,0.06);
+  background: rgba(8, 145, 178,0.06);
 }
 .vcx-bento-avatar-line {
   position: absolute;
@@ -1886,7 +1886,7 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(91,186,167,0.15);
+  background: rgba(8, 145, 178,0.15);
   border: 2px solid #fff;
   color: #0B2420;
   font-size: 0.75rem;
@@ -1925,12 +1925,12 @@ body {
   }
   .vcx-bento-split__visual {
     border-left: none;
-    border-top: 1px solid rgba(91,186,167,0.12);
+    border-top: 1px solid rgba(8, 145, 178,0.12);
     border-radius: 0;
   }
   .vcx-bento-avatars {
     border-left: none;
-    border-top: 1px solid rgba(91,186,167,0.12);
+    border-top: 1px solid rgba(8, 145, 178,0.12);
   }
 }
 @media (max-width: 480px) {
@@ -1960,7 +1960,7 @@ body {
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.2);
   background: linear-gradient(135deg, #1a6b5a 0%, #0f4d40 100%);
-  box-shadow: 0 0 18px rgba(91,186,167,0.5), 0 0 36px rgba(91,186,167,0.25);
+  box-shadow: 0 0 18px rgba(8, 145, 178,0.5), 0 0 36px rgba(8, 145, 178,0.25);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1970,7 +1970,7 @@ body {
 }
 .vcx-ai-fab:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 28px rgba(91,186,167,0.7), 0 0 50px rgba(91,186,167,0.35);
+  box-shadow: 0 0 28px rgba(8, 145, 178,0.7), 0 0 50px rgba(8, 145, 178,0.35);
 }
 .vcx-ai-fab__icon--close { display: none; }
 .vcx-ai--open .vcx-ai-fab__icon--bot { display: none; }
@@ -1979,7 +1979,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: #5BBAA7;
+  background: #0891B2;
   opacity: 0.2;
   animation: vcxPing 2s cubic-bezier(0,0,0.2,1) infinite;
 }
@@ -2026,7 +2026,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #5BBAA7;
+  background: #0891B2;
   animation: vcxDotPulse 2s infinite;
 }
 .vcx-ai-dot--sm { width: 6px; height: 6px; }
@@ -2037,13 +2037,13 @@ body {
   font-size: 0.7rem;
   font-weight: 600;
   border-radius: 12px;
-  background: rgba(91,186,167,0.1);
+  background: rgba(8, 145, 178,0.1);
   color: #1a6b5a;
 }
 .vcx-ai-badge--pro {
-  background: rgba(91,186,167,0.15);
+  background: rgba(8, 145, 178,0.15);
   color: #0f4d40;
-  border: 1px solid rgba(91,186,167,0.3);
+  border: 1px solid rgba(8, 145, 178,0.3);
 }
 /* Messages area */
 .vcx-ai-chat__messages {
@@ -2067,7 +2067,7 @@ body {
 }
 .vcx-ai-msg--bot {
   align-self: flex-start;
-  background: rgba(91,186,167,0.1);
+  background: rgba(8, 145, 178,0.1);
   color: #0B2420;
   border-bottom-left-radius: 4px;
 }
@@ -2079,7 +2079,7 @@ body {
 }
 .vcx-ai-msg--typing {
   align-self: flex-start;
-  background: rgba(91,186,167,0.1);
+  background: rgba(8, 145, 178,0.1);
   color: rgba(11,36,32,0.5);
   border-bottom-left-radius: 4px;
   font-style: italic;
@@ -2118,7 +2118,7 @@ body {
   transition: border-color 0.2s;
 }
 .vcx-ai-chat__input:focus {
-  border-color: #5BBAA7;
+  border-color: #0891B2;
 }
 .vcx-ai-chat__input::placeholder { color: rgba(11,36,32,0.35); }
 .vcx-ai-send {
@@ -2126,17 +2126,17 @@ body {
   height: 40px;
   border-radius: 12px;
   border: none;
-  background: linear-gradient(135deg, #1a6b5a, #5BBAA7);
+  background: linear-gradient(135deg, #1a6b5a, #0891B2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(91,186,167,0.3);
+  box-shadow: 0 4px 12px rgba(8, 145, 178,0.3);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .vcx-ai-send:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(91,186,167,0.4);
+  box-shadow: 0 6px 18px rgba(8, 145, 178,0.4);
 }
 .vcx-ai-chat__footer {
   display: flex;
@@ -2169,9 +2169,9 @@ body {
 }
 .vcx-ai-suggestion {
   padding: 5px 12px;
-  border: 1px solid rgba(91,186,167,0.3);
+  border: 1px solid rgba(8, 145, 178,0.3);
   border-radius: 16px;
-  background: rgba(91,186,167,0.06);
+  background: rgba(8, 145, 178,0.06);
   color: #1a6b5a;
   font-size: 0.78rem;
   font-weight: 500;
@@ -2180,8 +2180,8 @@ body {
   font-family: inherit;
 }
 .vcx-ai-suggestion:hover {
-  background: rgba(91,186,167,0.15);
-  border-color: #5BBAA7;
+  background: rgba(8, 145, 178,0.15);
+  border-color: #0891B2;
 }
 .vcx-ai-links {
   display: flex;
@@ -2209,7 +2209,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #5BBAA7;
+  background: #0891B2;
   margin: 0 2px;
   animation: vcxTypingBounce 1.4s infinite ease-in-out both;
 }
@@ -2242,7 +2242,7 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 .vcx-testi-card:hover {
-  border-color: rgba(91,186,167,0.35);
+  border-color: rgba(8, 145, 178,0.35);
   transform: translateY(-2px);
 }
 .vcx-testi-card__body {
@@ -2292,8 +2292,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(91,186,167,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(91,186,167,0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(8, 145, 178,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 145, 178,0.06) 1px, transparent 1px);
   background-size: 50px 56px;
   mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
   -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
@@ -2341,7 +2341,7 @@ body {
 .vcx-routes {
   position: relative;
   background:
-    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(91,186,167,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(8, 145, 178,0.07) 0%, transparent 60%),
     linear-gradient(180deg, #F8FAFB 0%, #E7EEEC 100%);
   padding: 72px 32px 80px;
   border-top: 1px solid rgba(26,47,42,0.08);
@@ -2354,7 +2354,7 @@ body {
   transform: translateX(-50%);
   width: 64px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #5BBAA7 50%, transparent);
+  background: linear-gradient(90deg, transparent, #0891B2 50%, transparent);
   opacity: 0.6;
 }
 
@@ -2389,7 +2389,7 @@ body {
   transform: translateX(-50%);
   width: 28px;
   height: 1px;
-  background: #5BBAA7;
+  background: #0891B2;
 }
 
 .vcx-routes__title {
@@ -2496,7 +2496,7 @@ body {
   transform: translateY(-50%);
   width: 10px;
   height: 1px;
-  background: #5BBAA7;
+  background: #0891B2;
 }
 .vcx-route--primary .vcx-route__tag {
   font-size: 0.82rem;
@@ -2554,7 +2554,7 @@ body {
   gap: 12px;
 }
 .vcx-route__list-mark {
-  color: #5BBAA7;
+  color: #0891B2;
   font-weight: 400;
   flex-shrink: 0;
   line-height: 1.5;
@@ -2611,7 +2611,7 @@ body {
   bottom: 0; left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #5BBAA7 20%, #5BBAA7 80%, transparent);
+  background: linear-gradient(90deg, transparent, #0891B2 20%, #0891B2 80%, transparent);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -2642,7 +2642,7 @@ body {
 
 /* Focus states — accessibility */
 .vcx-route:focus-visible {
-  outline: 2px solid #5BBAA7;
+  outline: 2px solid #0891B2;
   outline-offset: 3px;
 }
 
@@ -2669,7 +2669,7 @@ body {
 }
 .vcx-routes__escape a:hover {
   color: #1A2F2A;
-  border-bottom-color: #5BBAA7;
+  border-bottom-color: #0891B2;
 }
 
 /* Tablet */

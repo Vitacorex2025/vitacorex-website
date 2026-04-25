@@ -20,10 +20,10 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0E1F1D;--surface:rgba(26,79,74,.32);--text:#E8F5F1;
-  --dim:#7FA8A2;--muted:#4A6B66;--accent:#2D8A82;
-  --border:rgba(45,138,130,.15);--glass:rgba(26,79,74,.25);
+  --dim:#7FA8A2;--muted:#4A6B66;--accent:#0891B2;
+  --border:rgba(8, 145, 178,.15);--glass:rgba(26,79,74,.25);
   --hearing:#DC2626;--payment:#0E7490;--call:#2563EB;
-  --followup:#2D8A82;--doc:#6B7280;
+  --followup:#0891B2;--doc:#6B7280;
 }
 html,body{height:100%;overflow-y:auto;overflow-x:hidden;background:var(--bg);color:var(--text);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
@@ -47,8 +47,8 @@ body{max-width:400px;margin:0 auto;padding:14px 12px 12px}
   background:var(--surface);border:1px solid var(--border);
   cursor:pointer;transition:background .12s;min-height:48px;
   -webkit-tap-highlight-color:transparent}
-.wk-day:active{background:rgba(45,138,130,.2)}
-.wk-day.is-today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 2px 12px rgba(45,138,130,.15)}
+.wk-day:active{background:rgba(8, 145, 178,.2)}
+.wk-day.is-today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 2px 12px rgba(8, 145, 178,.15)}
 .wk-day.is-past{opacity:.5}
 .wk-day.is-past.has-events{opacity:.7}
 

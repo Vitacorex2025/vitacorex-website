@@ -39,7 +39,7 @@ body[data-vcx-page="deadline-calendar"] {
   -webkit-tap-highlight-color: transparent;
 }
 .dcal-tab.active {
-  background: linear-gradient(145deg, #1A4F4A 0%, #2D8A82 100%);
+  background: linear-gradient(145deg, #0E4F5C 0%, #0891B2 100%);
   color: #FFF; box-shadow: 0 2px 8px rgba(26,79,74,.2);
 }
 
@@ -54,7 +54,7 @@ body[data-vcx-page="deadline-calendar"] {
   box-shadow: 0 1px 6px rgba(0,0,0,.03);
 }
 .dcal-kpi-value {
-  font-size: 1.6rem; font-weight: 700; color: #1A4F4A;
+  font-size: 1.6rem; font-weight: 700; color: #0E4F5C;
   line-height: 1;
 }
 .dcal-kpi-value.danger { color: #DC2626; }
@@ -79,14 +79,14 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-risk-card:active { transform: scale(.97); }
 .dcal-risk-card.overdue { border-left: 3px solid #DC2626; }
 .dcal-risk-card.today { border-left: 3px solid #0E7490; }
-.dcal-risk-card.tomorrow { border-left: 3px solid #2D8A82; }
+.dcal-risk-card.tomorrow { border-left: 3px solid #0891B2; }
 .dcal-risk-card.next_7_days { border-left: 3px solid #6B8E89; }
 .dcal-risk-count {
   font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: 2px;
 }
 .dcal-risk-card.overdue .dcal-risk-count { color: #DC2626; }
 .dcal-risk-card.today .dcal-risk-count { color: #0E7490; }
-.dcal-risk-card.tomorrow .dcal-risk-count { color: #1A4F4A; }
+.dcal-risk-card.tomorrow .dcal-risk-count { color: #0E4F5C; }
 .dcal-risk-card.next_7_days .dcal-risk-count { color: #6B8E89; }
 .dcal-risk-label { font-size: .82rem; font-weight: 600; color: #2A4A46; }
 .dcal-risk-helper { font-size: .7rem; color: #8AA5A0; margin-top: 4px; }
@@ -112,10 +112,10 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-week-card:active { transform: scale(.97); }
 .dcal-week-card.is-today {
-  border-color: #2D8A82;
-  box-shadow: 0 2px 10px rgba(45,138,130,.15);
+  border-color: #0891B2;
+  box-shadow: 0 2px 10px rgba(8, 145, 178,.15);
 }
-.dcal-week-label { font-size: .78rem; font-weight: 700; color: #1A4F4A; }
+.dcal-week-label { font-size: .78rem; font-weight: 700; color: #0E4F5C; }
 .dcal-week-date { font-size: .68rem; color: #8AA5A0; margin-bottom: 6px; }
 .dcal-week-note {
   font-size: .72rem; color: #4A6B66; font-style: italic;
@@ -131,7 +131,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-event-dot.hearing { background: #DC2626; }
 .dcal-event-dot.payment { background: #0E7490; }
 .dcal-event-dot.call { background: #2563EB; }
-.dcal-event-dot.followup { background: #2D8A82; }
+.dcal-event-dot.followup { background: #0891B2; }
 .dcal-event-dot.doc { background: #6B7280; }
 .dcal-week-event-title {
   font-size: .7rem; color: #2A4A46;
@@ -154,7 +154,7 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-nav-btn {
   width: 40px; height: 40px; border: 1px solid rgba(26,79,74,.12);
-  border-radius: 10px; background: #FFF; color: #1A4F4A;
+  border-radius: 10px; background: #FFF; color: #0E4F5C;
   font-size: 1.1rem; cursor: pointer; display: flex;
   align-items: center; justify-content: center;
   transition: all .15s; -webkit-tap-highlight-color: transparent;
@@ -181,17 +181,17 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-day-cell:active { background: #EFF8F6; }
 .dcal-day-cell.other-month { opacity: .35; }
 .dcal-day-cell.is-today {
-  border-color: #2D8A82; background: #F0FAF8;
-  box-shadow: 0 0 0 2px rgba(45,138,130,.12);
+  border-color: #0891B2; background: #F0FAF8;
+  box-shadow: 0 0 0 2px rgba(8, 145, 178,.12);
 }
 .dcal-day-cell.selected {
-  border-color: #1A4F4A; background: #E8F5F1;
+  border-color: #0E4F5C; background: #E8F5F1;
   box-shadow: 0 0 0 2px rgba(26,79,74,.15);
 }
 .dcal-day-cell.has-events::after {
   content: ''; position: absolute; bottom: 4px;
   width: 5px; height: 5px; border-radius: 50%;
-  background: #2D8A82;
+  background: #0891B2;
 }
 .dcal-day-cell.has-overdue::after { background: #DC2626; }
 .dcal-day-num {
@@ -199,7 +199,7 @@ body[data-vcx-page="deadline-calendar"] {
   line-height: 1;
 }
 .dcal-day-cell.is-today .dcal-day-num {
-  color: #FFF; background: #1A4F4A;
+  color: #FFF; background: #0E4F5C;
   width: 26px; height: 26px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
@@ -246,7 +246,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-event-type-icon.hearing { background: #FEF2F2; color: #DC2626; }
 .dcal-event-type-icon.payment { background: #E0F7FA; color: #0E7490; }
 .dcal-event-type-icon.call { background: #EFF6FF; color: #2563EB; }
-.dcal-event-type-icon.followup { background: #F0FAF8; color: #2D8A82; }
+.dcal-event-type-icon.followup { background: #F0FAF8; color: #0891B2; }
 .dcal-event-type-icon.doc { background: #F3F4F6; color: #6B7280; }
 .dcal-event-info { flex: 1; min-width: 0; }
 .dcal-event-title-text {
@@ -266,7 +266,7 @@ body[data-vcx-page="deadline-calendar"] {
   display: flex; align-items: center; justify-content: center;
 }
 .dcal-event-action:active { background: #F0F5F4; }
-.dcal-ics-btn { font-size: .7rem !important; color: #2D8A82 !important; border-color: rgba(45,138,130,.2) !important; }
+.dcal-ics-btn { font-size: .7rem !important; color: #0891B2 !important; border-color: rgba(8, 145, 178,.2) !important; }
 .dcal-ics-btn:active { background: #F0FAF8 !important; }
 .dcal-empty-state {
   text-align: center; padding: 24px 16px; color: #8AA5A0;
@@ -286,8 +286,8 @@ body[data-vcx-page="deadline-calendar"] {
   font-family: inherit; box-sizing: border-box;
 }
 .dcal-note-input:focus {
-  border-color: #2D8A82; outline: none;
-  box-shadow: 0 0 0 3px rgba(45,138,130,.1);
+  border-color: #0891B2; outline: none;
+  box-shadow: 0 0 0 3px rgba(8, 145, 178,.1);
 }
 
 /* ── Quick add bar ──────────────────────────────────────────────── */
@@ -300,14 +300,14 @@ body[data-vcx-page="deadline-calendar"] {
   background: #FFF; box-sizing: border-box;
 }
 .dcal-quick-input:focus {
-  border-color: #2D8A82; outline: none;
-  box-shadow: 0 0 0 3px rgba(45,138,130,.1);
+  border-color: #0891B2; outline: none;
+  box-shadow: 0 0 0 3px rgba(8, 145, 178,.1);
 }
 .dcal-quick-input::placeholder { color: #A0B8B3; }
 .dcal-add-btn {
   position: relative; overflow: hidden;
   padding: 12px 18px; border: none; border-radius: 10px;
-  background: linear-gradient(145deg, #1A4F4A 0%, #2D8A82 100%);
+  background: linear-gradient(145deg, #0E4F5C 0%, #0891B2 100%);
   color: #FFF; font-weight: 600; font-size: .88rem;
   cursor: pointer; white-space: nowrap;
   box-shadow: 0 2px 10px rgba(26,79,74,.18);
@@ -328,17 +328,17 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-time-input {
   padding: 6px 10px; border: 1px solid #D1DDD9; border-radius: 8px;
-  font-size: .85rem; color: #1A4F4A; background: #FFF;
+  font-size: .85rem; color: #0E4F5C; background: #FFF;
   font-family: inherit; cursor: pointer;
 }
-.dcal-time-input:focus { border-color: #1A4F4A; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
+.dcal-time-input:focus { border-color: #0E4F5C; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
 .dcal-time-shortcuts { display: flex; gap: 4px; flex-wrap: wrap; }
 .dcal-time-chip {
   padding: 4px 10px; border: 1px solid #D1DDD9; border-radius: 14px;
   background: #F5F7F6; color: #4A6B66; font-size: .7rem; font-weight: 600;
   cursor: pointer; transition: all .15s; white-space: nowrap;
 }
-.dcal-time-chip:hover { background: #1A4F4A; color: #FFF; border-color: #1A4F4A; }
+.dcal-time-chip:hover { background: #0E4F5C; color: #FFF; border-color: #0E4F5C; }
 .dcal-smart-preview {
   font-size: .78rem; color: #6366F1; font-weight: 500;
   min-height: 1.2em; margin-top: 6px; padding-left: 2px;
@@ -355,7 +355,7 @@ body[data-vcx-page="deadline-calendar"] {
   cursor: pointer; transition: all .15s;
   -webkit-tap-highlight-color: transparent;
 }
-.dcal-type-pill.active { background: #1A4F4A; color: #FFF; border-color: #1A4F4A; }
+.dcal-type-pill.active { background: #0E4F5C; color: #FFF; border-color: #0E4F5C; }
 .dcal-type-pill:active { transform: scale(.95); }
 
 /* ── Priority selector ──────────────────────────────────────────── */
@@ -385,21 +385,21 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-notify-input {
   flex: 1; padding: 6px 10px; border: 1px solid #D1DDD9; border-radius: 8px;
-  font-size: .8rem; color: #1A4F4A; background: #FFF; font-family: inherit;
+  font-size: .8rem; color: #0E4F5C; background: #FFF; font-family: inherit;
 }
-.dcal-notify-input:focus { border-color: #1A4F4A; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
+.dcal-notify-input:focus { border-color: #0E4F5C; outline: none; box-shadow: 0 0 0 2px rgba(26,79,74,.15); }
 .dcal-notify-input::placeholder { color: #8AA5A0; }
 .dcal-notify-check-label {
   font-size: .75rem; font-weight: 500; color: #4A6B66; display: flex; align-items: center; gap: 6px; cursor: pointer;
 }
 .dcal-notify-check-label input[type="checkbox"] {
-  accent-color: #1A4F4A; width: 16px; height: 16px; cursor: pointer;
+  accent-color: #0E4F5C; width: 16px; height: 16px; cursor: pointer;
 }
 
 /* ── Toast notification ───────────────────────────────────────── */
 .dcal-toast {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: #1A4F4A; color: #FFF; padding: 10px 20px; border-radius: 8px;
+  background: #0E4F5C; color: #FFF; padding: 10px 20px; border-radius: 8px;
   font-size: .82rem; font-weight: 500; z-index: 99999;
   opacity: 0; transition: opacity .3s, transform .3s;
   box-shadow: 0 4px 16px rgba(0,0,0,.2);
@@ -412,7 +412,7 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-spinner {
   width: 32px; height: 32px; border: 3px solid #E8F5F1;
-  border-top-color: #2D8A82; border-radius: 50%;
+  border-top-color: #0891B2; border-radius: 50%;
   animation: dcalSpin .7s linear infinite; margin: 0 auto 12px;
 }
 @keyframes dcalSpin { to { transform: rotate(360deg); } }
@@ -421,7 +421,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-ai-badge {
   display: inline-flex; align-items: center; gap: 4px;
   background: linear-gradient(135deg, #E8F5F1, #D4EDE7);
-  color: #1A4F4A; font-size: .65rem; font-weight: 700;
+  color: #0E4F5C; font-size: .65rem; font-weight: 700;
   padding: 3px 8px; border-radius: 10px;
   border: 1px solid rgba(26,79,74,.12);
   text-transform: uppercase; letter-spacing: .04em;
@@ -458,7 +458,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-today-btn {
   font-size: .76rem !important; font-weight: 600 !important;
   width: auto !important; padding: 0 14px !important;
-  color: #2D8A82 !important; border-color: #2D8A82 !important;
+  color: #0891B2 !important; border-color: #0891B2 !important;
 }
 .dcal-today-btn:active { background: #F0FAF8 !important; }
 
@@ -477,11 +477,11 @@ body[data-vcx-page="deadline-calendar"] {
 }
 .dcal-fn-cell:active { background: #EFF8F6; transform: scale(.97); }
 .dcal-fn-cell.is-today {
-  border-color: #2D8A82; background: #F0FAF8;
-  box-shadow: 0 0 0 2px rgba(45,138,130,.12);
+  border-color: #0891B2; background: #F0FAF8;
+  box-shadow: 0 0 0 2px rgba(8, 145, 178,.12);
 }
 .dcal-fn-cell.selected {
-  border-color: #1A4F4A; background: #E8F5F1;
+  border-color: #0E4F5C; background: #E8F5F1;
   box-shadow: 0 0 0 2px rgba(26,79,74,.15);
 }
 .dcal-fn-cell.is-past { opacity: .55; }
@@ -496,7 +496,7 @@ body[data-vcx-page="deadline-calendar"] {
   margin-bottom: 2px; line-height: 1;
 }
 .dcal-fn-num.today-circle {
-  color: #FFF; background: #1A4F4A;
+  color: #FFF; background: #0E4F5C;
   width: 22px; height: 22px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: .68rem;
@@ -525,7 +525,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-cell-chip.hearing .dcal-chip-bar  { background: #DC2626; }
 .dcal-cell-chip.payment .dcal-chip-bar  { background: #0E7490; }
 .dcal-cell-chip.call .dcal-chip-bar     { background: #2563EB; }
-.dcal-cell-chip.followup .dcal-chip-bar { background: #2D8A82; }
+.dcal-cell-chip.followup .dcal-chip-bar { background: #0891B2; }
 .dcal-cell-chip.doc .dcal-chip-bar      { background: #6B7280; }
 
 /* Event title text — READABLE */
@@ -536,7 +536,7 @@ body[data-vcx-page="deadline-calendar"] {
 .dcal-cell-chip.hearing .dcal-chip-text  { color: #DC2626; }
 .dcal-cell-chip.payment .dcal-chip-text  { color: #155E75; }
 .dcal-cell-chip.call .dcal-chip-text     { color: #1E40AF; }
-.dcal-cell-chip.followup .dcal-chip-text { color: #1A4F4A; }
+.dcal-cell-chip.followup .dcal-chip-text { color: #0E4F5C; }
 .dcal-cell-chip.doc .dcal-chip-text      { color: #4B5563; }
 
 /* Overflow (+N more) */

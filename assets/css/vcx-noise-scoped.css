@@ -2,8 +2,8 @@
    vcx-noise-scoped.css
    Section-bounded noise + LIGHT teal-tinted backdrop.
 
-   Brand palette applied: near-white teal-tinted base (pale #5BBAA7 tint),
-   soft teal spotlights (site primary teal #5BBAA7 + deeper #2D8A82),
+   Brand palette applied: near-white teal-tinted base (pale #0891B2 tint),
+   soft teal spotlights (site primary teal #0891B2 + deeper #0891B2),
    teal dot-grid, dark film grain with multiply blend (lightbg tuning).
 
    Usage: add  data-vcx-texture  to any <section> you want textured.
@@ -40,25 +40,25 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #F4FBF8; /* pale teal wash (3% saturation of #5BBAA7 family) */
+  background: #F4FBF8; /* pale teal wash (3% saturation of #0891B2 family) */
 }
 
 /* Spotlight + dot-grid layer.                                                */
 /* Three stacked images:                                                      */
-/*   1. Soft teal glow top-center — site primary #5BBAA7                      */
-/*   2. Deeper teal glow bottom-right — site accent #2D8A82                   */
+/*   1. Soft teal glow top-center — site primary #0891B2                      */
+/*   2. Deeper teal glow bottom-right — site accent #0891B2                   */
 /*   3. Teal dot grid — low alpha, keeps structure on-brand                   */
 .vcx-bg-texture__gradient {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse 85% 70% at 50% -8%,
-      rgba(91, 186, 167, 0.26),
+      rgba(8, 145, 178, 0.26),
       transparent 62%),
     radial-gradient(ellipse 80% 60% at 60% 115%,
-      rgba(45, 138, 130, 0.18),
+      rgba(8, 145, 178, 0.18),
       transparent 65%),
-    radial-gradient(rgba(45, 138, 130, 0.14) 1px, transparent 1px);
+    radial-gradient(rgba(8, 145, 178, 0.14) 1px, transparent 1px);
   background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
@@ -84,12 +84,12 @@
 .vcx-routes[data-vcx-texture] .vcx-bg-texture__gradient {
   background:
     radial-gradient(ellipse 90% 75% at 50% -10%,
-      rgba(91, 186, 167, 0.32),
+      rgba(8, 145, 178, 0.32),
       transparent 64%),
     radial-gradient(ellipse 80% 60% at 65% 115%,
-      rgba(45, 138, 130, 0.20),
+      rgba(8, 145, 178, 0.20),
       transparent 65%),
-    radial-gradient(rgba(45, 138, 130, 0.14) 1px, transparent 1px);
+    radial-gradient(rgba(8, 145, 178, 0.14) 1px, transparent 1px);
   background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
@@ -99,12 +99,12 @@
 .vcx-bento-section[data-vcx-texture] .vcx-bg-texture__gradient {
   background:
     radial-gradient(ellipse 80% 65% at 50% -6%,
-      rgba(91, 186, 167, 0.22),
+      rgba(8, 145, 178, 0.22),
       transparent 64%),
     radial-gradient(ellipse 75% 55% at 55% 115%,
-      rgba(45, 138, 130, 0.14),
+      rgba(8, 145, 178, 0.14),
       transparent 66%),
-    radial-gradient(rgba(45, 138, 130, 0.11) 1px, transparent 1px);
+    radial-gradient(rgba(8, 145, 178, 0.11) 1px, transparent 1px);
   background-size: auto, auto, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
 }
@@ -116,7 +116,7 @@
 .vcx-routes[data-vcx-texture] .vcx-route--primary,
 .vcx-routes[data-vcx-texture] .vcx-route--private {
   background: #FFFFFF !important;
-  border-color: rgba(45, 138, 130, 0.14);
+  border-color: rgba(8, 145, 178, 0.14);
 }
 
 /* Moderate shadow — white cards on pale-teal bg still need lift but less   */
@@ -127,16 +127,16 @@
 }
 .vcx-routes[data-vcx-texture] .vcx-route:hover {
   box-shadow: 0 2px 4px rgba(26, 47, 42, 0.10),
-              0 18px 44px rgba(45, 138, 130, 0.16);
+              0 18px 44px rgba(8, 145, 178, 0.16);
 }
 .vcx-routes[data-vcx-texture] .vcx-route--primary .vcx-route__inner {
   padding: 44px 48px 40px;
 }
 
 /* --- Primary CTA: deep teal so white text is readable ------------------ */
-/* Previously #5BBAA7 with white = 2.33:1 (WCAG AA fail). Matches the     */
+/* Previously #0891B2 with white = 2.33:1 (WCAG AA fail). Matches the     */
 /* c563295 fix on .btn-primary: #1A5A54 base = 7.5:1 with white (AAA      */
-/* normal). Hover brightens one step to #236B64 → #2D8A82 (still AA).    */
+/* normal). Hover brightens one step to #236B64 → #0891B2 (still AA).    */
 .vcx-routes[data-vcx-texture] .vcx-route__cta--primary {
   background: #1A5A54 !important;
   background-image: linear-gradient(135deg, #1A5A54 0%, #236B64 100%) !important;
@@ -145,7 +145,7 @@
 }
 .vcx-routes[data-vcx-texture] .vcx-route--primary:hover .vcx-route__cta--primary {
   background: #236B64 !important;
-  background-image: linear-gradient(135deg, #236B64 0%, #2D8A82 100%) !important;
+  background-image: linear-gradient(135deg, #236B64 0%, #0891B2 100%) !important;
   border-color: #236B64 !important;
   color: #FFFFFF !important;
 }
@@ -153,8 +153,8 @@
 /* Keep the ghost CTA on the private card readable — nudge its accent to */
 /* teal on hover so the colour family matches the primary on hover.      */
 .vcx-routes[data-vcx-texture] .vcx-route--private:hover .vcx-route__cta--ghost {
-  border-color: #2D8A82 !important;
-  color: #2D8A82 !important;
+  border-color: #0891B2 !important;
+  color: #0891B2 !important;
 }
 
 /* --- Text on backdrop: NO flip needed ---------------------------------- */
@@ -163,7 +163,7 @@
 /* eyebrow, etc.) hit WCAG AA naturally. We only strengthen the rule      */
 /* hairline because a teal-on-teal hairline at 22% alpha becomes ghostly.  */
 .vcx-routes[data-vcx-texture] .vcx-routes__rule {
-  background: rgba(45, 138, 130, 0.32);
+  background: rgba(8, 145, 178, 0.32);
 }
 
 /* --- Section-edge fade: cream body → teal pocket → cream body --------- */
@@ -206,23 +206,23 @@
   .vcx-routes[data-vcx-texture] .vcx-bg-texture__gradient {
     background:
       radial-gradient(ellipse 120% 60% at 50% -12%,
-        rgba(91, 186, 167, 0.28),
+        rgba(8, 145, 178, 0.28),
         transparent 66%),
       radial-gradient(ellipse 120% 50% at 60% 115%,
-        rgba(45, 138, 130, 0.16),
+        rgba(8, 145, 178, 0.16),
         transparent 70%),
-      radial-gradient(rgba(45, 138, 130, 0.12) 1px, transparent 1px);
+      radial-gradient(rgba(8, 145, 178, 0.12) 1px, transparent 1px);
     background-size: auto, auto, 18px 18px;
   }
   .vcx-bento-section[data-vcx-texture] .vcx-bg-texture__gradient {
     background:
       radial-gradient(ellipse 120% 55% at 50% -8%,
-        rgba(91, 186, 167, 0.20),
+        rgba(8, 145, 178, 0.20),
         transparent 66%),
       radial-gradient(ellipse 120% 45% at 55% 115%,
-        rgba(45, 138, 130, 0.12),
+        rgba(8, 145, 178, 0.12),
         transparent 70%),
-      radial-gradient(rgba(45, 138, 130, 0.10) 1px, transparent 1px);
+      radial-gradient(rgba(8, 145, 178, 0.10) 1px, transparent 1px);
     background-size: auto, auto, 18px 18px;
   }
 }

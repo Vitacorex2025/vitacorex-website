@@ -18,8 +18,8 @@ body.vcx-bg-noise::before {
   z-index: 0;
   background:
     radial-gradient(circle 640px at 50% 180px,
-      rgba(91, 186, 167, 0.10),
-      rgba(91, 186, 167, 0.03) 40%,
+      rgba(8, 145, 178, 0.10),
+      rgba(8, 145, 178, 0.03) 40%,
       transparent 70%),
     radial-gradient(circle 900px at 80% 70%,
       rgba(26, 79, 74, 0.05),
@@ -87,7 +87,7 @@ body.vcx-bg-noise .glass {
   body.vcx-bg-noise::before {
     background:
       radial-gradient(circle 640px at 50% 180px,
-        rgba(91, 186, 167, 0.08),
+        rgba(8, 145, 178, 0.08),
         transparent 70%);
   }
 }
@@ -99,7 +99,7 @@ body.vcx-bg-noise .glass {
   body.vcx-bg-noise::before {
     background:
       radial-gradient(circle 420px at 50% 120px,
-        rgba(91, 186, 167, 0.09),
+        rgba(8, 145, 178, 0.09),
         transparent 70%);
   }
 }

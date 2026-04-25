@@ -9,7 +9,7 @@
   --vcx-muted: #5e7288;
   --vcx-line: rgba(14,32,54,.08);
   --vcx-navy: #153250;
-  --vcx-gold: #2D8A82; /* legacy name kept for API stability; value is site teal */
+  --vcx-gold: #0891B2; /* legacy name kept for API stability; value is site teal */
 }
 
 html{scroll-padding-top:84px}
@@ -176,8 +176,8 @@ body{
   display:none;
 }
 @keyframes vcxPulse{
-  0%,100%{opacity:.75;box-shadow:0 0 0 0 rgba(91,186,167,.20)}
-  50%{opacity:1;box-shadow:0 0 0 8px rgba(91,186,167,0)}
+  0%,100%{opacity:.75;box-shadow:0 0 0 0 rgba(8, 145, 178,.20)}
+  50%{opacity:1;box-shadow:0 0 0 8px rgba(8, 145, 178,0)}
 }
 
 .vcx-time-chip{
@@ -1045,7 +1045,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
   border-color:rgba(219,150,183,.42);
   background:
     linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
-    linear-gradient(135deg, #5BBAA7 6%, #ee6f71 34%, #c9569d 64%, #6f63d0 100%);
+    linear-gradient(135deg, #0891B2 6%, #ee6f71 34%, #c9569d 64%, #6f63d0 100%);
   box-shadow:
     0 15px 24px rgba(119,63,113,.24),
     inset 0 1px 0 rgba(255,255,255,.38),
@@ -1076,7 +1076,7 @@ body[data-vcx-viewport="desktop"] .vcx-header-mobile{display:none !important}
     inset 0 -13px 22px rgba(18,82,46,.18);
 }
 
-.vcx-dock-icon.is-book .vcx-dock-text{color:#2D8A82}
+.vcx-dock-icon.is-book .vcx-dock-text{color:#0891B2}
 .vcx-dock-icon.is-book .vcx-dock-iconbox{
   border-color:rgba(126,216,195,.48);
   background:
@@ -3094,9 +3094,9 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 
 /* ===== INTAKE MODE COLOR SWITCH ===== */
 #intakeForm[data-client-mode="individual"] .client-mode-btn.active[data-mode="individual"]{
-  background:linear-gradient(135deg, #1d6e66, #2D8A82) !important;
+  background:linear-gradient(135deg, #1d6e66, #0891B2) !important;
   color:#f0faf8 !important;
-  box-shadow:0 14px 30px rgba(45,138,130,.22) !important;
+  box-shadow:0 14px 30px rgba(8, 145, 178,.22) !important;
 }
 #intakeForm[data-client-mode="company"] .client-mode-btn.active[data-mode="company"]{
   background:linear-gradient(135deg, #1a5c55, #24796f) !important;
@@ -3104,15 +3104,15 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   box-shadow:0 14px 30px rgba(36,121,111,.22) !important;
 }
 #intakeForm[data-client-mode="company"] #intakeSubmitBtn{
-  background:linear-gradient(135deg, #1a5c55, #2D8A82) !important;
+  background:linear-gradient(135deg, #1a5c55, #0891B2) !important;
   color:#f0faf8 !important;
-  box-shadow:0 16px 32px rgba(45,138,130,.20) !important;
-  border-color:rgba(45,138,130,.14) !important;
+  box-shadow:0 16px 32px rgba(8, 145, 178,.20) !important;
+  border-color:rgba(8, 145, 178,.14) !important;
 }
 #intakeForm[data-client-mode="individual"] #intakeSubmitBtn{
-  background:linear-gradient(135deg, #1d6e66, #2D8A82) !important;
+  background:linear-gradient(135deg, #1d6e66, #0891B2) !important;
   color:#f0faf8 !important;
-  box-shadow:0 16px 32px rgba(45,138,130,.20) !important;
+  box-shadow:0 16px 32px rgba(8, 145, 178,.20) !important;
 }
 #intakeForm .client-mode-btn{
   transition:background .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease !important;
@@ -3342,7 +3342,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
     inset 0 -10px 18px rgba(18,82,46,.14);
 }
 
-.vcx-dock-icon.is-book .vcx-dock-text{color:#2D8A82}
+.vcx-dock-icon.is-book .vcx-dock-text{color:#0891B2}
 .vcx-dock-icon.is-book .vcx-dock-iconbox{
   border-color:rgba(126,216,195,.54);
   background:
@@ -3456,8 +3456,8 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   min-height:38px;
   padding:9px 14px;
   border-radius:999px;
-  border:1px solid rgba(45,138,130,.30);
-  background:linear-gradient(180deg, rgba(91,186,167,.94), rgba(46,138,130,.92));
+  border:1px solid rgba(8, 145, 178,.30);
+  background:linear-gradient(180deg, rgba(8, 145, 178,.94), rgba(46,138,130,.92));
   color:#13253b;
   font-size:.875rem;
   font-weight:700;
@@ -3474,7 +3474,7 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
   box-shadow:0 14px 28px rgba(26,79,74,.20), inset 0 1px 0 rgba(255,255,255,.32);
 }
 .footer-project-btn:focus-visible{
-  outline:2px solid rgba(45,138,130,.48);
+  outline:2px solid rgba(8, 145, 178,.48);
   outline-offset:3px;
 }
 #webProjectModal{
@@ -3526,9 +3526,9 @@ body[data-vcx-page="careers"] .careers-stack-layout .small-note{
 }
 .web-project-submit{
   margin-inline:auto;
-  background:linear-gradient(180deg, rgba(91,186,167,.98), rgba(46,138,130,.95));
+  background:linear-gradient(180deg, rgba(8, 145, 178,.98), rgba(46,138,130,.95));
   color:#13253b;
-  border:1px solid rgba(45,138,130,.34);
+  border:1px solid rgba(8, 145, 178,.34);
   box-shadow:0 14px 30px rgba(26,79,74,.18), inset 0 1px 0 rgba(255,255,255,.28);
 }
 .web-project-submit:hover{

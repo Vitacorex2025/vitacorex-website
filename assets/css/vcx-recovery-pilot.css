@@ -58,7 +58,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 
 /* --- Active step ----------------------------------------- */
 .rp-step.is-active .rp-step-circle {
-  background: var(--vcx-brand-primary, #2D8A82);
+  background: var(--vcx-brand-primary, #0891B2);
   color: #FFFFFF;
 }
 
@@ -99,7 +99,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 
 .rp-step.is-complete .rp-step-line,
 .rp-step.is-active .rp-step-line {
-  background: var(--vcx-brand-primary, #2D8A82);
+  background: var(--vcx-brand-primary, #0891B2);
 }
 
 /* --- Form steps ------------------------------------------ */
@@ -142,7 +142,7 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 .rp-field select:focus,
 .rp-field textarea:focus {
   outline: none;
-  border-color: var(--vcx-brand-primary, #2D8A82);
+  border-color: var(--vcx-brand-primary, #0891B2);
 }
 
 /* --- Navigation row -------------------------------------- */
@@ -172,9 +172,9 @@ body[data-vcx-page="vcx-recovery-pilot"] {
 }
 
 .rp-nav button.rp-btn-primary {
-  background: var(--vcx-brand-primary, #2D8A82);
+  background: var(--vcx-brand-primary, #0891B2);
   color: #FFFFFF;
-  border-color: var(--vcx-brand-primary, #2D8A82);
+  border-color: var(--vcx-brand-primary, #0891B2);
 }
 
 .rp-nav button.rp-btn-primary:hover {

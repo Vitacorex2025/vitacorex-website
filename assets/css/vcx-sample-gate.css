@@ -4,8 +4,8 @@
  */
 
 .vcx-gate {
-  --vg-tint: #1A4F4A;
-  --vg-tint-soft: #1A4F4A1a;
+  --vg-tint: #0E4F5C;
+  --vg-tint-soft: #0E4F5C1a;
   --vg-border: #e3e7ec;
   --vg-bg: #f7f9fb;
   --vg-ok: #16794c;
@@ -38,7 +38,7 @@
   font-size: clamp(24px, 3.2vw, 34px);
   line-height: 1.18;
   margin: 0 0 10px;
-  color: #0e2036;
+  color: #0E4F5C;
 }
 
 .vcx-gate__lead {
@@ -61,7 +61,7 @@
 }
 
 .vcx-gate__context strong {
-  color: #0e2036;
+  color: #0E4F5C;
 }
 
 .vcx-gate__form {
@@ -91,7 +91,7 @@
 .vcx-gate__label {
   font-size: 13px;
   font-weight: 600;
-  color: #0e2036;
+  color: #0E4F5C;
   letter-spacing: 0.01em;
 }
 
@@ -253,7 +253,7 @@
 
 .vcx-gate__success-title {
   font-size: 18px;
-  color: #0e2036;
+  color: #0E4F5C;
   margin: 0 0 8px;
 }
 .vcx-gate__success-copy {
@@ -300,7 +300,7 @@
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1A4F4A;
+  color: #0E4F5C;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -308,7 +308,7 @@
 .vcx-gate-lock__title {
   font-size: 22px;
   margin: 0 0 10px;
-  color: #0e2036;
+  color: #0E4F5C;
 }
 
 .vcx-gate-lock__copy {
@@ -325,9 +325,9 @@
 }
 
 .vcx-gate-lock__cta {
-  background: #1A4F4A;
+  background: #0E4F5C;
   color: #fff;
-  border: 1px solid #1A4F4A;
+  border: 1px solid #0E4F5C;
   border-radius: 6px;
   padding: 11px 18px;
   font-size: 14px;
@@ -341,7 +341,7 @@
 
 .vcx-gate-lock__secondary {
   background: #fff;
-  color: #1A4F4A;
+  color: #0E4F5C;
   border: 1px solid #d6dee7;
   border-radius: 6px;
   padding: 11px 18px;

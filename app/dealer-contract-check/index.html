@@ -182,8 +182,8 @@ window.SITE_I18N = {
 </div>
 
 <!-- AI &amp; upload scope disclosure -->
-<aside class="vcx-ai-disc reveal" role="note" aria-label="AI and automation disclosure" style="background:rgba(91,186,167,.08);border:1px solid rgba(91,186,167,.25);border-left:4px solid #2D8A82;border-radius:3px;padding:10px 14px;margin:0 0 20px;font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);">
-<div style="display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7ED8C3;margin:0 0 6px;"><span aria-hidden="true" style="display:inline-block;width:8px;height:8px;background:#2D8A82;border-radius:2px;"></span><span data-page="ai_disc_title">AI &amp; automation disclosure</span></div>
+<aside class="vcx-ai-disc reveal" role="note" aria-label="AI and automation disclosure" style="background:rgba(8, 145, 178,.08);border:1px solid rgba(8, 145, 178,.25);border-left:4px solid #0891B2;border-radius:3px;padding:10px 14px;margin:0 0 20px;font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);">
+<div style="display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7ED8C3;margin:0 0 6px;"><span aria-hidden="true" style="display:inline-block;width:8px;height:8px;background:#0891B2;border-radius:2px;"></span><span data-page="ai_disc_title">AI &amp; automation disclosure</span></div>
 <p style="margin:0 0 6px;" data-page="ai_disc_body_1"><strong style="color:#7ED8C3;font-weight:700;">AI-assisted tools may be used</strong> to organize, summarize, classify, or flag documents for human review. AI outputs are not legal advice, compliance opinions, immigration advice, court instructions, or final determinations.</p>
 <p style="margin:0;" data-page="ai_disc_body_2"><strong style="color:#7ED8C3;font-weight:700;">Do not upload</strong> regulated, confidential, privileged, PHI, GLBA, payment-card, or immigration identity documents unless a secure workflow has been approved.</p>
 </aside>
@@ -194,8 +194,8 @@ window.SITE_I18N = {
 <!-- Optional file upload -->
 <label for="vcxDealFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:.95rem;margin-bottom:6px;color:rgba(255,255,255,.7);">Attach deal documents for your records (optional)</label>
 <p data-tx="tool_upload_hint" style="font-size:.85rem;color:rgba(255,255,255,.4);margin:0 0 10px;">Buyer order, contract, or photos. Stored in your browser for reference only — not analyzed or sent anywhere.</p>
-<div id="vcxDropZone" style="border:2px dashed rgba(91,186,167,.25);border-radius:3px;padding:18px 20px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:20px;" onclick="document.getElementById('vcxDealFile').click()">
-<span data-tx="tool_upload_btn" style="font-size:.9rem;color:rgba(91,186,167,.7);">Choose files or take photos</span>
+<div id="vcxDropZone" style="border:2px dashed rgba(8, 145, 178,.25);border-radius:3px;padding:18px 20px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:20px;" onclick="document.getElementById('vcxDealFile').click()">
+<span data-tx="tool_upload_btn" style="font-size:.9rem;color:rgba(8, 145, 178,.7);">Choose files or take photos</span>
 <div id="vcxFileName" style="margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.45);"></div>
 </div>
 <input type="file" id="vcxDealFile" accept=".pdf,.doc,.docx,.txt,image/*" capture="environment" multiple style="display:none;" onchange="vcxHandleFile(this)"/>
@@ -254,12 +254,12 @@ window.SITE_I18N = {
 </div><!-- end grid -->
 
 <button id="vcxCheckBtn" type="button" onclick="vcxRunDealCheck()" disabled
-  style="margin-top:22px;width:100%;padding:16px;background:rgba(91,186,167,.15);border:1px solid rgba(91,186,167,.4);border-radius:3px;color:#5BBAA7;font-size:1rem;font-weight:600;cursor:pointer;opacity:.6;"
+  style="margin-top:22px;width:100%;padding:16px;background:rgba(8, 145, 178,.15);border:1px solid rgba(8, 145, 178,.4);border-radius:3px;color:#0891B2;font-size:1rem;font-weight:600;cursor:pointer;opacity:.6;"
   data-tx="tool_check_btn">Check Deal Numbers</button>
 </div>
 
 <!-- id=vcx-service-welcome: shown when arriving with ?service=auto -->
-<div id="vcx-service-welcome" hidden style="background:rgba(91,186,167,.08);border:1px solid rgba(91,186,167,.25);border-radius:3px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(91,186,167,.85);">
+<div id="vcx-service-welcome" hidden style="background:rgba(8, 145, 178,.08);border:1px solid rgba(8, 145, 178,.25);border-radius:3px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(8, 145, 178,.85);">
   Welcome — you were routed here for auto deal review. Enter the numbers below for an instant analysis.
 </div>
 
@@ -304,7 +304,7 @@ window.SITE_I18N = {
   function tick(){var now=new Date();var t2=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));document.querySelectorAll('.clock-vcx').forEach(function(el){el.textContent=pad(t2.getHours())+':'+pad(t2.getMinutes());});document.querySelectorAll('.clock-local').forEach(function(el){el.textContent=pad(now.getHours())+':'+pad(now.getMinutes());});}
   tick();setInterval(tick,30000);
   var dz=document.getElementById('vcxDropZone');
-  if(dz){dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(91,186,167,.7)';});dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(91,186,167,.35)';});dz.addEventListener('drop',function(e){e.preventDefault();dz.style.borderColor='rgba(91,186,167,.35)';var f=e.dataTransfer.files[0];if(f){var inp=document.getElementById('vcxDealFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}});}
+  if(dz){dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(8, 145, 178,.7)';});dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(8, 145, 178,.35)';});dz.addEventListener('drop',function(e){e.preventDefault();dz.style.borderColor='rgba(8, 145, 178,.35)';var f=e.dataTransfer.files[0];if(f){var inp=document.getElementById('vcxDealFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}});}
   // ?service= deep-link handler
   var sp=new URLSearchParams(window.location.search);
   if(sp.get('service')==='auto'){var sw=document.getElementById('vcx-service-welcome');if(sw){sw.textContent='You were routed here from Structured Intake for auto deal review.';sw.removeAttribute('hidden');}}
@@ -320,8 +320,8 @@ function vcxHandleFile(input){
 function vcxEnableBtn(){
   var msrp=parseFloat(el('vcxMSRP').value)||0;
   var btn=el('vcxCheckBtn');
-  if(msrp>0){btn.disabled=false;btn.style.opacity='1';btn.style.background='rgba(91,186,167,.25)';}
-  else{btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(91,186,167,.15)';}
+  if(msrp>0){btn.disabled=false;btn.style.opacity='1';btn.style.background='rgba(8, 145, 178,.25)';}
+  else{btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(8, 145, 178,.15)';}
 }
 
 function vcxRunDealCheck(){
@@ -380,11 +380,11 @@ function vcxRunDealCheck(){
 
   // Render results
   var html='<div class="glass" style="padding:28px;border-radius:3px;margin-bottom:16px;">';
-  html+='<h2 style="font-size:1.25rem;font-weight:700;color:#5BBAA7;margin:0 0 18px;" data-tx="tool_result_title">'+t('tool_result_title')+'</h2>';
+  html+='<h2 style="font-size:1.25rem;font-weight:700;color:#0891B2;margin:0 0 18px;" data-tx="tool_result_title">'+t('tool_result_title')+'</h2>';
   html+='<div style="display:flex;flex-direction:column;gap:10px;">';
   flags.forEach(function(f){
-    var colors={high:'rgba(255,80,80,.12)',medium:'rgba(14,116,144,.12)',ok:'rgba(60,200,100,.10)',info:'rgba(91,186,167,.08)'};
-    var borders={high:'rgba(255,100,100,.5)',medium:'rgba(14,116,144,.5)',ok:'rgba(60,200,100,.4)',info:'rgba(91,186,167,.3)'};
+    var colors={high:'rgba(255,80,80,.12)',medium:'rgba(14,116,144,.12)',ok:'rgba(60,200,100,.10)',info:'rgba(8, 145, 178,.08)'};
+    var borders={high:'rgba(255,100,100,.5)',medium:'rgba(14,116,144,.5)',ok:'rgba(60,200,100,.4)',info:'rgba(8, 145, 178,.3)'};
     var icons={high:'\u26a0\ufe0f',medium:'\u26a0\ufe0f',ok:'\u2705',info:'\u2139\ufe0f'};
     html+='<div class="vcx-flag-'+f.level+'" style="background:'+colors[f.level]+';border-left:3px solid '+borders[f.level]+';border-radius:3px;padding:12px 14px;">';
     html+='<div style="font-weight:600;font-size:.9rem;margin-bottom:4px;">'+icons[f.level]+' '+f.label+'</div>';
@@ -392,7 +392,7 @@ function vcxRunDealCheck(){
   });
   html+='</div>';
   html+='<div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">';
-  html+='<a href="/contact.html" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;background:rgba(91,186,167,.18);border:1px solid rgba(91,186,167,.4);border-radius:3px;color:#5BBAA7;font-size:.9rem;font-weight:600;text-decoration:none;" data-tx="tool_consult">'+t('tool_consult')+'</a>';
+  html+='<a href="/contact.html" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;background:rgba(8, 145, 178,.18);border:1px solid rgba(8, 145, 178,.4);border-radius:3px;color:#0891B2;font-size:.9rem;font-weight:600;text-decoration:none;" data-tx="tool_consult">'+t('tool_consult')+'</a>';
   html+='<button onclick="vcxReset()" style="padding:12px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:rgba(255,255,255,.65);font-size:.9rem;cursor:pointer;" data-tx="tool_new">'+t('tool_new')+'</button>';
   html+='</div></div>';
 
@@ -406,7 +406,7 @@ function vcxRunDealCheck(){
   var aiDiv=document.createElement('div');
   aiDiv.id='vcxAIDealPanel';
   aiDiv.style.cssText='margin-top:16px;';
-  aiDiv.innerHTML='<div class="glass" style="padding:18px;border-radius:3px;border:1px solid rgba(45,138,130,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#5BBAA7;">AI Deal Analysis</span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5BBAA7;animation:vcxPulse 1.2s infinite;"></span></div><p style="font-size:.82rem;color:rgba(255,255,255,.5);margin:0;">Requesting AI-powered deal evaluation...</p></div>';
+  aiDiv.innerHTML='<div class="glass" style="padding:18px;border-radius:3px;border:1px solid rgba(8, 145, 178,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#0891B2;">AI Deal Analysis</span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0891B2;animation:vcxPulse 1.2s infinite;"></span></div><p style="font-size:.82rem;color:rgba(255,255,255,.5);margin:0;">Requesting AI-powered deal evaluation...</p></div>';
   ra.appendChild(aiDiv);
 
   var API_BASE=window.VCX_API_BASE||'';
@@ -429,18 +429,18 @@ function vcxRunDealCheck(){
       var content=data.analysis
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-        .replace(/^### (.+)$/gm,'<h4 style="font-size:.88rem;color:#5BBAA7;margin:14px 0 6px;">$1</h4>')
-        .replace(/^## (.+)$/gm,'<h3 style="font-size:.95rem;color:#5BBAA7;margin:16px 0 8px;">$1</h3>')
+        .replace(/^### (.+)$/gm,'<h4 style="font-size:.88rem;color:#0891B2;margin:14px 0 6px;">$1</h4>')
+        .replace(/^## (.+)$/gm,'<h3 style="font-size:.95rem;color:#0891B2;margin:16px 0 8px;">$1</h3>')
         .replace(/^- (.+)$/gm,'<li style="font-size:.82rem;margin-bottom:3px;">$1</li>')
         .replace(/\n/g,'<br>');
       content=content.replace(/((?:<li[^>]*>.*?<\/li>(?:<br>)?)+)/g,'<ul style="margin:4px 0 8px;padding-left:18px;">$1</ul>');
-      aiDiv.innerHTML='<div class="glass" style="padding:18px 20px;border-radius:3px;border:1px solid rgba(45,138,130,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#5BBAA7;">AI Deal Analysis</span><span style="font-size:.65rem;background:#2D8A82;color:#fff;border-radius:4px;padding:2px 6px;margin-left:6px;">GPT-4o</span></div><div style="font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.85);">'+content+'</div></div>';
+      aiDiv.innerHTML='<div class="glass" style="padding:18px 20px;border-radius:3px;border:1px solid rgba(8, 145, 178,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#0891B2;">AI Deal Analysis</span><span style="font-size:.65rem;background:#0891B2;color:#fff;border-radius:4px;padding:2px 6px;margin-left:6px;">GPT-4o</span></div><div style="font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.85);">'+content+'</div></div>';
     } else {
-      aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#5BBAA7;">&#9888; AI analysis not available. Basic check shown above.</div>';
+      aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#0891B2;">&#9888; AI analysis not available. Basic check shown above.</div>';
     }
   })
   .catch(function(){
-    aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#5BBAA7;">&#9888; AI service warming up. Basic deal check shown above. Try again in a minute for AI-powered analysis.</div>';
+    aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#0891B2;">&#9888; AI service warming up. Basic deal check shown above. Try again in a minute for AI-powered analysis.</div>';
   });
 }
 
@@ -448,7 +448,7 @@ function vcxReset(){
   ['vcxMSRP','vcxAgreed','vcxDocFee','vcxGAP','vcxWarranty','vcxTradeIn','vcxAPR','vcxMonths'].forEach(function(id){var e=el(id);if(e){if(id==='vcxDocFee'||id==='vcxGAP'||id==='vcxWarranty'||id==='vcxTradeIn'){e.value='0';}else{e.value='';}}});
   var fn=el('vcxFileName');if(fn)fn.textContent='';
   var fi=el('vcxDealFile');if(fi)fi.value='';
-  var btn=el('vcxCheckBtn');if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(91,186,167,.15)';}
+  var btn=el('vcxCheckBtn');if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(8, 145, 178,.15)';}
   var ra=el('vcxResultsArea');if(ra){ra.innerHTML='';ra.setAttribute('hidden','');}
   var card=el('vcxUploadCard');if(card)card.style.display='block';
   var errEl=el('vcxErrorState');if(errEl)errEl.style.display='none';

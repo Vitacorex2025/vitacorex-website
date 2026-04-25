@@ -2,12 +2,12 @@
  * vcx-a11y-fixes.css
  *
  * Accessibility contrast fixes loaded AFTER all other stylesheets.
- * Brand teal #2D8A82 as text on white scores 4.14 — below WCAG AA (4.5 required).
+ * Brand teal #0891B2 as text on white scores 4.14 — below WCAG AA (4.5 required).
  * This file darkens text-on-light teal to #1A5A54 (~7.97) and fixes CTA buttons
  * that were white-on-white in some page contexts.
  *
  * Touches: .eyebrow, .pill, .btn-primary, .btn-secondary, and .cta-row variants.
- * Does NOT change any background-as-color use of #2D8A82 (brand accents, gradients,
+ * Does NOT change any background-as-color use of #0891B2 (brand accents, gradients,
  * hero panels, launcher icons) — only foreground text on light surfaces.
  */
 
@@ -70,7 +70,7 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 }
 
 /* ---- 3. Primary CTA button ---- */
-/* Original gradient used #5BBAA7 / #2D8A82 — white text failed 4.5.
+/* Original gradient used #0891B2 / #0891B2 — white text failed 4.5.
    Darken gradient to pass 4.5+ while preserving brand teal feel. */
 .btn-primary,
 a.btn-primary,
@@ -88,7 +88,7 @@ button.btn-primary,
 a.btn-primary:hover,
 button.btn-primary:hover,
 .cta-row .btn-primary:hover {
-  background: linear-gradient(135deg, #236B64 0%, #2D8A82 100%) !important;
+  background: linear-gradient(135deg, #236B64 0%, #0891B2 100%) !important;
   color: #FFFFFF !important;
 }
 

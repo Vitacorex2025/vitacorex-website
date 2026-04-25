@@ -17,11 +17,11 @@
 .vcx-form-group{display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-4)}
 .vcx-label{font-size:var(--text-body-sm);font-weight:600;color:var(--ink-strong);letter-spacing:.01em}
 .vcx-input,.vcx-select,.vcx-textarea{width:100%;padding:var(--sp-3) var(--sp-4);font-family:var(--font-body);font-size:16px;line-height:var(--lh-body);color:var(--ink-strong);background:var(--bg-elevated);border:1.5px solid var(--line-strong);border-radius:var(--radius);transition:border-color var(--transition-fast),box-shadow var(--transition-fast);appearance:none;min-height:44px}
-.vcx-input:focus,.vcx-select:focus,.vcx-textarea:focus{outline:none;border-color:var(--accent-gold);box-shadow:0 0 0 3px rgba(91,186,167,.18)}
+.vcx-input:focus,.vcx-select:focus,.vcx-textarea:focus{outline:none;border-color:var(--accent-gold);box-shadow:0 0 0 3px rgba(8, 145, 178,.18)}
 .vcx-input::placeholder,.vcx-textarea::placeholder{color:var(--ink-muted)}
 .vcx-textarea{resize:vertical;min-height:120px}
 .vcx-file-input{display:block;padding:var(--sp-5) var(--sp-4);border:1.5px dashed var(--line-strong);border-radius:var(--radius);background:var(--bg-surface);text-align:center;cursor:pointer;color:var(--ink-muted);font-size:var(--text-body-sm);transition:border-color var(--transition-fast),background var(--transition-fast)}
-.vcx-file-input:hover{border-color:var(--accent-gold);background:rgba(91,186,167,.04)}
+.vcx-file-input:hover{border-color:var(--accent-gold);background:rgba(8, 145, 178,.04)}
 .vcx-field-error{font-size:var(--text-caption);color:var(--status-danger);margin-top:var(--sp-1)}
 .vcx-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line-soft);border-radius:var(--radius)}
 .vcx-table{width:100%;border-collapse:collapse;font-size:var(--text-body-sm)}
