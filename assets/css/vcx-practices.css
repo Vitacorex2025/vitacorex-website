@@ -28,23 +28,45 @@
 }
 
 .practice-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-3, 1.5rem);
   padding: var(--space-6, 3rem);
   background: var(--color-bone, #FFFFFF);
-  border: 1px solid var(--color-rule, #E1E5EA);
+  border: 1px solid var(--color-rule, #CFE3E7);
   text-decoration: none;
   color: inherit;
   transition: border-color var(--dur-fast, 180ms) var(--ease, ease),
-              transform var(--dur-fast, 180ms) var(--ease, ease);
+              transform var(--dur-fast, 180ms) var(--ease, ease),
+              box-shadow var(--dur-fast, 180ms) var(--ease, ease);
+  overflow: hidden;
+}
+
+.practice-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent, #0891B2) 0%, var(--color-highlight, #06B6D4) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base, 240ms) var(--ease, ease);
 }
 
 .practice-card:hover,
 .practice-card:focus-visible {
-  border-color: var(--color-ink, #0B1F3A);
-  transform: translateY(-2px);
+  border-color: var(--color-accent, #0891B2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(8, 145, 178, .12);
   outline: none;
+}
+
+.practice-card:hover::before,
+.practice-card:focus-visible::before {
+  transform: scaleX(1);
 }
 
 .practice-eyebrow {
@@ -62,7 +84,7 @@
   font-size: var(--fs-2xl, 2.25rem);
   font-weight: 500;
   line-height: 1.15;
-  color: var(--color-ink, #0B1F3A);
+  color: var(--color-ink, #0E4F5C);
   margin: 0;
 }
 
@@ -70,7 +92,7 @@
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: var(--fs-base, 1rem);
   line-height: 1.55;
-  color: var(--color-ink, #0B1F3A);
+  color: var(--color-ink, #0E4F5C);
   margin: 0;
 }
 
@@ -97,7 +119,7 @@
   font-size: var(--fs-sm, 0.875rem);
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--color-ink, #0B1F3A);
+  color: var(--color-ink, #0E4F5C);
   padding-top: var(--space-3, 1.5rem);
   border-top: 1px solid var(--color-rule, #E1E5EA);
 }
@@ -118,7 +140,7 @@
   font-size: var(--fs-3xl, 3rem);
   font-weight: 500;
   line-height: 1.1;
-  color: var(--color-ink, #0B1F3A);
+  color: var(--color-ink, #0E4F5C);
   margin: 0 0 var(--space-3, 1.5rem);
   text-align: center;
 }

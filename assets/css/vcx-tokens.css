@@ -1,26 +1,26 @@
 /* ============================================================
-   VCX DESIGN TOKENS — Single source of truth (v3, anti-beige)
-   Aesthetic: restrained legal-adjacent advisory.
-   References: Wachtell, Cravath, A&M, FTI, BRG.
-   Palette: cool off-white paper, pure navy ink, muted-wine accent.
+   VCX DESIGN TOKENS — Single source of truth (v4, turquoise)
+   Aesthetic: refined advisory + premium turquoise depth.
+   Palette: aqua-tint paper, deep teal-blue ink, bright turquoise accent.
    ============================================================ */
 
 :root {
-  /* ─── CANONICAL PALETTE ──────────────────────────────────── */
-  /* ⚠ ANTI-BEIGE RULE: NO cream / beige / yellow / parchment / ivory / gold.
-     FORBIDDEN hex (do not reintroduce): #F5F2EC, #D9D3C7, #F4F2EA, #EEDFC9,
-     #F4E4BC, #E8DCC4, any warm/cream/parchment family.
-     Forbidden RGB triplets: (245,242,236), (217,211,199), (244,247,246).
-     Use cool neutrals only: paper #F8FAFB, rule #E1E5EA, bone #FFFFFF. */
-  --color-ink:        #0B1F3A;   /* navy — primary text, CTAs */
-  --color-ink-soft:   #2B3A55;   /* secondary navy */
-  --color-paper:      #F8FAFB;   /* cool off-white — page background (NO beige) */
+  /* ─── CANONICAL PALETTE — Turquoise / teal-blue family ─── */
+  /* ⚠ ANTI-BEIGE RULE: NO cream / beige / yellow / parchment / ivory / warm.
+     FORBIDDEN: #F5F2EC, #D9D3C7, #F4E4BC, any warm-off-white.
+     ⚠ TURQUOISE-BLUE FAMILY ONLY: stay in cyan / teal / aqua gamut.
+     Also forbidden: pure navy #0B1F3A (too cold), pure black, warm browns. */
+  --color-ink:        #0E4F5C;   /* deep teal-blue — primary text, CTAs */
+  --color-ink-soft:   #155E75;   /* secondary teal-blue */
+  --color-paper:      #F0F7F8;   /* very subtle aqua-tint white — page bg */
   --color-bone:       #FFFFFF;   /* card / modal background — pure white */
-  --color-rule:       #E1E5EA;   /* cool blue-grey borders / dividers (NO warm) */
-  --color-accent:     #6B2C2C;   /* muted wine — ONE accent per page */
-  --color-accent-dk:  #4F1F1F;   /* pressed state */
-  --color-muted:      #5A6274;   /* secondary text */
-  --color-soft:       #8A8F9C;   /* tertiary text, captions */
+  --color-rule:       #CFE3E7;   /* aqua-grey borders / dividers */
+  --color-accent:     #0891B2;   /* bright turquoise — primary accent */
+  --color-accent-dk:  #075E73;   /* pressed state — deeper turquoise */
+  --color-accent-soft: rgba(8, 145, 178, .10); /* turquoise wash for tints */
+  --color-highlight:  #06B6D4;   /* electric turquoise — for hover/focus moments */
+  --color-muted:      #4B6571;   /* muted teal-grey */
+  --color-soft:       #7B8E96;   /* soft text, captions */
 
   /* ─── LEGACY ALIASES (40+ existing CSS files use these) ──── */
   /* Backgrounds */
@@ -39,7 +39,7 @@
   /* Brand */
   --brand-primary:    var(--color-ink);
   --brand-secondary:  var(--color-muted);
-  --brand-hover:      #000814;
+  --brand-hover:      #06283D;
 
   /* Legacy "gold" = now cool rule-grey (Master Plan: no warm accents) */
   --accent-gold:      var(--color-rule);
@@ -58,8 +58,8 @@
   --status-info-bg:    rgba(53, 94, 138, .08);
 
   /* ─── BORDERS (recalculated on new ink) ──────────────────── */
-  --line-soft:    rgba(11, 31, 58, .10);
-  --line-strong:  rgba(11, 31, 58, .16);
+  --line-soft:    rgba(14, 79, 92, .10);
+  --line-strong:  rgba(14, 79, 92, .16);
   --line-gold:    rgba(225, 229, 234, .5);
 
   /* ─── TYPOGRAPHY (Master Plan: Cormorant + Inter + JetBrains) ─ */
@@ -136,10 +136,10 @@
   --radius-pill:  100px;
 
   /* ─── SHADOWS — restrained (Master Plan: minimal) ────────── */
-  --shadow-card:    0 1px 3px rgba(11, 31, 58, .06), 0 4px 16px rgba(11, 31, 58, .05);
-  --shadow-raised:  0 2px 8px rgba(11, 31, 58, .08), 0 8px 24px rgba(11, 31, 58, .06);
-  --shadow-overlay: 0 8px 32px rgba(11, 31, 58, .14);
-  --shadow-subtle:  0 1px 2px rgba(11, 31, 58, .04), 0 4px 12px rgba(11, 31, 58, .04);
+  --shadow-card:    0 1px 3px rgba(14, 79, 92, .06), 0 4px 16px rgba(14, 79, 92, .05);
+  --shadow-raised:  0 2px 8px rgba(14, 79, 92, .08), 0 8px 24px rgba(14, 79, 92, .06);
+  --shadow-overlay: 0 8px 32px rgba(14, 79, 92, .14);
+  --shadow-subtle:  0 1px 2px rgba(14, 79, 92, .04), 0 4px 12px rgba(14, 79, 92, .04);
 
   /* ─── TRANSITIONS ────────────────────────────────────────── */
   --ease:       cubic-bezier(0.4, 0, 0.2, 1);
@@ -161,7 +161,7 @@
 
 /* ============================================================
    CONTRAST COMPLIANCE NOTES
-   --color-ink (#0B1F3A) on --color-paper (#F8FAFB)  ≈ 13.8:1  ✓ AAA
+   --color-ink (#0E4F5C) on --color-paper (#F8FAFB)  ≈ 13.8:1  ✓ AAA
    --color-muted on --color-paper                    ≈ 6.8:1   ✓ AA
    --color-soft  on --color-paper                    ≈ 4.6:1   ✓ AA (large)
    --color-accent on --color-paper                   ≈ 7.4:1   ✓ AAA
