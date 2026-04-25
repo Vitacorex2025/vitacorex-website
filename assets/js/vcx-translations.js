@@ -25,9 +25,9 @@ en: {
   hero_pill_3:        'Counsel-ready file control',
 
   /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
-  home_hero_eyebrow:  'U.S.-wide remote support \u00B7 Companies and private clients',
-  home_hero_title:    'Revenue recovery for companies. Document packets for private clients.',
-  home_hero_lead:     'Companies: clean up aged AR, organize files, and prepare counsel-ready documentation \u2014 before agency or legal cost expands. Private clients: fixed-fee document packets before you sign, file, buy, or escalate. VitaCoreX is not a law firm and not a collection agency.',
+  home_hero_eyebrow:  'Florida-registered LLC \u00B7 U.S.-wide remote support',
+  home_hero_title:    'Documentation discipline before escalation.',
+  home_hero_lead:     'VitaCoreX provides revenue-recovery infrastructure, corporate file control, and scoped private-client document review. One operating standard across companies, founders, and individuals.',
   home_hero_pill_1:   'Fixed-scope engagements',
   home_hero_pill_2:   'Counsel-ready documentation',
   home_hero_pill_3:   'Not a law firm \u00B7 Not a collection agency',
@@ -239,7 +239,7 @@ en: {
 
   /* ── Testimonials ──────────────────────────────────────────── */
   test_eyebrow:       'What operators say',
-  test_title:         'Built for operators who measure before they scale.',
+  test_title:         'Selected engagement notes.',
   test_1_text:        'The structured intake process gave us visibility into recovery gaps we had been ignoring. For the first time, our AR workflow had a documented standard instead of ad hoc follow-ups.',
   test_1_name:        'J. Martinez',
   test_1_role:        'CFO, Healthcare Group',
@@ -404,7 +404,12 @@ en: {
   impact_source:      'Based on structured AR methodology benchmarks. Sources: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.',
 
   /* ── Testimonials ──────────────────────────────────────────── */
-  test_intro:         'Hear from the CFOs, compliance directors, and legal operations leaders who chose VitaCoreX.',
+  test_intro:         'Attributed references are provided under executed NDA. The notes below are anonymized excerpts from pilot and engagement reviews.',
+  test_eyebrow:       'Client references',
+  test_footer:        'Named references with full attribution available under mutual NDA on request.',
+  test_r1:            'CFO · Multi-site healthcare group · Southeast US',
+  test_r4:            'COO · Subscription platform · Mid-market',
+  test_r7:            'CTO · FinOps platform · Growth-stage',
   test_q1:            '"The structured intake process gave us visibility into recovery gaps we had been ignoring. For the first time, our AR workflow had a documented standard."',
   test_r1:            'CFO, Healthcare Group',
   test_q2:            '"We\u2019ve seen incredible results with the recovery infrastructure. Expertise and dedication beyond expectations."',
@@ -2108,9 +2113,9 @@ ru: {
   hero_pill_3:        'Файлы готовые для юристов',
 
   /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
-  home_hero_eyebrow:  'Удалённая поддержка по США \u00B7 Компании и частные клиенты',
-  home_hero_title:    'Возврат выручки — для компаний. Пакеты документов — для частных клиентов.',
-  home_hero_lead:     'Для компаний: собираем просроченную дебиторку, упорядочиваем дела и готовим документацию для юристов — до того, как агентство или юридические услуги увеличат ваши затраты. Для частных клиентов: пакеты документов с фиксированной ценой — перед подписанием, подачей, покупкой или эскалацией. VitaCoreX — не юридическая фирма и не коллекторское агентство.',
+  home_hero_eyebrow:  'Зарегистрированная LLC во Флориде \u00B7 удалённая поддержка по США',
+  home_hero_title:    'Дисциплина документации до эскалации.',
+  home_hero_lead:     'VitaCoreX предоставляет инфраструктуру возврата выручки, корпоративный контроль документов и фиксированный обзор частных документов. Один операционный стандарт для компаний, основателей и частных лиц.',
   home_hero_pill_1:   'Фиксированный объём работ',
   home_hero_pill_2:   'Документы, готовые для юристов',
   home_hero_pill_3:   'Не юрфирма \u00B7 Не коллекторы',
@@ -2311,7 +2316,7 @@ ru: {
   diag_cta_schedule:  'Запланировать стратегическую консультацию',
 
   test_eyebrow:       'Что говорят операторы',
-  test_title:         'Создано для операторов, которые измеряют прежде чем масштабировать.',
+  test_title:         'Избранные заметки из практики.',
   test_1_text:        'Структурированный процесс интейка дал нам прозрачность в отношении пробелов возврата, которые мы игнорировали. Впервые наш AR-процесс имел документированный стандарт вместо разовых действий.',
   test_1_name:        'Х. Мартинес',
   test_1_role:        'CFO, Группа здравоохранения',
@@ -2469,7 +2474,12 @@ ru: {
 
   impact_source:      'По отраслевым методологическим бенчмаркам AR. Источники: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.',
 
-  test_intro:         'Слово финансовым директорам, руководителям комплаенса и операционным лидерам, выбравшим VitaCoreX.',
+  test_intro:         'Именные отзывы предоставляются по подписанному NDA. Ниже — анонимизированные фрагменты пилотных и постановочных обзоров.',
+  test_eyebrow:       'Клиентские референсы',
+  test_footer:        'Именные отзывы с полной атрибуцией предоставляются по запросу под взаимное NDA.',
+  test_r1:            'CFO · многосайтовая медицинская группа · Юго-Восток США',
+  test_r4:            'COO · подписочная платформа · средний сегмент',
+  test_r7:            'CTO · FinOps-платформа · стадия роста',
   test_q1:            '«Структурированный интейк показал провалы в возврате, которые мы раньше не замечали. Впервые у нашего AR-процесса появился задокументированный стандарт».',
   test_r1:            'CFO, медицинская группа',
   test_q2:            '«Инфраструктура возврата даёт впечатляющие результаты. Экспертиза и вовлечённость выше ожиданий».',
@@ -4187,9 +4197,9 @@ es: {
   hero_pill_3:        'Expedientes listos para abogados',
 
   /* ── Home hero (P02 Step 2.7 — plain-language dual B2B/B2C) ── */
-  home_hero_eyebrow:  'Soporte remoto en EE. UU. \u00B7 Empresas y clientes privados',
-  home_hero_title:    'Recuperacion de ingresos para empresas. Paquetes de documentos para clientes privados.',
-  home_hero_lead:     'Para empresas: limpiamos cuentas por cobrar vencidas, organizamos expedientes y preparamos documentacion lista para abogados \u2014 antes de que aumenten los costos de agencia o legales. Para clientes privados: paquetes de documentos con tarifa fija antes de firmar, presentar, comprar o escalar. VitaCoreX no es un bufete de abogados ni una agencia de cobro.',
+  home_hero_eyebrow:  'LLC registrada en Florida \u00B7 soporte remoto en EE. UU.',
+  home_hero_title:    'Disciplina documental antes de la escalada.',
+  home_hero_lead:     'VitaCoreX ofrece infraestructura de recuperación de ingresos, control corporativo de archivos y revisión documental privada con alcance fijo. Un estándar operativo para empresas, fundadores e individuos.',
   home_hero_pill_1:   'Alcance fijo',
   home_hero_pill_2:   'Documentacion lista para abogados',
   home_hero_pill_3:   'No es bufete \u00B7 No es agencia de cobro',
@@ -4390,7 +4400,7 @@ es: {
   diag_cta_schedule:  'Programar consulta estrategica',
 
   test_eyebrow:       'Lo que dicen los operadores',
-  test_title:         'Disenado para operadores que miden antes de escalar.',
+  test_title:         'Notas seleccionadas de la práctica.',
   test_1_text:        'El proceso estructurado de ingreso nos dio visibilidad sobre las brechas de recuperacion que habiamos ignorado. Por primera vez, nuestro flujo de AR tenia un estandar documentado en lugar de seguimientos ad hoc.',
   test_1_name:        'J. Martinez',
   test_1_role:        'CFO, Grupo de Salud',
@@ -4548,7 +4558,12 @@ es: {
 
   impact_source:      'Basado en benchmarks metodologicos de AR estructurada. Fuentes: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.',
 
-  test_intro:         'Opiniones de CFOs, directores de cumplimiento y lideres de operaciones legales que eligieron VitaCoreX.',
+  test_intro:         'Las referencias nominativas se proporcionan bajo NDA firmado. A continuación, fragmentos anonimizados de revisiones de proyectos piloto y compromisos.',
+  test_eyebrow:       'Referencias de clientes',
+  test_footer:        'Las referencias con atribución completa están disponibles bajo NDA mutuo a solicitud.',
+  test_r1:            'CFO · grupo de salud con múltiples sitios · sureste de EE. UU.',
+  test_r4:            'COO · plataforma de suscripción · segmento medio',
+  test_r7:            'CTO · plataforma FinOps · etapa de crecimiento',
   test_q1:            '"El proceso de intake estructurado nos dio visibilidad sobre brechas de recuperacion que ignorabamos. Por primera vez, nuestro flujo de AR tuvo un estandar documentado."',
   test_r1:            'CFO, Grupo de salud',
   test_q2:            '"Hemos visto resultados extraordinarios con la infraestructura de recuperacion. Experiencia y dedicacion superiores a lo esperado."',
