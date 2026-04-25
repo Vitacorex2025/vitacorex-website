@@ -1377,13 +1377,24 @@ h1, h2, h3 {
   color: #111;
 }
 
-/* --- Link color override --- */
+/* --- Link color override — uses turquoise tokens (kept readable on hover) --- */
 a {
-  color: #2D8A82;
+  color: var(--color-accent, #0891B2);
 }
 
 a:hover {
-  color: #5BC4B8;
+  color: var(--color-accent-dk, #075E73);
+}
+
+/* Buttons that explicitly set their own color must not be overridden */
+a.vcx-hero-advisory__cta,
+.btn,
+.btn-primary,
+.btn-secondary,
+.vcx-btn-2,
+.pci-submit,
+.practice-cta {
+  /* preserve component-defined color */
 }
 
 /* --- Menu button --- */
