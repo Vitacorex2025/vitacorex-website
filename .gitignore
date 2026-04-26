@@ -21,15 +21,15 @@ package-lock.json
 # P17 QA advisory artifacts (generated, not baseline — IP-dependent)
 docs/qa/cta-opaque.md
 
-# Hero videos — Pexels-licensed Tampa + Denver drone footage
-# (free for commercial use, no attribution required, but kept out of repo
-# to avoid 40MB blob — load via CDN at production deploy time)
+# Hero videos — Pexels-licensed Tampa skyline + Colorado mountain drone footage
+# (free for commercial use, no attribution required, but kept out of repo to
+# avoid 120MB blob — upload to CDN at production deploy time)
 assets/video/tampa-1.mp4
 assets/video/tampa-2.mp4
 assets/video/tampa-3.mp4
-assets/video/denver-1.mp4
-assets/video/denver-2.mp4
-assets/video/denver-3.mp4
+assets/video/mountains-1.mp4
+assets/video/mountains-2.mp4
+assets/video/mountains-3.mp4
 
 # Playwright artifacts
 .playwright-mcp/
