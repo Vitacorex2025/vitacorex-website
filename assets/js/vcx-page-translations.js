@@ -4161,6 +4161,116 @@ add('No mechanical inspection \u2014 we only review paperwork. For mechanical in
     'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
     'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
 
+// ─── INSIGHTS PAGE (rebuild) ──────────────────────────────────
+add('Insights · Operating briefs and executive reviews',
+    'Инсайты · операционные сводки и материалы для руководства',
+    'Insights · informes operativos y revisiones ejecutivas');
+add('Operating briefs and executive reviews.',
+    'Операционные сводки и материалы для руководства.',
+    'Informes operativos y revisiones ejecutivas.');
+add('Executive-level material from VitaCoreX practice. Concise briefing PDFs designed for internal forwarding and partner review — each is a snapshot of a working pattern across our pre-collection and documentation engagements.',
+    'Материалы для руководства из практики VitaCoreX. Краткие PDF-сводки для внутренней пересылки и партнёрского ревью — каждая фиксирует рабочий паттерн из наших проектов по pre-collection и документации.',
+    'Material a nivel ejecutivo de la práctica de VitaCoreX. Briefs en PDF concisos para reenvío interno y revisión de socios — cada uno es una instantánea de un patrón en nuestros encargos de pre-cobranza y documentación.');
+add('Review industry pages',
+    'Отраслевые страницы',
+    'Páginas de industrias');
+add('Request a confidential review',
+    'Запросить конфиденциальный разбор',
+    'Solicitar una revisión confidencial');
+add('Executive library',
+    'Библиотека для руководства',
+    'Biblioteca ejecutiva');
+add('Four briefing PDFs designed to move a specific internal conversation past the first meeting.',
+    'Четыре PDF-сводки, чтобы продвинуть конкретный внутренний разговор дальше первой встречи.',
+    'Cuatro PDFs diseñados para llevar una conversación interna específica más allá de la primera reunión.');
+add('Share them with your CFO, operations lead, or counsel-adjacent team. Each piece names a specific failure mode in operator language — recovery economics, DSO leakage, pilot structure, file readiness — so the next conversation starts further along.',
+    'Передайте их CFO, операционному руководителю или команде рядом с юристами. Каждая работа называет конкретный режим сбоя на языке оператора — экономика возврата, утечка DSO, структура пилота, готовность файла — чтобы следующий разговор начинался дальше.',
+    'Compártalos con su CFO, líder de operaciones o equipo cercano a abogados. Cada pieza nombra un modo de fallo específico en lenguaje de operadores — economía de recuperación, fuga de DSO, estructura de piloto, preparación documental — para que la próxima conversación arranque más adelante.');
+add('Healthcare Leakage Brief',
+    'Брифинг: утечка выручки в здравоохранении',
+    'Brief: fugas de ingresos en salud');
+add('Five leakage points in healthcare operators, why sequencing matters, and how early agency escalation compresses margin.',
+    'Пять точек утечки у операторов здравоохранения, почему важна последовательность и как ранняя передача в агентство сжимает маржу.',
+    'Cinco puntos de fuga en operadores de salud, por qué importa la secuencia y cómo la escalación temprana a agencia reduce margen.');
+add('Healthcare CFO Brief',
+    'Брифинг для CFO в здравоохранении',
+    'Brief para CFO de salud');
+add('Compact CFO-facing summary with DSO, leakage, and executive rationale. Pre-collection economics, escalation timing, and packet quality as a leverage variable.',
+    'Сжатая сводка для CFO с DSO, утечкой и обоснованием для руководства. Экономика pre-collection, тайминг эскалации и качество пакета как рычаг.',
+    'Resumen compacto para CFO con DSO, fuga y justificación ejecutiva. Economía de pre-cobranza, sincronización de escalación y calidad de paquete como variable de palanca.');
+add('Dental Institutional Deck',
+    'Институциональный дек для стоматологии',
+    'Presentación institucional dental');
+add('Institutional framing with pilot economics, sequencing logic, and executive positioning for dental groups managing aged patient-balance receivables.',
+    'Институциональная подача с экономикой пилота, логикой последовательности и позиционированием для стоматологических групп с устаревшей дебиторкой по балансам пациентов.',
+    'Encuadre institucional con economía de piloto, lógica de secuencia y posicionamiento ejecutivo para grupos dentales que gestionan saldos de pacientes envejecidos.');
+add('Pre-collection Executive Review',
+    'Pre-collection: обзор для руководства',
+    'Pre-cobranza: revisión ejecutiva');
+add('Framework logic, controlled escalation, and economics for pre-agency sequencing. The full methodology behind the 30–90 day operator window.',
+    'Логика фреймворка, контролируемая эскалация и экономика для последовательности до передачи в агентство. Полная методология для окна 30–90 дней.',
+    'Lógica del framework, escalación controlada y economía para la secuencia previa a la agencia. La metodología completa detrás de la ventana operativa de 30–90 días.');
+add('Open PDF →',
+    'Открыть PDF →',
+    'Abrir PDF →');
+add('Use by role',
+    'Применение по роли',
+    'Uso por rol');
+add('Each brief should answer a specific internal question.',
+    'Каждый брифинг должен отвечать на конкретный внутренний вопрос.',
+    'Cada brief debe responder una pregunta interna específica.');
+add('That makes the resource library more than lead bait — it becomes a forwarding tool for owners, CFOs, operators, and counsel-adjacent teams.',
+    'Это превращает библиотеку из приманки для лидов в инструмент пересылки для владельцев, CFO, операторов и команд рядом с юристами.',
+    'Eso convierte la biblioteca en algo más que un cebo de leads — se vuelve una herramienta de reenvío para dueños, CFOs, operadores y equipos cercanos a abogados.');
+add('Margin clarity before outside cost grows.',
+    'Ясность по марже до того, как растут внешние расходы.',
+    'Claridad de margen antes de que crezcan los costos externos.');
+add('Should clarify where margin is leaking and why the operating layer matters before outside cost grows.',
+    'Должен прояснить, где течёт маржа и почему важен операционный слой до роста внешних расходов.',
+    'Debe aclarar dónde se fuga el margen y por qué importa la capa operativa antes de que crezcan los costos externos.');
+add('Cash velocity, fee compression, pilot measurement.',
+    'Скорость денег, сжатие комиссий, измерение пилота.',
+    'Velocidad de caja, compresión de comisiones, medición de piloto.');
+add('Should frame cash velocity, fee compression, and how pilot measurement would be documented.',
+    'Должен оформить скорость денег, сжатие комиссий и то, как фиксируется измерение пилота.',
+    'Debe enmarcar la velocidad de caja, la compresión de comisiones y cómo se documentaría la medición del piloto.');
+add('Workflow sequencing and packet discipline.',
+    'Последовательность workflow и дисциплина пакетов.',
+    'Secuencia de workflow y disciplina de paquetes.');
+add('Should explain workflow sequencing, packet discipline, and how exceptions are handled more cleanly.',
+    'Должен объяснить последовательность workflow, дисциплину пакетов и как чище обрабатываются исключения.',
+    'Debe explicar la secuencia de workflow, la disciplina de paquetes y cómo se manejan las excepciones de forma más limpia.');
+add('File readiness reduces administrative cleanup.',
+    'Готовность файла снижает административные доработки.',
+    'La preparación documental reduce la limpieza administrativa.');
+add('Should show why better file readiness reduces administrative cleanup before legal strategy begins.',
+    'Должен показать, почему лучшая готовность файла снижает административные доработки до начала юридической стратегии.',
+    'Debe mostrar por qué una mejor preparación documental reduce la limpieza administrativa antes de que inicie la estrategia legal.');
+add('Owner / CEO',
+    'Владелец / CEO',
+    'Dueño / CEO');
+add('CFO / finance',
+    'CFO / финансы',
+    'CFO / finanzas');
+add('Operations',
+    'Операции',
+    'Operaciones');
+add('Counsel-adjacent',
+    'Рядом с юристами',
+    'Cercano a abogados');
+add('How to use these briefs',
+    'Как использовать эти материалы',
+    'Cómo usar estos briefs');
+add('Proprietary methodology materials for executive review and internal forwarding.',
+    'Материалы собственной методологии для разбора руководством и внутренней пересылки.',
+    'Materiales de metodología propietaria para revisión ejecutiva y reenvío interno.');
+add('Each PDF is designed to move a specific internal conversation — recovery economics, DSO leakage, pilot structure — past the first meeting without another sales call. The "proprietary" badge means the underlying methodology is copyrighted; the document itself is intended for distribution inside the recipient\'s organization. For engagement-specific deliverables or custom analysis, request a confidential review.',
+    'Каждый PDF должен продвинуть конкретный внутренний разговор — экономика возврата, утечка DSO, структура пилота — дальше первой встречи без ещё одного звонка продаж. Метка «proprietary» означает, что методология защищена авторским правом; сам документ предназначен для распространения внутри организации получателя. Для конкретных деливерейблов и анализа под задачу запросите конфиденциальный разбор.',
+    'Cada PDF está diseñado para llevar una conversación interna específica — economía de recuperación, fuga de DSO, estructura de piloto — más allá de la primera reunión sin otra llamada de venta. La marca "propietaria" significa que la metodología subyacente tiene derechos de autor; el documento está pensado para distribución dentro de la organización del receptor. Para entregables específicos o análisis a medida, solicite una revisión confidencial.');
+add('Mutual NDA available on request before document exchange.',
+    'Взаимный NDA доступен по запросу до обмена документами.',
+    'NDA mutuo disponible bajo solicitud antes del intercambio de documentos.');
+
 // ─── SOFT CTA LINES (on existing landings) ───
 add('Just a single case? Use our 60-second private-client intake \u2192',
     'Единичный случай? Заполните наш 60-секундный intake для частных клиентов \u2192',
