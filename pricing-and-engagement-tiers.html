@@ -42,14 +42,14 @@
 <script src="/assets/js/vcx-premium-fx.js" defer></script>
 <style>
 /* ── Page-local styles: pricing-and-engagement-tiers.html — readable palette ── */
-.pet-hero{background:linear-gradient(180deg,#F8FBFB 0%,#F8FAFB 100%);padding:72px 0 56px;border-bottom:1px solid rgba(26,79,74,.08);}
+.pet-hero{background:linear-gradient(180deg,#F8FBFB 0%,#EEF6F5 100%);padding:72px 0 56px;border-bottom:1px solid rgba(26,79,74,.08);}
 .pet-hero .wrap{max-width:1160px;}
-.pet-hero__eyebrow{display:inline-block;background:rgba(8, 145, 178,.18);color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px;}
+.pet-hero__eyebrow{display:inline-block;background:rgba(91,186,167,.18);color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px;}
 .pet-hero__title{font-size:clamp(1.9rem,3.6vw,2.85rem);line-height:1.12;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;letter-spacing:-.02em;margin:0 0 18px;max-width:940px;}
 .pet-hero__lede{font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.65;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;max-width:820px;margin:0 0 12px;}
 
 .pet-section{padding:64px 0;}
-.pet-section--cream{background:#F8FAFB;}
+.pet-section--cream{background:#EEF6F5;}
 .pet-section--white{background:#FFFFFF;}
 .pet-section .wrap{max-width:1160px;}
 
@@ -60,37 +60,37 @@
 
 .pet-aud-badge{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:10px;}
 .pet-aud-badge--b2b{background:rgba(26,79,74,.14);color:#0F2F2C !important;-webkit-text-fill-color:#0F2F2C !important;}
-.pet-aud-badge--b2c{background:rgba(8, 145, 178,.20);color:#0F3532 !important;-webkit-text-fill-color:#0F3532 !important;}
+.pet-aud-badge--b2c{background:rgba(91,186,167,.20);color:#0F3532 !important;-webkit-text-fill-color:#0F3532 !important;}
 
 .pet-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 @media (max-width:960px){.pet-tiers{grid-template-columns:1fr;}}
 .pet-tier{background:#FFFFFF;border-radius:14px;padding:30px 26px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(26,79,74,.08);display:flex;flex-direction:column;position:relative;}
-.pet-tier--featured{border:2px solid #0891B2;box-shadow:0 12px 32px rgba(8, 145, 178,.22);}
-.pet-tier__badge{position:absolute;top:-12px;left:26px;background:#0891B2;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+.pet-tier--featured{border:2px solid #2D8A82;box-shadow:0 12px 32px rgba(45,138,130,.22);}
+.pet-tier__badge{position:absolute;top:-12px;left:26px;background:#2D8A82;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
 .pet-tier__kicker{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px;}
 .pet-tier__title{color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:1.18rem;font-weight:800;margin:0 0 14px;line-height:1.3;}
 .pet-tier__price{font-size:2.3rem;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;line-height:1;letter-spacing:-.02em;margin:0 0 6px;}
 .pet-tier__price small{font-size:.92rem;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;font-weight:600;}
 .pet-tier__price-note{color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;font-size:.86rem;margin:0 0 18px;line-height:1.5;}
-.pet-tier__for{background:rgba(8, 145, 178,.12);border-left:3px solid #0891B2;padding:10px 14px;border-radius:6px;margin:0 0 16px;}
+.pet-tier__for{background:rgba(91,186,167,.12);border-left:3px solid #2D8A82;padding:10px 14px;border-radius:6px;margin:0 0 16px;}
 .pet-tier__for span{display:block;font-size:.72rem;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
 .pet-tier__for p{margin:0;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:.92rem;line-height:1.45;}
 .pet-tier__inc{margin:0 0 16px;padding:0;list-style:none;flex-grow:1;}
 .pet-tier__inc li{position:relative;padding:7px 0 7px 24px;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;font-size:.93rem;line-height:1.5;}
-.pet-tier__inc li::before{content:"\2713";position:absolute;left:0;top:6px;color:#0891B2;font-weight:800;}
+.pet-tier__inc li::before{content:"\2713";position:absolute;left:0;top:6px;color:#2D8A82;font-weight:800;}
 .pet-tier__micro{background:rgba(26,79,74,.06);border-radius:8px;padding:10px 12px;font-size:.82rem;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;font-style:italic;line-height:1.5;margin:0 0 14px;}
 .pet-tier__footnote{font-size:.82rem;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;line-height:1.5;margin:0 0 14px;}
 .pet-btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.92rem;padding:12px 20px;border-radius:10px;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;justify-content:center;}
-.pet-btn--primary{background:#0891B2;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;box-shadow:0 6px 18px rgba(8, 145, 178,.24);}
+.pet-btn--primary{background:#2D8A82;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;box-shadow:0 6px 18px rgba(45,138,130,.24);}
 .pet-btn--primary:hover{background:#1E6E68;box-shadow:0 8px 22px rgba(30,110,104,.3);color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;}
-.pet-btn--ghost{background:#FFFFFF;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;border-color:#0891B2;}
-.pet-btn--ghost:hover{background:rgba(8, 145, 178,.10);color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;}
+.pet-btn--ghost{background:#FFFFFF;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;border-color:#2D8A82;}
+.pet-btn--ghost:hover{background:rgba(91,186,167,.10);color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;}
 .pet-tier__cta{width:100%;}
 
 /* Retainer sub-cards for Tier B-3 */
 .pet-retainer-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px;}
 @media (max-width:520px){.pet-retainer-levels{grid-template-columns:1fr;}}
-.pet-retainer-level{background:rgba(8, 145, 178,.10);border:1px solid rgba(8, 145, 178,.28);border-radius:10px;padding:12px 12px;text-align:center;}
+.pet-retainer-level{background:rgba(91,186,167,.10);border:1px solid rgba(91,186,167,.28);border-radius:10px;padding:12px 12px;text-align:center;}
 .pet-retainer-level__label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;margin-bottom:4px;}
 .pet-retainer-level__price{font-size:1.1rem;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;margin-bottom:4px;line-height:1;}
 .pet-retainer-level__price small{font-size:.74rem;color:#2F3E38 !important;-webkit-text-fill-color:#2F3E38 !important;font-weight:600;}
@@ -107,11 +107,11 @@
 /* Principles */
 .pet-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
 .pet-principle{background:#FFFFFF;border-radius:14px;padding:22px 24px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(26,79,74,.08);}
-.pet-principle__num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:rgba(8, 145, 178,.18);color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-weight:800;font-size:.95rem;margin-bottom:12px;}
+.pet-principle__num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:rgba(91,186,167,.18);color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-weight:800;font-size:.95rem;margin-bottom:12px;}
 .pet-principle p{color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:.95rem;line-height:1.55;margin:0;font-weight:500;}
 
 /* UPL Safeguard — readable white text on navy */
-.pet-upl{background:linear-gradient(135deg,#0E4F5C 0%,#0F2F2C 100%);padding:36px 40px;border-radius:16px;max-width:1040px;margin:0 auto;box-shadow:0 12px 36px rgba(26,79,74,.28);}
+.pet-upl{background:linear-gradient(135deg,#1A4F4A 0%,#0F2F2C 100%);padding:36px 40px;border-radius:16px;max-width:1040px;margin:0 auto;box-shadow:0 12px 36px rgba(26,79,74,.28);}
 .pet-upl *,.pet-upl h2,.pet-upl p,.pet-upl span,.pet-upl strong{color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;}
 .pet-upl__label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7ED8C3 !important;-webkit-text-fill-color:#7ED8C3 !important;margin-bottom:10px;}
 .pet-upl h2{color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;font-size:1.35rem;font-weight:800;margin:0 0 12px;}
@@ -122,7 +122,7 @@
 .pet-matrix-table{background:#FFFFFF;border-radius:16px;box-shadow:0 10px 30px rgba(11,31,48,.08);border:1px solid rgba(26,79,74,.10);overflow:hidden;}
 .pet-matrix-row{display:grid;grid-template-columns:minmax(220px,1.7fr) repeat(3,1fr) 130px;gap:0;align-items:center;border-bottom:1px solid rgba(26,79,74,.08);transition:background .18s ease;}
 .pet-matrix-row:last-child{border-bottom:0;}
-.pet-matrix-row:hover:not(.pet-matrix-row--head){background:rgba(8, 145, 178,.05);}
+.pet-matrix-row:hover:not(.pet-matrix-row--head){background:rgba(91,186,167,.05);}
 .pet-matrix-row--head{background:linear-gradient(180deg,#F3F8F7 0%,#E9F2F1 100%);}
 .pet-matrix-row--head .pet-matrix-cell{padding:14px 18px;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;}
 .pet-matrix-row--b2b{background:rgba(26,79,74,.025);}
@@ -133,7 +133,7 @@
 .pet-matrix-cell--price{font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:1.02rem;}
 .pet-matrix-cell--price small{display:block;font-weight:500;font-size:.78rem;color:#4A5A52 !important;-webkit-text-fill-color:#4A5A52 !important;margin-top:3px;letter-spacing:0;text-transform:none;}
 .pet-matrix-cell--empty{color:#9CAAA3 !important;-webkit-text-fill-color:#9CAAA3 !important;font-size:.85rem;font-style:italic;}
-.pet-matrix-cell--link a{color:#0891B2 !important;-webkit-text-fill-color:#0891B2 !important;font-weight:700;font-size:.84rem;text-decoration:none;}
+.pet-matrix-cell--link a{color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;font-weight:700;font-size:.84rem;text-decoration:none;}
 .pet-matrix-cell--link a:hover{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;text-decoration:underline;}
 .pet-matrix-note{max-width:880px;margin:22px auto 0;text-align:center;font-size:.84rem;color:#4A5A52 !important;-webkit-text-fill-color:#4A5A52 !important;line-height:1.55;font-style:italic;}
 @media (max-width:1040px){
@@ -629,8 +629,7 @@
 </div>
 </div>
 <div class="footer-bottom">
-<p class="footer-bottom__copy">© 2026 VitaCoreX LLC. All rights reserved.</p>
-<p class="footer-bottom__discipline" data-i18n="footer_discipline" style="font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-muted);margin-top:8px;">Engagement by letter. Mutual NDA on request.</p>
+<p class="footer-bottom__copy">© 2025 VitaCoreX LLC. All rights reserved.</p>
 </div>
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
@@ -645,6 +644,7 @@
 <script src="assets/js/ui-shell.js" defer></script>
 <script src="assets/js/premium-fixes.js" defer></script>
 <script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
+<script src="/assets/js/vcx-chat-launcher.js?v=2" defer></script>
 <script src="/assets/js/vcx-seo.js" defer></script>
 <script src="/assets/js/vcx-redesign.js?v=8" defer></script>
 </body></html>
