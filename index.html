@@ -108,47 +108,65 @@
 <section class="vcx-fourquad-hero" role="banner" aria-label="VitaCoreX — choose your engagement path">
   <h1 class="visually-hidden" data-page="home_hero_title">Revenue recovery for companies. Document packets for private clients.</h1>
 
-  <video class="vcx-fourquad-hero__video" id="vcxFourquadVideo" autoplay muted playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true"
-         src="assets/video/tampa-1.mp4"
-         data-clip1="assets/video/tampa-1.mp4"
-         data-clip2="assets/video/mountains-1.mp4"
-         data-clip3="assets/video/tampa-3.mp4"
-         data-clip4="assets/video/mountains-3.mp4"
-         data-clip5="assets/video/tampa-2.mp4"
-         data-clip6="assets/video/mountains-2.mp4"></video>
+  <!-- Dual-video crossfade stack: while one plays, the other preloads
+       the next clip behind it; on tick we toggle opacity so the swap is
+       seamless (no poster flash, no black frame between clips). -->
+  <video class="vcx-fourquad-hero__video vcx-fourquad-hero__video--a is-on" id="vcxFourquadVideoA" autoplay muted playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true" preload="auto" src="assets/video/tampa-1.mp4"></video>
+  <video class="vcx-fourquad-hero__video vcx-fourquad-hero__video--b" id="vcxFourquadVideoB" muted playsinline aria-hidden="true" preload="auto" src="assets/video/tampa-4.mp4"></video>
   <script>
-    /* Cycle 6 aerial drone clips (Tampa + Colorado Rocky Mountains, alternating).
+    /* Cycle 6 Tampa-area aerial clips (downtown drone, beaches, pier, city).
        Source: Pexels (license-free for commercial use, no attribution required).
-       Switches every 20 seconds so each clip gets equal screen time, regardless of
-       its actual duration. */
+       5-second cadence with alpha crossfade between two video elements so
+       there is never a poster flash or stale frame visible to the user. */
     (function(){
-      var v = document.getElementById('vcxFourquadVideo');
-      if (!v) return;
+      var clips = [
+        'assets/video/tampa-1.mp4',  /* downtown drone */
+        'assets/video/tampa-4.mp4',  /* St. Pete beach */
+        'assets/video/tampa-2.mp4',  /* downtown long */
+        'assets/video/tampa-5.mp4',  /* Clearwater pier */
+        'assets/video/tampa-3.mp4',  /* Tampa FL aerial */
+        'assets/video/tampa-6.mp4'   /* city of Tampa drone */
+      ];
+      var SWITCH_EVERY_MS = 5000;
+      var FADE_MS = 600;
+      var a = document.getElementById('vcxFourquadVideoA');
+      var b = document.getElementById('vcxFourquadVideoB');
+      if (!a || !b) return;
       // prefers-reduced-motion: hold first frame on poster
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        v.removeAttribute('autoplay');
-        v.pause();
+        a.removeAttribute('autoplay');
+        a.pause();
+        b.style.display = 'none';
         return;
       }
-      var srcs = [];
-      for (var i = 1; i <= 6; i++) {
-        var s = v.dataset['clip' + i];
-        if (s) srcs.push(s);
+      var videos = [a, b];
+      var visible = 0;            // index of currently visible video
+      var clipIdx = 1;            // next clip to schedule (b already has clips[1])
+      a.play().catch(function(){});
+      // Pre-prime b so its first show is instant
+      b.load();
+      function tick() {
+        var hidden = 1 - visible;
+        var hv = videos[hidden];
+        var vv = videos[visible];
+        // The hidden video already has the next clip preloaded; restart it
+        try { hv.currentTime = 0; } catch (e) { /* iOS */ }
+        var played = hv.play();
+        if (played && played.catch) played.catch(function(){});
+        // Crossfade
+        hv.classList.add('is-on');
+        vv.classList.remove('is-on');
+        // After the fade finishes, pause the now-hidden video and queue
+        // up the clip that comes after the one currently rolling.
+        setTimeout(function(){
+          vv.pause();
+          clipIdx = (clipIdx + 1) % clips.length;
+          vv.src = clips[clipIdx];
+          vv.load();
+        }, FADE_MS);
+        visible = hidden;
       }
-      if (srcs.length < 2) return;
-      var idx = 0;
-      var SWITCH_EVERY_MS = 20000; // 20 seconds per clip (user-locked cadence)
-      function next() {
-        idx = (idx + 1) % srcs.length;
-        v.src = srcs[idx];
-        v.load();
-        v.play().catch(function(){});
-      }
-      // Drive switching by interval, not by clip duration. Prevents 119s
-      // long clips dominating the cycle and short 8s clips flashing.
-      setInterval(next, SWITCH_EVERY_MS);
-      // Initial play attempt (autoplay may fail on some mobile)
-      v.play().catch(function(){});
+      setInterval(tick, SWITCH_EVERY_MS);
     })();
   </script>
   <div class="vcx-fourquad-hero__overlay" aria-hidden="true"></div>
@@ -232,7 +250,15 @@
   height: 100%;
   object-fit: cover;
   z-index: -2;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  background: #061418; /* dark fallback while the source loads, never flashes white */
 }
+/* Crossfade marker: JS toggles .is-on between video A and video B every
+ * tick. Whichever has it is visible; the other fades out simultaneously.
+ * Video A ships with .is-on in the HTML so the page is never blank on
+ * first paint, even before JS runs. */
+.vcx-fourquad-hero__video.is-on { opacity: 1; }
 .vcx-fourquad-hero__overlay {
   position: absolute;
   inset: 0;
