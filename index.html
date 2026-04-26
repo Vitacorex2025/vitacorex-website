@@ -108,40 +108,53 @@
 <section class="vcx-fourquad-hero" role="banner" aria-label="VitaCoreX — choose your engagement path">
   <h1 class="visually-hidden" data-page="home_hero_title">Revenue recovery for companies. Document packets for private clients.</h1>
 
-  <video class="vcx-fourquad-hero__video" id="vcxFourquadVideo" autoplay muted loop playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true"
-         data-src-1="assets/video/tampa-1.mp4"
-         data-src-2="assets/video/denver-1.mp4"
-         data-src-3="assets/video/tampa-3.mp4"
-         data-src-4="assets/video/denver-3.mp4"
-         data-src-5="assets/video/tampa-2.mp4"
-         data-src-6="assets/video/denver-2.mp4">
-    <source src="assets/video/tampa-1.mp4" type="video/mp4">
-  </video>
+  <video class="vcx-fourquad-hero__video" id="vcxFourquadVideo" autoplay muted playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true"
+         src="assets/video/tampa-1.mp4"
+         data-clip1="assets/video/tampa-1.mp4"
+         data-clip2="assets/video/denver-1.mp4"
+         data-clip3="assets/video/tampa-3.mp4"
+         data-clip4="assets/video/denver-3.mp4"
+         data-clip5="assets/video/tampa-2.mp4"
+         data-clip6="assets/video/denver-2.mp4"></video>
   <script>
     /* Cycle 6 aerial drone clips (Tampa + Denver, alternating).
        Source: Pexels (license-free for commercial use, no attribution required).
-       Tampa clips: drone-tampa-fl, downtown-tampa-florida-drone × 3
-       Denver clips: drone-denver-colorado, drone-hyperlapse-downtown-denver × 3
-       Falls back to single loop on prefers-reduced-motion. */
+       Switches on `ended` event (no loop attribute, no <source> child to override). */
     (function(){
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       var v = document.getElementById('vcxFourquadVideo');
       if (!v) return;
+      // prefers-reduced-motion: just hold first frame on poster
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.removeAttribute('autoplay');
+        v.pause();
+        return;
+      }
       var srcs = [];
       for (var i = 1; i <= 6; i++) {
-        var s = v.dataset['src' + i];
+        var s = v.dataset['clip' + i];
         if (s) srcs.push(s);
       }
       if (srcs.length < 2) return;
       var idx = 0;
-      v.removeAttribute('loop');
+      var advancing = false;
+      function next() {
+        if (advancing) return;
+        advancing = true;
+        idx = (idx + 1) % srcs.length;
+        v.src = srcs[idx];
+        v.load();
+        v.play().catch(function(){});
+        setTimeout(function(){ advancing = false; }, 600);
+      }
+      v.addEventListener('ended', next);
+      // Fallback: if browser fires loop instead of ended, also fire near end
       v.addEventListener('timeupdate', function(){
-        if (v.duration && v.currentTime > v.duration - 0.3) {
-          idx = (idx + 1) % srcs.length;
-          v.src = srcs[idx];
-          v.play().catch(function(){});
+        if (v.duration && (v.duration - v.currentTime) < 0.25) {
+          next();
         }
       });
+      // Initial play attempt (autoplay may fail on some mobile)
+      v.play().catch(function(){});
     })();
   </script>
   <div class="vcx-fourquad-hero__overlay" aria-hidden="true"></div>
