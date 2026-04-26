@@ -37,7 +37,7 @@
   /* Palette retuned from warm cream (F6F2EA / FBF8F3) to a cool
    * mint-white to match the home page's fresh look — user directive:
    * "ни каких бежевых цветов. цвет соответствующий странице хом". */
-  --vcx-bg-canvas: #F8FAFB;
+  --vcx-bg-canvas: #F4F7F6;
   --vcx-bg-surface: #FFFFFF;
   --vcx-bg-elevated: #FFFFFF;
   --vcx-ink-strong: #1A2F2A;
@@ -45,7 +45,7 @@
   --vcx-ink-muted: #5E6C7B;
   --vcx-brand-primary: #2E4F46;
   --vcx-brand-secondary: #58707E;
-  --vcx-accent-premium: #0891B2;
+  --vcx-accent-premium: #5BBAA7;
   --vcx-accent-premium-2: #3D8E7E;
   --vcx-line-soft: rgba(26,47,42,.10);
   --vcx-line-strong: rgba(26,47,42,.16);
@@ -84,8 +84,8 @@
   transition: background .2s ease, color .2s ease, box-shadow .2s ease;
 }
 .lang-btn:hover {
-  background: rgba(8, 145, 178,.08);
-  color: var(--vcx-accent-premium, #0891B2);
+  background: rgba(91,186,167,.08);
+  color: var(--vcx-accent-premium, #5BBAA7);
 }
 .lang-btn.active {
   background: linear-gradient(135deg, var(--vcx-brand-primary, #2E4F46), var(--vcx-accent-premium-2, #3D8E7E));
@@ -216,7 +216,7 @@ body[data-vcx-page="auto-deal-check"] .glass,
 body[data-vcx-page="contract-scanner"] #vcxUploadCard,
 body[data-vcx-page="immigration-helper"] #vcxUploadCard,
 body[data-vcx-page="auto-deal-check"] #vcxUploadCard {
-  border: 1px solid rgba(8, 145, 178,.15);
+  border: 1px solid rgba(91,186,167,.15);
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
 }
@@ -231,13 +231,13 @@ body[data-vcx-page="auto-deal-check"] .btn-primary,
 body[data-vcx-page="contract-scanner"] button[type="submit"],
 body[data-vcx-page="immigration-helper"] button[type="submit"],
 body[data-vcx-page="auto-deal-check"] button[type="submit"] {
-  background: #0891B2 !important; background-image: none !important;
+  background: #5BBAA7 !important; background-image: none !important;
   color: #FFFFFF !important;
   border: none !important;
   font-weight: 700;
   letter-spacing: .02em;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(8, 145, 178,.25);
+  box-shadow: 0 2px 8px rgba(91,186,167,.25);
   transition: box-shadow .2s, transform .15s;
 }
 body[data-vcx-private-lookup="true"] .vcx-unlock-btn:hover,
@@ -249,7 +249,7 @@ body[data-vcx-page="auto-deal-check"] .btn-primary:hover,
 body[data-vcx-page="contract-scanner"] button[type="submit"]:hover,
 body[data-vcx-page="immigration-helper"] button[type="submit"]:hover,
 body[data-vcx-page="auto-deal-check"] button[type="submit"]:hover {
-  box-shadow: 0 4px 20px rgba(8, 145, 178,.4);
+  box-shadow: 0 4px 20px rgba(91,186,167,.4);
   transform: translateY(-1px);
 }
 
@@ -268,7 +268,7 @@ body[data-vcx-private-lookup="true"] .tab-btn {
 body[data-vcx-private-lookup="true"] .tab-btn.active,
 body[data-vcx-private-lookup="true"] .tab-btn:hover {
   color: #1A2F2A !important;
-  border-bottom-color: #0891B2;
+  border-bottom-color: #5BBAA7;
 }
 
 /* --- 7g. Eyebrow badges on dark pages --- */
@@ -276,9 +276,9 @@ body[data-vcx-private-lookup="true"] .eyebrow,
 body[data-vcx-page="contract-scanner"] .eyebrow,
 body[data-vcx-page="immigration-helper"] .eyebrow,
 body[data-vcx-page="auto-deal-check"] .eyebrow {
-  color: #0E4F5C !important;
-  background: rgba(8, 145, 178,.12) !important;
-  border: 1px solid rgba(8, 145, 178,.25);
+  color: #1A4F4A !important;
+  background: rgba(91,186,167,.12) !important;
+  border: 1px solid rgba(91,186,167,.25);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -300,7 +300,7 @@ body[data-vcx-page="auto-deal-check"] [data-tx="tool_disc"] {
 body[data-vcx-page="contract-scanner"] a[href*="additional"],
 body[data-vcx-page="immigration-helper"] a[href*="additional"],
 body[data-vcx-page="auto-deal-check"] a[href*="additional"] {
-  color: #0891B2 !important;
+  color: #5BBAA7 !important;
   text-decoration: none;
   font-weight: 600;
   font-size: .85rem;
@@ -315,15 +315,15 @@ body[data-vcx-page="auto-deal-check"] a[href*="additional"]:hover {
 body[data-vcx-page="contract-scanner"] .vcx-drop-zone,
 body[data-vcx-page="immigration-helper"] .vcx-drop-zone,
 body[data-vcx-page="auto-deal-check"] .vcx-drop-zone {
-  border-color: rgba(8, 145, 178,.35) !important;
-  background: rgba(8, 145, 178,.04) !important;
+  border-color: rgba(91,186,167,.35) !important;
+  background: rgba(91,186,167,.04) !important;
   border-radius: 10px;
 }
 body[data-vcx-page="contract-scanner"] .vcx-drop-zone:hover,
 body[data-vcx-page="immigration-helper"] .vcx-drop-zone:hover,
 body[data-vcx-page="auto-deal-check"] .vcx-drop-zone:hover {
-  border-color: rgba(8, 145, 178,.55) !important;
-  background: rgba(8, 145, 178,.08) !important;
+  border-color: rgba(91,186,167,.55) !important;
+  background: rgba(91,186,167,.08) !important;
 }
 
 /* ============================================================
@@ -471,19 +471,19 @@ body[data-vcx-page="contract-scanner"] .vcx-gen-results h3 {
 
 /* 9j-cta. CTA button — teal gradient matching home page */
 .vcx-cta-btn {
-  background: linear-gradient(135deg, #0891B2 0%, #3D9E94 100%) !important;
+  background: linear-gradient(135deg, #2D8A82 0%, #3D9E94 100%) !important;
   color: #fff !important;
   border: none !important;
   border-radius: 3px !important;
   font-weight: 700 !important;
-  box-shadow: 0 2px 8px rgba(8, 145, 178,.18);
+  box-shadow: 0 2px 8px rgba(45,138,130,.18);
 }
 .vcx-cta-btn:hover {
-  box-shadow: 0 4px 16px rgba(8, 145, 178,.3);
+  box-shadow: 0 4px 16px rgba(45,138,130,.3);
   transform: translateY(-1px);
 }
 .vcx-gen-download-btn {
-  background: linear-gradient(135deg, #0891B2 0%, #3D9E94 100%) !important;
+  background: linear-gradient(135deg, #2D8A82 0%, #3D9E94 100%) !important;
   border: none !important;
   border-radius: 3px !important;
   color: #fff !important;
@@ -498,14 +498,14 @@ body[data-vcx-private-lookup="true"] .eyebrow,
 body[data-vcx-page="contract-scanner"] .eyebrow,
 body[data-vcx-page="immigration-helper"] .eyebrow,
 body[data-vcx-page="auto-deal-check"] .eyebrow {
-  color: #0E4F5C !important;
+  color: #1A4F4A !important;
 }
 
 /* 9j-welcome. Service welcome box text — gold on gold fails at 2.4:1 */
 #vcx-service-welcome {
   color: #243548 !important;
-  background: rgba(8, 145, 178,.08) !important;
-  border-color: rgba(8, 145, 178,.25) !important;
+  background: rgba(91,186,167,.08) !important;
+  border-color: rgba(91,186,167,.25) !important;
 }
 
 /* ============================================================
@@ -611,7 +611,7 @@ body[data-vcx-page="immigration-helper"] [data-tx="tool_disc"] {
 /* 9d-advisor. Advisor submit buttons on dark app pages — gold-on-gold-transparent is poor contrast */
 #vcxAdvisorSubmitBtn,
 #vcxPacketSubmitBtn {
-  background: #0891B2 !important; background-image: none !important;
+  background: #5BBAA7 !important; background-image: none !important;
   color: #FFFFFF !important;
   border: none !important;
 }
@@ -659,7 +659,7 @@ body[data-vcx-private-lookup="true"] .vcx-tab-btn {
 body[data-vcx-private-lookup="true"] .vcx-tab-btn.active,
 body[data-vcx-private-lookup="true"] .vcx-tab-btn:hover {
   color: #1A2F2A !important;
-  border-bottom-color: #0891B2;
+  border-bottom-color: #5BBAA7;
 }
 
 /* 10c. Form intro text: dark for LIGHT tool section background */
@@ -692,8 +692,8 @@ body[data-vcx-private-lookup="true"] .vcx-lookup-tool input::placeholder {
 
 /* 10f. Consent block: dark text on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-consent-block {
-  background: rgba(8, 145, 178,.08);
-  border: 1px solid rgba(8, 145, 178,.25);
+  background: rgba(91,186,167,.08);
+  border: 1px solid rgba(91,186,167,.25);
   border-radius: 8px;
   padding: 14px 16px;
   margin: 16px 0;
@@ -706,7 +706,7 @@ body[data-vcx-private-lookup="true"] .vcx-consent-label span {
 
 /* 10g. Submit buttons inside lookup tool */
 body[data-vcx-private-lookup="true"] .vcx-submit-btn {
-  background: #0891B2 !important; background-image: none !important;
+  background: #5BBAA7 !important; background-image: none !important;
   color: #FFFFFF !important;
   border: none !important;
   font-weight: 700;
@@ -715,11 +715,11 @@ body[data-vcx-private-lookup="true"] .vcx-submit-btn {
   font-size: 0.9375rem;
   width: 100%;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(8, 145, 178,.3);
+  box-shadow: 0 2px 8px rgba(91,186,167,.3);
   margin-top: 8px;
 }
 body[data-vcx-private-lookup="true"] .vcx-submit-btn:hover {
-  box-shadow: 0 4px 20px rgba(8, 145, 178,.45);
+  box-shadow: 0 4px 20px rgba(91,186,167,.45);
   transform: translateY(-1px);
 }
 body[data-vcx-private-lookup="true"] .vcx-submit-btn:disabled {
@@ -731,8 +731,8 @@ body[data-vcx-private-lookup="true"] .vcx-submit-btn:disabled {
 
 /* 10h. Session info bar: dark text on LIGHT tool section background */
 body[data-vcx-private-lookup="true"] .vcx-session-info {
-  background: rgba(8, 145, 178,.12) !important;
-  border: 1px solid rgba(8, 145, 178,.3);
+  background: rgba(91,186,167,.12) !important;
+  border: 1px solid rgba(91,186,167,.3);
   border-radius: 8px;
   color: #1a2e42 !important;
   padding: 12px 20px;
@@ -750,7 +750,7 @@ body[data-vcx-private-lookup="true"] .vcx-form-divider span {
 /* 10j. Result area styling */
 body[data-vcx-private-lookup="true"] .vcx-result-area {
   background: rgba(13,31,48,.5);
-  border: 1px solid rgba(8, 145, 178,.15);
+  border: 1px solid rgba(91,186,167,.15);
   border-radius: 12px;
   padding: 24px;
   margin-top: 24px;
@@ -778,7 +778,7 @@ body[data-vcx-page="immigration-helper"] input[type="text"],
 body[data-vcx-page="auto-deal-check"] input[type="text"],
 body[data-vcx-page="auto-deal-check"] input[type="number"] {
   background: #FFFFFF !important;
-  border: 1px solid rgba(8, 145, 178,0.20) !important;
+  border: 1px solid rgba(45,138,130,0.20) !important;
   color: #1A2A28 !important;
   border-radius: 8px;
 }
@@ -793,7 +793,7 @@ body[data-vcx-page="immigration-helper"] label:has(input[type="checkbox"]) {
 body[data-vcx-page="contract-scanner"] #vcxScanBtn,
 body[data-vcx-page="immigration-helper"] #vcxAnalyzeBtn,
 body[data-vcx-page="auto-deal-check"] #vcxCheckBtn {
-  background: #0891B2 !important; background-image: none !important;
+  background: #5BBAA7 !important; background-image: none !important;
   color: #FFFFFF !important;
   border: none !important;
   font-weight: 700;
@@ -802,7 +802,7 @@ body[data-vcx-page="auto-deal-check"] #vcxCheckBtn {
   font-size: 0.9375rem;
   width: 100%;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(8, 145, 178,.25);
+  box-shadow: 0 2px 8px rgba(91,186,167,.25);
 }
 
 /* 6. Reduced motion: respect user preference */

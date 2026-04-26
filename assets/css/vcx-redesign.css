@@ -14,11 +14,11 @@
   /* Core redesign palette — Clean White + Mint accents only */
   --vcx-r-navy-deep:    #0F2F2C;           /* very dark teal (hero/footer only) */
   --vcx-r-navy-mid:     #1A4A45;           /* dark teal (dark sections only) */
-  --vcx-r-navy-soft:    #0891B2;           /* mint accent */
-  --vcx-r-gold:         #06B6D4;           /* bright mint accent */
+  --vcx-r-navy-soft:    #2D8A82;           /* mint accent */
+  --vcx-r-gold:         #5BC4B8;           /* bright mint accent */
   --vcx-r-gold-light:   #8FD8CE;           /* soft mint */
-  --vcx-r-gold-muted:   rgba(8,145,178,0.08);  /* barely mint */
-  --vcx-r-gold-glow:    rgba(8,145,178,0.15);  /* subtle glow */
+  --vcx-r-gold-muted:   rgba(91,196,184,0.08);  /* barely mint */
+  --vcx-r-gold-glow:    rgba(91,196,184,0.15);  /* subtle glow */
   --vcx-r-warm-white:   #FAFCFC;           /* near-white */
   --vcx-r-parchment:    #F5F9F8;           /* barely mint bg */
 
@@ -58,8 +58,8 @@
   --ink:     #111111;
   --muted:   #444444;
   --line:    rgba(0,0,0,.08);
-  --navy:    #0891B2;
-  --gold:    #06B6D4;
+  --navy:    #2D8A82;
+  --gold:    #5BC4B8;
   --glass:   rgba(255,255,255,.70);
   --glass2:  rgba(255,255,255,.85);
   --shadow:  0 18px 60px rgba(0,0,0,.08);
@@ -74,17 +74,17 @@
   --ink-body:     #111111;
   --ink-muted:    #444444;
   --ink-faint:    #666666;
-  --brand-primary:   #0891B2;
+  --brand-primary:   #2D8A82;
   --brand-secondary: #3a7a74;
-  --brand-hover:     #0E4F5C;
-  --accent-gold:     #06B6D4;
+  --brand-hover:     #1A4F4A;
+  --accent-gold:     #5BC4B8;
   --accent-gold-dk:  #4AB0A4;
   --accent-gold-lt:  #8FD8CE;
   --status-info:     #4AB0A4;
   --status-info-bg:  rgba(74,176,164,.08);
-  --line-soft:    rgba(14,79,92,.10);
-  --line-strong:  rgba(14,79,92,.16);
-  --line-gold:    rgba(8,145,178,.22);
+  --line-soft:    rgba(26,79,74,.10);
+  --line-strong:  rgba(26,79,74,.16);
+  --line-gold:    rgba(91,196,184,.22);
 
   /* --- premium-fixes.css :root overrides --- */
   --vcx-bg-canvas:       #FAFCFC;
@@ -93,24 +93,24 @@
   --vcx-ink-strong:      #000000;
   --vcx-ink-body:        #111111;
   --vcx-ink-muted:       #444444;
-  --vcx-brand-primary:   #0891B2;
+  --vcx-brand-primary:   #2D8A82;
   --vcx-brand-secondary: #3a7a74;
-  --vcx-accent-premium:  #06B6D4;
+  --vcx-accent-premium:  #5BC4B8;
   --vcx-accent-premium-2:#4AB0A4;
-  --vcx-line-soft:       rgba(14,79,92,.10);
-  --vcx-line-strong:     rgba(14,79,92,.16);
+  --vcx-line-soft:       rgba(26,79,74,.10);
+  --vcx-line-strong:     rgba(26,79,74,.16);
   --vcx-success:         #2F6B57;
   --vcx-warning:         #0E7490;
   --vcx-danger:          #8B4348;
   --vcx-info:            #4AB0A4;
 
   /* --- ui-shell.css :root overrides --- */
-  --vcx-ink:     #0E4F5C;
-  --vcx-navy:    #0891B2;
-  --vcx-accent:  #06B6D4;
+  --vcx-ink:     #1A4F4A;
+  --vcx-navy:    #2D8A82;
+  --vcx-accent:  #5BC4B8;
 
   /* --- private-lookup.css overrides --- */
-  --vcx-navy-card: #0E4F5C;
+  --vcx-navy-card: #1A4F4A;
 }
 
 
@@ -496,7 +496,7 @@
 .vcx-testimonial-name {
   font-size: 0.90rem;
   font-weight: 700;
-  color: var(--ink-strong, #0E4F5C);
+  color: var(--ink-strong, #1A4F4A);
 }
 
 .vcx-testimonial-role {
@@ -1008,7 +1008,7 @@
   background: linear-gradient(
     135deg,
     rgba(26, 79, 74, 0.88),
-    rgba(8, 145, 178, 0.82)
+    rgba(45, 138, 130, 0.82)
   );
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -1092,16 +1092,16 @@
 /* --- Root token overrides --- */
 :root {
   /* Primary brand shift */
-  --navy:       #0891B2;
+  --navy:       #2D8A82;
   --ink:        #111111;
-  --accent:     #06B6D4;
+  --accent:     #5BC4B8;
   --bg:         #FAFCFC;
   --bg2:        #FFFFFF;
   --muted:      #444444;
 
   /* Premium-fixes tokens */
-  --vcx-brand-primary:  #0891B2;
-  --vcx-brand-accent:   #06B6D4;
+  --vcx-brand-primary:  #2D8A82;
+  --vcx-brand-accent:   #5BC4B8;
   --vcx-ink:            #111111;
   --vcx-ink-muted:      #444444;
   --vcx-bg-warm:        #FAFCFC;
@@ -1112,7 +1112,7 @@
 .vcx-header,
 .vcx-topbar,
 header {
-  background: linear-gradient(180deg, #0E4F5C 0%, #155E75 100%) !important;
+  background: linear-gradient(180deg, #0E3330 0%, #153F3B 100%) !important;
 }
 /* KILL the white glass overlay from frozen CSS */
 .vcx-header-shell,
@@ -1151,9 +1151,9 @@ header {
   border-color: rgba(255,255,255,.40) !important;
 }
 .vcx-main-nav a.active, .main-nav a.active {
-  background: rgba(8,145,178,.20) !important;
+  background: rgba(91,196,184,.20) !important;
   color: #FFF !important;
-  border-color: rgba(8,145,178,.40) !important;
+  border-color: rgba(91,196,184,.40) !important;
 }
 
 /* --- Logo/emblem — premium treatment on dark bg --- */
@@ -1184,52 +1184,52 @@ header .brand img {
 nav a,
 .vcx-nav a,
 .footer-links a {
-  color: #0891B2;
+  color: #2D8A82;
 }
 
 nav a:hover,
 .vcx-nav a:hover,
 .footer-links a:hover {
-  color: #06B6D4;
+  color: #5BC4B8;
 }
 
 /* --- Buttons: primary → mint gradient --- */
 .btn-primary,
 button.btn-primary,
 a.btn-primary {
-  background: linear-gradient(135deg, #0891B2, #3D9E94) !important;
+  background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   color: #fff !important;
-  box-shadow: 0 14px 28px rgba(8, 145, 178, 0.20) !important;
+  box-shadow: 0 14px 28px rgba(45, 138, 130, 0.20) !important;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #3D9E94, #06B6D4) !important;
+  background: linear-gradient(135deg, #3D9E94, #5BC4B8) !important;
   box-shadow:
-    0 18px 36px rgba(8, 145, 178, 0.26),
+    0 18px 36px rgba(45, 138, 130, 0.26),
     0 0 20px rgba(91, 196, 184, 0.15) !important;
 }
 
 /* --- Buttons: secondary → mint border --- */
 .btn-secondary,
 a.btn-secondary {
-  border-color: rgba(8, 145, 178, 0.15) !important;
-  color: #0891B2 !important;
+  border-color: rgba(45, 138, 130, 0.15) !important;
+  color: #2D8A82 !important;
 }
 
 .btn-secondary:hover {
-  border-color: #06B6D4 !important;
-  color: #0891B2 !important;
+  border-color: #5BC4B8 !important;
+  color: #2D8A82 !important;
   background: rgba(91, 196, 184, 0.06) !important;
 }
 
 /* --- Eyebrow badges --- */
 .eyebrow,
 .vcx-eyebrow-premium {
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 
 .eyebrow::before {
-  background: #06B6D4 !important;
+  background: #5BC4B8 !important;
 }
 
 /* --- Section headings --- */
@@ -1240,12 +1240,12 @@ h1, h2, h3 {
 /* --- Pills and chips --- */
 .pill {
   background: rgba(91, 196, 184, 0.10);
-  color: #0891B2;
+  color: #2D8A82;
 }
 
 .workflow-chip {
   background: rgba(91, 196, 184, 0.12) !important;
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
   border-color: rgba(91, 196, 184, 0.20) !important;
 }
 
@@ -1265,24 +1265,24 @@ h1, h2, h3 {
 
 /* --- Number icons in leak cards --- */
 .lux-icon {
-  background: linear-gradient(135deg, #0891B2, #3D9E94) !important;
+  background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   color: #fff !important;
 }
 
 /* --- Service index numbers --- */
 .service-index {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 /* --- Audience badge colors --- */
 .audience-badge {
-  background: #0891B2 !important;
+  background: #2D8A82 !important;
   color: #ECF9F6 !important;
 }
 
 .audience-badge-light {
   background: rgba(91, 196, 184, 0.12) !important;
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 
 /* --- Band sections — barely tinted alternating bg --- */
@@ -1296,7 +1296,7 @@ h1, h2, h3 {
 
 /* --- Footer --- */
 .footer {
-  background: #06283D !important;
+  background: #0C2D2A !important;
   color: #FFFFFF !important;
 }
 
@@ -1309,7 +1309,7 @@ h1, h2, h3 {
 }
 
 .footer a:hover {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 .footer .small-note {
@@ -1318,7 +1318,7 @@ h1, h2, h3 {
 
 /* --- Timeline dots --- */
 .timeline-dot {
-  background: #06B6D4 !important;
+  background: #5BC4B8 !important;
   box-shadow: 0 0 0 4px rgba(91, 196, 184, 0.20) !important;
 }
 
@@ -1342,7 +1342,7 @@ h1, h2, h3 {
 
 /* --- Proof band counters --- */
 .proof-points strong {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 /* --- Diagnostic form --- */
@@ -1351,14 +1351,14 @@ h1, h2, h3 {
 }
 
 .mini-form select:focus {
-  border-color: #06B6D4;
+  border-color: #5BC4B8;
   box-shadow: 0 0 0 3px rgba(91, 196, 184, 0.15);
 }
 
 /* --- Resource cards PDF pill --- */
 .resource-card .pill {
   background: rgba(91, 196, 184, 0.12);
-  color: #0891B2;
+  color: #2D8A82;
 }
 
 /* --- Scrollbar accent --- */
@@ -1377,40 +1377,29 @@ h1, h2, h3 {
   color: #111;
 }
 
-/* --- Link color override — uses turquoise tokens (kept readable on hover) --- */
+/* --- Link color override --- */
 a {
-  color: var(--color-accent, #0891B2);
+  color: #2D8A82;
 }
 
 a:hover {
-  color: var(--color-accent-dk, #075E73);
-}
-
-/* Buttons that explicitly set their own color must not be overridden */
-a.vcx-hero-advisory__cta,
-.btn,
-.btn-primary,
-.btn-secondary,
-.vcx-btn-2,
-.pci-submit,
-.practice-cta {
-  /* preserve component-defined color */
+  color: #5BC4B8;
 }
 
 /* --- Menu button --- */
 .vcx-menu-btn {
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 
 /* --- Cookie banner match --- */
 .cookie-banner,
 .consent-banner {
-  background: #06283D !important;
+  background: #0C2D2A !important;
 }
 
 .cookie-btn.primary {
-  background: #06B6D4 !important;
-  color: var(--color-ink, #0E4F5C) !important;
+  background: #5BC4B8 !important;
+  color: #111 !important;
 }
 
 /* ================================================================
@@ -1418,146 +1407,146 @@ a.vcx-hero-advisory__cta,
    ================================================================ */
 
 /* --- Text colors (HIGH CONTRAST for readability) --- */
-body { color: var(--color-ink, #0E4F5C) !important; }
-h1, h2, h3, h4, h5, h6 { color: var(--color-ink, #0E4F5C) !important; }
-p { color: var(--color-ink, #0E4F5C) !important; }
-.section-intro { color: var(--color-muted, #4B6571) !important; }
-.small-note { color: var(--color-muted, #4B6571) !important; }
+body { color: #111 !important; }
+h1, h2, h3, h4, h5, h6 { color: #111 !important; }
+p { color: #111 !important; }
+.section-intro { color: #2A6A64 !important; }
+.small-note { color: #2A6A64 !important; }
 
 /* --- Clock and language bar — VERY DARK bg, WHITE text, black outline --- */
 .vcx-topbar, .clock-bar { background: #0A2825 !important; color: #FFFFFF !important; }
 .clock-label, .clock-val { color: #FFFFFF !important; text-shadow: 0 1px 2px rgba(0,0,0,0.60) !important; }
-.lang-btn { color: #FFFFFF !important; border-color: rgba(8,145,178,0.30) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.50) !important; }
-.lang-btn.active { background: rgba(8,145,178,0.20) !important; color: #06B6D4 !important; }
+.lang-btn { color: #FFFFFF !important; border-color: rgba(91,196,184,0.30) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.50) !important; }
+.lang-btn.active { background: rgba(91,196,184,0.20) !important; color: #5BC4B8 !important; }
 
 /* --- Hero overrides — VERY DARK bg so white text pops --- */
-.hero, .hero-video-wrap { background-color: #06283D !important; }
+.hero, .hero-video-wrap { background-color: #0C2D2A !important; }
 .hero-glass, .hero-content { color: #FFFFFF !important; }
 
 /* --- Proof pills --- */
-.proof-pill { color: #3D9E94 !important; border-color: rgba(8,145,178,0.15) !important; background: rgba(8,145,178,0.06) !important; }
+.proof-pill { color: #3D9E94 !important; border-color: rgba(91,196,184,0.15) !important; background: rgba(91,196,184,0.06) !important; }
 
 /* --- Lux icon numbers --- */
-.lux-icon { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; color: #ECF9F6 !important; }
+.lux-icon { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #ECF9F6 !important; }
 
 /* --- Audience cards --- */
-.audience-badge { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; color: #ECF9F6 !important; }
-.audience-badge-light { background: linear-gradient(135deg, rgba(8,145,178,0.15), rgba(8,145,178,0.08)) !important; color: #0891B2 !important; }
+.audience-badge { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #ECF9F6 !important; }
+.audience-badge-light { background: linear-gradient(135deg, rgba(91,196,184,0.15), rgba(91,196,184,0.08)) !important; color: #2D8A82 !important; }
 
 /* --- Timeline --- */
-.timeline-dot { background: linear-gradient(135deg, #06B6D4, #8FD8CE) !important; }
+.timeline-dot { background: linear-gradient(135deg, #5BC4B8, #8FD8CE) !important; }
 
 /* --- Authority cards --- */
-.authority-card { border-color: rgba(8,145,178,0.10) !important; }
-.authority-list li::before { color: #06B6D4 !important; }
+.authority-card { border-color: rgba(91,196,184,0.10) !important; }
+.authority-list li::before { color: #5BC4B8 !important; }
 
 /* --- Chip cloud --- */
-.workflow-chip { background: rgba(8,145,178,0.10) !important; color: #0891B2 !important; border-color: rgba(8,145,178,0.18) !important; }
+.workflow-chip { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; border-color: rgba(91,196,184,0.18) !important; }
 
 /* --- Industry cards --- */
-.industry-card .pill { background: rgba(8,145,178,0.12) !important; color: #0891B2 !important; }
-.industry-card h3 { color: var(--color-ink, #0E4F5C) !important; }
+.industry-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
+.industry-card h3 { color: #111 !important; }
 
 /* --- Fit cards --- */
-.fit-card .pill { background: rgba(8,145,178,0.12) !important; color: #0891B2 !important; }
-.fit-card-muted .pill { background: rgba(8,145,178,0.06) !important; color: #3a7a74 !important; }
+.fit-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
+.fit-card-muted .pill { background: rgba(91,196,184,0.06) !important; color: #3a7a74 !important; }
 
 /* --- Service cards --- */
-.service-card-lux .service-index { color: #06B6D4 !important; opacity: 1 !important; }
+.service-card-lux .service-index { color: #5BC4B8 !important; opacity: 1 !important; }
 
 /* --- Buttons: all navy gradients → forest --- */
 .btn-primary, a.btn-primary, button.btn-primary,
 .cookie-btn.primary {
-  background: linear-gradient(135deg, #0891B2 0%, #3D9E94 100%) !important;
+  background: linear-gradient(135deg, #2D8A82 0%, #3D9E94 100%) !important;
   color: #fff !important;
-  box-shadow: 0 14px 28px rgba(8, 145, 178,0.20) !important;
+  box-shadow: 0 14px 28px rgba(45,138,130,0.20) !important;
 }
 .btn-primary:hover, a.btn-primary:hover {
-  background: linear-gradient(135deg, #3D9E94 0%, #06B6D4 100%) !important;
-  box-shadow: 0 18px 36px rgba(8, 145, 178,0.24), 0 0 20px rgba(8,145,178,0.12) !important;
+  background: linear-gradient(135deg, #3D9E94 0%, #5BC4B8 100%) !important;
+  box-shadow: 0 18px 36px rgba(45,138,130,0.24), 0 0 20px rgba(91,196,184,0.12) !important;
 }
 .btn-secondary, a.btn-secondary {
-  border-color: rgba(8, 145, 178,0.15) !important;
-  color: #0891B2 !important;
+  border-color: rgba(45,138,130,0.15) !important;
+  color: #2D8A82 !important;
   background: #fff !important;
 }
 .btn-secondary:hover, a.btn-secondary:hover {
-  border-color: #06B6D4 !important;
-  background: rgba(8,145,178,0.05) !important;
+  border-color: #5BC4B8 !important;
+  background: rgba(91,196,184,0.05) !important;
 }
 
 /* --- Cookie banner --- */
 .cookie-banner, .consent-banner, [class*="cookie-bar"] {
-  background: linear-gradient(135deg, rgba(14,79,92,0.96), rgba(30,92,87,0.94)) !important;
+  background: linear-gradient(135deg, rgba(26,79,74,0.96), rgba(30,92,87,0.94)) !important;
 }
-.cookie-btn { color: #D4F2EC !important; border-color: rgba(8,145,178,0.25) !important; }
+.cookie-btn { color: #D4F2EC !important; border-color: rgba(91,196,184,0.25) !important; }
 
 /* --- Engine/diagnostic cards --- */
 .engine-card {
   background: rgba(242,250,250,0.95) !important;
-  border-color: rgba(8,145,178,0.12) !important;
+  border-color: rgba(91,196,184,0.12) !important;
 }
 
 /* --- KPI tiles and bars --- */
-[class*="kpi"] { color: #0891B2 !important; }
-[class*="bar-fill"], [class*="bar-segment"] { background: #06B6D4 !important; }
-[class*="viz-row"] { background: linear-gradient(90deg, #06B6D4, #8FD8CE) !important; }
+[class*="kpi"] { color: #2D8A82 !important; }
+[class*="bar-fill"], [class*="bar-segment"] { background: #5BC4B8 !important; }
+[class*="viz-row"] { background: linear-gradient(90deg, #5BC4B8, #8FD8CE) !important; }
 
-/* --- Header deep overrides — turquoise gradient for contrast --- */
+/* --- Header deep overrides — DARKER bg for contrast --- */
 .vcx-header, .vcx-dock, header, .site-header {
-  background: linear-gradient(180deg, #0E4F5C 0%, #155E75 100%) !important;
+  background: linear-gradient(180deg, #0E3330 0%, #153F3B 100%) !important;
 }
 .vcx-header a, header a, .site-header a {
   color: #FFFFFF !important;
   text-shadow: 0 1px 3px rgba(0,0,0,0.70) !important;
 }
-.vcx-header a:hover, header a:hover { color: #06B6D4 !important; }
-.vcx-menu-btn { color: #FFFFFF !important; border-color: rgba(8,145,178,0.30) !important; }
+.vcx-header a:hover, header a:hover { color: #5BC4B8 !important; }
+.vcx-menu-btn { color: #FFFFFF !important; border-color: rgba(91,196,184,0.30) !important; }
 
 /* --- Nav and breadcrumbs --- */
-.vcx-nav a, nav.main-nav a { color: #0891B2 !important; }
-.vcx-nav a:hover, nav.main-nav a:hover { color: #06B6D4 !important; }
-.vcx-nav a.active { color: #06B6D4 !important; border-color: #06B6D4 !important; }
+.vcx-nav a, nav.main-nav a { color: #2D8A82 !important; }
+.vcx-nav a:hover, nav.main-nav a:hover { color: #5BC4B8 !important; }
+.vcx-nav a.active { color: #5BC4B8 !important; border-color: #5BC4B8 !important; }
 
 /* --- Sublist markers --- */
-.sublist li::before, .premium-list li::before { color: #06B6D4 !important; }
+.sublist li::before, .premium-list li::before { color: #5BC4B8 !important; }
 
 /* --- Dock calendar/widget buttons --- */
-[class*="dock-"] { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; color: #ECF9F6 !important; }
+[class*="dock-"] { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #ECF9F6 !important; }
 
 /* --- Assessment results --- */
-.assessment-result, .roi-result { border-left-color: #06B6D4 !important; }
+.assessment-result, .roi-result { border-left-color: #5BC4B8 !important; }
 
 /* --- Form inputs --- */
 select, input, textarea {
-  border-color: rgba(8,145,178,0.20) !important;
-  color: var(--color-ink, #0E4F5C) !important;
+  border-color: rgba(91,196,184,0.20) !important;
+  color: #111 !important;
 }
 select:focus, input:focus, textarea:focus {
-  border-color: #06B6D4 !important;
-  box-shadow: 0 0 0 3px rgba(8,145,178,0.15) !important;
-  outline-color: #06B6D4 !important;
+  border-color: #5BC4B8 !important;
+  box-shadow: 0 0 0 3px rgba(91,196,184,0.15) !important;
+  outline-color: #5BC4B8 !important;
 }
 
 /* --- Resource cards --- */
-.resource-card .meta .pill { background: rgba(8,145,178,0.10) !important; color: #0891B2 !important; }
+.resource-card .meta .pill { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; }
 
 /* --- SEO cards --- */
-.seo-card h3 { color: var(--color-ink, #0E4F5C) !important; }
+.seo-card h3 { color: #111 !important; }
 
 /* --- Concierge panel (dark bg: phone text must be LIGHT) --- */
 .concierge-phone strong { color: #FFFFFF !important; text-shadow: 0 2px 4px rgba(0,0,0,0.30) !important; }
 .concierge-phone small { color: rgba(208,240,234,0.80) !important; }
 
 /* --- Deliverable cards --- */
-.deliverable-card .pill { background: rgba(8,145,178,0.12) !important; color: #0891B2 !important; }
+.deliverable-card .pill { background: rgba(91,196,184,0.12) !important; color: #2D8A82 !important; }
 
 /* --- Box shadows global cleanup --- */
 .card, .lux-card, .glass, .service-card-lux, .authority-card, .engine-card, .seo-card, .resource-card, .industry-card, .deliverable-card {
-  box-shadow: 0 4px 24px rgba(14,79,92,0.08) !important;
+  box-shadow: 0 4px 24px rgba(26,79,74,0.08) !important;
 }
 .card:hover, .lux-card:hover, .service-card-lux:hover, .industry-card:hover {
-  box-shadow: 0 12px 40px rgba(8,145,178,0.12) !important;
+  box-shadow: 0 12px 40px rgba(91,196,184,0.12) !important;
 }
 
 /* --- Mobile menu / nav links (ui-shell.css .vcx-mobile-nav a) --- */
@@ -1566,12 +1555,12 @@ select:focus, input:focus, textarea:focus {
 [class*="mobile-menu"] a,
 [class*="nav-overlay"] a {
   color: #FFFFFF !important;
-  background: linear-gradient(135deg, #236A64, #0891B2) !important;
+  background: linear-gradient(135deg, #236A64, #2D8A82) !important;
   border: 1px solid rgba(255,255,255,0.10) !important;
   font-weight: 600 !important;
   font-size: 0.88rem !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
-  box-shadow: 0 2px 10px rgba(14,79,92,0.20) !important;
+  box-shadow: 0 2px 10px rgba(26,79,74,0.20) !important;
   border-radius: 12px !important;
   padding: 12px 16px !important;
   min-height: 44px !important;
@@ -1582,9 +1571,9 @@ select:focus, input:focus, textarea:focus {
 .mobile-nav a:hover,
 [class*="mobile-menu"] a:hover {
   color: #FFFFFF !important;
-  background: linear-gradient(135deg, #0891B2, #3D9E94) !important;
+  background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   border-color: rgba(255,255,255,0.18) !important;
-  box-shadow: 0 6px 20px rgba(14,79,92,0.30) !important;
+  box-shadow: 0 6px 20px rgba(26,79,74,0.30) !important;
   transform: translateY(-1px);
 }
 /* Mobile brand text — on dark header bg, must be WHITE with black outline */
@@ -1600,54 +1589,54 @@ select:focus, input:focus, textarea:focus {
 }
 
 /* --- Chat launcher colors --- */
-.vcx-cw-fab { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; }
-.vcx-cw-fab:hover { background: linear-gradient(135deg, #3D9E94, #06B6D4) !important; }
-.vcx-cw-panel-head { background: linear-gradient(135deg, #0E4F5C, #0891B2) !important; }
-.vcx-cw-send-btn { background: #06B6D4 !important; color: #fff !important; }
+.vcx-cw-fab { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; }
+.vcx-cw-fab:hover { background: linear-gradient(135deg, #3D9E94, #5BC4B8) !important; }
+.vcx-cw-panel-head { background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important; }
+.vcx-cw-send-btn { background: #5BC4B8 !important; color: #fff !important; }
 .vcx-cw-send-btn:hover { background: #4AB0A4 !important; }
-[class*="vcx-cw-chip"] { background: rgba(8,145,178,0.10) !important; color: #0891B2 !important; border-color: rgba(8,145,178,0.20) !important; }
+[class*="vcx-cw-chip"] { background: rgba(91,196,184,0.10) !important; color: #2D8A82 !important; border-color: rgba(91,196,184,0.20) !important; }
 
 /* --- Contract review page colors --- */
 .cr-tab.active, [class*="cr-tab"].active {
-  color: #0891B2 !important;
-  border-bottom-color: #06B6D4 !important;
+  color: #2D8A82 !important;
+  border-bottom-color: #5BC4B8 !important;
 }
-.cr-gen-type-card--selected { border-color: #06B6D4 !important; box-shadow: 0 0 0 2px rgba(8,145,178,0.25) !important; }
-.cr-gen-submit { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; color: #fff !important; }
+.cr-gen-type-card--selected { border-color: #5BC4B8 !important; box-shadow: 0 0 0 2px rgba(91,196,184,0.25) !important; }
+.cr-gen-submit { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; color: #fff !important; }
 
 /* --- Legal assistant page colors --- */
-.vcx-la-topic-btn.active { background: #06B6D4 !important; color: #fff !important; }
-.vcx-la-send { background: #06B6D4 !important; }
-.vcx-la-header { background: linear-gradient(135deg, #0E4F5C, #0891B2) !important; }
+.vcx-la-topic-btn.active { background: #5BC4B8 !important; color: #fff !important; }
+.vcx-la-send { background: #5BC4B8 !important; }
+.vcx-la-header { background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important; }
 
 /* --- Sign-in page --- */
-[class*="sign-in"] .btn-primary { background: linear-gradient(135deg, #0891B2, #3D9E94) !important; }
+[class*="sign-in"] .btn-primary { background: linear-gradient(135deg, #2D8A82, #3D9E94) !important; }
 
 /* --- Focus rings --- */
-*:focus-visible { outline-color: #06B6D4 !important; }
+*:focus-visible { outline-color: #5BC4B8 !important; }
 
 /* --- Link underlines --- */
-a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(8,145,178,0.30) !important; }
+a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(91,196,184,0.30) !important; }
 
 /* --- Proof band counters --- */
-[data-count-to] { color: #06B6D4 !important; }
-.proof-points strong { color: #06B6D4 !important; }
+[data-count-to] { color: #5BC4B8 !important; }
+.proof-points strong { color: #5BC4B8 !important; }
 
 /* --- CTA banner --- */
 .cta-banner {
   background: rgba(242,250,250,0.85) !important;
-  border-color: rgba(8,145,178,0.15) !important;
+  border-color: rgba(91,196,184,0.15) !important;
 }
-.cta-banner h2 { color: var(--color-ink, #0E4F5C) !important; }
+.cta-banner h2 { color: #111 !important; }
 
 /* --- Private lookup page overrides --- */
 [class*="lookup-card"], [class*="lookup-result"] {
   background: rgba(242,250,250,0.95) !important;
-  border-color: rgba(8,145,178,0.12) !important;
+  border-color: rgba(91,196,184,0.12) !important;
 }
 
 /* --- Comprehensive rgba shadow replacement --- */
-.hero .btn-primary { box-shadow: 0 14px 28px rgba(8, 145, 178,0.22) !important; }
+.hero .btn-primary { box-shadow: 0 14px 28px rgba(45,138,130,0.22) !important; }
 
 /* ================================================================
    15. FINAL BLUE SWEEP — Last remaining hardcoded blues from frozen CSS
@@ -1664,14 +1653,14 @@ a:not(.btn-primary):not(.btn-secondary) { text-decoration-color: rgba(8,145,178,
 /* --- Assessment / ROI result text --- */
 .assessment-result strong,
 .roi-result strong {
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 
 /* --- Global eyebrow fix (premium-fixes.css uses body:not(...)...eyebrow !important) --- */
 body .eyebrow,
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .eyebrow {
-  color: #0891B2 !important;
-  background: rgba(8,145,178,0.08) !important;
+  color: #2D8A82 !important;
+  background: rgba(91,196,184,0.08) !important;
 }
 /* Hero eyebrow: white on dark with frosted glass */
 .hero .eyebrow,
@@ -1679,7 +1668,7 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 body .hero .eyebrow,
 body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"]):not([data-vcx-page="immigration-helper"]):not([data-vcx-page="auto-deal-check"]) .hero .eyebrow {
   color: #FFFFFF !important;
-  background: rgba(14,79,92,0.65) !important;
+  background: rgba(26,79,74,0.65) !important;
 }
 
 /* --- Any stray muted-blue text from frozen styles.css --- */
@@ -1696,45 +1685,45 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 /* --- Nav link colors from frozen styles.css (#36506f, #32506f) --- */
 .main-nav a,
 .mobile-nav a {
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 .main-nav a:hover,
 .main-nav a.active,
 .mobile-nav a:hover {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 /* --- Lang button active from frozen styles.css --- */
 .lang-btn.active {
-  background: linear-gradient(135deg, #0891B2, #3D9E94) !important;
+  background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   color: #fff !important;
-  box-shadow: 0 10px 24px rgba(8, 145, 178,0.18) !important;
+  box-shadow: 0 10px 24px rgba(45,138,130,0.18) !important;
 }
 
 /* --- Eyebrow dot (was var(--gold) in frozen CSS) --- */
 .eyebrow::before {
-  background: #06B6D4 !important;
+  background: #5BC4B8 !important;
 }
 
 /* --- Bar fill gradient (was gold in frozen CSS) --- */
 .bar-fill {
-  background: linear-gradient(90deg, #06B6D4, #8FD8CE) !important;
+  background: linear-gradient(90deg, #5BC4B8, #8FD8CE) !important;
 }
 
 /* --- Talent item bullets (was var(--gold)) --- */
 .talent-item::before {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 /* --- Field label (was #1a2c44 in frozen CSS) --- */
 .field label {
-  color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important;
 }
 
 /* --- Pill elements — dark teal text on light mint bg (override premium-fixes !important) --- */
 .pill {
-  background: rgba(8, 145, 178,.08) !important;
-  color: #0891B2 !important;
+  background: rgba(45,138,130,.08) !important;
+  color: #2D8A82 !important;
 }
 /* Override premium-fixes.css high-specificity !important pills */
 .authority-section .pill,
@@ -1744,21 +1733,21 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
 .authority-card .pill,
 .engine-card .pill,
 .widget-card .pill {
-  color: #0891B2 !important;
-  -webkit-text-fill-color: #0891B2 !important;
-  background: rgba(8, 145, 178,.08) !important;
-  border-color: rgba(8, 145, 178,.15) !important;
+  color: #2D8A82 !important;
+  -webkit-text-fill-color: #2D8A82 !important;
+  background: rgba(45,138,130,.08) !important;
+  border-color: rgba(45,138,130,.15) !important;
 }
 
 /* --- Modal overlay (was rgba(7,18,32,.45)) --- */
 .modal {
-  background: rgba(14,79,92,0.45) !important;
+  background: rgba(26,79,74,0.45) !important;
 }
 
 /* --- Service index numbers (was var(--navy)) --- */
 .service-index {
-  background: rgba(8,145,178,0.10) !important;
-  color: #0891B2 !important;
+  background: rgba(91,196,184,0.10) !important;
+  color: #2D8A82 !important;
 }
 
 /* --- Sublist text (was #42556c) --- */
@@ -1766,11 +1755,11 @@ body:not([data-vcx-private-lookup="true"]):not([data-vcx-page="contract-scanner"
   color: #3a7a74 !important;
 }
 
-/* --- H1/H2 in frozen CSS — turquoise via tokens --- */
-h1 { color: var(--color-ink, #0E4F5C) !important; }
+/* --- H1/H2 in frozen CSS (was #0d1e34 / #10213a) --- */
+h1 { color: #111 !important; }
 .problem-item h3,
 .card h3 {
-  color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important;
 }
 
 /* --- Body background — CLEAN WHITE with barely-visible mint tint --- */
@@ -1785,7 +1774,7 @@ body {
 
 /* --- Glass cards (was rgba(255,255,255,.80)) --- */
 .glass {
-  border-color: rgba(8,145,178,0.12) !important;
+  border-color: rgba(91,196,184,0.12) !important;
 }
 
 /* --- Ensure text on dark sections is light and readable --- */
@@ -1811,21 +1800,21 @@ body {
 .hero-premium .eyebrow,
 .hero span.eyebrow {
   color: #FFFFFF !important;
-  background: rgba(14,79,92,0.65) !important;
-  border: 1px solid rgba(8,145,178,0.30) !important;
+  background: rgba(26,79,74,0.65) !important;
+  border: 1px solid rgba(91,196,184,0.30) !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.30) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
 }
 .hero .eyebrow::before {
-  background: #06B6D4 !important;
-  box-shadow: 0 0 8px rgba(8,145,178,0.60) !important;
+  background: #5BC4B8 !important;
+  box-shadow: 0 0 8px rgba(91,196,184,0.60) !important;
 }
 .hero .proof-pill {
   color: #FFFFFF !important;
-  border-color: rgba(8,145,178,0.40) !important;
-  background: rgba(14,79,92,0.55) !important;
+  border-color: rgba(91,196,184,0.40) !important;
+  background: rgba(26,79,74,0.55) !important;
   text-shadow: 0 1px 2px rgba(0,0,0,0.40) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
@@ -1882,8 +1871,8 @@ body {
 }
 .hero .btn-secondary {
   background: rgba(255,255,255,0.92) !important;
-  color: var(--color-ink, #0E4F5C) !important;
-  border-color: rgba(8,145,178,0.30) !important;
+  color: #111 !important;
+  border-color: rgba(91,196,184,0.30) !important;
   backdrop-filter: blur(8px) !important;
 }
 
@@ -1891,7 +1880,7 @@ body {
    16. MENU BUTTON — Premium glass pill
    ================================================================ */
 .vcx-menu-btn {
-  background: linear-gradient(135deg, rgba(35,106,100,0.90), rgba(8, 145, 178,0.85)) !important;
+  background: linear-gradient(135deg, rgba(35,106,100,0.90), rgba(45,138,130,0.85)) !important;
   color: #E8EDEB !important;
   border: 1px solid rgba(255,255,255,0.12) !important;
   border-radius: 12px !important;
@@ -1899,17 +1888,17 @@ body {
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   box-shadow:
-    0 4px 16px rgba(14,79,92,0.25),
-    0 0 0 1px rgba(8,145,178,0.10),
+    0 4px 16px rgba(26,79,74,0.25),
+    0 0 0 1px rgba(91,196,184,0.10),
     inset 0 1px 0 rgba(255,255,255,0.10) !important;
   transition: all 0.3s var(--vcx-r-ease) !important;
   cursor: pointer !important;
 }
 .vcx-menu-btn:hover {
-  background: linear-gradient(135deg, rgba(8,145,178,0.90), rgba(74,176,164,0.85)) !important;
+  background: linear-gradient(135deg, rgba(91,196,184,0.90), rgba(74,176,164,0.85)) !important;
   box-shadow:
-    0 8px 28px rgba(8,145,178,0.30),
-    0 0 0 1px rgba(8,145,178,0.20),
+    0 8px 28px rgba(91,196,184,0.30),
+    0 0 0 1px rgba(91,196,184,0.20),
     inset 0 1px 0 rgba(255,255,255,0.15) !important;
   transform: translateY(-1px) !important;
 }
@@ -1931,11 +1920,11 @@ body {
 .concierge-panel,
 .contact-concierge {
   background:
-    linear-gradient(135deg, #06283D 0%, #155E75 55%, #0E4F5C 100%),
-    radial-gradient(120% 140% at 0% 0%, rgba(8,145,178,0.10), transparent 42%) !important;
+    linear-gradient(135deg, #0C2D2A 0%, #153F3B 55%, #1A4F4A 100%),
+    radial-gradient(120% 140% at 0% 0%, rgba(91,196,184,0.10), transparent 42%) !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(8,145,178,0.18) !important;
-  box-shadow: 0 34px 92px rgba(14,79,92,0.25) !important;
+  border: 1px solid rgba(91,196,184,0.18) !important;
+  box-shadow: 0 34px 92px rgba(26,79,74,0.25) !important;
   border-radius: 12px !important;
 }
 .concierge-panel h2,
@@ -1951,19 +1940,19 @@ body {
 }
 .concierge-panel .eyebrow,
 .contact-concierge .eyebrow {
-  background: rgba(8,145,178,0.15) !important;
+  background: rgba(91,196,184,0.15) !important;
   color: #8FD8CE !important;
   border: none !important;
   box-shadow: none !important;
 }
 .concierge-panel .eyebrow::before,
 .contact-concierge .eyebrow::before {
-  background: #06B6D4 !important;
-  box-shadow: 0 0 6px rgba(8,145,178,0.50) !important;
+  background: #5BC4B8 !important;
+  box-shadow: 0 0 6px rgba(91,196,184,0.50) !important;
 }
 .concierge-phone {
-  background: rgba(8,145,178,0.08) !important;
-  border: 1px solid rgba(8,145,178,0.20) !important;
+  background: rgba(91,196,184,0.08) !important;
+  border: 1px solid rgba(91,196,184,0.20) !important;
   border-radius: 12px !important;
 }
 .concierge-phone span {
@@ -1973,7 +1962,7 @@ body {
   color: #FFFFFF !important;
   text-shadow:
     0 2px 4px rgba(0,0,0,0.30),
-    0 0 30px rgba(8,145,178,0.25) !important;
+    0 0 30px rgba(91,196,184,0.25) !important;
 }
 .concierge-phone small {
   color: rgba(176,232,224,0.75) !important;
@@ -1981,24 +1970,24 @@ body {
 /* Buttons inside concierge */
 .concierge-panel .btn-primary,
 .contact-concierge .btn-primary {
-  background: linear-gradient(135deg, #06B6D4, #4AB0A4) !important;
+  background: linear-gradient(135deg, #5BC4B8, #4AB0A4) !important;
   color: #fff !important;
-  box-shadow: 0 12px 32px rgba(8,145,178,0.30) !important;
+  box-shadow: 0 12px 32px rgba(91,196,184,0.30) !important;
 }
 .concierge-panel .btn-primary:hover,
 .contact-concierge .btn-primary:hover {
-  background: linear-gradient(135deg, #8FD8CE, #06B6D4) !important;
-  box-shadow: 0 16px 40px rgba(8,145,178,0.40) !important;
+  background: linear-gradient(135deg, #8FD8CE, #5BC4B8) !important;
+  box-shadow: 0 16px 40px rgba(91,196,184,0.40) !important;
 }
 .concierge-panel .btn-secondary,
 .contact-concierge .btn-secondary {
   background: rgba(255,255,255,0.10) !important;
   color: #ECF9F6 !important;
-  border-color: rgba(8,145,178,0.30) !important;
+  border-color: rgba(91,196,184,0.30) !important;
 }
 .concierge-panel .btn-secondary:hover,
 .contact-concierge .btn-secondary:hover {
-  background: rgba(8,145,178,0.15) !important;
+  background: rgba(91,196,184,0.15) !important;
   color: #FFFFFF !important;
 }
 
@@ -2006,7 +1995,7 @@ body {
    18. HERO VIDEO BG — Override frozen blue
    ================================================================ */
 .hero-video {
-  background: #06283D !important;
+  background: #0C2D2A !important;
 }
 .hero-video video,
 .hero-video img {
@@ -2069,8 +2058,8 @@ body {
 /* --- App page headers (ui-shell.css: --vcx-navy) --- */
 .vcx-dock,
 .vcx-top-rail {
-  background: linear-gradient(180deg, #0E4F5C, #236A64) !important;
-  border-bottom: 1px solid rgba(8,145,178,0.15) !important;
+  background: linear-gradient(180deg, #1A4F4A, #236A64) !important;
+  border-bottom: 1px solid rgba(91,196,184,0.15) !important;
 }
 .vcx-dock a,
 .vcx-top-rail a {
@@ -2078,7 +2067,7 @@ body {
 }
 .vcx-dock a:hover,
 .vcx-top-rail a:hover {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 .vcx-dock-brand {
   color: #FFFFFF !important;
@@ -2088,18 +2077,18 @@ body {
 .vcx-side-nav,
 [class*="sidebar"] {
   background: #FAFCFC !important;
-  border-right-color: rgba(8,145,178,0.12) !important;
+  border-right-color: rgba(91,196,184,0.12) !important;
 }
 .vcx-side-nav a,
 [class*="sidebar"] a {
-  color: #0891B2 !important;
+  color: #2D8A82 !important;
 }
 .vcx-side-nav a:hover,
 .vcx-side-nav a.active,
 [class*="sidebar"] a:hover,
 [class*="sidebar"] a.active {
-  color: #06B6D4 !important;
-  background: rgba(8,145,178,0.08) !important;
+  color: #5BC4B8 !important;
+  background: rgba(91,196,184,0.08) !important;
 }
 
 /* --- App tabs --- */
@@ -2112,15 +2101,15 @@ body {
 .vcx-tabs [role="tab"].active,
 [class*="tab-btn"].active,
 [class*="cr-tab"].active {
-  color: #0891B2 !important;
-  border-bottom-color: #06B6D4 !important;
+  color: #2D8A82 !important;
+  border-bottom-color: #5BC4B8 !important;
 }
 
 /* --- App panel headers (apps ONLY — NOT .section-head on main site!) --- */
 [class*="panel-head"],
 .vcx-la-header,
 .vcx-cw-panel-head {
-  background: linear-gradient(135deg, #0E4F5C, #0891B2) !important;
+  background: linear-gradient(135deg, #1A4F4A, #2D8A82) !important;
   color: #FFF !important;
 }
 /* KILL dark bg from section heads on main site */
@@ -2135,14 +2124,14 @@ body {
 [class*="rp-card"],
 [class*="pr-card"],
 [class*="packet-card"] {
-  border-color: rgba(8,145,178,0.12) !important;
-  box-shadow: 0 4px 24px rgba(14,79,92,0.06) !important;
+  border-color: rgba(91,196,184,0.12) !important;
+  box-shadow: 0 4px 24px rgba(26,79,74,0.06) !important;
 }
 [class*="vcx-card"]:hover,
 [class*="intake-card"]:hover,
 [class*="rp-card"]:hover {
-  border-color: rgba(8,145,178,0.25) !important;
-  box-shadow: 0 12px 40px rgba(8,145,178,0.10) !important;
+  border-color: rgba(91,196,184,0.25) !important;
+  box-shadow: 0 12px 40px rgba(91,196,184,0.10) !important;
 }
 
 /* --- App status badges / pills --- */
@@ -2169,36 +2158,36 @@ body {
 .vcx-la-send,
 .cr-gen-submit,
 [class*="intake-submit"] {
-  background: linear-gradient(135deg, #0891B2, #3D9E94) !important;
+  background: linear-gradient(135deg, #2D8A82, #3D9E94) !important;
   color: #fff !important;
 }
 [class*="vcx-"] .btn-primary:hover,
 [class*="vcx-"] [class*="submit"]:hover {
-  background: linear-gradient(135deg, #3D9E94, #06B6D4) !important;
+  background: linear-gradient(135deg, #3D9E94, #5BC4B8) !important;
 }
 
 /* --- App topic chips (legal assistant) --- */
 .topic-chip,
 [class*="vcx-la-topic"],
 [class*="vcx-cw-chip"] {
-  background: rgba(8,145,178,0.10) !important;
-  color: #0891B2 !important;
-  border-color: rgba(8,145,178,0.20) !important;
+  background: rgba(91,196,184,0.10) !important;
+  color: #2D8A82 !important;
+  border-color: rgba(91,196,184,0.20) !important;
 }
 .topic-chip:hover,
 .topic-chip.active,
 [class*="vcx-la-topic"]:hover,
 [class*="vcx-la-topic"].active {
-  background: #06B6D4 !important;
+  background: #5BC4B8 !important;
   color: #FFFFFF !important;
-  border-color: #06B6D4 !important;
+  border-color: #5BC4B8 !important;
 }
 
 /* --- App progress bars --- */
 [class*="progress-fill"],
 [class*="bar-fill"],
 [class*="meter-fill"] {
-  background: linear-gradient(90deg, #06B6D4, #8FD8CE) !important;
+  background: linear-gradient(90deg, #5BC4B8, #8FD8CE) !important;
 }
 
 /* --- App form elements unified --- */
@@ -2208,8 +2197,8 @@ body {
 [class*="cr-"] input,
 [class*="cr-"] select,
 [class*="cr-"] textarea {
-  border-color: rgba(8,145,178,0.20) !important;
-  color: var(--color-ink, #0E4F5C) !important;
+  border-color: rgba(91,196,184,0.20) !important;
+  color: #111 !important;
 }
 [class*="vcx-"] input:focus,
 [class*="vcx-"] select:focus,
@@ -2217,31 +2206,31 @@ body {
 [class*="cr-"] input:focus,
 [class*="cr-"] select:focus,
 [class*="cr-"] textarea:focus {
-  border-color: #06B6D4 !important;
-  box-shadow: 0 0 0 3px rgba(8,145,178,0.15) !important;
+  border-color: #5BC4B8 !important;
+  box-shadow: 0 0 0 3px rgba(91,196,184,0.15) !important;
 }
 
 /* --- Immigration/Contract Intelligence dark page overlay --- */
 body[data-vcx-page="immigration-helper"],
 body[data-vcx-page="contract-scanner"] {
-  background: linear-gradient(180deg, #0E4F5C 0%, #236A64 100%) !important;
+  background: linear-gradient(180deg, #1A4F4A 0%, #236A64 100%) !important;
 }
 body[data-vcx-page="immigration-helper"] .vcx-glass-card,
 body[data-vcx-page="contract-scanner"] .vcx-glass-card {
   background: rgba(242,250,250,0.06) !important;
-  border-color: rgba(8,145,178,0.15) !important;
+  border-color: rgba(91,196,184,0.15) !important;
   backdrop-filter: blur(16px) !important;
 }
 
 /* --- Private lookup dark theme override --- */
 body[data-vcx-private-lookup="true"] {
-  background: linear-gradient(180deg, #0E4F5C 0%, #236A64 50%, #0E4F5C 100%) !important;
+  background: linear-gradient(180deg, #1A4F4A 0%, #236A64 50%, #1A4F4A 100%) !important;
 }
 
 /* --- Footer dark section readability --- */
 .footer,
 footer {
-  background: #06283D !important;
+  background: #0C2D2A !important;
   color: #FFFFFF !important;
 }
 .footer a,
@@ -2250,7 +2239,7 @@ footer a {
 }
 .footer a:hover,
 footer a:hover {
-  color: #06B6D4 !important;
+  color: #5BC4B8 !important;
 }
 
 /* ================================================================
@@ -2260,16 +2249,16 @@ footer a:hover {
    ================================================================ */
 
 /* ── A) LIGHT BACKGROUNDS: PURE BLACK text + premium sizing ──── */
-body { color: var(--color-ink, #0E4F5C) !important; font-size: 15px !important; line-height: 1.65 !important; }
-h1, h2, h3, h4, h5, h6 { color: var(--color-ink, #0E4F5C) !important; }
+body { color: #111 !important; font-size: 15px !important; line-height: 1.65 !important; }
+h1, h2, h3, h4, h5, h6 { color: #000 !important; }
 h2 { font-size: clamp(1.4rem, 2.2vw, 1.85rem) !important; line-height: 1.2 !important; letter-spacing: -.02em !important; }
 h3 { font-size: clamp(1rem, 1.4vw, 1.2rem) !important; line-height: 1.3 !important; }
-p, li, td, th, dd, dt, label, legend { color: var(--color-ink, #0E4F5C) !important; font-size: .92rem !important; line-height: 1.65 !important; }
+p, li, td, th, dd, dt, label, legend { color: #111 !important; font-size: .92rem !important; line-height: 1.65 !important; }
 span, div, a { color: #111; }
-strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
+strong, b, em { color: #000 !important; }
 .section-intro, .lead { color: #333 !important; font-size: .9rem !important; line-height: 1.7 !important; max-width: 65ch !important; }
 .small-note, .meta, time { color: #555 !important; font-size: .82rem !important; }
-.eyebrow { color: #0891B2 !important; font-size: .72rem !important; letter-spacing: .1em !important; text-transform: uppercase !important; font-weight: 700 !important; }
+.eyebrow { color: #2D8A82 !important; font-size: .72rem !important; letter-spacing: .1em !important; text-transform: uppercase !important; font-weight: 700 !important; }
 .sublist, .sublist li { color: #222 !important; font-size: .88rem !important; }
 
 /* ── B) DARK BACKGROUNDS: WHITE text ──────────────────────────── */
@@ -2287,8 +2276,8 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
 }
 .hero .proof-pill, .hero .proof-pill * { color: #FFF !important; -webkit-text-fill-color: #FFF !important; }
 .hero .btn-secondary, .hero a.btn-secondary {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
-  background: #FFF !important; border: 2px solid #0891B2 !important; text-shadow: none !important;
+  color: #000 !important; -webkit-text-fill-color: #000 !important;
+  background: #FFF !important; border: 2px solid #2D8A82 !important; text-shadow: none !important;
 }
 .hero-glass, .hero-content-wrap, .hero .wrap { background: transparent !important; backdrop-filter: none !important; }
 
@@ -2305,8 +2294,8 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
   background: rgba(240,250,248,.90) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-top: 1px solid rgba(8, 145, 178,.10) !important;
-  border-bottom: 1px solid rgba(8, 145, 178,.10) !important;
+  border-top: 1px solid rgba(45,138,130,.10) !important;
+  border-bottom: 1px solid rgba(45,138,130,.10) !important;
 }
 .vcx-trust-bar::before { background: none !important; }
 .vcx-trust-bar *,
@@ -2314,7 +2303,7 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
 .vcx-trust-bar p, .vcx-trust-bar span, .vcx-trust-bar strong,
 .vcx-trust-bar label, .vcx-trust-bar li, .vcx-trust-bar a,
 .vcx-trust-stat *, .vcx-trust-label {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
 .vcx-trust-label {
   font-size: 0.82rem !important;
@@ -2324,7 +2313,7 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
   color: #3a6b65 !important; -webkit-text-fill-color: #3a6b65 !important;
 }
 .vcx-trust-number, .vcx-trust-stat strong {
-  color: #0891B2 !important; -webkit-text-fill-color: #0891B2 !important;
+  color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important;
   font-size: clamp(2.2rem, 3.5vw, 3rem) !important;
   font-weight: 800 !important;
   line-height: 1 !important;
@@ -2341,10 +2330,10 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
 .vcx-impact-section *,
 .vcx-impact-section h2, .vcx-impact-section h3, .vcx-impact-section p,
 .vcx-impact-section span, .vcx-impact-section strong, .vcx-impact-section a {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
 .vcx-impact-number {
-  color: #0891B2 !important; -webkit-text-fill-color: #0891B2 !important;
+  color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important;
 }
 
 /* B5 — CTA section → light mint glass */
@@ -2355,7 +2344,7 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
 .vcx-cta-section *, .vcx-cta-section h2, .vcx-cta-section h3,
 .vcx-cta-section p, .vcx-cta-section span, .vcx-cta-section a,
 .cta-banner *, .cta-banner h2, .cta-banner p {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
 
 /* B6 — Concierge / Contact panel → light mint glass */
@@ -2363,7 +2352,7 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
   background: rgba(240,250,248,.92) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(8, 145, 178,.12) !important;
+  border: 1px solid rgba(45,138,130,.12) !important;
 }
 .concierge-panel *, .concierge-panel h2, .concierge-panel h3, .concierge-panel h4,
 .concierge-panel p, .concierge-panel span, .concierge-panel a, .concierge-panel li,
@@ -2371,7 +2360,7 @@ strong, b, em { color: var(--color-ink, #0E4F5C) !important; }
 .concierge-panel .eyebrow, .concierge-panel .lead,
 .contact-concierge *, .contact-concierge h2, .contact-concierge h3,
 .contact-concierge p, .contact-concierge span, .contact-concierge a {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
   text-shadow: none !important;
 }
 
@@ -2388,9 +2377,9 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
   background: rgba(240,250,248,.85) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(8, 145, 178,.12) !important;
+  border: 1px solid rgba(45,138,130,.12) !important;
   box-shadow: 0 2px 12px rgba(0,0,0,.04) !important;
-  color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important;
 }
 .engine-card *, .engine-card h2, .engine-card h3, .engine-card h4, .engine-card h5,
 .engine-card p, .engine-card span, .engine-card li, .engine-card strong,
@@ -2400,32 +2389,32 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 .widget-card label, .widget-card td, .widget-card th, .widget-card a, .widget-card dd,
 .premium-module *, .premium-module h2, .premium-module h3, .premium-module p, .premium-module span,
 .impact-card *, .impact-card h2, .impact-card h3, .impact-card p, .impact-card span, .impact-card strong {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important; text-shadow: none !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important; text-shadow: none !important;
 }
 .engine-card h3, .widget-card h3, .impact-card h3, .premium-module h3 {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #000 !important; -webkit-text-fill-color: #000 !important;
 }
 .engine-card input, .engine-card select, .engine-card textarea,
 .widget-card input, .widget-card select, .widget-card textarea {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
   background: #FFF !important;
-  border: 1px solid rgba(8, 145, 178,.20) !important;
+  border: 1px solid rgba(45,138,130,.20) !important;
 }
 
 /* B9 — Metric cards → light glass + dark text */
 .metric-card {
   background: rgba(255,255,255,.80) !important;
-  border: 1px solid rgba(8, 145, 178,.10) !important;
-  color: var(--color-ink, #0E4F5C) !important;
+  border: 1px solid rgba(45,138,130,.10) !important;
+  color: #111 !important;
 }
 .authority-section .metric-card, .authority-section .metric-card *,
 .authority-section .metric-card span, .authority-section .metric-card strong,
 .authority-section .metric-card p, .authority-section .metric-card label,
 .authority-section .widget-head *, .authority-section .widget-form label {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
 .authority-section input, .authority-section select, .authority-section textarea {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
 }
 
 /* B10 — Cookie / consent banners */
@@ -2445,9 +2434,9 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 .mini-step.active, .mini-step.active * { color: #FFF !important; -webkit-text-fill-color: #FFF !important; }
 
 /* B14 — Dark teal gradient sections on service/case-study pages.
-   These use linear-gradient(135deg, #0F2F2C 0%, #0E4F5C 100%) (or similar dark teal),
+   These use linear-gradient(135deg, #0F2F2C 0%, #1A4F4A 100%) (or similar dark teal),
    so headings and body copy MUST be white — otherwise B-series master override
-   h1..h6 { color: var(--color-ink, #0E4F5C) !important } at line 2253 renders them unreadable.
+   h1..h6 { color: #000 !important } at line 2253 renders them unreadable.
    Covers: final-CTA sections, UPL-safeguard callouts, exit-intent modal header.
    NOTE: `.cmp-table .cmp-dim` is NOT included here at desktop — that cell has a
    LIGHT background on ≥720px (see vitacorex-vs-traditional-agency.html:59 inline),
@@ -2468,7 +2457,7 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 }
 /* B14b — Mobile-only: .cmp-dim cell becomes a dark teal gradient in card-stack
    layout, so white text is required ONLY at that breakpoint. Desktop keeps the
-   dark teal (#0E4F5C) text on the light cell background defined inline. */
+   dark teal (#1A4F4A) text on the light cell background defined inline. */
 @media (max-width: 720px) {
   .cmp-table .cmp-dim,
   .cmp-table .cmp-dim * {
@@ -2489,18 +2478,18 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
 }
 [class*="-final-cta"] .btn-secondary:hover, [class*="-final-cta"] a.btn-secondary:hover,
 [class*="-final-cta"] [class$="--ghost"]:hover, [class*="-final-cta"] a[class$="--ghost"]:hover {
-  background: rgba(255,255,255,.08) !important; border-color: #06B6D4 !important;
+  background: rgba(255,255,255,.08) !important; border-color: #5BC4B8 !important;
 }
 /* Primary button on dark CTA: solid teal with white text */
 [class*="-final-cta"] .btn-primary, [class*="-final-cta"] a.btn-primary,
 [class*="-final-cta"] [class$="--primary"]:not(.btn-secondary),
 [class*="-final-cta"] a[class$="--primary"]:not(.btn-secondary) {
-  background: #0891B2 !important; color: #FFF !important; -webkit-text-fill-color: #FFF !important;
-  border: 2px solid #0891B2 !important;
+  background: #2D8A82 !important; color: #FFF !important; -webkit-text-fill-color: #FFF !important;
+  border: 2px solid #2D8A82 !important;
 }
 [class*="-final-cta"] .btn-primary:hover, [class*="-final-cta"] a.btn-primary:hover,
 [class*="-final-cta"] [class$="--primary"]:hover, [class*="-final-cta"] a[class$="--primary"]:hover {
-  background: #0E4F5C !important; border-color: #0E4F5C !important;
+  background: #1A4F4A !important; border-color: #1A4F4A !important;
 }
 
 /* ── C) BUTTONS ─────────────────────────────────────────────────── */
@@ -2510,10 +2499,10 @@ footer h2, footer h3, footer p, footer span, footer li, footer a {
   text-shadow: none !important;
 }
 .btn-secondary, a.btn-secondary {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
-  background: #FFF !important; border: 2px solid #0891B2 !important; text-shadow: none !important;
+  color: #000 !important; -webkit-text-fill-color: #000 !important;
+  background: #FFF !important; border: 2px solid #2D8A82 !important; text-shadow: none !important;
 }
-.btn-secondary:hover, a.btn-secondary:hover { background: #F7FAFA !important; border-color: #06B6D4 !important; }
+.btn-secondary:hover, a.btn-secondary:hover { background: #F7FAFA !important; border-color: #5BC4B8 !important; }
 
 /* ── D) REMOVE text-shadow from LIGHT-bg elements ─────────────── */
 .lux-card *, .card *, .glass *, .service-card-lux *,
@@ -2530,22 +2519,22 @@ select, input[type="text"], input[type="email"], input[type="tel"],
 input[type="number"], input[type="url"], input[type="search"], textarea,
 .engine-card select, .engine-card input, .widget-card select, .widget-card input,
 .mini-form select, .mini-form input, .widget-form select, .widget-form input {
-  color: var(--color-ink, #0E4F5C) !important; -webkit-text-fill-color: var(--color-ink, #0E4F5C) !important;
+  color: #111 !important; -webkit-text-fill-color: #111 !important;
   background: #FFF !important;
-  border: 1px solid rgba(8, 145, 178,.20) !important;
-  outline-color: #0891B2 !important;
-  accent-color: #0891B2 !important;
+  border: 1px solid rgba(45,138,130,.20) !important;
+  outline-color: #2D8A82 !important;
+  accent-color: #2D8A82 !important;
 }
 select:focus, input:focus, textarea:focus,
 .engine-card select:focus, .widget-card select:focus,
 .mini-form select:focus, .widget-form select:focus {
-  border-color: #0891B2 !important;
-  box-shadow: 0 0 0 3px rgba(8, 145, 178,.15) !important;
+  border-color: #2D8A82 !important;
+  box-shadow: 0 0 0 3px rgba(45,138,130,.15) !important;
   outline: none !important;
 }
-option { color: var(--color-ink, #0E4F5C) !important; background: #FFF !important; }
-::selection { background: rgba(8,145,178,.20) !important; color: var(--color-ink, #0E4F5C) !important; }
-select option:checked { background: #0891B2 !important; color: #FFF !important; }
+option { color: #111 !important; background: #FFF !important; }
+::selection { background: rgba(45,138,130,.20) !important; color: #000 !important; }
+select option:checked { background: #2D8A82 !important; color: #FFF !important; }
 
 /* ── F) NUCLEAR BORDER-RADIUS KILL — Every oval from every frozen file ── */
 
@@ -2657,7 +2646,7 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
     transparent 0%,
     transparent 38%,
     rgba(141,212,197,0.10) 42%,
-    rgba(8, 145, 178,0.08) 44%,
+    rgba(91,186,167,0.08) 44%,
     rgba(141,212,197,0.10) 46%,
     transparent 50%,
     transparent 100%
@@ -2736,7 +2725,7 @@ input[type="file"]::file-selector-button { border-radius: 2px !important; }
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(8,145,178,0.025) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(91,196,184,0.025) 0%, transparent 70%);
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
