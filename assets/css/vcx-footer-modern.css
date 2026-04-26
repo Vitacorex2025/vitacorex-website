@@ -1,0 +1,304 @@
+/* ============================================================
+ * VCX Modern Footer (4-column dark teal layout)
+ * ------------------------------------------------------------
+ * Replaces the legacy 3-group .footer-grid layout transformed
+ * by vcx-footer.js. Pure static HTML, no JS dependency.
+ *
+ * Structure:
+ *   .vcx-footer-modern
+ *     .vcx-footer-modern__container
+ *       .vcx-footer-modern__main
+ *         .vcx-footer-modern__brand    (logo + name + desc + social)
+ *         .vcx-footer-modern__columns  (4-col link grid)
+ *           .vcx-footer-modern__col x4
+ *       .vcx-footer-modern__legal      (Florida disclaimer)
+ *       .vcx-footer-modern__bottom     (copyright bar)
+ *
+ * Palette inherits .footer base:
+ *   bg #0C2D2A, text #FFF, accent #8FD8CE, hover #5BC4B8
+ * ============================================================ */
+
+.vcx-footer-modern {
+  background: #0C2D2A !important;
+  color: #FFFFFF !important;
+  position: relative;
+  padding: 64px 0 32px;
+  overflow: hidden;
+}
+
+.vcx-footer-modern::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(143, 216, 206, 0.35), transparent);
+}
+
+.vcx-footer-modern__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ── Main grid: brand (1/3) + links (2/3) on desktop ───────── */
+.vcx-footer-modern__main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  margin-bottom: 48px;
+}
+
+/* ── Brand block ───────────────────────────────────────────── */
+.vcx-footer-modern__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vcx-footer-modern__brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #FFFFFF !important;
+}
+
+.vcx-footer-modern__brand-logo img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 6px;
+}
+
+.vcx-footer-modern__brand-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #FFFFFF !important;
+  line-height: 1.2;
+}
+
+.vcx-footer-modern__brand-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(236, 249, 246, 0.78) !important;
+  max-width: 36ch;
+}
+
+.vcx-footer-modern__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.vcx-footer-modern__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(143, 216, 206, 0.10);
+  border: 1px solid rgba(143, 216, 206, 0.20);
+  color: #8FD8CE !important;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.vcx-footer-modern__social a:hover,
+.vcx-footer-modern__social a:focus-visible {
+  background: rgba(143, 216, 206, 0.22);
+  border-color: rgba(143, 216, 206, 0.45);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.vcx-footer-modern__social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* ── 4-column link grid ────────────────────────────────────── */
+.vcx-footer-modern__columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.vcx-footer-modern__col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.vcx-footer-modern__col-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: #ECF9F6 !important;
+  line-height: 1.2;
+}
+
+.vcx-footer-modern__list,
+.vcx-footer-modern__contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vcx-footer-modern__list a {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(236, 249, 246, 0.72) !important;
+  text-decoration: none;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+  display: inline-block;
+}
+
+.vcx-footer-modern__list a:hover,
+.vcx-footer-modern__list a:focus-visible {
+  color: #FFFFFF !important;
+  padding-left: 4px;
+  outline: none;
+}
+
+/* ── Contact column with icons ─────────────────────────────── */
+.vcx-footer-modern__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(236, 249, 246, 0.72) !important;
+}
+
+.vcx-footer-modern__contact a {
+  color: rgba(236, 249, 246, 0.72) !important;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.vcx-footer-modern__contact a:hover,
+.vcx-footer-modern__contact a:focus-visible {
+  color: #FFFFFF !important;
+  outline: none;
+}
+
+.vcx-footer-modern__contact svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #8FD8CE;
+}
+
+/* ── Legal disclaimer strip ────────────────────────────────── */
+.vcx-footer-modern__legal {
+  border-top: 1px solid rgba(143, 216, 206, 0.18);
+  padding: 24px 0 20px;
+  margin-bottom: 8px;
+}
+
+.vcx-footer-modern__legal p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(236, 249, 246, 0.55) !important;
+  max-width: 100%;
+}
+
+/* ── Bottom copyright bar ──────────────────────────────────── */
+.vcx-footer-modern__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(143, 216, 206, 0.12);
+}
+
+.vcx-footer-modern__copy,
+.vcx-footer-modern__rights {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(236, 249, 246, 0.6) !important;
+}
+
+/* ── Responsive: tablet ───────────────────────────────────── */
+@media (max-width: 1020px) {
+  .vcx-footer-modern__main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .vcx-footer-modern__brand-desc {
+    max-width: 60ch;
+  }
+
+  .vcx-footer-modern__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+
+/* ── Responsive: mobile ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .vcx-footer-modern {
+    padding: 48px 0 24px;
+  }
+
+  .vcx-footer-modern__container {
+    padding: 0 20px;
+  }
+
+  .vcx-footer-modern__main {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .vcx-footer-modern__columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .vcx-footer-modern__brand-name {
+    font-size: 1.25rem;
+  }
+
+  .vcx-footer-modern__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .vcx-footer-modern__legal {
+    padding: 20px 0 16px;
+  }
+
+  .vcx-footer-modern__legal p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Suppress legacy footer rules that would otherwise apply ── */
+.vcx-footer-modern .footer-grid,
+.vcx-footer-modern .footer-grid-extended,
+.vcx-footer-modern .footer-bottom,
+.vcx-footer-modern .footer-meta,
+.vcx-footer-modern .footer-state-tools {
+  display: none !important;
+}
