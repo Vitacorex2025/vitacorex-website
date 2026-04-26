@@ -20,3 +20,15 @@ package-lock.json
 
 # P17 QA advisory artifacts (generated, not baseline — IP-dependent)
 docs/qa/cta-opaque.md
+
+# Hero videos sourced from csklegal.com (preview-only — IP-restricted, must
+# be replaced with VCX-licensed Miami-aerial footage before production deploy)
+assets/video/csk-hero-1.mp4
+assets/video/csk-hero-2.mp4
+assets/video/csk-hero-3.mp4
+
+# Playwright artifacts
+.playwright-mcp/
+*.jpg
+!assets/img/**/*.jpg
+!docs/**/*.jpg

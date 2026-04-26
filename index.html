@@ -108,35 +108,73 @@
 <section class="vcx-fourquad-hero" role="banner" aria-label="VitaCoreX — choose your engagement path">
   <h1 class="visually-hidden" data-page="home_hero_title">Revenue recovery for companies. Document packets for private clients.</h1>
 
-  <video class="vcx-fourquad-hero__video" autoplay muted loop playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true">
-    <source src="assets/video/sky-clouds.mp4" type="video/mp4">
+  <video class="vcx-fourquad-hero__video" id="vcxFourquadVideo" autoplay muted loop playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true"
+         data-src-1="assets/video/csk-hero-1.mp4"
+         data-src-2="assets/video/csk-hero-2.mp4"
+         data-src-3="assets/video/csk-hero-3.mp4">
+    <source src="assets/video/csk-hero-1.mp4" type="video/mp4">
   </video>
+  <script>
+    /* Cycle 3 hero videos seamlessly (Miami aerial, sourced from csklegal.com).
+       Clones the CSK fourSquareHero behaviour. Falls back to single loop on prefers-reduced-motion. */
+    (function(){
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var v = document.getElementById('vcxFourquadVideo');
+      if (!v) return;
+      var srcs = [v.dataset.src1, v.dataset.src2, v.dataset.src3].filter(Boolean);
+      if (srcs.length < 2) return;
+      var idx = 0;
+      v.addEventListener('ended', function(){
+        idx = (idx + 1) % srcs.length;
+        v.src = srcs[idx];
+        v.play().catch(function(){});
+      });
+      // ended doesn't fire on loop; switch via timeupdate when near end
+      v.removeAttribute('loop');
+      v.addEventListener('timeupdate', function(){
+        if (v.duration && v.currentTime > v.duration - 0.3) {
+          idx = (idx + 1) % srcs.length;
+          v.src = srcs[idx];
+          v.play().catch(function(){});
+        }
+      });
+    })();
+  </script>
   <div class="vcx-fourquad-hero__overlay" aria-hidden="true"></div>
 
-  <!-- Hairline cross dividers (CSK signature) -->
-  <div class="vcx-fourquad-hero__divider vcx-fourquad-hero__divider--vertical" aria-hidden="true"></div>
-  <div class="vcx-fourquad-hero__divider vcx-fourquad-hero__divider--horizontal" aria-hidden="true"></div>
+  <!-- ═══════════ TWO-COLUMN LAYOUT (CSK pattern) ═══════════ -->
+  <div class="vcx-fourquad-hero__layout">
 
-  <!-- Center wordmark (where CSK shows their logo) -->
-  <div class="vcx-fourquad-hero__brand" aria-hidden="true">
-    <span class="vcx-fourquad-hero__wordmark">VitaCoreX</span>
-    <span class="vcx-fourquad-hero__brand-eyebrow" data-page="home_hero_eyebrow">U.S.-wide · Documentation advisory · Est. 2025</span>
-  </div>
+    <!-- LEFT COLUMN — VCX title block -->
+    <aside class="vcx-fourquad-hero__info">
+      <div class="vcx-fourquad-hero__info-inner">
+        <p class="vcx-fourquad-hero__eyebrow" data-page="home_hero_eyebrow">U.S.-wide · Documentation advisory · Est. 2025</p>
+        <h2 class="vcx-fourquad-hero__title" data-page="home_hero_title">Revenue recovery for companies. Document packets for private clients.</h2>
+        <p class="vcx-fourquad-hero__lead" data-page="home_hero_lead">VitaCoreX LLC helps companies organize receivables, payment records, dispute files, and counsel-ready documentation — and provides fixed-scope document-organization services for selected private-client matters.</p>
+        <a href="structured-case-intake.html" class="vcx-fourquad-hero__cta" data-common="cta_intake">Start structured intake →</a>
+      </div>
+    </aside>
 
-  <!-- 4 quadrants — each clickable, leads to its destination -->
-  <div class="vcx-fourquad-hero__grid">
-    <a href="corporate-legal-file-control.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--tl" aria-label="Corporate file control: packet control for AR and escalation">
-      <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_1">Packet control for AR &amp; escalation.</span>
-    </a>
-    <a href="additional-services.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--tr" aria-label="Founders services: packets for registration and business plan">
-      <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_2">Packets for registration &amp; business plan.</span>
-    </a>
-    <a href="immigration-packet-review.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--bl" aria-label="Private affairs: packet review for contract and immigration">
-      <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_3">Packet review for contract &amp; immigration.</span>
-    </a>
-    <a href="pricing-and-engagement-tiers.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--br" aria-label="Pricing and engagement: transparent pricing, NDA before the call">
-      <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_4">Transparent pricing. NDA before the call.</span>
-    </a>
+    <!-- RIGHT COLUMN — 4 quadrants (2×2) -->
+    <div class="vcx-fourquad-hero__grid">
+      <!-- Hairline cross dividers, contained inside grid only -->
+      <div class="vcx-fourquad-hero__divider vcx-fourquad-hero__divider--vertical" aria-hidden="true"></div>
+      <div class="vcx-fourquad-hero__divider vcx-fourquad-hero__divider--horizontal" aria-hidden="true"></div>
+
+      <a href="corporate-legal-file-control.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--tl" aria-label="Corporate file control: packet control for AR and escalation">
+        <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_1">Packet control for AR &amp; escalation.</span>
+      </a>
+      <a href="additional-services.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--tr" aria-label="Founders services: packets for registration and business plan">
+        <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_2">Packets for registration &amp; business plan.</span>
+      </a>
+      <a href="immigration-packet-review.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--bl" aria-label="Private affairs: packet review for contract and immigration">
+        <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_3">Packet review for contract &amp; immigration.</span>
+      </a>
+      <a href="pricing-and-engagement-tiers.html" class="vcx-fourquad-hero__cell vcx-fourquad-hero__cell--br" aria-label="Pricing and engagement: transparent pricing, NDA before the call">
+        <span class="vcx-fourquad-hero__phrase" data-page="home_hero_quad_4">Transparent pricing. NDA before the call.</span>
+      </a>
+    </div>
+
   </div>
 
   <!-- Scroll cue (bottom center) -->
@@ -195,6 +233,81 @@
       rgba(6, 20, 24, 0.55) 100%),
     radial-gradient(ellipse at center, rgba(14, 79, 88, 0.18), transparent 70%);
 }
+/* 2-column layout — left info block + right 4-quadrant grid */
+.vcx-fourquad-hero__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(360px, 42%) 1fr;
+  min-height: clamp(640px, 100vh, 980px);
+}
+.vcx-fourquad-hero__info {
+  display: flex;
+  align-items: center;
+  padding: clamp(40px, 6vw, 88px) clamp(28px, 4vw, 72px);
+  position: relative;
+  z-index: 1;
+}
+.vcx-fourquad-hero__info-inner {
+  max-width: 38ch;
+}
+.vcx-fourquad-hero__eyebrow {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5DD3DD !important;
+  -webkit-text-fill-color: #5DD3DD !important;
+  margin: 0 0 18px;
+}
+.vcx-fourquad-hero__title {
+  font-family: 'Practice', 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(36px, 4.4vw, 64px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.022em;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 2px 28px rgba(0,0,0,0.36);
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+.vcx-fourquad-hero__lead {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  font-weight: 400 !important;
+  line-height: 1.62 !important;
+  color: rgba(255,255,255,0.86) !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.86) !important;
+  margin: 0 0 28px;
+  max-width: 38ch;
+}
+.vcx-fourquad-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.32);
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.vcx-fourquad-hero__cta:hover,
+.vcx-fourquad-hero__cta:focus-visible {
+  background: rgba(43, 179, 192, 0.32);
+  border-color: #5DD3DD;
+  transform: translateY(-1px);
+}
+
+/* Hairline dividers — only inside the 4-quadrant grid (right column) */
 .vcx-fourquad-hero__divider {
   position: absolute;
   z-index: 2;
@@ -221,7 +334,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  min-height: clamp(640px, 100vh, 980px);
+  min-height: 100%;
+  border-left: 1px solid rgba(255,255,255,0.16);
 }
 .vcx-fourquad-hero__cell {
   display: flex;
@@ -318,33 +432,42 @@
   text-transform: uppercase;
   pointer-events: none;
 }
+/* Tablet + mobile — stack info above 4-quadrant grid */
+@media (max-width: 980px) {
+  .vcx-fourquad-hero__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .vcx-fourquad-hero__info {
+    padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 48px) clamp(28px, 4vw, 40px);
+  }
+  .vcx-fourquad-hero__title { font-size: clamp(32px, 5.4vw, 48px) !important; }
+  .vcx-fourquad-hero__grid {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.16);
+    min-height: 480px;
+  }
+}
 @media (max-width: 720px) {
   .vcx-fourquad-hero {
     min-height: auto;
   }
   .vcx-fourquad-hero__grid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, minmax(160px, 1fr));
+    grid-template-rows: repeat(4, minmax(140px, 1fr));
     min-height: auto;
   }
   .vcx-fourquad-hero__divider--vertical,
   .vcx-fourquad-hero__divider--horizontal { display: none; }
   .vcx-fourquad-hero__cell {
     padding: clamp(28px, 8vw, 56px) clamp(20px, 5vw, 32px);
-    min-height: 160px;
+    min-height: 140px;
     border-bottom: 1px solid rgba(255,255,255,0.18);
   }
   .vcx-fourquad-hero__cell--br { border-bottom: none; }
   .vcx-fourquad-hero__phrase {
-    font-size: clamp(20px, 5.4vw, 28px);
+    font-size: clamp(20px, 5.4vw, 28px) !important;
     max-width: 24ch;
-  }
-  .vcx-fourquad-hero__brand {
-    position: relative;
-    transform: none;
-    left: auto;
-    top: auto;
-    padding: clamp(40px, 10vw, 64px) 16px 8px;
   }
   .vcx-fourquad-hero__cue { display: none; }
 }
