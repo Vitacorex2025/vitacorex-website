@@ -1,25 +1,18 @@
 /* ============================================================
- * VCX Modern Footer (4-column dark teal layout)
+ * VCX Modern Footer (muted-turquoise glass palette)
  * ------------------------------------------------------------
- * Replaces the legacy 3-group .footer-grid layout transformed
- * by vcx-footer.js. Pure static HTML, no JS dependency.
- *
- * Structure:
- *   .vcx-footer-modern
- *     .vcx-footer-modern__container
- *       .vcx-footer-modern__main
- *         .vcx-footer-modern__brand    (logo + name + desc + social)
- *         .vcx-footer-modern__columns  (4-col link grid)
- *           .vcx-footer-modern__col x4
- *       .vcx-footer-modern__legal      (Florida disclaimer)
- *       .vcx-footer-modern__bottom     (copyright bar)
- *
- * Palette inherits .footer base:
- *   bg #0C2D2A, text #FFF, accent #8FD8CE, hover #5BC4B8
+ * Matches the new vcx-header-glass: same washed turquoise bed
+ * with dark-teal text. Reads as the "bottom bookend" of the
+ * page. Palette:
+ *   bg     #C7E4DE  (faded turquoise)
+ *   text   #0C2D2A  (deep teal)
+ *   accent #2BB3C0  (brand teal — links, hovers)
+ *   muted  #1F4E48  (secondary text)
  * ============================================================ */
 
 .vcx-footer-modern {
-  background: #0C2D2A !important;
+  /* Deep mint-teal-blue gradient, matches the dark glass header */
+  background: linear-gradient(180deg, #123E4C 0%, #0A2530 100%) !important;
   color: #FFFFFF !important;
   position: relative;
   padding: 64px 0 32px;
@@ -34,7 +27,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(143, 216, 206, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 210, 222, 0.45), transparent);
 }
 
 .vcx-footer-modern__container {
@@ -75,8 +68,8 @@
 }
 
 .vcx-footer-modern__brand-name {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 800;
   letter-spacing: -0.01em;
   color: #FFFFFF !important;
   line-height: 1.2;
@@ -86,7 +79,7 @@
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(236, 249, 246, 0.78) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   max-width: 36ch;
 }
 
@@ -104,17 +97,17 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(143, 216, 206, 0.10);
-  border: 1px solid rgba(143, 216, 206, 0.20);
-  color: #8FD8CE !important;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #FFFFFF !important;
   transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
 
 .vcx-footer-modern__social a:hover,
 .vcx-footer-modern__social a:focus-visible {
-  background: rgba(143, 216, 206, 0.22);
-  border-color: rgba(143, 216, 206, 0.45);
-  color: #FFFFFF !important;
+  background: #7CD2DE;
+  border-color: #7CD2DE;
+  color: #0A2530 !important;
   transform: translateY(-1px);
   outline: none;
 }
@@ -142,9 +135,9 @@
 .vcx-footer-modern__col-title {
   margin: 0;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: -0.005em;
-  color: #ECF9F6 !important;
+  color: #FFFFFF !important;
   line-height: 1.2;
 }
 
@@ -161,7 +154,7 @@
 .vcx-footer-modern__list a {
   font-size: 0.88rem;
   line-height: 1.4;
-  color: rgba(236, 249, 246, 0.72) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   text-decoration: none;
   transition: color 0.15s ease, padding-left 0.15s ease;
   display: inline-block;
@@ -169,7 +162,7 @@
 
 .vcx-footer-modern__list a:hover,
 .vcx-footer-modern__list a:focus-visible {
-  color: #FFFFFF !important;
+  color: #7CD2DE !important;
   padding-left: 4px;
   outline: none;
 }
@@ -181,18 +174,18 @@
   gap: 10px;
   font-size: 0.88rem;
   line-height: 1.5;
-  color: rgba(236, 249, 246, 0.72) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .vcx-footer-modern__contact a {
-  color: rgba(236, 249, 246, 0.72) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .vcx-footer-modern__contact a:hover,
 .vcx-footer-modern__contact a:focus-visible {
-  color: #FFFFFF !important;
+  color: #7CD2DE !important;
   outline: none;
 }
 
@@ -201,12 +194,12 @@
   height: 16px;
   flex-shrink: 0;
   margin-top: 2px;
-  color: #8FD8CE;
+  color: #7CD2DE;
 }
 
 /* ── Legal disclaimer strip ────────────────────────────────── */
 .vcx-footer-modern__legal {
-  border-top: 1px solid rgba(143, 216, 206, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding: 24px 0 20px;
   margin-bottom: 8px;
 }
@@ -215,7 +208,7 @@
   margin: 0;
   font-size: 0.78rem;
   line-height: 1.6;
-  color: rgba(236, 249, 246, 0.55) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
   max-width: 100%;
 }
 
@@ -227,7 +220,7 @@
   flex-wrap: wrap;
   gap: 12px;
   padding-top: 20px;
-  border-top: 1px solid rgba(143, 216, 206, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .vcx-footer-modern__copy,
@@ -235,7 +228,7 @@
   margin: 0;
   font-size: 0.82rem;
   line-height: 1.45;
-  color: rgba(236, 249, 246, 0.6) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 /* ── Responsive: tablet ───────────────────────────────────── */

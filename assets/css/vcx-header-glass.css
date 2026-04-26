@@ -1,0 +1,461 @@
+/* ============================================================
+ * VCX Glass Header — single-row mint-turquoise-blue glass bar
+ * ------------------------------------------------------------
+ * One row: brand (left)  -- nav with 3 dropdowns (centre)  --
+ *          lang switcher + phone (right).
+ *
+ * Dropdowns: For Companies · For Founders · For Private Clients.
+ * They are hover-stable — the trigger and the panel share a
+ * common parent that has a forgiving "intent zone", so moving
+ * the cursor between trigger and panel does not close the menu.
+ * Touch/keyboard activate them via aria-expanded toggling.
+ *
+ * Readability rule: dark teal text (#0A2530) on a 0.88-opacity
+ * mint-turquoise-blue glass — passes WCAG AA against any
+ * underlying background (dark hero, white body, parchment band).
+ * ============================================================ */
+
+/* ── Hide the legacy two-row header so the glass bar is the
+ *   only chrome on every page. The legacy markup stays in the
+ *   DOM (some scripts still query .vcx-header) but is removed
+ *   from layout. */
+header.vcx-header { display: none !important; }
+body { padding-top: 0 !important; }
+
+/* ── Bar ─────────────────────────────────────────────────── */
+.vcx-header-glass {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 90 !important;
+  width: 100% !important;
+  /* Deep mint-teal-blue glass — darker bed so dark hero behind
+   * doesn't bleed into the bar and so white text always reads. */
+  background: rgba(18, 62, 76, 0.92) !important;
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(130, 200, 210, 0.30) !important;
+  color: #FFFFFF !important;
+  transition: background 220ms ease, border-color 220ms ease,
+              box-shadow 220ms ease !important;
+  display: block !important;
+}
+
+.vcx-header-glass.is-stuck {
+  background: rgba(14, 50, 62, 0.98) !important;
+  border-bottom-color: rgba(130, 200, 210, 0.42) !important;
+  box-shadow: 0 8px 24px rgba(0, 18, 26, 0.32) !important;
+}
+
+.vcx-header-glass__row {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 12px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ── Brand block (left) ──────────────────────────────────── */
+.vcx-header-glass__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF;
+  margin-right: 16px; /* visual breathing room before the nav */
+}
+
+.vcx-header-glass__brand img {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: block;
+}
+
+.vcx-header-glass__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.vcx-header-glass__brand-name {
+  font-family: 'Practice', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF;
+}
+
+.vcx-header-glass__brand-tag {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 2px;
+  color: #7CD2DE !important;
+  -webkit-text-fill-color: #7CD2DE;
+}
+
+/* ── Nav (centre) ────────────────────────────────────────── */
+.vcx-header-glass__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.vcx-header-glass__nav > a,
+.vcx-header-glass__nav > .vcx-header-glass__menu > button {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF;
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.vcx-header-glass__nav > a::after,
+.vcx-header-glass__nav > .vcx-header-glass__menu > button::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px; bottom: 4px;
+  height: 2px;
+  background: #7CD2DE;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.vcx-header-glass__nav > a:hover,
+.vcx-header-glass__nav > a:focus-visible,
+.vcx-header-glass__nav > a.is-active,
+.vcx-header-glass__nav > .vcx-header-glass__menu > button:hover,
+.vcx-header-glass__nav > .vcx-header-glass__menu[data-open="true"] > button {
+  color: #7CD2DE !important;
+  -webkit-text-fill-color: #7CD2DE;
+  outline: none;
+}
+
+.vcx-header-glass__nav > a:hover::after,
+.vcx-header-glass__nav > a:focus-visible::after,
+.vcx-header-glass__nav > a.is-active::after,
+.vcx-header-glass__nav > .vcx-header-glass__menu > button:hover::after,
+.vcx-header-glass__nav > .vcx-header-glass__menu[data-open="true"] > button::after {
+  transform: scaleX(1);
+}
+
+/* Dropdown trigger: caret rendered as a pseudo-element on the
+ * MENU wrapper (not the button) so vcx-i18n.js's textContent
+ * rewrites of the button label cannot remove it. */
+.vcx-header-glass__menu {
+  position: relative;
+  padding-right: 16px; /* room for the caret */
+}
+.vcx-header-glass__menu::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: translateY(-65%) rotate(45deg);
+  opacity: 0.85;
+  transition: transform 200ms ease, border-color 200ms ease;
+  pointer-events: none;
+}
+.vcx-header-glass__menu[data-open="true"]::after,
+.vcx-header-glass__menu:hover::after {
+  border-right-color: #7CD2DE;
+  border-bottom-color: #7CD2DE;
+}
+.vcx-header-glass__menu[data-open="true"]::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+/* ── Dropdown panel ─────────────────────────────────────── */
+.vcx-header-glass__menu {
+  position: relative;
+}
+
+/* The panel sits absolutely below the trigger. The "intent
+ * zone" is a 12 px transparent strip just above the panel
+ * (negative top + matching padding) so the cursor never lands
+ * in dead space between trigger and panel — this is what
+ * keeps the menu from closing while the user is moving down. */
+.vcx-header-glass__panel {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 4px);
+  transform: translateX(-50%) translateY(8px);
+  min-width: 320px;
+  max-width: 420px;
+  padding: 10px;
+  background: rgba(244, 252, 252, 0.98);
+  border: 1px solid rgba(120, 180, 195, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 18px 44px rgba(8, 36, 48, 0.18),
+              0 4px 12px rgba(8, 36, 48, 0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 220ms ease, visibility 0s linear 220ms;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  /* Forgiving intent zone: the panel actually occupies a
+   * 12 px transparent gap above its visible top via this
+   * pseudo-element — closes the gap to the trigger so a
+   * mouse moving slowly between the two never lands in dead
+   * space. */
+}
+.vcx-header-glass__panel::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -12px;
+  height: 12px;
+}
+
+.vcx-header-glass__menu[data-open="true"] .vcx-header-glass__panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 200ms ease, transform 220ms ease, visibility 0s linear 0s;
+}
+
+.vcx-header-glass__panel a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: #0A2530 !important;
+  -webkit-text-fill-color: #0A2530;
+  text-decoration: none;
+  line-height: 1.35;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.vcx-header-glass__panel a:hover,
+.vcx-header-glass__panel a:focus-visible {
+  background: rgba(43, 179, 192, 0.15);
+  color: #0E6A7A !important;
+  -webkit-text-fill-color: #0E6A7A;
+  outline: none;
+}
+
+/* Audience accent dots on dropdown triggers */
+.vcx-header-glass__menu--companies      > button { color: #0A2530; }
+.vcx-header-glass__menu--founders       > button { color: #0A2530; }
+.vcx-header-glass__menu--privateclients > button { color: #0A2530; }
+
+/* ── Right cluster: lang + phone ─────────────────────────── */
+.vcx-header-glass__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+
+/* Flat lang switcher — three text buttons separated by thin
+ * dividers, no surrounding pill. Active = brighter colour + bold. */
+.vcx-header-glass__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.vcx-header-glass__lang button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 6px 10px;
+  border-radius: 0;
+  position: relative;
+  transition: color 160ms ease;
+}
+.vcx-header-glass__lang button + button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.vcx-header-glass__lang button:hover,
+.vcx-header-glass__lang button:focus-visible {
+  color: #7CD2DE;
+  outline: none;
+}
+
+.vcx-header-glass__lang button.active {
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+/* Flat phone link — no pill, just icon + number. Hover hits the
+ * brand teal accent. */
+.vcx-header-glass__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  background: transparent;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF;
+  border-radius: 0;
+  text-decoration: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.vcx-header-glass__phone:hover,
+.vcx-header-glass__phone:focus-visible {
+  color: #7CD2DE !important;
+  -webkit-text-fill-color: #7CD2DE;
+  outline: none;
+}
+.vcx-header-glass__phone-num { white-space: nowrap; }
+
+.vcx-header-glass__phone svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Mobile menu toggle ─────────────────────────────────── */
+.vcx-header-glass__menu-btn {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.vcx-header-glass__menu-btn:hover,
+.vcx-header-glass__menu-btn:focus-visible {
+  border-color: #7CD2DE;
+  color: #7CD2DE;
+  outline: none;
+}
+
+/* ── Mobile drawer ──────────────────────────────────────── */
+.vcx-header-glass__drawer {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(14, 50, 62, 0.98);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.vcx-header-glass__drawer[data-open="true"] {
+  display: flex;
+}
+
+.vcx-header-glass__drawer .vcx-drawer-section {
+  padding: 8px 16px 4px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #7CD2DE;
+  margin-top: 6px;
+}
+
+.vcx-header-glass__drawer a {
+  display: block;
+  padding: 10px 24px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 0 12px;
+}
+
+.vcx-header-glass__drawer a:hover,
+.vcx-header-glass__drawer a:focus-visible {
+  background: rgba(124, 210, 222, 0.18);
+  color: #7CD2DE;
+  outline: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1180px) {
+  .vcx-header-glass__row { padding: 12px 22px; gap: 16px; }
+  .vcx-header-glass__nav > a,
+  .vcx-header-glass__nav > .vcx-header-glass__menu > button {
+    font-size: 0.86rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 980px) {
+  .vcx-header-glass__nav { display: none; }
+  .vcx-header-glass__menu-btn { display: inline-flex; }
+}
+
+@media (max-width: 540px) {
+  .vcx-header-glass__row { padding: 10px 18px; gap: 10px; }
+  .vcx-header-glass__brand-name { font-size: 1.18rem; }
+  .vcx-header-glass__brand-tag { display: none; }
+  .vcx-header-glass__brand img { width: 36px; height: 36px; }
+  .vcx-header-glass__phone span:not(.vcx-header-glass__phone-num) { display: none; }
+  .vcx-header-glass__lang button { padding: 4px 8px; font-size: 0.66rem; }
+}
+
+/* Hide the floating "Private Advisory" badge on narrow viewports
+ * so it doesn't intrude on the new bar. */
+@media (max-width: 720px) {
+  .vcx-exclusive-badge { display: none !important; }
+}
