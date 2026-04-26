@@ -199,27 +199,26 @@ body { padding-top: 0 !important; }
  * in dead space between trigger and panel — this is what
  * keeps the menu from closing while the user is moving down. */
 .vcx-header-glass__panel {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 4px);
-  transform: translateX(-50%) translateY(8px);
-  min-width: 320px;
-  max-width: 420px;
-  padding: 10px;
-  background: rgba(244, 252, 252, 0.98);
-  border: 1px solid rgba(120, 180, 195, 0.45);
-  border-radius: 14px;
-  box-shadow: 0 18px 44px rgba(8, 36, 48, 0.18),
-              0 4px 12px rgba(8, 36, 48, 0.08);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  position: absolute !important;
+  left: 50% !important;
+  top: calc(100% + 4px) !important;
+  transform: translateX(-50%) translateY(8px) !important;
+  min-width: 320px !important;
+  max-width: 420px !important;
+  padding: 10px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(8, 36, 48, 0.20) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 18px 44px rgba(8, 36, 48, 0.28),
+              0 4px 12px rgba(8, 36, 48, 0.14) !important;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 180ms ease, transform 220ms ease, visibility 0s linear 220ms;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2px;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2px !important;
+  color: #000000 !important;
   /* Forgiving intent zone: the panel actually occupies a
    * 12 px transparent gap above its visible top via this
    * pseudo-element — closes the gap to the trigger so a
@@ -243,25 +242,26 @@ body { padding-top: 0 !important; }
 }
 
 .vcx-header-glass__panel a {
-  display: block;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.005em;
-  color: #0A2530 !important;
-  -webkit-text-fill-color: #0A2530;
-  text-decoration: none;
-  line-height: 1.35;
-  transition: background 140ms ease, color 140ms ease;
+  display: block !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  text-decoration: none !important;
+  line-height: 1.35 !important;
+  transition: background 140ms ease, color 140ms ease !important;
+  background: transparent !important;
 }
 
 .vcx-header-glass__panel a:hover,
 .vcx-header-glass__panel a:focus-visible {
-  background: rgba(43, 179, 192, 0.15);
-  color: #0E6A7A !important;
-  -webkit-text-fill-color: #0E6A7A;
+  background: #0A2530 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   outline: none;
 }
 
