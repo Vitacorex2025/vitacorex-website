@@ -4161,6 +4161,244 @@ add('No mechanical inspection \u2014 we only review paperwork. For mechanical in
     'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
     'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
 
+// ─── PRIVATE SERVICES PAGE (private-services.html) ────────────
+add('For Private Clients · Contract review · Immigration · Auto deal · Small claims',
+    'Для частных клиентов · разбор договора · иммиграция · автосделка · small claims',
+    'Para clientes particulares · revisión de contrato · inmigración · compra de auto · small claims');
+add('Document support for individual matters — defined scope, fixed timeframe, delivered packet.',
+    'Документационная поддержка частных дел — фиксированный объём, фиксированный срок, готовый пакет.',
+    'Soporte documental para asuntos individuales — alcance definido, plazo fijo, paquete entregado.');
+add('Independent review and documentation help for high-stakes personal matters: contracts before you sign, immigration packets before you submit, auto deals before you drive off the lot, and small-claims filings ready for the courthouse desk. Pricing published below — no open-ended retainers.',
+    'Независимый разбор и подготовка документов для важных частных дел: договоры до подписания, иммиграционные пакеты до подачи, автосделки до выезда из автосалона и пакеты для small-claims, готовые к подаче в суд. Цены опубликованы ниже — без открытых ретейнеров.',
+    'Revisión independiente y preparación documental para asuntos personales de alto impacto: contratos antes de firmar, paquetes de inmigración antes de presentar, compras de auto antes de salir del concesionario y expedientes de small claims listos para el tribunal. Precios publicados abajo — sin retenedores abiertos.');
+add('Private services',
+    'Частные сервисы',
+    'Servicios privados');
+add('Four defined-scope deliverables, priced before the call.',
+    'Четыре чёткие услуги с фиксированной ценой — ещё до первого звонка.',
+    'Cuatro entregables de alcance definido con precio antes de la llamada.');
+add('Each service below lists exactly what you receive, how long it takes, and at what price — before you commit. No open-ended retainers. No billable-hour uncertainty.',
+    'У каждой услуги ниже заранее указано, что входит в работу, сколько она займёт и сколько стоит. Без открытых ретейнеров и почасовой неопределённости.',
+    'Cada servicio abajo detalla exactamente qué recibe, cuánto tarda y a qué precio — antes de comprometerse. Sin retenedores abiertos ni incertidumbre de horas facturables.');
+
+// Card 1 — Contract review
+add('Contract & lease review',
+    'Разбор договоров и аренды',
+    'Revisión de contratos y arrendamientos');
+add('Plain-language clause-by-clause review before you sign.',
+    'Понятный постатейный разбор до подписания.',
+    'Revisión cláusula por cláusula en lenguaje claro antes de firmar.');
+add('Side-by-side risk markup, threshold checks on fees, and a negotiation-leverage memo. Annotated PDF + summary in 48 hours.',
+    'Параллельная разметка рисков, проверка порогов по комиссиям и записка для переговоров. Аннотированный PDF и резюме за 48 часов.',
+    'Marcado de riesgo cláusula a cláusula, verificación de umbrales en comisiones y memo de palanca de negociación. PDF anotado y resumen en 48 horas.');
+add('Tier 1 · Single', 'Тариф 1 · одиночный', 'Nivel 1 · Único');
+add('Tier 2 · Comprehensive', 'Тариф 2 · комплексный', 'Nivel 2 · Integral');
+add('Tier 3 · Advisory', 'Тариф 3 · консалтинг', 'Nivel 3 · Asesoría');
+add('Timeframe', 'Срок', 'Plazo');
+add('Deliverable', 'Результат', 'Entregable');
+add('48 hours standard · rush on request',
+    '48 часов стандартно · срочно по запросу',
+    '48 horas estándar · rush bajo solicitud');
+add('Annotated PDF + summary memo',
+    'Аннотированный PDF + краткое резюме',
+    'PDF anotado + memo resumen');
+add('See details', 'Подробности', 'Ver detalles');
+add('Request review', 'Заказать разбор', 'Solicitar revisión');
+
+// Card 2 — Immigration
+add('Immigration packet preparation',
+    'Подготовка иммиграционного пакета',
+    'Preparación de paquete de inmigración');
+add('USCIS-ready evidence index, form sequence, submission folder.',
+    'Готовый к подаче в USCIS индекс доказательств, порядок форм и папка для подачи.',
+    'Índice de evidencia listo para USCIS, secuencia de formularios y carpeta de presentación.');
+add('Document organization for I-130 / I-485 / N-400 and adjacent matters. Legal strategy stays with your attorney; we build the packet they file.',
+    'Систематизация документов для I-130 / I-485 / N-400 и смежных вопросов. Юридическая стратегия остаётся за вашим адвокатом; мы готовим пакет, который он подаёт.',
+    'Organización documental para I-130 / I-485 / N-400 y asuntos adyacentes. La estrategia legal queda con su abogado; nosotros construimos el paquete que él presenta.');
+add('Tier 1 · Base', 'Тариф 1 · базовый', 'Nivel 1 · Base');
+add('Tier 2 · Comprehensive', 'Тариф 2 · комплексный', 'Nivel 2 · Integral');
+add('Tier 3 · Complex', 'Тариф 3 · сложный', 'Nivel 3 · Complejo');
+add('5–7 business days · rush on request',
+    '5–7 рабочих дней · срочно по запросу',
+    '5–7 días hábiles · rush bajo solicitud');
+add('Organized packet + checklist PDF',
+    'Структурированный пакет + чек-лист в PDF',
+    'Paquete organizado + checklist en PDF');
+add('Request preparation', 'Заказать подготовку', 'Solicitar preparación');
+
+// Card 3 — Auto deal
+add('Auto deal & major-purchase review',
+    'Разбор автосделки и крупных покупок',
+    'Revisión de compra de auto y adquisiciones mayores');
+add('Pre-signing analysis of the complete dealer worksheet.',
+    'Разбор полного дилерского листа до подписания.',
+    'Análisis previo a la firma de la hoja completa del concesionario.');
+add('True monthly payment, doc-fee / GAP / warranty threshold checks, and a negotiation memo. Same-day rush available.',
+    'Реальный ежемесячный платёж, проверка порогов по doc fee / GAP / гарантии и записка для переговоров. Доступен срочный режим в день обращения.',
+    'Pago mensual real, verificación de umbrales en doc fee / GAP / garantía y memo de negociación. Rush en el mismo día disponible.');
+add('Tier 1 · Quick', 'Тариф 1 · быстрый', 'Nivel 1 · Rápido');
+add('Tier 2 · Full breakdown', 'Тариф 2 · полный разбор', 'Nivel 2 · Análisis completo');
+add('Same-day rush', 'Срочно в день обращения', 'Rush en el mismo día');
+add('2 business days · same-day with rush',
+    '2 рабочих дня · день в день со срочностью',
+    '2 días hábiles · mismo día con rush');
+add('True-cost breakdown + negotiation memo',
+    'Разбор реальной стоимости + записка для переговоров',
+    'Desglose de costo real + memo de negociación');
+
+// Card 4 — Florida small claims
+add('Florida small-claims help',
+    'Помощь по small-claims во Флориде',
+    'Apoyo de small claims en Florida');
+add('Counsel-ready packet for the small-claims desk.',
+    'Готовый к подаче пакет для отдела small-claims.',
+    'Paquete listo para abogado para la mesa de small claims.');
+add('Statement of claim, exhibit set, service-of-process worksheet, filing-fee schedule. We organize the file; you (or your attorney) file.',
+    'Иск, комплект приложений, лист по вручению (service of process) и таблица госпошлин. Мы готовим досье; подаёте вы или ваш адвокат.',
+    'Demanda, juego de anexos, hoja de notificación (service of process) y tabla de tarifas. Nosotros organizamos el expediente; usted (o su abogado) lo presenta.');
+add('Tier 1 · Standard', 'Тариф 1 · стандарт', 'Nivel 1 · Estándar');
+add('Tier 2 · With exhibits', 'Тариф 2 · с приложениями', 'Nivel 2 · Con anexos');
+add('5–7 business days', '5–7 рабочих дней', '5–7 días hábiles');
+add('Filing-ready PDF + exhibit index',
+    'PDF к подаче + индекс приложений',
+    'PDF listo para presentar + índice de anexos');
+add('Request packet', 'Заказать пакет', 'Solicitar paquete');
+
+// Extra cards
+add('More services', 'Другие услуги', 'Más servicios');
+add('Need something tied to a specific filing?',
+    'Нужна работа, привязанная к конкретной подаче?',
+    '¿Necesita algo ligado a una presentación específica?');
+add('Pre-purchase document review for major non-auto purchases, lease re-negotiation memos, and document organization for personal matters that aren\'t on this list — all at the same fixed-scope discipline. Ask at intake.',
+    'Разбор документов перед крупными неавто-покупками, записки по перезаключению договора аренды и систематизация документов по частным вопросам, которых нет в списке — на той же дисциплине фиксированного объёма. Уточните на приёме.',
+    'Revisión documental previa a compras mayores no automotrices, memos de renegociación de arrendamiento y organización documental para asuntos personales fuera de esta lista — con la misma disciplina de alcance fijo. Consúltelo en el intake.');
+add('Confidential', 'Конфиденциально', 'Confidencial');
+add('Mutual NDA available before document exchange.',
+    'Взаимное NDA доступно до обмена документами.',
+    'NDA mutuo disponible antes del intercambio documental.');
+add('For matters where the document itself is sensitive (separation, employment dispute, family-business contracts), we route through a mutual NDA before you forward anything. Standard practice on private-client work.',
+    'Если сам документ чувствительный (раздел имущества, трудовой спор, договоры в семейном бизнесе), мы заключаем взаимное NDA до пересылки. Стандарт для работы с частными клиентами.',
+    'Cuando el documento mismo es sensible (separación, disputa laboral, contratos de empresa familiar), pasamos por un NDA mutuo antes de enviar cualquier cosa. Práctica estándar para clientes privados.');
+
+add('Scope reminder', 'Уточнение по объёму', 'Aclaración de alcance');
+add('What we do — and what we don\'t.',
+    'Что мы делаем — и чего не делаем.',
+    'Lo que hacemos — y lo que no.');
+add('VitaCoreX Consulting is a Florida-registered documentation firm. We are not a law firm, do not provide legal advice, and do not represent clients in court or before USCIS. We assemble counsel-ready packets that you or your attorney use. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
+    'VitaCoreX Consulting — компания по документообороту, зарегистрированная во Флориде. Мы не юридическая фирма, не оказываем юридических консультаций и не представляем клиентов в суде или USCIS. Мы готовим пакеты, которые используете вы или ваш адвокат. Правила штатов о неавторизованной юридической практике подтверждаются до начала работы.',
+    'VitaCoreX Consulting es una firma de documentación registrada en Florida. No somos bufete de abogados, no brindamos asesoría legal y no representamos clientes ante tribunales ni USCIS. Armamos paquetes listos para abogados que usted o su abogado utilizan. Las normas estatales sobre práctica no autorizada del derecho se confirman antes del compromiso.');
+
+// ─── FOUNDER SERVICES PAGE (founder-services.html) ────────────
+add('For Founders · LLC formation · Business plan · Location · Turnkey opening',
+    'Для основателей · регистрация LLC · бизнес-план · локация · открытие под ключ',
+    'Para fundadores · formación de LLC · plan de negocio · ubicación · apertura llave en mano');
+add('Open the company. File clean. Be operational on day one.',
+    'Открыть компанию. Подать чисто. Работать с первого дня.',
+    'Abra la empresa. Presente limpio. Operativo desde el primer día.');
+add('Coordinated documentation for U.S. business formation: filing-ready entity packets, investor-readable business plans, pre-lease location diligence, and a turnkey opening track that pulls formation, licensing, banking, and lease review into one timeline. Pricing published below.',
+    'Координированная документация для открытия бизнеса в США: готовые к подаче пакеты регистрации, инвестируемые бизнес-планы, до-арендный анализ локации и опция «под ключ», объединяющая регистрацию, лицензии, банк и проверку договора аренды в один график. Цены опубликованы ниже.',
+    'Documentación coordinada para apertura de empresa en EE. UU.: paquetes de constitución listos para presentar, planes de negocio legibles por inversores, due diligence previo al arrendamiento y una vía llave en mano que reúne formación, licencias, banca y revisión de arrendamiento en un solo cronograma. Precios publicados abajo.');
+add('Founder services', 'Услуги для основателей', 'Servicios para fundadores');
+add('Four defined-scope deliverables for U.S. business opening.',
+    'Четыре чётко описанные услуги для открытия бизнеса в США.',
+    'Cuatro entregables de alcance definido para abrir negocio en EE. UU.');
+add('Each service below lists exactly what you receive, how long it takes, and at what price — before you commit. Filing happens cleanly the first time, on a timeline you can plan around.',
+    'У каждой услуги ниже заранее указано: что входит, сколько займёт и сколько стоит. Подача проходит чисто с первого раза, в график, который можно планировать.',
+    'Cada servicio abajo detalla qué recibe, cuánto tarda y a qué precio — antes de comprometerse. La presentación sale limpia a la primera, en un cronograma que puede planificar.');
+
+// LLC Formation
+add('LLC formation & registration',
+    'Регистрация LLC и компании',
+    'Formación de LLC y registro');
+add('Filing-ready packet for a U.S. LLC or corporation.',
+    'Готовый к подаче пакет для LLC или корпорации в США.',
+    'Paquete listo para presentar de una LLC o corporación de EE. UU.');
+add('Articles, operating-agreement draft, EIN application, registered-agent documentation, and post-filing compliance calendar. State selected at intake.',
+    'Articles, проект operating agreement, заявка на EIN, документы registered agent и календарь первичного комплаенса. Штат выбираем на приёме.',
+    'Articles, borrador de operating agreement, solicitud de EIN, documentación de registered agent y calendario inicial de cumplimiento. Estado seleccionado en el intake.');
+add('Starts from', 'Стартует от', 'Desde');
+add('Scope', 'Объём', 'Alcance');
+add('One U.S. entity + owner documents',
+    'Одна компания в США + документы владельцев',
+    'Una entidad de EE. UU. + documentos de los propietarios');
+add('5–7 business days', '5–7 рабочих дней', '5–7 días hábiles');
+add('Filing packet PDF + post-filing checklist',
+    'PDF-пакет к подаче + чек-лист после регистрации',
+    'PDF del paquete de presentación + checklist post-registro');
+add('Request packet', 'Заказать пакет', 'Solicitar paquete');
+
+// Business Plan
+add('Business plans & market research',
+    'Бизнес-планы и анализ рынка',
+    'Planes de negocio y estudio de mercado');
+add('Investor-readable plan with a 3-year financial model.',
+    'Читаемый инвестором план с трёхлетней финансовой моделью.',
+    'Plan legible por inversores con modelo financiero a 3 años.');
+add('Positioning, unit economics, competitive landscape, and sensitivity ranges — built to survive a due-diligence read. PDF + editable source files.',
+    'Позиционирование, юнит-экономика, конкурентная карта и сценарии чувствительности — рассчитано на проверку при due diligence. PDF + редактируемые исходники.',
+    'Posicionamiento, economía unitaria, panorama competitivo y rangos de sensibilidad — preparado para sobrevivir a un due diligence. PDF + archivos fuente editables.');
+add('One plan up to 30 pages + appendix',
+    'Один план до 30 страниц + приложение',
+    'Un plan hasta 30 páginas + anexo');
+add('10–14 business days', '10–14 рабочих дней', '10–14 días hábiles');
+add('Plan PDF + editable source files',
+    'PDF плана + редактируемые исходники',
+    'PDF del plan + archivos fuente editables');
+add('Request plan', 'Заказать план', 'Solicitar plan');
+
+// Location Analysis
+add('Location analysis (U.S.)',
+    'Анализ локации (США)',
+    'Análisis de ubicación (EE. UU.)');
+add('Pre-lease diligence on a U.S. address before you sign.',
+    'Due diligence по адресу в США до подписания договора аренды.',
+    'Due diligence previo al arrendamiento de una dirección en EE. UU. antes de firmar.');
+add('Demographics, daytime + drive-time traffic, zoning and permit history, and a competitive map with drive-time buffers.',
+    'Демография, дневной и drive-time трафик, зонирование и история разрешений, конкурентная карта с буферами drive-time.',
+    'Demografía, tráfico diurno y drive-time, zonificación e historial de permisos, y mapa competitivo con buffers de drive-time.');
+add('One U.S. address + up to 2 comparables',
+    'Один адрес в США + до 2 сравнимых объектов',
+    'Una dirección de EE. UU. + hasta 2 comparables');
+add('7–10 business days', '7–10 рабочих дней', '7–10 días hábiles');
+add('Location analysis PDF with comparables',
+    'PDF анализа локации со сравнимыми объектами',
+    'PDF de análisis de ubicación con comparables');
+add('Request analysis', 'Заказать анализ', 'Solicitar análisis');
+
+// Turnkey
+add('Turnkey opening', 'Открытие под ключ', 'Apertura llave en mano');
+add('Coordinated bundle — formation through first-day-ready.',
+    'Координированный пакет — от регистрации до готовности к первому рабочему дню.',
+    'Paquete coordinado — desde la formación hasta el listo-para-operar.');
+add('Formation + licensing + banking guidance + lease review under one project timeline. One point of contact, one consolidated packet, a known opening date.',
+    'Регистрация + лицензии + сопровождение по банку + проверка договора аренды в одном графике. Один контакт, один итоговый пакет, известная дата открытия.',
+    'Formación + licencias + acompañamiento bancario + revisión de arrendamiento bajo un mismo cronograma. Un punto de contacto, un paquete consolidado, una fecha de apertura conocida.');
+add('One opening — formation through first-day-ready',
+    'Одно открытие — от регистрации до готовности к работе',
+    'Una apertura — de la formación al listo-para-operar');
+add('3–5 weeks end-to-end', '3–5 недель end-to-end', '3–5 semanas end-to-end');
+add('Consolidated opening packet + project timeline',
+    'Итоговый пакет открытия + график проекта',
+    'Paquete de apertura consolidado + cronograma del proyecto');
+
+// Founder extras
+add('Need a state-specific permit or licensing track?',
+    'Нужен путь со штатной лицензией или специфическим разрешением?',
+    '¿Necesita un permiso o vía de licencia específica del estado?');
+add('Sales-tax registration, professional licensing, sector permits (food service, cosmetology, contractor), and out-of-state foreign-qualification filings — available on request after intake. Same fixed-scope pricing discipline.',
+    'Регистрация sales tax, профессиональные лицензии, отраслевые разрешения (общепит, косметология, подрядчик) и foreign qualification в других штатах — по запросу после приёма. Та же дисциплина фиксированного объёма и цены.',
+    'Registro de sales tax, licencias profesionales, permisos sectoriales (alimentos, cosmetología, contratista) y foreign qualification fuera del estado — bajo solicitud después del intake. Misma disciplina de alcance y precio fijo.');
+add('Pricing', 'Цены', 'Precios');
+add('Full pricing ladder.', 'Полная сетка цен.', 'Tabla completa de precios.');
+add('Side-by-side pricing across founder and corporate engagements, including monthly retainer tiers and matter-by-matter fixed-fee work. Transparent before the call.',
+    'Сравнение цен по работам с основателями и корпоративными клиентами, включая месячные ретейнеры и фиксированные тарифы по конкретным делам. Прозрачно ещё до первого звонка.',
+    'Comparativa de precios entre encargos para fundadores y corporativos, incluidos retenedores mensuales y trabajo por caso a tarifa fija. Transparente antes de la llamada.');
+add('See full pricing', 'Полная сетка цен', 'Ver precios completos');
+
+add('VitaCoreX Consulting prepares and files business-formation documents as a third-party filer. We are not a law firm, do not provide legal, tax, or immigration advice, and do not act as CPAs or attorneys. For tax strategy, complex ownership structures, or immigration-linked formation (EB-5, L-1, E-2), we refer you to licensed counsel.',
+    'VitaCoreX Consulting готовит и подаёт документы по регистрации бизнеса как сторонний регистратор. Мы не юридическая фирма, не даём юридических, налоговых и иммиграционных консультаций и не действуем как CPA или адвокаты. Для налоговой стратегии, сложных структур владения или формирования, привязанного к иммиграции (EB-5, L-1, E-2), направляем к лицензированным консультантам.',
+    'VitaCoreX Consulting prepara y presenta documentos de formación empresarial como tramitador tercero. No somos bufete de abogados, no damos asesoría legal, fiscal ni de inmigración, y no actuamos como CPA ni abogados. Para estrategia fiscal, estructuras de propiedad complejas o formación ligada a inmigración (EB-5, L-1, E-2), le derivamos a asesores con licencia.');
+
 // ─── INSIGHTS PAGE (rebuild) ──────────────────────────────────
 add('Insights · Operating briefs and executive reviews',
     'Инсайты · операционные сводки и материалы для руководства',
