@@ -38,6 +38,16 @@
       "source": "/app/",
       "destination": "/app/sign-in/",
       "permanent": false
+    },
+    {
+      "source": "/resources",
+      "destination": "/insights.html",
+      "permanent": true
+    },
+    {
+      "source": "/resources.html",
+      "destination": "/insights.html",
+      "permanent": true
     }
   ],
   "rewrites": [
