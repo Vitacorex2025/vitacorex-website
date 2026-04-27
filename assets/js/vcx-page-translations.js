@@ -3270,6 +3270,12 @@ add('Boutique advisory firms are bought as much for the principal as for the met
 add('Steven Miller',
     'Стивен Миллер',
     'Steven Miller');
+add('Steven',
+    'Стивен',
+    'Steven');
+add('Miller',
+    'Миллер',
+    'Miller');
 add('Founder & Managing Director',
     'Основатель и управляющий директор',
     'Fundador y director general');
