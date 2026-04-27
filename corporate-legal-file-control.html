@@ -378,8 +378,125 @@
 <p class="vcx-rail-head__lede" data-page="clfc_visuals_intro">Premium file control should read like operating infrastructure. These tools translate legal-adjacent administrative drag into CFO language and make readiness visible before counsel review begins.</p>
 <p class="vcx-claim-caveat vcx-claim-caveat--paragraph" data-page="vcx_claim_caveat_paragraph_illustrative">Illustrative figures — individual engagements vary by portfolio condition at intake.</p>
 </div>
-<div class="vcx-dashboard-rail" aria-label="File control board — four operational tiles">
-<article class="vcx-dashboard-rail__tile widget-card legal-premium-card reveal">
+<style>
+.vcx-clfc-expand-cards {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 540px;
+  transition: grid-template-columns 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 980px) {
+  .vcx-clfc-expand-cards {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 5fr 1fr 1fr 1fr;
+    height: auto;
+    min-height: 720px;
+    transition: grid-template-rows 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+.vcx-clfc-expand-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 26, 36, 0.08);
+  background: #FFFFFF;
+  cursor: pointer;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 0;
+}
+.vcx-clfc-expand-card__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0);
+  transform: scale(1.1);
+  transition: filter 500ms ease, transform 500ms ease;
+  z-index: 0;
+}
+.vcx-clfc-expand-card[data-active="true"] .vcx-clfc-expand-card__bg {
+  filter: saturate(0.05);
+  transform: scale(1);
+}
+.vcx-clfc-expand-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 26, 36, 0.55) 0%, rgba(15, 26, 36, 0.85) 100%);
+  z-index: 1;
+  transition: background 500ms ease;
+}
+.vcx-clfc-expand-card[data-active="true"] .vcx-clfc-expand-card__overlay {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+.vcx-clfc-expand-card__rot {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 2;
+  transform-origin: left bottom;
+  transform: rotate(-90deg) translateX(0);
+  white-space: nowrap;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  pointer-events: none;
+  transition: opacity 280ms ease;
+  opacity: 1;
+}
+.vcx-clfc-expand-card[data-active="true"] .vcx-clfc-expand-card__rot { opacity: 0; }
+.vcx-clfc-expand-card__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity 320ms ease 100ms;
+  overflow-y: auto;
+}
+.vcx-clfc-expand-card[data-active="true"] .vcx-clfc-expand-card__content { opacity: 1; }
+.vcx-clfc-expand-card .pill {
+  align-self: flex-start;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: rgba(43, 179, 192, 0.10);
+  color: #2D8A82;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.vcx-clfc-expand-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(20px, 1.8vw, 24px) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  color: #0F1A24 !important;
+  -webkit-text-fill-color: #0F1A24 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+@media (max-width: 980px) {
+  .vcx-clfc-expand-card__rot { transform: none; bottom: auto; top: 18px; left: 18px; }
+}
+</style>
+<div class="vcx-clfc-expand-cards" aria-label="File control board — four operational tiles" id="vcxClfcExpandCards">
+<article class="vcx-clfc-expand-card vcx-dashboard-rail__tile widget-card legal-premium-card reveal" data-active="true" tabindex="0">
+<div class="vcx-clfc-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1753955900083-b62ee8d97805?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-clfc-expand-card__overlay"></div>
+<span class="vcx-clfc-expand-card__rot" data-page="clfc_drag_pill">Counsel economics</span>
+<div class="vcx-clfc-expand-card__content">
 <div class="widget-head">
 <span class="pill" data-page="clfc_drag_pill">Counsel economics</span>
 <h3 data-page="clfc_drag_title">Attorney-rate drag estimator</h3>
@@ -405,8 +522,13 @@
 <strong data-page="clfc_drag_out_2_val">Resourcing and vendor design</strong>
 </div>
 </div>
+</div>
 </article>
-<article class="vcx-dashboard-rail__tile widget-card legal-premium-card reveal">
+<article class="vcx-clfc-expand-card vcx-dashboard-rail__tile widget-card legal-premium-card reveal" data-active="false" tabindex="0">
+<div class="vcx-clfc-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1708793737579-3df8763a5119?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-clfc-expand-card__overlay"></div>
+<span class="vcx-clfc-expand-card__rot" data-page="clfc_readiness_pill">Handoff quality</span>
+<div class="vcx-clfc-expand-card__content">
 <div class="widget-head">
 <span class="pill" data-page="clfc_readiness_pill">Handoff quality</span>
 <h3 data-page="clfc_readiness_title">File readiness index</h3>
@@ -439,8 +561,13 @@
 <strong id="readyStatusOutput">Structured but improvable</strong>
 </div>
 </div>
+</div>
 </article>
-<article class="vcx-dashboard-rail__tile legal-chart-card reveal">
+<article class="vcx-clfc-expand-card vcx-dashboard-rail__tile legal-chart-card reveal" data-active="false" tabindex="0">
+<div class="vcx-clfc-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-clfc-expand-card__overlay"></div>
+<span class="vcx-clfc-expand-card__rot" data-page="clfc_chart_pill">Matter visibility</span>
+<div class="vcx-clfc-expand-card__content">
 <div class="widget-head">
 <span class="pill" data-page="clfc_chart_pill">Matter visibility</span>
 <h3 data-page="clfc_chart_title">Illustrative matter flow</h3>
@@ -453,8 +580,13 @@
 <div class="bar-row"><span data-page="clfc_chart_bar_4">Decision-ready file</span><div class="bar-track"><div class="bar-fill bar-fill-d" style="width:88%"></div></div></div>
 </div>
 <p class="small-note" data-page="clfc_chart_note">Illustrative view for executive framing. Actual mix depends on file quality, documentation completeness, and matter complexity.</p>
+</div>
 </article>
-<article class="vcx-dashboard-rail__tile legal-chart-card legal-governance-card reveal">
+<article class="vcx-clfc-expand-card vcx-dashboard-rail__tile legal-chart-card legal-governance-card reveal" data-active="false" tabindex="0">
+<div class="vcx-clfc-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1633520833019-e34afd4b8fad?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-clfc-expand-card__overlay"></div>
+<span class="vcx-clfc-expand-card__rot" data-page="clfc_gov_pill">Documentation governance</span>
+<div class="vcx-clfc-expand-card__content">
 <div class="widget-head">
 <span class="pill" data-page="clfc_gov_pill">Documentation governance</span>
 <h3 data-page="clfc_gov_title">What premium file control should signal</h3>
@@ -465,13 +597,47 @@
 <li data-page="clfc_gov_3">Escalation records and authorizations stay auditable</li>
 <li data-page="clfc_gov_4">Finance, operations, and counsel work from the same file logic</li>
 </ul>
+</div>
 </article>
 </div>
+<script>
+(function(){
+  var grid = document.getElementById('vcxClfcExpandCards');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.vcx-clfc-expand-card');
+  var isDesktop = function(){ return window.matchMedia('(min-width: 981px)').matches; };
+  function activate(idx) {
+    cards.forEach(function(c, i){ c.setAttribute('data-active', i === idx ? 'true' : 'false'); });
+    var ratio = Array.prototype.map.call(cards, function(_, i){ return i === idx ? '5fr' : '1fr'; }).join(' ');
+    if (isDesktop()) {
+      grid.style.gridTemplateColumns = ratio;
+      grid.style.gridTemplateRows = '1fr';
+    } else {
+      grid.style.gridTemplateRows = ratio;
+      grid.style.gridTemplateColumns = '1fr';
+    }
+  }
+  cards.forEach(function(card, i) {
+    card.addEventListener('mouseenter', function(){ activate(i); });
+    card.addEventListener('focus', function(){ activate(i); });
+    card.addEventListener('click', function(){ activate(i); });
+  });
+  activate(0);
+  window.addEventListener('resize', function(){
+    var openIdx = 0;
+    cards.forEach(function(c, i){ if (c.getAttribute('data-active') === 'true') openIdx = i; });
+    activate(openIdx);
+  });
+})();
+</script>
 <p class="vcx-legal-boundary"><strong>Scope reminder.</strong> The Attorney-rate drag estimator and File readiness index are directional operator tools, not legal advice or fee quotes. Final scope and pricing are confirmed after intake and document review. VitaCoreX LLC is not a law firm.</p>
 </section>
-<section class="section vcx-clfc-cost-suite" id="attorney-cleanup-exposure" aria-labelledby="attorneyCleanupExposureTitle">
+<section class="section vcx-clfc-cost-suite" id="attorney-cleanup-exposure" aria-labelledby="attorneyCleanupExposureTitle" style="position:relative;isolation:isolate;">
+<div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/img/clfc-skyway-bridge.jpg');background-size:cover;background-position:center;z-index:0;"></div>
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 248, 0.86) 0%, rgba(255, 255, 255, 0.94) 65%, rgba(255, 255, 255, 0.98) 100%);z-index:1;"></div>
 <style>
-.vcx-clfc-cost-suite { padding: clamp(56px, 8vh, 96px) 0; background: linear-gradient(180deg, #F4F7F8 0%, #FFFFFF 100%); }
+.vcx-clfc-cost-suite { padding: clamp(56px, 8vh, 96px) 0; }
+.vcx-clfc-cost-suite > .wrap { position: relative; z-index: 2; }
 .vcx-clfc-cost-suite .wrap { max-width: 1280px; padding: 0 24px; }
 .vcx-clfc-cost-suite__head { max-width: 920px; margin: 0 0 clamp(36px, 5vh, 56px); }
 .vcx-clfc-cost-suite__head .eyebrow {
