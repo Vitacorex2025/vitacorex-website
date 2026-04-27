@@ -113,6 +113,57 @@ body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-item {
   border-color: rgba(124, 210, 222, 0.14) !important;
 }
 
+/* Three-up section (Квалификация / Рекомендация / Линия частной консультации):
+   re-pin pill + button + phone callout colors to header/footer palette
+   (dark teal #0A2530 / #123E4C, cyan accent #7CD2DE). */
+body[data-vcx-page="home"] .vcx-fit-three-up .pill {
+  background: rgba(18, 62, 76, 0.08) !important;
+  color: #0A2530 !important;
+  -webkit-text-fill-color: #0A2530 !important;
+  border-color: rgba(18, 62, 76, 0.16) !important;
+}
+
+body[data-vcx-page="home"] .vcx-fit-three-up .btn-primary,
+body[data-vcx-page="home"] .vcx-fit-three-up-cta .btn-primary {
+  background: linear-gradient(180deg, #123E4C 0%, #0A2530 100%) !important;
+  background-color: #0A2530 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border-color: #0A2530 !important;
+  box-shadow: 0 6px 16px -8px rgba(10, 37, 48, 0.4) !important;
+}
+body[data-vcx-page="home"] .vcx-fit-three-up .btn-primary:hover,
+body[data-vcx-page="home"] .vcx-fit-three-up-cta .btn-primary:hover {
+  background: linear-gradient(180deg, #1A516A 0%, #123E4C 100%) !important;
+  box-shadow: 0 12px 28px -10px rgba(10, 37, 48, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+body[data-vcx-page="home"] .vcx-fit-three-up .btn-secondary {
+  background: transparent !important;
+  color: #0A2530 !important;
+  -webkit-text-fill-color: #0A2530 !important;
+  border-color: rgba(18, 62, 76, 0.30) !important;
+}
+body[data-vcx-page="home"] .vcx-fit-three-up .btn-secondary:hover {
+  background: rgba(124, 210, 222, 0.10) !important;
+  border-color: #123E4C !important;
+}
+
+/* Phone callout box: subtle cyan tint matching the new accent */
+body[data-vcx-page="home"] .vcx-fit-three-up .concierge-phone {
+  background: rgba(124, 210, 222, 0.10) !important;
+  border-color: rgba(18, 62, 76, 0.16) !important;
+}
+body[data-vcx-page="home"] .vcx-fit-three-up .concierge-phone span {
+  color: #4A6675 !important;
+  -webkit-text-fill-color: #4A6675 !important;
+}
+body[data-vcx-page="home"] .vcx-fit-three-up .concierge-phone strong {
+  color: #0A2530 !important;
+  -webkit-text-fill-color: #0A2530 !important;
+}
+
 /* Mobile: relax */
 @media (max-width: 768px) {
   :root {
