@@ -133,7 +133,12 @@
 .pcp-mechanics .wrap{max-width:1180px;}
 .pcp-mechanics__head{max-width:860px;margin:0 auto clamp(40px,6vh,64px);text-align:center;display:block;}
 .pcp-mechanics__eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;margin-bottom:14px;}
-.pcp-mechanics__head h2{display:block;width:100%;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;font-weight:800;letter-spacing:-.015em;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;margin:0 auto 16px;text-align:center;text-wrap:balance;}
+.pcp-mechanics__head h2{display:block !important;width:100% !important;max-width:100% !important;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;font-weight:800;letter-spacing:-.015em;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;margin:0 auto 16px !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;text-wrap:balance;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-mechanics__head{display:block !important;max-width:860px !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-mechanics__head h2,
+body[data-vcx-page="pre-collection-pilot"] .pcp-mechanics__head p,
+body[data-vcx-page="pre-collection-pilot"] .pcp-mechanics__head span{display:block !important;width:100% !important;max-width:100% !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;}
+body[data-vcx-page="pre-collection-pilot"] .pcp-mechanics__head .pcp-mechanics__eyebrow{display:inline-block !important;width:auto !important;}
 .pcp-mechanics__head p{font-size:clamp(1rem,1.2vw,1.08rem);line-height:1.65;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0;}
 
 .pcp-mechanics__row{margin:0 0 clamp(36px,5vh,52px);}
@@ -632,7 +637,7 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 <article class="pcp-col-card" style="background:#FFFFFF;padding:28px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(26,79,74,.06);border-top:3px solid #2D8A82;">
 <p style="margin:0 0 6px;color:#2D8A82;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase" data-page="pcp_other_diag_eyebrow">Tier 1 &middot; Revenue Recovery Diagnostic</p>
 <h3 style="margin:0 0 12px;color:#1A2F2A;font-size:1.15rem;font-weight:800;line-height:1.3" data-page="pcp_other_diag_title">Fixed fee &mdash; $1,500</h3>
-<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55" data-page="pcp_other_diag_desc"><strong>Best for:</strong> companies that want a limited review before committing to an implementation or pilot. Two-week scoped audit with written brief: workflow audit, AR leakage map, file-control gap log, 12-month roadmap, 45-minute readout. Fee is credited against a subsequent Paid Workflow Pilot if engaged within 30 days.</p>
+<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55"><strong data-page="pcp_other_bestfor_lbl">Best for:</strong> <span data-page="pcp_other_diag_desc">companies that want a limited review before committing to an implementation or pilot. Two-week scoped audit with written brief: workflow audit, AR leakage map, file-control gap log, 12-month roadmap, 45-minute readout. Fee is credited against a subsequent Paid Workflow Pilot if engaged within 30 days.</span></p>
 <ul style="margin:0 0 16px;padding-left:18px;font-size:.88rem;color:#3A4A5B;line-height:1.55">
 <li data-page="pcp_other_diag_b1">Remote kickoff, data intake, recovery-probability model</li>
 <li data-page="pcp_other_diag_b2">Written deliverable plus 45-minute readout</li>
@@ -643,7 +648,7 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 <article class="pcp-col-card" style="background:#FFFFFF;padding:28px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(11,31,48,.08);border:1px solid rgba(26,79,74,.06);border-top:3px solid #1A4F4A;">
 <p style="margin:0 0 6px;color:#1A4F4A;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase" data-page="pcp_other_cop_eyebrow">Tier 2 &middot; Paid Workflow Pilot</p>
 <h3 style="margin:0 0 12px;color:#1A2F2A;font-size:1.15rem;font-weight:800;line-height:1.3" data-page="pcp_other_cop_title">From $2,500/month</h3>
-<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55" data-page="pcp_other_cop_desc"><strong>Best for:</strong> companies that need workflow buildout, documentation controls, dashboards, SOPs, and file readiness but do not qualify for the no-retainer recovery pilot. Broader than recovery alone &mdash; fee is committed regardless of outcome; performance-linked component available on request.</p>
+<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55"><strong data-page="pcp_other_bestfor_lbl">Best for:</strong> <span data-page="pcp_other_cop_desc">companies that need workflow buildout, documentation controls, dashboards, SOPs, and file readiness but do not qualify for the no-retainer recovery pilot. Broader than recovery alone &mdash; fee is committed regardless of outcome; performance-linked component available on request.</span></p>
 <ul style="margin:0 0 16px;padding-left:18px;font-size:.88rem;color:#3A4A5B;line-height:1.55">
 <li data-page="pcp_other_cop_b1">Workflow buildout, SOPs, escalation ladder</li>
 <li data-page="pcp_other_cop_b2">Documentation controls, dashboards, file readiness</li>
@@ -654,7 +659,7 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 <article class="pcp-col-card" style="background:#FFFFFF;padding:28px 26px;border-radius:14px;box-shadow:0 8px 24px rgba(91,186,167,.22);border:2px solid #5BBAA7;border-top:3px solid #5BBAA7;">
 <p style="margin:0 0 6px;color:#2D8A82;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase" data-page="pcp_other_qnrp_eyebrow">Tier 3 &middot; Qualified Net Recovery Pilot</p>
 <h3 style="margin:0 0 12px;color:#1A2F2A;font-size:1.15rem;font-weight:800;line-height:1.3" data-page="pcp_other_qnrp_title">$0 upfront &mdash; success fee only</h3>
-<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55" data-page="pcp_other_qnrp_desc"><strong>Best for:</strong> U.S. companies with qualifying AR portfolios. Upfront fee: $0 for approved portfolios. Compensation: success fee only on eligible recovered cash (15% / 18% / 22.5% by AR age band).</p>
+<p style="margin:0 0 14px;color:#4A5A52;font-size:.95rem;line-height:1.55"><strong data-page="pcp_other_bestfor_lbl">Best for:</strong> <span data-page="pcp_other_qnrp_desc">U.S. companies with qualifying AR portfolios. Upfront fee: $0 for approved portfolios. Compensation: success fee only on eligible recovered cash (15% / 18% / 22.5% by AR age band).</span></p>
 <p style="margin:0 0 10px;color:#1A2F2A;font-size:.85rem;font-weight:700" data-page="pcp_other_qnrp_excl_h">Explicitly excludes:</p>
 <ul style="margin:0 0 16px;padding-left:18px;font-size:.85rem;color:#3A4A5B;line-height:1.5">
 <li data-page="pcp_other_qnrp_excl_1">Legal advice</li>
@@ -750,7 +755,7 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 </div>
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
-<script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=52" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script>
+<script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=53" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
 <script src="/assets/js/vcx-nav.js?v=7" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-footer-modern.css?v=3">
