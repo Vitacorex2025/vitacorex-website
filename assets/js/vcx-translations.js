@@ -154,6 +154,8 @@ en: {
   ind_wedge_cta2:     'Request confidential review',
 
   /* ── Institutional authority (v52) ─────────────────────────── */
+  examples_eyebrow:   'Illustrative engagement outcomes',
+  examples_intro:     'Representative scenarios modeled on composite client engagements. Exact figures vary by portfolio age, file completeness, and operator readiness.',
   v52_eyebrow:        'Institutional authority',
   v52_title:          'Institutional advisory infrastructure for revenue recovery, corporate legal file control, and disciplined execution.',
   v52_intro:          'Designed for complex operators that need cleaner documentation control, stronger escalation discipline, and a more credible operating model before external cost expands.',
@@ -2265,6 +2267,8 @@ ru: {
   ind_wedge_cta1:     'Обзор отраслевых страниц',
   ind_wedge_cta2:     'Запросить конфиденциальный разбор',
 
+  examples_eyebrow:   'Иллюстративные результаты работ',
+  examples_intro:     'Репрезентативные сценарии, смоделированные на основе сводных клиентских проектов. Точные цифры зависят от возраста портфеля, полноты файлов и готовности оператора.',
   v52_eyebrow:        'Институциональный авторитет',
   v52_title:          'Институциональная консалтинговая инфраструктура для возврата выручки, контроля юридической документации и дисциплинированного исполнения.',
   v52_intro:          'Разработано для сложных операторов, которым нужен более чистый контроль документации, более сильная дисциплина эскалации и более убедительная операционная модель до роста внешних затрат.',
@@ -4379,6 +4383,8 @@ es: {
   ind_wedge_cta1:     'Revisar paginas industriales',
   ind_wedge_cta2:     'Solicitar revision confidencial',
 
+  examples_eyebrow:   'Resultados ilustrativos de los encargos',
+  examples_intro:     'Escenarios representativos modelados a partir de encargos compuestos. Las cifras exactas varían según la antigüedad del portafolio, la integridad documental y la preparación del operador.',
   v52_eyebrow:        'Autoridad institucional',
   v52_title:          'Infraestructura de consultoria institucional para recuperacion de ingresos, control de expediente legal corporativo y ejecucion disciplinada.',
   v52_intro:          'Disenada para operadores complejos que necesitan un control de documentacion mas limpio, una disciplina de escalamiento mas fuerte y un modelo operativo mas creible antes de que los costos externos se expandan.',

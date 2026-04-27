@@ -4161,6 +4161,83 @@ add('No mechanical inspection \u2014 we only review paperwork. For mechanical in
     'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
     'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
 
+// ─── HOME PAGE — institutional / operator-profile sections ────
+add('Institutional authority',
+    'Институциональный авторитет',
+    'Autoridad institucional');
+add('Designed for complex operators that need stronger documentation, cleaner escalation pathways, and a more credible handoff before outside cost expands.',
+    'Создано для сложных операторов, которым нужна более сильная документация, чистые маршруты эскалации и убедительная передача дел до роста внешних расходов.',
+    'Diseñado para operadores complejos que necesitan documentación más sólida, vías de escalación más limpias y un traspaso más creíble antes de que crezcan los costos externos.');
+
+add('Operator profiles',
+    'Профили операторов',
+    'Perfiles de operadores');
+add('Where VitaCoreX operates',
+    'Где работает VitaCoreX',
+    'Dónde opera VitaCoreX');
+add('We support organizations managing contractual complexity across multiple operating environments.',
+    'Мы поддерживаем организации, управляющие договорной сложностью в нескольких операционных средах.',
+    'Apoyamos a organizaciones que gestionan complejidad contractual en múltiples entornos operativos.');
+
+add('Healthcare operators',
+    'Операторы в здравоохранении',
+    'Operadores de salud');
+add('Fleet and fuel-card programs',
+    'Автопарки и программы fuel-card',
+    'Flotas y programas de fuel-card');
+add('Subscription platforms',
+    'Подписочные платформы',
+    'Plataformas de suscripción');
+add('Multi-location service networks',
+    'Сервисные сети с несколькими локациями',
+    'Redes de servicios multi-ubicación');
+add('Contract-based commercial portfolios',
+    'Контрактные коммерческие портфели',
+    'Carteras comerciales basadas en contratos');
+
+add('Documentation control that supports finance, compliance, and external counsel',
+    'Контроль документации, поддерживающий финансы, комплаенс и внешних юристов',
+    'Control documental que apoya a finanzas, cumplimiento y abogados externos');
+add('VitaCoreX structures files, payment documentation, and escalation records so legal strategy is not blocked by missing or fragmented evidence.',
+    'VitaCoreX структурирует файлы, платёжную документацию и записи эскалации так, чтобы юридическая стратегия не блокировалась отсутствующими или фрагментированными доказательствами.',
+    'VitaCoreX estructura archivos, documentación de pagos y registros de escalación para que la estrategia legal no se vea bloqueada por evidencia faltante o fragmentada.');
+
+add('Auditable file structure and evidence packaging',
+    'Проверяемая структура файлов и сборка доказательной базы',
+    'Estructura de archivos auditable y empaquetado de evidencia');
+add('Payment-plan documentation and authorization control',
+    'Документация платёжных планов и контроль авторизаций',
+    'Documentación de planes de pago y control de autorizaciones');
+add('Paralegal-grade preparation under consulting engagements',
+    'Подготовка уровня paralegal в рамках консалтинговых контрактов',
+    'Preparación a nivel paralegal bajo contratos de consultoría');
+add('Cleaner handoff to outside counsel when escalation is necessary',
+    'Более чистая передача внешнему юристу, когда необходима эскалация',
+    'Traspaso más limpio al abogado externo cuando la escalación es necesaria');
+
+add('Illustrative engagement outcomes',
+    'Иллюстративные результаты работ',
+    'Resultados ilustrativos de los encargos');
+add('Representative scenarios modeled on composite client engagements. Exact figures vary by portfolio age, file completeness, and operator readiness.',
+    'Репрезентативные сценарии, смоделированные на основе сводных клиентских проектов. Точные цифры зависят от возраста портфеля, полноты файлов и готовности оператора.',
+    'Escenarios representativos modelados a partir de encargos compuestos. Las cifras exactas varían según la antigüedad del portafolio, la integridad documental y la preparación del operador.');
+
+// Cookie banner strings (the floating consent block)
+add('Privacy & analytics settings',
+    'Настройки конфиденциальности и аналитики',
+    'Configuración de privacidad y analítica');
+add('We use essential cookies plus optional analytics and marketing trackers to understand visits, improve performance, and measure campaigns. Optional trackers load only after consent.',
+    'Мы используем необходимые cookie и опциональные аналитические и маркетинговые трекеры, чтобы понимать посещаемость, улучшать производительность и измерять кампании. Опциональные трекеры загружаются только после согласия.',
+    'Usamos cookies esenciales más rastreadores opcionales de analítica y marketing para entender visitas, mejorar rendimiento y medir campañas. Los rastreadores opcionales se cargan sólo tras el consentimiento.');
+add('Accept all', 'Принять все', 'Aceptar todo');
+add('Analytics only', 'Только аналитика', 'Sólo analítica');
+add('Essential only', 'Только необходимые', 'Sólo esenciales');
+add('Tracker-ready slots: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.',
+    'Подключаемые трекеры: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.',
+    'Espacios listos para rastreadores: Google Analytics 4, Google Tag Manager, Microsoft Clarity, Hotjar, Meta Pixel, LinkedIn Insight Tag.');
+add('Privacy Policy', 'Политика конфиденциальности', 'Política de privacidad');
+add('Cookie Policy', 'Политика cookie', 'Política de cookies');
+
 // ─── PRIVATE SERVICES PAGE (private-services.html) ────────────
 add('For Private Clients · Contract review · Immigration · Auto deal · Small claims',
     'Для частных клиентов · разбор договора · иммиграция · автосделка · small claims',
@@ -4570,7 +4647,7 @@ add('VitaCoreX LLC is a Florida-registered company providing remote documentatio
    ================================================================ */
 
 // Elements to translate (content area only, skip nav/header/footer handled by shell-i18n)
-var SELECTORS = 'h1, h2, h3, p, li, dt, dd, span.eyebrow, span.pill, a.btn, a.btn-primary, a.btn-secondary, label, option, button[type="submit"], .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3, .pci-hero__eyebrow, .pci-form-card__eyebrow, .pci-form-card__title, .pci-form-card__sub, .pci-sec-head__eyebrow, .pci-trustbar span, .pci-bullets li, .pci-form-note, .pci-disc, .pci-ty-card__eyebrow, .pci-ty-card__lede, .pci-ty-kpi__label, .pci-ty-kpi__value, .pci-cta-soft a';
+var SELECTORS = 'h1, h2, h3, h4, p, li, dt, dd, span.eyebrow, span.pill, span.workflow-chip, a.btn, a.btn-primary, a.btn-secondary, a.vcx-nav-dual__item, label, option, button[type="submit"], button.cookie-btn, .cookie-banner strong, .cookie-banner p, .cookie-banner div, .cookie-meta, .cookie-meta a, .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3, .pci-hero__eyebrow, .pci-form-card__eyebrow, .pci-form-card__title, .pci-form-card__sub, .pci-sec-head__eyebrow, .pci-trustbar span, .pci-bullets li, .pci-form-note, .pci-disc, .pci-ty-card__eyebrow, .pci-ty-card__lede, .pci-ty-kpi__label, .pci-ty-kpi__value, .pci-cta-soft a';
 
 // Skip elements already handled by shell-i18n
 var SKIP_PARENTS = ['vcx-main-nav', 'vcx-mobile-nav', 'footer', 'vcx-header-meta', 'vcx-lang-switch'];
