@@ -549,8 +549,8 @@
 <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 246, 0.18) 0%, rgba(232, 239, 237, 0.32) 60%, rgba(232, 239, 237, 0.55) 100%);z-index:1;"></div>
 <style>
 .vcx-leadership-section > .wrap { position: relative; z-index: 2; }
-/* No frames — just diffuse white text-halo so letters pop on the photo
-   without any visible card edges. */
+/* No frames — diffuse white halo + tiny dark 1px outline around letters
+   so text reads cleanly on any photo region without a card/box. */
 .vcx-leadership-section .section-head .eyebrow,
 .vcx-leadership-section .section-head h2,
 .vcx-leadership-section .section-head .section-intro,
@@ -558,16 +558,31 @@
 .vcx-leadership-section .vcx-founder-editorial__bio,
 .vcx-leadership-section .vcx-founder-editorial__link {
   text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.92),
-    0 0 22px rgba(255, 255, 255, 0.78),
-    0 0 38px rgba(255, 255, 255, 0.55);
+    /* Soft 1px dark outline (4 directions) — makes letters visually thicker */
+    0 1px 0 rgba(11, 31, 48, 0.18),
+    0 -1px 0 rgba(11, 31, 48, 0.18),
+    1px 0 0 rgba(11, 31, 48, 0.18),
+    -1px 0 0 rgba(11, 31, 48, 0.18),
+    /* Wide white halo for separation from photo */
+    0 0 14px rgba(255, 255, 255, 0.98),
+    0 0 28px rgba(255, 255, 255, 0.92),
+    0 0 50px rgba(255, 255, 255, 0.75),
+    0 0 80px rgba(255, 255, 255, 0.45) !important;
+}
+.vcx-leadership-section .vcx-founder-editorial__bio {
+  font-weight: 500 !important;
 }
 .vcx-leadership-section .vcx-founder-editorial__first,
 .vcx-leadership-section .vcx-founder-editorial__last {
   text-shadow:
-    0 0 14px rgba(255, 255, 255, 0.95),
-    0 0 32px rgba(255, 255, 255, 0.80),
-    0 0 56px rgba(255, 255, 255, 0.55);
+    0 1px 0 rgba(11, 31, 48, 0.20),
+    0 -1px 0 rgba(11, 31, 48, 0.20),
+    1px 0 0 rgba(11, 31, 48, 0.20),
+    -1px 0 0 rgba(11, 31, 48, 0.20),
+    0 0 18px rgba(255, 255, 255, 1),
+    0 0 38px rgba(255, 255, 255, 0.95),
+    0 0 70px rgba(255, 255, 255, 0.70),
+    0 0 110px rgba(255, 255, 255, 0.45) !important;
 }
 </style>
 <div class="wrap">
@@ -606,9 +621,9 @@
 .vcx-founder-editorial__cta:hover { transform: scale(1.06); background: #0A2530; border-color: #0A2530; color: #FFFFFF; }
 .vcx-founder-editorial__cta svg { transition: transform 320ms ease; }
 .vcx-founder-editorial__cta:hover svg { transform: rotate(-45deg); }
-.vcx-founder-editorial__bio-wrap { width: 44%; min-width: 280px; }
-.vcx-founder-editorial__bio { margin: 0 0 16px; font-size: 14px; line-height: 1.78; color: #4A5666; }
-.vcx-founder-editorial__links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 13px; }
+.vcx-founder-editorial__bio-wrap { width: 62%; min-width: 320px; max-width: 720px; }
+.vcx-founder-editorial__bio { margin: 0 0 18px; font-size: 16px; line-height: 1.72; color: #4A5666; }
+.vcx-founder-editorial__links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
 .vcx-founder-editorial__link { display: inline-flex; align-items: center; gap: 6px; color: #4A5666; text-decoration: none; border-bottom: 1px solid rgba(74, 86, 102, 0.30); padding-bottom: 2px; transition: color 200ms ease, border-color 200ms ease; }
 .vcx-founder-editorial__link:hover { color: #0F1A24; border-color: #0F1A24; }
 
