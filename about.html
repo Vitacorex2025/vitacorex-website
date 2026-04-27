@@ -280,26 +280,45 @@
 }
 .vcx-svc-card__bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56%;
   background-size: cover;
   background-position: center;
   filter: saturate(1);
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+  transform-origin: center center;
 }
 @media (min-width: 721px) {
-  .vcx-svc-card__bg { filter: saturate(0); }
-  .vcx-svc-card:hover .vcx-svc-card__bg { filter: saturate(1); transform: scale(1.10); }
+  .vcx-svc-card__bg { filter: saturate(0.85); }
+  .vcx-svc-card:hover .vcx-svc-card__bg { filter: saturate(1); transform: scale(1.06); }
 }
+/* The bottom 44% of the card is a solid dark panel where text always lives,
+   guaranteeing readability regardless of photo content. */
 .vcx-svc-card__overlay {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(11, 26, 36, 0.20) 0%, rgba(11, 26, 36, 0.55) 38%, rgba(11, 26, 36, 0.92) 100%);
+  top: 56%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #0F2530 0%, #0A1A24 100%);
   z-index: 1;
   pointer-events: none;
-  transition: background 500ms ease;
+  transition: background 400ms ease;
 }
-.vcx-svc-card:hover .vcx-svc-card__overlay { background: linear-gradient(180deg, rgba(11, 26, 36, 0.32) 0%, rgba(11, 26, 36, 0.66) 38%, rgba(11, 26, 36, 0.96) 100%); }
+/* Soft fade at the seam between photo + dark panel so the join is not abrupt */
+.vcx-svc-card__overlay::before {
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(15, 37, 48, 0) 0%, rgba(15, 37, 48, 0.92) 100%);
+  pointer-events: none;
+}
+.vcx-svc-card:hover .vcx-svc-card__overlay { background: linear-gradient(180deg, #143548 0%, #0F2530 100%); }
 
 .vcx-svc-card__content {
   position: relative;
@@ -310,54 +329,53 @@
   justify-content: space-between;
   padding: 18px 22px 22px;
   color: #FFFFFF;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
-  transition: color 500ms ease;
 }
-.vcx-svc-card:hover .vcx-svc-card__content { color: #FFFFFF; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); }
 
 .vcx-svc-card__arrow {
   align-self: flex-end;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 50%;
+  background: rgba(15, 37, 48, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
 }
-.vcx-svc-card:hover .vcx-svc-card__arrow { transform: rotate(-45deg); }
+.vcx-svc-card:hover .vcx-svc-card__arrow { transform: rotate(-45deg); background: rgba(124, 210, 222, 0.30); }
+
+/* The text block sits at the bottom — inside the solid dark panel */
+.vcx-svc-card__textblock {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
 
 .vcx-svc-card__h {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-family: 'Inter', system-ui, sans-serif !important;
-  font-size: clamp(22px, 2.4vw, 30px) !important;
+  font-size: clamp(20px, 2.2vw, 26px) !important;
   font-weight: 700 !important;
-  line-height: 1.1 !important;
+  line-height: 1.15 !important;
   letter-spacing: -0.01em !important;
-  color: inherit !important;
-  -webkit-text-fill-color: inherit !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   max-width: 100% !important;
+  transition: color 300ms ease;
 }
-.vcx-svc-card__h .vcx-svc-letter {
-  display: inline-block;
-  height: 1.1em;
-  overflow: hidden;
-  vertical-align: top;
-}
-.vcx-svc-card__h .vcx-svc-letter > span {
-  display: flex;
-  flex-direction: column;
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.vcx-svc-card:hover .vcx-svc-card__h .vcx-svc-letter > span { transform: translateY(-50%); }
+.vcx-svc-card:hover .vcx-svc-card__h { color: #7CD2DE !important; -webkit-text-fill-color: #7CD2DE !important; }
 
 .vcx-svc-card__d {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif !important;
   font-size: 13.5px !important;
   line-height: 1.55 !important;
-  color: inherit !important;
-  -webkit-text-fill-color: inherit !important;
-  max-width: 92% !important;
+  color: rgba(225, 235, 240, 0.86) !important;
+  -webkit-text-fill-color: rgba(225, 235, 240, 0.86) !important;
+  max-width: 96% !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -377,15 +395,17 @@
 
 <div class="vcx-services-grid">
   <a class="vcx-svc-card" href="revenue-recovery-workflow.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1716782519075-4ae5fd66194f?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1763872867598-b1b5f769d7e3?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
       </span>
       <div>
-        <h3 class="vcx-svc-card__h" data-vcx-svc-letters data-page="abt_svc1_h">Net Recovery</h3>
+        <div class="vcx-svc-card__textblock">
+        <h3 class="vcx-svc-card__h" data-page="abt_svc1_h">Net Recovery</h3>
         <p class="vcx-svc-card__d" data-page="abt_svc1_d">Pre-collection AR infrastructure for operators. Documented commitment plans, controlled offers, and KPI logic before margin is lost.</p>
+      </div>
       </div>
     </div>
   </a>
@@ -398,36 +418,42 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
       </span>
       <div>
-        <h3 class="vcx-svc-card__h" data-vcx-svc-letters data-page="abt_svc2_h">Small Claims</h3>
+        <div class="vcx-svc-card__textblock">
+        <h3 class="vcx-svc-card__h" data-page="abt_svc2_h">Small Claims</h3>
         <p class="vcx-svc-card__d" data-page="abt_svc2_d">Pro se civil packets ready for self-filing in small claims court. No attorney required — clients file directly.</p>
+      </div>
       </div>
     </div>
   </a>
 
   <a class="vcx-svc-card" href="founder-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1759752393850-828c6550a48f?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1732408425578-464d66066441?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
       </span>
       <div>
-        <h3 class="vcx-svc-card__h" data-vcx-svc-letters data-page="abt_svc3_h">Founders</h3>
+        <div class="vcx-svc-card__textblock">
+        <h3 class="vcx-svc-card__h" data-page="abt_svc3_h">Founders</h3>
         <p class="vcx-svc-card__d" data-page="abt_svc3_d">LLC formation, business plans, turnkey opening for U.S. founders. Documentation discipline from day one.</p>
+      </div>
       </div>
     </div>
   </a>
 
   <a class="vcx-svc-card" href="private-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1487637419635-a2a471ff5c7b?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1730634791414-7c31a04825cf?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
       </span>
       <div>
-        <h3 class="vcx-svc-card__h" data-vcx-svc-letters data-page="abt_svc4_h">Private</h3>
+        <div class="vcx-svc-card__textblock">
+        <h3 class="vcx-svc-card__h" data-page="abt_svc4_h">Private</h3>
         <p class="vcx-svc-card__d" data-page="abt_svc4_d">Immigration packets, auto purchase review, and contract review for private clients. Fixed fee, defined scope.</p>
+      </div>
       </div>
     </div>
   </a>
