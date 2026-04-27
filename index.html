@@ -34,7 +34,7 @@
 <link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/><link href="/assets/css/vcx-a11y-fixes.css?v=11" rel="stylesheet"/><link href="/assets/css/vcx-premium-2.css?v=20" rel="stylesheet"/><link href="/assets/css/vcx-noise-bg.css?v=5" rel="stylesheet"/><link href="/assets/css/vcx-noise-scoped.css?v=6" rel="stylesheet"/><link href="/assets/css/vcx-claims.css?v=3" rel="stylesheet"/><link href="/assets/css/vcx-hero-cybercore.css?v=21" rel="stylesheet"/>
 <link href="/assets/css/vcx-rails.css?v=7" rel="stylesheet"/>
 <link href="/assets/css/vcx-operating-model.css?v=3" rel="stylesheet"/>
-<link href="/assets/css/vcx-home-align.css?v=3" rel="stylesheet"/>
+<link href="/assets/css/vcx-home-align.css?v=6" rel="stylesheet"/>
 <!-- GSAP removed for performance -->
 <script src="/assets/js/vcx-operating-model.js?v=2" defer></script>
 <script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="/assets/js/vcx-noise-scoped.js?v=3" defer></script><script src="/assets/js/vcx-hero-particles.js?v=4" defer></script><script src="/assets/js/vcx-rails.js?v=2" defer></script><link rel="stylesheet" href="/assets/css/vcx-header-glass.css?v=6">
@@ -1113,16 +1113,6 @@ body.vcx-leak-locked { overflow: hidden; }
 <li data-i18n="fit_not_4">Highly sensitive regulated records submitted through a public intake without secure coordination.</li>
 </ul>
 </article>
-<article class="vcx-om-card">
-<span class="vcx-om-card-pill" data-tone="neutral" data-i18n="om_chips_pill">Operating environments</span>
-<p class="vcx-om-card-p" data-i18n="om_chips_lede">Where the model fits naturally.</p>
-<div class="vcx-om-card-chips">
-<span class="vcx-om-card-chip" data-i18n="ind_w1_pill">Healthcare &amp; dental</span>
-<span class="vcx-om-card-chip" data-i18n="ind_w2_pill">Subscription &amp; recurring payments</span>
-<span class="vcx-om-card-chip" data-i18n="ind_w3_pill">Fleet &amp; logistics</span>
-<span class="vcx-om-card-chip" data-i18n="ind_w4_pill">Contract-heavy services</span>
-</div>
-</article>
 </div>
 
 <div class="vcx-om-col" data-col="2">
@@ -1341,7 +1331,7 @@ body.vcx-leak-locked { overflow: hidden; }
 </article>
 
 <article class="vcx-example-card vcx-card-zoom reveal" style="background:#fff;border-radius:14px;padding:26px 22px;border-top:4px solid #2D8A82;box-shadow:0 8px 24px rgba(11,31,48,.08);">
-<span class="vcx-example-industry" data-i18n="ex3_industry" style="display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#B8942E;font-weight:700;margin-bottom:10px;">Fleet &amp; logistics operator</span>
+<span class="vcx-example-industry" data-i18n="ex3_industry" style="display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#2D8A82;font-weight:700;margin-bottom:10px;">Fleet &amp; logistics operator</span>
 <div class="vcx-example-metric" style="font-size:2rem;font-weight:800;color:#0B1F30;line-height:1.05;margin-bottom:4px;">$485K</div>
 <div class="vcx-example-metric-label" data-i18n="ex3_metric_label" style="font-size:.82rem;color:#5E6C7B;margin-bottom:14px;">Fuel card AR recovered in 120 days</div>
 <p data-i18n="ex3_desc" style="font-size:.88rem;color:#3A4A5B;line-height:1.55;margin:0 0 14px;">Regional fleet operator with $1.6M in disputed and overdue fuel card balances from 340 SMB accounts. Structured dispute resolution, documentation discipline, and clean escalation path cleared the backlog.</p>
@@ -1377,7 +1367,7 @@ body.vcx-leak-locked { overflow: hidden; }
 </article>
 
 <article class="vcx-example-card vcx-card-zoom reveal" style="background:#fff;border-radius:14px;padding:26px 22px;border-top:4px solid #2D8A82;box-shadow:0 8px 24px rgba(11,31,48,.08);">
-<span class="vcx-example-industry" data-i18n="ex6_industry" style="display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#B8942E;font-weight:700;margin-bottom:10px;">Construction &amp; B2B services</span>
+<span class="vcx-example-industry" data-i18n="ex6_industry" style="display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#2D8A82;font-weight:700;margin-bottom:10px;">Construction &amp; B2B services</span>
 <div class="vcx-example-metric" style="font-size:2rem;font-weight:800;color:#0B1F30;line-height:1.05;margin-bottom:4px;">$720K</div>
 <div class="vcx-example-metric-label" data-i18n="ex6_metric_label" style="font-size:.82rem;color:#5E6C7B;margin-bottom:14px;">Commercial AR recovered, 90 days</div>
 <p data-i18n="ex6_desc" style="font-size:.88rem;color:#3A4A5B;line-height:1.55;margin:0 0 14px;">Regional commercial contractor with $1.8M in aged progress billings and disputed change orders. Legal-file control discipline and structured demand cycle cleared disputes before counsel engagement was required.</p>
@@ -1476,6 +1466,8 @@ body.vcx-leak-locked { overflow: hidden; }
 .vcx-fit-three-up-grid > .engine-card .assessment-result { margin: 0; }
 .vcx-fit-three-up-grid > .engine-card .authority-list { margin: 0; flex: 1 1 auto; }
 .vcx-fit-three-up-grid > .engine-card .cta-row { margin-top: auto; flex-wrap: wrap; }
+.vcx-fit-three-up-cta { display: flex; justify-content: center; margin-top: clamp(28px, 4vh, 44px); }
+.vcx-fit-three-up-cta .btn { padding: 14px 32px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; }
 .vcx-fit-three-up-grid .concierge-phone {
   background: rgba(43, 179, 192, 0.08);
   border: 1px solid rgba(43, 179, 192, 0.20);
@@ -1544,10 +1536,6 @@ body.vcx-leak-locked { overflow: hidden; }
 <li data-i18n="diag_rec_2">Legal file control is strongest where outside counsel spends time on chronology cleanup, exhibit assembly, and file reconstruction.</li>
 <li data-i18n="diag_rec_3">Combined pilots are strongest where both financial leakage and documentation weakness exist at the same time.</li>
 </ul>
-<div class="cta-row">
-<a class="btn btn-secondary" data-i18n="diag_cta_file" href="corporate-legal-file-control.html">Review legal file control</a>
-<a class="btn btn-primary" data-i18n="diag_cta_schedule" href="https://calendly.com/vitacorex2025/30min" rel="noopener" target="_blank">Schedule strategy consultation</a>
-</div>
 </article>
 
 <article class="engine-card card reveal">
@@ -1559,12 +1547,12 @@ body.vcx-leak-locked { overflow: hidden; }
 <strong data-i18n="concierge_phone">(888) 794-8292</strong>
 <small data-i18n="concierge_note">Private line for consultation coordination</small>
 </div>
-<div class="cta-row">
-<a class="btn btn-primary" data-i18n="concierge_cta1" href="contact.html">Request private consultation</a>
-<a class="btn btn-secondary" data-i18n="concierge_cta2" href="structured-case-intake.html">Open structured intake</a>
-</div>
 </article>
 
+</div>
+
+<div class="vcx-fit-three-up-cta">
+<a class="btn btn-primary" data-i18n="diag_cta_schedule" href="https://calendly.com/vitacorex2025/30min" rel="noopener" target="_blank">Schedule strategy consultation</a>
 </div>
 </div>
 </section>

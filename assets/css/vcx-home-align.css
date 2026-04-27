@@ -51,9 +51,66 @@ body[data-vcx-page="home"] .vcx-cases-merged .section-head h2,
 body[data-vcx-page="home"] .vcx-cases-merged .section-head .section-intro,
 body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head,
 body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head h3,
-body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head p {
+body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head p,
+body[data-vcx-page="home"] .vcx-impact-section h2,
+body[data-vcx-page="home"] .vcx-impact-section .vcx-headline-accent {
   max-width: 100% !important;
   width: 100% !important;
+}
+
+/* Impact section recolor — match footer dark-teal palette
+   (footer gradient: linear-gradient(180deg, #123E4C 0%, #0A2530 100%)) */
+body[data-vcx-page="home"] .vcx-impact-section {
+  background: linear-gradient(180deg, #123E4C 0%, #0A2530 100%) !important;
+  padding-block: clamp(56px, 8vh, 96px) !important;
+  position: relative;
+  overflow: hidden;
+}
+body[data-vcx-page="home"] .vcx-impact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 320px at 12% 20%, rgba(124, 210, 222, 0.08), transparent 60%),
+    radial-gradient(ellipse 600px 280px at 88% 80%, rgba(124, 210, 222, 0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+body[data-vcx-page="home"] .vcx-impact-section > .wrap {
+  position: relative;
+  z-index: 1;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-eyebrow-premium {
+  color: #7CD2DE !important;
+  -webkit-text-fill-color: #7CD2DE !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-headline-accent,
+body[data-vcx-page="home"] .vcx-impact-section h2 {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-number {
+  color: #7CD2DE !important;
+  -webkit-text-fill-color: #7CD2DE !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-number::after {
+  background: linear-gradient(90deg, #7CD2DE, transparent) !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-label {
+  color: rgba(208, 240, 234, 0.72) !important;
+  -webkit-text-fill-color: rgba(208, 240, 234, 0.72) !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-source,
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-source * {
+  color: rgba(208, 240, 234, 0.55) !important;
+  -webkit-text-fill-color: rgba(208, 240, 234, 0.55) !important;
+}
+body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-item {
+  border-color: rgba(124, 210, 222, 0.14) !important;
 }
 
 /* Mobile: relax */
