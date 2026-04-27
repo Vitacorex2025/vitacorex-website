@@ -630,36 +630,102 @@
 </style>
 
 <!-- ── PROMOTIONS STRIP (right after hero — two new-client offers) ── -->
-<section class="vcx-pricing-strip vcx-pricing-strip--promos" aria-label="Current promotions">
+<!-- Dark glass card pattern adapted from the user's "SchemaCard" reference,
+     site-palette'd in deep teal + mint accent and stripped of indigo. -->
+<section class="vcx-promo-strip" aria-label="Current promotions">
 <style>
-/* Promotions strip — inherits the published-pricing card chrome.
- * Self-contained styles (the prior section's inline style block was
- * removed alongside the section). */
-.vcx-pricing-strip { padding: 52px 0 !important; background: #EEF6F5 !important; border-top: 1px solid rgba(26,79,74,.06); border-bottom: 1px solid rgba(26,79,74,.06); }
-.vcx-pricing-strip__wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-.vcx-pricing-strip__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-.vcx-pricing-strip__card { background: #FFFFFF !important; border-radius: 14px; padding: 26px 26px 22px; box-shadow: 0 8px 24px rgba(11,31,48,.08); border: 1px solid rgba(26,79,74,.06); text-decoration: none; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
-.vcx-pricing-strip__card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(11,31,48,.12); }
-.vcx-pricing-strip__tag { display: inline-block; align-self: flex-start; background: rgba(91,186,167,.14); color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; font-size: .72rem !important; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
-.vcx-pricing-strip__card--gold .vcx-pricing-strip__tag { background: rgba(14,116,144,.14); color: #0E5C68 !important; -webkit-text-fill-color: #0E5C68 !important; }
-.vcx-pricing-strip__h { color: #1A2F2A !important; -webkit-text-fill-color: #1A2F2A !important; font-size: 1.18rem !important; font-weight: 800; margin: 0 0 8px; line-height: 1.3 !important; }
-.vcx-pricing-strip__d { color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; font-size: .94rem !important; line-height: 1.55 !important; margin: 0 0 16px; flex-grow: 1; }
-.vcx-pricing-strip__cta { color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; font-size: .92rem !important; font-weight: 700; }
-.vcx-pricing-strip__card:hover .vcx-pricing-strip__cta { color: #1A2F2A !important; -webkit-text-fill-color: #1A2F2A !important; }
+/* ── strip frame (white bg) ── */
+.vcx-promo-strip { padding: 40px 0 !important; background: #FFFFFF !important; position: relative; overflow: hidden; }
+.vcx-promo-strip__wrap { max-width: 1640px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.vcx-promo-strip__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); gap: 16px; }
+
+/* ── card shell (white card with mint-teal border + soft shadow) ── */
+.vcx-promo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(43,179,192,0.45) 0%, rgba(43,179,192,0.12) 50%, rgba(43,179,192,0.30) 100%);
+  box-shadow: 0 14px 36px rgba(11,31,48,0.10);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: vcxPromoFloat 6s ease-in-out infinite;
+  isolation: isolate;
+}
+.vcx-promo-card:nth-child(2) { animation-delay: -3s; }
+.vcx-promo-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(43,179,192,0.18); }
+
+.vcx-promo-card__inner {
+  position: relative;
+  border-radius: 17px;
+  background: #FFFFFF;
+  padding: 14px 20px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto auto;
+  column-gap: 18px;
+  row-gap: 2px;
+  align-items: center;
+  align-content: start;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── live badge (top-left of card body) ── */
+.vcx-promo-card__live { grid-column: 1; grid-row: 1; display: inline-flex; align-items: center; gap: 6px; justify-self: flex-start; padding: 3px 9px 3px 7px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4F4A !important; -webkit-text-fill-color: #1A4F4A !important; background: rgba(43,179,192,0.10); border: 1px solid rgba(43,179,192,0.30); border-radius: 999px; margin-bottom: 6px; }
+.vcx-promo-card__live::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #2BB3C0; box-shadow: 0 0 6px rgba(43,179,192,0.6); }
+
+/* ── tag pill (right-side, vertically centred with title) ── */
+.vcx-promo-card__tag { grid-column: 2; grid-row: 1 / span 2; align-self: center; justify-self: flex-end; display: inline-block; background: rgba(43,179,192,0.10); color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; font-size: 0.66rem !important; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(43,179,192,0.28); white-space: nowrap; }
+
+/* ── title + body ── */
+.vcx-promo-card__title { grid-column: 1; grid-row: 2; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; font-size: 1.18rem !important; line-height: 1.3 !important; font-weight: 800 !important; margin: 0 !important; letter-spacing: -0.005em; }
+.vcx-promo-card__desc { grid-column: 1 / span 2; grid-row: 3; color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; font-size: 0.9rem !important; line-height: 1.5 !important; margin: 6px 0 12px !important; }
+
+/* ── CTA pill (under desc, full row) ── */
+.vcx-promo-card__cta { grid-column: 1 / span 2; grid-row: 4; display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; font-size: 0.86rem; font-weight: 700; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; background: #2BB3C0; border: 1px solid #2BB3C0; border-radius: 10px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; justify-self: flex-start; }
+.vcx-promo-card:hover .vcx-promo-card__cta { background: #1F8E99; border-color: #1F8E99; transform: translateX(2px); }
+.vcx-promo-card__cta svg { width: 14px; height: 14px; }
+
+/* ── animations ── */
+@keyframes vcxPromoFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) { .vcx-promo-card { animation: none; } }
+
+/* ── mobile ── */
+@media (max-width: 600px) {
+  .vcx-promo-strip { padding: 40px 0 !important; }
+  .vcx-promo-strip__wrap { padding: 0 18px; }
+  .vcx-promo-card__title { font-size: 1.06rem !important; }
+}
 </style>
-<div class="vcx-pricing-strip__wrap">
-<div class="vcx-pricing-strip__grid">
-<a class="vcx-pricing-strip__card" href="pre-collection-pilot.html">
-<span class="vcx-pricing-strip__tag" data-i18n="promo_free_tag">Free pilot</span>
-<h3 class="vcx-pricing-strip__h" data-i18n="promo_free_title">Qualified Net Recovery Pilot — $0 upfront</h3>
-<p class="vcx-pricing-strip__d" data-i18n="promo_free_desc">90-day pilot on a live AR portfolio. Success fee only on eligible recovered cash. No upfront cost for approved companies.</p>
-<span class="vcx-pricing-strip__cta" data-i18n="promo_free_cta">Apply for the free pilot →</span>
+<div class="vcx-promo-strip__wrap">
+<div class="vcx-promo-strip__grid">
+<a class="vcx-promo-card" href="pre-collection-pilot.html">
+<div class="vcx-promo-card__inner">
+<span class="vcx-promo-card__live" data-i18n="promo_live">Live offer</span>
+<span class="vcx-promo-card__tag" data-i18n="promo_free_tag">Free pilot</span>
+<h3 class="vcx-promo-card__title" data-i18n="promo_free_title">Qualified Net Recovery Pilot — $0 upfront</h3>
+<p class="vcx-promo-card__desc" data-i18n="promo_free_desc">90-day pilot on a live AR portfolio. Success fee only on eligible recovered cash. No upfront cost for approved companies.</p>
+<span class="vcx-promo-card__cta">
+<span data-i18n="promo_free_cta">Apply for the free pilot</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M19 12l-7-7M19 12l-7 7"/></svg>
+</span>
+</div>
 </a>
-<a class="vcx-pricing-strip__card vcx-pricing-strip__card--gold" href="structured-case-intake.html?promo=first-month-50">
-<span class="vcx-pricing-strip__tag" data-i18n="promo_50_tag">50% off · new clients</span>
-<h3 class="vcx-pricing-strip__h" data-i18n="promo_50_title">50% off the first month — new clients only</h3>
-<p class="vcx-pricing-strip__d" data-i18n="promo_50_desc">First-month engagement fee cut in half on any retainer or fixed-scope service. One-time offer for new VitaCoreX Consulting clients only.</p>
-<span class="vcx-pricing-strip__cta" data-i18n="promo_50_cta">Claim 50% off →</span>
+<a class="vcx-promo-card" href="small-claims-documentation.html?promo=first-month-50">
+<div class="vcx-promo-card__inner">
+<span class="vcx-promo-card__live" data-i18n="promo_live">Live offer</span>
+<span class="vcx-promo-card__tag" data-i18n="promo_50_tag">50% off · new clients</span>
+<h3 class="vcx-promo-card__title" data-i18n="promo_50_title">50% off the first month — new clients only</h3>
+<p class="vcx-promo-card__desc" data-i18n="promo_50_desc">First-month engagement fee cut in half on any retainer or fixed-scope service. One-time offer for new VitaCoreX Consulting clients only.</p>
+<span class="vcx-promo-card__cta">
+<span data-i18n="promo_50_cta">Claim 50% off</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M19 12l-7-7M19 12l-7 7"/></svg>
+</span>
+</div>
 </a>
 </div>
 </div>
@@ -668,43 +734,169 @@
 <!-- ── DUAL-ENTRY ROUTING (B2B primary / Private secondary) ── -->
 <!-- removed: dual-doors / stats-strip / two-buying-paths (per user) -->
 
-<!-- ── QUICK ACCESS TOOL SHELF (rail system reference implementation) ── -->
-<section class="vcx-rail-section vcx-rail-section--parchment" aria-labelledby="quickAccessTitle" data-vcx-texture>
-<div class="vcx-rail-head">
-<span class="vcx-rail-head__eyebrow" data-page="quickaccess_eyebrow">Quick access</span>
-<h2 id="quickAccessTitle" class="vcx-rail-head__title" data-page="quickaccess_title">Jump to what you need.</h2>
-<p class="vcx-rail-head__lede" data-page="quickaccess_lede">Direct links to the most-requested engagement entry points. All intake is confidential; no active advice is issued from these pages.</p>
+<!-- ── QUICK ACCESS — expanding cards (white frame, 7 cohesive photos) ── -->
+<section class="vcx-expand-section" aria-labelledby="quickAccessTitle">
+<style>
+.vcx-expand-section { background: #FFFFFF !important; padding: 56px 0 64px !important; }
+.vcx-expand-section__head { max-width: 880px; margin: 0 auto 32px; padding: 0 24px; text-align: left; }
+.vcx-expand-section__head .eyebrow { display: inline-block; font-family: 'Inter', system-ui, sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; margin: 0 0 10px; }
+.vcx-expand-section__head h2 { font-family: 'Practice','Cormorant Garamond',Georgia,serif; font-size: clamp(1.7rem, 3.4vw, 2.6rem) !important; line-height: 1.12 !important; font-weight: 700 !important; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; margin: 0 0 12px !important; letter-spacing: -0.012em; }
+.vcx-expand-section__head p { font-family: 'Inter', system-ui, sans-serif; font-size: 0.96rem !important; line-height: 1.55 !important; color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; max-width: 60ch; margin: 0 !important; }
+
+.vcx-expand-cards { max-width: 1500px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; height: 460px; transition: grid-template-columns 600ms cubic-bezier(.2,.7,.3,1), grid-template-rows 600ms cubic-bezier(.2,.7,.3,1); }
+
+.vcx-expand-card { position: relative; display: block; border-radius: 14px; overflow: hidden; text-decoration: none; min-width: 0; min-height: 0; cursor: pointer; isolation: isolate; box-shadow: 0 8px 22px rgba(11,31,48,0.10); }
+.vcx-expand-card__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.08); filter: grayscale(100%) brightness(0.78); transition: transform 500ms ease, filter 500ms ease; }
+.vcx-expand-card[data-active="true"] .vcx-expand-card__bg { transform: scale(1); filter: grayscale(0%) brightness(0.92); }
+.vcx-expand-card__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.86) 100%); }
+
+.vcx-expand-card__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 18px 18px 20px; color: #FFFFFF; }
+.vcx-expand-card__rot { position: absolute; left: 22px; bottom: 26px; transform-origin: left bottom; transform: rotate(-90deg) translateY(-100%); font-family: 'Inter', system-ui, sans-serif !important; font-size: 0.74rem !important; font-weight: 600 !important; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(255,255,255,0.92) !important; -webkit-text-fill-color: rgba(255,255,255,0.92) !important; white-space: nowrap; opacity: 1; transition: opacity 300ms ease; margin: 0 !important; }
+.vcx-expand-card[data-active="true"] .vcx-expand-card__rot { opacity: 0; }
+
+.vcx-expand-card__icon { width: 36px; height: 36px; color: #7CD2DE; opacity: 0; transform: translateY(8px); transition: opacity 300ms ease 75ms, transform 300ms ease 75ms; }
+.vcx-expand-card[data-active="true"] .vcx-expand-card__icon { opacity: 1; transform: translateY(0); }
+.vcx-expand-card__icon svg { width: 100%; height: 100%; }
+
+.vcx-expand-card__title { font-family: 'Practice','Cormorant Garamond',Georgia,serif !important; font-size: 1.45rem !important; line-height: 1.14 !important; font-weight: 700 !important; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; margin: 0 !important; opacity: 0; transform: translateY(8px); transition: opacity 320ms ease 150ms, transform 320ms ease 150ms; letter-spacing: -0.005em; }
+.vcx-expand-card[data-active="true"] .vcx-expand-card__title { opacity: 1; transform: translateY(0); }
+
+.vcx-expand-card__desc { font-family: 'Inter', system-ui, sans-serif !important; font-size: 0.88rem !important; line-height: 1.5 !important; color: rgba(255,255,255,0.85) !important; -webkit-text-fill-color: rgba(255,255,255,0.85) !important; margin: 0 !important; max-width: 32ch; opacity: 0; transform: translateY(8px); transition: opacity 320ms ease 220ms, transform 320ms ease 220ms; }
+.vcx-expand-card[data-active="true"] .vcx-expand-card__desc { opacity: 1; transform: translateY(0); }
+
+.vcx-expand-card:focus-visible { outline: 2px solid #2BB3C0; outline-offset: 2px; }
+
+@media (max-width: 980px) {
+  .vcx-expand-cards { grid-template-columns: 1fr !important; grid-template-rows: repeat(7, 1fr); height: 720px; }
+  .vcx-expand-card__rot { transform: none; left: auto; bottom: auto; position: relative; align-self: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vcx-expand-cards, .vcx-expand-card__bg, .vcx-expand-card__icon, .vcx-expand-card__title, .vcx-expand-card__desc { transition: none !important; }
+}
+</style>
+
+<div class="vcx-expand-section__head">
+<span class="eyebrow" data-page="quickaccess_eyebrow">Quick access</span>
+<h2 id="quickAccessTitle" data-page="quickaccess_title">Jump to what you need.</h2>
+<p data-page="quickaccess_lede">Direct links to the most-requested engagement entry points. All intake is confidential; no active advice is issued from these pages.</p>
 </div>
-<div class="vcx-tool-shelf" aria-label="Quick access to key engagement entry points">
-<a class="vcx-tool-shelf__item" href="structured-case-intake.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#9776;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_intake">Structured intake</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_intake_sub">Case scoping form</span></span>
+
+<div class="vcx-expand-cards" role="list" id="vcxExpandCards">
+<a class="vcx-expand-card" data-idx="0" data-active="true" href="structured-case-intake.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_intake">Structured intake</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_intake">Structured intake</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_intake_sub">Case scoping form</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="revenue-recovery-workflow.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#8674;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_recovery">Recovery workflow</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_recovery_sub">Pre-collection steps</span></span>
+
+<a class="vcx-expand-card" data-idx="1" href="revenue-recovery-workflow.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1707998174119-b6bf963ff4a2?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_recovery">Recovery workflow</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h12"/><path d="m17 17 3 3-3 3"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_recovery">Recovery workflow</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_recovery_sub">Pre-collection steps</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="corporate-legal-file-control.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#9640;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_file">File control</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_file_sub">Counsel-ready docs</span></span>
+
+<a class="vcx-expand-card" data-idx="2" href="corporate-legal-file-control.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1773614207981-19bce2baa7e9?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_file">File control</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M11 3v18M15 3v18"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_file">File control</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_file_sub">Counsel-ready docs</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="pricing-and-engagement-tiers.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#36;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_pricing">Pricing tiers</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_pricing_sub">Fixed scope &amp; fees</span></span>
+
+<a class="vcx-expand-card" data-idx="3" href="pricing-and-engagement-tiers.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1583902340370-6a3fc847d373?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_pricing">Pricing tiers</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_pricing">Pricing tiers</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_pricing_sub">Fixed scope &amp; fees</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="insights.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#9783;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_briefs">Executive briefs</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_briefs_sub">Proof &amp; context</span></span>
+
+<a class="vcx-expand-card" data-idx="4" href="insights.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1641477176034-1a3e10c343a8?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_briefs">Executive briefs</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V21h16v-4"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_briefs">Executive briefs</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_briefs_sub">Proof &amp; context</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="additional-services.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#9672;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_private">Private clients</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_private_sub">Defined-scope work</span></span>
+
+<a class="vcx-expand-card" data-idx="5" href="private-services.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1672875829108-ddf8c3baee45?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_private">Private clients</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_private">Private clients</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_private_sub">Defined-scope work</p>
+</div>
 </a>
-<a class="vcx-tool-shelf__item" href="contact.html">
-<span class="vcx-tool-shelf__ico" aria-hidden="true">&#9998;</span>
-<span class="vcx-tool-shelf__label"><span data-page="quickaccess_item_contact">Confidential review</span><span class="vcx-tool-shelf__sub" data-page="quickaccess_item_contact_sub">24&ndash;48h response</span></span>
+
+<a class="vcx-expand-card" data-idx="6" href="contact.html" role="listitem">
+<div class="vcx-expand-card__bg" style="background-image:url('https://images.unsplash.com/photo-1643835298350-7555e9e18c83?w=1200&amp;auto=format&amp;fit=crop');"></div>
+<div class="vcx-expand-card__overlay" aria-hidden="true"></div>
+<div class="vcx-expand-card__content">
+<h3 class="vcx-expand-card__rot" aria-hidden="true"><span data-page="quickaccess_item_contact">Confidential review</span></h3>
+<span class="vcx-expand-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+<h3 class="vcx-expand-card__title" data-page="quickaccess_item_contact">Confidential review</h3>
+<p class="vcx-expand-card__desc" data-page="quickaccess_item_contact_sub">24&ndash;48h response</p>
+</div>
 </a>
 </div>
+
+<script>
+(function(){
+  var grid = document.getElementById('vcxExpandCards');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.vcx-expand-card');
+  var isDesktop = function(){ return window.matchMedia('(min-width: 981px)').matches; };
+  function activate(idx){
+    cards.forEach(function(c, i){ c.setAttribute('data-active', i === idx ? 'true' : 'false'); });
+    if (isDesktop()) {
+      var cols = Array.prototype.map.call(cards, function(_, i){ return i === idx ? '5fr' : '1fr'; }).join(' ');
+      grid.style.gridTemplateColumns = cols;
+      grid.style.gridTemplateRows = '1fr';
+    } else {
+      var rows = Array.prototype.map.call(cards, function(_, i){ return i === idx ? '5fr' : '1fr'; }).join(' ');
+      grid.style.gridTemplateRows = rows;
+      grid.style.gridTemplateColumns = '1fr';
+    }
+  }
+  cards.forEach(function(card, i){
+    card.addEventListener('mouseenter', function(){ activate(i); });
+    card.addEventListener('focus', function(){ activate(i); });
+    card.addEventListener('touchstart', function(){ activate(i); }, { passive: true });
+  });
+  // Initial state — first card open
+  activate(0);
+  // Re-apply on resize so the layout flips between rows/columns cleanly
+  var resizeT;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeT);
+    resizeT = setTimeout(function(){
+      var openIdx = 0;
+      cards.forEach(function(c, i){ if (c.getAttribute('data-active') === 'true') openIdx = i; });
+      activate(openIdx);
+    }, 120);
+  });
+})();
+</script>
 </section>
 
 <!-- removed: dual-doors / stats-strip / two-buying-paths (per user) -->
@@ -1285,7 +1477,7 @@
 <div class="vcx-exclusive-badge" aria-hidden="true" data-i18n="exclusive_badge">Private Advisory</div>
 <script src="/assets/js/vcx-seo.js" defer></script>
 <script src="/assets/js/vcx-redesign.js?v=8" defer></script>
-<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=41" defer></script><script src="/assets/js/vcx-page-translations.js?v=19" defer></script>
+<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=42" defer></script><script src="/assets/js/vcx-page-translations.js?v=19" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
 <script src="/assets/js/vcx-nav.js?v=7" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-footer-modern.css?v=3">
