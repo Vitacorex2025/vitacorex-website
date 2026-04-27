@@ -153,10 +153,10 @@
 /* Qualification + Scope — two columns of editorial panels. */
 .pcp-mechanics__split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3vw,32px);align-items:start;}
 @media (max-width:960px){.pcp-mechanics__split{grid-template-columns:1fr;}}
-.pcp-mechanics__panel{background:#FFFFFF;border:1px solid rgba(26,79,74,.10);border-radius:16px;padding:clamp(22px,2.5vw,28px);box-shadow:0 8px 24px rgba(11,31,48,.06);}
-.pcp-mechanics__panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:0 0 18px;padding:0 0 14px;border-bottom:1px solid rgba(26,79,74,.10);}
-.pcp-mechanics__panel-head h3{margin:0;font-size:1.1rem;font-weight:700;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;letter-spacing:-.005em;}
-.pcp-mechanics__panel-head .pcp-mechanics__sublabel{margin:0;text-align:right;}
+.pcp-mechanics__panel{background:#FFFFFF;border:1px solid rgba(26,79,74,.10);border-radius:16px;padding:clamp(22px,2.5vw,28px);box-shadow:0 8px 24px rgba(11,31,48,.06);overflow:hidden;}
+.pcp-mechanics__panel-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:calc(-1 * clamp(22px,2.5vw,28px)) calc(-1 * clamp(22px,2.5vw,28px)) 22px;padding:16px clamp(22px,2.5vw,28px);background:linear-gradient(180deg,#123E4C 0%,#0A2530 100%);border-bottom:none;}
+.pcp-mechanics__panel-head h3{margin:0;font-size:1.1rem;font-weight:700;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;letter-spacing:-.005em;line-height:1.25;}
+.pcp-mechanics__panel-head .pcp-mechanics__sublabel{margin:0;text-align:right;color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;font-size:.7rem;letter-spacing:.16em;font-weight:700;text-transform:uppercase;flex-shrink:0;}
 .pcp-qual-inline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media (max-width:720px){.pcp-qual-inline{grid-template-columns:1fr;}}
 .pcp-qual-inline__col h4{margin:0 0 10px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;}
