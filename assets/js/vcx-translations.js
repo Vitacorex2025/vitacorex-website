@@ -91,6 +91,20 @@ en: {
   fit_not_3:          'Teams unwilling to document baseline conditions, workflow changes, or pilot measurement.',
   fit_not_4:          'Highly sensitive regulated records submitted through a public intake without secure coordination.',
 
+  /* ── Operating model (sticky-scroll consolidation) ─────────── */
+  om_eyebrow:         'Operating model',
+  om_title:           'From fit-check to pilot to scale — one transparent path.',
+  om_lede:            'Who we serve, how we work, what we do — inside one operating model.',
+  om_col_1:           'Who we serve',
+  om_col_2:           'How we work',
+  om_col_3:           'What we do',
+  om_chips_pill:      'Operating environments',
+  om_chips_lede:      'Where the model fits naturally.',
+  om_scale_b1:        'Repeatable rollout once pilot evidence supports adoption.',
+  om_scale_b2:        'Cohort comparisons, aging movement, packet-quality observations.',
+  om_cta_primary:     'Request a pilot package',
+  om_cta_secondary:   'Confidential review',
+
   /* ── 90-day pilot ──────────────────────────────────────────── */
   pilot_eyebrow:      '90-day structure',
   pilot_title:        'A serious consulting sale needs a visible path from diagnosis to proof.',
@@ -2217,6 +2231,20 @@ ru: {
   fit_not_3:          'Команды, не желающие документировать исходные условия, изменения процессов или пилотные измерения.',
   fit_not_4:          'Высокочувствительные регулируемые записи, поданные через публичный приём без защищённой координации.',
 
+  /* ── Operating model (sticky-scroll consolidation) ─────────── */
+  om_eyebrow:         'Операционная модель',
+  om_title:           'От fit-чека до пилота и масштабирования — один прозрачный путь.',
+  om_lede:            'Кому подходим, как работаем, что делаем — внутри одной модели.',
+  om_col_1:           'Кому подходим',
+  om_col_2:           'Как работаем',
+  om_col_3:           'Что делаем',
+  om_chips_pill:      'Операционные среды',
+  om_chips_lede:      'Где модель естественно подходит.',
+  om_scale_b1:        'Повторяемое внедрение, когда данные пилота подтверждают готовность.',
+  om_scale_b2:        'Сравнение когорт, динамика старения и наблюдения по качеству пакетов.',
+  om_cta_primary:     'Запросить пилотный пакет',
+  om_cta_secondary:   'Конфиденциальный разбор',
+
   pilot_eyebrow:      '90-дневная структура',
   pilot_title:        'Серьёзная консалтинговая продажа требует видимого пути от диагностики к подтверждению.',
   pilot_intro:        'Премиальный путь \u2014 это диагностика, пилот и масштабирование, с доказательствами из реальных данных оператора, задокументированных изменений процессов и управленческой дисциплины.',
@@ -4341,6 +4369,20 @@ es: {
   fit_not_2:          'Compradores que buscan un centro de llamadas subcontratado generico o un servicio amplio de "hacemos todo".',
   fit_not_3:          'Equipos no dispuestos a documentar condiciones base, cambios de flujo de trabajo o mediciones piloto.',
   fit_not_4:          'Registros regulados altamente sensibles enviados a traves de un formulario publico sin coordinacion segura.',
+
+  /* ── Operating model (sticky-scroll consolidation) ─────────── */
+  om_eyebrow:         'Modelo operativo',
+  om_title:           'Del check de encaje al piloto y al escalado — un solo camino transparente.',
+  om_lede:            'A quien servimos, como trabajamos, que hacemos — dentro de un solo modelo operativo.',
+  om_col_1:           'A quien servimos',
+  om_col_2:           'Como trabajamos',
+  om_col_3:           'Que hacemos',
+  om_chips_pill:      'Entornos operativos',
+  om_chips_lede:      'Donde el modelo encaja de forma natural.',
+  om_scale_b1:        'Despliegue repetible cuando la evidencia del piloto sustenta la adopcion.',
+  om_scale_b2:        'Comparativas por cohorte, movimiento de aging y observaciones de calidad del paquete.',
+  om_cta_primary:     'Solicitar paquete piloto',
+  om_cta_secondary:   'Revision confidencial',
 
   pilot_eyebrow:      'Estructura de 90 dias',
   pilot_title:        'Una venta de consultoria seria necesita un camino visible del diagnostico a la prueba.',

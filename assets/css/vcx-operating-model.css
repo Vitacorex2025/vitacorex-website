@@ -1,0 +1,307 @@
+/* ==========================================================================
+   VitaCoreX — Operating Model
+   Static 3-column gallery consolidating 5 prior blocks (fit-map / sales journey
+   / core advisory / industry wedges / authority infra) into one institutional
+   section. No 3D rotation; only a subtle fade-in entrance per card.
+   ========================================================================== */
+
+.vcx-om-section {
+  --om-accent: #2BB3C0;
+  --om-ink: #0F1A24;
+  --om-ink-soft: #4A5666;
+  --om-ink-mute: #6B7682;
+  --om-line: rgba(15, 26, 36, 0.08);
+  --om-line-strong: rgba(15, 26, 36, 0.14);
+  --om-card-bg: #FFFFFF;
+  --om-col-bg: rgba(15, 26, 36, 0.02);
+  --om-bg-from: #F4F7F8;
+  --om-bg-to: #E9F2F3;
+
+  position: relative;
+  background: linear-gradient(180deg, var(--om-bg-from) 0%, var(--om-bg-to) 100%);
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(56px, 8vh, 96px) clamp(20px, 5vw, 64px) clamp(40px, 6vh, 72px);
+}
+
+/* Outer wrapper kept for consistent container width — no sticky behavior. */
+.vcx-om-scroll {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.vcx-om-sticky {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.vcx-om-head {
+  margin: 0 auto clamp(28px, 4vh, 52px);
+  width: 100%;
+  text-align: left;
+  max-width: 1200px;
+}
+
+.vcx-om-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--om-accent);
+  margin-bottom: 14px;
+}
+
+.vcx-om-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--om-accent);
+}
+
+.vcx-om-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--om-ink);
+  margin: 0 0 12px;
+  max-width: 880px;
+}
+
+.vcx-om-lede {
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.55;
+  color: var(--om-ink-soft);
+  max-width: 720px;
+  margin: 0;
+}
+
+.vcx-om-gallery-wrap {
+  width: 100%;
+}
+
+.vcx-om-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.6vw, 26px);
+  width: 100%;
+  align-items: start;
+}
+
+.vcx-om-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.2vw, 18px);
+}
+
+.vcx-om-col-head {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--om-ink-mute);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--om-col-bg);
+  border: 1px solid var(--om-line);
+  text-align: left;
+}
+
+.vcx-om-card {
+  background: var(--om-card-bg);
+  border: 1px solid var(--om-line);
+  border-radius: 14px;
+  padding: clamp(16px, 1.6vw, 22px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 18px -10px rgba(15, 26, 36, 0.08);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease, opacity 480ms ease;
+
+  /* Entrance animation defaults (overridden by .is-in) */
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.vcx-om-card.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vcx-om-card:hover {
+  border-color: var(--om-line-strong);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 24px -12px rgba(15, 26, 36, 0.16);
+  transform: translateY(-2px);
+}
+
+.vcx-om-card[data-tone="muted"] {
+  background: rgba(15, 26, 36, 0.025);
+}
+
+.vcx-om-card-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--om-accent);
+  background: rgba(43, 179, 192, 0.10);
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.vcx-om-card-pill[data-tone="neutral"] {
+  color: var(--om-ink-mute);
+  background: rgba(15, 26, 36, 0.06);
+}
+
+.vcx-om-card-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--om-accent);
+  background: rgba(43, 179, 192, 0.10);
+  border: 1px solid rgba(43, 179, 192, 0.20);
+}
+
+.vcx-om-card-h {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.25;
+  color: var(--om-ink);
+  margin: 0;
+}
+
+.vcx-om-card-p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--om-ink-soft);
+  margin: 0;
+}
+
+.vcx-om-card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vcx-om-card-list li {
+  position: relative;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--om-ink-soft);
+  padding-left: 16px;
+}
+
+.vcx-om-card-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 1px;
+  background: var(--om-accent);
+}
+
+.vcx-om-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.vcx-om-card-chip {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--om-ink);
+  background: rgba(43, 179, 192, 0.08);
+  border: 1px solid rgba(43, 179, 192, 0.20);
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.vcx-om-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: clamp(36px, 5vh, 56px);
+  padding-top: clamp(28px, 4vh, 40px);
+  border-top: 1px solid var(--om-line);
+}
+
+.vcx-om-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.vcx-om-btn--primary {
+  background: var(--om-ink);
+  color: #FFFFFF;
+  border-color: var(--om-ink);
+}
+
+.vcx-om-btn--primary:hover {
+  background: #1A2A38;
+  border-color: #1A2A38;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -12px rgba(15, 26, 36, 0.4);
+}
+
+.vcx-om-btn--secondary {
+  background: transparent;
+  color: var(--om-ink);
+  border-color: var(--om-line-strong);
+}
+
+.vcx-om-btn--secondary:hover {
+  background: rgba(43, 179, 192, 0.06);
+  border-color: var(--om-accent);
+  color: var(--om-accent);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+  .vcx-om-gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vcx-om-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
