@@ -395,7 +395,7 @@
 
 <div class="vcx-services-grid">
   <a class="vcx-svc-card" href="revenue-recovery-workflow.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1763872867598-b1b5f769d7e3?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1691643158804-d3f02eb456a3?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -411,7 +411,7 @@
   </a>
 
   <a class="vcx-svc-card" href="small-claims-documentation.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1564846824194-346b7871b855?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -427,7 +427,7 @@
   </a>
 
   <a class="vcx-svc-card" href="founder-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1732408425578-464d66066441?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1762427354251-f008b64dbc32?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -443,7 +443,7 @@
   </a>
 
   <a class="vcx-svc-card" href="private-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1730634791414-7c31a04825cf?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1771173479042-810085465e49?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -570,7 +570,13 @@
     0 0 80px rgba(255, 255, 255, 0.45) !important;
 }
 .vcx-leadership-section .vcx-founder-editorial__bio {
+  font-size: 28px !important;
+  line-height: 1.5 !important;
   font-weight: 500 !important;
+  margin: 0 0 28px !important;
+}
+.vcx-leadership-section .vcx-founder-editorial__link {
+  font-size: 19px !important;
 }
 .vcx-leadership-section .section-head .eyebrow {
   font-size: 16px !important;
@@ -611,12 +617,12 @@
 <style>
 .vcx-founder-editorial { position: relative; margin: 36px 0 32px; display: flex; flex-direction: column; }
 .vcx-founder-editorial__role { margin: 0 0 32px; font-size: 15px; font-weight: 600; letter-spacing: 0.3em; color: #4A5666; text-transform: uppercase; }
-.vcx-founder-editorial__main { display: flex; align-items: center; justify-content: flex-start; gap: 0; position: relative; }
-.vcx-founder-editorial__portrait { position: relative; width: 360px; height: 460px; flex-shrink: 0; overflow: hidden; border-radius: 4px; box-shadow: 0 16px 48px -12px rgba(11, 31, 48, 0.20); }
+.vcx-founder-editorial__main { display: flex; align-items: flex-start; justify-content: flex-start; gap: 0; position: relative; }
+.vcx-founder-editorial__portrait { position: relative; width: 360px; height: 460px; flex-shrink: 0; overflow: hidden; border-radius: 4px; box-shadow: 0 16px 48px -12px rgba(11, 31, 48, 0.20); margin-top: 80px; }
 .vcx-founder-editorial__portrait::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(11, 31, 48, 0.18), transparent 40%); pointer-events: none; }
 .vcx-founder-editorial__portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); }
 .vcx-founder-editorial__portrait:hover img { transform: scale(1.045); }
-.vcx-founder-editorial__info { position: relative; left: -32px; z-index: 2; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.vcx-founder-editorial__info { position: relative; left: -32px; z-index: 2; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
 .vcx-founder-editorial .vcx-founder-editorial__name { display: block; }
 .vcx-founder-editorial p.vcx-founder-editorial__first,
 .vcx-founder-editorial p.vcx-founder-editorial__last {
@@ -638,7 +644,7 @@
 .vcx-founder-editorial__cta svg { transition: transform 320ms ease; }
 .vcx-founder-editorial__cta:hover svg { transform: rotate(-45deg); }
 .vcx-founder-editorial__bio-wrap { width: 88%; min-width: 320px; max-width: 1200px; }
-.vcx-founder-editorial__bio { margin: 0 0 24px; font-size: 24px; line-height: 1.55; color: #4A5666; }
+.vcx-founder-editorial__bio { margin: 0 0 28px; font-size: 28px; line-height: 1.5; color: #4A5666; }
 .vcx-founder-editorial__links { display: flex; flex-wrap: wrap; gap: 14px 32px; font-size: 19px; }
 .vcx-founder-editorial__link { display: inline-flex; align-items: center; gap: 6px; color: #4A5666; text-decoration: none; border-bottom: 1px solid rgba(74, 86, 102, 0.30); padding-bottom: 2px; transition: color 200ms ease, border-color 200ms ease; }
 .vcx-founder-editorial__link:hover { color: #0F1A24; border-color: #0F1A24; }
