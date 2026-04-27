@@ -49,7 +49,7 @@
     },
     shared: [
       { k: 'nav_about',     t: 'About',     href: 'about.html' },
-      { k: 'nav_resources', t: 'Resources', href: 'resources.html' },
+      { k: 'nav_resources', t: 'Resources', href: 'insights.html' },
       { k: 'nav_contact',   t: 'Contact',   href: 'contact.html' },
       { k: 'nav_careers',   t: 'Careers',   href: 'careers.html' }
     ]
