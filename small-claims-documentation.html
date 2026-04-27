@@ -19,7 +19,7 @@
 <meta name="geo.position" content="27.9506;-82.4572"/>
 <meta name="ICBM" content="27.9506, -82.4572"/>
 <link href="assets/css/premium-fixes.css" rel="stylesheet"/><link href="/assets/css/vcx-redesign.css?v=12" rel="stylesheet"/><link href="/assets/css/vcx-premium-2.css?v=20" rel="stylesheet"/>
-<link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/><link href="/assets/css/vcx-a11y-fixes.css?v=11" rel="stylesheet"/><link href="/assets/css/vcx-retainer-promo.css?v=3" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=5"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script>
+<link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/><link href="/assets/css/vcx-a11y-fixes.css?v=11" rel="stylesheet"/><link href="/assets/css/vcx-retainer-promo.css?v=4" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=5"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script>
 <style>
 /* ── Page-local styles: small-claims-documentation.html — readable palette ── */
 .scd-hero{background:linear-gradient(180deg,#F8FBFB 0%,#EEF6F5 100%);padding:72px 0 56px;border-bottom:1px solid rgba(26,79,74,.08);}
@@ -383,7 +383,10 @@ body[data-vcx-page="small-claims-documentation"] .scd-option{min-width:0 !import
 </div>
 </section>
 
-<section class="scd-section scd-section--white" id="compare">
+<section class="scd-section scd-section--white" id="compare" style="position:relative;isolation:isolate;">
+<div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/img/clfc-skyway-bridge.jpg');background-size:cover;background-position:center 40%;background-repeat:no-repeat;z-index:0;"></div>
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 248, 0.82) 0%, rgba(248, 251, 252, 0.88) 50%, rgba(252, 253, 254, 0.94) 100%);z-index:1;"></div>
+<style>#compare > .wrap { position: relative; z-index: 2; }</style>
 <div class="wrap">
 <div class="scd-sec-head">
 <span class="scd-sec-head__eyebrow" data-page="scd_tiers_eyebrow">Published pricing</span>
@@ -395,6 +398,25 @@ body[data-vcx-page="small-claims-documentation"] .scd-option{min-width:0 !import
 <span class="scd-upl__label" data-page="scd_upl_label">UPL safeguard</span>
 <p data-page="scd_upl_text">VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to file. If your matter requires legal strategy, we recommend engaging counsel. Unauthorized-practice-of-law rules vary by state; VitaCoreX provides administrative support only and does not provide legal advice, strategy, representation, or court appearance in any state.</p>
 </div>
+
+<!-- Retainer onboarding promo — full-width banner above the split -->
+<aside class="vcx-retainer-promo vcx-retainer-promo--wide" role="complementary" aria-label="Retainer onboarding offer">
+  <div class="vcx-retainer-promo__body">
+    <div class="vcx-retainer-promo__copy">
+      <span class="vcx-retainer-promo__eyebrow" data-page="retainer_promo_eyebrow">Limited onboarding offer</span>
+      <p class="vcx-retainer-promo__title" data-page="retainer_promo_title">First month at 50% off &mdash; qualified retainers only.</p>
+      <p class="vcx-retainer-promo__lede" data-page="retainer_promo_lede">During early-stage diagnostic we are subsidizing the first retainer week for operators who clear a short eligibility review. Locks in the discounted rate for the opening engagement block; standard rate thereafter.</p>
+    </div>
+    <div class="vcx-retainer-promo__action">
+      <span class="vcx-retainer-promo__code">
+        <span class="vcx-retainer-promo__code-label" data-page="retainer_promo_code_label">Apply code</span>
+        <span data-page="retainer_promo_code">RETAINER50</span>
+      </span>
+      <a class="vcx-retainer-promo__cta" href="structured-case-intake.html?promo=early-retainer" data-page="retainer_promo_cta_qualify">Apply for early-retainer qualification &rarr;</a>
+      <small class="vcx-retainer-promo__disclaimer" data-page="retainer_promo_disclaimer">Eligibility review required. Applies to the first retainer week only. Not combinable with other offers. VitaCoreX LLC reserves the right to limit availability.</small>
+    </div>
+  </div>
+</aside>
 
 <div class="scd-split">
 
@@ -451,23 +473,6 @@ body[data-vcx-page="small-claims-documentation"] .scd-option{min-width:0 !import
 <!-- RIGHT: weekly service options -->
 <div class="scd-col scd-col--weekly">
 <h3 class="scd-col__head" data-page="scd_weekly_head">Weekly service options</h3>
-
-<!-- Retainer onboarding promo banner (Phase 1 — mirrors pricing-and-engagement-tiers.html) -->
-<aside class="vcx-retainer-promo" role="complementary" aria-label="Retainer onboarding offer">
-  <div class="vcx-retainer-promo__body">
-    <span class="vcx-retainer-promo__eyebrow" data-page="retainer_promo_eyebrow">Limited onboarding offer</span>
-    <p class="vcx-retainer-promo__title" data-page="retainer_promo_title">First month at 50% off &mdash; qualified retainers only.</p>
-    <p class="vcx-retainer-promo__lede" data-page="retainer_promo_lede">During early-stage diagnostic we are subsidizing the first retainer week for operators who clear a short eligibility review. Locks in the discounted rate for the opening engagement block; standard rate thereafter.</p>
-    <div class="vcx-retainer-promo__row">
-      <span class="vcx-retainer-promo__code">
-        <span class="vcx-retainer-promo__code-label" data-page="retainer_promo_code_label">Apply code</span>
-        <span data-page="retainer_promo_code">RETAINER50</span>
-      </span>
-      <a class="vcx-retainer-promo__cta" href="structured-case-intake.html?promo=early-retainer" data-page="retainer_promo_cta_qualify">Apply for early-retainer qualification &rarr;</a>
-    </div>
-    <small class="vcx-retainer-promo__disclaimer" data-page="retainer_promo_disclaimer">Eligibility review required. Applies to the first retainer week only. Not combinable with other offers. VitaCoreX LLC reserves the right to limit availability.</small>
-  </div>
-</aside>
 
 <div class="scd-option">
 <span class="scd-option__badge scd-option__badge--teal" data-page="scd_ret_1_badge">Option 1</span>

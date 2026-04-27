@@ -140,6 +140,40 @@
   color:rgba(255,255,255,.85) !important; -webkit-text-fill-color:rgba(255,255,255,.85) !important;
 }
 
+/* ---- Wide variant (full-width above split, horizontal layout) ---- */
+.vcx-retainer-promo--wide{
+  max-width:1120px;
+  margin:0 auto 28px;
+  padding:24px 30px;
+}
+.vcx-retainer-promo--wide .vcx-retainer-promo__body{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);
+  gap:32px;
+  align-items:center;
+}
+.vcx-retainer-promo--wide .vcx-retainer-promo__copy{ display:flex; flex-direction:column; }
+.vcx-retainer-promo--wide .vcx-retainer-promo__title{ margin:0 0 8px; }
+.vcx-retainer-promo--wide .vcx-retainer-promo__lede{ margin:0; }
+.vcx-retainer-promo--wide .vcx-retainer-promo__action{
+  display:flex; flex-direction:column; gap:10px; align-items:stretch;
+}
+.vcx-retainer-promo--wide .vcx-retainer-promo__code{
+  width:100%; justify-content:center;
+}
+.vcx-retainer-promo--wide .vcx-retainer-promo__cta{
+  width:100%; justify-content:center;
+}
+.vcx-retainer-promo--wide .vcx-retainer-promo__disclaimer{
+  margin:4px 0 0; text-align:center;
+}
+@media (max-width:880px){
+  .vcx-retainer-promo--wide .vcx-retainer-promo__body{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+}
+
 /* ---- mobile ---- */
 @media (max-width: 640px){
   .vcx-retainer-promo{ padding:18px 18px; }
