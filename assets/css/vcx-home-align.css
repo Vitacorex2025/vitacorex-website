@@ -1,0 +1,50 @@
+/* ==========================================================================
+   VitaCoreX — Home Page Width Alignment
+   Removes the visual tapering of mid-page sections by aligning every block
+   to the hero promo strip's exact pattern: max-width 1640px, 24px inner
+   horizontal padding, no extra padding on the parent section. Scoped to
+   body[data-vcx-page="home"] so other pages keep their narrower defaults.
+   ========================================================================== */
+
+:root {
+  --vcx-home-max: 1640px;
+  --vcx-home-pad-x: 24px;
+}
+
+/* Reset: kill any horizontal padding on home-page sections so they sit
+   edge-to-edge — the wrap inside provides the unified inner padding. */
+body[data-vcx-page="home"] .section.section-tight,
+body[data-vcx-page="home"] .vcx-om-section,
+body[data-vcx-page="home"] .vcx-cases-merged,
+body[data-vcx-page="home"] .vcx-fit-three-up,
+body[data-vcx-page="home"] .vcx-impact-section {
+  padding-inline: 0;
+}
+
+/* The unified wrap: matches hero promo strip's __wrap exactly. */
+body[data-vcx-page="home"] .vcx-promo-strip__wrap,
+body[data-vcx-page="home"] .vcx-expand-section__head,
+body[data-vcx-page="home"] .vcx-expand-cards,
+body[data-vcx-page="home"] .section.section-tight > .wrap,
+body[data-vcx-page="home"] .vcx-om-scroll,
+body[data-vcx-page="home"] .vcx-cases-merged > .wrap,
+body[data-vcx-page="home"] .vcx-fit-three-up > .wrap,
+body[data-vcx-page="home"] .vcx-impact-section > .wrap {
+  max-width: var(--vcx-home-max);
+  margin-inline: auto;
+  padding-inline: var(--vcx-home-pad-x);
+  box-sizing: border-box;
+}
+
+/* The leak grid was constrained to 1500 — let it fill the wrap now */
+body[data-vcx-page="home"] .vcx-leak-grid {
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+/* Mobile: relax */
+@media (max-width: 768px) {
+  :root {
+    --vcx-home-pad-x: 16px;
+  }
+}
