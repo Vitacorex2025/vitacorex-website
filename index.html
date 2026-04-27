@@ -214,7 +214,7 @@
   <!-- Dual-video crossfade stack: while one plays, the other preloads
        the next clip behind it; on tick we toggle opacity so the swap is
        seamless (no poster flash, no black frame between clips). -->
-  <video class="vcx-fourquad-hero__video vcx-fourquad-hero__video--a is-on" id="vcxFourquadVideoA" autoplay muted playsinline poster="assets/img/sky-poster.jpg" aria-hidden="true" preload="auto" src="assets/video/tampa-1.mp4"></video>
+  <video class="vcx-fourquad-hero__video vcx-fourquad-hero__video--a is-on" id="vcxFourquadVideoA" autoplay muted playsinline aria-hidden="true" preload="auto" src="assets/video/tampa-1.mp4"></video>
   <video class="vcx-fourquad-hero__video vcx-fourquad-hero__video--b" id="vcxFourquadVideoB" muted playsinline aria-hidden="true" preload="auto" src="assets/video/tampa-4.mp4"></video>
   <script>
     /* Cycle 6 Tampa-area aerial clips (downtown drone, beaches, pier, city).
@@ -323,6 +323,9 @@
   color: #ffffff;
   display: block;
   font-family: 'Practice', 'Cormorant Garamond', Georgia, serif;
+  /* Dark fallback so reloads do not flash the old sky-poster image
+     while the tampa videos buffer */
+  background: linear-gradient(180deg, #0F1A24 0%, #0A2530 100%);
 }
 .visually-hidden {
   position: absolute !important;
@@ -1180,28 +1183,28 @@ body.vcx-leak-locked { overflow: hidden; }
 <section class="vcx-impact-section">
 <div class="wrap">
 <div class="section-head vcx-reveal">
-<span class="vcx-eyebrow-premium" data-i18n="impact_eyebrow">Methodology benchmarks</span>
-<h2 class="vcx-headline-accent" data-i18n="impact_title">What structured recovery infrastructure delivers.</h2>
+<span class="vcx-eyebrow-premium" data-i18n="impact_eyebrow" style="color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;">Methodology benchmarks</span>
+<h2 class="vcx-headline-accent" data-i18n="impact_title" style="color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;background:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;">What structured recovery infrastructure delivers.</h2>
 </div>
 <div class="vcx-impact-grid">
 <div class="vcx-impact-item vcx-reveal">
-<span class="vcx-impact-number" data-vcx-count-to="37" data-vcx-count-suffix="%">37%</span>
-<span class="vcx-impact-label" data-i18n="impact_stat_1">Average reduction in days sales outstanding</span>
+<span class="vcx-impact-number" data-vcx-count-to="37" data-vcx-count-suffix="%" style="color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;">37%</span>
+<span class="vcx-impact-label" data-i18n="impact_stat_1" style="color:rgba(208,240,234,0.78) !important;-webkit-text-fill-color:rgba(208,240,234,0.78) !important;">Average reduction in days sales outstanding</span>
 </div>
 <div class="vcx-impact-item vcx-reveal vcx-stagger-1">
-<span class="vcx-impact-number" data-vcx-count-to="68" data-vcx-count-suffix="%">68%</span>
-<span class="vcx-impact-label" data-i18n="impact_stat_2">Recovery before agency escalation</span>
+<span class="vcx-impact-number" data-vcx-count-to="68" data-vcx-count-suffix="%" style="color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;">68%</span>
+<span class="vcx-impact-label" data-i18n="impact_stat_2" style="color:rgba(208,240,234,0.78) !important;-webkit-text-fill-color:rgba(208,240,234,0.78) !important;">Recovery before agency escalation</span>
 </div>
 <div class="vcx-impact-item vcx-reveal vcx-stagger-2">
-<span class="vcx-impact-number" data-vcx-count-to="4" data-vcx-count-suffix="x">4x</span>
-<span class="vcx-impact-label" data-i18n="impact_stat_3">Return on pilot investment</span>
+<span class="vcx-impact-number" data-vcx-count-to="4" data-vcx-count-suffix="x" style="color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;">4x</span>
+<span class="vcx-impact-label" data-i18n="impact_stat_3" style="color:rgba(208,240,234,0.78) !important;-webkit-text-fill-color:rgba(208,240,234,0.78) !important;">Return on pilot investment</span>
 </div>
 <div class="vcx-impact-item vcx-reveal vcx-stagger-3">
-<span class="vcx-impact-number" data-vcx-count-to="90" data-vcx-count-suffix="%">90%</span>
-<span class="vcx-impact-label" data-i18n="impact_stat_4">File readiness at first counsel handoff</span>
+<span class="vcx-impact-number" data-vcx-count-to="90" data-vcx-count-suffix="%" style="color:#7CD2DE !important;-webkit-text-fill-color:#7CD2DE !important;">90%</span>
+<span class="vcx-impact-label" data-i18n="impact_stat_4" style="color:rgba(208,240,234,0.78) !important;-webkit-text-fill-color:rgba(208,240,234,0.78) !important;">File readiness at first counsel handoff</span>
 </div>
 </div>
-<p class="vcx-impact-source vcx-claim-caveat vcx-claim-caveat--paragraph" data-i18n="impact_source" style="text-align:center;margin-top:18px;">Based on structured AR methodology benchmarks. Sources: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.</p>
+<p class="vcx-impact-source vcx-claim-caveat vcx-claim-caveat--paragraph" data-i18n="impact_source" style="text-align:center;margin-top:18px;color:rgba(208,240,234,0.65) !important;-webkit-text-fill-color:rgba(208,240,234,0.65) !important;">Based on structured AR methodology benchmarks. Sources: Clio Legal Trends 2024, HBMA Revenue Cycle Report 2024.</p>
 </div>
 </section>
 <section class="section vcx-cases-merged" id="engagement-examples" data-vcx-cases-zoom style="background:linear-gradient(180deg,#F4F7F6 0%,#E8EFED 100%);">
@@ -1547,6 +1550,10 @@ body.vcx-leak-locked { overflow: hidden; }
 <strong data-i18n="concierge_phone">(888) 794-8292</strong>
 <small data-i18n="concierge_note">Private line for consultation coordination</small>
 </div>
+<a class="btn btn-primary vcx-callnow-btn" href="tel:+18887948292" data-i18n="concierge_callnow" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;width:100%;background:linear-gradient(180deg, #123E4C 0%, #0A2530 100%) !important;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;border:1px solid #0A2530 !important;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;font-size:14px;letter-spacing:0.02em;">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+Call now
+</a>
 </article>
 
 </div>
