@@ -631,6 +631,22 @@
 
 <!-- ── PROMOTIONS STRIP (right after hero — two new-client offers) ── -->
 <section class="vcx-pricing-strip vcx-pricing-strip--promos" aria-label="Current promotions">
+<style>
+/* Promotions strip — inherits the published-pricing card chrome.
+ * Self-contained styles (the prior section's inline style block was
+ * removed alongside the section). */
+.vcx-pricing-strip { padding: 52px 0 !important; background: #EEF6F5 !important; border-top: 1px solid rgba(26,79,74,.06); border-bottom: 1px solid rgba(26,79,74,.06); }
+.vcx-pricing-strip__wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.vcx-pricing-strip__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.vcx-pricing-strip__card { background: #FFFFFF !important; border-radius: 14px; padding: 26px 26px 22px; box-shadow: 0 8px 24px rgba(11,31,48,.08); border: 1px solid rgba(26,79,74,.06); text-decoration: none; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.vcx-pricing-strip__card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(11,31,48,.12); }
+.vcx-pricing-strip__tag { display: inline-block; align-self: flex-start; background: rgba(91,186,167,.14); color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; font-size: .72rem !important; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
+.vcx-pricing-strip__card--gold .vcx-pricing-strip__tag { background: rgba(14,116,144,.14); color: #0E5C68 !important; -webkit-text-fill-color: #0E5C68 !important; }
+.vcx-pricing-strip__h { color: #1A2F2A !important; -webkit-text-fill-color: #1A2F2A !important; font-size: 1.18rem !important; font-weight: 800; margin: 0 0 8px; line-height: 1.3 !important; }
+.vcx-pricing-strip__d { color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; font-size: .94rem !important; line-height: 1.55 !important; margin: 0 0 16px; flex-grow: 1; }
+.vcx-pricing-strip__cta { color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; font-size: .92rem !important; font-weight: 700; }
+.vcx-pricing-strip__card:hover .vcx-pricing-strip__cta { color: #1A2F2A !important; -webkit-text-fill-color: #1A2F2A !important; }
+</style>
 <div class="vcx-pricing-strip__wrap">
 <div class="vcx-pricing-strip__grid">
 <a class="vcx-pricing-strip__card" href="pre-collection-pilot.html">
