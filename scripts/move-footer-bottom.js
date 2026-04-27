@@ -33,8 +33,8 @@ function collectHtmlFiles(dir, out = []) {
 // Matches the copyright <p> inside footer-meta. Known variants:
 //   <p class="small-note footer-copyright" data-i18n="footer_copy">© 2025 VitaCoreX LLC. All rights reserved.</p>
 //   <p class="small-note">© 2025 VitaCoreX LLC. All rights reserved.</p>
-//   <p class="small-note" data-common="footer_copy">&copy; 2026 VitaCoreX LLC. All rights reserved.</p>
-//   <p class="footer-copy" data-common="footer_copy">&copy; 2026 VitaCoreX LLC. All rights reserved.</p>
+//   <p class="small-note" data-common="footer_copy">&copy; 2025–2026 VitaCoreX LLC. All rights reserved.</p>
+//   <p class="footer-copy" data-common="footer_copy">&copy; 2025–2026 VitaCoreX LLC. All rights reserved.</p>
 // Accepts: multiple class variants, optional data-i18n/data-common, © or &copy;, year 2025-2030
 const COPYRIGHT_RE = /^[ \t]*<p class="(?:small-note(?: footer-copyright)?|footer-copy)"(?:\s+data-(?:i18n|common)="footer_copy")?>(?:&copy;|©)\s*20\d{2}\s*VitaCoreX LLC\.\s*All rights reserved\.<\/p>\r?\n/m;
 
