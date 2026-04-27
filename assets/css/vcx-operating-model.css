@@ -39,10 +39,10 @@
 }
 
 .vcx-om-head {
-  margin: 0 auto clamp(28px, 4vh, 52px);
+  margin: 0 0 clamp(28px, 4vh, 52px);
   width: 100%;
   text-align: left;
-  max-width: 1200px;
+  max-width: 100%;
 }
 
 .vcx-om-eyebrow {
@@ -73,14 +73,14 @@
   letter-spacing: -0.01em;
   color: var(--om-ink);
   margin: 0 0 12px;
-  max-width: 880px;
+  max-width: 100%;
 }
 
 .vcx-om-lede {
   font-size: clamp(14px, 1.05vw, 16px);
   line-height: 1.55;
   color: var(--om-ink-soft);
-  max-width: 720px;
+  max-width: 100%;
   margin: 0;
 }
 

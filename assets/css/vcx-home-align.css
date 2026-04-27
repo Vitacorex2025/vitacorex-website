@@ -42,6 +42,20 @@ body[data-vcx-page="home"] .vcx-leak-grid {
   margin-inline: 0;
 }
 
+/* Defeat global h2 max-width !important rules from styles.css/ui-shell.css that
+   force section titles down to 14-30ch and break our headlines into too many lines. */
+body[data-vcx-page="home"] .vcx-om-section .vcx-om-title,
+body[data-vcx-page="home"] .vcx-om-section .vcx-om-lede,
+body[data-vcx-page="home"] .vcx-cases-merged .section-head,
+body[data-vcx-page="home"] .vcx-cases-merged .section-head h2,
+body[data-vcx-page="home"] .vcx-cases-merged .section-head .section-intro,
+body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head,
+body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head h3,
+body[data-vcx-page="home"] .vcx-cases-merged .vcx-cases-sub-head p {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 /* Mobile: relax */
 @media (max-width: 768px) {
   :root {

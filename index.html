@@ -33,8 +33,8 @@
 <link href="assets/css/premium-fixes.css" rel="stylesheet"/><link href="/assets/css/vcx-redesign.css?v=12" rel="stylesheet"/>
 <link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/><link href="/assets/css/vcx-a11y-fixes.css?v=11" rel="stylesheet"/><link href="/assets/css/vcx-premium-2.css?v=20" rel="stylesheet"/><link href="/assets/css/vcx-noise-bg.css?v=5" rel="stylesheet"/><link href="/assets/css/vcx-noise-scoped.css?v=6" rel="stylesheet"/><link href="/assets/css/vcx-claims.css?v=3" rel="stylesheet"/><link href="/assets/css/vcx-hero-cybercore.css?v=21" rel="stylesheet"/>
 <link href="/assets/css/vcx-rails.css?v=7" rel="stylesheet"/>
-<link href="/assets/css/vcx-operating-model.css?v=2" rel="stylesheet"/>
-<link href="/assets/css/vcx-home-align.css?v=2" rel="stylesheet"/>
+<link href="/assets/css/vcx-operating-model.css?v=3" rel="stylesheet"/>
+<link href="/assets/css/vcx-home-align.css?v=3" rel="stylesheet"/>
 <!-- GSAP removed for performance -->
 <script src="/assets/js/vcx-operating-model.js?v=2" defer></script>
 <script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="/assets/js/vcx-noise-scoped.js?v=3" defer></script><script src="/assets/js/vcx-hero-particles.js?v=4" defer></script><script src="/assets/js/vcx-rails.js?v=2" defer></script><link rel="stylesheet" href="/assets/css/vcx-header-glass.css?v=6">
@@ -1128,7 +1128,6 @@ body.vcx-leak-locked { overflow: hidden; }
 <div class="vcx-om-col" data-col="2">
 <div class="vcx-om-col-head" data-i18n="om_col_2">How we work</div>
 <article class="vcx-om-card">
-<span class="vcx-om-card-step">1</span>
 <h3 class="vcx-om-card-h" data-page="step_1">Diagnose</h3>
 <p class="vcx-om-card-p" data-page="step_1_p">Review the current workflow, aging logic, file quality, and decision friction.</p>
 <ul class="vcx-om-card-list">
@@ -1137,7 +1136,6 @@ body.vcx-leak-locked { overflow: hidden; }
 </ul>
 </article>
 <article class="vcx-om-card">
-<span class="vcx-om-card-step">2</span>
 <h3 class="vcx-om-card-h" data-page="step_2">Pilot</h3>
 <p class="vcx-om-card-p" data-page="step_2_p">Run a controlled 90-day scope with tracking, reporting, and measurable uplift targets.</p>
 <ul class="vcx-om-card-list">
@@ -1146,7 +1144,6 @@ body.vcx-leak-locked { overflow: hidden; }
 </ul>
 </article>
 <article class="vcx-om-card">
-<span class="vcx-om-card-step">3</span>
 <h3 class="vcx-om-card-h" data-page="step_3">Scale</h3>
 <p class="vcx-om-card-p" data-page="step_3_p">Roll out the repeatable process once pilot evidence supports enterprise adoption.</p>
 <ul class="vcx-om-card-list">
@@ -1188,10 +1185,6 @@ body.vcx-leak-locked { overflow: hidden; }
 </div>
 </div>
 
-<div class="vcx-om-cta">
-<a class="vcx-om-btn vcx-om-btn--primary" href="contact.html#pilot" data-i18n="om_cta_primary">Request a pilot package</a>
-<a class="vcx-om-btn vcx-om-btn--secondary" href="contact.html#confidential" data-i18n="om_cta_secondary">Confidential review</a>
-</div>
 </div>
 </section>
 <section class="vcx-impact-section">
@@ -1230,7 +1223,9 @@ body.vcx-leak-locked { overflow: hidden; }
   padding: clamp(56px, 8vh, 96px) clamp(20px, 5vw, 64px);
 }
 .vcx-cases-merged .wrap { max-width: 1480px; margin: 0 auto; }
-.vcx-cases-merged .section-head { text-align: center; max-width: 880px; margin: 0 auto clamp(28px, 3vh, 48px); }
+.vcx-cases-merged .section-head { text-align: left; max-width: 100%; margin: 0 0 clamp(28px, 3vh, 48px); }
+.vcx-cases-merged .section-head h2 { max-width: 100%; }
+.vcx-cases-merged .section-head .section-intro { max-width: 100%; }
 .vcx-cases-merged .section-head h2 { margin: 0 0 12px; }
 .vcx-cases-merged .vcx-cases-grid {
   display: grid;
@@ -1278,9 +1273,9 @@ body.vcx-leak-locked { overflow: hidden; }
 }
 
 .vcx-cases-merged .vcx-cases-sub-head {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto clamp(20px, 2.4vh, 32px);
+  text-align: left;
+  max-width: 100%;
+  margin: 0 0 clamp(20px, 2.4vh, 32px);
 }
 .vcx-cases-merged .vcx-cases-sub-head h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
