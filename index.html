@@ -1332,14 +1332,47 @@ body.vcx-leak-locked { overflow: hidden; }
 </div>
 </div>
 </section>
-<section class="section operator-diagnostic-section vcx-bg-grid">
+<section class="section vcx-fit-three-up vcx-bg-grid">
+<style>
+.vcx-fit-three-up .wrap { max-width: 1480px; }
+.vcx-fit-three-up-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.6vw, 26px);
+  align-items: stretch;
+}
+.vcx-fit-three-up-grid > .engine-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: clamp(20px, 2vw, 28px);
+  margin: 0;
+}
+.vcx-fit-three-up-grid > .engine-card .mini-form { flex: 1 1 auto; display: flex; flex-direction: column; gap: 12px; }
+.vcx-fit-three-up-grid > .engine-card .mini-form button { margin-top: auto; }
+.vcx-fit-three-up-grid > .engine-card .assessment-result { margin: 0; }
+.vcx-fit-three-up-grid > .engine-card .authority-list { margin: 0; flex: 1 1 auto; }
+.vcx-fit-three-up-grid > .engine-card .cta-row { margin-top: auto; flex-wrap: wrap; }
+.vcx-fit-three-up-grid .concierge-phone {
+  background: rgba(43, 179, 192, 0.08);
+  border: 1px solid rgba(43, 179, 192, 0.20);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.vcx-fit-three-up-grid .concierge-phone span { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B7682; font-weight: 600; }
+.vcx-fit-three-up-grid .concierge-phone strong { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(22px, 2.4vw, 28px); color: #0F1A24; letter-spacing: -0.01em; }
+.vcx-fit-three-up-grid .concierge-phone small { font-size: 12px; color: #6B7682; }
+@media (max-width: 980px) {
+  .vcx-fit-three-up-grid { grid-template-columns: 1fr; }
+}
+</style>
 <div class="wrap">
-<div class="section-head reveal" data-animate>
-<span class="eyebrow" data-i18n="diag_eyebrow">Strategic fit snapshot</span>
-<h2 data-i18n="diag_title">Identify the right engagement path before avoidable cost compounds further.</h2>
-<p class="section-intro" data-i18n="diag_intro">This qualifier helps leadership determine whether the immediate priority is workflow recovery, legal-file control, or a combined pilot scope.</p>
-</div>
-<div class="diagnostic-grid">
+<div class="vcx-fit-three-up-grid">
+
 <article class="engine-card card reveal">
 <span class="pill" data-i18n="diag_qual_pill">Qualification</span>
 <h3 data-i18n="diag_qual_h">Strategic fit inputs</h3>
@@ -1376,6 +1409,7 @@ body.vcx-leak-locked { overflow: hidden; }
 <button class="btn btn-primary" id="diagEvaluate" type="button" data-i18n="diag_evaluate_btn">Generate engagement recommendation</button>
 </div>
 </article>
+
 <article class="engine-card card reveal">
 <span class="pill" data-i18n="diag_rec_pill">Recommendation</span>
 <h3 data-i18n="diag_rec_h">Recommended starting scope</h3>
@@ -1393,20 +1427,11 @@ body.vcx-leak-locked { overflow: hidden; }
 <a class="btn btn-primary" data-i18n="diag_cta_schedule" href="https://calendly.com/vitacorex2025/30min" rel="noopener" target="_blank">Schedule strategy consultation</a>
 </div>
 </article>
-</div>
-</div>
-</section>
-<!-- removed: testimonials, institutional-proof briefs, first-engagement-outputs (per user) -->
-<!-- removed: "Next step" private-advisory CTA banner (duplicate of operating-model CTA strip) -->
-<section class="section">
-<div class="wrap">
-<div class="concierge-panel reveal">
-<div>
-<span class="eyebrow" data-i18n="concierge_eyebrow">Private consultation line</span>
-<h2 data-i18n="concierge_title">For executive routing, scoped review, and confidential coordination.</h2>
+
+<article class="engine-card card reveal">
+<span class="pill" data-i18n="concierge_eyebrow">Private consultation line</span>
+<h3 data-i18n="concierge_title">For executive routing, scoped review, and confidential coordination.</h3>
 <p class="section-intro" data-i18n="concierge_intro">Use intake for document-ready matters, or move through private consultation when leadership needs direction before building the packet.</p>
-</div>
-<div>
 <div class="concierge-phone">
 <span data-i18n="concierge_call">Call or text</span>
 <strong data-i18n="concierge_phone">(888) 794-8292</strong>
@@ -1416,7 +1441,8 @@ body.vcx-leak-locked { overflow: hidden; }
 <a class="btn btn-primary" data-i18n="concierge_cta1" href="contact.html">Request private consultation</a>
 <a class="btn btn-secondary" data-i18n="concierge_cta2" href="structured-case-intake.html">Open structured intake</a>
 </div>
-</div>
+</article>
+
 </div>
 </div>
 </section>
