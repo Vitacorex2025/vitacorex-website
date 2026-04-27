@@ -293,12 +293,13 @@
 .vcx-svc-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11, 26, 36, 0.0) 0%, rgba(11, 26, 36, 0.55) 70%, rgba(11, 26, 36, 0.85) 100%);
+  background:
+    linear-gradient(180deg, rgba(11, 26, 36, 0.20) 0%, rgba(11, 26, 36, 0.55) 38%, rgba(11, 26, 36, 0.92) 100%);
   z-index: 1;
   pointer-events: none;
   transition: background 500ms ease;
 }
-.vcx-svc-card:hover .vcx-svc-card__overlay { background: linear-gradient(180deg, rgba(11, 26, 36, 0.10) 0%, rgba(11, 26, 36, 0.65) 70%, rgba(11, 26, 36, 0.92) 100%); }
+.vcx-svc-card:hover .vcx-svc-card__overlay { background: linear-gradient(180deg, rgba(11, 26, 36, 0.32) 0%, rgba(11, 26, 36, 0.66) 38%, rgba(11, 26, 36, 0.96) 100%); }
 
 .vcx-svc-card__content {
   position: relative;
@@ -307,11 +308,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 18px 20px;
-  color: rgba(225, 235, 240, 0.85);
+  padding: 18px 22px 22px;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
   transition: color 500ms ease;
 }
-.vcx-svc-card:hover .vcx-svc-card__content { color: #FFFFFF; }
+.vcx-svc-card:hover .vcx-svc-card__content { color: #FFFFFF; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); }
 
 .vcx-svc-card__arrow {
   align-self: flex-end;
@@ -375,7 +377,7 @@
 
 <div class="vcx-services-grid">
   <a class="vcx-svc-card" href="revenue-recovery-workflow.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1689732888407-310424e3a372?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1716782519075-4ae5fd66194f?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -389,7 +391,7 @@
   </a>
 
   <a class="vcx-svc-card" href="small-claims-documentation.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1708793737579-3df8763a5119?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -403,7 +405,7 @@
   </a>
 
   <a class="vcx-svc-card" href="founder-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1753955900083-b62ee8d97805?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1759752393850-828c6550a48f?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
@@ -417,7 +419,7 @@
   </a>
 
   <a class="vcx-svc-card" href="private-services.html" data-vcx-svc-card>
-    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1633520833019-e34afd4b8fad?w=1200&amp;auto=format&amp;fit=crop');"></div>
+    <div class="vcx-svc-card__bg" style="background-image:url('https://images.unsplash.com/photo-1487637419635-a2a471ff5c7b?w=1200&amp;auto=format&amp;fit=crop');"></div>
     <div class="vcx-svc-card__overlay"></div>
     <div class="vcx-svc-card__content">
       <span class="vcx-svc-card__arrow" aria-hidden="true">
