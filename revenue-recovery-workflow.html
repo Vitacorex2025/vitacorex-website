@@ -199,56 +199,163 @@
 <a class="vcx-image-hero__cta vcx-image-hero__cta--ghost" href="structured-case-intake.html" data-common="cta_intake">Request a confidential review</a>
 </div>
 </div>
-</section><section class="section"><div class="wrap"><div class="grid-2 vcx-flow-wide-left"><div class="card reveal"><h2 data-page="rrw_fw_h">Framework components</h2><ul class="vcx-tag-grid" aria-label="Framework components"><li data-page="rrw_fw_1">Behavioral segmentation</li><li data-page="rrw_fw_2">Conditional offer conversion</li><li data-page="rrw_fw_3">Guarantor activation</li><li data-page="rrw_fw_4">ACH-first discipline</li><li data-page="rrw_fw_5">Litigation-ready documentation</li><li data-page="rrw_fw_6">90-day pilot</li><li data-page="rrw_fw_7">KPI dashboard</li></ul></div>
-<div class="card reveal">
-<h2 data-page="rrw_lm_h">What leadership monitors</h2>
-<ul class="vcx-tag-grid" aria-label="What leadership monitors">
-<li data-page="rrw_lm_1">Balances converted before agency escalation</li>
-<li data-page="rrw_lm_2">Documented payment commitments and cure rates</li>
-<li data-page="rrw_lm_3">Exception queues, follow-up discipline, and aging movement</li>
-<li data-page="rrw_lm_4">File quality improvements that reduce downstream cleanup</li>
-</ul>
-<p class="small-note" data-page="rrw_lm_note">Measure the operator\u2019s own baseline first, then compare the pilot against that live operating context.</p>
-</div>
-</div></div></section>
-<section class="section band" id="measurement-plan">
-<div class="wrap">
-<div class="grid-2 vcx-flow-form-output">
-<div class="card reveal">
-<h2 data-page="rrw_pm_h">Pilot measurement plan</h2>
-<p class="small-note" data-page="rrw_pm_note">Use a live pilot to validate the economic case with operator-owned data.</p>
-<ul class="vcx-tag-grid" aria-label="Pilot measurement plan">
-<li data-page="rrw_pm_1">Starting portfolio mix and pre-agency balance volume</li>
-<li data-page="rrw_pm_2">Acceptance rate, completion rate, and time-to-cash</li>
-<li data-page="rrw_pm_3">Agency referrals avoided or deferred through cleaner internal sequencing</li>
-<li data-page="rrw_pm_4">Documentation quality at handoff when escalation remains necessary</li>
-</ul>
-</div>
-<div class="card reveal">
-<h3 data-page="rrw_wk_h">What gets reviewed each week</h3>
-<div class="out-row"><span data-page="rrw_wk1_l">Cash movement</span><strong data-page="rrw_wk1_r">Collections captured against baseline cohorts</strong></div>
-<div class="out-row"><span data-page="rrw_wk2_l">Workflow control</span><strong data-page="rrw_wk2_r">Follow-up cadence, cure logic, and exception handling consistency</strong></div>
-<div class="out-row"><span data-page="rrw_wk3_l">Escalation discipline</span><strong data-page="rrw_wk3_r">Accounts routed onward only after documented internal steps are completed</strong></div>
-<div class="out-row"><span data-page="rrw_wk4_l">File quality</span><strong data-page="rrw_wk4_r">Agreement records, notes, and support materials ready for downstream use</strong></div>
-</div>
-</div>
-</div>
 </section>
-<section class="section"><div class="wrap"><div class="card reveal"><h2 data-page="rrw_comp_h">Typical operating components</h2><p data-page="rrw_comp_p">FDCPA / Regulation F / E-SIGN and applicable state rules (confirmed at intake) are referenced as guardrails for workflow design, documentation control, and escalation structuring. VitaCoreX LLC is not a law firm and not a licensed collection agency.</p></div></div></section>
-<section class="section">
+
+<section class="section vcx-pilot-summary" id="measurement-plan">
+<style>
+.vcx-pilot-summary { padding: clamp(56px, 8vh, 96px) 0; }
+.vcx-pilot-summary .wrap { max-width: 1280px; padding: 0 24px; }
+.vcx-pilot-summary .vcx-pilot-head { max-width: 880px; margin: 0 0 clamp(36px, 5vh, 56px); }
+.vcx-pilot-summary .vcx-pilot-head .eyebrow {
+  font-size: 13px !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 600 !important;
+  color: #2D8A82 !important;
+  -webkit-text-fill-color: #2D8A82 !important;
+}
+.vcx-pilot-summary .vcx-pilot-head h2 {
+  font-size: clamp(32px, 4vw, 48px) !important;
+  line-height: 1.1 !important;
+  margin: 12px 0 14px !important;
+  max-width: 100% !important;
+  color: #0F1A24 !important;
+  -webkit-text-fill-color: #0F1A24 !important;
+}
+.vcx-pilot-summary .vcx-pilot-head .section-intro {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  color: #4A5666 !important;
+  -webkit-text-fill-color: #4A5666 !important;
+  font-weight: 500 !important;
+  max-width: 760px !important;
+  margin: 0 !important;
+}
+
+.vcx-pilot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+  margin-bottom: clamp(28px, 4vh, 40px);
+}
+@media (max-width: 980px) { .vcx-pilot-grid { grid-template-columns: 1fr; } }
+
+.vcx-pilot-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(15, 26, 36, 0.14);
+}
+.vcx-pilot-col__num {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2D8A82;
+}
+.vcx-pilot-col__h {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(22px, 2.2vw, 28px) !important;
+  line-height: 1.18 !important;
+  font-weight: 600 !important;
+  color: #0F1A24 !important;
+  -webkit-text-fill-color: #0F1A24 !important;
+  margin: 0 0 4px !important;
+  max-width: 100% !important;
+}
+.vcx-pilot-col__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vcx-pilot-col__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #3A4A5B;
+}
+.vcx-pilot-col__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1px;
+  background: #2D8A82;
+}
+.vcx-pilot-col__list li strong {
+  display: block;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0F1A24;
+  margin-bottom: 2px;
+}
+
+.vcx-pilot-footnote {
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(15, 26, 36, 0.10);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6B7682;
+  max-width: 920px;
+}
+</style>
+
 <div class="wrap">
-<div class="card reveal">
-<div class="section-head">
-<span class="eyebrow" data-page="rrw_pp_eyebrow">Pilot work product</span>
-<h2 data-page="rrw_pp_h">What a serious first phase should produce</h2>
-<p class="section-intro" data-page="rrw_pp_intro">The goal is controlled implementation evidence, not illustrative case-study theatre.</p>
-</div>
-<div class="kpi-grid">
-<div class="kpi-card glass-card"><div class="kpi-label" data-page="rrw_k1_l">Baseline map</div><div class="kpi-value" data-page="rrw_k1_v">Aging, routing, and exception logic documented</div></div>
-<div class="kpi-card glass-card"><div class="kpi-label" data-page="rrw_k2_l">Workflow changes</div><div class="kpi-value" data-page="rrw_k2_v">Offers, follow-up sequence, and payment controls defined</div></div>
-<div class="kpi-card glass-card"><div class="kpi-label" data-page="rrw_k3_l">Review memo</div><div class="kpi-value" data-page="rrw_k3_v">Weekly observations with next-step recommendations</div></div>
-</div>
-</div>
+  <div class="vcx-pilot-head reveal">
+    <span class="eyebrow" data-page="rrw_pp_eyebrow">Pilot work product</span>
+    <h2 data-page="rrw_pp_h">What a serious first phase actually produces.</h2>
+    <p class="section-intro" data-page="rrw_pp_intro">A controlled 90-day implementation, not illustrative case-study theatre. We build the workflow, measure it against your own baseline, and hand back evidence \u2014 so the next decision is informed by your numbers, not by templates.</p>
+  </div>
+
+  <div class="vcx-pilot-grid">
+
+    <div class="vcx-pilot-col reveal">
+      <span class="vcx-pilot-col__num" data-page="rrw_col1_num">01 \u2014 What we build</span>
+      <h3 class="vcx-pilot-col__h" data-page="rrw_fw_h">Framework components</h3>
+      <ul class="vcx-pilot-col__list">
+        <li data-page="rrw_fw_1">Behavioral segmentation</li>
+        <li data-page="rrw_fw_2">Conditional offer conversion</li>
+        <li data-page="rrw_fw_3">Guarantor activation</li>
+        <li data-page="rrw_fw_4">ACH-first discipline</li>
+        <li data-page="rrw_fw_5">Litigation-ready documentation</li>
+        <li data-page="rrw_fw_6">90-day pilot scope</li>
+        <li data-page="rrw_fw_7">KPI dashboard</li>
+      </ul>
+    </div>
+
+    <div class="vcx-pilot-col reveal">
+      <span class="vcx-pilot-col__num" data-page="rrw_col2_num">02 \u2014 What we measure</span>
+      <h3 class="vcx-pilot-col__h" data-page="rrw_pm_h">Reviewed each week</h3>
+      <ul class="vcx-pilot-col__list">
+        <li><strong data-page="rrw_wk1_l">Cash movement</strong><span data-page="rrw_wk1_r">Collections captured against baseline cohorts</span></li>
+        <li><strong data-page="rrw_wk2_l">Workflow control</strong><span data-page="rrw_wk2_r">Follow-up cadence, cure logic, and exception handling consistency</span></li>
+        <li><strong data-page="rrw_wk3_l">Escalation discipline</strong><span data-page="rrw_wk3_r">Accounts routed onward only after documented internal steps are completed</span></li>
+        <li><strong data-page="rrw_wk4_l">File quality</strong><span data-page="rrw_wk4_r">Agreement records, notes, and support materials ready for downstream use</span></li>
+      </ul>
+    </div>
+
+    <div class="vcx-pilot-col reveal">
+      <span class="vcx-pilot-col__num" data-page="rrw_col3_num">03 \u2014 What you receive</span>
+      <h3 class="vcx-pilot-col__h" data-page="rrw_pp_deliv_h">Concrete deliverables</h3>
+      <ul class="vcx-pilot-col__list">
+        <li><strong data-page="rrw_k1_l">Baseline map</strong><span data-page="rrw_k1_v">Aging, routing, and exception logic documented</span></li>
+        <li><strong data-page="rrw_k2_l">Workflow changes</strong><span data-page="rrw_k2_v">Offers, follow-up sequence, and payment controls defined</span></li>
+        <li><strong data-page="rrw_k3_l">Review memo</strong><span data-page="rrw_k3_v">Weekly observations with next-step recommendations</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="vcx-pilot-footnote" data-page="rrw_comp_p">FDCPA / Regulation F / E-SIGN and applicable state rules are referenced as guardrails for workflow design, documentation control, and escalation structuring. VitaCoreX LLC is not a law firm and not a licensed collection agency.</p>
 </div>
 </section>
 <!-- VCX Phase 2: product integration cards -- START -->
@@ -416,7 +523,7 @@
 </div>
 </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script><script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=42" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script><link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
+<script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script><script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=47" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script><link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
 <script src="/assets/js/vcx-nav.js?v=7" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-footer-modern.css?v=3">
 <script src="assets/js/site.js?v=3" defer></script><script src="assets/js/ui-shell.js" defer></script><script src="assets/js/premium-fixes.js" defer></script><script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
