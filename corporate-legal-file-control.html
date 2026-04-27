@@ -198,41 +198,177 @@
 <a class="vcx-image-hero__cta vcx-image-hero__cta--ghost" href="insights.html" data-common="cta_briefs">View executive briefs</a>
 </div>
 </div>
-</section><section class="section"><div class="wrap"><div class="grid-2 vcx-stack-desktop"><div class="card reveal"><h2 data-page="clfc_deliver_h">Typical control outputs</h2><ul class="vcx-tag-grid" aria-label="Typical control outputs"><li data-page="clfc_deliver_li_1">Matter chronology cleanup</li><li data-page="clfc_deliver_li_2">Exhibit ordering logic</li><li data-page="clfc_deliver_li_3">Issue summary memo</li><li data-page="clfc_deliver_li_4">File map</li><li data-page="clfc_deliver_li_5">Counsel-ready packet</li><li data-page="clfc_deliver_li_6">Questions / gaps log</li><li data-page="clfc_deliver_li_7">Structured handoff notes</li></ul></div><div class="card reveal"><h2 data-page="clfc_w1_h">First-week work product</h2><p data-page="clfc_w1_p">Initial issue map, first chronology pass, document request list, key gaps memo, and defined next-step routing.</p><h2 data-page="clfc_timeline_h" style="margin-top:18px">Typical engagement rhythm</h2><p data-page="clfc_timeline_p">Most first-phase engagements are framed as a short sprint with a first work product in the first week and a structured review immediately after.</p><h2 data-page="clfc_price_h" style="margin-top:18px">Commercial structure</h2><p data-page="clfc_price_p"><strong>From $3,500 per matter or $3,500/mo retainer.</strong> Fixed-scope or staged pricing confirmed after intake and document review &mdash; no billable-hour surprise logic for first-stage cleanup work. <a href="#pricing" style="color:#8B5A3C;font-weight:700;">See published floor &rarr;</a></p></div></div></div></section>
-<section class="section" id="pricing" style="background:#F7FAF9" aria-labelledby="fileControlEngagementsTitle">
+</section>
+
+<section class="section vcx-clfc-engagement" id="pricing" aria-labelledby="fileControlEngagementsTitle">
+<style>
+.vcx-clfc-engagement { padding: clamp(56px, 8vh, 96px) 0; background: linear-gradient(180deg, #FFFFFF 0%, #F4F7F8 100%); }
+.vcx-clfc-engagement .wrap { max-width: 1280px; padding: 0 24px; }
+.vcx-clfc-engagement__head { max-width: 880px; margin: 0 0 clamp(36px, 5vh, 56px); }
+.vcx-clfc-engagement__head .eyebrow {
+  font-size: 13px !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 600 !important;
+  color: #2D8A82 !important;
+  -webkit-text-fill-color: #2D8A82 !important;
+}
+.vcx-clfc-engagement__head h2 {
+  font-size: clamp(32px, 4vw, 48px) !important;
+  line-height: 1.1 !important;
+  margin: 12px 0 14px !important;
+  max-width: 100% !important;
+  color: #0F1A24 !important;
+  -webkit-text-fill-color: #0F1A24 !important;
+}
+.vcx-clfc-engagement__head .section-intro {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  color: #4A5666 !important;
+  -webkit-text-fill-color: #4A5666 !important;
+  font-weight: 500 !important;
+  max-width: 820px !important;
+  margin: 0 !important;
+}
+
+.vcx-clfc-formats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+  margin-bottom: clamp(36px, 5vh, 56px);
+  padding-top: 18px;
+  border-top: 1px solid rgba(15, 26, 36, 0.14);
+}
+@media (max-width: 880px) { .vcx-clfc-formats { grid-template-columns: 1fr; } }
+.vcx-clfc-format {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.vcx-clfc-format__label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2D8A82;
+}
+.vcx-clfc-format__price {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(28px, 3.2vw, 38px) !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  color: #0F1A24 !important;
+  -webkit-text-fill-color: #0F1A24 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+.vcx-clfc-format__sub {
+  font-size: 14px;
+  color: #4A5666;
+  margin: 0;
+  font-style: italic;
+}
+.vcx-clfc-format__list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vcx-clfc-format__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #3A4A5B;
+}
+.vcx-clfc-format__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1px;
+  background: #2D8A82;
+}
+
+.vcx-clfc-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(15, 26, 36, 0.10);
+}
+.vcx-clfc-cta-row .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #123E4C 0%, #0A2530 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #0A2530;
+  box-shadow: 0 6px 16px -8px rgba(10, 37, 48, 0.4);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.vcx-clfc-cta-row .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -10px rgba(10, 37, 48, 0.55);
+}
+.vcx-clfc-footnote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6B7682;
+  max-width: 820px;
+}
+</style>
+
 <div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow" data-page="clfc_pricing_eyebrow" style="color:#8B5A3C">Engagement structure</span>
-<h2 id="fileControlEngagementsTitle" data-page="clfc_pricing_title">File Control Engagements</h2>
-<p class="section-intro" data-page="clfc_pricing_intro">Two ways to engage &mdash; scoped matter or ongoing retainer. Both tiers share the same deliverables: organized chronology, exhibit packets, issue-log memos, counsel-ready handoff. Final fee is confirmed after intake and document review. Published floor $3,500 &mdash; no "call for pricing".</p>
-</div>
-<div class="grid-2" style="max-width:880px;margin:0 auto;">
-<article class="card reveal" style="border-top:3px solid #1A4F4A;padding-top:22px;">
-<span class="pill" data-page="clfc_pricing_a_pill">Scoped matter</span>
-<h3 style="margin:10px 0 4px;" data-page="clfc_pricing_a_title">From $3,500 per matter</h3>
-<p class="small-note" style="margin-bottom:12px;" data-page="clfc_pricing_a_sub">Single matter, fixed scope, first work product in week one</p>
-<ul class="sublist">
-<li data-page="clfc_pricing_a_l1">Matter chronology cleanup and exhibit ordering</li>
-<li data-page="clfc_pricing_a_l2">Issue summary memo + file map</li>
-<li data-page="clfc_pricing_a_l3">Counsel-ready handoff packet</li>
-<li data-page="clfc_pricing_a_l4">Questions/gaps log + structured handoff notes</li>
-</ul>
-<div class="cta-row" style="margin-top:16px;"><a class="btn btn-primary" href="structured-case-intake.html" data-page="clfc_pricing_a_cta">Request scoped review</a></div>
-</article>
-<article class="card reveal" style="border-top:3px solid #8B5A3C;padding-top:22px;">
-<span class="pill" data-page="clfc_pricing_b_pill">Ongoing retainer</span>
-<h3 style="margin:10px 0 4px;" data-page="clfc_pricing_b_title">From $3,500/mo</h3>
-<p class="small-note" style="margin-bottom:12px;" data-page="clfc_pricing_b_sub">Multi-matter monthly retainer for corporate departments</p>
-<ul class="sublist">
-<li data-page="clfc_pricing_b_l1">Dedicated file-control desk for recurring matters</li>
-<li data-page="clfc_pricing_b_l2">Monthly scorecards + audit-ready escalation logs</li>
-<li data-page="clfc_pricing_b_l3">Priority routing for regulated or high-value files</li>
-<li data-page="clfc_pricing_b_l4">Quarterly governance review with counsel coordination</li>
-</ul>
-<div class="cta-row" style="margin-top:16px;"><a class="btn btn-primary" href="contact.html" data-page="clfc_pricing_b_cta">Request retainer scope</a></div>
-</article>
-</div>
-<p class="small-note" style="text-align:center;margin:22px auto 0;max-width:820px;color:#5E6C7B" data-page="clfc_pricing_note">Corporate intake and document review determine final fee. Custom scope above the floor (multi-jurisdictional, high-volume, or regulated matter families) is quoted at intake. VitaCoreX LLC is not a law firm; fees are for administrative, documentation, and workflow services only.</p>
+  <div class="vcx-clfc-engagement__head reveal">
+    <span class="eyebrow" data-page="clfc_pricing_eyebrow">Engagement structure</span>
+    <h2 id="fileControlEngagementsTitle" data-page="clfc_pricing_title">Forms of file-control engagement.</h2>
+    <p class="section-intro" data-page="clfc_pricing_intro">Two engagement formats — single matter or ongoing retainer. Both deliver the same outputs: organized chronology, exhibit packets, issue-log memos, counsel-ready handoff. First work product lands in week one. Final fee is confirmed after intake and document review. Published floor $3,500 — no "call for pricing".</p>
+  </div>
+
+  <div class="vcx-clfc-formats">
+
+    <div class="vcx-clfc-format reveal">
+      <span class="vcx-clfc-format__label" data-page="clfc_pricing_a_pill">Scoped matter</span>
+      <h3 class="vcx-clfc-format__price" data-page="clfc_pricing_a_title">From $3,500 per matter</h3>
+      <p class="vcx-clfc-format__sub" data-page="clfc_pricing_a_sub">Single matter, fixed scope, first work product in week one.</p>
+      <ul class="vcx-clfc-format__list">
+        <li data-page="clfc_pricing_a_l1">Matter chronology cleanup and exhibit ordering</li>
+        <li data-page="clfc_pricing_a_l2">Issue summary memo + file map</li>
+        <li data-page="clfc_pricing_a_l3">Counsel-ready handoff packet</li>
+        <li data-page="clfc_pricing_a_l4">Questions / gaps log + structured handoff notes</li>
+      </ul>
+    </div>
+
+    <div class="vcx-clfc-format reveal">
+      <span class="vcx-clfc-format__label" data-page="clfc_pricing_b_pill">Ongoing retainer</span>
+      <h3 class="vcx-clfc-format__price" data-page="clfc_pricing_b_title">From $3,500 / mo</h3>
+      <p class="vcx-clfc-format__sub" data-page="clfc_pricing_b_sub">Multi-matter monthly retainer for corporate departments.</p>
+      <ul class="vcx-clfc-format__list">
+        <li data-page="clfc_pricing_b_l1">Dedicated file-control desk for recurring matters</li>
+        <li data-page="clfc_pricing_b_l2">Monthly scorecards + audit-ready escalation logs</li>
+        <li data-page="clfc_pricing_b_l3">Priority routing for regulated or high-value files</li>
+        <li data-page="clfc_pricing_b_l4">Quarterly governance review with counsel coordination</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="vcx-clfc-cta-row">
+    <a class="btn" href="structured-case-intake.html" data-common="cta_intake">Request a confidential review →</a>
+    <p class="vcx-clfc-footnote" data-page="clfc_pricing_note">Corporate intake and document review determine the final fee. Custom scope above the floor (multi-jurisdictional, high-volume, or regulated matter families) is quoted at intake. VitaCoreX LLC is not a law firm; fees are for administrative, documentation, and workflow services only.</p>
+  </div>
 </div>
 </section>
 <section class="vcx-rail-section vcx-rail-section--parchment legal-ops-visuals" id="file-control-board" aria-labelledby="fileControlBoardTitle" data-vcx-texture="">
@@ -481,7 +617,7 @@
 </div>
 </div>
 </footer>
-<script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=42" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script><link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
+<script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script><script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=49" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script><link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
 <script src="/assets/js/vcx-nav.js?v=7" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-footer-modern.css?v=3">
 <script src="assets/js/site.js?v=3" defer></script><script src="assets/js/ui-shell.js" defer></script><script src="assets/js/premium-fixes.js" defer></script><script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
