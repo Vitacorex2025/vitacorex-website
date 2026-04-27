@@ -739,15 +739,10 @@
 <style>
 .vcx-expand-section { background: #FFFFFF !important; padding: 56px 0 64px !important; }
 /* Section head — full-width strip aligned to the cards container.
- * Eyebrow + title + lede on one row on desktop, stacked on mobile.
- * Sized as a clear caption — readable at a glance, not a tiny hint. */
-.vcx-expand-section__head { max-width: 1500px; margin: 0 auto 24px; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px; }
-.vcx-expand-section__head .eyebrow { font-family: 'Inter', system-ui, sans-serif; font-size: 0.74rem !important; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; margin: 0 !important; flex-shrink: 0; }
-.vcx-expand-section__head h2 { font-family: 'Practice','Cormorant Garamond',Georgia,serif !important; font-size: clamp(1.2rem, 1.6vw, 1.55rem) !important; line-height: 1.2 !important; font-weight: 700 !important; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; margin: 0 !important; letter-spacing: -0.005em; flex-shrink: 0; }
-.vcx-expand-section__head p { font-family: 'Inter', system-ui, sans-serif; font-size: 0.92rem !important; line-height: 1.55 !important; font-weight: 400 !important; color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; max-width: 60ch !important; margin: 0 !important; flex: 1 1 320px; }
-@media (max-width: 900px) {
-  .vcx-expand-section__head { gap: 6px; flex-direction: column; align-items: flex-start; }
-}
+ * Eyebrow stacked above title (no lede, deleted per user). */
+.vcx-expand-section__head { max-width: 1500px; margin: 0 auto 24px; padding: 0 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.vcx-expand-section__head .eyebrow { font-family: 'Inter', system-ui, sans-serif; font-size: 0.74rem !important; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; margin: 0 !important; }
+.vcx-expand-section__head h2 { font-family: 'Practice','Cormorant Garamond',Georgia,serif !important; font-size: clamp(1.2rem, 1.6vw, 1.55rem) !important; line-height: 1.2 !important; font-weight: 700 !important; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; margin: 0 !important; letter-spacing: -0.005em; }
 
 .vcx-expand-cards { max-width: 1500px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; height: 460px; transition: grid-template-columns 600ms cubic-bezier(.2,.7,.3,1), grid-template-rows 600ms cubic-bezier(.2,.7,.3,1); }
 
@@ -788,7 +783,6 @@
 <div class="vcx-expand-section__head">
 <span class="eyebrow" data-page="quickaccess_eyebrow">Quick access</span>
 <h2 id="quickAccessTitle" data-page="quickaccess_title">Jump to what you need.</h2>
-<p data-page="quickaccess_lede">Direct links to the most-requested engagement entry points. All intake is confidential; no active advice is issued from these pages.</p>
 </div>
 
 <div class="vcx-expand-cards" role="list" id="vcxExpandCards">
