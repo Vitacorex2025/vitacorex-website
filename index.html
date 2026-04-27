@@ -738,15 +738,15 @@
 <section class="vcx-expand-section" aria-labelledby="quickAccessTitle">
 <style>
 .vcx-expand-section { background: #FFFFFF !important; padding: 56px 0 64px !important; }
-/* Section head — single full-width strip aligned to the cards container,
- * sized to read as a hint (not a heading). Eyebrow + title + lede sit
- * on one row on desktop and stack on mobile. */
-.vcx-expand-section__head { max-width: 1500px; margin: 0 auto 16px; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
-.vcx-expand-section__head .eyebrow { font-family: 'Inter', system-ui, sans-serif; font-size: 0.6rem !important; font-weight: 700; letter-spacing: 0.20em; text-transform: uppercase; color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; margin: 0 !important; flex-shrink: 0; }
-.vcx-expand-section__head h2 { font-family: 'Inter', system-ui, sans-serif !important; font-size: 0.78rem !important; line-height: 1.4 !important; font-weight: 700 !important; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; margin: 0 !important; letter-spacing: 0; flex-shrink: 0; }
-.vcx-expand-section__head p { font-family: 'Inter', system-ui, sans-serif; font-size: 0.74rem !important; line-height: 1.5 !important; font-weight: 400 !important; color: rgba(74,90,82,0.78) !important; -webkit-text-fill-color: rgba(74,90,82,0.78) !important; max-width: none !important; margin: 0 !important; flex: 1 1 auto; }
-@media (max-width: 720px) {
-  .vcx-expand-section__head { gap: 4px; flex-direction: column; align-items: flex-start; }
+/* Section head — full-width strip aligned to the cards container.
+ * Eyebrow + title + lede on one row on desktop, stacked on mobile.
+ * Sized as a clear caption — readable at a glance, not a tiny hint. */
+.vcx-expand-section__head { max-width: 1500px; margin: 0 auto 24px; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px; }
+.vcx-expand-section__head .eyebrow { font-family: 'Inter', system-ui, sans-serif; font-size: 0.74rem !important; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2D8A82 !important; -webkit-text-fill-color: #2D8A82 !important; margin: 0 !important; flex-shrink: 0; }
+.vcx-expand-section__head h2 { font-family: 'Practice','Cormorant Garamond',Georgia,serif !important; font-size: clamp(1.2rem, 1.6vw, 1.55rem) !important; line-height: 1.2 !important; font-weight: 700 !important; color: #0A2530 !important; -webkit-text-fill-color: #0A2530 !important; margin: 0 !important; letter-spacing: -0.005em; flex-shrink: 0; }
+.vcx-expand-section__head p { font-family: 'Inter', system-ui, sans-serif; font-size: 0.92rem !important; line-height: 1.55 !important; font-weight: 400 !important; color: #4A5A52 !important; -webkit-text-fill-color: #4A5A52 !important; max-width: 60ch !important; margin: 0 !important; flex: 1 1 320px; }
+@media (max-width: 900px) {
+  .vcx-expand-section__head { gap: 6px; flex-direction: column; align-items: flex-start; }
 }
 
 .vcx-expand-cards { max-width: 1500px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; height: 460px; transition: grid-template-columns 600ms cubic-bezier(.2,.7,.3,1), grid-template-rows 600ms cubic-bezier(.2,.7,.3,1); }
@@ -933,27 +933,22 @@
 </div>
 <div class="leak-grid vcx-stagger-grid vcx-stagger">
 <div class="lux-card reveal vcx-reveal">
-<div class="lux-icon">01</div>
 <h3 data-page="leak_1_h">Fragmented billing cadence</h3>
 <p data-page="leak_1_p">Balances age because outreach timing, scripts, and follow-up discipline vary by operator and location.</p>
 </div>
 <div class="lux-card reveal">
-<div class="lux-icon">02</div>
 <h3 data-page="leak_2_h">Weak payment plan structure</h3>
 <p data-page="leak_2_p">Plans fail when terms, autopay, cure triggers, and documentation are handled informally.</p>
 </div>
 <div class="lux-card reveal">
-<div class="lux-icon">03</div>
 <h3 data-page="leak_3_h">Early fee compression</h3>
 <p data-page="leak_3_p">Accounts move to agency too early, giving away margin that cleaner internal sequencing could protect.</p>
 </div>
 <div class="lux-card reveal">
-<div class="lux-icon">04</div>
 <h3 data-page="leak_4_h">No KPI visibility</h3>
 <p data-page="leak_4_p">Leadership cannot standardize what it cannot measure across cohorts, sites, and stages of recovery.</p>
 </div>
 <div class="lux-card reveal">
-<div class="lux-icon">05</div>
 <h3 data-page="leak_5_h">Incomplete file control</h3>
 <p data-page="leak_5_p">When escalation becomes necessary, weak packet structure and missing records create avoidable delay and cost.</p>
 </div>
