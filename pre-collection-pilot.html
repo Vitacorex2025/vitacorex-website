@@ -126,6 +126,93 @@
   .pcp-baseline__arrow{transform:rotate(90deg);padding:4px 0;}
 }
 
+/* === Consolidated "Pilot mechanics" block ===
+   Replaces: Qualification, Three phases, Fee ladder, Scope (in/out).
+   Single editorial section, tight vertical rhythm, sub-eyebrows for nav. */
+.pcp-mechanics{padding:clamp(64px,9vh,104px) 0;background:linear-gradient(180deg,#FFFFFF 0%,#F4F8F8 100%);}
+.pcp-mechanics .wrap{max-width:1180px;}
+.pcp-mechanics__head{max-width:860px;margin:0 auto clamp(40px,6vh,64px);text-align:center;}
+.pcp-mechanics__eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;margin-bottom:14px;}
+.pcp-mechanics__head h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;font-weight:800;letter-spacing:-.015em;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;margin:0 0 16px;text-wrap:balance;}
+.pcp-mechanics__head p{font-size:clamp(1rem,1.2vw,1.08rem);line-height:1.65;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0;}
+
+.pcp-mechanics__row{margin:0 0 clamp(36px,5vh,52px);}
+.pcp-mechanics__row:last-child{margin-bottom:0;}
+.pcp-mechanics__sublabel{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;margin:0 0 16px;text-align:center;}
+
+/* Phase rail — three pill cards in a row with arrow connectors. */
+.pcp-phase-rail{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:14px;}
+.pcp-phase{background:#FFFFFF;border:1px solid rgba(45,138,130,.18);border-radius:14px;padding:22px 20px;box-shadow:0 8px 22px rgba(11,31,48,.06);position:relative;}
+.pcp-phase__num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:rgba(45,138,130,.12);color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;font-weight:800;font-size:.95rem;margin-bottom:10px;}
+.pcp-phase strong{display:block;font-size:1.05rem;font-weight:700;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;margin:0 0 4px;}
+.pcp-phase__meta{display:block;font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5E7B72 !important;-webkit-text-fill-color:#5E7B72 !important;margin:0 0 10px;}
+.pcp-phase p{margin:0;font-size:.92rem;line-height:1.55;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;}
+.pcp-phase__arrow{display:flex;align-items:center;justify-content:center;color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;font-size:1.4rem;font-weight:700;}
+@media (max-width:880px){.pcp-phase-rail{grid-template-columns:1fr;}.pcp-phase__arrow{transform:rotate(90deg);padding:2px 0;}}
+
+/* Qualification + Scope — two columns of editorial panels. */
+.pcp-mechanics__split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3vw,32px);align-items:start;}
+@media (max-width:960px){.pcp-mechanics__split{grid-template-columns:1fr;}}
+.pcp-mechanics__panel{background:#FFFFFF;border:1px solid rgba(26,79,74,.10);border-radius:16px;padding:clamp(22px,2.5vw,28px);box-shadow:0 8px 24px rgba(11,31,48,.06);}
+.pcp-mechanics__panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:0 0 18px;padding:0 0 14px;border-bottom:1px solid rgba(26,79,74,.10);}
+.pcp-mechanics__panel-head h3{margin:0;font-size:1.1rem;font-weight:700;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;letter-spacing:-.005em;}
+.pcp-mechanics__panel-head .pcp-mechanics__sublabel{margin:0;text-align:right;}
+.pcp-qual-inline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media (max-width:720px){.pcp-qual-inline{grid-template-columns:1fr;}}
+.pcp-qual-inline__col h4{margin:0 0 10px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;}
+.pcp-qual-inline__col ul{margin:0;padding:0;list-style:none;}
+.pcp-qual-inline__col li{position:relative;padding:5px 0 5px 18px;font-size:.9rem;line-height:1.5;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;}
+.pcp-qual-inline__col li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:#2D8A82;}
+.pcp-scope-stack{display:grid;grid-template-columns:1fr;gap:16px;}
+.pcp-scope-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:640px){.pcp-scope-pair{grid-template-columns:1fr;}}
+.pcp-scope-block h4{margin:0 0 10px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.pcp-scope-block--in h4{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;}
+.pcp-scope-block--out h4{color:#5E7B72 !important;-webkit-text-fill-color:#5E7B72 !important;}
+.pcp-scope-block ul{margin:0;padding:0;list-style:none;}
+.pcp-scope-block li{position:relative;padding:5px 0 5px 22px;font-size:.9rem;line-height:1.5;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;}
+.pcp-scope-block--in li::before{content:"\2713";position:absolute;left:0;top:5px;color:#1E6E68;font-weight:800;font-size:.95rem;}
+.pcp-scope-block--out li::before{content:"\2014";position:absolute;left:0;top:5px;color:#5E7B72;font-weight:800;}
+
+/* Compact fee strip — baseline + 3 tiers + notes. */
+.pcp-mechanics__fees{background:#FFFFFF;border:1px solid rgba(26,79,74,.10);border-radius:16px;padding:clamp(22px,2.5vw,32px);box-shadow:0 10px 28px rgba(11,31,48,.06);}
+.pcp-mechanics__fees-head{text-align:center;max-width:720px;margin:0 auto 22px;}
+.pcp-mechanics__fees-head h3{margin:0 0 8px;font-size:1.3rem;font-weight:800;color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;letter-spacing:-.01em;}
+.pcp-mechanics__fees-head p{margin:0;font-size:.95rem;line-height:1.6;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;}
+.pcp-mechanics__baseline{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;background:rgba(244,247,248,0.6);border:1px solid rgba(26,79,74,.08);border-radius:12px;padding:18px;margin:0 0 18px;}
+@media (max-width:640px){.pcp-mechanics__baseline{grid-template-columns:1fr;}.pcp-mechanics__baseline-arrow{transform:rotate(90deg);}}
+.pcp-mechanics__baseline-col{text-align:center;}
+.pcp-mechanics__baseline-col--before .pcp-mechanics__baseline-num{color:#5E6C7B !important;-webkit-text-fill-color:#5E6C7B !important;}
+.pcp-mechanics__baseline-col--after .pcp-mechanics__baseline-num{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;}
+.pcp-mechanics__baseline-label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0 0 4px;}
+.pcp-mechanics__baseline-num{font-size:2rem;font-weight:800;line-height:1;letter-spacing:-.02em;margin:0 0 6px;}
+.pcp-mechanics__baseline-desc{font-size:.82rem;line-height:1.45;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0;}
+.pcp-mechanics__baseline-arrow{font-size:1.4rem;color:#2D8A82 !important;-webkit-text-fill-color:#2D8A82 !important;font-weight:700;text-align:center;}
+.pcp-mechanics__tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 18px;}
+@media (max-width:720px){.pcp-mechanics__tiers{grid-template-columns:1fr;}}
+.pcp-mechanics__tier{background:rgba(244,247,248,0.4);border:1px solid rgba(26,79,74,.08);border-radius:12px;padding:18px 14px;text-align:center;}
+.pcp-mechanics__tier--gold{background:rgba(45,138,130,.06);border-color:rgba(45,138,130,.18);}
+.pcp-mechanics__tier-range{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0 0 6px;}
+.pcp-mechanics__tier-pct{font-size:2rem;font-weight:800;line-height:1;letter-spacing:-.02em;color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;margin:0 0 4px;}
+.pcp-mechanics__tier--gold .pcp-mechanics__tier-pct{color:#1A4F4A !important;-webkit-text-fill-color:#1A4F4A !important;}
+.pcp-mechanics__tier-label{font-size:.8rem;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0;}
+.pcp-mechanics__notes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 12px;}
+@media (max-width:880px){.pcp-mechanics__notes{grid-template-columns:1fr;}}
+.pcp-mechanics__note{border-radius:10px;padding:14px 16px;}
+.pcp-mechanics__note--guard{background:rgba(45,138,130,.06);border-left:3px solid #2D8A82;}
+.pcp-mechanics__note--bound{background:rgba(14,32,54,.04);border-left:3px solid #0E2036;}
+.pcp-mechanics__note-title{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;}
+.pcp-mechanics__note--guard .pcp-mechanics__note-title{color:#1E6E68 !important;-webkit-text-fill-color:#1E6E68 !important;}
+.pcp-mechanics__note--bound .pcp-mechanics__note-title{color:#0E2036 !important;-webkit-text-fill-color:#0E2036 !important;}
+.pcp-mechanics__note ul{margin:0;padding:0;list-style:none;}
+.pcp-mechanics__note li,.pcp-mechanics__note p{position:relative;padding:0 0 0 0;font-size:.85rem;line-height:1.55;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;margin:0 0 6px;}
+.pcp-mechanics__note ul li{padding-left:18px;}
+.pcp-mechanics__note ul li::before{content:"\2713";position:absolute;left:0;top:0;color:#1E6E68;font-weight:800;}
+.pcp-mechanics__note p strong{color:#0E2036 !important;-webkit-text-fill-color:#0E2036 !important;font-weight:700;}
+.pcp-mechanics__note p:last-child{margin-bottom:0;}
+.pcp-mechanics__fee-foot{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;justify-content:center;font-size:.8rem;line-height:1.55;color:#3A4A45 !important;-webkit-text-fill-color:#3A4A45 !important;text-align:center;margin:0;padding:14px 0 0;border-top:1px solid rgba(26,79,74,.08);}
+.pcp-mechanics__fee-foot em{font-style:italic;color:#5E7B72 !important;-webkit-text-fill-color:#5E7B72 !important;}
+
 /* A33v2: Force-center section heads and stop grid overflow — nuclear version.
    Previous !important pass didn't land in some renders; we now use ID-level
    specificity on a wrapper and tighten the grid floor to 200px. */
@@ -334,32 +421,67 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 </div>
 </section>
 
-<section class="pcp-section pcp-section--white" id="qualify">
+<section class="pcp-mechanics" id="qualify" aria-labelledby="pilotMechanicsTitle">
 <div class="wrap">
-<div class="pcp-sec-head">
-<span class="pcp-sec-head__eyebrow" data-page="pcp_qual_eyebrow">Who qualifies</span>
-<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_qual_title">Qualification criteria</h2>
-<p data-page="pcp_qual_intro">A focused profile gives the pilot a fair test. We run this only where the structure and documentation make a 90-day measurement credible.</p>
+<div class="pcp-mechanics__head">
+<span class="pcp-mechanics__eyebrow" data-page="pcp_mech_eyebrow">Pilot mechanics</span>
+<h2 id="pilotMechanicsTitle" data-page="pcp_mech_title">How the Qualified Net Recovery Pilot works</h2>
+<p data-page="pcp_mech_intro">A focused 90-day measurement on your own portfolio &mdash; three controlled phases, an explicit qualification frame, and a transparent success-fee ladder. Boundaries are stated up front so the pilot stays measurable and the numbers stay yours.</p>
 </div>
-<div class="pcp-qual-grid">
-<div class="pcp-qual-card">
-<h3 data-page="pcp_qual_a_title">Portfolio fit</h3>
+
+<!-- Row 1: Three controlled phases (horizontal rail with arrows) -->
+<div class="pcp-mechanics__row">
+<span class="pcp-mechanics__sublabel" data-page="pcp_mech_phases_label">Three controlled phases over 90 days</span>
+<div class="pcp-phase-rail">
+<div class="pcp-phase">
+<span class="pcp-phase__num">1</span>
+<strong data-page="pcp_step1_title">Diagnose</strong>
+<span class="pcp-phase__meta" data-page="pcp_mech_phase1_meta">Day 1&ndash;7</span>
+<p data-page="pcp_step1_desc">Intake review: aging, workflow, file quality, leakage points.</p>
+</div>
+<span class="pcp-phase__arrow" aria-hidden="true">&rarr;</span>
+<div class="pcp-phase">
+<span class="pcp-phase__num">2</span>
+<strong data-page="pcp_step2_title">Pilot</strong>
+<span class="pcp-phase__meta" data-page="pcp_mech_phase2_meta">Day 8&ndash;90</span>
+<p data-page="pcp_step2_desc">Controlled scope: structured outreach, documented workflow changes, KPI tracking.</p>
+</div>
+<span class="pcp-phase__arrow" aria-hidden="true">&rarr;</span>
+<div class="pcp-phase">
+<span class="pcp-phase__num">3</span>
+<strong data-page="pcp_step3_title">Report</strong>
+<span class="pcp-phase__meta" data-page="pcp_mech_phase3_meta">Day 90+</span>
+<p data-page="pcp_step3_desc">Pilot-end deck: recovered cash, DSO change, file-readiness delta, recommended next scope.</p>
+</div>
+</div>
+</div>
+
+<!-- Row 2: Qualification (left, 3-col) + Scope (right, In/Out) -->
+<div class="pcp-mechanics__row pcp-mechanics__split">
+<div class="pcp-mechanics__panel">
+<div class="pcp-mechanics__panel-head">
+<h3 data-page="pcp_qual_title">Qualification criteria</h3>
+<span class="pcp-mechanics__sublabel" data-page="pcp_qual_eyebrow">Who qualifies</span>
+</div>
+<div class="pcp-qual-inline">
+<div class="pcp-qual-inline__col">
+<h4 data-page="pcp_qual_a_title">Portfolio fit</h4>
 <ul>
 <li data-page="pcp_qual_a_1">AR portfolio &ge; $100K</li>
 <li data-page="pcp_qual_a_2">Balances 30&ndash;180 days aged</li>
 <li data-page="pcp_qual_a_3">US entity, operator-side governance</li>
 </ul>
 </div>
-<div class="pcp-qual-card">
-<h3 data-page="pcp_qual_b_title">Operational fit</h3>
+<div class="pcp-qual-inline__col">
+<h4 data-page="pcp_qual_b_title">Operational fit</h4>
 <ul>
 <li data-page="pcp_qual_b_1">Documentation accessible (even if rough)</li>
 <li data-page="pcp_qual_b_2">Willing to run baseline + pilot measurement</li>
 <li data-page="pcp_qual_b_3">Finance / AR stakeholder available weekly</li>
 </ul>
 </div>
-<div class="pcp-qual-card">
-<h3 data-page="pcp_qual_c_title">Best-fit industries</h3>
+<div class="pcp-qual-inline__col">
+<h4 data-page="pcp_qual_c_title">Best-fit industries</h4>
 <ul>
 <li data-page="pcp_qual_c_1">Healthcare / dental</li>
 <li data-page="pcp_qual_c_2">Fleet / logistics</li>
@@ -370,115 +492,15 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 </div>
 </div>
 </div>
-</section>
 
-<section class="pcp-section pcp-section--cream">
-<div class="wrap">
-<div class="pcp-sec-head">
-<span class="pcp-sec-head__eyebrow" data-page="pcp_how_eyebrow">How it works</span>
-<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_how_title">Three controlled phases over 90 days</h2>
-<p data-page="pcp_how_intro">The pilot runs on your own operating data so the result is owned by you, not by a vendor dashboard.</p>
+<div class="pcp-mechanics__panel">
+<div class="pcp-mechanics__panel-head">
+<h3 data-page="pcp_mech_scope_h3">Pilot scope</h3>
+<span class="pcp-mechanics__sublabel" data-page="pcp_scope_eyebrow">Scope</span>
 </div>
-<div class="pcp-steps">
-<div class="pcp-step">
-<span class="pcp-step__num">1</span>
-<h3 data-page="pcp_step1_title">Diagnose</h3>
-<p data-page="pcp_step1_desc">7-day intake review: aging, workflow, file quality, leakage points.</p>
-</div>
-<div class="pcp-step">
-<span class="pcp-step__num">2</span>
-<h3 data-page="pcp_step2_title">Pilot</h3>
-<p data-page="pcp_step2_desc">90-day controlled scope: structured outreach, documented workflow changes, KPI tracking.</p>
-</div>
-<div class="pcp-step">
-<span class="pcp-step__num">3</span>
-<h3 data-page="pcp_step3_title">Report</h3>
-<p data-page="pcp_step3_desc">Pilot-end deck: recovered cash, DSO change, file-readiness delta, recommended next scope.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="pcp-section pcp-section--white">
-<div class="wrap">
-<div class="pcp-sec-head">
-<span class="pcp-sec-head__eyebrow" data-page="pcp_fees_eyebrow">Success fee ladder</span>
-<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_fees_title">Pay only on recovered cash</h2>
-<p data-page="pcp_fees_intro">You pay nothing for the diagnostic, the workflow design, or the pilot itself. Success fee applies to controlled recovery outcomes under the new workflow &mdash; not to the account face value. Fees start at 15% from structured recovery driven through the VitaCoreX system.</p>
-</div>
-
-<!-- Baseline / Before-vs-After anchor — illustrative planning frame. -->
-<div class="pcp-baseline">
-<span class="pcp-baseline__eyebrow" data-page="pcp_baseline_eyebrow">Baseline &rarr; Controlled workflow</span>
-<div class="pcp-baseline__row">
-<div class="pcp-baseline__col pcp-baseline__col--before">
-<span class="pcp-baseline__label" data-page="pcp_baseline_before_label">Current baseline</span>
-<div class="pcp-baseline__num" data-page="pcp_baseline_before_num">~20%</div>
-<p class="pcp-baseline__desc" data-page="pcp_baseline_before_desc">Natural recovery on ageing AR without a structured workflow.</p>
-</div>
-<div class="pcp-baseline__arrow" aria-hidden="true">&rarr;</div>
-<div class="pcp-baseline__col pcp-baseline__col--after">
-<span class="pcp-baseline__label" data-page="pcp_baseline_after_label">Controlled workflow target</span>
-<div class="pcp-baseline__num" data-page="pcp_baseline_after_num">~45%</div>
-<p class="pcp-baseline__desc" data-page="pcp_baseline_after_desc">Review-eligible recovery on the same portfolio once the VitaCoreX workflow is in place.</p>
-</div>
-</div>
-<p class="pcp-baseline__disclaim vcx-claim-caveat vcx-claim-caveat--paragraph" data-page="pcp_baseline_disclaim">Illustrative planning anchor based on structured pre-collection methodology &mdash; not a guarantee of portfolio-specific results. Actual numbers are measured against your own 7-day diagnostic baseline.</p>
-</div>
-
-<div class="pcp-fees">
-<div class="pcp-fee">
-<div class="pcp-fee__range" data-page="pcp_fee1_range">0&ndash;90 days aged</div>
-<div class="pcp-fee__pct">15%</div>
-<p class="pcp-fee__label" data-page="pcp_fee1_label">of recovered cash</p>
-</div>
-<div class="pcp-fee">
-<div class="pcp-fee__range" data-page="pcp_fee2_range">91&ndash;180 days aged</div>
-<div class="pcp-fee__pct">18%</div>
-<p class="pcp-fee__label" data-page="pcp_fee2_label">of recovered cash</p>
-</div>
-<div class="pcp-fee pcp-fee--gold">
-<div class="pcp-fee__range" data-page="pcp_fee3_range">181+ days aged</div>
-<div class="pcp-fee__pct">22.5%</div>
-<p class="pcp-fee__label" data-page="pcp_fee3_label">of recovered cash</p>
-</div>
-</div>
-
-<!-- Pilot success-fee guardrails — governance anchor. -->
-<div class="pcp-fee-guardrails">
-<div class="pcp-fee-guardrails__title" data-page="pcp_guard_title">Pilot success-fee guardrails</div>
-<ul class="pcp-fee-guardrails__list">
-<li data-page="pcp_guard_1">Success fee applies to controlled recovery outcomes under the new workflow &mdash; not to the account face value.</li>
-<li data-page="pcp_guard_2">15% from structured recovery driven through the VitaCoreX system (0&ndash;90 day tier; 18% / 22.5% on older AR).</li>
-<li data-page="pcp_guard_3">Applies only to accounts processed under the pilot workflow and tracked through the system.</li>
-<li data-page="pcp_guard_4">No system recovery &mdash; no pilot success fee.</li>
-</ul>
-</div>
-
-<!-- Operating boundary — authoritative scope anchor sitting right next to the fee ladder. -->
-<div class="pcp-operating-boundary" role="note" aria-label="Important operating boundary">
-<div class="pcp-operating-boundary__title" data-page="pcp_opb_title">Important operating boundary</div>
-<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_1"><strong>VitaCoreX does not</strong> take assignment of receivables, does not hold client funds, does not collect payments under its own name, does not send legal demands, and does not contact consumers or debtors as a third-party collector.</p>
-<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_2"><strong>Success fees compensate</strong> workflow design, documentation control, portfolio segmentation, escalation readiness, internal recovery infrastructure, and client-side operating support.</p>
-<p class="pcp-operating-boundary__body" data-page="pcp_opb_body_3">Any direct collection activity, legal demand, litigation, or regulated communication must be handled by the client, counsel, or a licensed provider where required.</p>
-</div>
-
-<div class="pcp-fee-disc">
-<p data-page="pcp_fee_disc">Structured as a pre-collection consulting success fee, not a contingency collection fee. Licensed collection is referred to partner agencies when appropriate.</p>
-</div>
-<p class="pcp-fee-footnote" data-page="pcp_fee_footnote">US Chamber benchmark for pre-collection recovery: 25&ndash;33%. VitaCoreX success fees are 25% below common benchmarks.</p>
-</div>
-</section>
-
-<section class="pcp-section pcp-section--cream">
-<div class="wrap">
-<div class="pcp-sec-head">
-<span class="pcp-sec-head__eyebrow" data-page="pcp_scope_eyebrow">Scope</span>
-<h2 style="text-align:center !important;display:block;width:100%;margin-left:auto;margin-right:auto;" data-page="pcp_scope_title">What the Qualified Net Recovery Pilot includes &mdash; and what it explicitly excludes</h2>
-<p data-page="pcp_scope_intro">Clear scope is how a pilot stays measurable. These boundaries protect both your operation and the integrity of the result.</p>
-</div>
-<div class="pcp-two-col"><div class="pcp-col-card pcp-col-card--in">
-<h3 data-page="pcp_in_title">Included in the Qualified Net Recovery Pilot</h3>
+<div class="pcp-scope-pair">
+<div class="pcp-scope-block pcp-scope-block--in">
+<h4 data-page="pcp_in_title">Included</h4>
 <ul>
 <li data-page="pcp_in_1">7-day diagnostic</li>
 <li data-page="pcp_in_2">Structured intake + baseline report</li>
@@ -487,16 +509,80 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 <li data-page="pcp_in_5">Recommendation for scale path</li>
 </ul>
 </div>
-<div class="pcp-col-card pcp-col-card--out">
-<h3 data-page="pcp_out_title">Explicitly excluded</h3>
+<div class="pcp-scope-block pcp-scope-block--out">
+<h4 data-page="pcp_out_title">Explicitly excluded</h4>
 <ul>
-<li data-page="pcp_out_1">Legal advice or regulatory opinions (outside counsel, referred)</li>
-<li data-page="pcp_out_2">Licensed collection activity (referred to partner agencies)</li>
-<li data-page="pcp_out_3">Consumer-facing third-party collection under the VitaCoreX name</li>
-<li data-page="pcp_out_4">Court representation, filing, or appearance on your behalf</li>
-<li data-page="pcp_out_5">Payment custody &mdash; funds never flow through VitaCoreX</li>
+<li data-page="pcp_mech_out_1">Legal advice or regulatory opinions</li>
+<li data-page="pcp_mech_out_2">Licensed collection activity</li>
+<li data-page="pcp_mech_out_3">Consumer-facing third-party collection</li>
+<li data-page="pcp_mech_out_4">Court representation or filing</li>
+<li data-page="pcp_mech_out_5">Payment custody</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+
+<!-- Row 3: Compact fee strip — baseline + 3 tiers + guardrails + boundary -->
+<div class="pcp-mechanics__row pcp-mechanics__fees">
+<div class="pcp-mechanics__fees-head">
+<span class="pcp-mechanics__sublabel" data-page="pcp_fees_eyebrow">Success fee ladder</span>
+<h3 data-page="pcp_fees_title">Pay only on recovered cash</h3>
+<p data-page="pcp_mech_fees_intro">Success fee applies to controlled recovery under the new workflow &mdash; not to face value. Fees start at 15% from structured recovery driven through VitaCoreX.</p>
+</div>
+
+<div class="pcp-mechanics__baseline">
+<div class="pcp-mechanics__baseline-col pcp-mechanics__baseline-col--before">
+<span class="pcp-mechanics__baseline-label" data-page="pcp_baseline_before_label">Current baseline</span>
+<div class="pcp-mechanics__baseline-num" data-page="pcp_baseline_before_num">~20%</div>
+<p class="pcp-mechanics__baseline-desc" data-page="pcp_baseline_before_desc">Natural recovery on ageing AR without a structured workflow.</p>
+</div>
+<div class="pcp-mechanics__baseline-arrow" aria-hidden="true">&rarr;</div>
+<div class="pcp-mechanics__baseline-col pcp-mechanics__baseline-col--after">
+<span class="pcp-mechanics__baseline-label" data-page="pcp_baseline_after_label">Controlled workflow target</span>
+<div class="pcp-mechanics__baseline-num" data-page="pcp_baseline_after_num">~45%</div>
+<p class="pcp-mechanics__baseline-desc" data-page="pcp_mech_baseline_after_desc">Review-eligible recovery once VitaCoreX workflow is in place.</p>
+</div>
+</div>
+
+<div class="pcp-mechanics__tiers">
+<div class="pcp-mechanics__tier">
+<div class="pcp-mechanics__tier-range" data-page="pcp_fee1_range">0&ndash;90 days aged</div>
+<div class="pcp-mechanics__tier-pct">15%</div>
+<p class="pcp-mechanics__tier-label" data-page="pcp_fee1_label">of recovered cash</p>
+</div>
+<div class="pcp-mechanics__tier">
+<div class="pcp-mechanics__tier-range" data-page="pcp_fee2_range">91&ndash;180 days aged</div>
+<div class="pcp-mechanics__tier-pct">18%</div>
+<p class="pcp-mechanics__tier-label" data-page="pcp_fee2_label">of recovered cash</p>
+</div>
+<div class="pcp-mechanics__tier pcp-mechanics__tier--gold">
+<div class="pcp-mechanics__tier-range" data-page="pcp_fee3_range">181+ days aged</div>
+<div class="pcp-mechanics__tier-pct">22.5%</div>
+<p class="pcp-mechanics__tier-label" data-page="pcp_fee3_label">of recovered cash</p>
+</div>
+</div>
+
+<div class="pcp-mechanics__notes">
+<div class="pcp-mechanics__note pcp-mechanics__note--guard">
+<div class="pcp-mechanics__note-title" data-page="pcp_guard_title">Pilot success-fee guardrails</div>
+<ul>
+<li data-page="pcp_guard_1">Success fee applies to controlled recovery outcomes under the new workflow &mdash; not to face value.</li>
+<li data-page="pcp_guard_3">Applies only to accounts processed under the pilot workflow and tracked through the system.</li>
+<li data-page="pcp_guard_4">No system recovery &mdash; no pilot success fee.</li>
+</ul>
+</div>
+<div class="pcp-mechanics__note pcp-mechanics__note--bound">
+<div class="pcp-mechanics__note-title" data-page="pcp_opb_title">Important operating boundary</div>
+<p><strong data-page="pcp_mech_opb_b1_lbl">VitaCoreX does not</strong> <span data-page="pcp_mech_opb_b1_txt">take assignment of receivables, hold client funds, collect payments under its own name, send legal demands, or contact consumers as a third-party collector.</span></p>
+<p><strong data-page="pcp_mech_opb_b2_lbl">Success fees compensate</strong> <span data-page="pcp_mech_opb_b2_txt">workflow design, documentation control, escalation readiness, and client-side operating support.</span></p>
+</div>
+</div>
+
+<p class="pcp-mechanics__fee-foot vcx-claim-caveat vcx-claim-caveat--paragraph">
+<em data-page="pcp_baseline_disclaim">Illustrative planning anchor &mdash; not a guarantee of portfolio-specific results. Actual numbers are measured against your own 7-day diagnostic baseline.</em>
+<span data-page="pcp_fee_footnote">US Chamber benchmark for pre-collection recovery: 25&ndash;33%. VitaCoreX success fees are 25% below common benchmarks.</span>
+</p>
 </div>
 </div>
 </section>
@@ -661,7 +747,7 @@ body[data-vcx-page="pre-collection-pilot"] .pcp-col-card{min-width:0 !important;
 </div>
 </footer>
 <script>window.VCX_TRACKING_IDS=window.VCX_TRACKING_IDS||{ga4:"G-E08EE1KSQQ",gtm:"",clarity:"",hotjarSiteId:"",hotjarVersion:6,metaPixel:"",linkedInPartner:"",apolloAppId:"69a7b325debb1e000d36d253"};</script>
-<script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=42" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script>
+<script src="/assets/js/vcx-i18n.js?v=3" defer></script><script src="/assets/js/vcx-translations.js?v=52" defer></script><script src="/assets/js/vcx-page-translations.js?v=20" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
 <script src="/assets/js/vcx-nav.js?v=7" defer></script>
 <link rel="stylesheet" href="/assets/css/vcx-footer-modern.css?v=3">
