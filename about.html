@@ -546,8 +546,30 @@
 </section>
 <section class="section vcx-leadership-section" id="leadership" style="position:relative;isolation:isolate;background:#E8EFED;">
 <div aria-hidden="true" class="vcx-leadership-bg" style="position:absolute;inset:0;background-image:url('assets/img/leadership-dock-bg.jpg');background-size:cover;background-position:center 50%;background-color:#E8EFED;z-index:0;"></div>
-<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 246, 0.30) 0%, rgba(232, 239, 237, 0.55) 60%, rgba(232, 239, 237, 0.80) 100%);z-index:1;"></div>
-<style>.vcx-leadership-section > .wrap { position: relative; z-index: 2; }</style>
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 246, 0.18) 0%, rgba(232, 239, 237, 0.32) 60%, rgba(232, 239, 237, 0.55) 100%);z-index:1;"></div>
+<style>
+.vcx-leadership-section > .wrap { position: relative; z-index: 2; }
+/* No frames — just diffuse white text-halo so letters pop on the photo
+   without any visible card edges. */
+.vcx-leadership-section .section-head .eyebrow,
+.vcx-leadership-section .section-head h2,
+.vcx-leadership-section .section-head .section-intro,
+.vcx-leadership-section .vcx-founder-editorial__role,
+.vcx-leadership-section .vcx-founder-editorial__bio,
+.vcx-leadership-section .vcx-founder-editorial__link {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.92),
+    0 0 22px rgba(255, 255, 255, 0.78),
+    0 0 38px rgba(255, 255, 255, 0.55);
+}
+.vcx-leadership-section .vcx-founder-editorial__first,
+.vcx-leadership-section .vcx-founder-editorial__last {
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.95),
+    0 0 32px rgba(255, 255, 255, 0.80),
+    0 0 56px rgba(255, 255, 255, 0.55);
+}
+</style>
 <div class="wrap">
 <div class="section-head reveal">
 <span class="eyebrow" style="color:#2D8A82;" data-page="abt_lead_eyebrow">Leadership</span>
