@@ -113,6 +113,18 @@ body[data-vcx-page="home"] .vcx-impact-section .vcx-impact-item {
   border-color: rgba(124, 210, 222, 0.14) !important;
 }
 
+/* The vcx-reveal animation script wraps each word of h2 in
+   <span class="vcx-word"> so it can fade-in word-by-word. Those
+   spans inherit color from .vcx-impact-section * (which forces #111).
+   Override so spans inside the impact title also render white. */
+body[data-vcx-page="home"] .vcx-impact-section h2 .vcx-word,
+body[data-vcx-page="home"] .vcx-impact-section .vcx-headline-accent .vcx-word,
+body[data-vcx-page="home"] .vcx-impact-section h2 *,
+body[data-vcx-page="home"] .vcx-impact-section .vcx-headline-accent * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
 /* Three-up section (Квалификация / Рекомендация / Линия частной консультации):
    re-pin pill + button + phone callout colors to header/footer palette
    (dark teal #0A2530 / #123E4C, cyan accent #7CD2DE). */
