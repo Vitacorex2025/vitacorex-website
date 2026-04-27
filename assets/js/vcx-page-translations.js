@@ -3276,6 +3276,41 @@ add('Steven',
 add('Miller',
     'Миллер',
     'Miller');
+
+// About page — 4 service-line cards (ColorChangeCards style)
+add('Service lines',
+    'Направления работы',
+    'Líneas de servicio');
+add('Four lanes that reflect what VitaCoreX actually does.',
+    'Четыре направления, отражающие реальную деятельность VitaCoreX.',
+    'Cuatro líneas que reflejan lo que VitaCoreX realmente hace.');
+add('From operator-grade revenue recovery to private-client document packets — each lane has fixed scope and a measurable outcome.',
+    'От корпоративного возврата выручки до пакетов документов для частных клиентов — у каждого направления фиксированный scope и измеримый результат.',
+    'Desde recuperación de ingresos de operadores hasta paquetes documentales de clientes privados — cada línea tiene alcance fijo y resultado medible.');
+add('Net Recovery',
+    'Возврат выручки',
+    'Recuperación de ingresos');
+add('Pre-collection AR infrastructure for operators. Documented commitment plans, controlled offers, and KPI logic before margin is lost.',
+    'Инфраструктура предколлекторского возврата для операторов. Документированные планы платежей, контролируемые офферы и KPI-логика до потери маржи.',
+    'Infraestructura de recuperación anterior a colecciones para operadores. Planes documentados de compromiso, ofertas controladas y lógica KPI antes de perder margen.');
+add('Small Claims',
+    'Иски малой суммы',
+    'Reclamos menores');
+add('Pro se civil packets ready for self-filing in small claims court. No attorney required — clients file directly.',
+    'Готовые гражданские пакеты для самостоятельной подачи в суд малых исков. Адвокат не требуется — клиент подаёт сам.',
+    'Paquetes civiles listos para presentación pro se en corte de reclamos menores. Sin abogado — el cliente presenta directamente.');
+add('Founders',
+    'Основатели',
+    'Fundadores');
+add('LLC formation, business plans, turnkey opening for U.S. founders. Documentation discipline from day one.',
+    'Регистрация LLC, бизнес-планы, открытие под ключ для основателей в США. Дисциплина документации с первого дня.',
+    'Formación de LLC, planes de negocios, apertura llave en mano para fundadores en EE. UU. Disciplina documental desde el primer día.');
+add('Private',
+    'Частные',
+    'Privados');
+add('Immigration packets, auto purchase review, and contract review for private clients. Fixed fee, defined scope.',
+    'Иммиграционные пакеты, проверка автосделок и контрактов для частных клиентов. Фиксированная цена, определённый объём.',
+    'Paquetes de inmigración, revisión de compra de vehículos y revisión de contratos para clientes privados. Tarifa fija, alcance definido.');
 add('Founder & Managing Director',
     'Основатель и управляющий директор',
     'Fundador y director general');
