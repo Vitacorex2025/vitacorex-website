@@ -4161,6 +4161,23 @@ add('No mechanical inspection \u2014 we only review paperwork. For mechanical in
     'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
     'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
 
+// ─── HOME PAGE — leak cards (modal long-form descriptions) ────
+add('Balances age because outreach timing, scripts, and follow-up discipline vary by operator and location. Without a single rhythm, every account drifts at its own speed and recoverable margin walks away unannounced.',
+    'Дебиторка устаревает: сроки обращений, сценарии и дисциплина последующих действий различаются у каждого оператора и в каждой локации. Без единого ритма каждый счёт уходит в свою сторону, а возвращаемая маржа уходит незаметно.',
+    'Las cuentas envejecen porque los tiempos de contacto, los guiones y la disciplina de seguimiento varían entre operadores y ubicaciones. Sin un ritmo único, cada cuenta se desliza a su propia velocidad y el margen recuperable se va sin avisar.');
+add('Plans fail when terms, autopay, cure triggers, and documentation are handled informally. Anything not paper-properly-secured at intake becomes a dispute three months later — at attorney rates.',
+    'Планы рушатся, когда условия, автоплатежи, триггеры исправления и документация обрабатываются неформально. Всё, что не закреплено на бумаге на приёме, через три месяца превращается в спор — уже по адвокатскому тарифу.',
+    'Los planes fallan cuando los términos, autopagos, gatillos de subsanación y documentación se manejan de forma informal. Lo que no quedó debidamente asentado al inicio se vuelve disputa tres meses después — a tarifas de abogado.');
+add('Accounts move to agency too early, giving away margin that cleaner internal sequencing could protect. Once a balance crosses that threshold, recovered cents per dollar collapse — and the brand exposure widens.',
+    'Счета слишком рано уходят в агентство, отдавая маржу, которую сохранила бы чистая внутренняя последовательность. Как только баланс пересекает этот порог, возвращаемые центы с доллара резко падают — а репутационный риск растёт.',
+    'Las cuentas pasan a agencia demasiado pronto, regalando margen que una secuencia interna más limpia habría protegido. Cruzado ese umbral, los centavos recuperados por dólar se desploman — y la exposición de marca se amplía.');
+add('Leadership cannot standardize what it cannot measure across cohorts, sites, and stages of recovery. The book is closed on the page that matters — until a structured pilot opens it.',
+    'Руководство не может стандартизировать то, что нельзя измерить — по когортам, площадкам и этапам возврата. Книга закрыта на самой важной странице — пока структурированный пилот её не откроет.',
+    'La dirección no puede estandarizar lo que no puede medir en cohortes, sedes y etapas de recuperación. El libro queda cerrado en la página que importa — hasta que un piloto estructurado lo abre.');
+add('When escalation becomes necessary, weak packet structure and missing records create avoidable delay and cost. The bundle you would hand to outside counsel is half-tied — and counsel reconstructs it at their hourly rate.',
+    'Когда эскалация необходима, слабая структура пакета и пробелы в записях создают избыточные задержки и расходы. Папка, которую вы передаёте внешнему юристу, перевязана наполовину — и юрист собирает её заново по своему почасовому тарифу.',
+    'Cuando la escalación se vuelve necesaria, una estructura de paquete débil y registros faltantes generan demoras y costos evitables. El expediente que entregaría al abogado externo está medio atado — y el abogado lo reconstruye a su tarifa por hora.');
+
 // ─── HOME PAGE — institutional / operator-profile sections ────
 add('Institutional authority',
     'Институциональный авторитет',
