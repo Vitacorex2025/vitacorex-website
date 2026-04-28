@@ -864,7 +864,7 @@ en: {
   pet_pri_4:          'Documentation and workflow services only. We are not a law firm.',
 
   pet_upl_label:      'UPL safeguard',
-  pet_upl_title:      'Documentation consulting, not legal services.',
+  pet_upl_title:      'Documentation consulting.',
   pet_upl_text:       'VitaCoreX LLC is a documentation, workflow, and revenue-recovery consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Unauthorized-practice-of-law rules vary by state; we operate administrative-support-only in every state. Consulting success fees apply to recovery work and are distinct from contingency collection fees; licensed collection activity is referred to partner agencies when appropriate.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
@@ -3085,7 +3085,7 @@ ru: {
   pet_pri_4:          'Только документация и workflow. Мы не юридическая фирма.',
 
   pet_upl_label:      'UPL safeguard',
-  pet_upl_title:      'Консалтинг по документации, а не legal services.',
+  pet_upl_title:      'Консалтинг по документации.',
   pet_upl_text:       'VitaCoreX LLC \u2014 консалтинговая фирма по документообороту, workflow и возврату выручки. Мы не юридическая фирма и не оказываем юридических советов, не представляем и не выступаем от вашего имени. Правила Unauthorized Practice of Law различаются по штатам; мы работаем исключительно в режиме административной поддержки во всех штатах. Consulting success fees применяются к recovery-работе и отличны от contingency collection fees; лицензируемая collection-деятельность передаётся партнёрским агентствам, когда это уместно.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
@@ -5321,7 +5321,7 @@ es: {
   pet_pri_4:          'Solo servicios de documentacion y workflow. No somos un bufete.',
 
   pet_upl_label:      'UPL safeguard',
-  pet_upl_title:      'Consultoria de documentacion, no legal services.',
+  pet_upl_title:      'Consultoria de documentacion.',
   pet_upl_text:       'VitaCoreX LLC es una firma de consultoria de documentacion, workflow y recuperacion de ingresos. No somos un bufete y no damos asesoramiento legal, no representamos ni comparecemos en tu nombre. Las reglas de Unauthorized Practice of Law varian por estado; operamos solo como soporte administrativo en todos los estados. Los consulting success fees aplican al trabajo de recovery y son distintos de los contingency collection fees; la actividad licenciada de collection se deriva a agencias partner cuando corresponda.',
 
   /* ── Solutions page ─────────────────────────────────────────── */
