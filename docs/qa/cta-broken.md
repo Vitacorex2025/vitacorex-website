@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-04-23T22:20:17Z
+generated: 2026-04-28T06:42:57Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,9 +14,9 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 3151
-- **Rows actively validated**: 2666
-- **Rows skipped (action-script / no target / self-ref)**: 485
+- **Inventory rows parsed**: 7276
+- **Rows actively validated**: 6289
+- **Rows skipped (action-script / no target / self-ref)**: 987
 - **Strict-broken rows (gate-enforced; triage required)**: 10
 - **External unique URLs HEAD-checked**: 5
 
@@ -26,7 +26,8 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 
 | Reason | Count |
 |--------|-------|
-| no-handler | 10 |
+| internal-file-missing | 1 |
+| no-handler | 9 |
 
 ## Strict-broken rows (gate-enforced)
 
@@ -35,15 +36,15 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 | File | Line | Element | Label | Target | Category | Audience | Reason | Detail |
 |------|------|---------|-------|--------|----------|----------|--------|--------|
 | `app/private-lookup/index.html` | 360 | button | New Route | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/private-lookup/index.html` | 452 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/private-lookup/index.html` | 453 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/review/index.html` | 122 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/vcx-contract-review/index.html` | 132 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `app/vcx-packet-room/index.html` | 99 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `corporate-legal-file-control.html` | 244 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 793 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 1121 | button | AI Assistant | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
-| `index.html` | 1139 | button | (no label) | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/private-lookup/index.html` | 448 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/private-lookup/index.html` | 449 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/review/index.html` | 121 | button | Refresh | `(handler)` | form-submit | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/vcx-contract-review/index.html` | 131 | button | Analyze Contract | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `app/vcx-packet-room/index.html` | 98 | button | Access Portal | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `corporate-legal-file-control.html` | 792 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler | <button>/[role=button] with no handler wiring |
+| `data-handling.html` | 172 | a | Leadership | `/about/leadership.html` | primary-nav | shared | internal-file-missing | about/leadership.html |
+| `index.html` | 1041 | button | Close | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
+| `index.html` | 1530 | button | Generate engagement recommendation | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 
 ## Methodology
 

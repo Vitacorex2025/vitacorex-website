@@ -23,14 +23,10 @@ docs/qa/cta-opaque.md
 
 # Hero videos — six Pexels-licensed Tampa-area aerial drone clips
 # (downtown, beaches, pier, city). Free for commercial use, no
-# attribution required, but kept out of repo to avoid ~190MB blob —
-# upload to CDN at production deploy time.
-assets/video/tampa-1.mp4
-assets/video/tampa-2.mp4
-assets/video/tampa-3.mp4
-assets/video/tampa-4.mp4
-assets/video/tampa-5.mp4
-assets/video/tampa-6.mp4
+# attribution required. Tracked in git so GitHub Pages serves them
+# directly. Single-file limit 100 MB; tampa-5.mp4 is 89 MB.
+# If repo size becomes a problem, move to a CDN (Bunny/Cloudflare
+# Stream) and update assets/video paths in index.html.
 
 # Playwright artifacts
 .playwright-mcp/
