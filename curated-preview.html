@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitaCoreX — Curated Image Preview</title>
+<style>
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,sans-serif;background:#0a1418;color:#dde6e8;padding:32px 24px}
+.wrap{max-width:1320px;margin:0 auto}
+h1{font-size:1.6rem;margin:0 0 6px;color:#fff}
+.sub{color:#7CD2DE;font-size:.86rem;margin:0 0 32px;letter-spacing:.05em;text-transform:uppercase}
+h2{margin:36px 0 16px;font-size:1.08rem;letter-spacing:.04em;text-transform:uppercase;color:#7CD2DE;border-top:1px solid rgba(124,210,222,0.18);padding-top:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.grid--hero{grid-template-columns:repeat(auto-fill,minmax(420px,1fr))}
+.grid--leak{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+figure{margin:0;background:#142428;border:1px solid rgba(124,210,222,0.10);border-radius:10px;overflow:hidden;position:relative}
+figure img{width:100%;height:auto;display:block;aspect-ratio:auto}
+.hero-aspect{aspect-ratio:16/9;object-fit:cover}
+.card-aspect{aspect-ratio:4/5;object-fit:cover}
+.leak-aspect{aspect-ratio:3/2;object-fit:cover}
+figcaption{padding:10px 12px 12px;background:linear-gradient(180deg,rgba(20,36,40,0.96) 0%,#0a1418 100%)}
+figcaption strong{display:block;font-size:.85rem;color:#fff;font-weight:700;margin-bottom:2px}
+figcaption span{display:block;font-size:.74rem;color:#8aa6ab;line-height:1.4}
+.id{position:absolute;top:6px;left:6px;background:rgba(10,20,24,0.82);color:#7CD2DE;font:600 .68rem/1 'Inter',sans-serif;padding:3px 6px;border-radius:4px;letter-spacing:.04em}
+.dim-hint{position:absolute;top:6px;right:6px;background:rgba(10,20,24,0.82);color:#a0c4ca;font:500 .65rem/1 monospace;padding:3px 6px;border-radius:4px}
+.note{margin:28px 0 0;padding:14px 16px;background:rgba(124,210,222,0.06);border-left:3px solid #7CD2DE;border-radius:6px;font-size:.86rem;color:#a0c4ca;line-height:1.55}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>VitaCoreX — Curated Image Preview</h1>
+<p class="sub">20 brand-aligned Pexels images · license-free for commercial use</p>
+
+<h2>Hero / Quick Access (homepage, 9 images)</h2>
+<div class="grid grid--hero">
+<figure><span class="id">7989234</span><span class="dim-hint">16:9</span><img class="hero-aspect" src="/assets/img/curated/hero-document-control.jpg" alt="Documents on desk with laptops"><figcaption><strong>hero-document-control</strong><span>Hero / main visual right · darken 35–45%</span></figcaption></figure>
+<figure><span class="id">20639510</span><span class="dim-hint">16:9</span><img class="hero-aspect" src="/assets/img/curated/hero-client-workspace.jpg" alt="Office workspace"><figcaption><strong>hero-client-workspace</strong><span>Hero alt / client workspace</span></figcaption></figure>
+</div>
+
+<div class="grid">
+<figure><span class="id">8353764</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-structured-intake.jpg" alt="Documents in binder"><figcaption><strong>quick-structured-intake</strong><span>Structured Intake card</span></figcaption></figure>
+<figure><span class="id">7109314</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-recovery-workflow.jpg" alt="Laptop beside documents"><figcaption><strong>quick-recovery-workflow</strong><span>Recovery Workflow card</span></figcaption></figure>
+<figure><span class="id">4792285</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-file-control.jpg" alt="Person choosing folder"><figcaption><strong>quick-file-control</strong><span>File Control card</span></figcaption></figure>
+<figure><span class="id">6801682</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-pricing-tiers.jpg" alt="Calculator near documents"><figcaption><strong>quick-pricing-tiers</strong><span>Pricing card · NO coins/cash imagery</span></figcaption></figure>
+<figure><span class="id">7433821</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-executive-briefs.jpg" alt="Documents on meeting table"><figcaption><strong>quick-executive-briefs</strong><span>Executive Briefs · crop table only</span></figcaption></figure>
+<figure><span class="id">4968568</span><span class="dim-hint">4:5</span><img class="card-aspect" src="/assets/img/curated/quick-private-clients.jpg" alt="Laptop, phone, contract"><figcaption><strong>quick-private-clients</strong><span>Private Clients card</span></figcaption></figure>
+<figure><span class="id">7652469</span><span class="dim-hint">16:9</span><img class="hero-aspect" src="/assets/img/curated/quick-confidential-review.jpg" alt="Black laptop on dark desk"><figcaption><strong>quick-confidential-review</strong><span>Confidential Review · darken 45–55% (premium mood)</span></figcaption></figure>
+</div>
+
+<h2>"Where value leaks first" cards (5 images)</h2>
+<div class="grid grid--leak">
+<figure><span class="id">5240008</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/leak-billing-cadence.jpg" alt="Calendar and laptop"><figcaption><strong>leak-billing-cadence</strong><span>Fragmented billing cadence</span></figcaption></figure>
+<figure><span class="id">7433832</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/leak-payment-plan.jpg" alt="Person with calculator"><figcaption><strong>leak-payment-plan</strong><span>Weak payment plan structure</span></figcaption></figure>
+<figure><span class="id">3861957</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/leak-fee-compression.jpg" alt="Graph on laptop"><figcaption><strong>leak-fee-compression</strong><span>Early fee compression · abstract analytics</span></figcaption></figure>
+<figure><span class="id">12969403</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/leak-kpi-visibility.jpg" alt="Laptop dashboard"><figcaption><strong>leak-kpi-visibility</strong><span>No KPI visibility</span></figcaption></figure>
+<figure><span class="id">8297536</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/leak-file-control.jpg" alt="Binders on table"><figcaption><strong>leak-file-control</strong><span>Incomplete file control</span></figcaption></figure>
+</div>
+
+<h2>Case studies / industry scenarios (6 images)</h2>
+<div class="grid grid--leak">
+<figure><span class="id">6812461</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-dental-group.jpg" alt="Empty dentist office"><figcaption><strong>case-dental-group</strong><span>Mid-size dental group · empty office</span></figcaption></figure>
+<figure><span class="id">12454146</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-healthcare-network.jpg" alt="Empty doctor office"><figcaption><strong>case-healthcare-network</strong><span>Healthcare network · neutral ops</span></figcaption></figure>
+<figure><span class="id">18468444</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-fleet-logistics.jpg" alt="Trucks at warehouse"><figcaption><strong>case-fleet-logistics</strong><span>Fleet & logistics operator</span></figcaption></figure>
+<figure><span class="id">17211446</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-gym-chain.jpg" alt="Empty gym"><figcaption><strong>case-gym-chain</strong><span>Boutique gym chain · empty interior</span></figcaption></figure>
+<figure><span class="id">34804005</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-saas-platform.jpg" alt="Code on laptop"><figcaption><strong>case-saas-platform</strong><span>B2B SaaS platform</span></figcaption></figure>
+<figure><span class="id">8470810</span><span class="dim-hint">3:2</span><img class="leak-aspect" src="/assets/img/curated/case-construction-b2b.jpg" alt="Blueprints and laptop"><figcaption><strong>case-construction-b2b</strong><span>Construction & B2B services</span></figcaption></figure>
+</div>
+
+<p class="note">All 20 images live at <code>/assets/img/curated/</code> on production. Filenames follow the homepage section convention (hero-*, quick-*, leak-*, case-*) so substitution is mechanical when ready. License: Pexels — free for commercial use, no attribution required.</p>
+
+</div>
+</body>
+</html>
