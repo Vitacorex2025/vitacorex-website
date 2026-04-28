@@ -14,7 +14,7 @@ idempotent: true
 ## Summary
 
 - **Total interactive elements**: 7276
-- **Files audited**: 91
+- **Files audited**: 92
 - **Unclassified rows (must be 0)**: 0
 
 ### By category
@@ -3346,11 +3346,11 @@ idempotent: true
 | `index.html` | 843 | a | Executive briefs Executive briefs Proof & context | `insights.html` | in-body | shared | — |
 | `index.html` | 854 | a | Private clients Private clients Defined-scope work | `private-services.html` | in-body | shared | — |
 | `index.html` | 865 | a | Confidential review Confidential review 24–48h response | `contact.html` | in-body | shared | — |
-| `index.html` | 981 | div[role=button] | Fragmented billing cadence | `(handler)` | action-script | shared | delegated:data-leak-img=https://images.unsplash.com/photo-1649433391719-2e784576d044?w=1600&amp;auto=format&amp;fit=crop,data-leak-title=Fragmented billing cadence |
-| `index.html` | 992 | div[role=button] | Weak payment plan structure | `(handler)` | action-script | shared | delegated:data-leak-img=https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1600&amp;auto=format&amp;fit=crop,data-leak-title=Weak payment plan structure |
-| `index.html` | 1003 | div[role=button] | Early fee compression | `(handler)` | action-script | shared | delegated:data-leak-img=https://images.unsplash.com/photo-1689732888407-310424e3a372?w=1600&amp;auto=format&amp;fit=crop,data-leak-title=Early fee compression |
-| `index.html` | 1014 | div[role=button] | No KPI visibility | `(handler)` | action-script | shared | delegated:data-leak-img=https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&amp;auto=format&amp;fit=crop,data-leak-title=No KPI visibility |
-| `index.html` | 1025 | div[role=button] | Incomplete file control | `(handler)` | action-script | shared | delegated:data-leak-img=https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?w=1600&amp;auto=format&amp;fit=crop,data-leak-title=Incomplete file control |
+| `index.html` | 981 | div[role=button] | Fragmented billing cadence | `(handler)` | action-script | shared | delegated:data-leak-img=/assets/img/curated/leak-billing-cadence.jpg,data-leak-title=Fragmented billing cadence |
+| `index.html` | 992 | div[role=button] | Weak payment plan structure | `(handler)` | action-script | shared | delegated:data-leak-img=/assets/img/curated/leak-payment-plan.jpg,data-leak-title=Weak payment plan structure |
+| `index.html` | 1003 | div[role=button] | Early fee compression | `(handler)` | action-script | shared | delegated:data-leak-img=/assets/img/curated/leak-fee-compression.jpg,data-leak-title=Early fee compression |
+| `index.html` | 1014 | div[role=button] | No KPI visibility | `(handler)` | action-script | shared | delegated:data-leak-img=/assets/img/curated/leak-kpi-visibility.jpg,data-leak-title=No KPI visibility |
+| `index.html` | 1025 | div[role=button] | Incomplete file control | `(handler)` | action-script | shared | delegated:data-leak-img=/assets/img/curated/leak-file-control.jpg,data-leak-title=Incomplete file control |
 | `index.html` | 1041 | button | Close | `(handler)` | action-script | shared | no-handler |
 | `index.html` | 1337 | a | Read the full case → | `case-study-healthcare-network.html` | in-body | shared | — |
 | `index.html` | 1417 | a | Run your own ROI estimate &rarr; | `revenue-recovery-workflow.html#roi-calculator` | in-body | shared | — |
