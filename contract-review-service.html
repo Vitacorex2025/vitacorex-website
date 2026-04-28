@@ -77,15 +77,18 @@
 .crs-col-card li{position:relative;padding:6px 0 6px 22px;color:#4A5A52;font-size:.93rem;line-height:1.5;}
 .crs-col-card--in li::before{content:"\2713";position:absolute;left:0;top:6px;color:#2D8A82;font-weight:800;}
 .crs-col-card--out li::before{content:"\00D7";position:absolute;left:0;top:4px;color:#2D8A82;font-weight:800;font-size:1.2rem;line-height:1;}
+.crs-sec-head h2{text-align:center !important;display:block !important;width:100% !important;max-width:100% !important;margin-left:auto !important;margin-right:auto !important;}
+.crs-sec-head{text-align:center !important;}
+.crs-sec-head p{text-align:center !important;}
 .crs-faq{max-width:820px;margin:0 auto;}
 .crs-faq__item{background:#FFFFFF;border-radius:14px;padding:22px 24px;margin-bottom:14px;box-shadow:0 6px 18px rgba(11,31,48,.06);border:1px solid rgba(26,79,74,.06);}
 .crs-faq__q{font-weight:700;color:#1A2F2A;font-size:1.02rem;margin:0 0 8px;}
 .crs-faq__a{color:#4A5A52;font-size:.96rem;line-height:1.6;margin:0;}
-.crs-final-cta{background:linear-gradient(135deg,#0F2F2C 0%,#1A4F4A 100%);color:#F4F7F6;padding:72px 0;text-align:center;}
-.crs-final-cta h2{color:#fff;font-size:clamp(1.6rem,2.6vw,2.1rem);margin:0 0 14px;font-weight:800;}
-.crs-final-cta p{color:rgba(246,242,234,.82);font-size:1.02rem;line-height:1.6;margin:0 0 26px;max-width:640px;margin-left:auto;margin-right:auto;}
-.crs-final-cta .crs-btn--ghost{border-color:#F4F7F6;color:#F4F7F6;}
-.crs-final-cta .crs-btn--ghost:hover{background:rgba(246,242,234,.08);color:#fff;}
+.crs-final-cta{background:#FFFFFF;padding:72px 0;text-align:center;}
+.crs-final-cta h2{color:#0F1F1B !important;-webkit-text-fill-color:#0F1F1B !important;font-size:clamp(1.6rem,2.6vw,2.1rem);margin:0 auto 14px !important;font-weight:800;text-align:center !important;display:block !important;width:100% !important;max-width:100% !important;}
+.crs-final-cta p{color:#3A4A45 !important;font-size:1.02rem;line-height:1.6;margin:0 auto 26px;max-width:640px;text-align:center;}
+.crs-final-cta .crs-btn--ghost{border-color:#2D8A82;color:#1E6E68;background:#FFFFFF;}
+.crs-final-cta .crs-btn--ghost:hover{background:rgba(91,186,167,.10);color:#0F1F1B;}
 .crs-footer-upl{background:#F4F7F6;padding:24px 0;border-top:1px solid rgba(26,79,74,.08);}
 .crs-footer-upl .wrap{max-width:1000px;}
 .crs-footer-upl p{font-size:.84rem;color:#4A5A52;line-height:1.55;margin:0;text-align:center;font-style:italic;}
@@ -281,35 +284,10 @@
 </div>
 </section>
 
-<section class="crs-section crs-section--white">
-<div class="wrap">
-<div class="crs-sec-head">
-<span class="crs-sec-head__eyebrow" data-page="crs_what_eyebrow">What we do</span>
-<h2 data-page="crs_what_title">Documentation analysis built for decisions, not debates</h2>
-<p data-page="crs_what_intro">We read the contract, index every clause, and annotate every risk. The output is a packet you can use directly or hand to counsel.</p>
-</div>
-<div class="crs-cards">
-<div class="crs-card">
-<h3 data-page="crs_what_1_title">Clause indexing</h3>
-<p data-page="crs_what_1_desc">Every clause mapped, labeled, and cross-referenced so you can find terms fast.</p>
-</div>
-<div class="crs-card">
-<h3 data-page="crs_what_2_title">Risk-flag log</h3>
-<p data-page="crs_what_2_desc">Unusual terms, one-sided clauses, and missing protections flagged with plain-English notes.</p>
-</div>
-<div class="crs-card">
-<h3 data-page="crs_what_3_title">Counsel-ready annotation</h3>
-<p data-page="crs_what_3_desc">Comment-layer PDF and summary memo prepared so your attorney can act immediately.</p>
-</div>
-<div class="crs-card">
-<h3 data-page="crs_what_4_title">Signature-stage brief</h3>
-<p data-page="crs_what_4_desc">One-page go / no-go summary with open questions highlighted for the other side.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="crs-section crs-section--cream" id="pricing">
+<section class="crs-section" id="pricing" style="position:relative;isolation:isolate;background:#F7FAF9">
+<div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/img/clfc-skyway-bridge.jpg');background-size:cover;background-position:center 40%;background-repeat:no-repeat;z-index:0;"></div>
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(244, 247, 248, 0.82) 0%, rgba(248, 251, 252, 0.88) 50%, rgba(252, 253, 254, 0.94) 100%);z-index:1;"></div>
+<style>#pricing > .wrap { position: relative; z-index: 2; }</style>
 <div class="wrap">
 <div class="crs-sec-head">
 <span class="crs-sec-head__eyebrow" data-page="crs_tiers_eyebrow">Pricing</span>
@@ -365,6 +343,34 @@
 <a class="crs-btn crs-btn--ghost crs-tier__cta" href="structured-case-intake.html?tier=contract-advisory" data-page="crs_t3_cta">Request custom scope</a>
 </div>
 
+</div>
+</div>
+</section>
+
+<section class="crs-section crs-section--white">
+<div class="wrap">
+<div class="crs-sec-head">
+<span class="crs-sec-head__eyebrow" data-page="crs_what_eyebrow">What we do</span>
+<h2 data-page="crs_what_title">Documentation analysis built for decisions, not debates</h2>
+<p data-page="crs_what_intro">We read the contract, index every clause, and annotate every risk. The output is a packet you can use directly or hand to counsel.</p>
+</div>
+<div class="crs-cards">
+<div class="crs-card">
+<h3 data-page="crs_what_1_title">Clause indexing</h3>
+<p data-page="crs_what_1_desc">Every clause mapped, labeled, and cross-referenced so you can find terms fast.</p>
+</div>
+<div class="crs-card">
+<h3 data-page="crs_what_2_title">Risk-flag log</h3>
+<p data-page="crs_what_2_desc">Unusual terms, one-sided clauses, and missing protections flagged with plain-English notes.</p>
+</div>
+<div class="crs-card">
+<h3 data-page="crs_what_3_title">Counsel-ready annotation</h3>
+<p data-page="crs_what_3_desc">Comment-layer PDF and summary memo prepared so your attorney can act immediately.</p>
+</div>
+<div class="crs-card">
+<h3 data-page="crs_what_4_title">Signature-stage brief</h3>
+<p data-page="crs_what_4_desc">One-page go / no-go summary with open questions highlighted for the other side.</p>
+</div>
 </div>
 </div>
 </section>
@@ -452,15 +458,6 @@
 <p class="crs-faq__q" data-page="crs_faq_q5">Do you work with clients in any state?</p>
 <p class="crs-faq__a" data-page="crs_faq_a5">Yes &mdash; documentation packets are U.S.-wide. State-specific contract-law nuances (if any) are confirmed at intake; engagements are remote.</p>
 </div>
-</div>
-</div>
-</section>
-
-<section class="crs-section crs-section--cream">
-<div class="wrap">
-<div class="crs-upl">
-<span class="crs-upl__label" data-page="crs_upl_label">UPL safeguard</span>
-<p data-page="crs_upl_text">VitaCoreX LLC is a documentation and workflow consulting firm. We are not a law firm and do not provide legal advice, legal representation, or appear on your behalf. Our packets are prepared for you or your licensed attorney to use. Unauthorized-practice-of-law rules vary by state; VitaCoreX provides administrative support only and does not provide legal advice, strategy, representation, or court appearance in any state.</p>
 </div>
 </div>
 </section>
