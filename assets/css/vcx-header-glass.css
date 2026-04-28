@@ -493,33 +493,59 @@ body { padding-top: 0 !important; }
 }
 
 @media (max-width: 540px) {
-  .vcx-header-glass__row { padding: 10px 14px; gap: 8px; }
-  /* Force brand column to size to actual content (max-content) so brand-name
-     doesn't visually overflow its grid track when CSS grid `auto` shrinks
-     to min-content. */
+  .vcx-header-glass__row { padding: 10px 14px; gap: 12px; }
+  /* DEFENSIVE: force brand container to a fixed compact width so the
+     wide 'Practice' serif glyphs of "VitaCoreX" never overflow the grid
+     track no matter what other rules later in the cascade do. */
   .vcx-header-glass__brand {
     margin-right: 0;
     gap: 8px;
     min-width: 0;
+    overflow: hidden;
   }
-  .vcx-header-glass__brand-name { font-size: 0.95rem; letter-spacing: 0; }
-  .vcx-header-glass__brand-tag { display: none; }
+  .vcx-header-glass__brand-text {
+    overflow: hidden;
+  }
+  .vcx-header-glass__brand-name {
+    /* Switch from the wide 'Practice' serif to the narrow Inter sans on
+       mobile so VitaCoreX always fits comfortably even at 320 px. */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+  .vcx-header-glass__brand-tag { display: none !important; }
   .vcx-header-glass__brand img { width: 28px; height: 28px; border-radius: 6px; }
   .vcx-header-glass__phone span:not(.vcx-header-glass__phone-num) { display: none; }
   .vcx-header-glass__lang button { padding: 4px 6px; font-size: 0.66rem; }
   .vcx-header-glass__meta { gap: 6px; }
 }
 
-/* Very narrow phones — keep phone icon only, drop the number text
- * so the header bar fits in <420 px viewports without horizontal overflow. */
+/* Very narrow phones (iPhone SE 320, mini 360, base 14 390, 12/13 mini) —
+ * keep phone icon only, drop the number text + Menu word so the header
+ * bar fits in any phone width without overflow. */
 @media (max-width: 420px) {
   .vcx-header-glass__phone-num { display: none; }
   .vcx-header-glass__phone { padding: 6px; }
-  .vcx-header-glass__menu-btn { padding: 6px 10px; font-size: 0.78rem; }
+  .vcx-header-glass__menu-btn { padding: 6px 8px; font-size: 0.78rem; gap: 4px; }
   .vcx-header-glass__menu-btn .vcx-header-glass__menu-btn-text { display: none; }
   .vcx-header-glass__brand-name { font-size: 0.88rem; }
   .vcx-header-glass__brand img { width: 26px; height: 26px; }
   .vcx-header-glass__brand { gap: 6px; }
+  .vcx-header-glass__lang button { padding: 4px 5px; font-size: 0.62rem; }
+  .vcx-header-glass__meta { gap: 4px; }
+}
+
+/* iPhone SE class (320 px) — most aggressive compaction */
+@media (max-width: 360px) {
+  .vcx-header-glass__row { padding: 8px 10px; gap: 8px; }
+  .vcx-header-glass__brand-name { font-size: 0.82rem; }
+  .vcx-header-glass__brand img { width: 24px; height: 24px; }
+  .vcx-header-glass__brand { gap: 5px; }
+  .vcx-header-glass__lang button { padding: 3px 4px; font-size: 0.58rem; }
 }
 
 /* Hide the floating "Private Advisory" badge on narrow viewports
