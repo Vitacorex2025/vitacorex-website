@@ -93,6 +93,12 @@ body { padding-top: 0 !important; }
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF;
   margin-right: 16px; /* visual breathing room before the nav */
+  /* Hard-clip brand content to its grid track on every viewport so the
+     brand-name can NEVER visually bleed into the meta block. Combined
+     with min-width: 0 inside the flex track this also lets brand-text
+     truncate cleanly if the viewport ever shrinks below content width. */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .vcx-header-glass__brand img {
@@ -100,12 +106,23 @@ body { padding-top: 0 !important; }
   height: 42px;
   border-radius: 8px;
   display: block;
+  flex-shrink: 0;
 }
 
 .vcx-header-glass__brand-text {
   display: flex;
   flex-direction: column;
   line-height: 1.05;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.vcx-header-glass__brand-name,
+.vcx-header-glass__brand-tag {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .vcx-header-glass__brand-name {
