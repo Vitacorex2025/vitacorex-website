@@ -576,13 +576,29 @@ function applyConsent(consent){
     gtag('js', new Date());
     gtag('config', ids.ga4, {anonymize_ip:true});
   }
-  if(ids.apolloAppId && typeof loadApolloTracker === 'function'){
-    // loadApolloTracker is defined only when the Apollo snippet is
-    // injected server-side. Guard the call so consent-update does not
-    // throw on pages that ship without Apollo wired (ReferenceError
-    // was surfacing on every index.html load, aborting the rest of
-    // applyConsent). No-op otherwise.
-    loadApolloTracker(ids.apolloAppId);
+  if(ids.apolloAppId){
+    // Apollo Reach Website Tracker — official snippet inlined here so we no
+    // longer depend on a server-injected loadApolloTracker. Loads
+    // assets.apollo.io tracker once after the page has fully loaded.
+    (function(appId){
+      function inject(){
+        if(window.__vcx_apollo_loaded) return;
+        window.__vcx_apollo_loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' +
+                Math.random().toString(36).substring(7);
+        s.async = true;
+        s.defer = true;
+        s.onload = function(){
+          if(window.trackingFunctions && typeof window.trackingFunctions.onLoad === 'function'){
+            window.trackingFunctions.onLoad({appId: appId});
+          }
+        };
+        document.head.appendChild(s);
+      }
+      if(document.readyState === 'complete') inject();
+      else window.addEventListener('load', inject, {once: true});
+    })(ids.apolloAppId);
   }
   if(ids.clarity){
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", ids.clarity);

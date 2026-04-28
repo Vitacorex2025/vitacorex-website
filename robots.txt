@@ -2,11 +2,12 @@
 # Last updated: 2026-04-05
 
 # Default: allow all crawlers
+# CSS / JS must be crawlable so Googlebot can render the page and score
+# Core Web Vitals correctly. Blocking these silently degrades rankings.
 User-agent: *
 Allow: /
+Allow: /assets/
 Disallow: /app/
-Disallow: /assets/js/
-Disallow: /assets/css/
 
 # Google Search (full access)
 User-agent: Googlebot
