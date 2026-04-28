@@ -35,9 +35,12 @@
 <link href="/assets/css/vcx-home-align.css?v=8" rel="stylesheet"/>
 <!-- GSAP removed for performance -->
 <script src="/assets/js/vcx-operating-model.js?v=2" defer></script>
-<script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="/assets/js/vcx-noise-scoped.js?v=3" defer></script><script src="/assets/js/vcx-hero-particles.js?v=4" defer></script><script src="/assets/js/vcx-rails.js?v=2" defer></script><link rel="stylesheet" href="/assets/css/vcx-header-glass.css?v=9">
+<script src="assets/js/shell-i18n.js?v=3" defer></script><script src="/assets/js/vcx-premium-fx.js" defer></script><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script><script src="/assets/js/vcx-noise-scoped.js?v=3" defer></script><script src="/assets/js/vcx-hero-particles.js?v=4" defer></script><script src="/assets/js/vcx-rails.js?v=2" defer></script><link rel="stylesheet" href="/assets/css/vcx-header-glass.css?v=10">
 <script src="/assets/js/vcx-header-glass.js?v=2" defer></script>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="apple-touch-icon" href="/favicon.png"/>
 </head><body data-vcx-page="home" data-audience="shared">
+<a class="vcx-skip-link" href="#main-content" data-i18n="skip_to_content">Skip to content</a>
 <header class="vcx-header-glass" role="banner">
 <div class="vcx-header-glass__row">
 <a class="vcx-header-glass__brand" href="index.html" aria-label="VitaCoreX home">
@@ -209,7 +212,7 @@
 {"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://vitacorexllc.com/#localbusiness","name":"VitaCoreX LLC","alternateName":"VitaCoreX","url":"https://vitacorexllc.com/","logo":"https://vitacorexllc.com/assets/img/logo.png","image":"https://vitacorexllc.com/assets/img/og-vitacorex-2026.svg","telephone":"+18887948292","email":"info@vitacorexllc.com","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33602","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":27.9506,"longitude":-82.4572},"areaServed":[{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"founder":{"@type":"Person","name":"Steven Miller"},"sameAs":["https://www.linkedin.com/company/vitacorex","https://www.instagram.com/vitacorex_llc/","https://www.facebook.com/profile.php?id=61554844507884"],"description":"Florida-registered documentation advisory firm. Revenue recovery for companies, counsel-ready packets for private clients — U.S.-wide remote support where permitted. Not a law firm. Not a debt collector.","slogan":"Revenue recovery for companies. Document packets for private clients."}
 </script>
 <!-- ═══════════ HERO — 4-quadrant video bg (CSK-style) ═══════════ -->
-<section class="vcx-fourquad-hero" role="banner" aria-label="VitaCoreX — choose your engagement path">
+<section id="main-content" class="vcx-fourquad-hero" role="banner" aria-label="VitaCoreX — choose your engagement path">
   <h1 class="visually-hidden" data-page="home_hero_title">Revenue recovery for companies. Document packets for private clients.</h1>
 
   <!-- Dual-video crossfade stack: while one plays, the other preloads
@@ -1038,7 +1041,7 @@ body.vcx-leak-locked { overflow: hidden; }
     <button class="vcx-leak-modal__close" type="button" data-leak-close aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <img class="vcx-leak-modal__img" id="vcxLeakModalImg" src="" alt="" />
+    <img class="vcx-leak-modal__img" id="vcxLeakModalImg" src="" alt="" loading="lazy" decoding="async" />
     <div class="vcx-leak-modal__content">
       <h3 id="vcxLeakModalTitle"></h3>
       <p id="vcxLeakModalDesc"></p>
