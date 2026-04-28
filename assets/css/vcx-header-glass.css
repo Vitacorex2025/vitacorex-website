@@ -394,6 +394,15 @@ body { padding-top: 0 !important; }
   background: rgba(14, 50, 62, 0.98);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  /* Drawer is inside a position:sticky header. The header row is ~64px tall on
+     mobile, so cap the drawer's height to (viewport - row) and let it scroll
+     internally so users can reach all menu items even when content is long. */
+  max-height: calc(100vh - 64px);
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .vcx-header-glass__drawer[data-open="true"] {

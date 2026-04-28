@@ -161,10 +161,15 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.ta
 // BFCACHE RESTORE: when user navigates back via browser gesture (mouse thumb, trackpad swipe, etc.),
 // the page is restored from bfcache without running scripts. IntersectionObserver doesn't re-fire,
 // so .reveal elements already in viewport stay at opacity:0 — appearing as a white screen.
-// On pageshow with e.persisted=true, force-reveal all in-viewport .reveal and [data-animate] elements.
+// Two-part defense:
+//   1. On pageshow with e.persisted=true, force-reveal everything that's already
+//      in viewport so nothing stays at opacity:0 above the fold.
+//   2. Re-attach IntersectionObservers for any reveal/animate element that's
+//      not yet visible so future scrolls trigger them correctly.
 window.addEventListener('pageshow', function(e){
   if(!e.persisted) return;
   var vh = window.innerHeight || document.documentElement.clientHeight;
+  // Part 1: force-reveal anything in viewport now
   document.querySelectorAll('.reveal, [data-animate]').forEach(function(el){
     var r = el.getBoundingClientRect();
     if(r.top < vh && r.bottom > 0){
@@ -172,6 +177,23 @@ window.addEventListener('pageshow', function(e){
       el.classList.add('is-visible');
     }
   });
+  // Part 2: re-instantiate IntersectionObserver so scroll-triggered reveals
+  // continue to work after bfcache restore (the original observer's references
+  // may be stale or unobserve()'d from prior scroll).
+  try {
+    var newIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('visible');
+          en.target.classList.add('is-visible');
+          newIo.unobserve(en.target);
+        }
+      });
+    }, {threshold: .14});
+    document.querySelectorAll('.reveal:not(.visible), [data-animate]:not(.is-visible)').forEach(function(el){
+      newIo.observe(el);
+    });
+  } catch (_) { /* no-op if IO unsupported */ }
 });
 $$('.bar-fill').forEach(el=>{ const w=el.dataset.width||0; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ el.style.width=w+'%'; ob.disconnect(); }}); ob.observe(el); });
 $$('[data-count-to]').forEach(el=>{ const target=parseFloat(el.dataset.countTo), suffix=el.dataset.suffix||''; const ob=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ let start=null; const dur=1300; const step=ts=>{ if(!start) start=ts; const p=Math.min((ts-start)/dur,1); const val=target*p; el.textContent=(Number.isInteger(target)?Math.round(val):val.toFixed(1))+suffix; if(p<1) requestAnimationFrame(step); }; requestAnimationFrame(step); ob.disconnect(); }}); ob.observe(el); });
