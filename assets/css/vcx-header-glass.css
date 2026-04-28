@@ -488,8 +488,27 @@ body { padding-top: 0 !important; }
   .vcx-header-glass__row {
     grid-template-columns: auto 1fr;
     justify-items: stretch;
+    gap: 16px;
   }
   .vcx-header-glass__meta { justify-self: end; }
+  /* Compact brand block as soon as the nav is hidden (≤ 980 px), not
+     only on phones (≤ 540). At 600–980 px (large phones in landscape,
+     small tablets in portrait) the original 1.4 rem 'Practice' serif
+     brand-name was wide enough to push under the lang switcher even
+     before our 540 breakpoint kicked in. Switch to Inter sans + clip
+     unconditionally whenever the menu is collapsed. */
+  .vcx-header-glass__brand { margin-right: 0; gap: 10px; min-width: 0; overflow: hidden; }
+  .vcx-header-glass__brand-text { overflow: hidden; min-width: 0; }
+  .vcx-header-glass__brand-name {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+  .vcx-header-glass__brand-tag { display: none !important; }
 }
 
 @media (max-width: 540px) {
