@@ -480,6 +480,16 @@ body { padding-top: 0 !important; }
 @media (max-width: 980px) {
   .vcx-header-glass__nav { display: none; }
   .vcx-header-glass__menu-btn { display: inline-flex; }
+  /* When the centre nav is hidden, the empty 1fr column can swallow the
+     gap and push the meta block visually under the brand. Switch to a
+     two-column auto / auto layout with space-between so brand sits left
+     and meta sits hard against the right edge with the 8/16/20-px gap
+     intact. */
+  .vcx-header-glass__row {
+    grid-template-columns: auto 1fr;
+    justify-items: stretch;
+  }
+  .vcx-header-glass__meta { justify-self: end; }
 }
 
 @media (max-width: 540px) {
