@@ -446,12 +446,22 @@ body { padding-top: 0 !important; }
 }
 
 @media (max-width: 540px) {
-  .vcx-header-glass__row { padding: 10px 18px; gap: 10px; }
-  .vcx-header-glass__brand-name { font-size: 1.18rem; }
+  .vcx-header-glass__row { padding: 10px 14px; gap: 8px; }
+  .vcx-header-glass__brand-name { font-size: 1.05rem; }
   .vcx-header-glass__brand-tag { display: none; }
-  .vcx-header-glass__brand img { width: 36px; height: 36px; }
+  .vcx-header-glass__brand img { width: 32px; height: 32px; }
   .vcx-header-glass__phone span:not(.vcx-header-glass__phone-num) { display: none; }
-  .vcx-header-glass__lang button { padding: 4px 8px; font-size: 0.66rem; }
+  .vcx-header-glass__lang button { padding: 4px 6px; font-size: 0.66rem; }
+  .vcx-header-glass__meta { gap: 6px; }
+}
+
+/* Very narrow phones — keep phone icon only, drop the number text
+ * so the header bar fits in <420px viewports without horizontal overflow. */
+@media (max-width: 420px) {
+  .vcx-header-glass__phone-num { display: none; }
+  .vcx-header-glass__phone { padding: 6px; }
+  .vcx-header-glass__menu-btn { padding: 6px 10px; font-size: 0.78rem; }
+  .vcx-header-glass__menu-btn .vcx-header-glass__menu-btn-text { display: none; }
 }
 
 /* Hide the floating "Private Advisory" badge on narrow viewports
