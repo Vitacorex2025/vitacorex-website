@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-05-26T17:01:49Z
+generated: 2026-05-26T17:04:31Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -17,7 +17,7 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 - **Inventory rows parsed**: 7748
 - **Rows actively validated**: 6740
 - **Rows skipped (action-script / no target / self-ref)**: 1008
-- **Strict-broken rows (gate-enforced; triage required)**: 10
+- **Strict-broken rows (gate-enforced; triage required)**: 13
 - **External unique URLs HEAD-checked**: 11
 
 _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only; their count intentionally does not appear here because it varies between local dev and CI runner IPs (Instagram 429, formsubmit.co 403, LinkedIn 999). Run with VCX_EMIT_OPAQUE=1 to dump to gitignored docs/qa/cta-opaque.md._
@@ -27,6 +27,7 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 | Reason | Count |
 |--------|-------|
 | internal-file-missing | 1 |
+| external-http-4xx | 3 |
 | no-handler | 9 |
 
 ## Strict-broken rows (gate-enforced)
@@ -35,6 +36,9 @@ _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only
 
 | File | Line | Element | Label | Target | Category | Audience | Reason | Detail |
 |------|------|---------|-------|--------|----------|----------|--------|--------|
+| `about.html` | 733 | a | View Steven Miller on LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | shared | external-http-4xx | HTTP 404 |
+| `about.html` | 749 | a | View Steven Miller on LinkedIn → | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | shared | external-http-4xx | HTTP 404 |
+| `about.html` | 810 | a | LinkedIn | `https://www.linkedin.com/in/steven-miller-ab17783a5/` | external | shared | external-http-4xx | HTTP 404 |
 | `app/private-lookup/index.html` | 360 | button | New Route | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/private-lookup/index.html` | 448 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
 | `app/private-lookup/index.html` | 449 | button | (no label) | `(handler)` | action-script | shared | no-handler | <button>/[role=button] with no handler wiring |
