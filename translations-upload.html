@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Upload Documents for Translation | VitaCoreX LLC</title>
+<meta content="Secure document upload after payment for VitaCoreX translation orders." name="description"/>
+
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+<link rel="stylesheet" href="/assets/css/vcx-base.css">
+<link rel="stylesheet" href="/assets/css/vcx-layout.css">
+<link rel="stylesheet" href="/assets/css/vcx-components.css">
+<link rel="stylesheet" href="/assets/css/vcx-utilities.css">
+<link href="/assets/css/styles.css?v=2" rel="stylesheet"/>
+<link href="/assets/css/vcx-redesign.css?v=12" rel="stylesheet"/>
+<meta content="#0e2036" name="theme-color"/>
+
+<style>
+.tu-wrap { max-width: 960px; margin: 0 auto; padding: 56px 24px 96px; }
+.tu-h1 { font-family: Georgia, serif; font-size: clamp(28px, 3.4vw, 40px); font-weight: 500; color: #1A2F2A; margin: 0 0 12px; line-height: 1.15; }
+.tu-lede { color: #2F3E38; font-size: 16px; line-height: 1.65; margin: 0 0 28px; max-width: 720px; }
+.tu-eyebrow { display: inline-block; background: rgba(91,186,167,.16); color: #2D8A82; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 18px; }
+.tu-card { background: #FFFFFF; border: 1px solid rgba(26,79,74,.10); border-radius: 14px; padding: 28px; margin-bottom: 22px; box-shadow: 0 6px 18px rgba(11,31,48,.06); }
+.tu-card h2 { font-family: Georgia, serif; color: #1A2F2A; font-size: 22px; margin: 0 0 14px; font-weight: 500; }
+.tu-card label { display: block; font-size: 13px; font-weight: 600; color: #1A2F2A; margin: 14px 0 6px; letter-spacing: .02em; }
+.tu-card input[type=text], .tu-card input[type=email], .tu-card input[type=tel], .tu-card input[type=number], .tu-card select, .tu-card textarea {
+  width: 100%; padding: 11px 14px; border: 1px solid rgba(26,79,74,.18); border-radius: 8px; font-family: inherit; font-size: 15px; color: #1A2F2A; background: #fff; transition: border-color .15s ease;
+}
+.tu-card input:focus, .tu-card select:focus, .tu-card textarea:focus { outline: none; border-color: #5BBAA7; box-shadow: 0 0 0 3px rgba(91,186,167,.18); }
+.tu-card .tu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .tu-card .tu-row { grid-template-columns: 1fr; } }
+.tu-dropzone { border: 2px dashed rgba(91,186,167,.55); border-radius: 12px; padding: 32px 24px; text-align: center; cursor: pointer; transition: background .2s ease, border-color .2s ease; background: rgba(91,186,167,.04); }
+.tu-dropzone:hover { background: rgba(91,186,167,.10); border-color: #5BBAA7; }
+.tu-dropzone.has-file { background: rgba(91,186,167,.14); border-style: solid; border-color: #2D8A82; }
+.tu-dropzone-num { display: inline-block; background: #1A2F2A; color: #fff; font-weight: 700; font-size: 13px; min-width: 28px; height: 28px; border-radius: 50%; line-height: 28px; margin-bottom: 8px; }
+.tu-dropzone-text { color: #2F3E38; font-size: 14px; margin: 4px 0 0; }
+.tu-dropzone-filename { display: block; margin-top: 8px; font-size: 13px; color: #2D8A82; font-weight: 600; word-break: break-all; }
+.tu-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.tu-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #2D8A82; color: #fff; padding: 16px 36px; border: none; border-radius: 8px; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .15s ease, transform .15s ease; width: 100%; max-width: 320px; }
+.tu-cta:hover { background: #1A4F4A; transform: translateY(-1px); }
+.tu-cta:disabled { background: #aab4ae; cursor: not-allowed; transform: none; }
+.tu-note { font-size: 13px; color: #5E6C7B; line-height: 1.55; margin: 14px 0 0; }
+.tu-step-num { display: inline-block; background: #5BBAA7; color: #1A2F2A; width: 30px; height: 30px; border-radius: 50%; text-align: center; font-weight: 800; line-height: 30px; margin-right: 10px; vertical-align: middle; }
+.tu-conditional { display: none; }
+.tu-conditional.visible { display: block; animation: tuFadeIn .25s ease; }
+@keyframes tuFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.tu-back { color: #2D8A82; font-size: 14px; text-decoration: none; }
+.tu-back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="vcx-header-glass" role="banner" style="background:#fff;border-bottom:1px solid rgba(26,79,74,.10);padding:14px 24px;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#1A2F2A;font-family:Georgia,serif;font-weight:600;font-size:18px;">VitaCoreX LLC</a>
+    <a href="/translations.html" class="tu-back">&larr; Back to translations</a>
+  </div>
+</header>
+
+<main class="tu-wrap">
+
+  <span class="tu-eyebrow">Step 2 of 3 &middot; Upload</span>
+  <h1 class="tu-h1">Upload your documents for translation</h1>
+  <p class="tu-lede">Payment received. Drop your document(s) here so our translators can start. Standard turnaround 3-5 business days from the moment we have all files. Rush orders 24-48 hours.</p>
+
+  <!-- ============================================================
+       FORM: posts to Formsubmit.co which forwards to vitacorex2025@gmail.com
+       File attachments included automatically.
+       ============================================================ -->
+  <form action="https://formsubmit.co/vitacorex2025@gmail.com" method="POST" enctype="multipart/form-data" id="uploadForm">
+
+    <!-- Formsubmit configuration -->
+    <input type="hidden" name="_subject" value="New translation order from VCX site">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://vitacorexllc.com/translations-thanks.html">
+    <input type="hidden" name="_autoresponse" value="Thank you for your translation order. We received your documents and a translator will pick up your order within 1 business hour. Standard turnaround 3-5 business days. - VitaCoreX LLC">
+    <input type="hidden" name="form_source" value="translations-upload">
+
+    <!-- 1. Order confirmation -->
+    <div class="tu-card">
+      <h2><span class="tu-step-num">1</span> Confirm your order</h2>
+      <div class="tu-row">
+        <div>
+          <label for="sessionId">Stripe order # (auto-filled from URL)</label>
+          <input type="text" id="sessionId" name="stripe_order" placeholder="cs_live_..." readonly>
+        </div>
+        <div>
+          <label for="customerEmail">Your email (we will send the translation here)</label>
+          <input type="email" id="customerEmail" name="customer_email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="tu-row">
+        <div>
+          <label for="customerName">Your name</label>
+          <input type="text" id="customerName" name="customer_name" placeholder="Jane Doe" required>
+        </div>
+        <div>
+          <label for="pageCount">How many pages did you purchase?</label>
+          <input type="number" id="pageCount" name="page_count" min="1" max="100" value="1" required>
+        </div>
+      </div>
+      <div class="tu-row">
+        <div>
+          <label for="orderType">What did you buy?</label>
+          <select id="orderType" name="order_type" required>
+            <option value="A. PDF only ($25/page Standard)">A. PDF only ($25/page Standard)</option>
+            <option value="A-Rush. PDF Rush ($40/page 24-48hr)">A-Rush. PDF Rush ($40/page 24-48hr)</option>
+            <option value="B. Bundle PDF + Notarized Hard-Copy">B. Bundle PDF + Notarized Hard-Copy</option>
+            <option value="B-Rush. Bundle Rush + USPS Express">B-Rush. Bundle Rush + USPS Express</option>
+          </select>
+        </div>
+        <div>
+          <label for="sourceLang">Source language</label>
+          <select id="sourceLang" name="source_language" required>
+            <option value="Russian">Russian</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Portuguese">Portuguese (BR/PT)</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Other">Other (specify in notes)</option>
+          </select>
+        </div>
+      </div>
+      <label for="targetLang">Target language</label>
+      <select id="targetLang" name="target_language" required style="max-width:260px;">
+        <option value="English">English</option>
+        <option value="Russian">Russian</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Ukrainian">Ukrainian</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- 2. Upload slots (rendered by JS) -->
+    <div class="tu-card">
+      <h2><span class="tu-step-num">2</span> Drop your document(s)</h2>
+      <p class="tu-note" style="margin-top:0">One upload slot per page. Upload the same PDF for all slots if multi-page, or one image/PDF per page. Supported: PDF, JPG, PNG, DOCX. Max 10 MB per file (total 10 MB across all files).</p>
+      <div id="dropzones" class="tu-slots" style="margin-top:18px;"></div>
+    </div>
+
+    <!-- 3. Shipping address (only for Bundle orders) -->
+    <div class="tu-card tu-conditional" id="shippingCard">
+      <h2><span class="tu-step-num">3</span> Shipping address (for hard-copy)</h2>
+      <p class="tu-note" style="margin-top:0">Your notarized hard-copy ships via USPS Priority Mail (2-3 days, US) or USPS Express (Rush 1-2 days).</p>
+      <div class="tu-row" style="margin-top:14px;">
+        <div>
+          <label for="shipName">Recipient full name</label>
+          <input type="text" id="shipName" name="shipping_name" placeholder="Jane Doe">
+        </div>
+        <div>
+          <label for="shipPhone">Phone (for USPS)</label>
+          <input type="tel" id="shipPhone" name="shipping_phone" placeholder="(813) 555-0100">
+        </div>
+      </div>
+      <label for="shipAddr1">Street address</label>
+      <input type="text" id="shipAddr1" name="shipping_address" placeholder="123 Main St">
+      <label for="shipAddr2">Apt / suite / unit (optional)</label>
+      <input type="text" id="shipAddr2" name="shipping_address2" placeholder="Apt 4B">
+      <div class="tu-row">
+        <div>
+          <label for="shipCity">City</label>
+          <input type="text" id="shipCity" name="shipping_city" placeholder="Tampa">
+        </div>
+        <div>
+          <label for="shipState">State</label>
+          <input type="text" id="shipState" name="shipping_state" placeholder="FL" maxlength="2">
+        </div>
+      </div>
+      <label for="shipZip">ZIP code</label>
+      <input type="text" id="shipZip" name="shipping_zip" placeholder="33611" maxlength="10" style="max-width:200px;">
+    </div>
+
+    <!-- 4. Notes + submit -->
+    <div class="tu-card">
+      <h2><span class="tu-step-num">4</span> Notes for translator (optional)</h2>
+      <textarea id="notes" name="notes" rows="3" placeholder="e.g. specific terminology, recipient agency name, urgency, anything we should know."></textarea>
+      <p class="tu-note">By submitting, you confirm you have read and accept that VitaCoreX provides certified translations and notarized affidavit services. We are not a law firm.</p>
+      <button type="submit" id="submitBtn" class="tu-cta" style="margin-top:18px;">Submit upload &rarr;</button>
+    </div>
+
+  </form>
+
+</main>
+
+<script>
+(function(){
+  // Auto-fill session ID from URL
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('s') || params.get('session_id') || '';
+  document.getElementById('sessionId').value = sessionId;
+
+  // Rush indicator from URL
+  const isRush = params.get('rush') === '1';
+  if (isRush) {
+    const oType = document.getElementById('orderType');
+    // Auto-select rush option if present
+    for (const opt of oType.options) {
+      if (opt.value.includes('Rush')) { opt.selected = true; break; }
+    }
+  }
+
+  // Show shipping card based on orderType selection
+  const orderType = document.getElementById('orderType');
+  const shippingCard = document.getElementById('shippingCard');
+  function updateShipping() {
+    if (orderType.value.startsWith('B')) shippingCard.classList.add('visible');
+    else shippingCard.classList.remove('visible');
+  }
+  orderType.addEventListener('change', updateShipping);
+  updateShipping();
+
+  // Render upload slots based on pageCount
+  const pageCount = document.getElementById('pageCount');
+  const dropzones = document.getElementById('dropzones');
+  function renderSlots() {
+    const n = Math.max(1, Math.min(50, parseInt(pageCount.value || '1', 10)));
+    dropzones.innerHTML = '';
+    for (let i = 1; i <= n; i++) {
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <label class="tu-dropzone" for="file${i}">
+          <span class="tu-dropzone-num">${i}</span>
+          <div class="tu-dropzone-text">Drop or click to upload page ${i}</div>
+          <span class="tu-dropzone-filename" id="fname${i}"></span>
+        </label>
+        <input type="file" id="file${i}" name="document_page_${i}" accept=".pdf,.jpg,.jpeg,.png,.docx,.doc" style="display:none;">
+      `;
+      dropzones.appendChild(wrap);
+      const input = wrap.querySelector('input');
+      const dz = wrap.querySelector('.tu-dropzone');
+      const fname = wrap.querySelector('.tu-dropzone-filename');
+      input.addEventListener('change', () => {
+        if (input.files[0]) {
+          fname.textContent = input.files[0].name + ' (' + Math.round(input.files[0].size / 1024) + ' KB)';
+          dz.classList.add('has-file');
+        }
+      });
+      ['dragover','dragenter'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.style.background = 'rgba(91,186,167,.18)'; }));
+      ['dragleave','drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.style.background = ''; }));
+      dz.addEventListener('drop', ev => {
+        if (ev.dataTransfer.files[0]) { input.files = ev.dataTransfer.files; input.dispatchEvent(new Event('change')); }
+      });
+    }
+  }
+  pageCount.addEventListener('input', renderSlots);
+  renderSlots();
+
+  // Disable button on submit to prevent double-send
+  document.getElementById('uploadForm').addEventListener('submit', function() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Uploading...';
+  });
+})();
+</script>
+
+</body></html>

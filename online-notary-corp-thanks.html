@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Corporate Notary Package received — VitaCoreX</title>
+<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
+<link rel="stylesheet" href="/assets/css/vcx-base.css">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #F4F7F6; min-height: 100vh; margin: 0; display: flex; flex-direction: column; }
+.thx-wrap { max-width: 700px; margin: 0 auto; padding: 80px 24px; text-align: center; flex: 1; }
+.thx-icon { width: 80px; height: 80px; margin: 0 auto 24px; background: #5BBAA7; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 44px; font-weight: 800; }
+.thx-h1 { font-family: Georgia, serif; font-size: clamp(28px, 4vw, 38px); color: #1A2F2A; margin: 0 0 14px; font-weight: 500; }
+.thx-p { color: #2F3E38; font-size: 16px; line-height: 1.7; margin: 0 0 18px; }
+.thx-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 480px; margin: 26px auto; }
+.thx-stat { background: #fff; border: 1px solid rgba(26,79,74,.10); border-radius: 10px; padding: 16px 12px; box-shadow: 0 4px 12px rgba(11,31,48,.05); }
+.thx-stat-num { font-size: 24px; font-weight: 800; color: #2D8A82; line-height: 1; margin-bottom: 4px; }
+.thx-stat-label { font-size: 11px; color: #5E6C7B; letter-spacing: .06em; text-transform: uppercase; }
+.thx-card { background: #fff; border: 1px solid rgba(26,79,74,.10); border-radius: 14px; padding: 28px; margin: 26px 0; text-align: left; box-shadow: 0 6px 18px rgba(11,31,48,.06); }
+.thx-card h3 { color: #1A2F2A; font-size: 17px; margin: 0 0 14px; font-family: Georgia, serif; font-weight: 500; }
+.thx-card ol { margin: 0; padding-left: 22px; color: #2F3E38; font-size: 15px; line-height: 1.75; }
+.thx-card ol li { margin-bottom: 10px; }
+.thx-card ol li:last-child { margin-bottom: 0; }
+.thx-card strong { color: #1A2F2A; }
+.thx-btn { display: inline-flex; align-items: center; gap: 8px; background: #2D8A82; color: #fff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-top: 14px; }
+.thx-btn:hover { background: #1A4F4A; }
+.thx-order { font-size: 13px; color: #5E6C7B; margin-top: 8px; }
+.thx-order code { background: rgba(91,186,167,.10); padding: 2px 8px; border-radius: 4px; font-family: ui-monospace, SF Mono, monospace; font-size: 12px; color: #2D8A82; }
+</style>
+</head>
+<body>
+
+<header style="background:#fff;border-bottom:1px solid rgba(26,79,74,.10);padding:14px 24px;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <a href="/" style="text-decoration:none;color:#1A2F2A;font-family:Georgia,serif;font-weight:600;font-size:18px;">VitaCoreX LLC</a>
+  </div>
+</header>
+
+<main class="thx-wrap">
+  <div class="thx-icon">&check;</div>
+  <h1 class="thx-h1">Corporate package activated</h1>
+  <p class="thx-p">Payment confirmed ($1,150). Your company now has <strong>50 prepaid notarial acts</strong> on file with VitaCoreX.</p>
+  <p class="thx-order">Stripe order: <code id="orderId">—</code></p>
+
+  <div class="thx-stats">
+    <div class="thx-stat">
+      <div class="thx-stat-num">50</div>
+      <div class="thx-stat-label">Prepaid acts</div>
+    </div>
+    <div class="thx-stat">
+      <div class="thx-stat-num">$23</div>
+      <div class="thx-stat-label">Per act</div>
+    </div>
+    <div class="thx-stat">
+      <div class="thx-stat-num">12 mo</div>
+      <div class="thx-stat-label">Validity</div>
+    </div>
+  </div>
+
+  <div class="thx-card">
+    <h3>What happens next</h3>
+    <ol>
+      <li><strong>Within 1 business day</strong> &middot; Your dedicated scheduling coordinator emails you with the booking portal link and a short onboarding form (authorized signers, billing contact, preferred session windows).</li>
+      <li><strong>Booking</strong> &middot; You schedule sessions on-demand through the portal or by replying to the coordinator. Same-day availability for urgent matters.</li>
+      <li><strong>Sessions</strong> &middot; Each notarization deducts 1 act from your balance. Add-ons (hard-copy mail at $74.99, apostille at $95) are billed separately as used.</li>
+      <li><strong>Monthly statement</strong> &middot; You receive a usage statement at the end of each calendar month showing acts used + acts remaining.</li>
+    </ol>
+  </div>
+
+  <p class="thx-p">Questions or urgent need? Email <a href="mailto:vitacorex2025@gmail.com" style="color:#2D8A82;font-weight:600;">vitacorex2025@gmail.com</a> with your Stripe order number — we respond within 1 business hour during weekdays.</p>
+
+  <a href="/" class="thx-btn">Back to VitaCoreX home</a>
+</main>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var s = params.get('s') || params.get('session_id');
+  if (s) document.getElementById('orderId').textContent = s;
+})();
+</script>
+
+</body></html>

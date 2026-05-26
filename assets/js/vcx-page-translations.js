@@ -5,6 +5,7 @@
    ============================================================ */
 ;(function(w){
 'use strict';
+try { if (location && /translations/.test(location.pathname)) console.log('[vcx-page-translations.js v=24] loaded'); } catch(e) {}
 
 /* vcxSetLang is defined in vcx-i18n.js — do NOT redefine here */
 
@@ -4705,14 +4706,23 @@ add('VitaCoreX LLC is a Florida-registered company providing remote documentatio
    ================================================================ */
 
 // Elements to translate (content area only, skip nav/header/footer handled by shell-i18n)
-var SELECTORS = 'h1, h2, h3, h4, p, li, dt, dd, span.eyebrow, span.pill, span.workflow-chip, a.btn, a.btn-primary, a.btn-secondary, a.vcx-nav-dual__item, label, option, button[type="submit"], button.cookie-btn, .cookie-banner strong, .cookie-banner p, .cookie-banner div, .cookie-meta, .cookie-meta a, .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3, .pci-hero__eyebrow, .pci-form-card__eyebrow, .pci-form-card__title, .pci-form-card__sub, .pci-sec-head__eyebrow, .pci-trustbar span, .pci-bullets li, .pci-form-note, .pci-disc, .pci-ty-card__eyebrow, .pci-ty-card__lede, .pci-ty-kpi__label, .pci-ty-kpi__value, .pci-cta-soft a';
+var SELECTORS = 'h1, h2, h3, h4, p, li, dt, dd, span.eyebrow, span.pill, span.workflow-chip, span.trn-turnaround-label, span.trn-turnaround-text, span.ipr-sec-head__eyebrow, span.ipr-tier__badge, a.btn, a.btn-primary, a.btn-secondary, a.vcx-nav-dual__item, a.vcx-image-hero__cta, a.ipr-btn, a.ipr-tier__cta, label, option, button[type="submit"], button.cookie-btn, .cookie-banner strong, .cookie-banner p, .cookie-banner div, .cookie-meta, .cookie-meta a, .hero-copy .lead, .section-intro, .card p, .card h3, .timeline-item h3, .timeline-item p, .pilot-panel h3, .pilot-panel li, .fit-card li, .fit-card span, .cta-row a, .problem-item h3, .problem-item p, .about-card h3, .about-card p, .about-card span, summary, .tool-link h4, .tool-link p, .use-card h3, .use-card p, .use-card li, .governance p, .governance h3, .pci-hero__eyebrow, .pci-form-card__eyebrow, .pci-form-card__title, .pci-form-card__sub, .pci-sec-head__eyebrow, .pci-trustbar span, .pci-bullets li, .pci-form-note, .pci-disc, .pci-ty-card__eyebrow, .pci-ty-card__lede, .pci-ty-kpi__label, .pci-ty-kpi__value, .pci-cta-soft a, .vcx-image-hero__eyebrow, .vcx-image-hero__title, .ipr-hero__eyebrow, .ipr-hero__title, .ipr-hero__lede, .ipr-sec-head h2, .ipr-card h3, .ipr-card p, .ipr-tier__name, .ipr-tier__title, .ipr-tier__price, .ipr-tier__price-label, .ipr-tier__inc li, .ipr-tier__cta, .ipr-faq summary, .ipr-faq .ipr-faq__a, .ipr-final-cta h2, .ipr-final-cta p, .ipr-footer-upl p, .trn-turnaround-label';
 
 // Skip elements already handled by shell-i18n
 var SKIP_PARENTS = ['vcx-main-nav', 'vcx-mobile-nav', 'footer', 'vcx-header-meta', 'vcx-lang-switch'];
 
+// Defensive: setting innerHTML on a <label>/element that contains a form control
+// (input/select/textarea) would destroy the interactive element. Skip such elements
+// — the translatable content should live in a child <span> with a translateable class.
+function hasFormControlChild(el) {
+  return !!el.querySelector('input, select, textarea');
+}
+
 function shouldSkip(el) {
   // Skip elements handled by vcx-i18n.js (runs on all pages before this event fires)
   if (el.hasAttribute('data-common') || el.hasAttribute('data-tx')) return true;
+  // Skip elements wrapping form controls — replacing innerHTML would nuke them.
+  if (hasFormControlChild(el)) return true;
   var node = el;
   while (node) {
     if (node.tagName === 'NAV' || node.tagName === 'FOOTER') return true;
@@ -4726,6 +4736,308 @@ function shouldSkip(el) {
   }
   return false;
 }
+
+
+// ─── TRANSLATIONS PAGE (translations.html) — added auto ────────────────
+add('Certified translations · notarized translator affidavits',
+    'Сертифицированные переводы · нотариальное заверение',
+    'Traducciones certificadas · certificación notariada');
+add('Document translations — $25 per page, certified, with optional notarized affidavit and hard-copy mail.',
+    'Сертифицированный перевод документов — $25 за страницу. PDF на email. Опционально: нотариальное заверение и оригинал почтой.',
+    'Traducción certificada de documentos — $25 por página. PDF por email. Opcional: certificación notariada y copia física por correo.');
+add('Order PDF translation — $25/page',
+    'Заказать PDF перевод — $25/страница',
+    'Pedir traducción PDF — $25/página');
+add('See all pricing',
+    'Все тарифы',
+    'Ver tarifas');
+add('Pricing',
+    'Тарифы',
+    'Tarifas');
+// New simplified pricing intro
+add('Pick your option',
+    'Выберите вариант',
+    'Elija su opción');
+add('$25/page — certified translation delivered as a sealed PDF by email. $25/page + $74.99 — same translation plus notarized hard-copy mailed by USPS Priority. After payment you upload your document(s) on a secure page.',
+    '<strong>$25/страница</strong> — сертифицированный перевод в виде запечатанного PDF на email. <strong>$25/страница + $74.99</strong> — тот же перевод плюс нотариально заверенный оригинал почтой USPS Priority. После оплаты загрузите документ(ы) на защищённой странице.',
+    '<strong>$25/página</strong> — traducción certificada entregada como PDF sellado por email. <strong>$25/página + $74.99</strong> — la misma traducción más copia física notariada enviada por USPS Priority. Tras el pago sube su(s) documento(s) en una página segura.');
+// Legacy old key (cached browsers)
+add('Two clear options — PDF translation or PDF + notarized hard-copy bundle',
+    'Выберите вариант',
+    'Elija su opción');
+add('After payment you will be redirected to a secure upload page where you drop your document(s) directly — one upload slot per page you purchased. Standard turnaround 3–5 business days with USPS Priority Mail. Rush turnaround 24–48 hours with USPS Priority Express — add-on shown under each option.',
+    '<strong>$25/страница</strong> — сертифицированный перевод в виде запечатанного PDF на email. <strong>$25/страница + $74.99</strong> — тот же перевод плюс нотариально заверенный оригинал почтой USPS Priority. После оплаты загрузите документ(ы) на защищённой странице.',
+    '<strong>$25/página</strong> — traducción certificada entregada como PDF sellado por email. <strong>$25/página + $74.99</strong> — la misma traducción más copia física notariada enviada por USPS Priority. Tras el pago sube su(s) documento(s) en una página segura.');
+// New: "Certified PDF translation by email" (Tier B first bullet — replaces "Everything in Standard PDF")
+add('Certified PDF translation by email',
+    'Сертифицированный PDF перевод на email',
+    'Traducción PDF certificada por email');
+add('A · PDF only',
+    'Только PDF',
+    'Solo PDF');
+add('PDF only',
+    'Только PDF',
+    'Solo PDF');
+add('Certified PDF Translation',
+    'Сертифицированный PDF перевод',
+    'Traducción PDF certificada');
+add('delivered by email · 3–5 business days',
+    'доставка по email · 3–5 рабочих дней',
+    'entrega por email · 3–5 días hábiles');
+add('Page-by-page certified translation',
+    'Постраничный сертифицированный перевод',
+    'Traducción certificada página por página');
+add('Format-match (original layout preserved)',
+    'Сохранение формата (оригинальный макет сохраняется)',
+    'Mismo formato (diseño original preservado)');
+add('Translator certification statement attached',
+    'Прилагается сертификационное заявление переводчика',
+    'Declaración de certificación del traductor adjunta');
+add('Sealed PDF delivered by email',
+    'Запечатанный PDF доставляется по email',
+    'PDF sellado entregado por email');
+add('After purchase: 1 upload slot per page you bought',
+    'После покупки: 1 поле загрузки на каждую купленную страницу',
+    'Después de la compra: 1 ranura de carga por página comprada');
+add('Order Standard $25/page →',
+    'Заказать Стандарт $25/страница →',
+    'Pedir Estándar $25/página →');
+add('Most popular',
+    'Самый популярный',
+    'Más popular');
+add('B · PDF + Notarized Hard-Copy',
+    'PDF + нотариально заверенный оригинал',
+    'PDF + copia notariada');
+add('PDF + Notarized Hard-Copy',
+    'PDF + нотариально заверенный оригинал',
+    'PDF + copia notariada');
+add('Full Bundle — Translation + Notarization + USPS Mail',
+    'Полный комплект — Перевод + Нотариальное заверение + Почта USPS',
+    'Paquete completo — Traducción + Notarización + Correo USPS');
+add('1 page = $99.99 · 5 pages = $199.99 · all-in',
+    '1 страница = $99.99 · 5 страниц = $199.99 · всё включено',
+    '1 página = $99.99 · 5 páginas = $199.99 · todo incluido');
+add('Everything in Standard PDF',
+    'Всё что в Стандартном PDF',
+    'Todo lo del PDF Estándar');
+add('Notarized translator affidavit (wet-ink Florida notary seal)',
+    'Нотариально заверенный аффидавит переводчика (мокрая печать нотариуса Флориды)',
+    'Declaración jurada notariada del traductor (sello de notario de Florida en tinta)');
+add('Printed translation + affidavit, USPS Priority Mail (US)',
+    'Печатный перевод + аффидавит, USPS Priority Mail (США)',
+    'Traducción impresa + declaración jurada, USPS Priority Mail (EE.UU.)');
+add('After purchase: upload pages + enter shipping address',
+    'После покупки: загрузка страниц + ввод адреса доставки',
+    'Después de la compra: subir páginas + ingresar dirección de envío');
+add('Format accepted by USCIS & FL courts',
+    'Формат принимается USCIS и судами Флориды',
+    'Formato aceptado por USCIS y tribunales de Florida');
+add('Order Standard Bundle →',
+    'Заказать Стандартный комплект →',
+    'Pedir Paquete Estándar →');
+add('Need it in 24-48 hours?',
+    'Нужно за 24-48 часов?',
+    '¿Lo necesita en 24-48 horas?');
+add('Order Rush $40/page →',
+    'Заказать Срочно $40/страница →',
+    'Pedir Urgente $40/página →');
+add('Order Rush Bundle $40/pg + $94.99 →',
+    'Заказать Срочный комплект $40/стр + $94.99 →',
+    'Pedir Paquete Urgente $40/pág + $94.99 →');
+add('Order Rush Bundle →',
+    'Заказать Срочный комплект →',
+    'Pedir Paquete Urgente →');
+add('Same quality, faster delivery.',
+    'То же качество, быстрее доставка.',
+    'Misma calidad, entrega más rápida.');
+add('Includes USPS Priority Express shipping.',
+    'Включает доставку USPS Priority Express.',
+    'Incluye envío USPS Priority Express.');
+add('What is included',
+    'Что включено',
+    'Qué se incluye');
+add('Translation discipline — certification you can submit anywhere',
+    'Дисциплина перевода — сертификация которую можно подать куда угодно',
+    'Disciplina de traducción — certificación que puede presentar en cualquier lugar');
+add('A certified translation is more than a word swap. Every order delivers format-match, translator certification, and an optional notarized affidavit so the agency, court, or bank accepts it the first time.',
+    'Сертифицированный перевод — это больше чем замена слов. Каждый заказ включает сохранение формата, сертификацию переводчика и опциональный нотариально заверенный аффидавит, чтобы агентство, суд или банк приняли его с первого раза.',
+    'Una traducción certificada es más que un intercambio de palabras. Cada pedido entrega coincidencia de formato, certificación del traductor y una declaración jurada notariada opcional para que la agencia, tribunal o banco lo acepte la primera vez.');
+add('Certified translation',
+    'Сертифицированный перевод',
+    'Traducción certificada');
+add('Page-by-page translation by a competent translator with a certification statement meeting 8 CFR §103.2(b)(3) for USCIS and similar standards for FL courts and banks.',
+    'Постраничный перевод компетентным переводчиком с сертификационным заявлением, соответствующим 8 CFR §103.2(b)(3) для USCIS и аналогичным стандартам для судов и банков Флориды.',
+    'Traducción página por página por un traductor competente con declaración de certificación que cumple 8 CFR §103.2(b)(3) para USCIS y normas similares para tribunales y bancos de Florida.');
+add('Notarized translator affidavit',
+    'Нотариально заверенный аффидавит переводчика',
+    'Declaración jurada notariada del traductor');
+add('When required by USCIS, court, or bank KYC, the translator’s certification is sworn before a Florida-commissioned notary — wet-ink seal on a printed copy, mailed USPS Priority.',
+    'Когда требуется USCIS, судом или банковским KYC, сертификация переводчика заверяется перед нотариусом Флориды — мокрая печать на печатной копии, отправка USPS Priority.',
+    'Cuando lo requiere USCIS, tribunal o KYC bancario, la certificación del traductor se jura ante un notario de Florida — sello en tinta sobre copia impresa, enviada por USPS Priority.');
+add('Format-match layout',
+    'Сохранение формата макета',
+    'Diseño con coincidencia de formato');
+add('The translated PDF mirrors the original document layout (tables, seals, signature blocks, stamps) so reviewers can compare original-to-translation at a glance.',
+    'Переведённый PDF отражает оригинальный макет документа (таблицы, печати, блоки подписей, штампы), чтобы рецензенты могли сравнить оригинал и перевод с одного взгляда.',
+    'El PDF traducido refleja el diseño original del documento (tablas, sellos, bloques de firma, sellos) para que los revisores puedan comparar original-traducción de un vistazo.');
+add('Direct in-house languages',
+    'Языки в штате',
+    'Idiomas internos directos');
+add('Russian, Spanish, Ukrainian, Portuguese (BR/PT), French, German, and Italian ↔ English handled in-house. Other languages by request — quoted before order.',
+    'Русский, испанский, украинский, португальский (BR/PT), французский, немецкий и итальянский ↔ английский в штате. Другие языки по запросу — цена до заказа.',
+    'Ruso, español, ucraniano, portugués (BR/PT), francés, alemán e italiano ↔ inglés gestionados internamente. Otros idiomas bajo petición — cotizado antes del pedido.');
+add('Process',
+    'Процесс',
+    'Proceso');
+add('Pay, upload, deliver — nothing in between',
+    'Оплата, загрузка, доставка — ничего лишнего',
+    'Pagar, cargar, entregar — nada en el medio');
+add('Pay & pick page count',
+    'Оплата и выбор количества страниц',
+    'Pagar y elegir número de páginas');
+add('Choose option A, B, or C above. At Stripe checkout you set the number of pages (1 page = ~250 source words). For Option B you also enter a US shipping address.',
+    'Выберите вариант A, B или C выше. На странице оплаты Stripe вы указываете количество страниц (1 страница = ~250 слов исходника). Для варианта B также вводится адрес доставки по США.',
+    'Elija la opción A, B o C arriba. En el checkout de Stripe ingresa el número de páginas (1 página = ~250 palabras fuente). Para Opción B también ingresa una dirección de envío en EE.UU.');
+add('Upload document(s)',
+    'Загрузите документ(ы)',
+    'Sube su(s) documento(s)');
+add('Right after payment, Stripe redirects you to a secure upload page. One drag-and-drop slot per page you bought. The upload link is also emailed as backup.',
+    'Сразу после оплаты Stripe перенаправит вас на безопасную страницу загрузки. По одному drag-and-drop полю на каждую купленную страницу. Ссылка на загрузку также придёт на email как резерв.',
+    'Justo después del pago, Stripe le redirige a una página segura de carga. Una ranura drag-and-drop por página comprada. El enlace de carga también se envía por email como respaldo.');
+add('Receive translation',
+    'Получите перевод',
+    'Reciba la traducción');
+add('Sealed PDF emailed within 3–5 business days (rush available). If you chose the bundle, the notarized printed copy ships USPS Priority Mail right after PDF approval.',
+    'Запечатанный PDF приходит по email через 3–5 рабочих дней (доступна срочная опция). Если вы выбрали комплект, нотариально заверенная печатная копия отправляется USPS Priority Mail сразу после одобрения PDF.',
+    'PDF sellado por email en 3–5 días hábiles (urgente disponible). Si eligió el paquete, la copia impresa notariada se envía por USPS Priority Mail justo después de la aprobación del PDF.');
+add('Languages',
+    'Языки',
+    'Idiomas');
+add('Language pairs we handle',
+    'Языковые пары которые мы обрабатываем',
+    'Pares de idiomas que manejamos');
+add('In-house language pairs',
+    'Языковые пары в штате',
+    'Pares de idiomas internos');
+add('Russian ↔ English (RU ↔ EN)',
+    'Русский ↔ Английский (RU ↔ EN)',
+    'Ruso ↔ Inglés (RU ↔ EN)');
+add('Spanish ↔ English (ES ↔ EN)',
+    'Испанский ↔ Английский (ES ↔ EN)',
+    'Español ↔ Inglés (ES ↔ EN)');
+add('Ukrainian ↔ English (UK ↔ EN)',
+    'Украинский ↔ Английский (UK ↔ EN)',
+    'Ucraniano ↔ Inglés (UK ↔ EN)');
+add('Portuguese BR/PT ↔ English (PT ↔ EN)',
+    'Португальский BR/PT ↔ Английский (PT ↔ EN)',
+    'Portugués BR/PT ↔ Inglés (PT ↔ EN)');
+add('French / German / Italian ↔ English (FR / DE / IT ↔ EN)',
+    'Французский / Немецкий / Итальянский ↔ Английский (FR / DE / IT ↔ EN)',
+    'Francés / Alemán / Italiano ↔ Inglés (FR / DE / IT ↔ EN)');
+add('Other languages & what is not included',
+    'Другие языки и что не включено',
+    'Otros idiomas y qué no se incluye');
+add('Other languages by request — quoted before order',
+    'Другие языки по запросу — цена до заказа',
+    'Otros idiomas bajo petición — cotizado antes del pedido');
+add('Legal advice on whether your document needs translation',
+    'Юридическая консультация о том, нужен ли вашему документу перевод',
+    'Asesoría legal sobre si su documento necesita traducción');
+add('Filing the translation on your behalf',
+    'Подача перевода от вашего имени',
+    'Presentar la traducción en su nombre');
+add('Florida apostille for international use (separate +$95 add-on)',
+    'Апостиль Флориды для международного использования (отдельная опция +$95)',
+    'Apostilla de Florida para uso internacional (complemento separado +$95)');
+add('International shipping (USPS US only by default)',
+    'Международная доставка (по умолчанию только USPS США)',
+    'Envío internacional (USPS EE.UU. únicamente por defecto)');
+add('FAQ',
+    'FAQ',
+    'FAQ');
+add('What clients usually ask first',
+    'Что клиенты обычно спрашивают первым',
+    'Lo que los clientes suelen preguntar primero');
+add('Will USCIS accept your translation?',
+    'Примет ли USCIS ваш перевод?',
+    '¿USCIS aceptará su traducción?');
+add('Yes. Our certification statement and notarized translator affidavit meet 8 CFR §103.2(b)(3) for USCIS submissions. The translator certifies competence in both languages and accuracy; the notarized affidavit confirms the translator identity.',
+    'Да. Наше сертификационное заявление и нотариально заверенный аффидавит переводчика соответствуют 8 CFR §103.2(b)(3) для подачи в USCIS. Переводчик подтверждает компетентность в обоих языках и точность; нотариально заверенный аффидавит подтверждает личность переводчика.',
+    'Sí. Nuestra declaración de certificación y la declaración jurada notariada del traductor cumplen con 8 CFR §103.2(b)(3) para presentaciones a USCIS. El traductor certifica competencia en ambos idiomas y precisión; la declaración jurada notariada confirma la identidad del traductor.');
+add('How does the upload work after payment?',
+    'Как работает загрузка после оплаты?',
+    '¿Cómo funciona la carga después del pago?');
+add('When you complete payment at Stripe, you are redirected to a secure upload page. The page shows one upload slot per page you purchased (so 5 pages = 5 slots). The same upload link is also emailed to you as backup. You can come back and finish later.',
+    'Когда вы завершите оплату в Stripe, вы будете перенаправлены на безопасную страницу загрузки. Страница показывает одно поле загрузки на каждую купленную страницу (5 страниц = 5 полей). Та же ссылка на загрузку придёт по email как резерв. Вы можете вернуться и закончить позже.',
+    'Cuando complete el pago en Stripe, será redirigido a una página segura de carga. La página muestra una ranura de carga por página comprada (5 páginas = 5 ranuras). El mismo enlace se envía por email como respaldo. Puede regresar y terminar más tarde.');
+add('How is "one page" defined?',
+    'Как определяется "одна страница"?',
+    '¿Cómo se define "una página"?');
+add('A standard page is approximately 250 source words. A short certificate (birth, marriage) usually counts as 1 page. Diplomas with course listings are typically 2–3 pages. Contracts are billed by actual word count rounded to the nearest page.',
+    'Стандартная страница — это примерно 250 слов исходника. Короткий сертификат (о рождении, браке) обычно засчитывается как 1 страница. Дипломы со списком курсов обычно 2–3 страницы. Контракты тарифицируются по фактическому количеству слов с округлением до ближайшей страницы.',
+    'Una página estándar son aproximadamente 250 palabras fuente. Un certificado corto (nacimiento, matrimonio) generalmente cuenta como 1 página. Diplomas con listas de cursos son típicamente 2–3 páginas. Los contratos se facturan por el conteo real de palabras redondeado a la página más cercana.');
+add('What if my page count differs from my estimate?',
+    'Что если количество страниц отличается от моей оценки?',
+    '¿Qué pasa si mi número de páginas difiere de mi estimación?');
+add('After you upload the source document, we count exact pages and email confirmation. If pages exceed your estimate, we collect the difference before starting. If fewer, we refund. No surprises.',
+    'После того как вы загрузите исходный документ, мы посчитаем точное количество страниц и отправим подтверждение по email. Если страниц больше, чем вы оценили, мы соберём разницу перед началом. Если меньше — вернём деньги. Никаких сюрпризов.',
+    'Después de cargar el documento fuente, contamos las páginas exactas y enviamos confirmación por email. Si las páginas exceden su estimación, cobramos la diferencia antes de empezar. Si son menos, reembolsamos. Sin sorpresas.');
+add('Ready to translate?',
+    'Готовы переводить?',
+    '¿Listo para traducir?');
+add('Pick your option, pay, upload your document(s), receive the certified translation. Need it in 24-48 hours? Pick the Rush version of any tier (shown under each Standard option above) — faster translation + USPS Priority Express shipping.',
+    'Выберите вариант, оплатите, загрузите документ(ы), получите сертифицированный перевод. Нужно за 24-48 часов? Выберите версию Срочно любого тарифа (показана под каждым Стандартным вариантом выше) — более быстрый перевод + доставка USPS Priority Express.',
+    'Elija su opción, pague, suba sus documentos, reciba la traducción certificada. ¿Lo necesita en 24-48 horas? Elija la versión Urgente de cualquier nivel (mostrada bajo cada opción Estándar arriba) — traducción más rápida + envío USPS Priority Express.');
+add('A. PDF only — $25/page',
+    'Только PDF — $25/страница',
+    'Solo PDF — $25/página');
+add('PDF only — $25/page',
+    'Только PDF — $25/страница',
+    'Solo PDF — $25/página');
+add('B. Full bundle — $25/pg + $74.99',
+    'Полный комплект — $25/стр + $74.99',
+    'Paquete completo — $25/pág + $74.99');
+add('Full bundle — $25/pg + $74.99',
+    'Полный комплект — $25/стр + $74.99',
+    'Paquete completo — $25/pág + $74.99');
+add('Certified translations are performed by professional translators. The notarized translator affidavit is executed before a Florida-commissioned notary public and meets 8 CFR §103.2(b)(3) for USCIS submissions, Florida Rules of Civil Procedure 1.090 for FL courts, and standard bank/corporate KYC requirements. VitaCoreX LLC is not a law firm and does not provide legal advice or legal representation. Acceptance by any specific agency, court, or institution is determined by that body.',
+    'Сертифицированные переводы выполняются профессиональными переводчиками. Нотариально заверенный аффидавит переводчика составляется перед нотариусом Флориды и соответствует 8 CFR §103.2(b)(3) для подачи в USCIS, Florida Rules of Civil Procedure 1.090 для судов Флориды и стандартным требованиям банков/корпоративного KYC. VitaCoreX LLC не является юридической фирмой и не предоставляет юридических консультаций или представительства. Принятие любым конкретным агентством, судом или учреждением определяется этим органом.',
+    'Las traducciones certificadas son realizadas por traductores profesionales. La declaración jurada notariada del traductor se ejecuta ante un notario de Florida y cumple con 8 CFR §103.2(b)(3) para presentaciones a USCIS, Florida Rules of Civil Procedure 1.090 para tribunales de Florida y requisitos estándar bancarios/corporativos KYC. VitaCoreX LLC no es una firma legal y no proporciona asesoría legal ni representación. La aceptación por cualquier agencia, tribunal o institución específica es determinada por ese organismo.');
+
+// ─── Turnaround radio selector labels (translations.html) ─────────────
+// Note: keys are the normalized textContent (with em-dash unification).
+// Values are full innerHTML snippets that preserve the .speed / .delivery / .price markup.
+add('Choose turnaround',
+    'Выберите срок',
+    'Elija el plazo');
+// Tier A — Standard (PDF by email)
+add('Standard · 3—5 business days · PDF by email$25/page',
+    '<span class="speed">Стандарт</span> · 3–5 рабочих дней · PDF на email<span class="delivery"><span class="price">$25/страница</span></span>',
+    '<span class="speed">Estándar</span> · 3–5 días hábiles · PDF por email<span class="delivery"><span class="price">$25/página</span></span>');
+// Tier A — Rush (PDF by email)
+add('Rush · 24—48 hours · PDF by email$40/page · faster translation',
+    '<span class="speed">Срочно</span> · 24–48 часов · PDF на email<span class="delivery"><span class="price">$40/страница</span> · быстрее перевод</span>',
+    '<span class="speed">Urgente</span> · 24–48 horas · PDF por email<span class="delivery"><span class="price">$40/página</span> · traducción más rápida</span>');
+// Tier A — old USPS labels (legacy keys for any cached HTML)
+add('Standard · 3—5 business days · USPS Priority Mail$25/page',
+    '<span class="speed">Стандарт</span> · 3–5 рабочих дней · PDF на email<span class="delivery"><span class="price">$25/страница</span></span>',
+    '<span class="speed">Estándar</span> · 3–5 días hábiles · PDF por email<span class="delivery"><span class="price">$25/página</span></span>');
+add('Rush · 24—48 hours · USPS Priority Express$40/page · faster translation + faster shipping',
+    '<span class="speed">Срочно</span> · 24–48 часов · PDF на email<span class="delivery"><span class="price">$40/страница</span> · быстрее перевод</span>',
+    '<span class="speed">Urgente</span> · 24–48 horas · PDF por email<span class="delivery"><span class="price">$40/página</span> · traducción más rápida</span>');
+// Tier B — Standard
+add('Standard · 3—5 business days · USPS Priority Mail$25/pg + $74.99',
+    '<span class="speed">Стандарт</span> · 3–5 рабочих дней · USPS Priority Mail<span class="delivery"><span class="price">$25/стр + $74.99</span></span>',
+    '<span class="speed">Estándar</span> · 3–5 días hábiles · USPS Priority Mail<span class="delivery"><span class="price">$25/pág + $74.99</span></span>');
+// Tier B — Rush
+add('Rush · 24—48 hours · USPS Priority Express$40/pg + $94.99 · faster translation + faster shipping',
+    '<span class="speed">Срочно</span> · 24–48 часов · USPS Priority Express<span class="delivery"><span class="price">$40/стр + $94.99</span> · быстрее перевод + быстрее доставка</span>',
+    '<span class="speed">Urgente</span> · 24–48 horas · USPS Priority Express<span class="delivery"><span class="price">$40/pág + $94.99</span> · traducción más rápida + envío más rápido</span>');
+
+// "Skip to content" — a11y link at top of page
+add('Skip to content',
+    'Перейти к содержимому',
+    'Saltar al contenido');
 
 function normText(s) {
   return (s || '')
@@ -4754,6 +5066,7 @@ function ownedByStructured(el) {
 }
 
 function translatePage(lang) {
+  try { if (location && /translations/.test(location.pathname)) console.log('[vcx-page-translations.js] translatePage(' + lang + ')'); } catch(e) {}
   if (lang === 'en') {
     // Restore originals (skip elements handled by structured translators).
     document.querySelectorAll('[data-en-orig]').forEach(function(el) {
@@ -4848,5 +5161,333 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() { translatePage(lang); }, 50);
   }
 });
+
+
+// ─── ONLINE NOTARY PAGE (online-notary.html) ─────────────────────────────
+add('Florida online notary public · Chapter 117 Part II',
+    'Онлайн-нотариус Флориды · Глава 117, Часть II',
+    'Notario público en línea de Florida · Capítulo 117 Parte II');
+add('Documents notarized online in fifteen minutes — from anywhere in the world.',
+    'Нотариальное заверение документов онлайн за 15 минут — из любой точки мира.',
+    'Documentos notariados en línea en quince minutos — desde cualquier lugar del mundo.');
+add('Book notarization — $25',
+    'Записаться на нотариат — $25',
+    'Reservar notarización — $25');
+add('See pricing',
+    'Тарифы',
+    'Tarifas');
+add('$25 per notarial act',
+    '$25 за нотариальное действие',
+    '$25 por acto notarial');
+add('Florida statutory rate — no platform mark-ups. Multi-document sessions and add-ons listed below.',
+    'Установленный законом Флориды тариф — без наценок платформ. Сессии на несколько документов и дополнительные опции — ниже.',
+    'Tarifa estatutaria de Florida — sin recargos de plataforma. Sesiones multi-documento y complementos listados abajo.');
+add('Single act',
+    'Одно действие',
+    'Acto único');
+add('Single Notarial Act',
+    'Одно нотариальное действие',
+    'Acto notarial único');
+add('FL statutory max · all-in',
+    'Максимум по закону Флориды · всё включено',
+    'Máximo estatutario de FL · todo incluido');
+add('One signature notarized in a live session',
+    'Одна подпись заверяется в живой сессии',
+    'Una firma notariada en sesión en vivo');
+add('Government-ID verification + KBA quiz',
+    'Проверка гос. ID + KBA-вопросы',
+    'Verificación de ID gubernamental + cuestionario KBA');
+add('Audio-video session retained 10 years',
+    'Аудио-видео сессия хранится 10 лет',
+    'Sesión de audio-video conservada 10 años');
+add('Tamper-evident PDF with audit trail',
+    'PDF с защитой от изменений и журналом аудита',
+    'PDF a prueba de manipulación con registro de auditoría');
+add('15–30 minute session, same-day available',
+    'Сессия 15–30 минут, доступно в день обращения',
+    'Sesión de 15–30 minutos, disponible el mismo día');
+add('Book single act',
+    'Заказать одно действие',
+    'Reservar acto único');
+
+// ─── Tier 2 — Online Notarization + Mailed Hard-Copy bundle ($99.99) ───
+add('Notary + Hard-Copy bundle',
+    'Нотариат + бумажный оригинал',
+    'Notario + copia impresa');
+add('Online Notarization + Mailed Hard-Copy',
+    'Онлайн-нотариат + бумажный оригинал почтой',
+    'Notarización en línea + copia impresa por correo');
+add('$25 notarization + $74.99 print & USPS Priority Mail',
+    '$25 нотариат + $74.99 печать и USPS Priority Mail',
+    '$25 notarización + $74.99 impresión y USPS Priority Mail');
+add('Tamper-sealed PDF emailed immediately',
+    'Защищённый PDF приходит на email сразу',
+    'PDF sellado entregado por email inmediatamente');
+add('Pay & book — $99.99',
+    'Оплатить и записаться — $99.99',
+    'Pagar y reservar — $99.99');
+// Legacy (kept for old cached HTML)
+add('Notarized hard-copy',
+    'Нотариально заверенный оригинал',
+    'Copia notariada');
+add('Notarized Hard-Copy + USPS Mail',
+    'Нотариально заверенный оригинал + почта USPS',
+    'Copia notariada + correo USPS');
+add('all-in · notarization + print + USPS Priority Mail',
+    'всё включено · заверение + печать + USPS Priority Mail',
+    'todo incluido · notarización + impresión + USPS Priority Mail');
+add('Live audio-video notarial session (Florida RON)',
+    'Живая аудио-видео нотариальная сессия (Florida RON)',
+    'Sesión notarial de audio-video en vivo (Florida RON)');
+add('Embossed/sealed printed hard-copy of your document',
+    'Печатный экземпляр с тиснёной печатью нотариуса',
+    'Copia impresa con sello en relieve del notario');
+add('USPS Priority Mail shipping (2–3 business days, US)',
+    'Доставка USPS Priority Mail (2–3 рабочих дня по США)',
+    'Envío USPS Priority Mail (2–3 días hábiles, EE.UU.)');
+add('Tamper-sealed PDF emailed immediately + paper copy by mail',
+    'Защищённый PDF приходит на email сразу + бумажный экземпляр почтой',
+    'PDF sellado por email inmediato + copia impresa por correo');
+add('Accepted for USCIS, courts, banks, real-estate closings',
+    'Принимается USCIS, судами, банками, при сделках с недвижимостью',
+    'Aceptado por USCIS, tribunales, bancos, cierres inmobiliarios');
+add('Order hard-copy — $74.99',
+    'Заказать с доставкой — $74.99',
+    'Pedir copia impresa — $74.99');
+
+// ─── Legacy Multi-Document Notarization keys (kept for backward compatibility) ───
+add('Multi-document session',
+    'Сессия на несколько документов',
+    'Sesión multi-documento');
+add('Multi-Document Notarization',
+    'Заверение нескольких документов',
+    'Notarización multi-documento');
+add('2–3 acts in one session · $25/act',
+    '2–3 действия за одну сессию · $25/действие',
+    '2–3 actos en una sesión · $25/acto');
+add('2–3 notarial acts in a single audio-video sitting',
+    '2–3 нотариальных действия в одной аудио-видео сессии',
+    '2–3 actos notariales en una sola sesión de audio-video');
+add('One ID verification covers all acts in the session',
+    'Одна проверка ID покрывает все действия сессии',
+    'Una verificación de ID cubre todos los actos de la sesión');
+add('Common for closing packets, immigration bundles, exhibits',
+    'Часто для пакетов сделок, иммиграционных пакетов, приложений',
+    'Común para paquetes de cierre, paquetes migratorios, anexos');
+add('Single tamper-sealed PDF or split as you prefer',
+    'Один защищённый PDF или разделено по вашему предпочтению',
+    'Un PDF sellado o dividido según prefiera');
+add('Faster overall than 2–3 separate sessions',
+    'Быстрее чем 2–3 отдельные сессии',
+    'Más rápido que 2–3 sesiones separadas');
+add('Book multi-doc',
+    'Заказать несколько',
+    'Reservar multi-doc');
+add('Add-ons & company retainer',
+    'Дополнения и корпоративный пакет',
+    'Complementos y retenedor corporativo');
+add('Hard-Copy, Apostille, Volume Pack',
+    'Бумажная копия, апостиль, пакет на объём',
+    'Copia impresa, apostilla, paquete por volumen');
+add('5-act pack · $22/act · Net-30 for business',
+    'Пакет 5 действий · $22/действие · Net-30 для бизнеса',
+    'Paquete de 5 actos · $22/acto · Net-30 para empresas');
+add('Hard-copy + USPS Priority Mail: +$74.99',
+    'Бумажная копия + USPS Priority Mail: +$74.99',
+    'Copia impresa + USPS Priority Mail: +$74.99');
+add('Florida apostille (for Hague countries): +$95',
+    'Апостиль Флориды (для стран Гаагской конвенции): +$95',
+    'Apostilla de Florida (para países de La Haya): +$95');
+add('5-act pre-paid bundle: $110 ($22/act, save $15)',
+    'Предоплаченный пакет 5 действий: $110 ($22/действие, экономия $15)',
+    'Paquete prepagado de 5 actos: $110 ($22/acto, ahorra $15)');
+add('20-act pre-paid bundle: $400 ($20/act, save $100)',
+    'Предоплаченный пакет 20 действий: $400 ($20/действие, экономия $100)',
+    'Paquete prepagado de 20 actos: $400 ($20/acto, ahorra $100)');
+
+// ─── New Corporate Package tier (replaces old "Add-ons & retainer" Tier 3) ───
+add('Corporate package',
+    'Корпоративный пакет',
+    'Paquete corporativo');
+add('50 Notarizations Bundle',
+    'Пакет 50 нотариальных заверений',
+    'Paquete de 50 notarizaciones');
+add('50 acts · $23/act',
+    '50 действий · $23/действие',
+    '50 actos · $23/acto');
+add('50 prepaid notarial acts · $23 each',
+    '50 предоплаченных нотариальных действий · $23 каждое',
+    '50 actos notariales prepagados · $23 cada uno');
+add('Acts usable any time within 12 months of purchase',
+    'Действия можно использовать в течение 12 месяцев с момента покупки',
+    'Actos utilizables en cualquier momento dentro de 12 meses tras la compra');
+add('Dedicated scheduling coordinator + priority same-day availability',
+    'Выделенный координатор + приоритетный доступ в день обращения',
+    'Coordinador dedicado + disponibilidad prioritaria el mismo día');
+add('Net-30 invoicing eligibility for law firms / HR / real-estate',
+    'Право на Net-30 счета для юр. фирм / HR / недвижимости',
+    'Elegibilidad para facturación Net-30 para firmas legales / RRHH / inmobiliarias');
+add('Hard-copy + USPS Priority Mail available per act (+$74.99)',
+    'Бумажная копия + USPS Priority Mail доступна за действие (+$74.99)',
+    'Copia impresa + USPS Priority Mail disponible por acto (+$74.99)');
+add('Florida apostille available per act for Hague countries (+$95)',
+    'Апостиль Флориды доступен за действие для стран Гаагской конвенции (+$95)',
+    'Apostilla de Florida disponible por acto para países de La Haya (+$95)');
+add('Order corporate package',
+    'Заказать корпоративный пакет',
+    'Pedir paquete corporativo');
+add('Business Net-30 invoicing for law firms / HR / real-estate',
+    'Бизнес Net-30 счета для юр. фирм / HR / недвижимости',
+    'Facturación Net-30 para firmas legales / RRHH / inmobiliarias');
+add('Dedicated scheduling coordinator + SLA for retainers',
+    'Выделенный координатор + SLA для retainer-клиентов',
+    'Coordinador dedicado + SLA para clientes con retenedor');
+add('Request add-on / retainer',
+    'Запросить дополнение / retainer',
+    'Solicitar complemento / retenedor');
+add('What is included',
+    'Что включено',
+    'Qué se incluye');
+add('What you get for $25 — everything in one fee',
+    'Что входит за $25 — всё в одном тарифе',
+    'Qué obtiene por $25 — todo en una tarifa');
+add('The Florida statutory $25 covers identity verification, the audio-video session, electronic journal entry, and 10-year session retention. No platform mark-ups, no marketplace surcharges.',
+    'Установленные Флоридой $25 покрывают проверку личности, аудио-видео сессию, электронный журнал и 10-летнее хранение записи. Никаких наценок и сборов.',
+    'Los $25 estatutarios de Florida cubren verificación de identidad, sesión de audio-video, asiento de diario electrónico y retención de 10 años. Sin recargos ni cargos adicionales.');
+add('Government-ID verification',
+    'Проверка государственного ID',
+    'Verificación de ID gubernamental');
+add('Real-time analysis of your driver license or passport via the state-listed RON platform. Plus a knowledge-based authentication quiz to confirm identity, as required by Florida law.',
+    'Анализ в реальном времени водительского удостоверения или паспорта через зарегистрированную в штате RON-платформу. Плюс KBA-вопросы для подтверждения личности по закону Флориды.',
+    'Análisis en tiempo real de su licencia de conducir o pasaporte mediante la plataforma RON registrada en el estado. Más cuestionario KBA para confirmar identidad según la ley de Florida.');
+add('Audio-video session',
+    'Аудио-видео сессия',
+    'Sesión de audio-video');
+add('Live notarial session over secure video with a Florida-commissioned notary. The recording is retained for 10 years as required by Rule 1N-7, Florida Administrative Code.',
+    'Живая нотариальная сессия по защищённому видео с нотариусом Флориды. Запись хранится 10 лет согласно Rule 1N-7 Административного кодекса Флориды.',
+    'Sesión notarial en vivo por video seguro con un notario de Florida. La grabación se conserva 10 años según la Regla 1N-7 del Código Administrativo de Florida.');
+add('Tamper-sealed PDF',
+    'PDF с защитой от изменений',
+    'PDF sellado a prueba de manipulación');
+add('The notarized document is delivered as a tamper-evident PDF with embedded audit trail. Any modification after notarization breaks the seal and is visible to receiving parties.',
+    'Заверенный документ приходит как защищённый PDF со встроенным журналом аудита. Любая модификация после заверения нарушает печать и видна получателям.',
+    'El documento notariado se entrega como PDF a prueba de manipulación con registro de auditoría incorporado. Cualquier modificación después de la notarización rompe el sello y es visible para los receptores.');
+add('Accepted nationwide',
+    'Принимается по всей стране',
+    'Aceptado a nivel nacional');
+add('Florida RON performed under Chapter 117 Part II is recognized in every U.S. state and most countries that accept American notarizations. Apostille available for Hague Convention countries.',
+    'Флоридский RON по Главе 117, Части II признаётся во всех штатах США и большинстве стран, принимающих американский нотариат. Апостиль доступен для стран Гаагской конвенции.',
+    'El RON de Florida bajo el Capítulo 117 Parte II es reconocido en todos los estados de EE. UU. y la mayoría de países que aceptan notarizaciones estadounidenses. Apostilla disponible para países de La Haya.');
+add('Process',
+    'Процесс',
+    'Proceso');
+add('Three steps, fifteen minutes',
+    'Три шага, пятнадцать минут',
+    'Tres pasos, quince minutos');
+add('Pay & submit',
+    'Оплата и отправка',
+    'Pagar y enviar');
+add('Pay the $25 fee via Stripe, upload your document, provide ID details and contact info. Two minutes start to finish.',
+    'Оплатите $25 через Stripe, загрузите документ, укажите данные ID и контакты. Две минуты от начала до конца.',
+    'Pague la tarifa de $25 mediante Stripe, suba su documento, ingrese datos de ID y contacto. Dos minutos de principio a fin.');
+add('Verify identity',
+    'Подтвердите личность',
+    'Verifique identidad');
+add('Receive a session link by email within minutes. Government-ID analysis and KBA quiz run inside the RON platform to confirm you are who you say you are.',
+    'В течение нескольких минут получите ссылку на сессию по email. Анализ гос. ID и KBA-вопросы проходят внутри RON-платформы для подтверждения вашей личности.',
+    'Reciba un enlace de sesión por email en minutos. El análisis de ID gubernamental y el cuestionario KBA se ejecutan dentro de la plataforma RON para confirmar su identidad.');
+add('Sign live',
+    'Подпишите вживую',
+    'Firme en vivo');
+add('Join a recorded audio-video session with the notary. You sign, the notary seals, and the tamper-sealed PDF arrives in your inbox the same minute.',
+    'Подключитесь к записанной аудио-видео сессии с нотариусом. Вы подписываете, нотариус ставит печать, и защищённый PDF приходит на email в ту же минуту.',
+    'Únase a una sesión de audio-video grabada con el notario. Usted firma, el notario sella, y el PDF sellado llega a su correo en el mismo minuto.');
+add('Scope',
+    'Объём',
+    'Alcance');
+add('What\'s included — and what is not',
+    'Что входит и что не входит',
+    'Qué se incluye y qué no');
+add('Included in $25',
+    'Включено в $25',
+    'Incluido en $25');
+add('Government-ID analysis + KBA quiz',
+    'Анализ гос. ID + KBA-вопросы',
+    'Análisis de ID gubernamental + cuestionario KBA');
+add('Live audio-video notarial session (15–30 min)',
+    'Живая аудио-видео нотариальная сессия (15–30 мин)',
+    'Sesión notarial de audio-video en vivo (15–30 min)');
+add('Tamper-sealed PDF delivered immediately',
+    'Защищённый PDF доставляется немедленно',
+    'PDF sellado entregado inmediatamente');
+add('Electronic journal entry + 10-year retention',
+    'Электронный журнал + 10-летнее хранение',
+    'Asiento de diario electrónico + retención de 10 años');
+add('Audit trail acceptable in court & agencies',
+    'Журнал аудита, приемлемый в суде и гос. органах',
+    'Registro de auditoría aceptable en tribunales y agencias');
+add('Add-ons (separate)',
+    'Дополнения (отдельно)',
+    'Complementos (por separado)');
+add('Hard-copy + USPS Priority Mail (+$74.99)',
+    'Бумажная копия + USPS Priority Mail (+$74.99)',
+    'Copia impresa + USPS Priority Mail (+$74.99)');
+add('Florida apostille for Hague-Convention countries (+$95)',
+    'Апостиль Флориды для стран Гаагской конвенции (+$95)',
+    'Apostilla de Florida para países de la Convención de La Haya (+$95)');
+add('Legal advice on whether your document needs notarization',
+    'Юридический совет о необходимости нотариата',
+    'Asesoría legal sobre si su documento necesita notarización');
+add('Filing the notarized document with any agency on your behalf',
+    'Подача заверенного документа в гос. органы от вашего имени',
+    'Presentación del documento notariado en agencias en su nombre');
+add('Translation of the source document (see Translations page)',
+    'Перевод исходного документа (см. страницу Переводы)',
+    'Traducción del documento fuente (ver página Traducciones)');
+add('FAQ',
+    'FAQ',
+    'FAQ');
+add('What clients usually ask first',
+    'Что обычно спрашивают первым',
+    'Lo que los clientes preguntan primero');
+add('Will my notarized document be accepted outside Florida?',
+    'Будет ли мой заверенный документ принят за пределами Флориды?',
+    '¿Mi documento notariado será aceptado fuera de Florida?');
+add('Yes. A Florida remote online notarization performed under Chapter 117 Part II is recognized in every U.S. state and most countries that accept American notarizations. For specific foreign use, our $95 apostille add-on covers Hague Convention countries.',
+    'Да. Удалённое онлайн-заверение во Флориде по Главе 117, Части II признаётся во всех штатах США и большинстве стран, принимающих американский нотариат. Для использования за рубежом доступна опция апостиля за $95 для стран Гаагской конвенции.',
+    'Sí. Una notarización remota en línea de Florida bajo el Capítulo 117 Parte II es reconocida en todos los estados de EE. UU. y la mayoría de países que aceptan notarizaciones estadounidenses. Para uso en el extranjero, el complemento de apostilla por $95 cubre países de La Haya.');
+add('What documents can be notarized online?',
+    'Какие документы можно заверить онлайн?',
+    '¿Qué documentos se pueden notariar en línea?');
+add('Most documents that traditionally require a notary — powers of attorney, affidavits, declarations, contracts, business filings, real-estate documents (in many cases), consents. A few document types (such as wills in some jurisdictions) still require in-person notarization. We confirm fit before charging you.',
+    'Большинство документов, требующих нотариуса — доверенности, аффидавиты, декларации, контракты, бизнес-документы, документы недвижимости (во многих случаях), согласия. Некоторые документы (например, завещания в ряде юрисдикций) требуют личного присутствия. Мы подтверждаем возможность до оплаты.',
+    'La mayoría de documentos que tradicionalmente requieren notario — poderes, declaraciones juradas, declaraciones, contratos, presentaciones empresariales, documentos inmobiliarios (en muchos casos), consentimientos. Algunos tipos (como testamentos en ciertas jurisdicciones) aún requieren presencia. Confirmamos viabilidad antes de cobrarle.');
+add('Do I need to be physically located in Florida?',
+    'Нужно ли мне физически находиться во Флориде?',
+    '¿Necesito estar físicamente en Florida?');
+add('No. The notary must be physically in Florida; you, the signer, can be anywhere in the world with a camera, a government-issued photo ID, and an internet connection.',
+    'Нет. Нотариус должен быть физически во Флориде; вы, подписант, можете быть в любой точке мира с камерой, гос. ID и интернетом.',
+    'No. El notario debe estar físicamente en Florida; usted, el firmante, puede estar en cualquier parte del mundo con cámara, ID gubernamental e internet.');
+add('What technology do I need?',
+    'Какие технические требования?',
+    '¿Qué tecnología necesito?');
+add('A laptop, tablet, or smartphone with a working camera and microphone, a stable internet connection, and a valid unexpired government photo ID (driver license or passport). No software installation required.',
+    'Ноутбук, планшет или смартфон с рабочей камерой и микрофоном, стабильное интернет-соединение и действующий гос. фото-ID (вод. удостоверение или паспорт). Установка ПО не требуется.',
+    'Una laptop, tableta o smartphone con cámara y micrófono funcionales, conexión estable a internet, y un ID gubernamental con foto vigente (licencia de conducir o pasaporte). Sin instalación de software.');
+add('What if my identity cannot be verified?',
+    'Что если мою личность не удастся подтвердить?',
+    '¿Qué pasa si no se puede verificar mi identidad?');
+add('Florida law requires the notary to refuse notarization if government-ID analysis or the knowledge-based authentication quiz cannot be passed. If this happens, your session fee is refunded in full and we will recommend an alternative path.',
+    'Закон Флориды требует от нотариуса отказать в заверении, если проверка гос. ID или KBA-вопросы не пройдены. В этом случае оплата сессии полностью возвращается, и мы порекомендуем альтернативу.',
+    'La ley de Florida exige que el notario rechace la notarización si no se aprueba el análisis de ID gubernamental o el cuestionario KBA. Si esto ocurre, su tarifa de sesión se reembolsa completamente y recomendaremos una alternativa.');
+add('Ready when you are.',
+    'Готовы когда вы готовы.',
+    'Listos cuando usted lo esté.');
+add('Documents notarized online by a Florida-commissioned notary. $25 Florida statutory rate. Same-day session available when capacity permits.',
+    'Документы заверяются онлайн нотариусом Флориды. $25 — установленный законом тариф. Сессия в день обращения доступна при наличии мест.',
+    'Documentos notariados en línea por un notario de Florida. Tarifa estatutaria de $25. Sesión el mismo día disponible según capacidad.');
+add('Ask a question first',
+    'Сначала задать вопрос',
+    'Hacer una pregunta primero');
 
 })(window);

@@ -33,3 +33,5 @@ docs/qa/cta-opaque.md
 *.jpg
 !assets/img/**/*.jpg
 !docs/**/*.jpg
+index.html.bak-4cells
+desktop.ini
