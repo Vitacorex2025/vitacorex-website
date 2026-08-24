@@ -344,6 +344,13 @@ async function verifyExternal(origUrl) {
       return { ok: false, reason: 'external-http-opaque', detail: `HTTP ${status}`, finalUrl: cur };
     }
     if (status >= 400 && status < 500) {
+      // LinkedIn flip-flops between 999 and 404 depending on which runner IP
+      // hits it, so its 4xx cannot be a stable gate signal either — the same
+      // URL alternates buckets between CI runs and breaks the baseline diff.
+      // Route ALL linkedin.com responses to the opaque (advisory) bucket.
+      if (/(^|\.)linkedin\.com$/i.test(new URL(cur).hostname)) {
+        return { ok: false, reason: 'external-http-opaque', detail: `HTTP ${status}`, finalUrl: cur };
+      }
       return { ok: false, reason: 'external-http-4xx', detail: `HTTP ${status}`, finalUrl: cur };
     }
     if (status >= 500) {
