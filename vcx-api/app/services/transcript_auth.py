@@ -10,6 +10,7 @@ Signature: HMAC-SHA256(secret, session_id:expires_unix)
 
 Secret sourced from VCX_TRANSCRIPT_SECRET env var.
 Falls back to VCX_ADMIN_TOKEN if VCX_TRANSCRIPT_SECRET is not set.
+If neither is set there is NO default: signing/verification fails closed.
 """
 
 import hashlib
@@ -20,10 +21,9 @@ from base64 import urlsafe_b64decode, urlsafe_b64encode
 
 # ── Secret ────────────────────────────────────────────────────────────
 
-_TRANSCRIPT_SECRET = os.getenv(
-    "VCX_TRANSCRIPT_SECRET",
-    os.getenv("VCX_ADMIN_TOKEN", "change-me-transcript"),
-)
+def _transcript_secret() -> str:
+    """Read per call; no hardcoded fallback (fail closed)."""
+    return os.getenv("VCX_TRANSCRIPT_SECRET", "") or os.getenv("VCX_ADMIN_TOKEN", "")
 
 DEFAULT_EXPIRY_MINUTES = int(os.getenv("VCX_TRANSCRIPT_TOKEN_TTL", "60"))
 
@@ -119,8 +119,11 @@ def verify_signed_token(token: str) -> str:
 
 def _sign(payload: str) -> str:
     """HMAC-SHA256 sign a payload string, return hex digest."""
+    secret = _transcript_secret()
+    if not secret:
+        raise ValueError("Transcript access not configured.")
     return hmac.new(
-        _TRANSCRIPT_SECRET.encode(),
+        secret.encode(),
         payload.encode(),
         hashlib.sha256,
     ).hexdigest()

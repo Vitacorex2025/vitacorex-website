@@ -264,3 +264,163 @@ CREATE TABLE IF NOT EXISTS calendar_day_notes (
 CREATE INDEX IF NOT EXISTS idx_cal_notes_date ON calendar_day_notes(note_date);
 CREATE INDEX IF NOT EXISTS idx_cal_notes_owner ON calendar_day_notes(owner_id);
 CREATE UNIQUE INDEX IF NOT EXISTS idx_cal_notes_owner_date ON calendar_day_notes(owner_id, note_date);
+
+-- ===========================================
+-- vcx-api v2 — catalog-driven requests, quotes, orders,
+-- payments, provider events, durable outbox, event history.
+-- Additive: legacy tables above are untouched.
+-- ===========================================
+CREATE TABLE IF NOT EXISTS v2_requests (
+    request_id       TEXT PRIMARY KEY,               -- VX-REQ-XXXXXXXX
+    access_token     TEXT NOT NULL,                  -- opaque bearer for customer status
+    idempotency_key  TEXT NOT NULL UNIQUE,
+    service_id       TEXT NOT NULL,
+    subtype          TEXT,
+    lane             TEXT NOT NULL,
+    queue            TEXT NOT NULL,
+    next_action      TEXT NOT NULL,
+    locale           TEXT NOT NULL DEFAULT 'en',
+    source_channel   TEXT NOT NULL DEFAULT 'web',
+    contact_name     TEXT NOT NULL,
+    contact_email    TEXT,
+    contact_phone    TEXT,
+    details_json     TEXT NOT NULL DEFAULT '{}',
+    summary          TEXT,
+    consent_privacy  INTEGER NOT NULL DEFAULT 0,
+    consent_notice_version TEXT,
+    consent_referral INTEGER NOT NULL DEFAULT 0,
+    status           TEXT NOT NULL DEFAULT 'SUBMITTED',
+    payment_status   TEXT NOT NULL DEFAULT 'NOT_REQUESTED',
+    amount_cents     INTEGER,
+    catalog_version  TEXT NOT NULL,
+    is_test          INTEGER NOT NULL DEFAULT 1,
+    created_at       TEXT NOT NULL,
+    updated_at       TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_v2_req_created ON v2_requests(created_at);
+CREATE INDEX IF NOT EXISTS idx_v2_req_queue ON v2_requests(queue);
+CREATE INDEX IF NOT EXISTS idx_v2_req_status ON v2_requests(status);
+
+CREATE TABLE IF NOT EXISTS v2_quotes (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    quote_id            TEXT NOT NULL,               -- VX-QUO-XXXXXXXX, stable per request
+    request_id          TEXT NOT NULL REFERENCES v2_requests(request_id),
+    revision            INTEGER NOT NULL,
+    amount_cents        INTEGER NOT NULL,
+    currency            TEXT NOT NULL DEFAULT 'USD',
+    scope_text          TEXT NOT NULL,
+    external_costs_text TEXT,
+    status              TEXT NOT NULL,               -- SENT|ACCEPTED|SUPERSEDED|EXPIRED
+    expires_at          TEXT NOT NULL,
+    created_at          TEXT NOT NULL,
+    accepted_at         TEXT,
+    UNIQUE (quote_id, revision)
+);
+CREATE INDEX IF NOT EXISTS idx_v2_quotes_request ON v2_quotes(request_id);
+
+CREATE TABLE IF NOT EXISTS v2_orders (
+    order_id        TEXT PRIMARY KEY,                -- VX-ORD-XXXXXXXX
+    request_id      TEXT NOT NULL UNIQUE REFERENCES v2_requests(request_id),
+    service_id      TEXT NOT NULL,
+    quote_id        TEXT,
+    quote_revision  INTEGER,
+    amount_cents    INTEGER NOT NULL,
+    currency        TEXT NOT NULL DEFAULT 'USD',
+    catalog_version TEXT NOT NULL,
+    status          TEXT NOT NULL DEFAULT 'AWAITING_REQUIREMENTS',
+    created_at      TEXT NOT NULL,
+    updated_at      TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS v2_payments (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    request_id          TEXT NOT NULL REFERENCES v2_requests(request_id),
+    order_id            TEXT NOT NULL,               -- pre-allocated; order row created on PAID
+    quote_id            TEXT,
+    quote_revision      INTEGER,
+    idempotency_key     TEXT NOT NULL UNIQUE,
+    provider_mode       TEXT NOT NULL,               -- mock|stripe_test|stripe_live
+    provider_session_id TEXT NOT NULL UNIQUE,
+    payment_intent_ref  TEXT,
+    amount_cents        INTEGER NOT NULL,
+    currency            TEXT NOT NULL DEFAULT 'USD',
+    catalog_version     TEXT NOT NULL,
+    status              TEXT NOT NULL DEFAULT 'PENDING',  -- PENDING|PROCESSING|PAID|FAILED|EXPIRED|SUPERSEDED
+    checkout_url        TEXT NOT NULL,
+    success_url         TEXT NOT NULL,
+    cancel_url          TEXT NOT NULL,
+    exception_code      TEXT,
+    created_at          TEXT NOT NULL,
+    updated_at          TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_v2_pay_request ON v2_payments(request_id);
+
+CREATE TABLE IF NOT EXISTS v2_provider_events (
+    id                INTEGER PRIMARY KEY AUTOINCREMENT,
+    provider          TEXT NOT NULL,                 -- stripe (mock events are stripe-shaped)
+    provider_event_id TEXT NOT NULL UNIQUE,
+    event_type        TEXT NOT NULL,
+    object_id         TEXT,
+    request_id        TEXT,
+    livemode          INTEGER NOT NULL DEFAULT 0,
+    payload_sha256    TEXT NOT NULL,
+    status            TEXT NOT NULL DEFAULT 'RECEIVED', -- RECEIVED|PROCESSED|IGNORED|UNMATCHED|ERROR
+    note              TEXT,
+    received_at       TEXT NOT NULL,
+    processed_at      TEXT
+);
+
+CREATE TABLE IF NOT EXISTS v2_events (
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id         TEXT NOT NULL UNIQUE,           -- evt_<uuid4 hex>
+    event_type       TEXT NOT NULL,
+    occurred_at_utc  TEXT NOT NULL,
+    request_id       TEXT,
+    service_id       TEXT,
+    locale           TEXT,
+    source_channel   TEXT,
+    schema_version   TEXT NOT NULL DEFAULT 'vcx-events/1',
+    order_id         TEXT,
+    quote_id         TEXT,
+    appointment_id   TEXT,
+    provider_event_id TEXT,
+    correlation_id   TEXT,
+    actor            TEXT NOT NULL DEFAULT 'system',
+    data_json        TEXT NOT NULL DEFAULT '{}'      -- minimal, non-sensitive
+);
+CREATE INDEX IF NOT EXISTS idx_v2_events_request ON v2_events(request_id);
+
+CREATE TABLE IF NOT EXISTS v2_outbox (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id        TEXT NOT NULL UNIQUE,            -- dedupe key: <source event_id>:<kind>
+    source_event_id TEXT,
+    request_id      TEXT,
+    kind            TEXT NOT NULL,
+    channel         TEXT NOT NULL DEFAULT 'email',
+    audience        TEXT NOT NULL,                   -- owner|customer
+    recipient       TEXT NOT NULL,
+    subject         TEXT NOT NULL,
+    body_text       TEXT NOT NULL,
+    body_html       TEXT,
+    status          TEXT NOT NULL DEFAULT 'PENDING', -- PENDING|SENDING|ACCEPTED|ACCEPTED_BY_SINK|FAILED|DEAD
+    attempts        INTEGER NOT NULL DEFAULT 0,
+    next_attempt_at TEXT NOT NULL,
+    last_error      TEXT,
+    provider_ref    TEXT,
+    created_at      TEXT NOT NULL,
+    updated_at      TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_v2_outbox_due ON v2_outbox(status, next_attempt_at);
+CREATE INDEX IF NOT EXISTS idx_v2_outbox_request ON v2_outbox(request_id);
+
+CREATE TABLE IF NOT EXISTS v2_exceptions (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    queue       TEXT NOT NULL,                       -- PAYMENT_EXCEPTION|OPS
+    code        TEXT NOT NULL,                       -- NOTIFICATION_DEAD|DUPLICATE_PAYMENT|AMOUNT_MISMATCH|UNMATCHED_PAYMENT
+    request_id  TEXT,
+    ref         TEXT,
+    detail      TEXT,
+    status      TEXT NOT NULL DEFAULT 'OPEN',        -- OPEN|RESOLVED
+    created_at  TEXT NOT NULL,
+    resolved_at TEXT
+);

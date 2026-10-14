@@ -13,12 +13,13 @@ from ..services.email_service import send_status_change_notification
 
 router = APIRouter(prefix="/api/review")
 
-ADMIN_TOKEN = os.getenv("VCX_ADMIN_TOKEN", "change-me")
-
-
 def _check_admin(token: str):
+    # Fail closed: no default token. Unset env -> 503; read per call.
+    admin_token = os.getenv("VCX_ADMIN_TOKEN", "")
+    if not admin_token:
+        raise HTTPException(status_code=503, detail="Admin access not configured")
     # Phase 4A: Use constant-time comparison to prevent timing attacks
-    if not secrets.compare_digest(token, ADMIN_TOKEN):
+    if not token or not secrets.compare_digest(token.encode(), admin_token.encode()):
         raise HTTPException(status_code=403, detail="Unauthorized")
 
 

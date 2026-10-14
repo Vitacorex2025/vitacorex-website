@@ -48,7 +48,12 @@ logger = logging.getLogger("vcx.legal_chat")
 router = APIRouter()
 
 # ── Admin token (same env var as review.py) ───────────────────────────
-_ADMIN_TOKEN = os.getenv("VCX_ADMIN_TOKEN", "change-me")
+# Fail closed: no default token. Read per call; unset env -> 503.
+def _admin_token() -> str:
+    token = os.getenv("VCX_ADMIN_TOKEN", "")
+    if not token:
+        raise HTTPException(status_code=503, detail="Admin access not configured.")
+    return token
 
 
 def _check_transcript_auth(
@@ -66,7 +71,7 @@ def _check_transcript_auth(
     """
     # Method 1: admin header
     if x_admin_token:
-        if _secrets.compare_digest(x_admin_token, _ADMIN_TOKEN):
+        if _secrets.compare_digest(x_admin_token.encode(), _admin_token().encode()):
             return  # admin access granted
         raise HTTPException(status_code=403, detail="Invalid admin token.")
 
@@ -439,7 +444,7 @@ def create_transcript_token(
     Phase 4 Fix: Allows admins to share time-limited transcript links
                  without exposing the admin token itself.
     """
-    if not _secrets.compare_digest(x_admin_token, _ADMIN_TOKEN):
+    if not _secrets.compare_digest(x_admin_token.encode(), _admin_token().encode()):
         raise HTTPException(status_code=403, detail="Invalid admin token.")
 
     signed_token = generate_signed_token(session_id, expiry_minutes)

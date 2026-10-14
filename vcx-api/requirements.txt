@@ -9,3 +9,5 @@ pdfplumber>=0.11.0
 python-docx>=1.1.0
 openai>=1.30
 requests>=2.31
+stripe>=15.0.1
+tzdata>=2024.1  # zoneinfo data for America/New_York on Windows hosts

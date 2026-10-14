@@ -5,13 +5,14 @@ import uuid
 from datetime import datetime, timedelta
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException, Query, Request
+from fastapi import APIRouter, Header, HTTPException, Query, Request
 from pydantic import BaseModel
 
 from ..rate_limit import limiter
 from ..db import get_conn
 from ..models.calendar import CalendarRegister, EventCreate, EventUpdate, NoteUpsert
 from ..services import calendar_engine
+from ..services.v2_auth import AuthError, check_admin_value
 from ..services.email_service import _send_email, _esc, _smtp_configured
 import smtplib, os
 from email.mime.multipart import MIMEMultipart
@@ -191,8 +192,16 @@ class CalendarNotifyRequest(BaseModel):
 
 @router.post("/notify")
 @limiter.limit("10/minute")
-async def calendar_notify(request: Request, body: CalendarNotifyRequest):
-    """Send calendar event notification emails — synchronous for reliable delivery."""
+async def calendar_notify(request: Request, body: CalendarNotifyRequest,
+                          x_admin_token: Optional[str] = Header(None)):
+    """Send calendar event notification emails — synchronous for reliable delivery.
+
+    Requires X-Admin-Token (was an open mail relay). Unset VCX_ADMIN_TOKEN -> 503.
+    """
+    try:
+        check_admin_value(x_admin_token)
+    except AuthError as exc:
+        raise HTTPException(exc.status_code, detail=exc.body["error"]) from exc
     smtp_host = os.getenv("VCX_SMTP_HOST", "")
     smtp_port = int(os.getenv("VCX_SMTP_PORT", "587"))
     smtp_user = os.getenv("VCX_SMTP_USER", "")

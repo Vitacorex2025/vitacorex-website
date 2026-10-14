@@ -14,6 +14,8 @@ load_dotenv()
 from .db import init_db
 from .rate_limit import limiter
 from .routers import ai_analyze, calendar, chat, contracts, intakes, matters, portal, recovery, review, uploads
+from .routers import v2_owner, v2_public, v2_voice
+from .services import v2_outbox
 
 app = FastAPI(
     title="VCX Intake OS",
@@ -48,6 +50,12 @@ app.add_middleware(
 @app.on_event("startup")
 def startup():
     init_db()
+    v2_outbox.start_worker()  # v2 durable notification outbox (VCX_OUTBOX_WORKER=false disables)
+
+
+@app.on_event("shutdown")
+def shutdown():
+    v2_outbox.stop_worker()
 
 # Health check
 @app.get("/healthz")
@@ -65,3 +73,7 @@ app.include_router(recovery.router)
 app.include_router(portal.router)
 app.include_router(ai_analyze.router)
 app.include_router(calendar.router)
+# v2 (catalog-driven intake, quotes, payments, owner desk, voice tools)
+app.include_router(v2_public.router)
+app.include_router(v2_voice.router)
+app.include_router(v2_owner.router)
