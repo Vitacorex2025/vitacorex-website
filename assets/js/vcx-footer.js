@@ -36,7 +36,6 @@
       items: [
         { k: 'nav_contract_review',   t: 'Contract Review',            href: 'contract-review-service.html' },
         { k: 'nav_immigration',       t: 'Immigration Packet',         href: 'immigration-packet-review.html' },
-        { k: 'nav_auto_deal',         t: 'Auto Deal Review',           href: 'auto-deal-review.html' },
         { k: 'nav_small_claims_desk', t: 'Small Claims & Civil Packet Desk', href: 'small-claims-documentation.html' },
         { k: 'nav_llc_formation',     t: 'LLC Formation',              href: 'llc-formation-florida.html' },
         { k: 'nav_business_plan',     t: 'Business Plan',              href: 'business-plans.html' },

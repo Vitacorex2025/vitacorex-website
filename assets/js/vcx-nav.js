@@ -39,7 +39,6 @@
       items: [
         { k: 'nav_contract_review',   t: 'Contract Review',            href: 'contract-review-service.html' },
         { k: 'nav_immigration',       t: 'Immigration Packet',         href: 'immigration-packet-review.html' },
-        { k: 'nav_auto_deal',         t: 'Auto Deal Review',           href: 'auto-deal-review.html' },
         { k: 'nav_fl_small_claims',   t: 'Florida Small Claims',       href: 'florida-small-claims-help.html' },
         { k: 'nav_llc_formation',     t: 'LLC Formation',              href: 'llc-formation-florida.html' },
         { k: 'nav_business_plan',     t: 'Business Plan',              href: 'business-plans.html' },
@@ -72,13 +71,13 @@
     'ar-leakage-map.html', 'counsel-ready-packet.html', 'diagnostic-report.html'
   ];
   var AUD_B2C = [
-    'contract-review-service.html', 'immigration-packet-review.html', 'auto-deal-review.html',
+    'contract-review-service.html', 'immigration-packet-review.html',
     'florida-small-claims-help.html', 'llc-formation-florida.html', 'business-plans.html',
     'additional-services.html', 'diagnostic-review.html',
     'i-130-petition.html', 'i-485-adjustment.html', 'n-400-naturalization.html',
     'immigration-services-tampa.html',
     // P03 samples (B2C, under /samples/)
-    'contract-risk-memo.html', 'immigration-evidence-index.html', 'auto-deal-cost-breakdown.html'
+    'contract-risk-memo.html', 'immigration-evidence-index.html'
   ];
 
   function getAudience() {

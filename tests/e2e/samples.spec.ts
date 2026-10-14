@@ -8,9 +8,9 @@
  * live-browser version that fires the moment the PW env lands.
  *
  * Coverage:
- *   (1) All 7 /samples/<slug>.html URLs return 200 + <h1> renders + watermark visible
+ *   (1) All roster /samples/<slug>.html URLs return 200 + <h1> renders + watermark visible
  *   (2) Each sample page's JSON-LD CreativeWork + BreadcrumbList parse and match gating
- *   (3) Library hub at /sample-deliverable.html shows 7 cards + 2 gated CTAs route
+ *   (3) Library hub at /sample-deliverable.html shows one card per roster slug + 2 gated CTAs route
  *       to /samples/request-gated-sample.html?s=<slug>
  *   (4) Service-page embeds (e.g. revenue-recovery-workflow.html) show the embed
  *       section with correct card count and gated-CTA routing
@@ -39,7 +39,6 @@ const ROSTER = [
   { slug: 'diagnostic-report',          gated: false },
   { slug: 'contract-risk-memo',         gated: false },
   { slug: 'immigration-evidence-index', gated: false },
-  { slug: 'auto-deal-cost-breakdown',   gated: false },
   { slug: 'small-claims-chronology',    gated: false },
 ];
 
@@ -105,10 +104,10 @@ test.describe('(2) sample pages JSON-LD CreativeWork + BreadcrumbList', () => {
   }
 });
 
-test.describe('(3) library hub shows 7 cards + gated CTAs route through gate', () => {
+test.describe('(3) library hub shows roster cards + gated CTAs route through gate', () => {
   test('/sample-deliverable.html — cards + routing', async ({ page }) => {
     await page.goto(`${BASE}/sample-deliverable.html`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.vcx-hub-card')).toHaveCount(7);
+    await expect(page.locator('.vcx-hub-card')).toHaveCount(ROSTER.length);
 
     const gatedCards = page.locator('a.vcx-hub-card[data-gated-cta="1"]');
     await expect(gatedCards).toHaveCount(2);
@@ -119,11 +118,11 @@ test.describe('(3) library hub shows 7 cards + gated CTAs route through gate', (
       expect(href).toContain(`request-gated-sample.html?s=${slug}`);
     }
 
-    // JSON-LD: CollectionPage with 7 hasPart + 2 gated match
+    // JSON-LD: CollectionPage with one hasPart per roster slug + 2 gated match
     const blocks = await readLdJson(page);
     const cp = blocks.find((b) => b && b['@type'] === 'CollectionPage');
     expect(cp).toBeTruthy();
-    expect(cp.hasPart?.length).toBe(7);
+    expect(cp.hasPart?.length).toBe(ROSTER.length);
     const free = cp.hasPart.filter((w: any) => w.isAccessibleForFree === true).length;
     const gated = cp.hasPart.filter((w: any) => w.isAccessibleForFree === false).length;
     expect(free).toBe(5);

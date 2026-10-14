@@ -86,8 +86,7 @@
       "Corporate Legal File Control",
       "Structured Case Intake",
       "Contract Review and Intelligence",
-      "Immigration Packet Preparation Support",
-      "Auto Deal Analysis"
+      "Immigration Packet Preparation Support"
     ],
     "areaServed": {
       "@type": "Country",

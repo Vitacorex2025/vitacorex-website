@@ -35,7 +35,7 @@ const AUD_B2B = new Set([
 ]);
 
 const AUD_B2C = new Set([
-  'contract-review-service.html', 'immigration-packet-review.html', 'auto-deal-review.html',
+  'contract-review-service.html', 'immigration-packet-review.html',
   'florida-small-claims-help.html', 'llc-formation-florida.html', 'business-plans.html',
   'additional-services.html', 'diagnostic-review.html',
   'i-130-petition.html', 'i-485-adjustment.html', 'n-400-naturalization.html',

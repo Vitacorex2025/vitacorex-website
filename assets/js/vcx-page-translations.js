@@ -530,24 +530,6 @@ add('Submission-readiness review',
 add('Try Immigration Helper',
     'Попробовать помощник по иммиграции',
     'Probar ayudante de inmigración');
-add('Auto Deal Fee & Payment Calculator',
-    'Калькулятор сборов и платежей автосделки',
-    'Calculadora de tarifas y pagos de trato automotriz');
-add('Enter deal numbers to flag fees above common thresholds and calculate true monthly payments before signing.',
-    'Введите числа сделки для выявления сборов выше обычных порогов и расчёта реальных ежемесячных платежей до подписания.',
-    'Ingrese los números del trato para señalar tarifas por encima de umbrales comunes y calcular pagos mensuales reales antes de firmar.');
-add('Fee threshold check (doc fee, GAP, warranty)',
-    'Проверка порогов сборов (документационный сбор, GAP, гарантия)',
-    'Verificación de umbrales de tarifas (doc fee, GAP, garantía)');
-add('Monthly payment calculator with APR',
-    'Калькулятор ежемесячных платежей с годовой ставкой',
-    'Calculadora de pago mensual con APR');
-add('Negotiation points summary',
-    'Сводка переговорных позиций',
-    'Resumen de puntos de negociación');
-add('Try Auto Deal Check',
-    'Попробовать проверку автосделки',
-    'Probar verificación de trato automotriz');
 add('Florida Official Source Locator',
     'Поиск по официальным источникам Флориды',
     'Localizador de fuentes oficiales de Florida');
@@ -852,9 +834,6 @@ add('VitaCoreX serves company operators and selected private clients. Individual
 add('Server-side clause extraction and risk scoring. Upload contracts for structured analysis beyond the free scanner.',
     'Серверное извлечение условий и оценка рисков. Загрузите контракты для структурированного анализа за пределами бесплатного сканера.',
     'Extracción de cláusulas del lado del servidor y puntuación de riesgo. Cargue contratos para análisis estructurado más allá del escáner gratuito.');
-add('First-pass workflow guidance for contracts, immigration packets, auto deals, and Florida official-source routing.',
-    'Первичное руководство по рабочим процессам для контрактов, иммиграционных пакетов, автосделок и маршрутизации по официальным источникам Флориды.',
-    'Orientación de primera pasada para contratos, paquetes de inmigración, tratos automotrices y enrutamiento a fuentes oficiales de Florida.');
 add('Secure client portal for matter tracking, document uploads, comments, and deliverable downloads.',
     'Защищённый клиентский портал для отслеживания дел, загрузки документов, комментариев и скачивания результатов.',
     'Portal seguro para clientes para seguimiento de asuntos, carga de documentos, comentarios y descarga de entregables.');
@@ -1761,25 +1740,10 @@ add('VitaCoreX assists with documentation for LLC (Limited Liability Company), S
     'VitaCoreX помогает с документацией для формирования LLC (Limited Liability Company), S-Corporation и C-Corporation во Флориде. Мы помогаем подготовить учредительные документы, operating agreements, заявки на EIN, заявки на бизнес-лицензию Флориды и документацию registered agent.',
     'VitaCoreX asiste con documentación para formación de LLC (Limited Liability Company), S-Corporation y C-Corporation en Florida. Ayudamos a preparar artículos de incorporación, operating agreements, solicitudes de EIN, solicitudes de licencia comercial de Florida y documentación de registered agent.');
 
-add('Auto Deal Review',
-    'Проверка автосделки',
-    'Revisión de transacciones automotrices');
 
-add('How can VitaCoreX help me save money when buying a car?',
-    'Как VitaCoreX может помочь мне сэкономить деньги при покупке автомобиля?',
-    '¿Cómo puede VitaCoreX ayudarme a ahorrar dinero al comprar un auto?');
 
-add("VitaCoreX's Auto Deal Check tool analyzes your car purchase deal to identify unnecessary dealer fees, overpriced GAP insurance, inflated warranty costs, and unfavorable loan terms. Use our free car purchase calculator at vitacorexllc.com/auto-purchase.html to review your deal before signing at the dealership.",
-    'Инструмент Auto Deal Check от VitaCoreX анализирует сделку покупки автомобиля, чтобы выявить ненужные дилерские сборы, переоценённую GAP-страховку, завышенные стоимости гарантий и невыгодные условия кредита. Используйте наш бесплатный калькулятор покупки автомобиля на vitacorexllc.com/auto-purchase.html для обзора сделки перед подписанием в дилерстве.',
-    'La herramienta Auto Deal Check de VitaCoreX analiza su transacción de compra de auto para identificar tarifas de concesionario innecesarias, seguro GAP sobreprecio, costos de garantía inflados y términos de préstamo desfavorables. Use nuestra calculadora gratuita de compra de auto en vitacorexllc.com/auto-purchase.html para revisar su transacción antes de firmar en el concesionario.');
 
-add('What dealer fees should I watch out for when buying a car?',
-    'Каких дилерских сборов следует опасаться при покупке автомобиля?',
-    '¿De qué tarifas de concesionario debo cuidarme al comprar un auto?');
 
-add("Common dealer fees to watch include documentation fees (doc fees), dealer preparation fees, advertising fees, market adjustment markups, overpriced GAP insurance, extended warranty upsells, and paint protection packages. VitaCoreX's auto deal tool checks these fees against common thresholds and provides negotiation points.",
-    'Общие дилерские сборы, которых следует опасаться: документационные сборы (doc fees), сборы за подготовку дилера, рекламные сборы, наценки market adjustment, переоценённая GAP-страховка, продажи расширенных гарантий и пакетов защиты краски. Инструмент авто-сделки VitaCoreX проверяет эти сборы против общих пороговых значений и предоставляет аргументы для переговоров.',
-    'Las tarifas comunes de concesionario a vigilar incluyen tarifas de documentación (doc fees), tarifas de preparación del concesionario, tarifas de publicidad, markups de ajuste de mercado, seguro GAP sobreprecio, upsells de garantía extendida y paquetes de protección de pintura. La herramienta de auto deal de VitaCoreX verifica estas tarifas contra umbrales comunes y proporciona puntos de negociación.');
 
 add('Legal Document Services',
     'Услуги по юридическим документам',
@@ -1825,9 +1789,9 @@ add('What industries does VitaCoreX serve?',
     'Какие отрасли обслуживает VitaCoreX?',
     '¿Qué industrias sirve VitaCoreX?');
 
-add('VitaCoreX serves healthcare (hospitals, ERs, medical practices), dental (clinics, DSOs, orthodontists), gyms and fitness (health clubs, CrossFit, yoga), subscription/SaaS businesses, fleet and logistics operators, construction and B2B companies, and individual private clients needing immigration, company formation, auto deal, or legal document services.',
-    'VitaCoreX обслуживает здравоохранение (больницы, ER, медицинские практики), стоматологию (клиники, DSO, ортодонты), тренажёрные залы и фитнес (health clubs, CrossFit, йога), подписочные/SaaS-бизнесы, флит- и логистических операторов, строительные и B2B-компании, а также индивидуальных частных клиентов, нуждающихся в иммиграции, регистрации компании, автосделке или услугах юридических документов.',
-    'VitaCoreX sirve salud (hospitales, ERs, consultorios médicos), odontología (clínicas, DSOs, ortodoncistas), gimnasios y fitness (health clubs, CrossFit, yoga), negocios de suscripción/SaaS, operadores de flota y logística, empresas de construcción y B2B, y clientes privados individuales que necesitan inmigración, formación de empresas, auto deal o servicios de documentos legales.');
+add('VitaCoreX serves healthcare (hospitals, ERs, medical practices), dental (clinics, DSOs, orthodontists), gyms and fitness (health clubs, CrossFit, yoga), subscription/SaaS businesses, fleet and logistics operators, construction and B2B companies, and individual private clients needing immigration, company formation, or legal document services.',
+    'VitaCoreX обслуживает здравоохранение (больницы, ER, медицинские практики), стоматологию (клиники, DSO, ортодонты), тренажёрные залы и фитнес (health clubs, CrossFit, йога), подписочные/SaaS-бизнесы, флит- и логистических операторов, строительные и B2B-компании, а также индивидуальных частных клиентов, которым нужна помощь с иммиграционными документами, регистрацией компании или юридическими документами.',
+    'VitaCoreX sirve salud (hospitales, ERs, consultorios médicos), odontología (clínicas, DSOs, ortodoncistas), gimnasios y fitness (health clubs, CrossFit, yoga), negocios de suscripción/SaaS, operadores de flota y logística, empresas de construcción y B2B, y clientes privados individuales que necesitan inmigración, formación de empresas o servicios de documentos legales.');
 
 add('How do I contact VitaCoreX?',
     'Как мне связаться с VitaCoreX?',
@@ -1875,9 +1839,6 @@ add('— Corporate legal file control & contract governance',
 add('— Structured intake & escalation protocols',
     '— Структурированный приём обращений и протоколы эскалации',
     '— Admisión estructurada y protocolos de escalamiento');
-add('Contract review, immigration packets, auto-deal analysis.',
-    'Проверка контрактов, иммиграционные пакеты, анализ автосделок.',
-    'Revisión de contratos, paquetes de inmigración, análisis de compraventa de auto.');
 add('Defined-scope advisory for individuals facing high-stakes documents. Clear timeframe, clear format, discretion by default.',
     'Консультирование с чётко определённым объёмом для частных клиентов, работающих с документами высокой важности. Понятные сроки, понятный формат, конфиденциальность по умолчанию.',
     'Asesoría con alcance definido para personas que enfrentan documentos de alta relevancia. Plazo claro, formato claro, discreción por defecto.');
@@ -1887,9 +1848,6 @@ add('— Contract & lease review',
 add('— Immigration document preparation',
     '— Подготовка иммиграционных документов',
     '— Preparación de documentos migratorios');
-add('— Auto-deal & major-purchase review',
-    '— Проверка автосделок и крупных покупок',
-    '— Revisión de compraventa de auto y compras mayores');
 add('Not sure where you fit? Start with a confidential review →',
     'Не уверены, куда вы относитесь? Начните с конфиденциальной консультации →',
     '¿No está seguro dónde encaja? Comience con una revisión confidencial →');
@@ -3227,9 +3185,9 @@ add('Call us directly or book a 30-minute consultation to review your current AR
 add('Page Not Found',
     'Страница не найдена',
     'Página no encontrada');
-add('The page you\'re looking for may have been moved or no longer exists. VitaCoreX LLC provides revenue recovery, immigration services, LLC formation, auto deal review, and legal document services for businesses and individuals.',
-    'Возможно, страница была перемещена или больше не существует. VitaCoreX LLC предоставляет услуги возврата дебиторки, иммиграционные услуги, регистрацию LLC, разбор авто-сделок и юридические документарные сервисы для бизнеса и частных клиентов.',
-    'Es posible que la página haya sido movida o ya no exista. VitaCoreX LLC ofrece recuperación de ingresos, servicios de inmigración, formación de LLC, revisión de operaciones de autos y servicios de documentos legales para empresas y particulares.');
+add('The page you\'re looking for may have been moved or no longer exists. VitaCoreX LLC provides revenue recovery, immigration services, LLC formation, and legal document services for businesses and individuals.',
+    'Возможно, страница была перемещена или больше не существует. VitaCoreX LLC предоставляет услуги возврата дебиторки, иммиграционные услуги, регистрацию LLC и юридические документарные сервисы для бизнеса и частных клиентов.',
+    'Es posible que la página haya sido movida o ya no exista. VitaCoreX LLC ofrece recuperación de ingresos, servicios de inmigración, formación de LLC y servicios de documentos legales para empresas y particulares.');
 add('Explore Our Services',
     'Наши услуги',
     'Explore nuestros servicios');
@@ -3245,9 +3203,6 @@ add('USCIS packet preparation, visa, green card documentation',
 add('LLC, S-Corp, C-Corp formation in Florida',
     'Регистрация LLC, S-Corp, C-Corp во Флориде',
     'Formación de LLC, S-Corp y C-Corp en Florida');
-add('Dealer fee analysis, GAP insurance, loan calculator',
-    'Разбор комиссий дилера, GAP-страховка, кредитный калькулятор',
-    'Análisis de tarifas del concesionario, seguro GAP y calculadora de préstamo');
 add('AI contract analysis, NDA, non-compete review',
     'AI-анализ контрактов, NDA, проверка non-compete',
     'Análisis de contratos con IA, NDA y revisión de no competencia');
@@ -3309,9 +3264,6 @@ add('LLC formation, business plans, turnkey opening for U.S. founders. Documenta
 add('Private',
     'Частные',
     'Privados');
-add('Immigration packets, auto purchase review, and contract review for private clients. Fixed fee, defined scope.',
-    'Иммиграционные пакеты, проверка автосделок и контрактов для частных клиентов. Фиксированная цена, определённый объём.',
-    'Paquetes de inmigración, revisión de compra de vehículos y revisión de contratos para clientes privados. Tarifa fija, alcance definido.');
 add('Founder & Managing Director',
     'Основатель и управляющий директор',
     'Fundador y director general');
@@ -4057,64 +4009,15 @@ add('We do not file tax returns or provide tax advice \u2014 that\u2019s a CPA\u
     'Мы не подаём налоговые декларации и не даём налоговых советов \u2014 это работа CPA. Мы готовим документы, которые запрашивает ваш CPA (BOI filing, Form SS-4, ежегодные отчёты штата и т. д.). Можем порекомендовать двуязычных CPA, с которыми мы работаем.',
     'No presentamos declaraciones de impuestos ni damos asesoría fiscal \u2014 ese es el trabajo de un CPA. Sí preparamos documentación que su CPA solicita (BOI, formulario SS-4, informes anuales estatales, etc.). Podemos referirle a CPA bilingües con los que trabajamos.');
 
-// ─── AUTO PAGE ───
-add('Auto purchase documentation review',
-    'Разбор документов на покупку автомобиля',
-    'Revisión documental de compra de vehículo');
-add('Don\u2019t sign that dealer contract yet \u2014 let us check it first.',
-    'Не подписывайте контракт в дилершипе \u2014 дайте нам проверить первыми.',
-    'No firme ese contrato del concesionario todavía \u2014 déjenos revisarlo primero.');
-add('Send us the buyer\u2019s order, finance contract, or add-on sheet. We flag hidden fees, duplicated packages, warranty gaps, and financing red flags. Quick turnaround so you don\u2019t lose the deal.',
-    'Пришлите buyer\u2019s order, финансовый контракт или перечень add-on. Отметим скрытые платежи, дублирование пакетов, пробелы в гарантии и опасные места в финансировании. Быстрый разбор, чтобы не потерять сделку.',
-    'Envíenos el buyer\u2019s order, el contrato de financiamiento o la hoja de add-ons. Señalamos cargos ocultos, paquetes duplicados, omisiones de garantía y señales de alerta de financiamiento. Respuesta rápida para no perder la oferta.');
-add('Used and new · dealer and private-party',
-    'Б/у и новые · дилер и частная продажа',
-    'Usados y nuevos · concesionario y venta particular');
-add('Finance contract · buyer\u2019s order · add-ons review',
-    'Финансовый контракт · buyer\u2019s order · разбор add-on',
-    'Contrato de financiamiento · buyer\u2019s order · revisión de add-ons');
-add('From $89 · typical return in 4\u201324 hours',
-    'От $89 · типичный разбор за 4\u201324 часа',
-    'Desde $89 · entrega típica en 4\u201324 horas');
-add('Tell us about the deal',
-    'Расскажите о сделке',
-    'Cuéntenos sobre la oferta');
-add('Takes about 60 seconds. Send us the paperwork after \u2014 we\u2019ll tell you what to send.',
-    'Занимает около 60 секунд. Документы пришлёте потом \u2014 мы скажем, что именно нужно.',
-    'Toma unos 60 segundos. Envíe el papeleo después \u2014 le diremos qué mandar.');
 add('What do you need reviewed?',
     'Что нужно проверить?',
     '¿Qué necesita revisar?');
 add('How urgent?',
     'Насколько срочно?',
     '¿Qué tan urgente?');
-add('State the deal is in',
-    'Штат сделки',
-    'Estado de la transacción');
-add('Dealer buyer\u2019s order / purchase agreement',
-    'Buyer\u2019s order дилера / договор купли-продажи',
-    'Buyer\u2019s order del concesionario / contrato de compra');
-add('Finance contract (retail installment)',
-    'Финансовый контракт (retail installment)',
-    'Contrato de financiamiento (retail installment)');
 add('Lease agreement',
     'Договор лизинга',
     'Contrato de arrendamiento');
-add('Add-ons / warranty / GAP / service contract',
-    'Add-ons / гарантия / GAP / сервисный контракт',
-    'Add-ons / garantía / GAP / contrato de servicio');
-add('Private-party bill of sale',
-    'Bill of sale от частного продавца',
-    'Bill of sale de venta particular');
-add('Pre-purchase \u2014 help me decide before signing',
-    'До покупки \u2014 помогите решить до подписания',
-    'Antes de comprar \u2014 ayúdenme a decidir antes de firmar');
-add('Post-signing \u2014 I already signed, something\u2019s wrong',
-    'После подписания \u2014 я уже подписал(а), что-то не так',
-    'Después de firmar \u2014 ya firmé, algo está mal');
-add('Same day \u2014 signing today',
-    'Сегодня \u2014 подписываю сегодня',
-    'Mismo día \u2014 firmo hoy');
 add('Within 24 hours',
     'В течение 24 часов',
     'Dentro de 24 horas');
@@ -4124,84 +4027,12 @@ add('Within 2\u20133 business days',
 add('No rush \u2014 planning ahead',
     'Не срочно \u2014 планирую заранее',
     'Sin prisa \u2014 planificando con antelación');
-add('Request my contract review',
-    'Запросить разбор моего контракта',
-    'Solicitar la revisión de mi contrato');
-add('We reply within 1 business day · same-day option available · No spam',
-    'Ответим в течение 1 рабочего дня · доступен same-day вариант · без спама',
-    'Respondemos en 1 día hábil · opción mismo día disponible · sin spam');
 add('What we check',
     'Что мы проверяем',
     'Lo que revisamos');
-add('The paperwork traps that cost buyers the most money.',
-    'Ловушки в бумагах, которые больше всего обходятся покупателям.',
-    'Las trampas del papeleo que más dinero cuestan a los compradores.');
-add('We read the fine print for you and put the red flags in a single short checklist. You walk into the dealer (or sign the e-pad) knowing exactly what to push back on.',
-    'Читаем мелкий шрифт за вас и собираем красные флаги в один короткий чек-лист. Вы входите в дилершип (или подписываете e-pad), чётко зная, на что давить.',
-    'Leemos la letra pequeña por usted y ponemos las señales de alerta en una lista corta. Entra al concesionario (o firma el e-pad) sabiendo exactamente qué objetar.');
-add('Hidden & duplicated fees',
-    'Скрытые и дублированные комиссии',
-    'Cargos ocultos y duplicados');
-add('Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, "market adjustment" \u2014 we flag which are negotiable, which are illegal, and which are duplicated across line items.',
-    'Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, «market adjustment» \u2014 отмечаем, какие обсуждаемы, какие незаконны и какие дублируются между строк.',
-    'Dealer fees, doc fees, reconditioning, nitrogen, VIN etching, "market adjustment" \u2014 marcamos cuáles son negociables, cuáles ilegales y cuáles aparecen duplicados entre líneas.');
-add('Finance rate vs. buy rate',
-    'Ставка контракта vs. buy rate',
-    'Tasa del contrato vs. buy rate');
-add('We compare the rate on your contract against typical buy rates for your credit tier so you know if the dealer marked it up.',
-    'Сравниваем ставку в вашем контракте с типичными buy rate для вашего кредитного рейтинга \u2014 чтобы вы видели наценку дилера.',
-    'Comparamos la tasa de su contrato con las buy rates típicas para su nivel de crédito, para que sepa si el concesionario le aplicó margen.');
-add('Add-ons audit',
-    'Аудит add-ons',
-    'Auditoría de add-ons');
-add('GAP, extended warranty, tire-and-wheel, maintenance packages, key replacement. We show the actual value vs. what you\u2019re charged and whether you can cancel post-signing.',
-    'GAP, расширенная гарантия, tire-and-wheel, пакеты обслуживания, замена ключей. Показываем реальную ценность vs. сумму в контракте и можно ли отменить после подписания.',
-    'GAP, garantía extendida, tire-and-wheel, paquetes de mantenimiento, reemplazo de llave. Mostramos el valor real vs. lo que le cobran y si puede cancelar tras firmar.');
-add('Total cost breakdown',
-    'Разбор общей стоимости',
-    'Desglose del costo total');
-add('The actual out-the-door number vs. the advertised price. Tax, tag, title, doc, add-ons, financing charges \u2014 in one clean summary.',
-    'Реальная сумма out-the-door vs. рекламируемая цена. Налог, tag, title, doc, add-ons, проценты \u2014 в одной чистой сводке.',
-    'El número real out-the-door vs. el precio anunciado. Impuesto, tag, title, doc, add-ons, cargos financieros \u2014 en un resumen limpio.');
-add('Cancellation windows',
-    'Окна отмены',
-    'Ventanas de cancelación');
-add('State-specific rules on what you can cancel after signing (GAP, warranty, unwinding the deal). We mark every deadline.',
-    'Правила штатов для отмены после подписания (GAP, гарантия, расторжение сделки). Отмечаем каждый срок.',
-    'Reglas específicas por estado sobre qué puede cancelar tras firmar (GAP, garantía, anulación del trato). Marcamos cada plazo.');
-add('English, Russian, Spanish. We\u2019ve reviewed hundreds of deals for bilingual families \u2014 we know what the pressure sounds like.',
-    'Английский, русский, испанский. Мы разобрали сотни сделок для двуязычных семей \u2014 знаем, как звучит давление.',
-    'Inglés, ruso, español. Hemos revisado cientos de transacciones para familias bilingües \u2014 sabemos cómo suena la presión.');
-add('I\u2019m at the dealership right now. Can you help today?',
-    'Я прямо сейчас в дилершипе. Поможете сегодня?',
-    'Estoy ahora mismo en el concesionario. ¿Pueden ayudar hoy?');
-add('Yes, often. Pick "Same day" in the urgency field. We turn same-day reviews around in 2\u20134 hours during business hours. For after-hours or weekend deals, submit anyway \u2014 we\u2019ll tell you which specific numbers to push back on before you sign.',
-    'Да, часто. Выберите «Сегодня» в поле срочности. Same-day разборы делаем за 2\u20134 часа в рабочее время. Для сделок вне рабочего времени или на выходных \u2014 отправляйте всё равно, скажем, на какие конкретные цифры давить до подписания.',
-    'Sí, a menudo. Seleccione "Mismo día" en el campo de urgencia. Hacemos revisiones mismo día en 2\u20134 horas durante horario de oficina. Para tratos fuera de horario o fin de semana, envíe de todos modos \u2014 le diremos qué números específicos objetar antes de firmar.');
 add('How much does a review cost?',
     'Сколько стоит разбор?',
     '¿Cuánto cuesta una revisión?');
-add('Quick contract review starts at $89. Full breakdown (finance contract + add-ons + total-cost summary) is $149. Post-signing dispute review with cancellation pathway is $219. You see the scope quote before work starts.',
-    'Быстрый разбор контракта \u2014 от $89. Полный разбор (финансовый контракт + add-ons + сводка общей стоимости) \u2014 $149. Разбор после подписания с путём отмены \u2014 $219. Цена согласуется до начала работ.',
-    'La revisión rápida del contrato comienza en $89. El desglose completo (contrato de financiamiento + add-ons + resumen de costo total) es $149. La revisión post-firma con ruta de cancelación es $219. Verá la cotización antes de comenzar.');
-add('Can you negotiate with the dealer for me?',
-    'Можете договариваться с дилером за меня?',
-    '¿Pueden negociar con el concesionario por mí?');
-add('No \u2014 we don\u2019t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You deliver it. Most clients save 10\u201320x the review fee.',
-    'Нет \u2014 мы вас не представляем. Даём конкретный письменный список, на что давить (строки для удаления у finance manager, суммы для оспаривания, вопросы, выявляющие наценку). Передаёте вы. Большинство клиентов экономят 10\u201320x стоимости разбора.',
-    'No \u2014 no le representamos. Le damos una lista escrita específica de qué objetar (líneas que pedir al finance manager que elimine, montos a disputar, preguntas que revelan el margen). Usted lo entrega. La mayoría de clientes ahorra 10\u201320x la tarifa de revisión.');
-add('Already signed \u2014 can you still help?',
-    'Уже подписал \u2014 всё ещё можете помочь?',
-    'Ya firmé \u2014 ¿todavía pueden ayudar?');
-add('Yes. Pick "Post-signing." Many states have cancellation windows for GAP, extended warranty, and the deal itself. We identify which apply in your state and what you need to send to cancel. If the dealer committed fraud, we refer you to a consumer-protection attorney.',
-    'Да. Выберите «После подписания». Во многих штатах есть окна отмены для GAP, расширенной гарантии и самой сделки. Определяем, что применимо в вашем штате и что нужно отправить для отмены. Если дилер совершил мошенничество \u2014 направим к consumer-protection адвокату.',
-    'Sí. Seleccione "Después de firmar". Muchos estados tienen ventanas de cancelación para GAP, garantía extendida y la propia transacción. Identificamos cuáles aplican en su estado y qué necesita enviar para cancelar. Si el concesionario cometió fraude, le referimos a un abogado de protección al consumidor.');
-add('Do you do pre-purchase inspections?',
-    'Делаете ли pre-purchase осмотры?',
-    '¿Hacen inspecciones previas a la compra?');
-add('No mechanical inspection \u2014 we only review paperwork. For mechanical inspection we recommend a pre-purchase inspection by an independent shop. We can flag dealer-inspection gaps in the paperwork (e.g., no frame check, no diagnostic report).',
-    'Механический осмотр \u2014 нет, разбираем только бумаги. Для механического осмотра рекомендуем независимую мастерскую. Пробелы в документах dealer-inspection (отсутствие frame check, диагностики) отметим.',
-    'Inspección mecánica \u2014 no, solo revisamos el papeleo. Para inspección mecánica recomendamos una inspección previa a la compra por un taller independiente. Podemos marcar omisiones en la inspección documental del concesionario (p. ej., sin frame check, sin reporte de diagnóstico).');
 
 // ─── HOME PAGE — leak cards (modal long-form descriptions) ────
 add('Balances age because outreach timing, scripts, and follow-up discipline vary by operator and location. Without a single rhythm, every account drifts at its own speed and recoverable margin walks away unannounced.',
@@ -4298,15 +4129,9 @@ add('Privacy Policy', 'Политика конфиденциальности', '
 add('Cookie Policy', 'Политика cookie', 'Política de cookies');
 
 // ─── PRIVATE SERVICES PAGE (private-services.html) ────────────
-add('For Private Clients · Contract review · Immigration · Auto deal · Small claims',
-    'Для частных клиентов · разбор договора · иммиграция · автосделка · small claims',
-    'Para clientes particulares · revisión de contrato · inmigración · compra de auto · small claims');
 add('Document support for individual matters — defined scope, fixed timeframe, delivered packet.',
     'Документационная поддержка частных дел — фиксированный объём, фиксированный срок, готовый пакет.',
     'Soporte documental para asuntos individuales — alcance definido, plazo fijo, paquete entregado.');
-add('Independent review and documentation help for high-stakes personal matters: contracts before you sign, immigration packets before you submit, auto deals before you drive off the lot, and small-claims filings ready for the courthouse desk. Pricing published below — no open-ended retainers.',
-    'Независимый разбор и подготовка документов для важных частных дел: договоры до подписания, иммиграционные пакеты до подачи, автосделки до выезда из автосалона и пакеты для small-claims, готовые к подаче в суд. Цены опубликованы ниже — без открытых ретейнеров.',
-    'Revisión independiente y preparación documental para asuntos personales de alto impacto: contratos antes de firmar, paquetes de inmigración antes de presentar, compras de auto antes de salir del concesionario y expedientes de small claims listos para el tribunal. Precios publicados abajo — sin retenedores abiertos.');
 add('Private services',
     'Частные сервисы',
     'Servicios privados');
@@ -4362,25 +4187,9 @@ add('Organized packet + checklist PDF',
     'Paquete organizado + checklist en PDF');
 add('Request preparation', 'Заказать подготовку', 'Solicitar preparación');
 
-// Card 3 — Auto deal
-add('Auto deal & major-purchase review',
-    'Разбор автосделки и крупных покупок',
-    'Revisión de compra de auto y adquisiciones mayores');
-add('Pre-signing analysis of the complete dealer worksheet.',
-    'Разбор полного дилерского листа до подписания.',
-    'Análisis previo a la firma de la hoja completa del concesionario.');
-add('True monthly payment, doc-fee / GAP / warranty threshold checks, and a negotiation memo. Same-day rush available.',
-    'Реальный ежемесячный платёж, проверка порогов по doc fee / GAP / гарантии и записка для переговоров. Доступен срочный режим в день обращения.',
-    'Pago mensual real, verificación de umbrales en doc fee / GAP / garantía y memo de negociación. Rush en el mismo día disponible.');
 add('Tier 1 · Quick', 'Тариф 1 · быстрый', 'Nivel 1 · Rápido');
 add('Tier 2 · Full breakdown', 'Тариф 2 · полный разбор', 'Nivel 2 · Análisis completo');
 add('Same-day rush', 'Срочно в день обращения', 'Rush en el mismo día');
-add('2 business days · same-day with rush',
-    '2 рабочих дня · день в день со срочностью',
-    '2 días hábiles · mismo día con rush');
-add('True-cost breakdown + negotiation memo',
-    'Разбор реальной стоимости + записка для переговоров',
-    'Desglose de costo real + memo de negociación');
 
 // Card 4 — Florida small claims
 add('Florida small-claims help',
@@ -4652,9 +4461,6 @@ add('Just a single case? Use our 60-second private-client intake \u2192',
 add('Single-owner setup? Use our 60-second business-setup intake \u2192',
     'Настройка одного владельца? Заполните наш 60-секундный intake \u2192',
     '¿Configuración de un solo propietario? Use nuestra admisión de 60 segundos \u2192');
-add('Signing today? Use our 60-second same-day intake \u2192',
-    'Подписываете сегодня? Заполните наш 60-секундный same-day intake \u2192',
-    '¿Firma hoy? Use nuestra admisión urgente de 60 segundos \u2192');
 
 /* ─── DISCLAIMERS (private-intake .pci-disc) ─────────────────
    HTML values include <strong> tags matching the source markup. */
@@ -4664,9 +4470,6 @@ add('Important: VitaCoreX LLC is a Florida-registered company providing remote d
 add('Important: VitaCoreX LLC prepares and files business-formation documents as a third-party filer. We are not a law firm, do not provide legal, tax, or immigration advice, and do not act as CPAs or attorneys. For tax strategy, complex ownership structures, or immigration-linked formation (EB-5, L-1, E-2), we refer you to licensed counsel. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
     '<strong>Важно:</strong> VitaCoreX LLC готовит и подаёт документы по регистрации бизнеса как сторонний файлер. Мы <strong>не юридическая фирма</strong>, не оказываем юридических, налоговых или иммиграционных консультаций и не действуем в качестве CPA или адвокатов. По вопросам налоговой стратегии, сложных структур собственности или иммиграционной регистрации (EB-5, L-1, E-2) мы направляем к лицензированным консультантам. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
     '<strong>Importante:</strong> VitaCoreX LLC prepara y presenta documentos de formación empresarial como tramitador tercero. <strong>No somos bufete de abogados</strong>, no damos asesoría legal, fiscal ni de inmigración, y no actuamos como CPA ni abogados. Para estrategia fiscal, estructuras de propiedad complejas o formación vinculada a inmigración (EB-5, L-1, E-2) le derivamos a asesores con licencia. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
-add('Important: VitaCoreX LLC reviews auto-purchase documents and explains line items and typical market practice. We are not a law firm, do not provide legal advice, and do not represent clients in disputes with dealers or lenders. For deceptive-practice claims, lemon-law cases, or litigation, we refer you to consumer-protection attorneys. State-specific unauthorized-practice-of-law rules are confirmed before engagement.',
-    '<strong>Важно:</strong> VitaCoreX LLC проверяет документы по покупке автомобиля и объясняет строки договора и типичную рыночную практику. Мы <strong>не юридическая фирма</strong>, не оказываем юридических консультаций и не представляем клиентов в спорах с дилерами или кредиторами. По вопросам обмана потребителей, lemon-law или судебных разбирательств мы направляем к адвокатам по защите прав потребителей. Требования штата о запрете несанкционированной юридической практики проверяются до начала работы.',
-    '<strong>Importante:</strong> VitaCoreX LLC revisa documentos de compra de automóviles y explica las partidas y la práctica típica del mercado. <strong>No somos bufete de abogados</strong>, no damos asesoría legal ni representamos clientes en disputas con concesionarios o prestamistas. Para reclamos por prácticas engañosas, casos de ley lemon o litigios, le derivamos a abogados de protección al consumidor. Las normas estatales contra la práctica no autorizada de la abogacía se verifican antes del compromiso.');
 
 /* ─── AUTO PAGE FAQ-ish paragraphs ─────────────────────────── */
 add('No \u2014 we don\'t represent you. We give you a specific, written list of what to push back on (lines to ask the finance manager to remove, dollar amounts to dispute, questions that reveal rate markup). You deliver it. Most clients save 10\u201320\u00d7 the review fee.',
@@ -4675,9 +4478,6 @@ add('No \u2014 we don\'t represent you. We give you a specific, written list of 
 add('Yes, often. Pick "Same day" in the urgency field. We turn same-day reviews around in 2\u20134 hours during business hours. For after-hours or weekend deals, submit anyway \u2014 we\'ll tell you which specific numbers to push back on before you sign.',
     'Да, часто. Выберите «В тот же день» в поле срочности. В рабочие часы мы возвращаем проверку за 2\u20134 часа. Для сделок вечером или в выходные всё равно отправляйте заявку \u2014 мы сообщим, какие конкретные цифры нужно оспорить до подписания.',
     'Sí, a menudo. Seleccione «El mismo día» en el campo de urgencia. En horario laboral devolvemos revisiones el mismo día en 2\u20134 horas. Para tratos nocturnos o de fin de semana, envíe de todos modos \u2014 le indicaremos qué cifras específicas debe impugnar antes de firmar.');
-add('We read the fine print for you and put the red flags in a single short checklist. You walk into the dealer (or sign the e-pad) knowing exactly what to push back on.',
-    'Мы читаем мелкий шрифт за вас и собираем красные флаги в один короткий чек-лист. Вы приходите к дилеру (или подписываете e-pad), точно зная, что оспорить.',
-    'Leemos la letra pequeña por usted y colocamos las señales de alerta en una sola lista breve. Llega al concesionario (o firma en el e-pad) sabiendo exactamente qué impugnar.');
 
 /* ─── STATE OPTIONS (select/option) ────────────────────────── */
 add('Florida', 'Флорида', 'Florida');
@@ -4821,8 +4621,8 @@ add('Everything in Standard PDF',
     'Всё что в Стандартном PDF',
     'Todo lo del PDF Estándar');
 add('Notarized translator affidavit (wet-ink Florida notary seal)',
-    'Нотариально заверенный аффидавит переводчика (мокрая печать нотариуса Флориды)',
-    'Declaración jurada notariada del traductor (sello de notario de Florida en tinta)');
+    'Аффидавит переводчика с заверением (оригинальная печать Florida Notary Public)',
+    'Declaración jurada del traductor con notarización (sello en tinta de un Florida Notary Public)');
 add('Printed translation + affidavit, USPS Priority Mail (US)',
     'Печатный перевод + аффидавит, USPS Priority Mail (США)',
     'Traducción impresa + declaración jurada, USPS Priority Mail (EE.UU.)');
@@ -4872,8 +4672,8 @@ add('Notarized translator affidavit',
     'Нотариально заверенный аффидавит переводчика',
     'Declaración jurada notariada del traductor');
 add('When required by USCIS, court, or bank KYC, the translator’s certification is sworn before a Florida-commissioned notary — wet-ink seal on a printed copy, mailed USPS Priority.',
-    'Когда требуется USCIS, судом или банковским KYC, сертификация переводчика заверяется перед нотариусом Флориды — мокрая печать на печатной копии, отправка USPS Priority.',
-    'Cuando lo requiere USCIS, tribunal o KYC bancario, la certificación del traductor se jura ante un notario de Florida — sello en tinta sobre copia impresa, enviada por USPS Priority.');
+    'Когда требуется USCIS, судом или банковским KYC, переводчик подписывает сертификацию под присягой перед Florida Notary Public — оригинальная печать на печатной копии, отправка USPS Priority.',
+    'Cuando lo requiere USCIS, tribunal o KYC bancario, la certificación del traductor se jura ante un Florida Notary Public — sello en tinta sobre copia impresa, enviada por USPS Priority.');
 add('Format-match layout',
     'Сохранение формата макета',
     'Diseño con coincidencia de formato');
@@ -5001,8 +4801,8 @@ add('Full bundle — $25/pg + $74.99',
     'Полный комплект — $25/стр + $74.99',
     'Paquete completo — $25/pág + $74.99');
 add('Certified translations are performed by professional translators. The notarized translator affidavit is executed before a Florida-commissioned notary public and meets 8 CFR §103.2(b)(3) for USCIS submissions, Florida Rules of Civil Procedure 1.090 for FL courts, and standard bank/corporate KYC requirements. VitaCoreX LLC is not a law firm and does not provide legal advice or legal representation. Acceptance by any specific agency, court, or institution is determined by that body.',
-    'Сертифицированные переводы выполняются профессиональными переводчиками. Нотариально заверенный аффидавит переводчика составляется перед нотариусом Флориды и соответствует 8 CFR §103.2(b)(3) для подачи в USCIS, Florida Rules of Civil Procedure 1.090 для судов Флориды и стандартным требованиям банков/корпоративного KYC. VitaCoreX LLC не является юридической фирмой и не предоставляет юридических консультаций или представительства. Принятие любым конкретным агентством, судом или учреждением определяется этим органом.',
-    'Las traducciones certificadas son realizadas por traductores profesionales. La declaración jurada notariada del traductor se ejecuta ante un notario de Florida y cumple con 8 CFR §103.2(b)(3) para presentaciones a USCIS, Florida Rules of Civil Procedure 1.090 para tribunales de Florida y requisitos estándar bancarios/corporativos KYC. VitaCoreX LLC no es una firma legal y no proporciona asesoría legal ni representación. La aceptación por cualquier agencia, tribunal o institución específica es determinada por ese organismo.');
+    'Сертифицированные переводы выполняются профессиональными переводчиками. Аффидавит переводчика подписывается и заверяется перед Florida Notary Public и соответствует 8 CFR §103.2(b)(3) для подачи в USCIS, Florida Rules of Civil Procedure 1.090 для судов Флориды и стандартным требованиям банков/корпоративного KYC. VitaCoreX LLC не является юридической фирмой и не предоставляет юридических консультаций или представительства. Принятие любым конкретным агентством, судом или учреждением определяется этим органом.',
+    'Las traducciones certificadas son realizadas por traductores profesionales. La declaración jurada del traductor se firma ante un Florida Notary Public y cumple con 8 CFR §103.2(b)(3) para presentaciones a USCIS, Florida Rules of Civil Procedure 1.090 para tribunales de Florida y requisitos estándar bancarios/corporativos KYC. VitaCoreX LLC no es una firma legal y no proporciona asesoría legal ni representación. La aceptación por cualquier agencia, tribunal o institución específica es determinada por ese organismo.');
 
 // ─── Turnaround radio selector labels (translations.html) ─────────────
 // Note: keys are the normalized textContent (with em-dash unification).
@@ -5165,8 +4965,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ─── ONLINE NOTARY PAGE (online-notary.html) ─────────────────────────────
 add('Florida online notary public · Chapter 117 Part II',
-    'Онлайн-нотариус Флориды · Глава 117, Часть II',
-    'Notario público en línea de Florida · Capítulo 117 Parte II');
+    'Florida Notary Public — онлайн-заверение · Глава 117, Часть II',
+    'Florida Notary Public — notarización en línea · Capítulo 117, Parte II');
 add('Documents notarized online in fifteen minutes — from anywhere in the world.',
     'Нотариальное заверение документов онлайн за 15 минут — из любой точки мира.',
     'Documentos notariados en línea en quince minutos — desde cualquier lugar del mundo.');
@@ -5213,7 +5013,7 @@ add('Book single act',
 // ─── Tier 2 — Online Notarization + Mailed Hard-Copy bundle ($99.99) ───
 add('Notary + Hard-Copy bundle',
     'Нотариат + бумажный оригинал',
-    'Notario + copia impresa');
+    'Notarización + copia impresa');
 add('Online Notarization + Mailed Hard-Copy',
     'Онлайн-нотариат + бумажный оригинал почтой',
     'Notarización en línea + copia impresa por correo');
@@ -5240,8 +5040,8 @@ add('Live audio-video notarial session (Florida RON)',
     'Живая аудио-видео нотариальная сессия (Florida RON)',
     'Sesión notarial de audio-video en vivo (Florida RON)');
 add('Embossed/sealed printed hard-copy of your document',
-    'Печатный экземпляр с тиснёной печатью нотариуса',
-    'Copia impresa con sello en relieve del notario');
+    'Печатный экземпляр документа с тиснёной печатью',
+    'Copia impresa de su documento con sello en relieve');
 add('USPS Priority Mail shipping (2–3 business days, US)',
     'Доставка USPS Priority Mail (2–3 рабочих дня по США)',
     'Envío USPS Priority Mail (2–3 días hábiles, EE.UU.)');
@@ -5364,8 +5164,8 @@ add('Audio-video session',
     'Аудио-видео сессия',
     'Sesión de audio-video');
 add('Live notarial session over secure video with a Florida-commissioned notary. The recording is retained for 10 years as required by Rule 1N-7, Florida Administrative Code.',
-    'Живая нотариальная сессия по защищённому видео с нотариусом Флориды. Запись хранится 10 лет согласно Rule 1N-7 Административного кодекса Флориды.',
-    'Sesión notarial en vivo por video seguro con un notario de Florida. La grabación se conserva 10 años según la Regla 1N-7 del Código Administrativo de Florida.');
+    'Живая сессия заверения по защищённому видео с Florida Notary Public. Запись хранится 10 лет согласно Rule 1N-7 Административного кодекса Флориды.',
+    'Sesión de notarización en vivo por video seguro con un Florida Notary Public. La grabación se conserva 10 años según la Regla 1N-7 del Código Administrativo de Florida.');
 add('Tamper-sealed PDF',
     'PDF с защитой от изменений',
     'PDF sellado a prueba de manipulación');
@@ -5400,8 +5200,8 @@ add('Sign live',
     'Подпишите вживую',
     'Firme en vivo');
 add('Join a recorded audio-video session with the notary. You sign, the notary seals, and the tamper-sealed PDF arrives in your inbox the same minute.',
-    'Подключитесь к записанной аудио-видео сессии с нотариусом. Вы подписываете, нотариус ставит печать, и защищённый PDF приходит на email в ту же минуту.',
-    'Únase a una sesión de audio-video grabada con el notario. Usted firma, el notario sella, y el PDF sellado llega a su correo en el mismo minuto.');
+    'Подключитесь к записываемой аудио-видео сессии с Florida Notary Public. Вы подписываете, документ заверяется печатью, и защищённый PDF приходит на email в ту же минуту.',
+    'Únase a una sesión de audio-video grabada con un Florida Notary Public. Usted firma, el documento se sella, y el PDF sellado llega a su correo en el mismo minuto.');
 add('Scope',
     'Объём',
     'Alcance');
@@ -5460,14 +5260,14 @@ add('What documents can be notarized online?',
     'Какие документы можно заверить онлайн?',
     '¿Qué documentos se pueden notariar en línea?');
 add('Most documents that traditionally require a notary — powers of attorney, affidavits, declarations, contracts, business filings, real-estate documents (in many cases), consents. A few document types (such as wills in some jurisdictions) still require in-person notarization. We confirm fit before charging you.',
-    'Большинство документов, требующих нотариуса — доверенности, аффидавиты, декларации, контракты, бизнес-документы, документы недвижимости (во многих случаях), согласия. Некоторые документы (например, завещания в ряде юрисдикций) требуют личного присутствия. Мы подтверждаем возможность до оплаты.',
-    'La mayoría de documentos que tradicionalmente requieren notario — poderes, declaraciones juradas, declaraciones, contratos, presentaciones empresariales, documentos inmobiliarios (en muchos casos), consentimientos. Algunos tipos (como testamentos en ciertas jurisdicciones) aún requieren presencia. Confirmamos viabilidad antes de cobrarle.');
+    'Большинство документов, которые обычно требуют заверения, — доверенности, аффидавиты, декларации, контракты, бизнес-документы, документы недвижимости (во многих случаях), согласия. Некоторые документы (например, завещания в ряде юрисдикций) требуют заверения при личном присутствии. Мы подтверждаем возможность до оплаты.',
+    'La mayoría de los documentos que tradicionalmente requieren notarización — poderes, declaraciones juradas, declaraciones, contratos, presentaciones empresariales, documentos inmobiliarios (en muchos casos), consentimientos. Algunos tipos (como testamentos en ciertas jurisdicciones) aún requieren presencia. Confirmamos viabilidad antes de cobrarle.');
 add('Do I need to be physically located in Florida?',
     'Нужно ли мне физически находиться во Флориде?',
     '¿Necesito estar físicamente en Florida?');
 add('No. The notary must be physically in Florida; you, the signer, can be anywhere in the world with a camera, a government-issued photo ID, and an internet connection.',
-    'Нет. Нотариус должен быть физически во Флориде; вы, подписант, можете быть в любой точке мира с камерой, гос. ID и интернетом.',
-    'No. El notario debe estar físicamente en Florida; usted, el firmante, puede estar en cualquier parte del mundo con cámara, ID gubernamental e internet.');
+    'Нет. Florida Notary Public должен находиться во Флориде; вы, подписант, можете быть в любой точке мира с камерой, гос. ID и интернетом.',
+    'No. El Florida Notary Public debe estar físicamente en Florida; usted, el firmante, puede estar en cualquier parte del mundo con cámara, ID gubernamental e internet.');
 add('What technology do I need?',
     'Какие технические требования?',
     '¿Qué tecnología necesito?');
@@ -5478,14 +5278,14 @@ add('What if my identity cannot be verified?',
     'Что если мою личность не удастся подтвердить?',
     '¿Qué pasa si no se puede verificar mi identidad?');
 add('Florida law requires the notary to refuse notarization if government-ID analysis or the knowledge-based authentication quiz cannot be passed. If this happens, your session fee is refunded in full and we will recommend an alternative path.',
-    'Закон Флориды требует от нотариуса отказать в заверении, если проверка гос. ID или KBA-вопросы не пройдены. В этом случае оплата сессии полностью возвращается, и мы порекомендуем альтернативу.',
-    'La ley de Florida exige que el notario rechace la notarización si no se aprueba el análisis de ID gubernamental o el cuestionario KBA. Si esto ocurre, su tarifa de sesión se reembolsa completamente y recomendaremos una alternativa.');
+    'Закон Флориды требует от Florida Notary Public отказать в заверении, если проверка гос. ID или KBA-вопросы не пройдены. В этом случае оплата сессии полностью возвращается, и мы порекомендуем альтернативу.',
+    'La ley de Florida exige que el Florida Notary Public rechace la notarización si no se aprueba el análisis de ID gubernamental o el cuestionario KBA. Si esto ocurre, su tarifa de sesión se reembolsa completamente y recomendaremos una alternativa.');
 add('Ready when you are.',
     'Готовы когда вы готовы.',
     'Listos cuando usted lo esté.');
 add('Documents notarized online by a Florida-commissioned notary. $25 Florida statutory rate. Same-day session available when capacity permits.',
-    'Документы заверяются онлайн нотариусом Флориды. $25 — установленный законом тариф. Сессия в день обращения доступна при наличии мест.',
-    'Documentos notariados en línea por un notario de Florida. Tarifa estatutaria de $25. Sesión el mismo día disponible según capacidad.');
+    'Документы заверяются онлайн уполномоченным Florida Notary Public. $25 — установленный законом тариф. Сессия в день обращения доступна при наличии мест.',
+    'Documentos notarizados en línea por un Florida Notary Public. Tarifa estatutaria de $25. Sesión el mismo día disponible según capacidad.');
 add('Ask a question first',
     'Сначала задать вопрос',
     'Hacer una pregunta primero');

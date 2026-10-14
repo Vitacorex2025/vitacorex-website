@@ -125,13 +125,6 @@ w.VCX_I18N = {
     tool_imm_reset:    'Analyze another',
     tool_imm_disc:     'Pattern-based pre-check only — not legal advice. USCIS requirements vary by case. Consult qualified immigration counsel before filing.',
 
-    // Tool — dealer
-    tool_dealer_eyebrow:  'Private Client Tool',
-    tool_dealer_title:    'Auto Deal Check',
-    tool_dealer_subtitle: 'Enter your deal numbers to check fees, add-on pricing, and financing terms against typical ranges.',
-    tool_dealer_scan:     'Check deal numbers',
-    tool_dealer_reset:    'Check another deal',
-    tool_dealer_disc:     'Client-side calculation based on numbers you entered. Not legal or financial advice. Confirm all figures with the dealer in writing.',
 
     // Florida Lookup
     tool_fl_eyebrow:  'Private Client Services',
@@ -207,12 +200,6 @@ w.VCX_I18N = {
     tool_imm_reset:    'Проверить другой',
     tool_imm_disc:     'Только предварительная проверка — не юридическая консультация. Требования USCIS варьируются. Проконсультируйтесь с иммиграционным адвокатом.',
 
-    tool_dealer_eyebrow:  'Инструмент для частных клиентов',
-    tool_dealer_title:    'Проверка автосделки',
-    tool_dealer_subtitle: 'Введите цифры вашей сделки для проверки сборов, надбавок и условий финансирования.',
-    tool_dealer_scan:     'Проверить цифры сделки',
-    tool_dealer_reset:    'Проверить другую сделку',
-    tool_dealer_disc:     'Расчёт на основе введённых данных. Не является финансовой или юридической консультацией.',
 
     tool_fl_eyebrow:  'Услуги для частных клиентов',
     tool_fl_title:    'Поиск частных обязательств',
@@ -286,12 +273,6 @@ w.VCX_I18N = {
     tool_imm_reset:    'Verificar otro',
     tool_imm_disc:     'Solo verificación previa de patrones — no es asesoramiento legal. Los requisitos de USCIS varían. Consulte con un abogado de inmigración calificado antes de presentar.',
 
-    tool_dealer_eyebrow:  'Herramienta para clientes privados',
-    tool_dealer_title:    'Verificación de trato automotriz',
-    tool_dealer_subtitle: 'Ingrese los números de su trato para verificar tarifas, cargos adicionales y términos de financiamiento.',
-    tool_dealer_scan:     'Verificar números del trato',
-    tool_dealer_reset:    'Verificar otro trato',
-    tool_dealer_disc:     'Cálculo basado en los números ingresados. No es asesoramiento legal ni financiero.',
 
     tool_fl_eyebrow:  'Servicios para clientes privados',
     tool_fl_title:    'Búsqueda de obligaciones privadas',

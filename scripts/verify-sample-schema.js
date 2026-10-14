@@ -1,7 +1,7 @@
 /* P03 Step 3.6 — Schema.org deep audit for the sample library surface.
  *
  * Validates:
- *   (A) 7 sample pages under /samples/<slug>.html each have:
+ *   (A) 6 sample pages under /samples/<slug>.html each have:
  *       - CreativeWork block with all required fields
  *       - BreadcrumbList block (3-level: Home → Samples → Page)
  *       - isAccessibleForFree matches the ADR-008 gating roster
@@ -11,7 +11,7 @@
  *   (B) sample-deliverable.html (library hub) has:
  *       - Organization block
  *       - BreadcrumbList (2-level)
- *       - CollectionPage with exactly 7 hasPart CreativeWorks that mirror
+ *       - CollectionPage with exactly one hasPart CreativeWork per roster slug, mirroring
  *         the ADR-008 roster + gating
  *   (C) samples/request-gated-sample.html (gate) has:
  *       - WebPage block
@@ -34,7 +34,6 @@ const ROSTER = {
   'diagnostic-report':          { gated: false, audience: 'b2b' },
   'contract-risk-memo':         { gated: false, audience: 'b2c' },
   'immigration-evidence-index': { gated: false, audience: 'b2c' },
-  'auto-deal-cost-breakdown':   { gated: false, audience: 'b2c' },
   'small-claims-chronology':    { gated: false, audience: 'shared' },
 };
 
@@ -60,8 +59,8 @@ let fail = 0;
 function bad(msg) { console.log('  \u2717 ' + msg); fail++; }
 function ok(msg)  { console.log('  \u2713 ' + msg); }
 
-// ---------- (A) 7 SAMPLES ----------
-console.log('\n=== (A) 7 sample pages: CreativeWork + BreadcrumbList ===');
+// ---------- (A) SAMPLES (roster) ----------
+console.log('\n=== (A) ' + Object.keys(ROSTER).length + ' sample pages: CreativeWork + BreadcrumbList ===');
 Object.keys(ROSTER).forEach((slug) => {
   const cfg = ROSTER[slug];
   const p = path.join(ROOT, 'samples', slug + '.html');
@@ -153,7 +152,8 @@ console.log('\n=== (B) Library hub: Organization + BreadcrumbList + CollectionPa
     if (!cp) bad('hub missing CollectionPage');
     else {
       const parts = Array.isArray(cp.hasPart) ? cp.hasPart : [];
-      if (parts.length !== 7) bad('CollectionPage hasPart must be 7, got ' + parts.length);
+      const want = Object.keys(ROSTER).length;
+      if (parts.length !== want) bad('CollectionPage hasPart must be ' + want + ', got ' + parts.length);
       else {
         // Each hasPart URL + isAccessibleForFree must match roster
         parts.forEach((w) => {
@@ -166,13 +166,13 @@ console.log('\n=== (B) Library hub: Organization + BreadcrumbList + CollectionPa
           if (w.isAccessibleForFree !== wantFree)
             bad('hasPart[' + slug[1] + '].isAccessibleForFree=' + w.isAccessibleForFree + ' expected ' + wantFree);
         });
-        // All 7 roster slugs must appear
+        // All roster slugs must appear
         const urls = parts.map((w) => w.url);
         Object.keys(ROSTER).forEach((slug) => {
           const u = BASE_URL + '/samples/' + slug + '.html';
           if (urls.indexOf(u) === -1) bad('CollectionPage missing roster slug: ' + slug);
         });
-        ok('CollectionPage hasPart = 7 CreativeWorks, all roster slugs present + gating matches');
+        ok('CollectionPage hasPart = ' + want + ' CreativeWorks, all roster slugs present + gating matches');
       }
       // inLanguage trilingual
       const langs = Array.isArray(cp.inLanguage) ? cp.inLanguage : [];

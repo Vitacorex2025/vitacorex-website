@@ -9,8 +9,9 @@ npx http-server . -p 8080 -c-1      # Static site on port 8080
 # VCX API (if running locally)
 cd vcx-api && python -m uvicorn main:app --port 8000
 
-# Deploy (auto via Vercel on push)
-git add -A && git commit -m "description" && git push origin main
+# Publish: production is GitHub Pages — every push to main publishes the live site.
+# Never push (main or any branch) without the owner's explicit approval of the exact build.
+# git push origin main   # only after that approval
 
 # Validate HTML
 # All pages are static HTML — open any .html file directly in browser
@@ -18,13 +19,13 @@ git add -A && git commit -m "description" && git push origin main
 
 ## Project Overview
 
-VitaCorex LLC corporate website — static HTML/CSS/JS site with 50+ pages, 14 interactive web apps, and a Python API backend. Deployed via Vercel (auto-deploy on GitHub push).
+VitaCorex LLC corporate website — static HTML/CSS/JS site with 50+ pages, 14 interactive web apps, and a Python API backend. Production is served by GitHub Pages from the public GitHub repository; every push to `main` publishes.
 
-**Stack:** Static HTML + CSS + Vanilla JS | FastAPI microservice (vcx-api/) | Vercel deployment
+**Stack:** Static HTML + CSS + Vanilla JS | FastAPI microservice (vcx-api/) | GitHub Pages (static hosting)
 
 **Repo:** `Vitacorex2025/vitacorex-website.git` on GitHub
 
-**Services:** Revenue Recovery, Immigration, Contract Review, Business Formation, Auto Dealer Contracts, Court Filing, Corporate Paralegal, Business Plans, Intake
+**Services:** `assets/data/vcx-catalog.json` is the source of truth for services and prices. Private clients first (translations, online notarization, apostille, tax preparation, contracts and documents, immigration forms, company formation, business plans); B2B small claims is a separate lane; revenue recovery is offered only to existing business clients. VitaCoreX is not a law firm.
 
 ## Project Structure
 
@@ -42,7 +43,6 @@ VitaCorex LLC corporate website — static HTML/CSS/JS site with 50+ pages, 14 i
 │   ├── vcx-deadline-calendar/
 │   ├── vcx-immigration-forms/
 │   ├── vcx-contract-intelligence/
-│   ├── vcx-dealer-contract-check/
 │   ├── vcx-matter-status/
 │   ├── vcx-private-lookup/
 │   ├── vcx-sign-in/
@@ -58,7 +58,7 @@ VitaCorex LLC corporate website — static HTML/CSS/JS site with 50+ pages, 14 i
 │   ├── knowledge/           # Knowledge base files
 │   └── data/                # Data directory
 ├── .well-known/             # AI plugin + context manifests
-├── vercel.json              # Vercel deployment config
+├── vercel.json              # inert — Vercel does not serve production
 └── render.yaml              # Render deployment config
 ```
 
@@ -82,10 +82,11 @@ VitaCorex LLC corporate website — static HTML/CSS/JS site with 50+ pages, 14 i
 
 ## Deployment
 
-- **Production:** Vercel (auto-deploys on `git push origin main`)
-- **Render:** Secondary deployment via `render.yaml`
-- **GitHub Pages:** Compatible (`.nojekyll` + `CNAME` present)
-- Every `git push` to `main` triggers Vercel rebuild automatically
+- **Production:** GitHub Pages, served from the public GitHub repository (`.nojekyll` + `CNAME` → vitacorexllc.com).
+- Every push to `main` publishes the live site immediately — there is no staging step.
+- GitHub Pages serves static files only: there are no server-side redirects. Moved pages are meta-refresh stubs with a canonical link and `noindex, follow`; do not describe them as 301s.
+- `vercel.json` is inert (Vercel does not serve production). `render.yaml` is a secondary config.
+- **Never push** to `main` or any remote branch, and never open or merge a PR, without the owner's explicit approval of the exact build.
 
 ## Guardrails
 
