@@ -5,89 +5,44 @@ Phone: (888) 794-8292
 EIN: 41-4399148
 Site: https://vitacorexllc.com
 
-/* SERVICES */
-Revenue Recovery Infrastructure
-Corporate Legal File Control
-Structured Case Intake
-Private Client Services
+Founder and Principal: Steven Miller
+Chief Accountant: Michael Lyapin
+Linguist and translation coordinator: Polina Zaic
 
-/* INDUSTRIES */
-Healthcare & Dental Operators
-Dental Clinics & DSO Groups
-Medical Practices & Hospitals
-Gyms & Fitness Centers
-Fleet & Logistics Companies
-Contract-Heavy Service Businesses
-Subscription & Recurring Payment Operators
-SaaS Companies
-Construction & Professional Services
-Membership Organizations
+/* SERVICES FOR PRIVATE CLIENTS */
+Certified and general translations
+Online notarization
+Apostille assistance
+Individual tax returns
+Contracts & document support
+Immigration forms & documents (clerical preparation)
+Naturalization document support (N-400)
+Company formation
+Business plans
+Ask about your situation (no charge to send a request)
 
-/* PRIVATE CLIENT SERVICES */
-Immigration Packet Organization (USCIS, Visa, Green Card, Naturalization)
-Company Formation Documents (LLC, Corp, EIN, Articles of Incorporation)
-Auto Deal Review & Fee Analysis (Dealer Fees, Payment Calculator)
-Contract Review & Analysis (NDA, Non-Compete, Lease, Employment)
-Legal Document Organization (Litigation Files, Evidence, Court Docs)
-Florida Official Source Routing
-
-/* WEB TOOLS (FREE) */
-Legal Assistant: AI-powered legal document chat
-Contract Scanner: Automated contract risk analysis
-Immigration Helper: USCIS form organization tool
-Auto Deal Check: Dealer fee and payment calculator
-Deadline Calendar: Legal deadline management with email alerts
-Florida Lookup: Tolls, traffic, court routing
+/* SERVICES FOR COMPANIES */
+Small-claims case packet
+Small-claims preparation & case support
+Recovery support for existing clients
 
 /* KEYWORDS - ENGLISH */
-Revenue Recovery, Pre-Collection, Debt Recovery, AR Management
-Healthcare Revenue Cycle, Dental AR, Medical Billing Recovery
-Hospital Revenue Recovery, Emergency Room Billing, Patient Balance Recovery
-Dental Collections Alternative, DSO Revenue Management, Orthodontist Billing
-Gym Revenue Recovery, Fitness Membership Recovery, Health Club Billing
-CrossFit Box Revenue, Yoga Studio AR, Boutique Fitness Recovery
-Immigration Help, Immigration Documents, Visa Packet Preparation
-USCIS Forms, I-130, I-485, I-765, K-1 Visa, N-400, Asylum, DACA
-Green Card Documentation, Naturalization Packet, Work Permit Application
-Company Formation Florida, LLC Formation, Business Registration
-Articles of Incorporation, Operating Agreement, EIN Application
-S-Corp Formation, C-Corp Formation, Business License Florida
-Auto Deal Check, Car Purchase Review, Dealer Fee Analysis
-GAP Insurance Review, Extended Warranty Check, Auto Loan Calculator
-Legal File Control, Litigation Support, Document Management
-Contract Review, NDA Review, Non-Compete Review, Lease Review
-Demand Letter Preparation, Discovery Management, Court Document Prep
-Net Recovery Improvement, Bad Debt Reduction, DSO Reduction
-Days Sales Outstanding, Cash Flow Improvement, Accounts Receivable
-Collection Agency Alternative, FDCPA Compliance, HIPAA Compliance
-Subscription Billing, Dunning Optimization, Churn Recovery
-Involuntary Churn Reduction, Failed Payment Recovery, SaaS AR
-Fleet Revenue Recovery, Fuel Card Recovery, Equipment Lease Recovery
-Construction Receivables, B2B Commercial Debt, Contractor Payment
-Business Formation Tampa FL, Florida Business Startup
-Revenue Cycle Management, Revenue Cycle Optimization
+Certified translation, document translation, online notarization
+Apostille assistance, individual tax return, self-employed tax return
+Company formation, LLC formation Florida, EIN application assistance
+Business plan, contracts and document support
+USCIS form preparation, N-400 document support
+Small claims documentation for businesses
 
 /* KEYWORDS - RUSSIAN */
-возврат долгов, взыскание задолженности, дебиторская задолженность
-пред-коллекторский возврат, управление дебиторкой
-медицинские долги, стоматологические долги, возврат медицинских долгов
-иммиграционные документы, помощь с иммиграцией, USCIS формы
-визовая документация, грин карта, натурализация, убежище, DACA
-открытие компании, регистрация LLC, учредительные документы Флорида
-автосделка, проверка дилерских комиссий, калькулятор авто кредита
-покупка машины в США, помощь с покупкой авто
-юридические документы, контракты, NDA, неконкуренция
-русскоязычные бизнес услуги, бизнес услуги Тампа Флорида
+перевод документов, онлайн-заверение документов, апостиль
+налоговая декларация, открытие компании, бизнес-план
+иммиграционные формы, подготовка документов
 
 /* KEYWORDS - SPANISH */
-recuperación de deudas, cobranza, cuentas por cobrar
-pre-cobranza, gestión de cuentas por cobrar
-documentos de inmigración, ayuda con inmigración, formularios USCIS
-visa, tarjeta verde, naturalización, asilo, DACA
-formación de empresas, registro de LLC, artículos de incorporación
-revisión de auto, comisiones del concesionario, calculadora de préstamo
-comprar carro en USA, documentos legales, contratos
-servicios empresariales Tampa Florida, servicios en español
+traducción certificada, notarización en línea, apostilla
+declaración de impuestos, creación de empresa, plan de negocio
+formularios migratorios, preparación de documentos
 
 /* SOCIAL */
 Instagram: @vitacorex_llc
@@ -106,15 +61,13 @@ Languages: English, Russian, Spanish
 English, Russian, Spanish
 
 /* AREAS SERVED */
-United States (nationwide)
-Florida (primary)
+United States
 Tampa, FL (headquarters)
 
 /* CONTACT */
 Phone: (888) 794-8292
 Email: info@vitacorexllc.com
 Web: https://vitacorexllc.com
-Booking: https://calendly.com/vitacorex2025/30min
 
 /* LAST UPDATE */
-2026-04-05
+2026-10-14

@@ -4,16 +4,16 @@
   "@id": "https://vitacorexllc.com/#local-business",
   "name": "VitaCoreX LLC",
   "alternateName": ["VitaCoreX", "Vita Core X", "VCX"],
-  "description": "Revenue recovery infrastructure, immigration document preparation, company formation, auto deal review, and legal document services. Serving Tampa FL and nationwide in English, Russian, and Spanish.",
+  "description": "Translations, online notarization, apostille assistance, individual tax returns, company formation, business plans and document support for private clients, plus small-claims document preparation for companies. Tampa, FL. English, Russian, Spanish. Not a law firm.",
   "url": "https://vitacorexllc.com",
   "telephone": "+1-888-794-8292",
-  "email": "stevenmiller@vitacorexllc.com",
+  "email": "info@vitacorexllc.com",
   "image": "https://vitacorexllc.com/assets/img/logo.png",
   "logo": "https://vitacorexllc.com/assets/img/logo.png",
   "priceRange": "$$",
+  "currenciesAccepted": "USD",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Tampa",
     "addressLocality": "Tampa",
     "addressRegion": "FL",
     "postalCode": "33602",
@@ -25,52 +25,10 @@
     "longitude": -82.4572
   },
   "areaServed": [
-    {
-      "@type": "Country",
-      "name": "United States"
-    },
-    {
-      "@type": "State",
-      "name": "Florida"
-    },
-    {
-      "@type": "City",
-      "name": "Tampa"
-    },
-    {
-      "@type": "City",
-      "name": "St. Petersburg"
-    },
-    {
-      "@type": "City",
-      "name": "Clearwater"
-    },
-    {
-      "@type": "City",
-      "name": "Brandon"
-    },
-    {
-      "@type": "City",
-      "name": "Riverview"
-    },
-    {
-      "@type": "City",
-      "name": "Wesley Chapel"
-    },
-    {
-      "@type": "City",
-      "name": "Lakeland"
-    }
+    {"@type": "Country", "name": "United States"},
+    {"@type": "State", "name": "Florida"},
+    {"@type": "City", "name": "Tampa"}
   ],
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 27.9506,
-      "longitude": -82.4572
-    },
-    "geoRadius": "50 mi"
-  },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -83,16 +41,11 @@
     {
       "@type": "ContactPoint",
       "telephone": "+1-888-794-8292",
+      "email": "info@vitacorexllc.com",
       "contactType": "customer service",
       "availableLanguage": ["English", "Russian", "Spanish"],
       "areaServed": "US",
       "contactOption": "TollFree"
-    },
-    {
-      "@type": "ContactPoint",
-      "email": "stevenmiller@vitacorexllc.com",
-      "contactType": "customer service",
-      "availableLanguage": ["English", "Russian", "Spanish"]
     }
   ],
   "availableLanguage": [
@@ -100,9 +53,8 @@
     {"@type": "Language", "name": "Russian", "alternateName": "ru"},
     {"@type": "Language", "name": "Spanish", "alternateName": "es"}
   ],
-  "knowsLanguage": ["en", "ru", "es"],
-  "slogan": "Revenue Recovery Infrastructure for Complex Operators",
   "foundingDate": "2025",
+  "founder": {"@type": "Person", "@id": "https://vitacorexllc.com/#founder", "name": "Steven Miller"},
   "legalName": "VitaCoreX LLC",
   "taxID": "41-4399148",
   "sameAs": [
@@ -113,54 +65,19 @@
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "VitaCoreX Professional Services",
+    "name": "VitaCoreX services",
+    "url": "https://vitacorexllc.com/.well-known/service-catalog.jsonld",
     "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Revenue Recovery & Pre-Collection",
-          "description": "Pre-collection workflows for healthcare, dental, gyms, SaaS, fleet"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Immigration Document Preparation",
-          "description": "USCIS form packets, visa applications, green card, naturalization"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Company Formation Florida",
-          "description": "LLC, S-Corp, C-Corp registration, articles, operating agreements"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Auto Deal Review",
-          "description": "Dealer fee analysis, payment calculator, GAP insurance review"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Legal Document Services",
-          "description": "Contract review, NDA, litigation support, demand letters"
-        }
-      }
+      {"@type": "Offer", "description": "$25 per 250 source words (one standard page)", "itemOffered": {"@type": "Service", "name": "Certified translation", "url": "https://vitacorexllc.com/translations.html"}},
+      {"@type": "Offer", "description": "$25 per notarial act", "itemOffered": {"@type": "Service", "name": "Online notarization", "url": "https://vitacorexllc.com/online-notary.html"}},
+      {"@type": "Offer", "description": "from $119 service fee for the first document; government fees and shipping separate", "itemOffered": {"@type": "Service", "name": "Apostille assistance", "url": "https://vitacorexllc.com/apostille.html"}},
+      {"@type": "Offer", "description": "from $149 — final price after review", "itemOffered": {"@type": "Service", "name": "Individual tax return", "url": "https://vitacorexllc.com/tax-preparation.html"}},
+      {"@type": "Offer", "description": "$99 + state filing fee", "itemOffered": {"@type": "Service", "name": "Company formation", "url": "https://vitacorexllc.com/llc-formation-florida.html"}},
+      {"@type": "Offer", "description": "from $499", "itemOffered": {"@type": "Service", "name": "Business plan", "url": "https://vitacorexllc.com/business-plans.html"}},
+      {"@type": "Offer", "description": "from $99", "itemOffered": {"@type": "Service", "name": "Contracts & document support", "url": "https://vitacorexllc.com/contract-review-service.html"}},
+      {"@type": "Offer", "description": "from $149; USCIS fees separate", "itemOffered": {"@type": "Service", "name": "Immigration forms & documents (clerical)", "url": "https://vitacorexllc.com/immigration-packet-review.html"}},
+      {"@type": "Offer", "description": "from $249; USCIS fee separate", "itemOffered": {"@type": "Service", "name": "Naturalization document support (N-400)", "url": "https://vitacorexllc.com/n-400-naturalization.html"}},
+      {"@type": "Offer", "description": "from $199; court fees separate; not offered in New York", "itemOffered": {"@type": "Service", "name": "Small-claims case packet for companies", "url": "https://vitacorexllc.com/small-claims-documentation.html"}}
     ]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "1",
-    "bestRating": "5"
   }
 }

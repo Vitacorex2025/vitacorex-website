@@ -1,7 +1,7 @@
 {
   "name": "VitaCoreX LLC",
   "short_name": "VitaCoreX",
-  "description": "Revenue recovery and documentation infrastructure",
+  "description": "Documents, translations and personal services",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#EEF6F5",
@@ -16,18 +16,17 @@
   ],
   "shortcuts": [
     {
-      "name": "Deadline Command Center",
-      "short_name": "Command",
-      "url": "/app/deadline-calendar/",
-      "description": "Risk-first deadline command center — see your week at a glance"
+      "name": "All services",
+      "url": "/services.html",
+      "description": "Translations, notarization, apostille, tax returns, company formation and more"
     },
     {
-      "name": "Request confidential review",
+      "name": "Request a quote",
+      "url": "/request.html"
+    },
+    {
+      "name": "Contact",
       "url": "/contact.html"
-    },
-    {
-      "name": "Review executive brief",
-      "url": "/resources.html"
     },
     {
       "name": "Sign in",

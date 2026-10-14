@@ -1,467 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
-<title>Auto Deal Check | VitaCoreX</title>
-<meta name="robots" content="noindex,nofollow"/>
-<meta name="description" content="Enter your auto deal numbers and get a plain-language fee and payment review from VitaCoreX."/>
-<meta property="og:title" content="Auto Deal Check | VitaCoreX"/>
-<meta property="og:description" content="Enter your auto deal numbers and get a plain-language fee and payment review from VitaCoreX."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://vitacorexllc.com/app/dealer-contract-check/"/>
-<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context"/>
-
-
-<link rel="stylesheet" href="/assets/css/vcx-tokens.css">
-    <link rel="stylesheet" href="/assets/css/vcx-base.css">
-<link rel="stylesheet" href="/assets/css/vcx-layout.css">
-<link rel="stylesheet" href="/assets/css/vcx-components.css">
-<link rel="stylesheet" href="/assets/css/vcx-utilities.css">
-    <link href="/assets/css/styles.css" rel="stylesheet"/>
-<link href="/assets/css/ui-shell.css" rel="stylesheet"/>
-<link href="/assets/css/premium-fixes.css" rel="stylesheet"/><link href="/assets/css/vcx-redesign.css?v=12" rel="stylesheet"/><link href="/assets/css/vcx-premium-2.css?v=20" rel="stylesheet"/>
-<link href="/assets/css/vcx-premium-fx.css" rel="stylesheet"/><link href="/assets/css/vcx-app-premium.css?v=2" rel="stylesheet"/><link href="/assets/css/vcx-footer-fix.css?v=4" rel="stylesheet"/><link href="/assets/css/vcx-a11y-fixes.css?v=11" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/vcx-noise-bg.css?v=5"/><script src="/assets/js/vcx-noise-bg.js?v=1" defer></script><script src="/assets/js/vcx-back-link.js?v=12" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Service no longer offered | VitaCoreX LLC</title>
+<meta name="description" content="This VitaCoreX service is no longer offered. See current services for private clients.">
+<link rel="icon" href="/favicon.ico">
 <style>
-@keyframes vcxPulse{0%,100%{opacity:1}50%{opacity:.3}}
-</style>
-<script>
-window.SITE_I18N = {
-  "en": {
-    "brand_tag": "Revenue recovery, documentation control, and client workspaces.",
-    "home": "Home", "file": "Corporate Legal File Control",
-    "recovery": "Revenue Recovery Infrastructure", "intake": "Structured Case Intake",
-    "resources": "Executive Briefs & Proof", "additional": "Private Client Services",
-    "careers": "Careers", "contact": "Private Consultation",
-    "clock_vcx": "VitaCoreX Time", "clock_local": "Your Time", "clock_local_sub": "Local",
-    "footer_est": "Established 2025", "footer_phone": "Private consultation line: (888) 794-8292",
-    "footer_ein": "EIN: 41-4399148",
-    "footer_disc": "VitaCoreX LLC is a Florida-registered company providing remote administrative, workflow, documentation, and file-control support across the United States where permitted by applicable law. VitaCoreX is not a law firm, does not provide legal advice, is not a licensed collection agency, does not collect debts, and does not represent clients in court or before government agencies. State-specific court, collection, privacy, immigration, and unauthorized-practice-of-law rules are confirmed before engagement.",
-    "footer_trust_line": "Florida-registered LLC · U.S.-wide remote support where permitted · Not a law firm · Not a collection agency · No legal advice · No debt collection · Scope confirmed at intake"
-    "footer_copy": "\u00a9 2026 VitaCoreX LLC. All rights reserved.",
-    "tool_eyebrow": "Private Client Tool",
-    "tool_title": "Auto Deal Check",
-    "tool_subtitle": "Enter your deal numbers — vehicle price, fees, and financing terms. We flag fees above common thresholds, calculate your true monthly payment, and highlight items worth negotiating before you sign.",
-    "tool_upload_label": "Attach deal documents for your records (optional)",
-    "tool_upload_hint": "Buyer order, contract, or photos. Stored in your browser for reference only — not analyzed or sent anywhere.",
-    "tool_upload_btn": "Choose files or take photos",
-    "tool_zip_label": "ZIP / State (optional)",
-    "tool_price_label": "Asking price you were given (optional)",
-    "tool_check_btn": "Check Deal Numbers",
-    "tool_result_title": "Fee & Payment Review",
-    "tool_empty": "Enter at least a vehicle price to begin.",
-    "tool_error": "Please enter at least the vehicle price before running the check.",
-    "tool_consult": "Schedule deal review call",
-    "tool_new": "Check another deal",
-    "tool_disc": "This calculator uses internal reference thresholds, not live market data. Results are informational only. Verify all findings with an independent source before signing any contract.",
-    "tool_back": "\u2190 Private Client Services"
-  },
-  "ru": {
-    "brand_tag": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438",
-    "home": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f", "file": "\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442\u0430",
-    "recovery": "\u0418\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0432\u044b\u0440\u0443\u0447\u043a\u0438",
-    "intake": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0435\u0440\u0432\u0438\u0447\u043d\u044b\u0439 \u0440\u0430\u0437\u0431\u043e\u0440",
-    "resources": "\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b \u0434\u043b\u044f \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u0430", "additional": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438",
-    "careers": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e", "contact": "\u0417\u0430\u043f\u0440\u043e\u0441\u0438\u0442\u044c \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e",
-    "clock_vcx": "\u0412\u0440\u0435\u043c\u044f VitaCoreX", "clock_local": "\u0412\u0430\u0448\u0435 \u0432\u0440\u0435\u043c\u044f", "clock_local_sub": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e",
-    "footer_est": "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u0441 2025 \u0433\u043e\u0434\u0430", "footer_phone": "\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u043b\u0438\u043d\u0438\u044f: (888) 794-8292",
-    "footer_ein": "EIN: 41-4399148",
-    "footer_disc": "VitaCoreX LLC — компания, зарегистрированная во Флориде, оказывающая удалённую административную, операционную, документарную поддержку и услуги по контролю досье на территории США там, где это разрешено применимым законодательством. VitaCoreX не является юридической фирмой, не даёт юридических советов, не является лицензированным коллекторским агентством, не взыскивает долги и не представляет клиентов в суде или перед государственными органами. Правила конкретного штата по судам, взысканию, конфиденциальности, иммиграции и неавторизованной юридической практике подтверждаются до начала работы.",
-    "footer_trust_line": "LLC, зарегистрированная во Флориде · Удалённая поддержка по США там, где разрешено · Не юридическая фирма · Не коллекторское агентство · Без юридических советов · Без взыскания долгов · Объём подтверждается на приёме"
-    "footer_copy": "\u00a9 2026 VitaCoreX LLC. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u044b.",
-    "tool_eyebrow": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
-    "tool_title": "\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0430\u0432\u0442\u043e\u0441\u0434\u0435\u043b\u043a\u0438",
-    "tool_subtitle": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0446\u0438\u0444\u0440\u044b \u0441\u0434\u0435\u043b\u043a\u0438 \u2014 \u0446\u0435\u043d\u0443, \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0438 \u0438 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u0444\u0438\u043d\u0430\u043d\u0441\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f. \u041c\u044b \u043f\u043e\u043a\u0430\u0436\u0435\u043c \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0438 \u0432\u044b\u0448\u0435 \u043e\u0431\u044b\u0447\u043d\u044b\u0445 \u043f\u043e\u0440\u043e\u0433\u043e\u0432, \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0435\u043c \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0439 \u043f\u043b\u0430\u0442\u0451\u0436 \u0438 \u0432\u044b\u0434\u0435\u043b\u0438\u043c \u043f\u0443\u043d\u043a\u0442\u044b \u0434\u043b\u044f \u043f\u0435\u0440\u0435\u0433\u043e\u0432\u043e\u0440\u043e\u0432.",
-    "tool_upload_label": "\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u0438\u0442\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0434\u043b\u044f \u0441\u0435\u0431\u044f (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
-    "tool_upload_hint": "\u0417\u0430\u043a\u0430\u0437 \u043f\u043e\u043a\u0443\u043f\u0430\u0442\u0435\u043b\u044f, \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0438\u043b\u0438 \u0444\u043e\u0442\u043e. \u0425\u0440\u0430\u043d\u044f\u0442\u0441\u044f \u0432 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0435 \u0434\u043b\u044f \u0441\u043f\u0440\u0430\u0432\u043a\u0438 \u2014 \u043d\u0435 \u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u0443\u044e\u0442\u0441\u044f \u0438 \u043d\u0435 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0442\u0441\u044f.",
-    "tool_upload_btn": "\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b\u044b \u0438\u043b\u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e",
-    "tool_zip_label": "\u0418\u043d\u0434\u0435\u043a\u0441 / \u0428\u0442\u0430\u0442 (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
-    "tool_price_label": "\u0426\u0435\u043d\u0430, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u0432\u0430\u043c \u043d\u0430\u0437\u0432\u0430\u043b\u0438 (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)",
-    "tool_check_btn": "\u041f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0446\u0438\u0444\u0440\u044b",
-    "tool_result_title": "\u041e\u0431\u0437\u043e\u0440 \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0439 \u0438 \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439",
-    "tool_empty": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u0446\u0435\u043d\u0443 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f.",
-    "tool_error": "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0446\u0435\u043d\u0443 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f.",
-    "tool_consult": "\u0417\u0430\u043f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0432\u043e\u043d\u043e\u043a",
-    "tool_new": "\u041f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0434\u0440\u0443\u0433\u0443\u044e \u0441\u0434\u0435\u043b\u043a\u0443",
-    "tool_disc": "\u042d\u0442\u043e\u0442 \u043a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u0438\u0435 \u043f\u043e\u0440\u043e\u0433\u043e\u0432\u044b\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f, \u0430 \u043d\u0435 \u0440\u044b\u043d\u043e\u0447\u043d\u044b\u0435 \u0434\u0430\u043d\u043d\u044b\u0435. \u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u043d\u043e\u0441\u044f\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440.",
-    "tool_back": "\u2190 \u0423\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432"
-  },
-  "es": {
-    "brand_tag": "Infraestructura ejecutiva de recuperaci\u00f3n de ingresos y control documental",
-    "home": "Inicio", "file": "Control de archivos legales corporativos",
-    "recovery": "Infraestructura de recuperaci\u00f3n de ingresos", "intake": "Evaluaci\u00f3n inicial estructurada",
-    "resources": "Material ejecutivo y respaldo documental", "additional": "Servicios adicionales",
-    "careers": "Carreras", "contact": "Solicitar consulta",
-    "clock_vcx": "VitaCoreX Time", "clock_local": "Tu hora", "clock_local_sub": "Local",
-    "footer_est": "Establecida en 2025", "footer_phone": "L\u00ednea privada: (888) 794-8292",
-    "footer_ein": "EIN: 41-4399148",
-    "footer_disc": "VitaCoreX LLC es una empresa registrada en Florida que ofrece soporte remoto administrativo, de flujo de trabajo, documental y de control de expedientes en todo Estados Unidos donde lo permita la ley aplicable. VitaCoreX no es un bufete de abogados, no brinda asesoramiento legal, no es una agencia de cobro con licencia, no cobra deudas y no representa a clientes ante tribunales ni agencias gubernamentales. Las reglas específicas de cada estado sobre tribunales, cobro, privacidad, inmigración y práctica no autorizada del derecho se confirman antes de iniciar la colaboración.",
-    "footer_trust_line": "LLC registrada en Florida · Soporte remoto en EE. UU. donde esté permitido · No es bufete de abogados · No es agencia de cobros · Sin asesoramiento legal · Sin cobro de deudas · Alcance confirmado en la admisión"
-    "footer_copy": "\u00a9 2026 VitaCoreX LLC. Todos los derechos reservados.",
-    "tool_eyebrow": "Herramienta para clientes privados",
-    "tool_title": "Revisi\u00f3n del trato automotriz",
-    "tool_subtitle": "Ingrese los n\u00fameros del trato \u2014 precio, comisiones y t\u00e9rminos de financiamiento. Identificaremos cargos por encima de umbrales comunes, calcularemos su pago mensual real y destacaremos puntos para negociar.",
-    "tool_upload_label": "Adjunte documentos para su referencia (opcional)",
-    "tool_upload_hint": "Orden de compra, contrato o fotos. Se guardan en su navegador \u2014 no se analizan ni se env\u00edan.",
-    "tool_upload_btn": "Elegir archivos o tomar fotos",
-    "tool_zip_label": "C\u00f3digo postal / Estado (opcional)",
-    "tool_price_label": "Precio que le ofrecieron (opcional)",
-    "tool_check_btn": "Verificar cifras",
-    "tool_result_title": "Revisi\u00f3n de comisiones y pagos",
-    "tool_empty": "Ingrese al menos el precio del veh\u00edculo.",
-    "tool_error": "Por favor ingrese al menos el precio del veh\u00edculo.",
-    "tool_consult": "Programar llamada de revisi\u00f3n",
-    "tool_new": "Verificar otro trato",
-    "tool_disc": "Esta calculadora usa umbrales de referencia internos, no datos de mercado en tiempo real. Los resultados son solo informativos.",
-    "tool_back": "\u2190 Servicios para clientes privados"
+  :root {
+    --bg: #f3f6f9;
+    --card: #ffffff;
+    --text: #13212f;
+    --muted: #46576a;
+    --line: #d6dee6;
+    --link: #0a5f6b;
+    --focus: #0a5f6b;
   }
-};
-(function(){var lang='en';document.documentElement.lang=lang;window._vcxLang=lang;})();
-</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vitacorexllc.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://vitacorexllc.com/additional-services.html"},{"@type":"ListItem","position":3,"name":"Auto Deal Check"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Auto Deal Checker","description":"Enter your auto deal numbers and get a plain-language fee, payment, and financing review before you sign.","url":"https://vitacorexllc.com/app/dealer-contract-check/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"VitaCoreX LLC","url":"https://vitacorexllc.com"},"availableLanguage":["en","ru","es"]}</script>
-<meta name="vcx-back-label" content="Private Client Services" data-ru="Частные клиенты" data-es="Clientes privados">
-<meta name="vcx-back-fallback" content="/additional-services.html">
-</head>
-<body data-vcx-page="auto-deal-check" data-audience="shared">
-
-<header class="vcx-header">
-<div class="wrap"><div class="vcx-header-shell">
-<div class="vcx-header-desktop">
-<div class="vcx-header-top">
-<a aria-label="VitaCoreX home" class="vcx-brand" href="/index.html">
-<img alt="VitaCoreX logo" src="/assets/img/logo.png"/>
-<div class="vcx-brand-copy"><strong>VitaCoreX LLC</strong><span data-common="brand_tag">Revenue recovery, documentation control, and client workspaces.</span></div>
-</a>
-<div class="vcx-header-meta">
-<div class="vcx-time-chip"><div class="vcx-time-label"><span data-common="clock_vcx">VitaCoreX Time</span><span class="vcx-time-sub">U.S. Eastern</span></div><div class="vcx-time-value clock-vcx">00:00</div></div>
-<div class="vcx-time-chip"><div class="vcx-time-label"><span data-common="clock_local">Your Time</span><span class="vcx-time-sub" data-common="clock_local_sub">Local</span></div><div class="vcx-time-value clock-local">00:00</div></div>
-</div>
-</div>
-<div class="vcx-header-navrow">
-<nav class="vcx-main-nav">
-<a data-common="home" href="/index.html">Home</a>
-<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
-<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
-<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
-<a data-common="resources" href="/insights.html">Executive Briefs &amp; Proof</a>
-<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
-<a data-common="careers" href="/careers.html">Careers</a>
-<a data-common="contact" href="/contact.html">Private Consultation</a>
-</nav>
-<div class="vcx-lang-switcher" aria-label="Language"><button class="lang-btn" data-lang="en" aria-label="English">EN</button><button class="lang-btn" data-lang="ru">RU</button><button class="lang-btn" data-lang="es" aria-label="Español">ES</button></div>
-</div>
-</div>
-<div class="vcx-header-mobile">
-<div class="vcx-mobile-row">
-<a aria-label="VitaCoreX home" class="vcx-mobile-brand" href="/index.html"><img alt="VitaCoreX logo" src="/assets/img/logo.png"/><span>VitaCoreX</span></a>
-<button aria-controls="vcxMobileNav" aria-expanded="false" aria-label="Open menu" class="vcx-menu-btn" type="button"><span aria-hidden="true" class="vcx-menu-icon">&#9776;</span><span class="vcx-menu-text">Menu</span></button>
-</div>
-<nav class="vcx-mobile-nav" hidden id="vcxMobileNav">
-<a data-common="home" href="/index.html">Home</a>
-<a data-common="file" href="/corporate-legal-file-control.html">Corporate Legal File Control</a>
-<a data-common="recovery" href="/revenue-recovery-workflow.html">Revenue Recovery Infrastructure</a>
-<a data-common="intake" href="/structured-case-intake.html">Structured Case Intake</a>
-<a data-common="resources" href="/insights.html">Executive Briefs &amp; Proof</a>
-<a class="active" data-common="additional" href="/additional-services.html">Private Client Services</a>
-<a data-common="careers" href="/careers.html">Careers</a>
-<a data-common="contact" href="/contact.html">Private Consultation</a>
-</nav>
-<div class="vcx-lang-mobile" aria-label="Language"><button class="lang-btn" data-lang="en" aria-label="English">EN</button><button class="lang-btn" data-lang="ru">RU</button><button class="lang-btn" data-lang="es" aria-label="Español">ES</button></div>
-</div>
-</div></div>
-</header>
-
-<main id="main-content" id="vcxDealerMain" style="padding:40px 0 80px;">
-<div class="wrap" style="max-width:780px;">
-
-<div class="reveal" style="margin-bottom:36px;">
-<span class="eyebrow" data-tx="tool_eyebrow">Private Client Tool</span>
-<h1 data-tx="tool_title" style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4em 0 .5em;">Auto Deal Check</h1>
-<p style="font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.6;max-width:580px;" data-tx="tool_subtitle">Enter your deal numbers — vehicle price, fees, and financing terms. We flag fees above common thresholds, calculate your true monthly payment, and highlight items worth negotiating before you sign.</p>
-</div>
-
-<!-- AI &amp; upload scope disclosure -->
-<aside class="vcx-ai-disc reveal" role="note" aria-label="AI and automation disclosure" style="background:rgba(8, 145, 178,.08);border:1px solid rgba(8, 145, 178,.25);border-left:4px solid #0891B2;border-radius:3px;padding:10px 14px;margin:0 0 20px;font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);">
-<div style="display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7ED8C3;margin:0 0 6px;"><span aria-hidden="true" style="display:inline-block;width:8px;height:8px;background:#0891B2;border-radius:2px;"></span><span data-page="ai_disc_title">AI &amp; automation disclosure</span></div>
-<p style="margin:0 0 6px;" data-page="ai_disc_body_1"><strong style="color:#7ED8C3;font-weight:700;">AI-assisted tools may be used</strong> to organize, summarize, classify, or flag documents for human review. AI outputs are not legal advice, compliance opinions, immigration advice, court instructions, or final determinations.</p>
-<p style="margin:0;" data-page="ai_disc_body_2"><strong style="color:#7ED8C3;font-weight:700;">Do not upload</strong> regulated, confidential, privileged, PHI, GLBA, payment-card, or immigration identity documents unless a secure workflow has been approved.</p>
-</aside>
-
-<!-- Deal calculator card -->
-<div id="vcxUploadCard" class="glass reveal" style="padding:32px;border-radius:3px;margin-bottom:24px;">
-
-<!-- Optional file upload -->
-<label for="vcxDealFile" data-tx="tool_upload_label" style="display:block;font-weight:600;font-size:.95rem;margin-bottom:6px;color:rgba(255,255,255,.7);">Attach deal documents for your records (optional)</label>
-<p data-tx="tool_upload_hint" style="font-size:.85rem;color:rgba(255,255,255,.4);margin:0 0 10px;">Buyer order, contract, or photos. Stored in your browser for reference only — not analyzed or sent anywhere.</p>
-<div id="vcxDropZone" style="border:2px dashed rgba(8, 145, 178,.25);border-radius:3px;padding:18px 20px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:20px;" onclick="document.getElementById('vcxDealFile').click()">
-<span data-tx="tool_upload_btn" style="font-size:.9rem;color:rgba(8, 145, 178,.7);">Choose files or take photos</span>
-<div id="vcxFileName" style="margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.45);"></div>
-</div>
-<input type="file" id="vcxDealFile" accept=".pdf,.doc,.docx,.txt,image/*" capture="environment" multiple style="display:none;" onchange="vcxHandleFile(this)"/>
-
-<!-- Calculator fields -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-
-<div>
-<label for="vcxMSRP" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Vehicle price / MSRP ($)</label>
-<input type="number" id="vcxMSRP" min="0" placeholder="e.g. 32000"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;" oninput="vcxEnableBtn()"/>
-</div>
-
-<div>
-<label for="vcxAgreed" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Your agreed / offer price ($)</label>
-<input type="number" id="vcxAgreed" min="0" placeholder="e.g. 31000"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;" oninput="vcxEnableBtn()"/>
-</div>
-
-<div>
-<label for="vcxDocFee" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Documentation fee ($)</label>
-<input type="number" id="vcxDocFee" min="0" value="0" placeholder="0"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-<div>
-<label for="vcxGAP" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">GAP insurance quoted ($)</label>
-<input type="number" id="vcxGAP" min="0" value="0" placeholder="0"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-<div>
-<label for="vcxWarranty" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Extended warranty ($)</label>
-<input type="number" id="vcxWarranty" min="0" value="0" placeholder="0"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-<div>
-<label for="vcxTradeIn" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Trade-in value offered ($)</label>
-<input type="number" id="vcxTradeIn" min="0" value="0" placeholder="0"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-<div>
-<label for="vcxAPR" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Finance rate (APR %, optional)</label>
-<input type="number" id="vcxAPR" min="0" max="40" step="0.01" placeholder="e.g. 6.9"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-<div>
-<label for="vcxMonths" style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:5px;">Loan term (months, optional)</label>
-<input type="number" id="vcxMonths" min="0" max="120" placeholder="e.g. 60"
-  style="width:100%;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:#E8F5F1;font-size:.9rem;box-sizing:border-box;"/>
-</div>
-
-</div><!-- end grid -->
-
-<button id="vcxCheckBtn" type="button" onclick="vcxRunDealCheck()" disabled
-  style="margin-top:22px;width:100%;padding:16px;background:rgba(8, 145, 178,.15);border:1px solid rgba(8, 145, 178,.4);border-radius:3px;color:#0891B2;font-size:1rem;font-weight:600;cursor:pointer;opacity:.6;"
-  data-tx="tool_check_btn">Check Deal Numbers</button>
-</div>
-
-<!-- id=vcx-service-welcome: shown when arriving with ?service=auto -->
-<div id="vcx-service-welcome" hidden style="background:rgba(8, 145, 178,.08);border:1px solid rgba(8, 145, 178,.25);border-radius:3px;padding:14px 18px;margin-bottom:20px;font-size:.9rem;color:rgba(8, 145, 178,.85);">
-  Welcome — you were routed here for auto deal review. Enter the numbers below for an instant analysis.
-</div>
-
-<!-- Results -->
-<div id="vcxResultsArea" hidden></div>
-
-<!-- Error state -->
-<div id="vcxErrorState" style="display:none;padding:14px 18px;background:rgba(255,80,80,.08);border-left:3px solid rgba(255,100,100,.4);border-radius:3px;color:rgba(255,160,160,.9);font-size:.9rem;" data-tx="tool_error">Please enter at least the vehicle price before running the check.</div>
-
-<p data-tx="tool_disc" style="margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.55;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;">This calculator uses internal reference thresholds, not live market data. Results are informational only. Verify all findings with an independent source before signing any contract.</p>
-</div>
-</div>
-</main>
-
-<footer class="vcx-footer"><div class="wrap">
-<div class="footer-grid">
-<div><strong>VitaCoreX LLC</strong><span data-common="footer_est">Established 2025</span></div>
-<div><span data-common="footer_phone">Private consultation line: (888) 794-8292</span><span data-common="footer_ein">EIN: 41-4399148</span></div>
-</div>
-<p class="footer-disc" data-common="footer_disc">VitaCoreX LLC is a Florida-registered company providing remote administrative, workflow, documentation, and file-control support across the United States where permitted by applicable law. VitaCoreX is not a law firm, does not provide legal advice, is not a licensed collection agency, does not collect debts, and does not represent clients in court or before government agencies. State-specific court, collection, privacy, immigration, and unauthorized-practice-of-law rules are confirmed before engagement.</p><p class="footer-trust-line footer-trust-line--compact" data-common="footer_trust_line">Florida-registered LLC &middot; U.S.-wide remote support where permitted &middot; Not a law firm &middot; Not a collection agency &middot; No legal advice &middot; No debt collection &middot; Scope confirmed at intake</p>
-</div></footer>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E08EE1KSQQ"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E08EE1KSQQ');</script>
-<script>!function(e,t){if(!t.__SV){window.analytics=t,t.methods=["identify","track","page","group","alias","reset"],t.factory=function(e){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(e),t.push(a),t}};for(var s=0;s<t.methods.length;s++)t[t.methods[s]]=t.factory(t.methods[s]);t.load=function(e){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(a,r)};t.SNIPPET_VERSION="4.1.0";t.load("69a7b325debb1e000d36d253");t.page()}}(window,window.analytics||[]);</script>
-
-<script>
-(function(){
-  var I18N=window.SITE_I18N; var lang=window._vcxLang||'en';
-  function t(k){return(I18N[lang]&&I18N[lang][k])||(I18N['en']&&I18N['en'][k])||k;}
-  function applyText(){
-    document.querySelectorAll('[data-tx]').forEach(function(el){var k=el.getAttribute('data-tx');var v=t(k);if(v)el.textContent=v;});
-    document.querySelectorAll('[data-common]').forEach(function(el){var k=el.getAttribute('data-common');var v=t(k);if(v)el.textContent=v;});
-  }
-  document.querySelectorAll('.lang-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){lang=btn.getAttribute('data-lang');window._vcxLang=lang;try{localStorage.setItem('vcx_lang',lang);}catch(e){}document.documentElement.lang=lang;applyText();});
-  });
-  applyText();
-  var mb=document.querySelector('.vcx-menu-btn');var mn=document.getElementById('vcxMobileNav');
-  if(mb&&mn){mb.addEventListener('click',function(){var o=mn.hasAttribute('hidden');mn.toggleAttribute('hidden',!o);mb.setAttribute('aria-expanded',o?'true':'false');});}
-  function pad(n){return String(n).padStart(2,'0');}
-  function tick(){var now=new Date();var t2=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));document.querySelectorAll('.clock-vcx').forEach(function(el){el.textContent=pad(t2.getHours())+':'+pad(t2.getMinutes());});document.querySelectorAll('.clock-local').forEach(function(el){el.textContent=pad(now.getHours())+':'+pad(now.getMinutes());});}
-  tick();setInterval(tick,30000);
-  var dz=document.getElementById('vcxDropZone');
-  if(dz){dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='rgba(8, 145, 178,.7)';});dz.addEventListener('dragleave',function(){dz.style.borderColor='rgba(8, 145, 178,.35)';});dz.addEventListener('drop',function(e){e.preventDefault();dz.style.borderColor='rgba(8, 145, 178,.35)';var f=e.dataTransfer.files[0];if(f){var inp=document.getElementById('vcxDealFile');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;vcxHandleFile(inp);}});}
-  // ?service= deep-link handler
-  var sp=new URLSearchParams(window.location.search);
-  if(sp.get('service')==='auto'){var sw=document.getElementById('vcx-service-welcome');if(sw){sw.textContent='You were routed here from Structured Intake for auto deal review.';sw.removeAttribute('hidden');}}
-})();
-
-function el(id){return document.getElementById(id);}
-
-function vcxHandleFile(input){
-  var files=input.files; var n=el('vcxFileName');
-  if(files&&files.length){n.textContent=files.length===1?files[0].name+' ('+(files[0].size/1024).toFixed(0)+' KB)':files.length+' files selected';}
-}
-
-function vcxEnableBtn(){
-  var msrp=parseFloat(el('vcxMSRP').value)||0;
-  var btn=el('vcxCheckBtn');
-  if(msrp>0){btn.disabled=false;btn.style.opacity='1';btn.style.background='rgba(8, 145, 178,.25)';}
-  else{btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(8, 145, 178,.15)';}
-}
-
-function vcxRunDealCheck(){
-  var msrp=parseFloat(el('vcxMSRP').value)||0;
-  var agreed=parseFloat(el('vcxAgreed').value)||0;
-  var docFee=parseFloat(el('vcxDocFee').value)||0;
-  var gap=parseFloat(el('vcxGAP').value)||0;
-  var warranty=parseFloat(el('vcxWarranty').value)||0;
-  var tradeIn=parseFloat(el('vcxTradeIn').value)||0;
-  var apr=parseFloat(el('vcxAPR').value)||0;
-  var months=parseFloat(el('vcxMonths').value)||0;
-  var I18N=window.SITE_I18N; var lang=window._vcxLang||'en';
-  function t(k){return(I18N[lang]&&I18N[lang][k])||(I18N['en']&&I18N['en'][k])||k;}
-
-  var errEl=el('vcxErrorState');
-  if(msrp<=0){errEl.style.display='block';return;}
-  errEl.style.display='none';
-
-  var flags=[];
-
-  // Over-MSRP check
-  if(agreed>0&&agreed>msrp){
-    flags.push({level:'high',label:'Price above MSRP',detail:'Your agreed price ($'+agreed.toLocaleString()+') is $'+(agreed-msrp).toLocaleString()+' above MSRP. Negotiate to MSRP or below on non-scarce vehicles.'});}
-  else if(agreed>0&&agreed<=msrp){
-    flags.push({level:'ok',label:'Price at or below MSRP',detail:'Agreed price ($'+agreed.toLocaleString()+') is at or below MSRP ($'+msrp.toLocaleString()+').'});}
-
-  // Doc fee
-  if(docFee>500){flags.push({level:'high',label:'Documentation fee elevated',detail:'Doc fee of $'+docFee.toLocaleString()+' exceeds a common $500 guideline (internal reference, not regulatory). Request a reduction or credit.'});}
-  else if(docFee>0){flags.push({level:'ok',label:'Documentation fee',detail:'Doc fee $'+docFee.toLocaleString()+' is within normal range (internal reference).'});}
-
-  // GAP insurance
-  if(gap>1200){flags.push({level:'high',label:'GAP insurance above reference range',detail:'Quoted GAP of $'+gap.toLocaleString()+' is above a typical $200\u2013$800 range (internal reference). Shop GAP through your own insurer for comparison.'});}
-  else if(gap>0&&gap<=1200){flags.push({level:'medium',label:'GAP insurance',detail:'GAP quoted at $'+gap.toLocaleString()+'. Compare to your auto insurer\u2019s GAP add-on before accepting.'});}
-
-  // Extended warranty
-  if(warranty>3000){flags.push({level:'high',label:'Extended warranty cost high',detail:'Warranty at $'+warranty.toLocaleString()+' is above a $3,000 reference threshold (internal guideline). Confirm coverage terms, deductibles, and cancellation rights.'});}
-  else if(warranty>0&&warranty<=3000){flags.push({level:'medium',label:'Extended warranty',detail:'Warranty quoted at $'+warranty.toLocaleString()+'. Review what is covered and whether it duplicates manufacturer warranty.'});}
-
-  // Add-ons total
-  var addOnsTotal=docFee+gap+warranty;
-  if(addOnsTotal>2000){flags.push({level:'high',label:'Total add-ons cost',detail:'Combined fees and add-ons total $'+addOnsTotal.toLocaleString()+'. Each item above is negotiable or removable.'});}
-
-  // Trade-in info flag
-  if(tradeIn>0){flags.push({level:'info',label:'Trade-in',detail:'Trade-in value entered: $'+tradeIn.toLocaleString()+'. Verify against KBB Instant Cash Offer or Carmax quote before accepting.'});}
-
-  // Monthly payment
-  var monthlyNote='';
-  if(apr>0&&months>0&&msrp>0){
-    var principal=agreed>0?agreed:msrp;
-    principal=principal+docFee+gap+warranty-tradeIn;
-    if(principal<0)principal=0;
-    var r=(apr/100)/12;
-    var payment=r>0?(principal*r*Math.pow(1+r,months))/(Math.pow(1+r,months)-1):principal/months;
-    monthlyNote='Est. monthly payment: $'+payment.toFixed(2)+' ('+months+' mo @ '+apr+'% APR, principal $'+Math.round(principal).toLocaleString()+')';
-    flags.push({level:'info',label:'Estimated monthly payment',detail:monthlyNote});}
-
-  // Render results
-  var html='<div class="glass" style="padding:28px;border-radius:3px;margin-bottom:16px;">';
-  html+='<h2 style="font-size:1.25rem;font-weight:700;color:#0891B2;margin:0 0 18px;" data-tx="tool_result_title">'+t('tool_result_title')+'</h2>';
-  html+='<div style="display:flex;flex-direction:column;gap:10px;">';
-  flags.forEach(function(f){
-    var colors={high:'rgba(255,80,80,.12)',medium:'rgba(14,116,144,.12)',ok:'rgba(60,200,100,.10)',info:'rgba(8, 145, 178,.08)'};
-    var borders={high:'rgba(255,100,100,.5)',medium:'rgba(14,116,144,.5)',ok:'rgba(60,200,100,.4)',info:'rgba(8, 145, 178,.3)'};
-    var icons={high:'\u26a0\ufe0f',medium:'\u26a0\ufe0f',ok:'\u2705',info:'\u2139\ufe0f'};
-    html+='<div class="vcx-flag-'+f.level+'" style="background:'+colors[f.level]+';border-left:3px solid '+borders[f.level]+';border-radius:3px;padding:12px 14px;">';
-    html+='<div style="font-weight:600;font-size:.9rem;margin-bottom:4px;">'+icons[f.level]+' '+f.label+'</div>';
-    html+='<div style="font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.5;">'+f.detail+'</div></div>';
-  });
-  html+='</div>';
-  html+='<div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">';
-  html+='<a href="/contact.html" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;background:rgba(8, 145, 178,.18);border:1px solid rgba(8, 145, 178,.4);border-radius:3px;color:#0891B2;font-size:.9rem;font-weight:600;text-decoration:none;" data-tx="tool_consult">'+t('tool_consult')+'</a>';
-  html+='<button onclick="vcxReset()" style="padding:12px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:rgba(255,255,255,.65);font-size:.9rem;cursor:pointer;" data-tx="tool_new">'+t('tool_new')+'</button>';
-  html+='</div></div>';
-
-  var ra=el('vcxResultsArea');
-  ra.innerHTML=html;
-  ra.removeAttribute('hidden');
-  ra.scrollIntoView({behavior:'smooth',block:'start'});
-  el('vcxUploadCard').style.display='none';
-
-  // Request AI-enhanced analysis
-  var aiDiv=document.createElement('div');
-  aiDiv.id='vcxAIDealPanel';
-  aiDiv.style.cssText='margin-top:16px;';
-  aiDiv.innerHTML='<div class="glass" style="padding:18px;border-radius:3px;border:1px solid rgba(8, 145, 178,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#0891B2;">AI Deal Analysis</span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0891B2;animation:vcxPulse 1.2s infinite;"></span></div><p style="font-size:.82rem;color:rgba(255,255,255,.5);margin:0;">Requesting AI-powered deal evaluation...</p></div>';
-  ra.appendChild(aiDiv);
-
-  var API_BASE=window.VCX_API_BASE||'';
-  var dealPayload={
-    msrp:msrp,agreed_price:agreed,doc_fee:docFee,
-    gap_insurance:gap,extended_warranty:warranty,
-    apr:apr,loan_term:months,down_payment:0,
-    trade_in:tradeIn,other_fees:0,
-    vehicle:'',year:'',make:'',model_name:'',language:'en'
-  };
-
-  fetch(API_BASE+'/api/ai/auto-deal/analyze',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(dealPayload)
-  })
-  .then(function(res){if(!res.ok)throw new Error('HTTP '+res.status);return res.json();})
-  .then(function(data){
-    if(data.ok&&data.ai_powered&&data.analysis){
-      var content=data.analysis
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-        .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-        .replace(/^### (.+)$/gm,'<h4 style="font-size:.88rem;color:#0891B2;margin:14px 0 6px;">$1</h4>')
-        .replace(/^## (.+)$/gm,'<h3 style="font-size:.95rem;color:#0891B2;margin:16px 0 8px;">$1</h3>')
-        .replace(/^- (.+)$/gm,'<li style="font-size:.82rem;margin-bottom:3px;">$1</li>')
-        .replace(/\n/g,'<br>');
-      content=content.replace(/((?:<li[^>]*>.*?<\/li>(?:<br>)?)+)/g,'<ul style="margin:4px 0 8px;padding-left:18px;">$1</ul>');
-      aiDiv.innerHTML='<div class="glass" style="padding:18px 20px;border-radius:3px;border:1px solid rgba(8, 145, 178,.25);"><div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;"><span style="font-size:1.1rem;">&#129302;</span><span style="font-size:.88rem;font-weight:700;color:#0891B2;">AI Deal Analysis</span><span style="font-size:.65rem;background:#0891B2;color:#fff;border-radius:4px;padding:2px 6px;margin-left:6px;">GPT-4o</span></div><div style="font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.85);">'+content+'</div></div>';
-    } else {
-      aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#0891B2;">&#9888; AI analysis not available. Basic check shown above.</div>';
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1822;
+      --card: #15222f;
+      --text: #e8eef4;
+      --muted: #b4c2cf;
+      --line: #2a3a4a;
+      --link: #6fd3de;
+      --focus: #6fd3de;
     }
-  })
-  .catch(function(){
-    aiDiv.innerHTML='<div class="glass" style="padding:14px;border-radius:3px;font-size:.82rem;color:#0891B2;">&#9888; AI service warming up. Basic deal check shown above. Try again in a minute for AI-powered analysis.</div>';
-  });
-}
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+  }
+  main {
+    width: 100%;
+    max-width: 640px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 28px;
+  }
+  .brand { margin: 0 0 20px; font-size: 15px; font-weight: 600; letter-spacing: .02em; color: var(--muted); }
+  .brand a { color: inherit; text-decoration: none; }
+  h1 { margin: 0 0 12px; font-size: 26px; line-height: 1.25; }
+  p { margin: 0 0 12px; }
+  .alt { color: var(--muted); }
+  .alt strong { color: var(--text); }
+  section + section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="brand"><a href="/">VitaCoreX LLC</a></p>
 
-function vcxReset(){
-  ['vcxMSRP','vcxAgreed','vcxDocFee','vcxGAP','vcxWarranty','vcxTradeIn','vcxAPR','vcxMonths'].forEach(function(id){var e=el(id);if(e){if(id==='vcxDocFee'||id==='vcxGAP'||id==='vcxWarranty'||id==='vcxTradeIn'){e.value='0';}else{e.value='';}}});
-  var fn=el('vcxFileName');if(fn)fn.textContent='';
-  var fi=el('vcxDealFile');if(fi)fi.value='';
-  var btn=el('vcxCheckBtn');if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.background='rgba(8, 145, 178,.15)';}
-  var ra=el('vcxResultsArea');if(ra){ra.innerHTML='';ra.setAttribute('hidden','');}
-  var card=el('vcxUploadCard');if(card)card.style.display='block';
-  var errEl=el('vcxErrorState');if(errEl)errEl.style.display='none';
-}
+  <section aria-labelledby="t-en">
+    <h1 id="t-en">This service is no longer offered</h1>
+    <p>The automotive purchase review service and this online checker have been discontinued. Earlier orders and records are not affected.</p>
+    <ul>
+      <li><a href="/services.html">See current services for private clients</a></li>
+      <li><a href="/contact.html">Contact us</a></li>
+      <li>Call <a href="tel:+18887948292">(888) 794-8292</a></li>
+    </ul>
+  </section>
 
-</script>
-<script src="/assets/js/vcx-i18n.js?v=3" defer></script>
-<script src="/assets/js/ui-shell.js" defer></script>
-<script src="/assets/js/premium-fixes.js" defer></script>
-<script>(function(){if(window.VCX_API_BASE)return;var h=location.hostname,p=location.port;if(p==='8080'||p==='8765'){window.VCX_API_BASE='http://'+h+':8787';return;}if(!p||p==='80'||p==='443'){window.VCX_API_BASE='https://vcx-api.onrender.com';return;}window.VCX_API_BASE='http://'+h+':8787';})();</script>
-<script src="/assets/js/vcx-seo.js" defer></script>
-<script src="/assets/js/vcx-redesign.js?v=7" defer></script>
-<link rel="stylesheet" href="/assets/css/vcx-nav.css?v=4">
-<script src="/assets/js/vcx-nav.js?v=7" defer></script>
+  <section lang="ru" aria-labelledby="t-ru">
+    <p class="alt" id="t-ru"><strong>Эта услуга больше не предоставляется.</strong> Проверка покупки автомобиля и этот онлайн-инструмент больше не работают. Прежние заказы и записи не затронуты.</p>
+    <ul>
+      <li><a href="/services.html">Актуальные услуги для частных клиентов</a></li>
+      <li><a href="/contact.html">Связаться с нами</a></li>
+      <li>Телефон: <a href="tel:+18887948292">(888) 794-8292</a></li>
+    </ul>
+  </section>
+
+  <section lang="es" aria-labelledby="t-es">
+    <p class="alt" id="t-es"><strong>Este servicio ya no se ofrece.</strong> La revisión de compra de vehículos y esta herramienta en línea se han retirado. Los pedidos y registros anteriores no se ven afectados.</p>
+    <ul>
+      <li><a href="/services.html">Ver los servicios actuales para particulares</a></li>
+      <li><a href="/contact.html">Contáctenos</a></li>
+      <li>Llame al <a href="tel:+18887948292">(888) 794-8292</a></li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

@@ -3,7 +3,7 @@
  *
  * Usage: node scripts/build-samples.js
  *
- * Produces 6 new HTML samples (sample #7 diagnostic-report is migrated by
+ * Produces 5 new HTML samples (sample #7 diagnostic-report is migrated by
  * a separate step — the migration preserves 664-line original content verbatim).
  */
 'use strict';
@@ -14,7 +14,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'samples');
 
-/* ── Content definitions (all 6 new samples) ────────────────────────────── */
+/* ── Content definitions (all 5 new samples) ────────────────────────────── */
 /* Each sample follows the ADR-008 template contract:                       */
 /*   cover → metadata → TOC → section 1..6 → CTA → disclaimer               */
 /* Each content object provides EN / RU / ES blocks.                        */
@@ -337,25 +337,6 @@ const SAMPLES = [
     content: _immigration_index()
   },
 
-  /* ========================================================================
-   * 6. Auto Deal Cost Breakdown (B2C, ungated)
-   * ====================================================================== */
-  {
-    slug: 'auto-deal-cost-breakdown',
-    audience: 'b2c',
-    gating: 'ungated',
-    title: {
-      en: 'Auto Deal Cost Breakdown — Sample Deliverable | VitaCoreX LLC',
-      ru: 'Auto Deal Cost Breakdown — пример deliverable | VitaCoreX LLC',
-      es: 'Auto Deal Cost Breakdown — muestra de entregable | VitaCoreX LLC'
-    },
-    description: {
-      en: 'Redacted sample of the $149 auto deal review deliverable: line-by-line cost breakdown with flagged add-ons and negotiation pointers.',
-      ru: 'Отредактированный пример деливерабла auto deal review за $149: построчная разбивка расходов с флагами add-on и пойнтерами для переговоров.',
-      es: 'Muestra redactada del entregable de revision de auto deal $149: desglose linea por linea con add-ons marcados y puntos de negociacion.'
-    },
-    content: _auto_deal()
-  },
   /* ========================================================================
    * 7. Diagnostic Report (B2B, ungated) — replica of /sample-deliverable.html
    *    Template-aligned port of the existing 30-day diagnostic page.
@@ -1457,206 +1438,6 @@ function _immigration_index() {
       cta_p: 'Estandar $149 cubre asuntos de formulario unico; Tier 2 ($219) cubre asuntos con multiples exhibits; Tier 3 (desde $649) cubre asuntos complejos o multi-formulario con respuestas RFE.',
       cta_primary: 'Ordenar packet review',
       cta_secondary: 'Ver tarifas'
-    }
-  });
-}
-
-function _auto_deal() {
-  return _tri_content({
-    en: {
-      eyebrow: 'Sample deliverable · Redacted · B2C · Ungated',
-      h1: 'Auto Deal Cost Breakdown — what each line on the dealer sheet means.',
-      lead: 'This redacted replica shows how VitaCoreX breaks down a dealer\u2019s out-the-door price so a private buyer sees what\u2019s negotiable, what\u2019s statutory, and what\u2019s an add-on dressed up as a fee.',
-      engagement: '$149 Auto Deal Review — 48-hour turnaround',
-      client_note: 'Private client, new-vehicle Florida purchase',
-      distribution: 'Client (direct) · No copy to dealer',
-      toc: ['Top-line read', 'Six-domain rubric', 'Line-by-line flags', 'Negotiable band', 'Suggested script', 'Out of scope'],
-      sec1_title: 'Top-line read.',
-      sec1_lead: 'Three observations on the out-the-door price.',
-      sec1_bullets: [
-        'Base + destination + tax + title are standard. Everything else is negotiable, optional, or both.',
-        'Three add-ons flagged: extended warranty (negotiable), nitrogen tires (remove), dealer prep (often non-statutory).',
-        'APR on proposed financing is [REDACTED]% above comparable credit-union rate — shop financing separately.'
-      ],
-      sec2_title: 'Six-domain rubric.',
-      sec2_lead: 'Every review runs against the same six domains.',
-      sec2_bullets: [
-        '1. Statutory charges (tax, title, registration) — not negotiable, but must be accurate.',
-        '2. Destination charge — manufacturer-set, not a dealer markup, but confirm it matches the sticker.',
-        '3. Trade-in valuation — against market reference at time of deal.',
-        '4. Financing terms — APR vs. comparable credit-union quote + term length.',
-        '5. Add-ons — extended warranty, nitrogen tires, dealer prep, paint protection, etc.',
-        '6. Out-the-door total — reconciled against base + each itemized line.'
-      ],
-      sec3_title: 'Line-by-line flags.',
-      sec3_lead: 'Each flagged item: Observation → Impact → Recommendation.',
-      findings: [
-        { t: 'Flag 3.1 — Extended warranty', b: 'Observation: $[REDACTED] for [REDACTED] months/miles. Impact: similar coverage available directly from the manufacturer at $[REDACTED]. Recommendation: negotiate to parity or decline and buy direct later.' },
-        { t: 'Flag 3.2 — Nitrogen tires', b: 'Observation: $[REDACTED] for nitrogen fill. Impact: marginal benefit vs. regular air. Recommendation: decline.' },
-        { t: 'Flag 3.3 — Dealer prep', b: 'Observation: $[REDACTED] for "dealer prep". Impact: often not a FL-statutory charge; sometimes already covered by the manufacturer. Recommendation: ask for itemization and negotiate or decline.' },
-        { t: 'Flag 3.4 — APR vs. comparable', b: 'Observation: proposed APR [REDACTED]% vs. credit-union quote [REDACTED]%. Impact: $[REDACTED] over term of loan. Recommendation: pre-approve financing with a credit union; use as leverage.' }
-      ],
-      sec4_title: 'Negotiable band.',
-      sec4_lead: 'Range-framed view of what the deal could look like negotiated.',
-      band: [
-        { l: 'Dealer\u2019s out-the-door', v: '$[REDACTED]', n: 'As proposed' },
-        { l: 'Negotiated low-band (all flags addressed)', v: '$[REDACTED]', n: 'Declines + financing shopped' },
-        { l: 'Negotiated high-band (conservative)', v: '$[REDACTED]', n: 'Keeps some add-ons, ignores financing flag' },
-        { l: 'Non-negotiable total', v: '$[REDACTED]', n: 'Statutory + manufacturer destination only' }
-      ],
-      band_note_t: 'What changes the band',
-      band_note_b: 'Dealer response, end-of-month incentive timing, and whether the buyer walks in pre-approved are the three biggest movers. Add-on decline is the lowest-friction move.',
-      sec5_title: 'Suggested script.',
-      sec5_lead: 'Order of operations at the dealership.',
-      milestones: [
-        { l: 'Before the visit', t: 'Pre-approve financing', b: 'Get a written quote from a credit union at a comparable rate. Bring it.' },
-        { l: 'At the dealer', t: 'Request itemization', b: 'Ask for a written breakdown of the out-the-door price. If anything is non-itemized, ask for itemization.' },
-        { l: 'Negotiation', t: 'Decline add-ons first', b: 'Start by declining nitrogen and dealer prep. Then negotiate warranty or decline. Then address APR using the pre-approval.' }
-      ],
-      sec6_title: 'Out of scope.',
-      sec6_lead: 'A review is a cost-clarity exercise, not a negotiation service.',
-      sec6_bullets: [
-        'VitaCoreX does not represent the buyer at the dealer or negotiate on their behalf.',
-        'This is not legal advice. State-specific statutory questions remain with the client or counsel.',
-        'No warranty that the dealer accepts any recommendation.',
-        'No financing advice beyond APR comparison. Loan decisions belong to the client.',
-        'No recommendation on which vehicle to buy — only on the terms of the one the client chose.',
-        'No handling of the vehicle purchase itself.'
-      ],
-      cta_h: 'Ready to have your own deal reviewed?',
-      cta_p: 'Standard $149 auto deal review returns in 48 hours. Same-day rush is $49. Tier 2 ($219) covers complex or multi-vehicle transactions.',
-      cta_primary: 'Order an auto deal review',
-      cta_secondary: 'See tiers + rush'
-    },
-    ru: {
-      eyebrow: 'Пример deliverable · отредактирован · частный клиент · без формы',
-      h1: 'Auto Deal Cost Breakdown — что значит каждая строка в предложении дилера.',
-      lead: 'Эта отредактированная копия показывает, как VitaCoreX разбирает out-the-door цену дилера, чтобы частный покупатель видел, что договорно, что statutory, а что add-on, переодетый в fee.',
-      engagement: '$149 Auto Deal Review — 48 часов',
-      client_note: 'Частный клиент, покупка нового авто во Флориде',
-      distribution: 'Клиент (прямо) · без копии дилеру',
-      toc: ['Верхний уровень', 'Шесть доменов рубрики', 'Построчные флаги', 'Диапазон торга', 'Предлагаемый сценарий', 'Вне scope'],
-      sec1_title: 'Верхний уровень.',
-      sec1_lead: 'Три наблюдения по out-the-door цене.',
-      sec1_bullets: [
-        'База + destination + налог + title — стандарт. Остальное договорно, опционально или и то и другое.',
-        'Три add-on флагнуто: extended warranty (договор), nitrogen tires (снять), dealer prep (часто не statutory).',
-        'APR на предложенном финансировании выше comparable credit-union rate на [REDACTED]% — shop финансирование отдельно.'
-      ],
-      sec2_title: 'Шесть доменов рубрики.',
-      sec2_lead: 'Каждый обзор проходит по одним и тем же шести доменам.',
-      sec2_bullets: [
-        '1. Statutory сборы (налог, title, регистрация) — не договорны, но должны быть точны.',
-        '2. Destination — от производителя, не дилерская наценка, но сверить со стикером.',
-        '3. Trade-in оценка — против market reference на момент сделки.',
-        '4. Условия финансирования — APR vs. comparable credit-union + срок.',
-        '5. Add-on — extended warranty, nitrogen tires, dealer prep, paint protection и т. д.',
-        '6. Out-the-door тотал — согласован с базой + каждая itemized строка.'
-      ],
-      sec3_title: 'Построчные флаги.',
-      sec3_lead: 'Каждый флаг: Наблюдение → Влияние → Рекомендация.',
-      findings: [
-        { t: 'Флаг 3.1 — Extended warranty', b: 'Наблюдение: $[REDACTED] за [REDACTED] месяцев/миль. Влияние: сходное покрытие доступно напрямую от производителя за $[REDACTED]. Рекомендация: договор или отказ + покупка напрямую позже.' },
-        { t: 'Флаг 3.2 — Nitrogen tires', b: 'Наблюдение: $[REDACTED] за nitrogen. Влияние: предельная выгода vs. обычный воздух. Рекомендация: отказ.' },
-        { t: 'Флаг 3.3 — Dealer prep', b: 'Наблюдение: $[REDACTED] за dealer prep. Влияние: часто не FL-statutory; иногда уже покрыто производителем. Рекомендация: itemization + договор или отказ.' },
-        { t: 'Флаг 3.4 — APR vs. comparable', b: 'Наблюдение: предложенный APR [REDACTED]% vs. credit-union [REDACTED]%. Влияние: $[REDACTED] за срок кредита. Рекомендация: pre-approve в credit union; использовать как leverage.' }
-      ],
-      sec4_title: 'Диапазон торга.',
-      sec4_lead: 'Диапазонный взгляд на возможную договорную сделку.',
-      band: [
-        { l: 'Out-the-door дилера', v: '$[REDACTED]', n: 'Как предложено' },
-        { l: 'Низ диапазона (флаги решены)', v: '$[REDACTED]', n: 'Отказы + шоп финансирования' },
-        { l: 'Верх диапазона (консервативный)', v: '$[REDACTED]', n: 'Часть add-on оставлены, флаг финансирования игнорирован' },
-        { l: 'Неторгуемый тотал', v: '$[REDACTED]', n: 'Только statutory + destination' }
-      ],
-      band_note_t: 'Что двигает диапазон',
-      band_note_b: 'Ответ дилера, end-of-month incentive и вошёл ли покупатель уже pre-approved — три самых больших рычага. Отказ от add-on — самый low-friction шаг.',
-      sec5_title: 'Предлагаемый сценарий.',
-      sec5_lead: 'Порядок действий в дилерском центре.',
-      milestones: [
-        { l: 'Перед визитом', t: 'Pre-approve финансирование', b: 'Получить письменную котировку в credit union по comparable ставке. Взять с собой.' },
-        { l: 'У дилера', t: 'Запросить itemization', b: 'Спросить письменную разбивку out-the-door. Если что-то не itemized — itemization.' },
-        { l: 'Переговоры', t: 'Начать с отказов от add-on', b: 'Сначала отказ от nitrogen и dealer prep. Потом warranty — договор или отказ. Потом APR через pre-approval.' }
-      ],
-      sec6_title: 'Вне scope.',
-      sec6_lead: 'Обзор — упражнение по прозрачности цены, не сервис переговоров.',
-      sec6_bullets: [
-        'VitaCoreX не представляет покупателя у дилера и не ведёт переговоры от его имени.',
-        'Это не юридический совет. State-specific statutory вопросы остаются с клиентом или counsel.',
-        'Никакой гарантии, что дилер примет любую рекомендацию.',
-        'Никаких финансовых советов кроме сравнения APR.',
-        'Никаких рекомендаций по выбору авто — только по условиям выбранного.',
-        'Никакого handling самой покупки.'
-      ],
-      cta_h: 'Нужен обзор вашей сделки?',
-      cta_p: 'Стандартный $149 Auto Deal Review возвращается за 48 часов. Same-day rush — $49. Tier 2 ($219) — сложные или multi-vehicle.',
-      cta_primary: 'Заказать auto deal review',
-      cta_secondary: 'Тарифы + rush'
-    },
-    es: {
-      eyebrow: 'Muestra redactada · cliente privado · sin formulario',
-      h1: 'Auto Deal Cost Breakdown — que significa cada linea en la hoja del concesionario.',
-      lead: 'Esta replica redactada muestra como VitaCoreX desglosa el precio out-the-door del concesionario para que un comprador privado vea que es negociable, que es statutorio y que es un add-on disfrazado de fee.',
-      engagement: '$149 Auto Deal Review — turnaround 48 horas',
-      client_note: 'Cliente privado, compra de vehiculo nuevo en Florida',
-      distribution: 'Cliente (directo) · Sin copia al concesionario',
-      toc: ['Lectura top-line', 'Rubrica de seis dominios', 'Flags linea a linea', 'Banda negociable', 'Guion sugerido', 'Fuera de alcance'],
-      sec1_title: 'Lectura top-line.',
-      sec1_lead: 'Tres observaciones sobre el precio out-the-door.',
-      sec1_bullets: [
-        'Base + destination + impuesto + title son estandar. Todo lo demas es negociable, opcional o ambas.',
-        'Tres add-ons marcados: garantia extendida (negociable), llantas con nitrogeno (quitar), dealer prep (a menudo no statutorio).',
-        'APR en el financiamiento propuesto es [REDACTED]% mas alto que tasa comparable de credit union — compara financiamiento por separado.'
-      ],
-      sec2_title: 'Rubrica de seis dominios.',
-      sec2_lead: 'Cada revision corre contra los mismos seis dominios.',
-      sec2_bullets: [
-        '1. Cargos statutorios (impuesto, title, registro) — no negociables pero deben ser exactos.',
-        '2. Destination — fijado por fabricante, no es markup del concesionario; confirma que coincide con el sticker.',
-        '3. Valoracion de trade-in — contra referencia de mercado al momento.',
-        '4. Terminos de financiamiento — APR vs. cotizacion comparable de credit union + plazo.',
-        '5. Add-ons — garantia extendida, nitrogeno, dealer prep, proteccion de pintura, etc.',
-        '6. Total out-the-door — reconciliado contra base + cada linea itemizada.'
-      ],
-      sec3_title: 'Flags linea a linea.',
-      sec3_lead: 'Cada flag: Observacion → Impacto → Recomendacion.',
-      findings: [
-        { t: 'Flag 3.1 — Garantia extendida', b: 'Observacion: $[REDACTED] por [REDACTED] meses/millas. Impacto: cobertura similar disponible directo del fabricante por $[REDACTED]. Recomendacion: negociar a paridad o declinar y comprar directo despues.' },
-        { t: 'Flag 3.2 — Llantas con nitrogeno', b: 'Observacion: $[REDACTED] por nitrogeno. Impacto: beneficio marginal vs. aire regular. Recomendacion: declinar.' },
-        { t: 'Flag 3.3 — Dealer prep', b: 'Observacion: $[REDACTED] por "dealer prep". Impacto: a menudo no statutorio FL; a veces ya cubierto por fabricante. Recomendacion: pedir itemizacion y negociar o declinar.' },
-        { t: 'Flag 3.4 — APR vs. comparable', b: 'Observacion: APR propuesto [REDACTED]% vs. credit union [REDACTED]%. Impacto: $[REDACTED] en el plazo del prestamo. Recomendacion: pre-aprueba financiamiento con credit union; usa como palanca.' }
-      ],
-      sec4_title: 'Banda negociable.',
-      sec4_lead: 'Vista por rango de como podria quedar el trato negociado.',
-      band: [
-        { l: 'Out-the-door del concesionario', v: '$[REDACTED]', n: 'Como propuesto' },
-        { l: 'Banda baja negociada (flags resueltos)', v: '$[REDACTED]', n: 'Declinaciones + financiamiento comparado' },
-        { l: 'Banda alta negociada (conservadora)', v: '$[REDACTED]', n: 'Algunos add-ons se quedan, flag de financiamiento ignorado' },
-        { l: 'Total no negociable', v: '$[REDACTED]', n: 'Solo statutorio + destination' }
-      ],
-      band_note_t: 'Que mueve la banda',
-      band_note_b: 'Respuesta del concesionario, timing de incentivo fin-de-mes y si el comprador entra pre-aprobado son los tres mayores movedores. Declinar add-ons es el movimiento de menor friccion.',
-      sec5_title: 'Guion sugerido.',
-      sec5_lead: 'Orden de operaciones en el concesionario.',
-      milestones: [
-        { l: 'Antes de la visita', t: 'Pre-aprueba financiamiento', b: 'Consigue cotizacion escrita de credit union a tasa comparable. Llevala.' },
-        { l: 'En el concesionario', t: 'Pide itemizacion', b: 'Pide desglose escrito del out-the-door. Si algo no esta itemizado, pide itemizacion.' },
-        { l: 'Negociacion', t: 'Declina add-ons primero', b: 'Empieza declinando nitrogeno y dealer prep. Luego negocia o declina la garantia. Luego aborda APR usando la pre-aprobacion.' }
-      ],
-      sec6_title: 'Fuera de alcance.',
-      sec6_lead: 'Una revision es ejercicio de claridad de costo, no servicio de negociacion.',
-      sec6_bullets: [
-        'VitaCoreX no representa al comprador en el concesionario ni negocia en su nombre.',
-        'Esto no es asesoria juridica. Cuestiones statutorias estatales quedan con el cliente o counsel.',
-        'Sin garantia de que el concesionario acepte ninguna recomendacion.',
-        'Sin asesoria financiera mas alla de la comparacion de APR.',
-        'Sin recomendacion sobre que vehiculo comprar — solo sobre los terminos del elegido.',
-        'Sin manejo de la compra del vehiculo en si.'
-      ],
-      cta_h: 'Listo para revisar tu propio trato?',
-      cta_p: 'Auto deal review estandar $149 devuelve en 48 horas. Rush mismo-dia $49. Tier 2 ($219) cubre transacciones complejas o multi-vehiculo.',
-      cta_primary: 'Ordenar auto deal review',
-      cta_secondary: 'Ver tarifas + rush'
     }
   });
 }

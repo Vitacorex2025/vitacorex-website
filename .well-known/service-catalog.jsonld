@@ -1,27 +1,53 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "VitaCoreX LLC — Complete Service Catalog",
-  "description": "All services offered by VitaCoreX LLC in Tampa, FL. Revenue recovery, immigration, company formation, auto deals, legal documents, healthcare, dental, gym, fleet, SaaS recovery.",
-  "url": "https://vitacorexllc.com/solutions.html",
-  "numberOfItems": 12,
+  "name": "VitaCoreX LLC — Service Catalog",
+  "description": "Services and starting prices of VitaCoreX LLC (Tampa, FL). Private clients: translations, online notarization, apostille assistance, individual tax returns, contracts and document support, immigration forms (clerical), N-400 document support, company formation and business plans. Companies: small-claims document preparation and case support. All prices are USD service fees; government, filing and court fees are separate. VitaCoreX LLC is not a law firm.",
+  "url": "https://vitacorexllc.com/services.html",
+  "dateModified": "2026-10-14",
+  "numberOfItems": 17,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
       "item": {
         "@type": "Service",
-        "name": "Revenue Recovery & Pre-Collection",
-        "description": "Pre-collection revenue recovery workflows that improve net recovery rates without damaging customer relationships. Alternative to traditional collection agencies for healthcare, dental, gyms, SaaS, fleet, and construction industries.",
-        "url": "https://vitacorexllc.com/revenue-recovery-workflow.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "areaServed": [
-          {"@type": "Country", "name": "United States"},
-          {"@type": "State", "name": "Florida"},
-          {"@type": "City", "name": "Tampa"}
+        "@id": "https://vitacorexllc.com/#service-translation-certified",
+        "name": "Certified translation",
+        "alternateName": [
+          "Перевод с удостоверением переводчика",
+          "Traducción certificada"
         ],
-        "serviceType": ["Revenue Recovery", "Pre-Collection", "AR Management", "Debt Recovery Alternative", "Bad Debt Reduction", "DSO Reduction", "Net Recovery Improvement"],
-        "availableLanguage": ["English", "Russian", "Spanish"]
+        "description": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
+        "serviceType": "Translation",
+        "category": "Documents & translations",
+        "url": "https://vitacorexllc.com/translations.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/translations.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "25",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "25",
+            "priceCurrency": "USD",
+            "unitText": "per 250 source words (one standard page)"
+          },
+          "description": "$25 per 250 source words (one standard page)"
+        }
       }
     },
     {
@@ -29,11 +55,42 @@
       "position": 2,
       "item": {
         "@type": "Service",
-        "name": "Healthcare & Hospital Revenue Recovery",
-        "description": "Revenue cycle optimization for hospitals, emergency rooms, medical practices, and healthcare systems. Improve patient AR recovery, reduce bad debt, and optimize billing workflows.",
-        "url": "https://vitacorexllc.com/industry-healthcare-dental.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Healthcare Revenue Recovery", "Hospital Billing", "Emergency Room Revenue", "Patient AR Recovery", "Medical Practice Billing", "Revenue Cycle Management"]
+        "@id": "https://vitacorexllc.com/#service-translation-standard",
+        "name": "General translation",
+        "alternateName": [
+          "Обычный перевод",
+          "Traducción general"
+        ],
+        "description": "Letters, websites, business and personal texts that do not need a certificate.",
+        "serviceType": "Translation",
+        "category": "Documents & translations",
+        "url": "https://vitacorexllc.com/translations.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/translations.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "0.10",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "0.10",
+            "priceCurrency": "USD",
+            "unitText": "per source word, $25 minimum order"
+          },
+          "description": "$0.10 per source word, $25 minimum order"
+        }
       }
     },
     {
@@ -41,11 +98,42 @@
       "position": 3,
       "item": {
         "@type": "Service",
-        "name": "Dental Clinic & DSO Revenue Recovery",
-        "description": "Revenue recovery for dental clinics, dental service organizations (DSOs), orthodontists, oral surgeons, and pediatric dentistry. Insurance follow-up and patient balance recovery.",
-        "url": "https://vitacorexllc.com/industry-healthcare-dental.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Dental Collections Alternative", "DSO Revenue Recovery", "Dental Insurance Follow-Up", "Orthodontist Billing", "Dental AR Management"]
+        "@id": "https://vitacorexllc.com/#service-notary-ron-single",
+        "name": "Online notarization",
+        "alternateName": [
+          "Заверение документов онлайн",
+          "Notarización en línea"
+        ],
+        "description": "Remote online notarization by a Florida Notary Public — by video, from anywhere you have a camera and a valid photo ID.",
+        "serviceType": "Remote online notarization",
+        "category": "Documents & translations",
+        "url": "https://vitacorexllc.com/online-notary.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/online-notary.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "25",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "25",
+            "priceCurrency": "USD",
+            "unitText": "per notarial act"
+          },
+          "description": "$25 per notarial act"
+        }
       }
     },
     {
@@ -53,11 +141,40 @@
       "position": 4,
       "item": {
         "@type": "Service",
-        "name": "Gym & Fitness Membership Recovery",
-        "description": "Recover unpaid memberships for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and boutique fitness operators without losing members.",
-        "url": "https://vitacorexllc.com/industry-subscription-recurring.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Gym Revenue Recovery", "Fitness Membership Recovery", "Health Club Billing", "CrossFit Collections", "Yoga Studio AR", "Boutique Fitness Recovery"]
+        "@id": "https://vitacorexllc.com/#service-apostille-coordination",
+        "name": "Apostille assistance",
+        "alternateName": [
+          "Помощь с апостилем",
+          "Gestión de apostilla"
+        ],
+        "description": "We find the right authority for your document and destination country, prepare the submission and track it.",
+        "serviceType": "Apostille assistance",
+        "category": "Documents & translations",
+        "url": "https://vitacorexllc.com/apostille.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/apostille.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "119",
+            "priceCurrency": "USD"
+          },
+          "description": "from $119 — final price after review (service fee for the first document)"
+        }
       }
     },
     {
@@ -65,11 +182,40 @@
       "position": 5,
       "item": {
         "@type": "Service",
-        "name": "Subscription & SaaS Recovery",
-        "description": "Reduce involuntary churn and recover failed payments for subscription businesses, SaaS companies, and recurring billing operators. Dunning optimization and payment recovery.",
-        "url": "https://vitacorexllc.com/industry-subscription-recurring.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Subscription Recovery", "SaaS AR Management", "Dunning Optimization", "Churn Recovery", "Recurring Payment Recovery", "Involuntary Churn Reduction"]
+        "@id": "https://vitacorexllc.com/#service-tax-1040-simple",
+        "name": "Individual tax return",
+        "alternateName": [
+          "Налоговая декларация физлица",
+          "Declaración de impuestos individual"
+        ],
+        "description": "Federal individual return (Form 1040) prepared by our accounting team after a short scoping call.",
+        "serviceType": "Tax return preparation",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "149",
+            "priceCurrency": "USD"
+          },
+          "description": "from $149 — final price after review (simple federal return, one tax year)"
+        }
       }
     },
     {
@@ -77,12 +223,40 @@
       "position": 6,
       "item": {
         "@type": "Service",
-        "name": "Immigration Document Preparation",
-        "description": "Immigration packet organization and USCIS form preparation. Assistance with I-130, I-485, I-765, K-1 visa, N-400 naturalization, asylum applications, DACA renewals, and green card documentation. Services in English, Russian, and Spanish.",
-        "url": "https://vitacorexllc.com/immigration-documents.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Immigration Packet Preparation", "USCIS Form Help", "Visa Documentation", "Green Card Packet", "I-130 Preparation", "I-485 Filing", "I-765 Work Permit", "K-1 Visa", "N-400 Naturalization", "Asylum Documentation", "DACA Renewal"],
-        "availableLanguage": ["English", "Russian", "Spanish"]
+        "@id": "https://vitacorexllc.com/#service-tax-self-employed",
+        "name": "Self-employed tax return",
+        "alternateName": [
+          "Декларация для самозанятых",
+          "Declaración para trabajadores independientes"
+        ],
+        "description": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
+        "serviceType": "Tax return preparation",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "249",
+            "priceCurrency": "USD"
+          },
+          "description": "from $249 — final price after review (federal return with one simple Schedule C)"
+        }
       }
     },
     {
@@ -90,12 +264,40 @@
       "position": 7,
       "item": {
         "@type": "Service",
-        "name": "Company Formation & LLC Registration",
-        "description": "Business formation services in Florida including LLC, S-Corp, and C-Corp registration. Articles of incorporation, operating agreements, EIN applications, and business licenses. Помощь с открытием компании во Флориде.",
-        "url": "https://vitacorexllc.com/additional-services.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["LLC Formation Florida", "Company Registration", "Articles of Incorporation", "Operating Agreement", "EIN Application", "Business License Florida", "S-Corp Formation", "C-Corp Formation"],
-        "availableLanguage": ["English", "Russian", "Spanish"]
+        "@id": "https://vitacorexllc.com/#service-tax-state-addon",
+        "name": "State return add-on",
+        "alternateName": [
+          "Декларация штата — дополнение",
+          "Declaración estatal adicional"
+        ],
+        "description": "One state return prepared together with your federal return.",
+        "serviceType": "Tax return preparation",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "49",
+            "priceCurrency": "USD"
+          },
+          "description": "from $49 — final price after review (one supported state, with a federal return)"
+        }
       }
     },
     {
@@ -103,12 +305,40 @@
       "position": 8,
       "item": {
         "@type": "Service",
-        "name": "Auto Deal Review & Fee Analysis",
-        "description": "Car purchase analysis and dealer fee verification. Review auto loans, GAP insurance, extended warranties, and dealer markups before buying a car. Save money on your next vehicle purchase. Проверка автосделки перед покупкой.",
-        "url": "https://vitacorexllc.com/auto-purchase.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Auto Deal Review", "Car Purchase Calculator", "Dealer Fee Check", "GAP Insurance Review", "Auto Loan Calculator", "Dealer Markup Analysis"],
-        "availableLanguage": ["English", "Russian", "Spanish"]
+        "@id": "https://vitacorexllc.com/#service-contracts-documents",
+        "name": "Contracts & document support",
+        "alternateName": [
+          "Договоры и подготовка документов",
+          "Contratos y preparación de documentos"
+        ],
+        "description": "Preparing and organizing agreements, letters and forms you have chosen — with a clear deliverable agreed before work starts.",
+        "serviceType": "Document preparation",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/contract-review-service.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/contract-review-service.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "99",
+            "priceCurrency": "USD"
+          },
+          "description": "from $99 — final price after review (starting price for a limited document task)"
+        }
       }
     },
     {
@@ -116,11 +346,40 @@
       "position": 9,
       "item": {
         "@type": "Service",
-        "name": "Legal Document Services",
-        "description": "Corporate legal file control, contract review, NDA analysis, non-compete review, demand letter preparation, litigation support, and discovery management. Legal document organization for Tampa FL businesses.",
-        "url": "https://vitacorexllc.com/corporate-legal-file-control.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Legal File Control", "Contract Review", "NDA Review", "Non-Compete Review", "Demand Letter Preparation", "Litigation Support", "Discovery Management"]
+        "@id": "https://vitacorexllc.com/#service-immigration-simple",
+        "name": "Immigration forms & documents",
+        "alternateName": [
+          "Иммиграционные формы и документы",
+          "Formularios y documentos migratorios"
+        ],
+        "description": "Clerical preparation of a USCIS form you or your adviser have chosen, plus organizing supporting documents.",
+        "serviceType": "Immigration form preparation (clerical)",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/immigration-packet-review.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/immigration-packet-review.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "149",
+            "priceCurrency": "USD"
+          },
+          "description": "from $149 — final price after review (one simple form you have selected)"
+        }
       }
     },
     {
@@ -128,11 +387,40 @@
       "position": 10,
       "item": {
         "@type": "Service",
-        "name": "Fleet & Logistics Recovery",
-        "description": "Revenue recovery for fleet operators, logistics companies, fuel card recovery, equipment lease recovery, and transportation accounts receivable management.",
-        "url": "https://vitacorexllc.com/industry-fleet-logistics.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Fleet Revenue Recovery", "Fuel Card Recovery", "Logistics Debt Recovery", "Equipment Lease Recovery", "Transportation AR"]
+        "@id": "https://vitacorexllc.com/#service-immigration-naturalization",
+        "name": "Naturalization document support (N-400)",
+        "alternateName": [
+          "Документы для натурализации (N-400)",
+          "Documentación para naturalización (N-400)"
+        ],
+        "description": "Administrative help with Form N-400: typing, completeness check and an organized document packet.",
+        "serviceType": "Immigration form preparation (clerical)",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/n-400-naturalization.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/n-400-naturalization.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "249",
+            "priceCurrency": "USD"
+          },
+          "description": "from $249 — final price after review (defined N-400 support scope)"
+        }
       }
     },
     {
@@ -140,11 +428,36 @@
       "position": 11,
       "item": {
         "@type": "Service",
-        "name": "Construction & B2B Recovery",
-        "description": "Commercial debt recovery for construction companies, professional service firms, and B2B operations. Contractor payment recovery and invoice management.",
-        "url": "https://vitacorexllc.com/industry-contract-services.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Construction Receivables", "B2B Collection Alternative", "Contractor Payment Recovery", "Commercial Debt Recovery", "Professional Services AR"]
+        "@id": "https://vitacorexllc.com/#service-legal-request",
+        "name": "Ask about your situation",
+        "alternateName": [
+          "Опишите ваш вопрос",
+          "Cuéntenos su situación"
+        ],
+        "description": "Not sure which service fits? Describe the task — we tell you what we can do and what it costs.",
+        "serviceType": "Service request",
+        "category": "Taxes & personal paperwork",
+        "url": "https://vitacorexllc.com/request.html?service=legal_request",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/request.html?service=legal_request",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "0",
+          "description": "no charge to send a request; this is not a free legal consultation"
+        }
       }
     },
     {
@@ -152,11 +465,243 @@
       "position": 12,
       "item": {
         "@type": "Service",
-        "name": "Structured Case Intake",
-        "description": "Systematic case intake and document organization system for managing client onboarding, evidence collection, and compliance documentation.",
-        "url": "https://vitacorexllc.com/structured-case-intake.html",
-        "provider": {"@type": "Organization", "name": "VitaCoreX LLC"},
-        "serviceType": ["Case Intake System", "Client Onboarding", "Evidence Collection", "Compliance Documentation"]
+        "@id": "https://vitacorexllc.com/#service-company-basic",
+        "name": "Company formation",
+        "alternateName": [
+          "Открытие компании",
+          "Creación de empresa"
+        ],
+        "description": "We prepare and submit the formation filing for the state and entity type you have chosen.",
+        "serviceType": "Company formation",
+        "category": "Starting a business",
+        "url": "https://vitacorexllc.com/llc-formation-florida.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/llc-formation-florida.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "99",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "99",
+            "priceCurrency": "USD",
+            "unitText": "service fee + state filing fee"
+          },
+          "description": "$99 service fee + state filing fee"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-company-plus",
+        "name": "Company formation + EIN",
+        "alternateName": [
+          "Компания + помощь с EIN",
+          "Empresa + asistencia con EIN"
+        ],
+        "description": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
+        "serviceType": "Company formation",
+        "category": "Starting a business",
+        "url": "https://vitacorexllc.com/llc-formation-florida.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/llc-formation-florida.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "price": "199",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "199",
+            "priceCurrency": "USD",
+            "unitText": "service fee + state filing fee"
+          },
+          "description": "$199 service fee + state filing fee"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-business-plan-basic",
+        "name": "Business plan",
+        "alternateName": [
+          "Бизнес-план",
+          "Plan de negocio"
+        ],
+        "description": "A clear plan built from your questionnaire: business model, market summary and a simple financial outline.",
+        "serviceType": "Business plan writing",
+        "category": "Starting a business",
+        "url": "https://vitacorexllc.com/business-plans.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-plans.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "499",
+            "priceCurrency": "USD"
+          },
+          "description": "from $499 — final price after review (defined basic plan)"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-packet",
+        "name": "Small-claims case packet",
+        "alternateName": [
+          "Пакет документов small claims",
+          "Paquete de documentos de small claims"
+        ],
+        "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
+        "serviceType": "Small claims documentation",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/small-claims-documentation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/small-claims-documentation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "199",
+            "priceCurrency": "USD"
+          },
+          "description": "from $199 — final price after review (one eligible case, one defendant)"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-support",
+        "name": "Small-claims preparation & case support",
+        "alternateName": [
+          "Подготовка и сопровождение small claims",
+          "Preparación y seguimiento de small claims"
+        ],
+        "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
+        "serviceType": "Small claims documentation",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/small-claims-documentation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/small-claims-documentation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "399",
+            "priceCurrency": "USD"
+          },
+          "description": "from $399 — final price after review (one case, one defendant, first 30 days)"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-existing-client-recovery",
+        "name": "Recovery support for existing clients",
+        "alternateName": [
+          "Взыскание для действующих клиентов",
+          "Apoyo de recuperación para clientes actuales"
+        ],
+        "description": "An additional option for current business clients, quoted individually.",
+        "serviceType": "Recovery support for existing clients",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/net-recovery.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/net-recovery.html",
+          "availability": "https://schema.org/InStock",
+          "description": "individual quote; available to existing business clients only"
+        }
       }
     }
   ]

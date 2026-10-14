@@ -2,27 +2,12 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SearchAction",
-      "@id": "https://vitacorexllc.com/#search",
+      "@type": "AskAction",
+      "name": "Request a quote from VitaCoreX",
+      "description": "Describe your task — translation, online notarization, apostille, tax return, company formation, business plan, document or immigration form task — and receive the matching service and price. Sending a request is free; it is not a free legal consultation.",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://vitacorexllc.com/?q={search_term_string}",
-        "actionPlatform": [
-          "https://schema.org/DesktopWebPlatform",
-          "https://schema.org/MobileWebPlatform",
-          "https://schema.org/IOSPlatform",
-          "https://schema.org/AndroidPlatform"
-        ]
-      },
-      "query-input": "required name=search_term_string"
-    },
-    {
-      "@type": "OrderAction",
-      "name": "Schedule Free Consultation with VitaCoreX",
-      "description": "Book a free consultation with VitaCoreX LLC for revenue recovery, immigration documents, LLC formation, auto deal review, or legal document services",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://calendly.com/vitacorex2025/30min",
+        "urlTemplate": "https://vitacorexllc.com/request.html",
         "actionPlatform": [
           "https://schema.org/DesktopWebPlatform",
           "https://schema.org/MobileWebPlatform"
@@ -36,7 +21,7 @@
     {
       "@type": "CommunicateAction",
       "name": "Call VitaCoreX",
-      "description": "Call VitaCoreX LLC at (888) 794-8292 for revenue recovery, immigration, LLC formation, auto deals, or legal document services in English, Russian, or Spanish",
+      "description": "Call VitaCoreX LLC at (888) 794-8292 about translations, online notarization, apostilles, tax returns, company formation, business plans, document support or small claims for companies, in English, Russian or Spanish.",
       "target": {
         "@type": "EntryPoint",
         "urlTemplate": "tel:+18887948292",
@@ -45,14 +30,15 @@
         ]
       },
       "about": [
-        "revenue recovery",
-        "immigration document preparation",
-        "LLC formation Florida",
-        "auto deal review",
-        "legal document services",
-        "USCIS forms",
+        "certified translation",
+        "online notarization",
+        "apostille assistance",
+        "individual tax return",
         "company formation",
-        "contract review"
+        "business plan",
+        "contracts and document support",
+        "immigration forms (clerical)",
+        "small claims documentation for businesses"
       ],
       "inLanguage": ["en", "ru", "es"],
       "agent": {
@@ -62,11 +48,11 @@
     },
     {
       "@type": "AskAction",
-      "name": "Ask VitaCoreX about Revenue Recovery",
-      "description": "Ask VitaCoreX about pre-collection revenue recovery for healthcare, dental, gym, SaaS, fleet, or construction businesses",
+      "name": "Ask VitaCoreX about online notarization",
+      "description": "Remote online notarization by a Florida Notary Public by video — $25 per notarial act.",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://vitacorexllc.com/contact.html",
+        "urlTemplate": "https://vitacorexllc.com/online-notary.html",
         "actionPlatform": [
           "https://schema.org/DesktopWebPlatform",
           "https://schema.org/MobileWebPlatform"
@@ -75,11 +61,11 @@
     },
     {
       "@type": "AskAction",
-      "name": "Ask VitaCoreX about Immigration Documents",
-      "description": "Ask VitaCoreX about USCIS form preparation including I-130, I-485, I-765, K-1 visa, N-400 naturalization, DACA, asylum, and green card applications",
+      "name": "Ask VitaCoreX about translations",
+      "description": "Certified translation $25 per 250 source words; general translation $0.10 per source word, $25 minimum order.",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://vitacorexllc.com/immigration-documents.html",
+        "urlTemplate": "https://vitacorexllc.com/translations.html",
         "actionPlatform": [
           "https://schema.org/DesktopWebPlatform",
           "https://schema.org/MobileWebPlatform"
@@ -88,11 +74,24 @@
     },
     {
       "@type": "AskAction",
-      "name": "Ask VitaCoreX about LLC Formation",
-      "description": "Ask VitaCoreX about Florida LLC formation, S-Corp, C-Corp, articles of incorporation, EIN registration, and operating agreements",
+      "name": "Ask VitaCoreX about a tax return",
+      "description": "Individual federal return (Form 1040) from $149 — final price after review.",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://vitacorexllc.com/business-plans.html",
+        "urlTemplate": "https://vitacorexllc.com/tax-preparation.html",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      }
+    },
+    {
+      "@type": "AskAction",
+      "name": "Ask VitaCoreX about company formation",
+      "description": "Company formation $99 + state filing fee; with EIN application assistance $199 + state filing fee.",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://vitacorexllc.com/llc-formation-florida.html",
         "actionPlatform": [
           "https://schema.org/DesktopWebPlatform",
           "https://schema.org/MobileWebPlatform"

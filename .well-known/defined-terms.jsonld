@@ -1,68 +1,68 @@
 {
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
-  "name": "VitaCoreX Industry Glossary",
-  "description": "Key terms in revenue recovery, pre-collection, and business documentation services.",
+  "name": "VitaCoreX Glossary",
+  "description": "Plain-language terms used on the VitaCoreX LLC website for documents, translations, notarization, apostilles, tax returns, company formation and small claims.",
   "url": "https://vitacorexllc.com/",
   "hasDefinedTerm": [
     {
       "@type": "DefinedTerm",
-      "name": "Pre-Collection",
-      "description": "Structured intervention on overdue accounts at 30-90 days before they are sent to a traditional collection agency. Pre-collection recovers 35-55 cents per dollar compared to 10-14 cents through agency placement.",
+      "name": "Certified translation",
+      "description": "A complete translation of a document accompanied by the translator's signed certificate stating that the translation is complete and accurate.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Net Recovery Rate",
-      "description": "The percentage of outstanding receivables that are successfully collected after all costs and fees. Pre-collection workflows improve net recovery by intervening earlier in the aging cycle.",
+      "name": "Remote online notarization (RON)",
+      "description": "A notarial act performed over audio-video communication, where the signer appears before the notary remotely, with identity verification and a session recording kept as required by state law.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "DSO (Days Sales Outstanding)",
-      "description": "Average number of days a company takes to collect payment after a sale. Lower DSO indicates more efficient revenue collection. Pre-collection workflows typically reduce DSO by 15-37%.",
+      "name": "Notarial act",
+      "description": "A single act performed by a notary public, such as taking an acknowledgment or administering an oath or affirmation.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Revenue Cycle Management (RCM)",
-      "description": "The financial process that healthcare facilities use to track patient care episodes from registration through final payment. VitaCoreX provides pre-collection infrastructure for the recovery phase of RCM.",
+      "name": "Apostille",
+      "description": "A certificate under the 1961 Hague Apostille Convention that authenticates the origin of a public document for use in another member country. In the United States it is issued by the competent state authority for state documents or by the U.S. Department of State for federal documents.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Dunning",
-      "description": "The process of sending systematic payment reminders to customers with overdue accounts. Dunning optimization uses behavioral segmentation and timing to maximize recovery from failed payments.",
+      "name": "Form 1040",
+      "description": "U.S. Individual Income Tax Return, the federal income tax return filed by individuals with the IRS.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Involuntary Churn",
-      "description": "Customer loss caused by payment failures rather than deliberate cancellation. Structured dunning and payment recovery workflows can reduce involuntary churn by 20-40%.",
+      "name": "Schedule C",
+      "description": "IRS form attached to Form 1040 to report profit or loss from a business operated as a sole proprietorship.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Litigation-Ready Documentation",
-      "description": "File packages organized with chronology, exhibits, payment records, and escalation history in a format ready for outside counsel review, reducing attorney administrative time.",
+      "name": "EIN (Employer Identification Number)",
+      "description": "A nine-digit federal tax identification number issued by the IRS to businesses. The IRS does not charge a fee to issue an EIN.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "FDCPA (Fair Debt Collection Practices Act)",
-      "description": "Federal law regulating third-party debt collection practices. VitaCoreX designs pre-collection workflows with FDCPA compliance as a guardrail.",
+      "name": "Articles of Organization",
+      "description": "The document filed with a state to form a limited liability company (LLC).",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Immigration Packet",
-      "description": "Organized collection of forms, supporting evidence, identification documents, and filing instructions assembled for submission to USCIS for visa, green card, or naturalization applications.",
+      "name": "Form N-400",
+      "description": "Application for Naturalization, filed with U.S. Citizenship and Immigration Services (USCIS) by lawful permanent residents applying for U.S. citizenship.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     },
     {
       "@type": "DefinedTerm",
-      "name": "DSO (Dental Service Organization)",
-      "description": "Management company that provides business support services to dental practices. VitaCoreX provides revenue recovery infrastructure designed for multi-location DSO operations.",
+      "name": "Small claims",
+      "description": "A simplified state court process for civil claims up to a dollar limit set by each state. Rules on who may prepare documents and appear for a company differ by state and court.",
       "inDefinedTermSet": "https://vitacorexllc.com/"
     }
   ]

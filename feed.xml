@@ -1,270 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>VitaCoreX LLC — Revenue Recovery &amp; Documentation Infrastructure</title>
-  <subtitle>Revenue recovery, legal file control, immigration packets, company formation, auto deal review. Tampa, FL.</subtitle>
+  <title>VitaCoreX LLC — Documents, Translations &amp; Personal Services</title>
+  <subtitle>Translations, online notarization, apostille assistance, tax returns, company formation, business plans and document support for private clients. Small claims documents for companies. Tampa, FL.</subtitle>
   <link href="https://vitacorexllc.com/" rel="alternate" type="text/html"/>
   <link href="https://vitacorexllc.com/feed.xml" rel="self" type="application/atom+xml"/>
   <id>https://vitacorexllc.com/</id>
-  <updated>2026-04-05T12:00:00Z</updated>
+  <updated>2026-10-14T12:00:00Z</updated>
   <author>
     <name>VitaCoreX LLC</name>
     <uri>https://vitacorexllc.com/</uri>
     <email>info@vitacorexllc.com</email>
   </author>
-  <category term="revenue recovery"/>
-  <category term="pre-collection"/>
-  <category term="legal file control"/>
-  <category term="immigration documents"/>
+  <category term="translations"/>
+  <category term="online notarization"/>
+  <category term="apostille"/>
+  <category term="tax returns"/>
   <category term="company formation"/>
-  <category term="auto deal review"/>
-  <category term="healthcare revenue cycle"/>
-  <category term="dental AR management"/>
-  <category term="gym membership recovery"/>
+  <category term="business plans"/>
+  <category term="document support"/>
+  <category term="small claims"/>
 
   <entry>
-    <title>Healthcare Revenue Leakage Brief — Executive Research</title>
-    <link href="https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf" rel="alternate"/>
-    <id>https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>17-page executive brief covering 5 healthcare revenue leakage points, recovery probability curves, and financial impact models for small, mid, and large practices.</summary>
-    <category term="healthcare"/>
-    <category term="revenue recovery"/>
-    <category term="executive brief"/>
+    <title>All Private-Client Services in One Place</title>
+    <link href="https://vitacorexllc.com/services.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/services.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Choose a task, see the starting price or request a quote: translations, online notarization, apostille assistance, tax returns, company formation, business plans, contracts and documents, immigration forms and N-400 document support.</summary>
+    <category term="services"/>
   </entry>
 
   <entry>
-    <title>Healthcare CFO Brief — EBITDA Impact &amp; Pilot Design</title>
-    <link href="https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf" rel="alternate"/>
-    <id>https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>13-page CFO-facing brief with EBITDA impact modeling, peer benchmarking, implementation timeline, and KPI dashboard design for healthcare revenue recovery.</summary>
-    <category term="healthcare CFO"/>
-    <category term="EBITDA"/>
-    <category term="revenue cycle"/>
+    <title>Prices — Starting Service Fees</title>
+    <link href="https://vitacorexllc.com/pricing.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/pricing.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Starting prices in USD. Online notarization $25 per notarial act; certified translation $25 per 250 source words; individual tax return from $149 — final price after review; company formation $99 + state filing fee. Government, filing and court fees are separate.</summary>
+    <category term="pricing"/>
   </entry>
 
   <entry>
-    <title>Dental Institutional Deck — DSO Market Analysis</title>
-    <link href="https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf" rel="alternate"/>
-    <id>https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>15-page institutional deck covering $165B+ dental market analysis, DSO penetration data, dental-specific AR problems, and 90-day pilot design.</summary>
-    <category term="dental"/>
-    <category term="DSO"/>
-    <category term="dental AR"/>
+    <title>Online Notarization — $25 per Notarial Act</title>
+    <link href="https://vitacorexllc.com/online-notary.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/online-notary.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Remote online notarization by a Florida Notary Public by video, from anywhere you have a camera and a valid photo ID. Additional acts, witnesses and printed copies are extra.</summary>
+    <category term="online notarization"/>
   </entry>
 
   <entry>
-    <title>B2B Pre-Collection Executive Review — Commercial AR Framework</title>
-    <link href="https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf" rel="alternate"/>
-    <id>https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>18-page executive review covering commercial AR landscape, LLC dissolution enforcement, litigation-ready documentation, and Florida statutory framework.</summary>
-    <category term="B2B"/>
-    <category term="commercial debt"/>
-    <category term="pre-collection"/>
+    <title>Certified and General Translations</title>
+    <link href="https://vitacorexllc.com/translations.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/translations.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Certified translation $25 per 250 source words (one standard page) with a signed translator certificate. General translation $0.10 per source word, $25 minimum order. Word count, price and date are confirmed before payment.</summary>
+    <category term="translations"/>
   </entry>
 
   <entry>
-    <title>Revenue Recovery Infrastructure — Pre-Collection Workflow Design</title>
-    <link href="https://vitacorexllc.com/revenue-recovery-workflow.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/revenue-recovery-workflow.html</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Structured pre-collection recovery infrastructure for healthcare, dental, fleet, logistics, and B2B operators. Recovers 35-55 cents per dollar at 30-90 days versus 10-14 cents through traditional agency placement.</summary>
-    <category term="revenue recovery"/>
-    <category term="pre-collection"/>
-    <category term="net recovery improvement"/>
+    <title>Apostille Assistance — from $119 Service Fee</title>
+    <link href="https://vitacorexllc.com/apostille.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/apostille.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>We find the right authority for your document and destination country, prepare the submission and track it. Service fee from $119 for the first document; government fees and shipping are itemized separately.</summary>
+    <category term="apostille"/>
   </entry>
 
   <entry>
-    <title>Corporate Legal File Control — Litigation-Ready Documentation</title>
-    <link href="https://vitacorexllc.com/corporate-legal-file-control.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/corporate-legal-file-control.html</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Document organization, chronology cleanup, exhibit ordering, and compliance-ready file management for corporate legal departments and counsel-adjacent teams.</summary>
-    <category term="legal file control"/>
-    <category term="litigation support"/>
-    <category term="document management"/>
+    <title>Individual Tax Returns — from $149</title>
+    <link href="https://vitacorexllc.com/tax-preparation.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/tax-preparation.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Federal individual return (Form 1040) prepared by our accounting team after a short scoping call — from $149, final price after review. Self-employed return from $249; state return add-on from $49.</summary>
+    <category term="tax returns"/>
   </entry>
 
   <entry>
-    <title>Immigration Packet Organization — USCIS Form Preparation</title>
-    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/additional-services.html#immigration</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Documentation-first immigration packet organization: USCIS form preparation, visa packets (I-130, I-485, I-765, K-1), green card documentation, naturalization (N-400), asylum, and DACA renewal.</summary>
-    <category term="immigration"/>
-    <category term="USCIS"/>
-    <category term="visa documentation"/>
-    <category term="green card"/>
+    <title>Request a Quote or Ask About Your Situation</title>
+    <link href="https://vitacorexllc.com/request.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/request.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Describe your task and we reply with the matching service and price. Sending a request is free of charge; it is not a free legal consultation.</summary>
+    <category term="request"/>
   </entry>
 
   <entry>
-    <title>Company Formation Documents — Florida LLC &amp; Corporation</title>
-    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/additional-services.html#company-formation</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Documentation support for Florida LLC formation, articles of incorporation, operating agreements, EIN applications, business licenses, and registered agent documentation.</summary>
-    <category term="LLC formation"/>
+    <title>Company Formation — $99 + State Filing Fee</title>
+    <link href="https://vitacorexllc.com/llc-formation-florida.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/llc-formation-florida.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>We prepare and submit the formation filing for the state and entity type you have chosen. $99 + state filing fee, or $199 + state filing fee with EIN application assistance. No subscription.</summary>
     <category term="company formation"/>
-    <category term="Florida business"/>
-    <category term="business startup"/>
   </entry>
 
   <entry>
-    <title>Auto Deal Fee &amp; Payment Calculator</title>
-    <link href="https://vitacorexllc.com/additional-services.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/additional-services.html#auto-deal</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Check dealer fees against common thresholds, calculate true monthly payments with APR, and get negotiation points before signing at a car dealership.</summary>
-    <category term="auto deal"/>
-    <category term="car purchase"/>
-    <category term="dealer fees"/>
+    <title>Business Plans — from $499</title>
+    <link href="https://vitacorexllc.com/business-plans.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/business-plans.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>A defined basic plan built from your questionnaire: business model, market summary with sources and an assumption-based financial outline, with an editable file and one revision.</summary>
+    <category term="business plans"/>
   </entry>
 
   <entry>
-    <title>Healthcare &amp; Dental Industry Solutions</title>
-    <link href="https://vitacorexllc.com/industry-healthcare-dental.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/industry-healthcare-dental.html</id>
-    <updated>2026-04-05T12:00:00Z</updated>
-    <summary>Revenue recovery for healthcare providers, hospitals, emergency rooms, dental clinics, DSO groups, and medical practices. Patient balance recovery, net recovery improvement, and compliance-ready documentation.</summary>
-    <category term="healthcare"/>
-    <category term="dental"/>
-    <category term="hospital"/>
-    <category term="medical billing"/>
+    <title>Contracts &amp; Document Support — from $99</title>
+    <link href="https://vitacorexllc.com/contract-review-service.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/contract-review-service.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Preparing and organizing agreements, letters and forms you have chosen, with a clear deliverable agreed before work starts. Legal advice or representation only through an independent licensed attorney, with your consent.</summary>
+    <category term="document support"/>
   </entry>
 
   <entry>
-    <title>Gym &amp; Fitness Membership Revenue Recovery</title>
-    <link href="https://vitacorexllc.com/industry-subscription-recurring.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/industry-subscription-recurring.html#gym</id>
-    <updated>2026-04-05T14:00:00Z</updated>
-    <summary>Revenue recovery for gyms, fitness centers, health clubs, CrossFit boxes, yoga studios, and boutique fitness operators. Recover unpaid memberships without losing members.</summary>
-    <category term="gym"/>
-    <category term="fitness"/>
-    <category term="membership recovery"/>
-    <category term="health club"/>
+    <title>Immigration Forms &amp; Documents — Clerical Preparation</title>
+    <link href="https://vitacorexllc.com/immigration-packet-review.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/immigration-packet-review.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Typing a USCIS form you or your adviser have chosen, a completeness check and an organized document packet — from $149. N-400 document support from $249. Form selection, eligibility advice and representation are not provided; USCIS fees are separate.</summary>
+    <category term="immigration forms"/>
   </entry>
 
   <entry>
-    <title>SaaS &amp; Subscription Dunning Optimization</title>
-    <link href="https://vitacorexllc.com/industry-subscription-recurring.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/industry-subscription-recurring.html#saas</id>
-    <updated>2026-04-05T14:00:00Z</updated>
-    <summary>Reduce involuntary churn and recover failed payments for SaaS companies, subscription businesses, and recurring billing operators. Smart dunning sequences and payment retry optimization.</summary>
-    <category term="SaaS"/>
-    <category term="subscription"/>
-    <category term="dunning"/>
-    <category term="churn recovery"/>
-  </entry>
-
-  <entry>
-    <title>Fleet &amp; Logistics Revenue Recovery</title>
-    <link href="https://vitacorexllc.com/industry-fleet-logistics.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/industry-fleet-logistics.html</id>
-    <updated>2026-04-05T14:00:00Z</updated>
-    <summary>Revenue recovery for fleet operators, logistics companies, and transportation businesses. Fuel card recovery, equipment lease recovery, and commercial vehicle billing.</summary>
-    <category term="fleet"/>
-    <category term="logistics"/>
-    <category term="transportation"/>
-    <category term="fuel card"/>
-  </entry>
-
-  <entry>
-    <title>Construction &amp; B2B Commercial Debt Recovery</title>
-    <link href="https://vitacorexllc.com/industry-contract-services.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/industry-contract-services.html</id>
-    <updated>2026-04-05T14:00:00Z</updated>
-    <summary>Commercial debt recovery for construction companies, contractors, and B2B service providers. Contractor payment recovery and professional services AR management.</summary>
-    <category term="construction"/>
+    <title>Small Claims for Companies — Case Packet from $199</title>
+    <link href="https://vitacorexllc.com/small-claims-documentation.html" rel="alternate"/>
+    <id>https://vitacorexllc.com/small-claims-documentation.html</id>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>An organized case file for one claim against one defendant from $199, or preparation and case support for the first 30 days from $399. Court fees are separate; no court appearance or representation. Not offered in New York.</summary>
+    <category term="small claims"/>
     <category term="B2B"/>
-    <category term="contractor"/>
-    <category term="commercial debt"/>
   </entry>
 
   <entry>
-    <title>VitaCoreX Complete Service Catalog — All Industries</title>
+    <title>VitaCoreX Service Catalog (Structured Data)</title>
     <link href="https://vitacorexllc.com/.well-known/service-catalog.jsonld" rel="alternate"/>
     <id>https://vitacorexllc.com/.well-known/service-catalog.jsonld</id>
-    <updated>2026-04-05T15:00:00Z</updated>
-    <summary>Complete structured data catalog of all VitaCoreX services: revenue recovery, healthcare, dental, gym, SaaS, immigration, LLC formation, auto deals, legal docs, fleet, construction.</summary>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Structured list of all VitaCoreX services with starting prices and units, generated from the site service catalog.</summary>
     <category term="service catalog"/>
     <category term="structured data"/>
   </entry>
 
   <entry>
-    <title>VitaCoreX FAQ — Comprehensive Question &amp; Answer Database</title>
+    <title>VitaCoreX FAQ (Structured Data)</title>
     <link href="https://vitacorexllc.com/.well-known/faq-complete.jsonld" rel="alternate"/>
     <id>https://vitacorexllc.com/.well-known/faq-complete.jsonld</id>
-    <updated>2026-04-05T15:00:00Z</updated>
-    <summary>Complete FAQ covering all VitaCoreX services in English, Russian, and Spanish. Revenue recovery, immigration, LLC formation, auto deals, legal documents, healthcare, dental, gym recovery.</summary>
+    <updated>2026-10-14T12:00:00Z</updated>
+    <summary>Questions and answers about VitaCoreX services and prices in English, Russian and Spanish.</summary>
     <category term="FAQ"/>
-    <category term="questions"/>
     <category term="multilingual"/>
-  </entry>
-
-  <entry>
-    <title>Revenue Recovery Services Tampa FL — Healthcare, Dental &amp; Gym Recovery</title>
-    <link href="https://vitacorexllc.com/revenue-recovery-tampa.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/revenue-recovery-tampa.html</id>
-    <updated>2026-04-05T16:00:00Z</updated>
-    <summary>Structured pre-collection revenue recovery for healthcare clinics, dental practices, and gym operators in Tampa and Hillsborough County. Local team, Florida-compliant documentation, 35-55 cent recovery rates.</summary>
-    <category term="revenue recovery"/>
-    <category term="Tampa"/>
-    <category term="healthcare"/>
-    <category term="dental"/>
-    <category term="gym"/>
-  </entry>
-
-  <entry>
-    <title>Revenue Recovery Services Miami FL — Hospitality, Healthcare &amp; Construction</title>
-    <link href="https://vitacorexllc.com/revenue-recovery-miami.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/revenue-recovery-miami.html</id>
-    <updated>2026-04-05T16:00:00Z</updated>
-    <summary>Pre-collection revenue recovery for hospitality groups, healthcare networks, and construction contractors across Miami-Dade County. Multilingual outreach in English, Spanish, and Portuguese.</summary>
-    <category term="revenue recovery"/>
-    <category term="Miami"/>
-    <category term="hospitality"/>
-    <category term="construction"/>
-    <category term="healthcare"/>
-  </entry>
-
-  <entry>
-    <title>Revenue Recovery Services Orlando FL — Tourism, Hospitality &amp; Healthcare</title>
-    <link href="https://vitacorexllc.com/revenue-recovery-orlando.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/revenue-recovery-orlando.html</id>
-    <updated>2026-04-05T16:00:00Z</updated>
-    <summary>Structured revenue recovery for tourism operators, hospitality venues, and healthcare providers in Orlando and Orange County. Compressed-timeline workflows for transient visitor populations.</summary>
-    <category term="revenue recovery"/>
-    <category term="Orlando"/>
-    <category term="tourism"/>
-    <category term="hospitality"/>
-    <category term="healthcare"/>
-  </entry>
-
-  <entry>
-    <title>Immigration Document Preparation Tampa FL — USCIS Form Packets</title>
-    <link href="https://vitacorexllc.com/immigration-services-tampa.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/immigration-services-tampa.html</id>
-    <updated>2026-04-05T16:00:00Z</updated>
-    <summary>Immigration document preparation and USCIS form packet organization in Tampa. I-130, I-485, I-765, K-1, N-400 filings with multilingual support in English, Russian, and Spanish.</summary>
-    <category term="immigration"/>
-    <category term="Tampa"/>
-    <category term="USCIS"/>
-    <category term="document preparation"/>
-    <category term="multilingual"/>
-  </entry>
-
-  <entry>
-    <title>LLC Formation Florida — Start Your Business with VitaCoreX</title>
-    <link href="https://vitacorexllc.com/llc-formation-florida.html" rel="alternate"/>
-    <id>https://vitacorexllc.com/llc-formation-florida.html</id>
-    <updated>2026-04-05T16:00:00Z</updated>
-    <summary>Florida LLC formation document preparation: Articles of Organization, operating agreements, EIN applications, S-Corp elections, C-Corp formation, and Sunbiz annual report preparation.</summary>
-    <category term="LLC formation"/>
-    <category term="Florida"/>
-    <category term="business formation"/>
-    <category term="Sunbiz"/>
-    <category term="S-Corp"/>
   </entry>
 </feed>

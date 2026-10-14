@@ -1,6 +1,6 @@
 /* P03 Step 3.4 — Idempotent injector for .vcx-sample-embed on service pages.
  *
- * - Maps 8 service pages → 1 or 2 sample cards per page (roster in ADR-008)
+ * - Maps 7 service pages → 1 or 2 sample cards per page (roster in ADR-008)
  * - Inserts markup between sentinel comments VCX_SAMPLE_EMBED:START/END
  *   so re-runs are idempotent (existing block replaced in place; no dup)
  * - Adds <link rel="stylesheet" href="assets/css/vcx-sample-embed.css"> to <head>
@@ -30,13 +30,6 @@ const MAPPING = {
     cards: [{
       slug: 'immigration-evidence-index', audience: 'b2c', gated: false,
       titleKey: 'smp_embed_immigration_title', descKey: 'smp_embed_immigration_desc',
-    }],
-  },
-  'auto-deal-review.html': {
-    sectionAudience: 'b2c',
-    cards: [{
-      slug: 'auto-deal-cost-breakdown', audience: 'b2c', gated: false,
-      titleKey: 'smp_embed_auto_title', descKey: 'smp_embed_auto_desc',
     }],
   },
   'florida-small-claims-help.html': {
@@ -103,8 +96,6 @@ const LITERAL = {
   smp_embed_contract_desc:     'Clause index, risk-flag log, plain-English summary, signature-stage go/no-go brief \u2014 watermarked sample of exactly what a contract review packet contains.',
   smp_embed_immigration_title: 'Immigration Evidence Index',
   smp_embed_immigration_desc:  'Evidence organization and cross-reference index for immigration filings (I-130 / I-485 / N-400 support). Not legal advice, not form selection \u2014 document organization only.',
-  smp_embed_auto_title:        'Auto Deal Cost Breakdown',
-  smp_embed_auto_desc:         'Line-by-line fee audit of a dealer purchase: add-ons flagged, disclosure gaps, total-cost-of-ownership projection. What you see before signing at the dealer.',
   smp_embed_smallclaims_title: 'Small Claims Chronology',
   smp_embed_smallclaims_desc:  'Dated event timeline, exhibits index, counsel-ready packet structure \u2014 the document organization we prepare for Florida small-claims matters (not legal representation).',
 };

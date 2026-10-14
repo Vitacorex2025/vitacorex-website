@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <ShortName>VitaCoreX</ShortName>
-  <Description>Search VitaCoreX LLC — Revenue Recovery, Legal File Control, Immigration, Company Formation, Auto Deal Review. Tampa, FL.</Description>
-  <Tags>revenue recovery pre-collection immigration LLC formation auto deal legal documents Tampa Florida</Tags>
+  <Description>Search VitaCoreX LLC — Translations, Online Notarization, Apostille, Tax Returns, Company Formation, Document Support. Tampa, FL.</Description>
+  <Tags>translations notarization apostille tax returns company formation business plan documents small claims Tampa Florida</Tags>
   <Contact>info@vitacorexllc.com</Contact>
   <Url type="text/html" template="https://vitacorexllc.com/?q={searchTerms}"/>
   <Image width="16" height="16" type="image/png">https://vitacorexllc.com/assets/img/logo.png</Image>

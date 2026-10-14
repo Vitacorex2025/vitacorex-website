@@ -1,5 +1,9 @@
 # VitaCoreX LLC — Crawl Policy
-# Last updated: 2026-04-05
+# Last updated: 2026-10-14
+#
+# /app/ (signed-in tools) is disallowed for every crawler group below.
+# A crawler that matches a named group ignores the "*" group, so each
+# named group repeats "Disallow: /app/".
 
 # Default: allow all crawlers
 # CSS / JS must be crawlable so Googlebot can render the page and score
@@ -9,99 +13,126 @@ Allow: /
 Allow: /assets/
 Disallow: /app/
 
-# Google Search (full access)
+# Google Search
 User-agent: Googlebot
 Allow: /
+Disallow: /app/
 
 # Google Images
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /app/
 
 # Bing / Microsoft Copilot
 User-agent: Bingbot
 Allow: /
+Disallow: /app/
 User-agent: bingbot
 Allow: /
+Disallow: /app/
 User-agent: MicrosoftPreview
 Allow: /
+Disallow: /app/
 
 # OpenAI Search — allow so VitaCoreX appears in ChatGPT Search answers
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /app/
 
 # OpenAI training crawler — allow for maximum LLM visibility
 User-agent: GPTBot
 Allow: /
+Disallow: /app/
 
 # ChatGPT user-initiated fetches
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /app/
 
 # Google AI (Gemini grounding) — allow for AI Overview visibility
 User-agent: Google-Extended
 Allow: /
+Disallow: /app/
 
 # Anthropic Claude
 User-agent: anthropic-ai
 Allow: /
+Disallow: /app/
 User-agent: ClaudeBot
 Allow: /
+Disallow: /app/
 User-agent: Claude-Web
 Allow: /
+Disallow: /app/
 
 # Perplexity AI
 User-agent: PerplexityBot
 Allow: /
+Disallow: /app/
 
 # Meta AI
 User-agent: FacebookBot
 Allow: /
+Disallow: /app/
 User-agent: FacebookExternalHit
 Allow: /
+Disallow: /app/
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /app/
 User-agent: meta-externalagent
 Allow: /
+Disallow: /app/
 
 # Apple (Siri / Spotlight)
 User-agent: Applebot
 Allow: /
+Disallow: /app/
 
 # Yandex
 User-agent: YandexBot
 Allow: /
+Disallow: /app/
 
 # Brave Search
 User-agent: BraveBot
 Allow: /
+Disallow: /app/
 
 # Cohere AI
 User-agent: cohere-ai
 Allow: /
+Disallow: /app/
 
 # Common Crawl
 User-agent: CCBot
 Allow: /
+Disallow: /app/
 
 # You.com
 User-agent: YouBot
 Allow: /
+Disallow: /app/
 
 # Amazon (Alexa / Silk Browser / Fire TV)
 User-agent: AmazonBot
 Allow: /
+Disallow: /app/
 
 # DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /app/
 
 # Phind AI
 User-agent: PhindBot
 Allow: /
+Disallow: /app/
 
 # Kagi Search
 User-agent: KagiBot
 Allow: /
+Disallow: /app/
 
 Sitemap: https://vitacorexllc.com/sitemap.xml
 

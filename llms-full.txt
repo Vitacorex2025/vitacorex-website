@@ -1,572 +1,260 @@
-# VitaCoreX LLC — Complete Site Content for LLM Reference
+# VitaCoreX LLC — Complete Service Reference for LLMs
 # https://vitacorexllc.com
-# Generated: 2026-04-05
+# Generated: 2026-10-14 from the site service catalog (assets/data/vcx-catalog.json)
 
 ================================================================================
-## Company Overview
+## Company
 ================================================================================
 
-VitaCoreX LLC is an operational advisory firm established in 2025, headquartered in Tampa, Florida. The company provides revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators.
-
-Company Name: VitaCoreX LLC
+Company name: VitaCoreX LLC
 Website: https://vitacorexllc.com
-EIN: 41-4399148
-Phone (call/text): (888) 794-8292
-Location: Tampa, FL
-Established: 2025
-Languages Supported: English, Russian, Spanish
+Phone: (888) 794-8292
+Email: info@vitacorexllc.com
+Location: Tampa, FL, United States
+Founder: Steven Miller
+Service languages: English, Russian, Spanish
 
-What VitaCoreX Does:
-- Builds operational control before expensive escalation
-- Helps complex operators improve cash control, documentation discipline, and counsel-ready file structure before avoidable fee pressure expands
-- Revenue recovery workflow design
-- Corporate file cleanup and packet control
-- Pilot economics, KPI reporting, and rollout logic
-- Board-ready, CFO-ready positioning
+VitaCoreX LLC helps private clients with documents, translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork. A separate lane serves companies with small-claims document preparation and case support. Existing business clients can ask for recovery support, quoted individually.
 
-What VitaCoreX Does NOT Do:
-- Does not provide legal advice or act as a law firm
-- Does not position itself as a licensed collection agency
-- Does not provide legal representation
-- Legal strategy and legal advice remain the responsibility of licensed counsel
+VitaCoreX LLC is not a law firm and does not provide legal advice or court representation. It does not choose immigration forms or give eligibility advice. If a client needs a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with the client's consent.
 
-Operating Method (Diagnose, Pilot, Scale):
-1. Diagnose: Review workflow friction, document quality, escalation logic, and where recoverable value leaks first.
-2. Pilot: Define a contained workstream with clear expectations, response windows, and measurement logic.
-3. Scale: Expand only when the pilot creates credible operator-owned evidence.
-
-Typical First-Phase Outputs:
-- Current-state leakage and handoff review
-- Document gap list and packet standard
-- Priority routing logic and next-step memo
-- Pilot scope with measurement criteria
-
-Strong Fit:
-- Finance-led teams and owners who want a cleaner path to cash control
-- Operators dealing with fragmented files, aged balances, or weak escalation handoff
-- Counsel-adjacent environments where administrative cleanup is absorbing expensive time
-- Multi-location operators with inconsistent workflows or weak escalation discipline
-- Organizations that want cleaner packet control before outside counsel or agency cost expands
-- Owners, CFOs, COOs, and counsel-adjacent operators who need a more credible handoff model
-
-Weak Fit:
-- Buyers seeking legal advice or fully outsourced collections operations
-- Requests with no workable documents, no decision owner, and no interest in measurement
-- Generic outsourced call-center or broad "do everything" service shop requests
-- Highly sensitive regulated records submitted through a public intake without secure coordination
-
-Social Media:
-- Instagram: https://www.instagram.com/vitacorex_llc/
-- Facebook: https://www.facebook.com/profile.php?id=61554844507884
+How prices work:
+- All amounts are in USD and are service fees.
+- "from" means a starting price; the final price is confirmed in a written quote before any payment.
+- Government, state, USCIS, apostille and court fees, shipping and courier are separate and itemized.
+- Paid work starts only after the client accepts a quote (or, for fixed-price services, pays the listed fee after the eligibility questions).
+- Documents are exchanged through a private secure link. Do not send SSNs, tax forms or ID numbers through the website form or by email.
 
 ================================================================================
-## Services
+## Services and prices
 ================================================================================
 
-VitaCoreX offers three core solution lanes plus selective private client services.
+### Documents & translations
 
-### Revenue Recovery Infrastructure
-URL: https://vitacorexllc.com/revenue-recovery-workflow.html
+#### Certified translation
+- Price: $25 per 250 source words (one standard page)
+- Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.
+- Included: Complete translation of the document; Signed translator certificate of accuracy; Digital delivery (PDF); Check of language pair and legibility before you pay
+- Not included / extra: Rush delivery; Rare language pairs and complex layout; Notarized translator affidavit (separate notary); Printed copies and postage
+- Next step: Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.
+- Page: https://vitacorexllc.com/translations.html
 
-Private advisory for operators that want stronger cash conversion, cleaner documentation, and less contingency leakage before agency escalation or outside legal spend expands. This is an operating-control system for margin protection, documentation quality, and cash velocity — not a generic collections pitch.
+#### General translation
+- Price: $0.10 per source word, $25 minimum order
+- Letters, websites, business and personal texts that do not need a certificate.
+- Included: Translation of the agreed text; One round of clarifications; Delivery in an editable file
+- Not included / extra: Specialist subject matter (medical, technical, legal terminology); Rush delivery; Layout restoration
+- Next step: Tell us the language pair, size and deadline. You receive a written quote before any payment.
+- Page: https://vitacorexllc.com/translations.html
 
-Framework Components:
-- Behavioral segmentation
-- Conditional offer conversion
-- Guarantor activation
-- ACH-first discipline
-- Litigation-ready documentation
-- 90-day pilot
-- KPI dashboard
+#### Online notarization
+- Price: $25 per notarial act
+- Remote online notarization by a Florida Notary Public — by video, from anywhere you have a camera and a valid photo ID.
+- Included: One online notarial act on your document; Identity verification on the online platform; Electronic notarized document; Session recording kept as required by Florida law
+- Not included / extra: Each additional signature or act; Witnesses, if your document needs them; Printed copy and mailing
+- Next step: Answer three quick questions, pay $25 and choose a time. We confirm the appointment by email once the calendar accepts it.
+- Page: https://vitacorexllc.com/online-notary.html
 
-What Leadership Monitors:
-- Balances converted before agency escalation
-- Documented payment commitments and cure rates
-- Exception queues, follow-up discipline, and aging movement
-- File quality improvements that reduce downstream cleanup
+#### Apostille assistance
+- Price: from $119 — final price after review (service fee for the first document)
+- We find the right authority for your document and destination country, prepare the submission and track it.
+- Included: Check of document origin, type and destination; Route to the correct state or federal authority; Preparation of the request and cover letter; Tracking and status updates
+- Not included / extra: Government apostille fees; Shipping and courier; Certified copies, translation, embassy legalization
+- Next step: Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.
+- Page: https://vitacorexllc.com/apostille.html
 
-Pilot Measurement Plan:
-- Starting portfolio mix and pre-agency balance volume
-- Acceptance rate, completion rate, and time-to-cash
-- Agency referrals avoided or deferred through cleaner internal sequencing
-- Documentation quality at handoff when escalation remains necessary
+### Taxes & personal paperwork
 
-Weekly Review Includes:
-- Cash movement: Collections captured against baseline cohorts
-- Workflow control: Follow-up cadence, cure logic, and exception handling consistency
-- Escalation discipline: Accounts routed onward only after documented internal steps are completed
-- File quality: Agreement records, notes, and support materials ready for downstream use
+#### Individual tax return
+- Price: from $149 — final price after review (simple federal return, one tax year)
+- Federal individual return (Form 1040) prepared by our accounting team after a short scoping call.
+- Included: Scoping of your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
+- Not included / extra: State return; Self-employment, rental or foreign income; Amended or prior-year returns
+- Next step: Tell us the tax year and type of return. We confirm scope and price, then send a secure link for documents. Do not send SSNs or tax forms through the website form.
+- Page: https://vitacorexllc.com/tax-preparation.html
 
-Pilot Work Product:
-- Baseline map: Aging, routing, and exception logic documented
-- Workflow changes: Offers, follow-up sequence, and payment controls defined
-- Review memo: Weekly observations with next-step recommendations
+#### Self-employed tax return
+- Price: from $249 — final price after review (federal return with one simple Schedule C)
+- Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.
+- Included: Readiness check of your income and expense records; Federal return with one Schedule C; Review with you before filing
+- Not included / extra: Bookkeeping cleanup; Several businesses, multi-state or foreign forms; State return
+- Next step: Tell us the tax year and how you earn. We confirm the starting price after a short review of your records.
+- Page: https://vitacorexllc.com/tax-preparation.html
 
-Regulatory Guardrails: FDCPA, Regulation F, Florida FCCPA, E-SIGN, and Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structuring.
+#### State return add-on
+- Price: from $49 — final price after review (one supported state, with a federal return)
+- One state return prepared together with your federal return.
+- Included: One resident state return; Prepared together with your federal return
+- Not included / extra: Part-year, non-resident or several states
+- Next step: Added to your federal tax request; the preparer confirms the price.
+- Page: https://vitacorexllc.com/tax-preparation.html
 
-VCX Products Available:
-- Recovery Pilot Studio: Multi-step diagnostic wizard with executive brief generation and KPI baseline computation
-- Intake OS: Structured intake pipeline with triage scoring, magic-link status tracking, and admin review queue
+#### Contracts & document support
+- Price: from $99 — final price after review (starting price for a limited document task)
+- Preparing and organizing agreements, letters and forms you have chosen — with a clear deliverable agreed before work starts.
+- Included: Scoping of your document task; Preparation or organization of the agreed document; One round of edits
+- Not included / extra: Larger or multi-document tasks; Legal advice or representation — only through an independent licensed attorney, with your consent
+- Next step: Describe the document you need. We confirm what we can prepare, the deliverable and the price before you pay.
+- Page: https://vitacorexllc.com/contract-review-service.html
 
---------------------------------------------------------------------------------
+#### Immigration forms & documents
+- Price: from $149 — final price after review (one simple form you have selected)
+- Clerical preparation of a USCIS form you or your adviser have chosen, plus organizing supporting documents.
+- Included: Typing the form from your answers; Completeness check against the form instructions; Organized document checklist and packet
+- Not included / extra: USCIS filing fees; Translations of supporting documents; Choosing a form, eligibility advice or representation — not provided
+- Next step: Tell us which form you are filing and your deadline. We confirm the scope and price before any work.
+- Page: https://vitacorexllc.com/immigration-packet-review.html
 
-### Corporate Legal File Control
-URL: https://vitacorexllc.com/corporate-legal-file-control.html
+#### Naturalization document support (N-400)
+- Price: from $249 — final price after review (defined N-400 support scope)
+- Administrative help with Form N-400: typing, completeness check and an organized document packet.
+- Included: Form N-400 typed from your answers; Completeness check and document checklist; Organized packet ready for you to file
+- Not included / extra: USCIS filing fee; Eligibility analysis, interview preparation or representation — not provided
+- Next step: Send a short request. We confirm the scope and price; the decision to apply remains yours.
+- Page: https://vitacorexllc.com/n-400-naturalization.html
 
-VitaCoreX organizes chronology, exhibits, payment support, issue mapping, and escalation records so outside counsel receives a disciplined file rather than an administrative reconstruction project. Best for organizations with repeat contractual matters, recovery files, or dispute packets that need stronger preparation before outside review begins.
+#### Ask about your situation
+- Price: no charge to send a request
+- Not sure which service fits? Describe the task — we tell you what we can do and what it costs.
+- Included: We sort your request by topic and urgency; We suggest a matching service and price; If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent
+- Not included / extra: This is not a free legal consultation; Paid work starts only after you accept a quote
+- Next step: We reply with the suitable service, price or next step.
+- Page: https://vitacorexllc.com/request.html?service=legal_request
 
-Why the Economics Matter:
-When chronology, exhibits, authorizations, and escalation records arrive fragmented, attorney time gets consumed by administrative reconstruction instead of legal judgment.
+### Starting a business
 
-Typical Control Outputs:
-- Matter chronology cleanup
-- Exhibit ordering logic
-- Issue summary memo
-- File map
-- Counsel-ready packet
-- Questions / gaps log
-- Structured handoff notes
+#### Company formation
+- Price: $99 service fee + state filing fee
+- We prepare and submit the formation filing for the state and entity type you have chosen.
+- Included: Name availability check; Articles prepared and submitted; Filing confirmation and organized records; One clerical correction if the state requests it
+- Not included / extra: State filing fee (paid at cost); Registered agent, annual reports, licenses; Tax elections or legal advice
+- Next step: Choose the state and entity type, pay the service fee, and we confirm the state fee before filing. No subscription.
+- Page: https://vitacorexllc.com/llc-formation-florida.html
 
-First-Week Work Product:
-Initial issue map, first chronology pass, document request list, key gaps memo, and defined next-step routing.
+#### Company formation + EIN
+- Price: $199 service fee + state filing fee
+- Everything in Company formation, plus help applying for your EIN and an organized starter file.
+- Included: Everything in Company formation; EIN application assistance (the IRS does not charge for an EIN); Organized formation records
+- Not included / extra: State filing fee (paid at cost); Registered agent, renewals, bank account opening
+- Next step: Choose the state and entity type, pay the service fee, and we confirm the state fee before filing.
+- Page: https://vitacorexllc.com/llc-formation-florida.html
 
-Typical Engagement Rhythm:
-Most first-phase engagements are framed as a short sprint with a first work product in the first week and a structured review immediately after.
+#### Business plan
+- Price: from $499 — final price after review (defined basic plan)
+- A clear plan built from your questionnaire: business model, market summary and a simple financial outline.
+- Included: Questionnaire and one working call; Business model and market summary with sources; Assumption-based financial outline; Editable file and one revision
+- Not included / extra: Investor, SBA or visa-specific plans; Paid market data and complex financial models
+- Next step: Tell us what the plan is for and your deadline. We confirm scope and price in writing.
+- Page: https://vitacorexllc.com/business-plans.html
 
-Commercial Structure:
-Fixed-scope or staged pricing after intake and document review. No billable-hour surprise logic for first-stage cleanup work.
+### For companies: small claims
 
-Control Architecture Tools:
-- Attorney-Rate Drag Estimator: Calculates annualized attorney-rate cleanup cost based on monthly matters, cleanup hours per matter, and blended counsel hourly rate
-- File Readiness Index: Scores the operating quality of a file before counsel review based on chronology clarity, exhibit order, authorization and payment support, and escalation notes
+#### Small-claims case packet
+- Price: from $199 — final price after review (one eligible case, one defendant)
+- An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.
+- Included: Case intake and document review; Chronology and amount calculation; Indexed exhibit packet; Preparation of forms where this is permitted in your state
+- Not included / extra: Court filing fees and service of process; Court appearance, appeals and enforcement — not provided; Additional defendants
+- Next step: Check your case: state, court and claim basics. We confirm what we can do in that state and send a quote.
+- Page: https://vitacorexllc.com/small-claims-documentation.html
 
-What Premium File Control Signals:
-- Counsel receives organized exhibits instead of fragmented attachments
-- Issue summaries and chronology reduce repeat explanation cycles
-- Escalation records and authorizations stay auditable
-- Finance, operations, and counsel work from the same file logic
+#### Small-claims preparation & case support
+- Price: from $399 — final price after review (one case, one defendant, first 30 days)
+- The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.
+- Included: Everything in the case packet; Filing coordination where permitted; Docket follow-up and milestone updates; 30-day service window
+- Not included / extra: Court fees and service of process; Representation, appeals, enforcement — not provided; Continuation after 30 days by separate agreement
+- Next step: Start with the case check. We confirm the permitted scope for your state and court before a quote.
+- Page: https://vitacorexllc.com/small-claims-documentation.html
 
-VCX Products Available:
-- Contract Review Desk: Upload contracts for server-side clause extraction, risk scoring, and structured analysis memos
-- Packet Room: Secure portal for matter status, document uploads, comments thread, and deliverable downloads
+#### Recovery support for existing clients
+- Price: individual quote
+- An additional option for current business clients, quoted individually.
+- Included: Review of your current matter; Individual written quote
+- Not included / extra: Available to existing business clients only
+- Next step: Send your client reference; your manager replies with options.
+- Page: https://vitacorexllc.com/net-recovery.html
 
---------------------------------------------------------------------------------
-
-### Structured Case Intake
-URL: https://vitacorexllc.com/structured-case-intake.html
-
-Structured consultation intake that identifies fit, the right service line, required documents, and the recommended next step. Built to route the matter correctly, reduce rework, score urgency, and define what should be sent now.
-
-Best for document-ready matters. Company operators remain the primary fit. Private-client matters are reviewed where documentation quality and scope are already clear.
-
-Intake Form Fields:
-- Client type (Company/Portfolio or Private Client)
-- Full name, company name, phone, email, state
-- Urgency level: Standard, 48 hours, 24 hours, Same day/urgent
-- Service type selection: Revenue Recovery Workflow Design, Corporate Legal File Control, Structured Case Intake and Packet Build, Executive Briefs/Proof Request, Private Client Services, Other
-- Message / situation summary
-- Optional additional company details (company size, annual revenue range, AR/portfolio size, current agency usage)
-- File attachment (optional, PDF/DOC/XLS/CSV/images accepted)
-
-Intake Output Includes:
-- Recommended service line
-- Estimated fit
-- What to send now
-- Expected response window
-- Recommended next step
-
-Private Client Self-Service Tools Available from Intake:
-- Contract review scanner
-- Immigration packet helper
-- Auto deal fee check
-- Legal assistant
-- Deadline calendar
-
---------------------------------------------------------------------------------
-
-### Private Client Services
-URL: https://vitacorexllc.com/additional-services.html
-
-Curated private-client support for documentation-led matters. Selected private matters remain available where the work is administrative, documentation-heavy, and clearly scoped. The company-first VitaCoreX position remains primary.
-
-Service Categories:
-
-1. Contracts and Documentation
-   - Contract review support
-   - Document organization
-   - Demand-letter packet preparation
-   - Tools: Contract Scanner, Contract Review Desk
-
-2. Immigration Packet Organization
-   - Packet organization
-   - Evidence checklist cleanup
-   - Submission-readiness review
-   - Tools: Immigration Helper
-
-3. Auto Deal Fee and Payment Calculator
-   - Fee threshold check (doc fee, GAP, warranty)
-   - Monthly payment calculator with APR
-   - Negotiation points summary
-   - Tools: Auto Deal Check
-
-4. Florida Official Source Locator
-   - Routes to SunPass, CFX, and county toll portals
-   - Links to county clerk traffic citation portals
-   - Links to Florida Courts and PACER portals
-   - Note: Does not retrieve records directly
-
-Additional VCX Products:
-- Contract Review Desk: Server-side clause extraction and risk scoring
-- Legal Assistant: First-pass workflow guidance for contracts, immigration packets, auto deals, and Florida official-source routing
-- Packet Room: Secure client portal for matter tracking, document uploads, comments, and deliverable downloads
-- Deadline Calendar: Risk-first deadline tracking for legal cases, payments, hearings, and follow-ups
-
-Good Fit for Private Client Services:
-- Administrative, documentation-led matters with clear scope and a usable first packet
-- Private-client requests that do not require legal advice or regulated collections activity
-- Buyers who need structured document cleanup, packet logic, and executive-style clarity
-
-Not Designed For:
-- Emergency legal representation, court strategy, or attorney-client work product
-- Open-ended personal admin work without document structure or clear boundaries
-- Public submission of highly sensitive regulated records through a generic form
-
---------------------------------------------------------------------------------
-
-### Immigration Packet Organization
-
-VitaCoreX provides documentation-first immigration packet organization services:
-- USCIS form packet preparation and evidence checklist organization
-- Visa application packet assembly (I-130, I-485, I-765, K-1)
-- Green card documentation and evidence ordering
-- Naturalization (N-400) application packet preparation
-- Asylum and DACA renewal documentation organization
-- Submission-readiness review before attorney filing
-- Immigration attorney handoff packet preparation
-
-**Note**: VitaCoreX organizes documentation packets. It does not provide immigration legal advice or represent clients before USCIS. Legal strategy remains the responsibility of licensed immigration counsel.
-
---------------------------------------------------------------------------------
-
-### Company Formation Documentation
-
-VitaCoreX assists with documentation for new business formation:
-- Florida LLC formation document packets
-- Articles of incorporation preparation
-- Operating agreement organization
-- EIN application documentation
-- Florida business license application packets
-- Registered agent documentation
-- Annual report filing support
-- S-Corp and C-Corp formation document assembly
-- Business compliance document management
-
---------------------------------------------------------------------------------
-
-### Auto Deal Review & Fee Analysis
-
-VitaCoreX provides tools for car buyers to analyze dealer transactions:
-- Dealer fee threshold analysis (doc fees, GAP insurance, warranties)
-- True monthly payment calculation with APR
-- Dealer markup identification
-- Negotiation points summary for buyer advocacy
-- Lease vs. buy comparison assistance
-- Used and new car deal analysis
-
---------------------------------------------------------------------------------
-
-### Legal Document Support
-
-VitaCoreX provides administrative legal document support (not legal representation):
-- Litigation-ready file preparation and chronology
-- Contract review and clause analysis
-- Demand letter packet preparation
-- Legal evidence organization and exhibit ordering
-- Court filing documentation support
-- Deposition document organization
-- Discovery document management
-- Legal compliance documentation (FDCPA, HIPAA, CFPB Reg F)
-- Commercial litigation document support
-- Employment law documentation
-- Real estate contract review support
-- Non-compete and NDA review support
+Small claims for companies — scope notes:
+- Each case starts with a case check (state, court, entity type, claim basics). The permitted scope for that state and court is confirmed before a quote.
+- New York is not offered for this B2B product (company policy).
+- Court filing fees and service of process are separate. Court appearance, representation, appeals and enforcement are not provided.
 
 ================================================================================
-## Solutions Overview
+## Immigration notice
 ================================================================================
-URL: https://vitacorexllc.com/solutions.html
 
-Three clear solution lanes instead of one blended story:
-
-1. Revenue Recovery Infrastructure
-   - Pre-agency workflow design for cleaner commitments, better sequencing, and stronger measurement discipline
-   - Components: Behavioral segmentation and outreach timing, payment-plan structure and autopay logic, escalation control and pilot economics
-   - Start here when: The main issue is aging balances, inconsistent outreach, weak payment-plan structure, or early agency fee compression
-
-2. Corporate Legal File Control
-   - Chronology cleanup, packet standards, and cleaner file readiness before outside counsel is asked to move
-   - Components: Gap logs and chronology control, exhibit order and packet assembly, counsel-ready documentation workflows
-   - Start here when: Outside counsel or internal leadership is losing time to chronology cleanup, exhibit disorder, or missing packet logic
-
-3. Structured Intake and Packet Build
-   - Best for routing, first-packet cleanup, and identifying the right workstream before scope expands
-   - Components: Fit review and routing memo, document request logic, next-step recommendation
-   - Start here when: The matter is not yet clean enough to define the real workstream, but there is enough context to route it properly
+I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.
 
 ================================================================================
-## Industries
+## Team
 ================================================================================
-URL: https://vitacorexllc.com/industries.html
 
-VitaCoreX serves four primary industry verticals where the operating model has the strongest natural fit.
-
-### Healthcare and Dental
-URL: https://vitacorexllc.com/industry-healthcare-dental.html
-
-Patient-balance environments with documentation drag and pre-agency leakage. Healthcare and dental operators need stronger control before balances decay into expensive escalation.
-
-Target Audience: Healthcare CFOs, Dental Group Operators, Revenue Cycle Managers
-
-Operating Problem:
-Healthcare and dental operators often lose margin before formal collections ever begin. Balances age while outreach sequencing, payment-plan logic, documentation quality, and escalation records vary by location, team, or vendor.
-
-What Changes:
-- More consistent outreach and documented payment-plan structure before early fee compression sets in
-- Cleaner packet rules for authorizations, notices, payment records, and escalation history
-- A stronger handoff model from operator workflow to outside counsel when escalation becomes necessary
-
-Typical First Outputs:
-- Current-state leakage review by cohort or operating lane
-- Packet and chronology standards for counsel-ready files
-- Pilot measurement plan tied to cash movement, completion rates, and file quality
-
-90-Day Pilot Frame:
-- Weeks 1-2: Map the current workflow, identify failure points, and establish the minimum packet and reporting standard
-- Weeks 3-8: Run a contained workstream with documented decisions, response windows, and exception handling rules
-- Weeks 9-12: Review cohort movement, packet quality, and whether a broader rollout is justified
-
-### Subscription and Recurring Payments
-URL: https://vitacorexllc.com/industry-subscription-recurring.html
-
-Recurring billing operators balancing retention sensitivity with recovery discipline. Useful where dunning, commitments, and exceptions need stronger logic. Retention-sensitive recovery design for operators managing recurring billing complexity.
-
-### Fleet and Logistics
-URL: https://vitacorexllc.com/industry-fleet-logistics.html
-
-Contract-heavy portfolios with dispersed operations and uneven document control. Recovery workflows and file discipline for contract-heavy portfolios with dispersed operations.
-
-Target Audience: Fleet Managers, Logistics CFOs, Fuel Card Portfolio Managers
-
-Operating Problem:
-Fleet, fuel, and logistics portfolios often combine receivable friction with weak supporting records. Dispersed operations, contract complexity, driver or customer disputes, and inconsistent supporting files can turn a straightforward recovery problem into an expensive administrative one.
-
-What Changes:
-- Cleaner invoice, authorization, and support-record packet structure
-- More consistent internal sequencing before an outside escalation path is used
-- Reduced administrative drag when issues need executive or counsel review
-
-Typical First Outputs:
-- Review of recurring failure points in contract support files
-- Packet standards for invoice, authorization, and issue chronology control
-- Pilot path for tightening recovery discipline without broad operational disruption
-
-90-Day Pilot Frame:
-- Weeks 1-2: Map the current workflow, identify failure points, and establish the minimum packet and reporting standard
-- Weeks 3-8: Run a contained workstream with documented decisions, response windows, and exception handling rules
-- Weeks 9-12: Review cohort movement, packet quality, and whether a broader rollout is justified
-
-### Contract-Heavy Services
-URL: https://vitacorexllc.com/industry-contract-services.html
-
-Commercial service businesses with invoice, authorization, and escalation complexity. Cash-control and counsel-ready packet logic for commercial service businesses with multi-party documentation.
-
-================================================================================
-## Executive Proof Materials
-================================================================================
-URL: https://vitacorexllc.com/resources.html
-
-Public executive PDFs and briefing materials designed for internal forwarding, investment discussions, and cleaner first conversations.
-
-Available Resources:
-
-1. Healthcare Leakage Brief (PDF)
-   - Type: Executive brief / Operator brief
-   - Content: 5 leakage points in healthcare operators, why sequencing matters, and how early agency escalation compresses margin
-   - File: assets/pdf/lead-magnet-healthcare.pdf
-
-2. Healthcare CFO Brief (PDF)
-   - Type: CFO decision brief
-   - Content: Compact CFO-facing summary with DSO, leakage, and executive rationale
-   - File: assets/pdf/healthcare-cfo-brief.pdf
-
-3. Dental Institutional Deck (PDF)
-   - Type: Institutional deck
-   - Content: Pilot economics, operating framework, and executive positioning for dental operators
-   - File: assets/pdf/dental-institutional-deck.pdf
-
-4. Pre-Collection Executive Review (PDF)
-   - Type: Executive review
-   - Content: Framework logic, escalation control, and executive review for pre-agency sequencing
-   - File: assets/pdf/precollection-executive-review.pdf
-
-Use by Role:
-- Owner / CEO: Should clarify where margin is leaking and why the operating layer matters before outside cost grows
-- CFO / Finance: Should frame cash velocity, fee compression, and how pilot measurement would be documented
-- Operations: Should explain workflow sequencing, packet discipline, and how exceptions are handled more cleanly
-- Counsel-adjacent teams: Should show why better file readiness reduces administrative cleanup before legal strategy begins
-
-Note: These briefs are public executive materials intended for review, internal forwarding, and first-pass executive evaluation.
-
-================================================================================
-## Contact and Engagement
-================================================================================
-URL: https://vitacorexllc.com/contact.html
-
-Two Entry Points:
-
-1. Structured Intake (https://vitacorexllc.com/structured-case-intake.html)
-   - Best for document-ready matters, active files, invoices, contracts, screenshots, or an existing packet
-   - Features: Document upload supported, routing and packet review, B2B-first service selection
-
-2. Private Consultation
-   - Best for owners, operators, and counsel-adjacent teams who need scoping, sequencing, or a strategic recommendation first
-   - Features: High-level operator conversation, implementation-path discussion, no document upload required
-   - Book consultation: https://calendly.com/vitacorex2025/30min
-
-Private Consultation Line:
-- Phone (call or text): (888) 794-8292
-- Purpose: Routing, confidential coordination, and fast direction when leadership needs a quick path before a formal packet is assembled
-
-Response Window: 1-2 business days after a complete request. Faster routing is possible when the request is scoped clearly and the right workstream is selected at the start.
-
-Confidential Coordination Note: Use the phone line for direction, not for sending regulated records. For sensitive materials, request a secure exchange path first.
-
-Email: stevenmiller@vitacorexllc.com
-
-================================================================================
-## Careers
-================================================================================
-URL: https://vitacorexllc.com/careers.html
-
-VitaCoreX looks for people who write clearly, think carefully, and can protect quality in a documentation-intensive environment.
-
-Who We Look For:
-- Disciplined candidates who can work in a documentation-first operating model
-- Strong and confident English
-- Verifiable recommendations strongly preferred
-- Preference for Russian-speaking candidates with excellent English
-- Prior experience in documentation, operations, client support, legal support, or litigation support
-
-Available Roles:
-- Operations support
-- Documentation support
-- Intake support
-- Translation support
-- Admin support
-- Client coordination
-- Business documentation support
-
-Work Style: Clarity, discretion, and repeatable execution matter more than theatrics.
-
-Application: Submit via the careers form on the website or by email.
+- Steven Miller — Founder and Principal
+- Michael Lyapin — Chief Accountant
+- Polina Zaic — Linguist and translation coordinator
 
 ================================================================================
 ## FAQ
 ================================================================================
 
 Q: What is VitaCoreX LLC?
-A: VitaCoreX LLC is an operational advisory firm established in 2025 in Tampa, Florida. It provides revenue recovery infrastructure, corporate legal file control, and documentation systems for complex operators. It is not a law firm and not a licensed collection agency.
+A: A Tampa, Florida company that helps private clients with translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork, plus a separate small-claims document service for companies.
 
-Q: What services does VitaCoreX offer?
-A: Three core service lines: (1) Revenue Recovery Infrastructure for pre-agency workflow design, (2) Corporate Legal File Control for counsel-ready file preparation, and (3) Structured Case Intake for routing and packet build. Additionally, selective private client services are available for documentation-led personal matters.
+Q: Is VitaCoreX a law firm?
+A: No. VitaCoreX LLC is not a law firm and does not provide legal advice or court representation.
 
-Q: Is VitaCoreX a law firm or collection agency?
-A: No. VitaCoreX LLC provides administrative, documentation, workflow, and business-support services. It is not a law firm and does not provide legal representation. It is not a licensed collection agency. Legal strategy and legal advice remain the responsibility of licensed counsel.
+Q: How much does online notarization cost?
+A: $25 per notarial act. Additional signatures or acts, witnesses, and a printed copy with mailing are extra.
 
-Q: What industries does VitaCoreX serve?
-A: VitaCoreX primarily serves four industry verticals: Healthcare and Dental, Subscription and Recurring Payments, Fleet and Logistics, and Contract-Heavy Services.
+Q: How much does a certified translation cost?
+A: $25 per 250 source words (one standard page). The word count, price and date are confirmed before payment.
 
-Q: How does the engagement process work?
-A: The process follows three phases: (1) Diagnose — review workflow friction, document quality, and where value leaks. (2) Pilot — define a contained workstream with clear expectations and measurement logic for 90 days. (3) Scale — expand only when the pilot creates credible operator-owned evidence.
+Q: How much does an individual tax return cost?
+A: From $149 for a simple federal return for one tax year — final price after review. A state return is an add-on from $49; a self-employed return with one simple Schedule C starts from $249.
 
-Q: What does a typical first engagement produce?
-A: A serious first phase produces a gap map, a recommended workstream, a measurement path, and an initial work product including issue mapping, chronology pass, document request list, and next-step routing.
+Q: How much does apostille assistance cost?
+A: From $119 service fee for the first document. Government apostille fees and shipping are separate and itemized in the quote.
 
-Q: How is pricing structured?
-A: Fixed-scope or staged pricing after intake and document review. No billable-hour surprise logic for first-stage cleanup work.
+Q: How much does company formation cost?
+A: $99 + state filing fee for the state and entity type you have chosen, or $199 + state filing fee with EIN application assistance. No subscription.
 
-Q: How do I get started?
-A: Two options: (1) Use the Structured Case Intake form when materials are ready for review. (2) Book a private consultation via Calendly or call/text (888) 794-8292 when you need scoping or a strategic recommendation first.
+Q: Does VitaCoreX help with immigration forms?
+A: Yes, clerically: typing a USCIS form you or your adviser have chosen, a completeness check and an organized document packet (from $149), and N-400 document support (from $249). Choosing a form, eligibility advice and representation are not provided. USCIS fees are separate.
 
-Q: What is the typical response time?
-A: 1-2 business days after a complete request. Faster routing is possible when the request is clearly scoped and the right workstream is selected at the start.
+Q: Can I ask a question before choosing a service?
+A: Yes. Sending a request through "Ask about your situation" is free of charge. It is not a free legal consultation; VitaCoreX replies with a matching service and price.
 
-Q: Does VitaCoreX handle private/individual matters?
-A: Selected private matters are available where the work is administrative, documentation-heavy, and clearly scoped. Available services include contract review support, immigration packet organization, auto deal fee review, and Florida official source locator. The company-first position remains primary.
+Q: Does VitaCoreX handle small claims for companies?
+A: Yes, as document preparation and case support: a case packet from $199 or preparation & case support for the first 30 days from $399, one case and one defendant. Court fees are separate; no court appearance or representation. The product is not offered in New York.
 
-Q: What regulatory frameworks does VitaCoreX reference?
-A: FDCPA, Regulation F, Florida FCCPA, E-SIGN, and Florida UETA are referenced as guardrails for workflow design, documentation control, and escalation structuring.
+Q: What languages does VitaCoreX work in?
+A: English, Russian and Spanish. Translations for other language pairs are quoted on request, subject to availability.
 
-Q: What executive materials are available?
-A: Four public PDF resources are available: Healthcare Leakage Brief, Healthcare CFO Brief, Dental Institutional Deck, and Pre-Collection Executive Review. These are designed for internal forwarding and executive evaluation.
-
-Q: What digital tools does VitaCoreX offer?
-A: VitaCoreX offers several browser-based tools: Recovery Pilot Studio, Intake OS, Contract Review Desk, Packet Room, Legal Assistant, Deadline Calendar, Contract Scanner, Immigration Helper, Auto Deal Check, and Florida Official Source Locator.
-
-Q: How can I contact VitaCoreX?
-A: Phone (call/text): (888) 794-8292. Email: stevenmiller@vitacorexllc.com. Consultation booking: https://calendly.com/vitacorex2025/30min. Structured intake form on the website.
-
-Q: Is VitaCoreX hiring?
-A: Yes. VitaCoreX looks for disciplined candidates who can work in a documentation-first model. Roles include operations support, documentation support, intake support, translation support, admin support, client coordination, and business documentation support. Strong English and verifiable recommendations are preferred.
-
-Q: Does VitaCoreX help with immigration?
-A: Yes. VitaCoreX provides immigration packet organization services including USCIS form packet preparation, visa application assembly (I-130, I-485, I-765, K-1), green card documentation ordering, naturalization (N-400) packet preparation, asylum and DACA renewal documentation, and submission-readiness review before attorney filing. VitaCoreX organizes documentation packets but does not provide immigration legal advice or represent clients before USCIS.
-
-Q: Can VitaCoreX help form an LLC?
-A: Yes. VitaCoreX assists with documentation for Florida LLC formation including articles of incorporation preparation, operating agreement organization, EIN application documentation, Florida business license application packets, registered agent documentation, annual report filing support, and S-Corp/C-Corp formation document assembly.
-
-Q: Does VitaCoreX review auto deals?
-A: Yes. VitaCoreX provides auto deal fee analysis and payment calculator tools for car buyers, including dealer fee threshold analysis (doc fees, GAP insurance, warranties), true monthly payment calculation with APR, dealer markup identification, negotiation points summary, lease vs. buy comparison, and used and new car deal analysis.
-
-Q: What legal services does VitaCoreX offer?
-A: VitaCoreX provides administrative legal document support (not legal representation) including litigation-ready file preparation and chronology, contract review and clause analysis, demand letter packet preparation, legal evidence organization and exhibit ordering, court filing documentation support, deposition and discovery document management, and legal compliance documentation (FDCPA, HIPAA, CFPB Reg F). Also covers commercial litigation, employment law, real estate contract review, and non-compete/NDA review support.
-
-Q: Does VitaCoreX serve Russian-speaking clients?
-A: Yes. VitaCoreX supports English, Russian, and Spanish. The company has a preference for Russian-speaking candidates with excellent English on its hiring team, and provides multilingual documentation support across all service lines.
+Q: How do I contact VitaCoreX?
+A: Phone (888) 794-8292, email info@vitacorexllc.com, or the request form at https://vitacorexllc.com/request.html.
 
 ================================================================================
-## Site Map
+## Site map (main pages)
 ================================================================================
 
-Main Pages:
 - https://vitacorexllc.com/ (Home)
+- https://vitacorexllc.com/services.html (All private-client services)
+- https://vitacorexllc.com/pricing.html (Prices)
+- https://vitacorexllc.com/translations.html (Translations)
+- https://vitacorexllc.com/online-notary.html (Online notarization)
+- https://vitacorexllc.com/apostille.html (Apostille assistance)
+- https://vitacorexllc.com/tax-preparation.html (Tax returns)
+- https://vitacorexllc.com/llc-formation-florida.html (Company formation)
+- https://vitacorexllc.com/business-plans.html (Business plans)
+- https://vitacorexllc.com/contract-review-service.html (Contracts & documents)
+- https://vitacorexllc.com/immigration-packet-review.html (Immigration forms)
+- https://vitacorexllc.com/n-400-naturalization.html (N-400 document support)
+- https://vitacorexllc.com/request.html (Request a quote / ask about your situation)
+- https://vitacorexllc.com/small-claims-documentation.html (Small claims for companies)
 - https://vitacorexllc.com/about.html (About)
-- https://vitacorexllc.com/solutions.html (Solutions)
-- https://vitacorexllc.com/industries.html (Industries)
 - https://vitacorexllc.com/contact.html (Contact)
-- https://vitacorexllc.com/careers.html (Careers)
-- https://vitacorexllc.com/resources.html (Executive Briefs)
-
-Service Pages:
-- https://vitacorexllc.com/revenue-recovery-workflow.html (Revenue Recovery Infrastructure)
-- https://vitacorexllc.com/corporate-legal-file-control.html (Corporate Legal File Control)
-- https://vitacorexllc.com/structured-case-intake.html (Structured Case Intake)
-- https://vitacorexllc.com/additional-services.html (Private Client Services)
-- https://vitacorexllc.com/llc-formation-florida.html (Florida LLC Formation)
-- https://vitacorexllc.com/business-plans.html (Business Plans and Market Research)
-- https://vitacorexllc.com/location-analysis.html (U.S. Location Analysis)
-- https://vitacorexllc.com/turnkey-business-opening.html (Turnkey Business Opening)
-
-Industry Pages:
-- https://vitacorexllc.com/industry-healthcare-dental.html (Healthcare and Dental)
-- https://vitacorexllc.com/industry-subscription-recurring.html (Subscription and Recurring)
-- https://vitacorexllc.com/industry-fleet-logistics.html (Fleet and Logistics)
-- https://vitacorexllc.com/industry-contract-services.html (Contract Services)
-
-Legal Pages:
+- https://vitacorexllc.com/faq.html (FAQ)
 - https://vitacorexllc.com/privacy-policy.html (Privacy Policy)
 - https://vitacorexllc.com/terms-of-use.html (Terms of Use)
-- https://vitacorexllc.com/cookie-policy.html (Cookie Policy)
 
 ================================================================================
 # End of llms-full.txt
