@@ -723,3 +723,25 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 .vx-promo h3 { margin: 6px 0 8px; color: var(--vx-ink); font: 480 1.375rem/1.3 var(--vx-serif); }
 .vx-promo p { max-width: 64ch; margin: 0 0 16px; }
 @media (max-width: 47.99em) { .vx-promo { padding: 20px; } }
+
+/* 29. Menu group headings stand apart from the items (owner 2026-10-15): hierarchy by size, weight, colour and space —
+   an index line (01–05, the business order), a 24 px serif heading, a hairline with a short teal segment; items step back */
+.vx-mega { counter-reset: vxg; }
+.vx-mega__group { counter-increment: vxg; position: relative; padding-top: 22px !important; }
+.vx-mega__group::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgb(255 255 255 / .14); }
+.vx-mega__group::after { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 3px; background: var(--vx-accent); }
+.vx-mega__group h3 { display: grid; gap: 8px; margin: 0 0 10px !important; padding: 0 0 12px !important; border-bottom: 0 !important;
+  color: #fff; font: 500 clamp(1.25rem, 1.05rem + .5vw, 1.5rem)/1.2 var(--vx-serif) !important; letter-spacing: -.01em; }
+.vx-mega__group h3::before { content: counter(vxg, decimal-leading-zero); color: var(--vx-accent-soft); font: 600 12px/1 var(--vx-sans); letter-spacing: .14em; font-variant-numeric: lining-nums tabular-nums; }
+.vx-mega__group a { color: var(--vx-on-2) !important; font-size: 16px; }
+.vx-mega__group a:hover, .vx-mega__group a:focus-visible { color: #fff !important; }
+.vx-mega__group a small { font-size: 15px; }
+/* mobile menu: the same index + heading + rule */
+.vx-drawer { counter-reset: vxd; }
+.vx-drawer h3 { counter-increment: vxd; position: relative; display: grid; gap: 6px; margin: 28px 0 6px !important; padding-top: 18px !important;
+  border-top: 1px solid rgb(255 255 255 / .14) !important; color: #fff; font: 500 1.3125rem/1.2 var(--vx-serif) !important; }
+.vx-drawer h3::before { content: counter(vxd, decimal-leading-zero); color: var(--vx-accent-soft); font: 600 12px/1 var(--vx-sans); letter-spacing: .14em; }
+.vx-drawer h3::after { content: ""; position: absolute; top: -2px; left: 0; width: 32px; height: 3px; background: var(--vx-accent); }
+.vx-drawer li a { color: var(--vx-on-2); }
+/* the dev-only preview badge never sits on an open menu */
+body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawer[data-open="true"]) .vx-preview-ribbon { visibility: hidden; }

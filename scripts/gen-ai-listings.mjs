@@ -10,7 +10,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
-const write = (p, s) => fs.writeFileSync(path.join(ROOT, p), s.replace(/\u00a0/g, ' ')); // no typographic no-break spaces in machine-read listings
+const write = (p, s) => fs.writeFileSync(path.join(ROOT, p), s.replace(/\u00a0/g, ' ').replace(/\u2011/g, '-')); // no typographic no-break spaces or hyphens in machine-read listings
 const catalog = JSON.parse(read('assets/data/vcx-catalog.json'));
 const I = Object.fromEntries(['en', 'ru', 'es'].map((l) => [l, JSON.parse(read(`assets/i18n/${l}.json`))]));
 const SITE = 'https://vitacorexllc.com';

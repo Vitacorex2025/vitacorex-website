@@ -1121,9 +1121,9 @@
         "immigration"
       ],
       "name": {
-        "en": "Naturalization document support (N-400)",
-        "ru": "Документы для натурализации (N-400)",
-        "es": "Documentación para naturalización (N-400)"
+        "en": "Naturalization document support (N‑400)",
+        "ru": "Документы для натурализации (N‑400)",
+        "es": "Documentación para naturalización (N‑400)"
       },
       "short": {
         "en": "Administrative help with Form N-400: typing, completeness check and an organized document packet.",

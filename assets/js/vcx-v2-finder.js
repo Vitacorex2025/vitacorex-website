@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   function ready(fn) { if (window.VX && window.VX.ready) window.VX.ready.then(fn); else document.addEventListener('vx:ready', fn); }
-  var norm = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ё/g, 'е').replace(/[^\p{L}\p{N}\s-]/gu, ' ').replace(/\s+/g, ' ').trim(); };
+  var norm = function (s) { return String(s || '').toLowerCase().replace(/[‐-―−]/g, '-').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ё/g, 'е').replace(/[^\p{L}\p{N}\s-]/gu, ' ').replace(/\s+/g, ' ').trim(); };
 
   function init() {
     document.querySelectorAll('[data-vx-finder]').forEach(function (root) {

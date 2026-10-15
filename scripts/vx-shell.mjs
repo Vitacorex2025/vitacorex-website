@@ -491,7 +491,7 @@ function seoHead(html, f) {
       ['polina-zaic', 'Polina Zaic', 'team.polina.role', 'team.polina.edu', [degree("Master's degree in linguistics", 'Linguistics', "Master's degree")]]];
     for (const [slug, name, rk, ek, cred] of team) graph.push({ '@type': 'Person', '@id': SITE + '/#' + slug, name, jobTitle: T(rk), description: T(ek).replace(/<br\s*\/?>/g, '; '), hasCredential: cred, image: SITE + '/assets/img/team/' + slug + '-384.jpg', worksFor: { '@id': SITE + '/#org' } });
   }
-  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c').replace(/\u2011/g, '-'); // structured data keeps a plain hyphen (N-400)
   const ld = `<!-- vx:jsonld:start --><script type="application/ld+json">${json}</script><!-- vx:jsonld:end -->`;
   // drop hand-written JSON-LD on generated pages (the graph above replaces it), then insert/replace ours
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g, (m0) => (m0.includes('vx:jsonld') ? m0 : ''));
