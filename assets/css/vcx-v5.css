@@ -761,3 +761,19 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 }
 /* the dev-only preview badge never sits on an open menu */
 body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawer[data-open="true"]) .vx-preview-ribbon { visibility: hidden; }
+
+/* 30. The mega menu always fits the window (owner 2026-10-15: it ran off the bottom on a laptop):
+   never taller than the space under the header, scrolls inside if it must, the bottom row stays pinned; compact rows on short screens */
+.vx-mega { max-height: calc(100vh - 84px); max-height: calc(100dvh - 84px); overflow-y: auto; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: rgb(124 210 222 / .35) transparent; padding-bottom: 0 !important; }
+.vx-mega__foot { position: sticky; bottom: 0; z-index: 2; background: var(--vx-ink-2); padding-bottom: 18px; box-shadow: 0 -14px 18px -14px rgb(3 14 19 / .7); }
+@media (min-width: 64.01em) and (max-height: 62em) {
+  .vx-mega { padding-top: 16px !important; row-gap: 2px !important; }
+  .vx-mega__group { padding-top: 10px !important; }
+  .vx-mega__group h3 { padding: 8px 32px 8px 14px !important; margin-bottom: 4px !important; font-size: 1.0625rem !important; }
+  .vx-mega__group a { min-height: 32px; padding: 5px 0 !important; font-size: 15px; }
+  .vx-mega__group a small { font-size: 14px; }
+  .vx-mega__foot { padding-top: 10px; padding-bottom: 12px; }
+  .vx-mega__foot a { padding: 8px 0 !important; }
+  .vx-mega__foot .vx-btn { min-height: 44px; }
+}
