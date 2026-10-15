@@ -48,8 +48,24 @@
         })
         .catch(function () { render({ error: true }); });
     }
+    /* v5 status page (AD §9.10): chevron chips + folder still, driven only by the backend state.
+       "Paid" is done only when payment_status is PAID; "Ready" has no backend state yet, so it stays ahead. */
+    function stage(d) {
+      var track = $('vx-st5-track'), still = $('vx-st5-still'), ps = d.payment_status, k = -1;
+      if (!d.missing && !d.error) k = ps === 'PAID' ? 2 : (ps === 'NOT_REQUESTED' ? 0 : 1);
+      var attention = !!(d.missing || d.error || ps === 'FAILED' || ps === 'EXPIRED' || ps === 'DISPUTED' || (cancelled && ps !== 'PAID'));
+      if (still) still.setAttribute('data-folder', attention ? 'open' : 'closed');
+      if (!track) return;
+      track.hidden = k < 0;
+      Array.prototype.forEach.call(track.querySelectorAll('[data-st5-step]'), function (li, i) {
+        var st = i < k ? 'done' : (i === k ? 'current' : 'todo');
+        li.setAttribute('data-state', st);
+        if (st === 'current') li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+      });
+    }
     function render(d) {
       var t = VX.t, h = '';
+      stage(d);
       if (d.missing) { box.innerHTML = '<div class="vx-alert vx-alert--warn"><h2>' + E(t('st.missing_title')) + '</h2><p>' + E(t('st.missing_text')) + '</p></div>'; return; }
       if (d.error) { box.innerHTML = '<div class="vx-alert vx-alert--err"><h2>' + E(t('st.error_title')) + '</h2><p>' + E(t('st.error_text')) + '</p></div>'; return; }
       var s = VX.svc(d.service_id) || { name: { en: d.service_id }, action: '' };

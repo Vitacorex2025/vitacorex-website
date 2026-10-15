@@ -3362,9 +3362,9 @@
       "price": {
         "mode": "unit_after_quote",
         "display": "per_hour",
-        "amount_cents": 8500,
+        "amount_cents": 6500,
         "minimum_units": 1,
-        "confidence": "proposal"
+        "confidence": "medium"
       },
       "subtypes": [],
       "fields": [
