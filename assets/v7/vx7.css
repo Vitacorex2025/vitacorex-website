@@ -23,6 +23,9 @@
 .vx7-stop { display: inline-block; margin-left: -.07em; }   /* optical kerning: a roman full stop after an italic r */
 .vx7-bl { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
 .vx7-rule { position: absolute; left: 0; height: 1px; background: rgb(255 255 255 / .28); transform-origin: left center; pointer-events: none; }
+/* at rest (no intro, or after it) only the rule under the last line stays, faint; the intro animates them all */
+.vx7-rule { opacity: 0; }
+.vx7-ln:last-child .vx7-rule { opacity: .43; }
 html.vx7-intro .vx7-ln { clip-path: inset(-.3em -.7em -.34em -.14em); }
 /* before the script has wrapped the lines, the H1 waits (first visit only; a CSS failsafe reveals it after 2.4 s) */
 html.vx7-intro:not(.vx7-run) .vx6-hero__h1 { opacity: 0; animation: vx7Failsafe 0s 2.4s forwards; }

@@ -74,10 +74,12 @@
     el.style.setProperty('--vx7-gtop', px(g.top)); el.style.setProperty('--vx7-gh', px(Math.max(0, g.yB - g.top)));
   }
   var veil, lines;
+  /* the window ends 28 px above the price bar, so its bottom corner reads as a crop mark (owner liked the v6 corner) */
+  var LIFT = 28;
   function windowGeom(g) {
-    var A = [g.col(7), 0], D = [g.col(12), g.yB];
-    A[1] = g.yB - (D[0] - A[0]) * 22 / 17;                          /* the 17:22 brand slope, corners on columns 7 and 12 */
-    return { A: A, D: D, B: [g.w, A[1]], C: [g.w, g.yB] };
+    var yD = g.yB - LIFT, A = [g.col(7), 0], D = [g.col(12), yD];
+    A[1] = yD - (D[0] - A[0]) * 22 / 17;                            /* the 17:22 brand slope, corners on columns 7 and 12 */
+    return { A: A, D: D, B: [g.w, A[1]], C: [g.w, yD] };
   }
   function poly(g, A, B, C, D) {
     var p = function (q) { return px(q[0]) + ' ' + px(q[1]); };
@@ -91,10 +93,11 @@
     veil.classList.toggle('is-full', !big);
     if (!big) { veil.style.clipPath = ''; lines.innerHTML = ''; return; }
     var w = windowGeom(g), u = [w.D[0] - w.A[0], w.D[1] - w.A[1]], len = Math.hypot(u[0], u[1]); u = [u[0] / len, u[1] / len];
-    var s0 = [w.A[0] - u[0] * GAP, w.A[1] - u[1] * GAP], s1 = [w.D[0] + u[0] * GAP, w.D[1] + u[1] * GAP];
+    var s0 = [w.A[0] - u[0] * GAP, w.A[1] - u[1] * GAP], s1 = [w.D[0] + u[0] * (LIFT - 4) / u[1], w.D[1] + (LIFT - 4)];  /* below the corner the slope stops 4 px above the bar */
     lines.setAttribute('viewBox', '0 0 ' + g.w + ' ' + g.h);
     lines.innerHTML = '<path class="s" pathLength="1" d="M' + s0.join(' ') + 'L' + s1.join(' ') + '"/>' +
-      '<path class="h" pathLength="1" d="M' + (w.A[0] - GAP) + ' ' + w.A[1] + 'H' + g.w + '"/>';
+      '<path class="h" pathLength="1" d="M' + (w.A[0] - GAP) + ' ' + w.A[1] + 'H' + g.w + '"/>' +
+      '<path class="h" pathLength="1" d="M' + (w.D[0] - 36) + ' ' + w.D[1] + 'H' + g.w + '"/>';
     veil.style.clipPath = poly(g, w.A, w.B, w.C, w.D);
   }
   var clockTimer;
@@ -154,6 +157,7 @@
       ps.forEach(function (p) { p.style.strokeDasharray = '1'; });
       anim(ps[0], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 600, delay: 600, easing: E_DRAW });
       if (ps[1]) anim(ps[1], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 500, delay: 1300, easing: E_DRAW });
+      if (ps[2]) anim(ps[2], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 400, delay: 1400, easing: E_DRAW });
     }
 
     var evs = ['keydown', 'pointerdown', 'wheel', 'touchstart'];
