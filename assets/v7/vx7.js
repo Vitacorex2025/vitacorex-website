@@ -97,31 +97,11 @@
       '<path class="h" pathLength="1" d="M' + (w.A[0] - GAP) + ' ' + w.A[1] + 'H' + g.w + '"/>';
     veil.style.clipPath = poly(g, w.A, w.B, w.C, w.D);
   }
-  var marker;
   function ruler(g) {
     var bar = hero.querySelector('.vx6-hero__bar'); if (!bar) return;
-    if (!bar.querySelector('.vx7-ruler')) {
-      var r = d.createElement('span'); r.className = 'vx7-ruler'; r.setAttribute('aria-hidden', 'true'); bar.appendChild(r);
-      marker = d.createElement('i'); marker.className = 'vx7-marker'; marker.setAttribute('aria-hidden', 'true'); bar.appendChild(marker);
-    }
+    /* static ruler only: the cursor-following marker was removed at the owner's request (2026-10-15) */
+    if (!bar.querySelector('.vx7-ruler')) { var r = d.createElement('span'); r.className = 'vx7-ruler'; r.setAttribute('aria-hidden', 'true'); bar.appendChild(r); }
     bar.style.setProperty('--vx7-x0', px(g.x0)); bar.style.setProperty('--vx7-mod', px(g.mod));
-  }
-  function wireMarker() {
-    if (!marker || !fine) return;
-    var bar = hero.querySelector('.vx6-hero__bar'), pending = false, lastX = 0, inCell = false;
-    function snap() {
-      pending = false; if (inCell) return;
-      var g = grid(), n = Math.max(0, Math.min(11, Math.round((lastX - g.x0) / g.mod)));
-      marker.style.width = '24px'; marker.style.setProperty('--vx7-mx', px(g.x0 + n * g.mod)); marker.classList.add('is-on');
-    }
-    hero.addEventListener('pointermove', function (e) { lastX = e.clientX - hero.getBoundingClientRect().left; if (!pending) { pending = true; requestAnimationFrame(snap); } }, { passive: true });
-    hero.addEventListener('pointerleave', function () { marker.classList.remove('is-on'); });
-    bar.querySelectorAll('.vx6-ticker a').forEach(function (a) {
-      var on = function () { inCell = true; var hr = hero.getBoundingClientRect(), ar = a.getBoundingClientRect();
-        marker.style.setProperty('--vx7-mx', px(ar.left - hr.left)); marker.style.width = px(ar.width - 16); marker.classList.add('is-on'); };
-      var off = function () { inCell = false; };
-      a.addEventListener('pointerenter', on); a.addEventListener('focus', on); a.addEventListener('pointerleave', off); a.addEventListener('blur', off);
-    });
   }
   var clockTimer;
   function clock() {
@@ -294,7 +274,7 @@
   function start() {
     if (started) return; started = true;
     wireFocus();
-    if (hero) { play(false); wireMarker(); } else endIntro();
+    if (hero) play(false); else endIntro();
     everyPage();
   }
   var ready = new Promise(function (res) { d.addEventListener('vx:ready', res, { once: true }); setTimeout(res, 900); });
