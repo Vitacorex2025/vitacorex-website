@@ -1,7 +1,7 @@
 /* VitaCoreX v7 "Assembly" layer (site-wide since 2026-10-15; loaded after vcx-v2.js).
    Home hero, once per visit (the head script sets html.vx7-intro): column guides 0–560 · baseline rules 160–640 ·
    H1 lines rise 200–840 · slope line 600–1200 · "in order" settles 820–1380 · full stop 1240–1360 · window opens 1100–2000 ·
-   guides hand over to the price bar + ruler sweep 1500–1900. The final state is the no-JS / reduced-motion state;
+   guides hand over to the price bar 1500–1900. The final state is the no-JS / reduced-motion state;
    any key, click, wheel or touch finishes the intro at once.
    Every page: alignment guides on price lists, focus registration marks, the footer title block. No numbering anywhere. */
 (function () {
@@ -97,12 +97,6 @@
       '<path class="h" pathLength="1" d="M' + (w.A[0] - GAP) + ' ' + w.A[1] + 'H' + g.w + '"/>';
     veil.style.clipPath = poly(g, w.A, w.B, w.C, w.D);
   }
-  function ruler(g) {
-    var bar = hero.querySelector('.vx6-hero__bar'); if (!bar) return;
-    /* static ruler only: the cursor-following marker was removed at the owner's request (2026-10-15) */
-    if (!bar.querySelector('.vx7-ruler')) { var r = d.createElement('span'); r.className = 'vx7-ruler'; r.setAttribute('aria-hidden', 'true'); bar.appendChild(r); }
-    bar.style.setProperty('--vx7-x0', px(g.x0)); bar.style.setProperty('--vx7-mod', px(g.mod));
-  }
   var clockTimer;
   function clock() {
     var cred = hero.querySelector('.vx6-hero__cred'); if (!cred) return;
@@ -128,7 +122,7 @@
     if (!hero) return null;
     var h = wrapH1(), g = grid();
     if (h) placeRules(h);
-    guides(g); windowBuild(g); ruler(g); clock(); replay();
+    guides(g); windowBuild(g); clock(); replay();
     return { h: h, g: g };
   }
   function play(force) {
@@ -161,7 +155,6 @@
       anim(ps[0], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 600, delay: 600, easing: E_DRAW });
       if (ps[1]) anim(ps[1], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 500, delay: 1300, easing: E_DRAW });
     }
-    anim(hero.querySelector('.vx7-ruler'), [{ clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 400, delay: 1500, easing: E_DRAW });
 
     var evs = ['keydown', 'pointerdown', 'wheel', 'touchstart'];
     var stop = function () { clearTimeout(end); settle(); endIntro(); off(); };

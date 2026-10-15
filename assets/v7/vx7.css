@@ -46,12 +46,7 @@ html.vx7-intro .vx7-guides { opacity: 1; }
 .vx7-veil.is-full { display: none; }
 @media (max-width: 79.99em) { .vx7-veil, .vx7-lines { display: none; } }
 
-/* 4. The price bar as a measured ruler: major ticks on column lines, minor ticks every quarter module (static) */
-.vx7-ruler { position: absolute; left: 0; right: 0; top: 0; height: 8px; pointer-events: none; z-index: 1;
-  background-image: linear-gradient(to right, rgb(255 255 255 / .24) 1px, transparent 1px), linear-gradient(to right, rgb(255 255 255 / .13) 1px, transparent 1px);
-  background-size: var(--vx7-mod, 104px) 8px, calc(var(--vx7-mod, 104px) / 4) 4px;
-  background-position: var(--vx7-x0, 112px) 0, var(--vx7-x0, 112px) 0; background-repeat: repeat-x; }
-@media (max-width: 47.99em) { .vx7-ruler { background-size: 16px 4px, 16px 4px; height: 4px; } }
+/* 4. (removed 2026-10-15: the ruler ticks on the price bar read as a stray grid under the video; the bar keeps its single hairline) */
 
 /* 5. Smart alignment guides on the price list: the shared price edge and the action edge, proven to the pixel */
 .vx7-align { position: absolute; top: 0; width: 1px; background: rgb(43 179 192 / .55); transform-origin: top; opacity: 0; pointer-events: none; z-index: 3; transition: opacity .16s ease; }
