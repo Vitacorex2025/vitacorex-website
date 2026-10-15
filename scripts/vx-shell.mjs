@@ -111,10 +111,13 @@ function footerHTML() {
     .map((id) => `<li><a href="${pageHref(id)}" data-svc-name="${id}">${esc(svc(id).name.en)}</a></li>`).join('');
   const li = (href, key) => `<li><a href="${href}" data-t="${key}">${esc(en[key])}</a></li>`;
   return `<!-- vx:footer:start -->
+<div class="vx-bandrule vx-bandrule--dark" aria-hidden="true"></div>
 <footer class="vx-ftr" role="contentinfo">
+<div class="vx-ftr__gl" data-vx-guilloche="heroB" aria-hidden="true"></div>
 <div class="vx-ftr__inner">
+<div class="vx-ruler" aria-hidden="true"></div>
 <div class="vx-ftr__lead">
-<div class="vx-ftr__brand"><a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42" loading="lazy"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a><p class="vx-ftr__statement" data-t="footer.statement">${esc(en['footer.statement'])}</p></div>
+<div class="vx-ftr__brand"><a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42" loading="lazy"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a><p class="vx-ftr__statement" data-t-html="h3.title">${en['h3.title']}</p><p class="vx-ftr__statement-sub" data-t="footer.statement">${esc(en['footer.statement'])}</p></div>
 <div class="vx-ftr__reach"><h2 class="vx-sr" data-t="footer.h.contact">${esc(en['footer.h.contact'])}</h2><a class="vx-ftr__phone" href="tel:+18887948292">${ICON_PHONE}<span>(888) 794-8292</span></a><a class="vx-ftr__mail" href="mailto:info@vitacorexllc.com">info@vitacorexllc.com</a><p><span data-t="footer.hours">${esc(en['footer.hours'])}</span><br><span data-t="footer.location">${esc(en['footer.location'])}</span></p></div>
 </div>
 <div class="vx-ftr__grid">
@@ -277,7 +280,7 @@ function prerenderEstimate(html) {
   return html
     .replace(/(<select[^>]*data-est="county"[^>]*>)[\s\S]*?(<\/select>)/, (m0, a, b) => a + opts + b)
     .replace(/(<tbody data-est="rows">)[\s\S]*?(<\/tbody>)/, (m0, a, b) => a + rows + b)
-    .replace(/(<td[^>]*data-est="total"[^>]*>)[^<]*(<\/td>)/, (m0, a, b) => a + esc(fmt('nc.est.about', { amount: range(min, max) })) + b)
+    .replace(/(<strong[^>]*data-est="total"[^>]*>)[^<]*(<\/strong>)/, (m0, a, b) => a + esc(fmt('nc.est.about', { amount: range(min, max) })) + b)
     .replace(/(<p[^>]*data-est="paynote"[^>]*>)[^<]*(<\/p>)/, (m0, a, b) => a + esc(fmt('nc.est.paynote', { ours: money(fee), rest: range(min - fee, max - fee) })) + b)
     .replace(/(<output data-est="copies"[^>]*>)[^<]*(<\/output>)/, (m0, a, b) => a + copies + b);
 }
@@ -286,13 +289,21 @@ function decodeEntities(s) { return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<
 function ensureHead(html) {
   const css = '<link rel="stylesheet" href="/assets/css/vcx-v2-shell.css?v=1">';
   const js = '<script src="/assets/js/vcx-v2.js?v=1" defer></script>';
-  const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap">';
+  const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,60,400&display=swap">';
   if (!html.includes('/assets/css/vcx-v2-shell.css')) html = html.replace('</head>', `${css}\n</head>`);
   if (!html.includes('family=Source+Serif+4')) {
     const i = html.indexOf('<link rel="stylesheet" href="/assets/css/vcx-v2-shell.css');
     html = i === -1 ? html.replace('</head>', `${fonts}\n</head>`) : html.slice(0, i) + fonts + '\n' + html.slice(i);
   }
   if (!html.includes('/assets/js/vcx-v2.js')) html = html.replace('</head>', `${js}\n</head>`);
+  // v4: static italic (one accent word per page; 19 KB instead of the 127 KB variable italic)
+  html = html.replace('1,8..60,400..600&display=swap', '1,60,400&display=swap');
+  // v4 design layer (motif, buttons, cards, motion) after the v2 stylesheets, and its tiny script after vcx-v2.js
+  if (!html.includes('/assets/css/vcx-v4.css')) {
+    const anchor = html.includes('/assets/css/vcx-v2.css') ? /<link rel="stylesheet" href="\/assets\/css\/vcx-v2\.css[^>]*>/ : /<link rel="stylesheet" href="\/assets\/css\/vcx-v2-shell\.css[^>]*>/;
+    html = html.replace(anchor, (m) => `${m}\n<link rel="stylesheet" href="/assets/css/vcx-v4.css?v=1">`);
+  }
+  if (!html.includes('/assets/js/vcx-v4-motif.js')) html = html.replace(/<script src="\/assets\/js\/vcx-v2\.js[^>]*><\/script>/, (m) => `${m}\n<script src="/assets/js/vcx-v4-motif.js?v=1" defer></script>`);
   return html;
 }
 

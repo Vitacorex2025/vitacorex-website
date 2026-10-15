@@ -7,7 +7,7 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData = navigator.connection && navigator.connection.saveData;
   if (reduce || saveData) { a.removeAttribute('autoplay'); a.pause(); a.removeAttribute('src'); a.load(); return; }
-  /* Lighter clips only (tampa-4/5/6 are 34–93 MB). Phones loop one 5.7 MB clip, no rotation. */
+  /* Lighter clips only (tampa-4/5/6 are 34–93 MB); tampa-1/2/3 re-encoded to 720p H.264 (1.6–3.5 MB). Phones loop one clip, no rotation. */
   if (window.matchMedia('(max-width: 45em)').matches) { a.loop = true; var pm = a.play(); if (pm && pm.catch) pm.catch(function () {}); b.remove(); return; }
   var clips = ['/assets/video/tampa-1.mp4', '/assets/video/tampa-3.mp4', '/assets/video/tampa-2.mp4'];
   var vids = [a, b], visible = 0, next = 1, timer = null, onScreen = true, paused = false;

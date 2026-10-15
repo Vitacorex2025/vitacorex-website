@@ -272,8 +272,11 @@ header.vcx-header, header.vcx-header-glass { display: none !important; }
 .vx-mega__group { padding-top: 10px; }
 
 /* Fonts: metric-matched local fallbacks so layout does not jump while web fonts load */
-@font-face { font-family: 'VX Serif Fallback'; src: local('Georgia'); size-adjust: 103%; ascent-override: 92%; descent-override: 26%; line-gap-override: 0%; }
-@font-face { font-family: 'VX Sans Fallback'; src: local('Segoe UI'), local('Arial'); size-adjust: 107%; ascent-override: 90%; descent-override: 22%; line-gap-override: 0%; }
+/* Fallback metrics measured in Chromium 2026-10-14 (rendered width of a mixed EN/RU sample): Source Serif 4 is 91% of Georgia
+   at display sizes and 96% at text sizes (93% used); Inter is 105.9% of Segoe UI. Overrides = font metric / size-adjust. */
+@font-face { font-family: 'VX Serif Fallback'; src: local('Georgia'); size-adjust: 93%; ascent-override: 111%; descent-override: 36%; line-gap-override: 0%; }
+@font-face { font-family: 'VX Serif Fallback'; font-style: italic; src: local('Georgia Italic'), local('Georgia-Italic'); size-adjust: 93%; ascent-override: 111%; descent-override: 36%; line-gap-override: 0%; }
+@font-face { font-family: 'VX Sans Fallback'; src: local('Segoe UI'), local('Arial'); size-adjust: 105.9%; ascent-override: 91.5%; descent-override: 22.8%; line-gap-override: 0%; }
 body { font-optical-sizing: auto; }
 
 /* ==========================================================================

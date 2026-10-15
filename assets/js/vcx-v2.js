@@ -230,7 +230,7 @@
       var open = function (v) { menu.setAttribute('data-open', v ? 'true' : 'false'); btn.setAttribute('aria-expanded', v ? 'true' : 'false'); };
       btn.addEventListener('click', function (e) { e.stopPropagation(); var v = menu.getAttribute('data-open') !== 'true'; closeAll(menu); open(v); });
       menu.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover)').matches) { clearTimeout(timer); closeAll(menu); open(true); } });
-      menu.addEventListener('mouseleave', function () { if (window.matchMedia('(hover: hover)').matches) { timer = setTimeout(function () { open(false); }, 220); } });
+      menu.addEventListener('mouseleave', function () { if (window.matchMedia('(hover: hover)').matches) { timer = setTimeout(function () { open(false); }, 400); } });
       menu.addEventListener('keydown', function (e) { if (e.key === 'Escape') { open(false); btn.focus(); } });
       menu.addEventListener('focusout', function (e) { if (!menu.contains(e.relatedTarget)) open(false); });
     });
@@ -249,6 +249,11 @@
       box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) open(false); });
     });
 
+    /* WCAG 1.4.13: content shown on hover must be dismissible with Escape without moving pointer or focus */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || !qs('.vx-nav__menu[data-open="true"], .vx-lang[data-open="true"]')) return;
+      closeAll();
+    });
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-vx-lang]');
       if (b) { e.preventDefault(); setLang(b.getAttribute('data-vx-lang')); closeAll(); var lb = qs('.vx-lang__btn'); if (lb && qs('.vx-lang').contains(b)) lb.focus(); return; }

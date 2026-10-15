@@ -1,0 +1,711 @@
+/* ==========================================================================
+   VitaCoreX design system v4: drop-in snippets (research: DESIGN_RESEARCH_V4.md)
+   Loaded AFTER vcx-v2-shell.css and vcx-v2.css. Uses their tokens (--vx-ink, --vx-accent,
+   --vx-link, --vx-line, --vx-paper, --vx-serif, --vx-sans, --vx-ease-out ...).
+   Motif: security printing (guilloche, microprint rules, registration marks, perforation,
+   blind emboss). Cool teal only: no beige, cream, gold or yellow anywhere.
+   Every effect has a static, readable state; motion lives behind prefers-reduced-motion.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* colour additions (cool tints only; contrast measured in the research doc §6) */
+  --vx-abyss: #071B23;            /* footer floor */
+  --vx-frost: #E6F3F5;            /* hover/selected tint on light */
+  --vx-line-strong: #B7CBD0;      /* double rules, table heads */
+  --vx-line-input: #788F97;       /* input and control outlines: 3.40:1 on white (WCAG 1.4.11) */
+  --vx-line-dark: rgba(255, 255, 255, .10);
+  --vx-line-dark-strong: rgba(255, 255, 255, .18);
+  --vx-gl-dark: rgba(124, 210, 222, .30);   /* guilloche strokes on ink */
+  --vx-gl-light: rgba(15, 110, 121, .16);   /* guilloche strokes on white / paper */
+  --vx-disabled-bg: #EBF0F2;
+  --vx-disabled-fg: #52666E;      /* 5.2:1 on --vx-disabled-bg: disabled stays readable */
+  --vx-ring: #0F6E79;             /* focus ring on light: 5.95:1 on white */
+
+  /* motion */
+  --vx-d1: 120ms;  /* colour, opacity */
+  --vx-d2: 200ms;  /* buttons, arrows, chips */
+  --vx-d3: 320ms;  /* menus, accordions, spotlight fade */
+  --vx-d4: 560ms;  /* section reveals */
+  --vx-d5: 720ms;  /* hero entrance per item */
+  --vx-d-draw: 1600ms; /* one-off line draw of the hero rosette */
+  --vx-e-out: var(--vx-ease-out, cubic-bezier(.16, 1, .3, 1));
+  --vx-e-std: cubic-bezier(.2, .7, .2, 1);
+  --vx-e-inout: cubic-bezier(.65, 0, .35, 1);
+  --vx-e-in: cubic-bezier(.4, 0, 1, 1);
+  --vx-e-spring: cubic-bezier(.34, 1.3, .64, 1);
+
+  /* fluid type (360 -> 1440px viewport), see research §6.1 */
+  --vx-fs-label: .8125rem; /* 13px: the smallest UI text */
+  --vx-fs-sm: clamp(.875rem, .8542rem + .0926vw, .9375rem);
+  --vx-fs-body: clamp(1rem, .9792rem + .0926vw, 1.0625rem);
+  --vx-fs-lead: clamp(1.125rem, 1.0833rem + .1852vw, 1.25rem);
+  --vx-fs-title: clamp(1.25rem, 1.1667rem + .3704vw, 1.5rem);
+  --vx-fs-h3: clamp(1.375rem, 1.25rem + .5556vw, 1.75rem);
+  --vx-fs-h2: clamp(1.75rem, 1.4167rem + 1.4815vw, 2.75rem);
+  --vx-fs-h1: clamp(2.125rem, 1.5833rem + 2.4074vw, 3.75rem);
+  --vx-fs-display: clamp(2.5rem, 1.6667rem + 3.7037vw, 5rem);
+
+  /* grid and rhythm */
+  --vx-cols: 4;
+  --vx-gap: 16px;
+  --vx-base: 4px;
+  --vx-sec-s: clamp(48px, 3vw + 36px, 64px);
+  --vx-sec-m: clamp(64px, 5vw + 40px, 112px);
+  --vx-sec-l: clamp(96px, 8vw + 48px, 160px);
+
+  /* motif assets: black-on-transparent SVGs used as masks, so CSS colour drives them */
+  --vx-mask-card: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23000' stroke-width='0.9' viewBox='-120 -120 240 240'%3E%3Cdefs%3E%3Cpath id='vxg10' d='M100 0L104.9 4.6L108.2 9.5L109.1 14.4L107 18.9L102.5 22.7L96.6 25.9L90.6 28.6L85.8 31.2L83.1 34.4L82.8 38.6L84.3 43.9L86.6 50L88.6 56.4L89 62.3L87.3 67L83.2 69.8L77.4 70.9L70.7 70.7L64.2 70L58.7 70L54.8 71.4L52.4 74.8L51 80.1L50 86.6L48.5 93.1L45.9 98.5L42.1 101.6L37.2 102.1L31.6 100.1L25.9 96.6L20.6 92.7L15.9 90L11.7 89.2L8 91L4.1 94.9L0 100L-4.6 104.9L-9.5 108.2L-14.4 109.1L-18.9 107L-22.7 102.5L-25.9 96.6L-28.6 90.6L-31.2 85.8L-34.4 83.1L-38.6 82.8L-43.9 84.3L-50 86.6L-56.4 88.6L-62.3 89L-67 87.3L-69.8 83.2L-70.9 77.4L-70.7 70.7L-70 64.2L-70 58.7L-71.4 54.8L-74.8 52.4L-80.1 51L-86.6 50L-93.1 48.5L-98.5 45.9L-101.6 42.1L-102.1 37.2L-100.1 31.6L-96.6 25.9L-92.7 20.6L-90 15.9L-89.2 11.7L-91 8L-94.9 4.1L-100 0L-104.9 -4.6L-108.2 -9.5L-109.1 -14.4L-107 -18.9L-102.5 -22.7L-96.6 -25.9L-90.6 -28.6L-85.8 -31.2L-83.1 -34.4L-82.8 -38.6L-84.3 -43.9L-86.6 -50L-88.6 -56.4L-89 -62.3L-87.3 -67L-83.2 -69.8L-77.4 -70.9L-70.7 -70.7L-64.2 -70L-58.7 -70L-54.8 -71.4L-52.4 -74.8L-51 -80.1L-50 -86.6L-48.5 -93.1L-45.9 -98.5L-42.1 -101.6L-37.2 -102.1L-31.6 -100.1L-25.9 -96.6L-20.6 -92.7L-15.9 -90L-11.7 -89.2L-8 -91L-4.1 -94.9L0 -100L4.6 -104.9L9.5 -108.2L14.4 -109.1L18.9 -107L22.7 -102.5L25.9 -96.6L28.6 -90.6L31.2 -85.8L34.4 -83.1L38.6 -82.8L43.9 -84.3L50 -86.6L56.4 -88.6L62.3 -89L67 -87.3L69.8 -83.2L70.9 -77.4L70.7 -70.7L70 -64.2L70 -58.7L71.4 -54.8L74.8 -52.4L80.1 -51L86.6 -50L93.1 -48.5L98.5 -45.9L101.6 -42.1L102.1 -37.2L100.1 -31.6L96.6 -25.9L92.7 -20.6L90 -15.9L89.2 -11.7L91 -8L94.9 -4.1L100 0Z'/%3E%3Cpath id='vxg11' d='M64 0L68.7 3L72.7 6.4L75.5 9.9L76.6 13.5L75.9 16.8L73.5 19.7L69.6 22L64.6 23.5L59.1 24.5L53.7 25L48.8 25.4L44.9 25.9L42.3 27L41.1 28.8L41.2 31.6L42.1 35.4L43.7 40L45.3 45.3L46.5 50.7L46.9 55.9L46.3 60.4L44.6 63.7L41.8 65.6L38.1 65.9L33.7 64.8L29.1 62.3L24.5 59.1L20.3 55.6L16.5 52.5L13.4 50.1L10.9 49L8.7 49.4L6.8 51.4L4.8 54.8L2.6 59.2L0 64L-3 68.7L-6.4 72.7L-9.9 75.5L-13.5 76.6L-16.8 75.9L-19.7 73.5L-22 69.6L-23.5 64.6L-24.5 59.1L-25 53.7L-25.4 48.8L-25.9 44.9L-27 42.3L-28.8 41.1L-31.6 41.2L-35.4 42.1L-40 43.7L-45.3 45.3L-50.7 46.5L-55.9 46.9L-60.4 46.3L-63.7 44.6L-65.6 41.8L-65.9 38.1L-64.8 33.7L-62.3 29.1L-59.1 24.5L-55.6 20.3L-52.5 16.5L-50.1 13.4L-49 10.9L-49.4 8.7L-51.4 6.8L-54.8 4.8L-59.2 2.6L-64 0L-68.7 -3L-72.7 -6.4L-75.5 -9.9L-76.6 -13.5L-75.9 -16.8L-73.5 -19.7L-69.6 -22L-64.6 -23.5L-59.1 -24.5L-53.7 -25L-48.8 -25.4L-44.9 -25.9L-42.3 -27L-41.1 -28.8L-41.2 -31.6L-42.1 -35.4L-43.7 -40L-45.3 -45.3L-46.5 -50.7L-46.9 -55.9L-46.3 -60.4L-44.6 -63.7L-41.8 -65.6L-38.1 -65.9L-33.7 -64.8L-29.1 -62.3L-24.5 -59.1L-20.3 -55.6L-16.5 -52.5L-13.4 -50.1L-10.9 -49L-8.7 -49.4L-6.8 -51.4L-4.8 -54.8L-2.6 -59.2L0 -64L3 -68.7L6.4 -72.7L9.9 -75.5L13.5 -76.6L16.8 -75.9L19.7 -73.5L22 -69.6L23.5 -64.6L24.5 -59.1L25 -53.7L25.4 -48.8L25.9 -44.9L27 -42.3L28.8 -41.1L31.6 -41.2L35.4 -42.1L40 -43.7L45.3 -45.3L50.7 -46.5L55.9 -46.9L60.4 -46.3L63.7 -44.6L65.6 -41.8L65.9 -38.1L64.8 -33.7L62.3 -29.1L59.1 -24.5L55.6 -20.3L52.5 -16.5L50.1 -13.4L49 -10.9L49.4 -8.7L51.4 -6.8L54.8 -4.8L59.2 -2.6L64 0Z'/%3E%3C/defs%3E%3Cg%3E%3Cuse href='%23vxg10' transform='rotate(0)'/%3E%3Cuse href='%23vxg10' transform='rotate(3.8)'/%3E%3Cuse href='%23vxg10' transform='rotate(7.5)'/%3E%3Cuse href='%23vxg10' transform='rotate(11.3)'/%3E%3Cuse href='%23vxg10' transform='rotate(15)'/%3E%3Cuse href='%23vxg10' transform='rotate(18.8)'/%3E%3Cuse href='%23vxg10' transform='rotate(22.5)'/%3E%3Cuse href='%23vxg10' transform='rotate(26.3)'/%3E%3C/g%3E%3Cg%3E%3Cuse href='%23vxg11' transform='rotate(0)'/%3E%3Cuse href='%23vxg11' transform='rotate(5.6)'/%3E%3Cuse href='%23vxg11' transform='rotate(11.3)'/%3E%3Cuse href='%23vxg11' transform='rotate(16.9)'/%3E%3Cuse href='%23vxg11' transform='rotate(22.5)'/%3E%3Cuse href='%23vxg11' transform='rotate(28.1)'/%3E%3Cuse href='%23vxg11' transform='rotate(33.8)'/%3E%3Cuse href='%23vxg11' transform='rotate(39.4)'/%3E%3C/g%3E%3Ccircle r='84'/%3E%3C/svg%3E");
+  --vx-mask-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='28' viewBox='0 0 192 28'%3E%3Cdefs%3E%3Cpath id='w' d='M-48 14L-46 16.3L-44 18.5L-42 20.3L-40 21.8L-38 22.7L-36 23L-34 22.7L-32 21.8L-30 20.3L-28 18.5L-26 16.3L-24 14L-22 11.7L-20 9.5L-18 7.7L-16 6.2L-14 5.3L-12 5L-10 5.3L-8 6.2L-6 7.7L-4 9.5L-2 11.7L0 14L2 16.3L4 18.5L6 20.3L8 21.8L10 22.7L12 23L14 22.7L16 21.8L18 20.3L20 18.5L22 16.3L24 14L26 11.7L28 9.5L30 7.7L32 6.2L34 5.3L36 5L38 5.3L40 6.2L42 7.7L44 9.5L46 11.7L48 14L50 16.3L52 18.5L54 20.3L56 21.8L58 22.7L60 23L62 22.7L64 21.8L66 20.3L68 18.5L70 16.3L72 14L74 11.7L76 9.5L78 7.7L80 6.2L82 5.3L84 5L86 5.3L88 6.2L90 7.7L92 9.5L94 11.7L96 14L98 16.3L100 18.5L102 20.3L104 21.8L106 22.7L108 23L110 22.7L112 21.8L114 20.3L116 18.5L118 16.3L120 14L122 11.7L124 9.5L126 7.7L128 6.2L130 5.3L132 5L134 5.3L136 6.2L138 7.7L140 9.5L142 11.7L144 14L146 16.3L148 18.5L150 20.3L152 21.8L154 22.7L156 23L158 22.7L160 21.8L162 20.3L164 18.5L166 16.3L168 14L170 11.7L172 9.5L174 7.7L176 6.2L178 5.3L180 5L182 5.3L184 6.2L186 7.7L188 9.5L190 11.7L192 14L194 16.3L196 18.5L198 20.3L200 21.8L202 22.7L204 23L206 22.7L208 21.8L210 20.3L212 18.5L214 16.3L216 14L218 11.7L220 9.5L222 7.7L224 6.2L226 5.3L228 5L230 5.3L232 6.2L234 7.7L236 9.5L238 11.7L240 14' fill='none' stroke='%23000' stroke-width='.6'/%3E%3C/defs%3E%3Cuse href='%23w' x='0'/%3E%3Cuse href='%23w' x='0' transform='matrix(1 0 0 -1 0 28)'/%3E%3Cuse href='%23w' x='8'/%3E%3Cuse href='%23w' x='8' transform='matrix(1 0 0 -1 0 28)'/%3E%3Cuse href='%23w' x='16'/%3E%3Cuse href='%23w' x='16' transform='matrix(1 0 0 -1 0 28)'/%3E%3Cuse href='%23w' x='24'/%3E%3Cuse href='%23w' x='24' transform='matrix(1 0 0 -1 0 28)'/%3E%3Cuse href='%23w' x='32'/%3E%3Cuse href='%23w' x='32' transform='matrix(1 0 0 -1 0 28)'/%3E%3Cuse href='%23w' x='40'/%3E%3Cuse href='%23w' x='40' transform='matrix(1 0 0 -1 0 28)'/%3E%3C/svg%3E");
+  --vx-mask-micro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='6' viewBox='0 0 24 6'%3E%3Cpath d='M2 3l1.2-1.2L4.4 3 3.2 4.2z M7 2.6h9v.8H7z M19.4 3a.6.6 0 1 0 1.2 0a.6.6 0 1 0-1.2 0'/%3E%3C/svg%3E");
+  --vx-mask-microtext: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='6' viewBox='0 0 168 6'%3E%3Ctext x='0' y='4.6' font-family='Arial, sans-serif' font-size='4.2' textLength='166' lengthAdjust='spacing'%3EVITACOREX · TAMPA FL · EN · RU · ES · %3C/text%3E%3C/svg%3E"); /* P2, owner opt-in: 4px letters that read as a line */
+  --vx-mask-reg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1'%3E%3Ccircle cx='8' cy='8' r='4.5'/%3E%3Cpath d='M8 0v16M0 8h16'/%3E%3C/svg%3E");
+  --vx-mask-tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='12' viewBox='0 0 48 12'%3E%3Cdefs%3E%3Cpath id='w' d='M-12 6L-11.5 7L-11 7.9L-10.5 8.7L-10 9.3L-9.5 9.7L-9 9.8L-8.5 9.7L-8 9.3L-7.5 8.7L-7 7.9L-6.5 7L-6 6L-5.5 5L-5 4.1L-4.5 3.3L-4 2.7L-3.5 2.3L-3 2.2L-2.5 2.3L-2 2.7L-1.5 3.3L-1 4.1L-0.5 5L0 6L0.5 7L1 7.9L1.5 8.7L2 9.3L2.5 9.7L3 9.8L3.5 9.7L4 9.3L4.5 8.7L5 7.9L5.5 7L6 6L6.5 5L7 4.1L7.5 3.3L8 2.7L8.5 2.3L9 2.2L9.5 2.3L10 2.7L10.5 3.3L11 4.1L11.5 5L12 6L12.5 7L13 7.9L13.5 8.7L14 9.3L14.5 9.7L15 9.8L15.5 9.7L16 9.3L16.5 8.7L17 7.9L17.5 7L18 6L18.5 5L19 4.1L19.5 3.3L20 2.7L20.5 2.3L21 2.2L21.5 2.3L22 2.7L22.5 3.3L23 4.1L23.5 5L24 6L24.5 7L25 7.9L25.5 8.7L26 9.3L26.5 9.7L27 9.8L27.5 9.7L28 9.3L28.5 8.7L29 7.9L29.5 7L30 6L30.5 5L31 4.1L31.5 3.3L32 2.7L32.5 2.3L33 2.2L33.5 2.3L34 2.7L34.5 3.3L35 4.1L35.5 5L36 6L36.5 7L37 7.9L37.5 8.7L38 9.3L38.5 9.7L39 9.8L39.5 9.7L40 9.3L40.5 8.7L41 7.9L41.5 7L42 6L42.5 5L43 4.1L43.5 3.3L44 2.7L44.5 2.3L45 2.2L45.5 2.3L46 2.7L46.5 3.3L47 4.1L47.5 5L48 6L48.5 7L49 7.9L49.5 8.7L50 9.3L50.5 9.7L51 9.8L51.5 9.7L52 9.3L52.5 8.7L53 7.9L53.5 7L54 6L54.5 5L55 4.1L55.5 3.3L56 2.7L56.5 2.3L57 2.2L57.5 2.3L58 2.7L58.5 3.3L59 4.1L59.5 5L60 6' fill='none' stroke='%23000' stroke-width='.6'/%3E%3C/defs%3E%3Cuse href='%23w' x='0'/%3E%3Cuse href='%23w' x='0' transform='matrix(1 0 0 -1 0 12)'/%3E%3Cuse href='%23w' x='4'/%3E%3Cuse href='%23w' x='4' transform='matrix(1 0 0 -1 0 12)'/%3E%3Cuse href='%23w' x='8'/%3E%3Cuse href='%23w' x='8' transform='matrix(1 0 0 -1 0 12)'/%3E%3C/svg%3E");
+  --vx-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.145 0 0 0 0 0.188 0 0 0 1.2 -0.35'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root { --vx-e-spring: linear(0, .06 2%, .23 5%, .5 9.5%, .76 14.5%, .93 20%, 1.02 26%, 1.04 31%, 1.035 37%, 1.01 48%, .998 62%, 1); }
+}
+@media (min-width: 37.5em) { :root { --vx-cols: 8; --vx-gap: 24px; } }
+@media (min-width: 60em) { :root { --vx-cols: 12; } }
+@media (min-width: 80em) { :root { --vx-gap: 32px; } }
+/* RU and ES run 15-30% longer: smaller top of the display scale, wider measure */
+:root:lang(ru), :root:lang(es) {
+  --vx-fs-display: clamp(2.25rem, 1.5417rem + 3.1481vw, 4.375rem);
+  --vx-fs-h1: clamp(2rem, 1.5417rem + 2.037vw, 3.375rem);
+}
+/* Dark surfaces switch the focus ring and guilloche colour */
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-hdr, .vx-drawer, .vx-dark) { --vx-ring: var(--vx-focus, #7CD2DE); }
+
+/* --------------------------------------------------------------------------
+   1. TYPE: optical sizing, snapped leading, italic accents, tabular figures
+   -------------------------------------------------------------------------- */
+:where(body.vx) :is(h1, h2, h3, .vx-display, .vx-num--serif) { font-optical-sizing: auto; }
+.vx-display { font: 460 var(--vx-fs-display)/1 var(--vx-serif); letter-spacing: -.022em; text-wrap: balance; max-width: 16ch; }
+.vx-h1 { font: 480 var(--vx-fs-h1)/1.05 var(--vx-serif); letter-spacing: -.02em; text-wrap: balance; }
+.vx-h2v4 { font: 480 var(--vx-fs-h2)/1.1 var(--vx-serif); letter-spacing: -.015em; text-wrap: balance; }
+.vx-h3v4 { font: 500 var(--vx-fs-h3)/1.25 var(--vx-serif); letter-spacing: -.01em; }
+:root:lang(ru) .vx-display, :root:lang(es) .vx-display { max-width: 18ch; }
+/* Leading snapped to the 4px baseline at every fluid size (round(): Chrome 125, Firefox 118, Safari 15.4) */
+@supports (line-height: round(up, 1em, 4px)) {
+  .vx-display { line-height: round(up, 1.02em, 4px); }
+  .vx-h1 { line-height: round(up, 1.06em, 4px); }
+  .vx-h2v4 { line-height: round(up, 1.1em, 4px); }
+  .vx-h3v4 { line-height: round(up, 1.25em, 4px); }
+  :where(body.vx) p { line-height: round(nearest, 1.65em, 4px); }
+}
+/* One italic accent per page: Source Serif 4 Italic, opsz 60 (load the static 19 KB italic, see §6.2) */
+.vx-accent-i { font-style: italic; font-weight: 400; color: var(--vx-link); }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-accent-i { color: #8FE0EA; } /* 10.6:1 on ink */
+/* Figures: prices and counters never jump (tnum ships in the Google Fonts builds of both families) */
+.vx-num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.vx-num--serif { font-family: var(--vx-serif); font-weight: 500; letter-spacing: -.01em; }
+/* Cap-height trim so headings sit exactly on rules (text-box: Chrome 133, Safari 18.2, Firefox 154) */
+@supports (text-box: trim-both cap alphabetic) {
+  .vx-trim { text-box: trim-both cap alphabetic; }
+}
+
+/* --------------------------------------------------------------------------
+   2. GRID: 12 / 8 / 4 columns with named lines, full-bleed wrapper, debug overlay
+   -------------------------------------------------------------------------- */
+.vx-bleed {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--vx-gutter), 1fr)
+    [content-start] min(100% - 2 * var(--vx-gutter), var(--vx-container) - 2 * var(--vx-gutter))
+    [content-end] minmax(var(--vx-gutter), 1fr) [full-end];
+}
+.vx-bleed > * { grid-column: content; }
+.vx-bleed > .is-full { grid-column: full; }
+.vx-g { display: grid; grid-template-columns: repeat(var(--vx-cols), [c] minmax(0, 1fr)); column-gap: var(--vx-gap); }
+/* Placement helpers by named line: grid-column: c 1 / c 7 = columns 1-6 */
+.vx-g > .vx-c-text { grid-column: c 1 / span min(var(--vx-cols), 6); }
+.vx-g > .vx-c-side { grid-column: c 1 / -1; }
+@media (min-width: 60em) {
+  .vx-g > .vx-c-side { grid-column: c 8 / -1; }
+  .vx-g > .vx-c-head { grid-column: c 1 / c 6; }   /* sidehead: H2 + lead in 1-5 */
+  .vx-g > .vx-c-body { grid-column: c 7 / -1; }   /* content in 7-12 */
+  .vx-g > .vx-c-offset { grid-column: c 3 / -1; } /* statement follow-up offset to col 3 */
+}
+/* QA overlay: add data-vx-grid to <html> to see the columns (never shipped switched on) */
+html[data-vx-grid] .vx-wrap {
+  background-image: linear-gradient(to right, rgba(43, 179, 192, .10) 0 calc(100% - var(--vx-gap)), transparent 0);
+  background-size: calc((100% + var(--vx-gap)) / var(--vx-cols)) 100%;
+  background-origin: content-box; background-clip: content-box;
+}
+
+/* --------------------------------------------------------------------------
+   3. RULES: hairline, double, microprint, guilloche band, column ruler, registration marks
+   -------------------------------------------------------------------------- */
+.vx-rule { display: block; height: 1px; border: 0; margin: 0; background: var(--vx-line); }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-rule { background: var(--vx-line-dark); }
+.vx-rule--double { height: 4px; background: none; border-top: 1px solid var(--vx-line-strong); border-bottom: 1px solid var(--vx-line-strong); }
+.vx-rule--micro, .vx-rule--microtext, .vx-rule--band { background: currentColor; -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; -webkit-mask-position: 0 50%; mask-position: 0 50%; }
+.vx-rule--micro { height: 6px; color: var(--vx-line-strong); -webkit-mask-image: var(--vx-mask-micro); mask-image: var(--vx-mask-micro); -webkit-mask-size: 24px 6px; mask-size: 24px 6px; }
+.vx-rule--microtext { height: 6px; color: #8FA7AE; -webkit-mask-image: var(--vx-mask-microtext); mask-image: var(--vx-mask-microtext); -webkit-mask-size: 168px 6px; mask-size: 168px 6px; }
+.vx-rule--band { height: 28px; color: var(--vx-gl-light); -webkit-mask-image: var(--vx-mask-band); mask-image: var(--vx-mask-band); -webkit-mask-size: 192px 28px; mask-size: 192px 28px; }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-rule--band { color: var(--vx-gl-dark); }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-rule--micro { color: rgba(124, 210, 222, .40); }
+/* Column ruler: a long tick at every column start of the 12/8/4 grid, short ticks every 8px */
+.vx-ruler {
+  --tick: rgba(10, 37, 48, .28); height: 12px; pointer-events: none;
+  background:
+    linear-gradient(var(--tick) 0 0) 100% 100% / 1px 12px no-repeat,
+    linear-gradient(to right, var(--tick) 0 1px, transparent 1px) 0 100% / calc((100% + var(--vx-gap)) / var(--vx-cols)) 12px repeat-x,
+    linear-gradient(to right, var(--tick) 0 1px, transparent 1px) 0 100% / 8px 4px repeat-x;
+}
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-ruler { --tick: rgba(255, 255, 255, .22); }
+/* Registration marks on the four corners of a framed block (print vocabulary, decoration only) */
+.vx-reg { position: relative; }
+.vx-reg::before {
+  content: ""; position: absolute; inset: -8px; pointer-events: none; color: inherit; opacity: .32; background: currentColor;
+  -webkit-mask: var(--vx-mask-reg) 0 0 / 16px no-repeat, var(--vx-mask-reg) 100% 0 / 16px no-repeat, var(--vx-mask-reg) 0 100% / 16px no-repeat, var(--vx-mask-reg) 100% 100% / 16px no-repeat;
+  mask: var(--vx-mask-reg) 0 0 / 16px no-repeat, var(--vx-mask-reg) 100% 0 / 16px no-repeat, var(--vx-mask-reg) 0 100% / 16px no-repeat, var(--vx-mask-reg) 100% 100% / 16px no-repeat;
+}
+/* Price-list leader dots between a name and its price */
+.vx-leader { display: flex; align-items: baseline; gap: 12px; }
+.vx-leader > :first-child { min-width: 0; }
+.vx-leader::after { content: ""; order: 1; flex: 1 1 24px; min-width: 24px; border-bottom: 1px dotted var(--vx-line-strong); transform: translateY(-.3em); }
+.vx-leader > :last-child { order: 2; white-space: nowrap; }
+
+/* --------------------------------------------------------------------------
+   4. MOTIF: hero rosette, card watermark, seal, emboss, perforation, paper, engraving
+   -------------------------------------------------------------------------- */
+.vx-gl { display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: currentColor; stroke-width: .9; }
+/* Hero rosette: two composited layers (A outer, B inner) over the video shade, right of the text column */
+.vx-rosette {
+  position: absolute; z-index: -1; pointer-events: none; aspect-ratio: 1;
+  width: clamp(420px, 56vw, 820px); top: 50%; right: max(-14vw, calc((100vw - var(--vx-container)) / 2 - 18vw));
+  translate: 0 -50%; color: var(--vx-gl-dark); mix-blend-mode: screen;
+}
+.vx-rosette > * { position: absolute; inset: 0; }
+.vx-rosette__b { color: rgba(124, 210, 222, .22); }
+@media (max-width: 75em) { .vx-rosette { opacity: .7; } } /* tablets: the ring may pass behind the lead text */
+@media (max-width: 47.5em) { .vx-rosette { width: 128vw; right: -64vw; top: auto; bottom: -40vw; translate: none; opacity: .6; } }
+@media (prefers-reduced-motion: no-preference) {
+  .vx-rosette .is-ready :is(.vx-gl__ring, .vx-gl__rule, .vx-gl__core) {
+    stroke-dasharray: 1 1; stroke-dashoffset: 1;
+    animation: vx-draw var(--vx-d-draw) var(--vx-e-inout) forwards;
+    animation-delay: calc(240ms + var(--i, 0) * 220ms);
+  }
+  .vx-rosette .is-ready .vx-gl__core { animation-delay: 900ms; }
+  .vx-rosette .is-ready .vx-gl__rule { animation-duration: 1100ms; }
+}
+@keyframes vx-draw { to { stroke-dashoffset: 0; } }
+/* P2: scroll-linked counter-rotation of the two layers = a slow moire while the hero scrolls away */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .vx-rosette__a { animation: vx-turn-a linear both; animation-timeline: scroll(root block); animation-range: 0 100vh; }
+    .vx-rosette__b { animation: vx-turn-b linear both; animation-timeline: scroll(root block); animation-range: 0 100vh; }
+  }
+}
+@keyframes vx-turn-a { to { rotate: 7deg; } }
+@keyframes vx-turn-b { to { rotate: -5deg; } }
+
+/* Footer echo: the inner layer only, static, very faint (one per page, right of the contact statement) */
+.vx-rosette--echo { width: 520px; right: -120px; color: rgba(124, 210, 222, .12); mix-blend-mode: normal; }
+.vx-rosette--echo .vx-rosette__b { color: inherit; }
+.vx-rosette--echo .is-ready :is(.vx-gl__ring, .vx-gl__rule, .vx-gl__core) { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
+.vx-rosette--echo > * { animation: none !important; }
+@media (max-width: 47.5em) { .vx-rosette--echo { display: none; } }
+
+/* Hairline guilloche ring around a round element (path icons). Uses ::before, so not for .vx-seal (see .vx-seal__gl). */
+.vx-ring-gl { position: relative; isolation: isolate; }
+.vx-ring-gl::before {
+  content: ""; position: absolute; inset: -9px; z-index: -1; border-radius: 50%; pointer-events: none; background: currentColor; color: rgba(15, 110, 121, .12);
+  -webkit-mask: var(--vx-mask-card) center / contain no-repeat; mask: var(--vx-mask-card) center / contain no-repeat;
+}
+/* Team monogram plates: <span class="vx-seal__gl" data-vx-guilloche="seal" aria-hidden="true"></span> inside .vx-seal */
+.vx-seal__gl { position: absolute; inset: 4px; z-index: 0; color: rgba(169, 230, 238, .32); pointer-events: none; }
+
+/* Card watermark: an aria-hidden <span class="vx-wm"> as the first child of a featured card (max 3 per page).
+   A real element, not ::after, so it never collides with the spotlight pseudo-elements. */
+.vx-wm { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; pointer-events: none; color: var(--vx-gl-light); }
+.vx-wm::before {
+  content: ""; position: absolute; width: 240px; aspect-ratio: 1; right: -72px; bottom: -88px; background: currentColor;
+  -webkit-mask: var(--vx-mask-card) center / contain no-repeat; mask: var(--vx-mask-card) center / contain no-repeat;
+  transition: rotate 1200ms var(--vx-e-out);
+}
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark, .vx-card--dark) .vx-wm { color: var(--vx-gl-dark); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { :hover > .vx-wm::before { rotate: 12deg; } }
+
+/* Blind emboss: raised paper seal, no ink (brand mark only, never a notary or state seal) */
+.vx-emboss {
+  display: grid; place-items: center; border-radius: 50%; aspect-ratio: 1; width: 96px; color: transparent;
+  background: radial-gradient(circle at 50% 50%, var(--vx-paper) 0 58%, transparent 59%), var(--vx-paper);
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .9), inset -1px -1px 1px rgba(10, 37, 48, .14),
+              1px 1px 0 rgba(255, 255, 255, .8), -1px -1px 0 rgba(10, 37, 48, .08), 0 0 0 6px var(--vx-paper), 0 0 0 7px rgba(10, 37, 48, .06);
+  font: 500 1.6rem/1 var(--vx-serif); text-shadow: 1px 1px 0 rgba(255, 255, 255, .9), -1px -1px 0 rgba(10, 37, 48, .22);
+}
+
+/* Perforated stub: side notches + dashed tear line, for quotes, receipts and estimator totals */
+.vx-stub { --stub-y: 72%; --stub-r: 10px; position: relative; filter: drop-shadow(0 1px 1px rgba(10, 37, 48, .08)) drop-shadow(0 18px 32px rgba(10, 37, 48, .10)); }
+.vx-stub > .vx-stub__paper {
+  background: #fff; border-radius: 14px; padding: clamp(20px, 3vw, 32px);
+  -webkit-mask: radial-gradient(circle var(--stub-r) at 0 var(--stub-y), #0000 98%, #000) , radial-gradient(circle var(--stub-r) at 100% var(--stub-y), #0000 98%, #000);
+  -webkit-mask-composite: source-in;
+  mask: radial-gradient(circle var(--stub-r) at 0 var(--stub-y), #0000 98%, #000), radial-gradient(circle var(--stub-r) at 100% var(--stub-y), #0000 98%, #000);
+  mask-composite: intersect;
+}
+.vx-stub__tear { position: absolute; left: calc(var(--stub-r) + 6px); right: calc(var(--stub-r) + 6px); top: var(--stub-y); border-top: 1px dashed var(--vx-line-strong); pointer-events: none; }
+
+/* Paper tooth: barely-there fibre on light sections (opacity .05; no visible noise) */
+.vx-paper { position: relative; isolation: isolate; }
+.vx-paper::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--vx-grain); background-size: 160px; opacity: .05; }
+:is(.vx-band, .vx-ftr).vx-paper::before { opacity: .08; mix-blend-mode: screen; }
+
+/* Engraved photo: grayscale + teal duotone + fine line screen (portraits, the mega feature image) */
+.vx-engrave { position: relative; isolation: isolate; overflow: hidden; background: #0E5C66; }
+.vx-engrave > img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(1.04); mix-blend-mode: luminosity; }
+.vx-engrave::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply;
+  background: repeating-linear-gradient(-32deg, rgba(10, 37, 48, .26) 0 1px, transparent 1px 3px);
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS: .vx-b (plate) + modifiers. 44px minimum on touch, 52px default.
+   -------------------------------------------------------------------------- */
+.vx-b {
+  --b-bg: var(--vx-ink); --b-bg-hover: var(--vx-ink-2); --b-fg: #fff; --b-bd: transparent;
+  --b-frame: rgba(255, 255, 255, .16); --b-arrow: var(--vx-accent-soft); --b-sheen: rgba(255, 255, 255, .12);
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 52px; padding: 0 20px 0 24px; border: 1px solid var(--b-bd); border-radius: 10px;
+  background-color: var(--b-bg); color: var(--b-fg); text-decoration: none; text-align: center; cursor: pointer;
+  font: 600 1rem/1.2 var(--vx-sans); letter-spacing: .005em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 10px 24px -14px rgba(10, 37, 48, .8);
+  translate: var(--tx, 0px) var(--ty, 0px);
+  transition: background-color var(--vx-d2) var(--vx-e-std), box-shadow var(--vx-d2) var(--vx-e-std), color var(--vx-d2) var(--vx-e-std),
+              translate 480ms var(--vx-e-spring), transform 90ms var(--vx-e-std);
+  -webkit-tap-highlight-color: transparent;
+}
+/* engraved inner frame, 3px inset, like a banknote border */
+.vx-b::before { content: ""; position: absolute; inset: 3px; z-index: -1; border: 1px solid var(--b-frame); border-radius: 7px; pointer-events: none; }
+/* sheen sweep: one pass per hover */
+.vx-b::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; translate: -120% 0;
+  background: linear-gradient(105deg, transparent 30%, var(--b-sheen) 50%, transparent 70%);
+}
+.vx-b:hover { background-color: var(--b-bg-hover); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .vx-b:hover::after { translate: 120% 0; transition: translate 760ms var(--vx-e-out); }
+}
+.vx-b:active { transform: translateY(1px); box-shadow: inset 0 2px 3px rgba(0, 0, 0, .22); }
+.vx-b:focus-visible { outline: 2px solid var(--vx-ring); outline-offset: 3px; }
+.vx-b:is([disabled], [aria-disabled="true"]) {
+  --b-bg: var(--vx-disabled-bg); --b-bg-hover: var(--vx-disabled-bg); --b-fg: var(--vx-disabled-fg); --b-frame: transparent; --b-arrow: var(--vx-disabled-fg);
+  box-shadow: none; cursor: not-allowed; transform: none; translate: none;
+}
+.vx-b:is([disabled], [aria-disabled="true"])::after { display: none; }
+/* arrow that grows its shaft on hover (inline SVG, see markup in research §3.6) */
+.vx-b__arrow { flex: none; width: 20px; height: 20px; overflow: visible; fill: none; stroke: var(--b-arrow); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.vx-b__arrow .s { transform-box: view-box; transform-origin: 16px 10px; scale: .5 1; transition: scale var(--vx-d2) var(--vx-e-out); }
+.vx-b__arrow .h { transition: translate var(--vx-d2) var(--vx-e-out); }
+:is(.vx-b, .vx-a):is(:hover, :focus-visible) .vx-b__arrow .s { scale: 1 1; }
+:is(.vx-b, .vx-a):is(:hover, :focus-visible) .vx-b__arrow .h { translate: 2px 0; }
+.vx-b__price { font: 500 1.0625rem/1 var(--vx-serif); font-variant-numeric: tabular-nums; padding-left: 12px; border-left: 1px solid var(--b-frame); }
+
+/* (1) Primary on light = default .vx-b (ink plate, white text 15.9:1) */
+/* (2) Primary on dark: teal plate with an engraved wave texture (ink on teal 6.3:1; 5.6:1 under the texture) */
+.vx-b--teal {
+  --b-bg: var(--vx-accent); --b-bg-hover: var(--vx-accent-hi); --b-fg: var(--vx-ink); --b-frame: rgba(10, 37, 48, .22); --b-arrow: var(--vx-ink); --b-sheen: rgba(255, 255, 255, .32);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 28px -14px rgba(43, 179, 192, .9);
+}
+.vx-b--teal > .vx-b__tex { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--vx-ink); opacity: .08;
+  -webkit-mask: var(--vx-mask-tex) 0 50% / 48px 12px repeat; mask: var(--vx-mask-tex) 0 50% / 48px 12px repeat; }
+.vx-b--teal:active { --b-bg: var(--vx-accent-lo); }
+/* (3) Secondary: hairline plate; printer's crop marks appear on hover */
+.vx-b--line { --b-bg: transparent; --b-bg-hover: var(--vx-frost); --b-fg: var(--vx-ink); --b-bd: var(--vx-ink); --b-frame: transparent; --b-arrow: var(--vx-link); box-shadow: none; overflow: visible; }
+.vx-b--line::after { display: none; }
+.vx-b--line::before {
+  inset: -6px; border: 0; border-radius: 0; opacity: 0; scale: .94; color: var(--vx-link);
+  background:
+    linear-gradient(currentColor 0 0) 0 0 / 8px 1px, linear-gradient(currentColor 0 0) 0 0 / 1px 8px,
+    linear-gradient(currentColor 0 0) 100% 0 / 8px 1px, linear-gradient(currentColor 0 0) 100% 0 / 1px 8px,
+    linear-gradient(currentColor 0 0) 0 100% / 8px 1px, linear-gradient(currentColor 0 0) 0 100% / 1px 8px,
+    linear-gradient(currentColor 0 0) 100% 100% / 8px 1px, linear-gradient(currentColor 0 0) 100% 100% / 1px 8px;
+  background-repeat: no-repeat;
+  transition: opacity var(--vx-d2) var(--vx-e-std), scale var(--vx-d3) var(--vx-e-out);
+}
+.vx-b--line:is(:hover, :focus-visible)::before { opacity: 1; scale: 1; }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-b--line { --b-fg: #fff; --b-bd: rgba(255, 255, 255, .55); --b-bg-hover: rgba(255, 255, 255, .08); --b-arrow: var(--vx-accent-soft); }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-b--line::before { color: var(--vx-accent-soft); }
+/* (4) Text link with rule: faint underline at rest (discoverable), full rule + longer arrow on hover */
+.vx-a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--vx-link); text-decoration: none;
+  font: 600 1rem/1.3 var(--vx-sans); --b-arrow: currentColor;
+}
+.vx-a > span:first-child {
+  padding-bottom: 2px; background-repeat: no-repeat; background-position: 0 100%, 0 100%;
+  background-image: linear-gradient(color-mix(in srgb, currentColor 35%, transparent) 0 0), linear-gradient(currentColor 0 0);
+  background-size: 100% 1px, 0 1px; transition: background-size var(--vx-d3) var(--vx-e-out);
+}
+.vx-a:is(:hover, :focus-visible) > span:first-child { background-size: 100% 1px, 100% 1px; }
+.vx-a:focus-visible { outline: 2px solid var(--vx-ring); outline-offset: 4px; border-radius: 2px; }
+.vx-a .vx-b__arrow { width: 18px; height: 18px; }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-a { color: #CDEFF3; } /* 13.1:1 on ink */
+/* (5) Icon button: 44px round, guilloche ring turns on hover (pause, close, carousel) */
+.vx-ib {
+  position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--vx-line-input); background: #fff; color: var(--vx-ink); cursor: pointer;
+  transition: background-color var(--vx-d2) var(--vx-e-std), border-color var(--vx-d2) var(--vx-e-std);
+}
+.vx-ib::before {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%; pointer-events: none; background: currentColor; opacity: 0;
+  -webkit-mask: var(--vx-mask-card) center / contain no-repeat; mask: var(--vx-mask-card) center / contain no-repeat;
+  transition: opacity var(--vx-d2) var(--vx-e-std), rotate 900ms var(--vx-e-out);
+}
+.vx-ib:hover { background: var(--vx-frost); border-color: var(--vx-link); }
+.vx-ib:hover::before { opacity: .35; rotate: 30deg; }
+.vx-ib:focus-visible { outline: 2px solid var(--vx-ring); outline-offset: 3px; }
+.vx-ib svg { width: 18px; height: 18px; }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr, .vx-dark) .vx-ib { background: rgba(12, 44, 54, .6); border-color: rgba(255, 255, 255, .28); color: #fff; }
+/* (6) Seal CTA: one per page at most. Ring text is decoration (aria-hidden) but still >= 12px. */
+.vx-seal-cta {
+  --size: clamp(144px, 11vw + 24px, 168px);
+  position: relative; display: inline-grid; place-items: center; width: var(--size); aspect-ratio: 1; border-radius: 50%;
+  color: var(--vx-ink); background: #fff; text-decoration: none; isolation: isolate;
+  box-shadow: 0 0 0 1px var(--vx-line-strong), 0 18px 40px -22px rgba(10, 37, 48, .6);
+  translate: var(--tx, 0px) var(--ty, 0px);
+  transition: translate 520ms var(--vx-e-spring), box-shadow var(--vx-d2) var(--vx-e-std), transform 90ms var(--vx-e-std);
+}
+.vx-seal-cta__gl { position: absolute; inset: 6px; z-index: -1; color: var(--vx-gl-light); transition: rotate 1400ms var(--vx-e-out); }
+.vx-seal-cta__ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transition: rotate 1400ms var(--vx-e-out); }
+.vx-seal-cta__ring text { font: 600 13.5px/1 var(--vx-sans); letter-spacing: .14em; fill: var(--vx-link); text-transform: uppercase; }
+.vx-seal-cta__core {
+  display: grid; justify-items: center; gap: 2px; width: 58%; aspect-ratio: 1; align-content: center; border-radius: 50%;
+  background: var(--vx-ink); color: #fff; text-align: center; box-shadow: inset 0 0 0 3px var(--vx-ink), inset 0 0 0 4px rgba(255, 255, 255, .18);
+}
+.vx-seal-cta__label { font: 600 .9375rem/1.15 var(--vx-sans); max-width: 9ch; }
+.vx-seal-cta__price { font: 500 1.125rem/1 var(--vx-serif); font-variant-numeric: tabular-nums; color: #8FE0EA; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .vx-seal-cta:hover .vx-seal-cta__ring { rotate: 24deg; }
+  .vx-seal-cta:hover .vx-seal-cta__gl { rotate: -16deg; }
+}
+.vx-seal-cta:hover { box-shadow: 0 0 0 1px var(--vx-link), 0 22px 44px -22px rgba(10, 37, 48, .7); }
+.vx-seal-cta:active { transform: scale(.98); box-shadow: 0 0 0 1px var(--vx-link), inset 0 2px 6px rgba(10, 37, 48, .25); }
+.vx-seal-cta:focus-visible { outline: 2px solid var(--vx-ring); outline-offset: 4px; }
+
+/* Touch: no hover transforms on coarse pointers, only :active feedback */
+@media (hover: none) { .vx-b, .vx-seal-cta { translate: none; } }
+
+/* --------------------------------------------------------------------------
+   6. CARDS AND SURFACES
+   -------------------------------------------------------------------------- */
+/* Hairline gradient border: teal catches light at two corners, neutral elsewhere */
+.vx-card {
+  --card-bg: #fff; position: relative; isolation: isolate; border-radius: 14px; padding: clamp(20px, 2.4vw, 32px);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              linear-gradient(160deg, rgba(43, 179, 192, .55), var(--vx-line) 26%, var(--vx-line) 74%, rgba(15, 110, 121, .40)) border-box;
+}
+.vx-card--dark { --card-bg: var(--vx-ink-2); color: #DCEBEE;
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              linear-gradient(160deg, rgba(124, 210, 222, .55), rgba(255, 255, 255, .10) 30%, rgba(255, 255, 255, .10) 70%, rgba(124, 210, 222, .30)) border-box; }
+/* Layered depth: rest = flat; hover = lifts 2px with a long soft shadow (floating layers only elsewhere) */
+.vx-card--lift { transition: translate var(--vx-d3) var(--vx-e-out), box-shadow var(--vx-d3) var(--vx-e-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .vx-card--lift:hover { translate: 0 -2px; box-shadow: 0 1px 2px rgba(10, 37, 48, .06), 0 24px 48px -28px rgba(10, 37, 48, .45); }
+}
+/* Spotlight: radial light follows the pointer (JS sets --mx/--my); the border lights up near it */
+.vx-spot::before, .vx-spot::after { content: ""; position: absolute; pointer-events: none; border-radius: inherit; opacity: 0; transition: opacity var(--vx-d3) var(--vx-e-std); }
+.vx-spot::before { inset: 0; z-index: -1; background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(43, 179, 192, .10), transparent 62%); }
+.vx-spot::after {
+  inset: -1px; padding: 1px;
+  background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 0%), rgba(43, 179, 192, .85), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
+}
+@media (hover: hover) and (pointer: fine) { .vx-spot:hover::before, .vx-spot:hover::after { opacity: 1; } }
+.vx-card--dark.vx-spot::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(124, 210, 222, .10), transparent 62%); }
+/* Document sheet: stacked paper with a folded corner (examples, samples) */
+.vx-sheet {
+  --under: var(--vx-paper); position: relative; background: #fff; border: 1px solid #DCE6E9; border-radius: 4px;
+  box-shadow: 0 20px 40px -24px rgba(10, 37, 48, .45), 6px 6px 0 -1px #EEF4F6, 6px 6px 0 0 #DCE6E9, 12px 12px 0 -1px #F6F9FA, 12px 12px 0 0 #E3ECEF;
+}
+.vx-sheet::before {
+  content: ""; position: absolute; top: -1px; right: -1px; width: 24px; height: 24px; pointer-events: none;
+  background: linear-gradient(225deg, var(--under) 50%, #E3ECEF 50%); border-bottom-left-radius: 4px; box-shadow: -1px 1px 2px rgba(10, 37, 48, .12);
+}
+
+/* --------------------------------------------------------------------------
+   7. MOTION: reveals, stagger, hero entrance, line draw, view transitions
+   -------------------------------------------------------------------------- */
+/* Hero entrance on load. Never put .vx-enter on the H1: it is the LCP element and must paint at once. */
+@media (prefers-reduced-motion: no-preference) {
+  .vx-enter { animation: vx-enter var(--vx-d5) var(--vx-e-out) both; animation-delay: calc(80ms + var(--i, 0) * 90ms); }
+  .vx-drawline { transform-origin: left; animation: vx-drawline 900ms var(--vx-e-inout) 120ms both; }
+}
+@keyframes vx-enter { from { opacity: 0; translate: 0 14px; } }
+@keyframes vx-drawline { from { scale: 0 1; } }
+
+/* Scroll reveals: CSS scroll-driven where supported (Chrome 115+, Safari 26+), IO fallback (Firefox) via JS */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .vx-reveal {
+      animation: vx-rise linear both; animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 6%) entry calc(70% + var(--i, 0) * 6%);
+    }
+    .vx-draw-on-view { animation: vx-draw linear both; animation-timeline: view(); animation-range: entry 20% cover 55%; stroke-dasharray: 1 1; }
+  }
+}
+@keyframes vx-rise { from { opacity: 0; translate: 0 16px; } }
+/* Fallback path: JS marks only below-the-fold items with data-vx-pending, so nothing above the fold flickers */
+.vx-io .vx-reveal { transition: opacity var(--vx-d4) var(--vx-e-out), translate var(--vx-d4) var(--vx-e-out); transition-delay: calc(var(--i, 0) * 60ms); }
+.vx-io .vx-reveal[data-vx-pending] { opacity: 0; translate: 0 16px; }
+
+/* Cross-document view transitions (Chrome 126+, Safari 18.2+; Firefox 158 navigates normally) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+.vx-hdr { view-transition-name: vx-hdr; }
+::view-transition-group(vx-hdr) { animation: none; }
+::view-transition-old(vx-hdr) { display: none; }
+::view-transition-new(vx-hdr) { animation: none; }
+::view-transition-old(root) { animation: 160ms var(--vx-e-in) both vx-vt-out; }
+::view-transition-new(root) { animation: 260ms var(--vx-e-out) 40ms both vx-vt-in; }
+@keyframes vx-vt-out { to { opacity: 0; } }
+@keyframes vx-vt-in { from { opacity: 0; translate: 0 8px; } }
+
+/* --------------------------------------------------------------------------
+   8. REDUCED MOTION AND TRANSPARENCY: full static fallbacks
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .vx-b, .vx-b::after, .vx-b__arrow *, .vx-a, .vx-ib, .vx-ib::before, .vx-seal-cta, .vx-seal-cta *,
+  .vx-card--lift, .vx-spot::before, .vx-spot::after, .vx-wm::before { transition-duration: 1ms !important; transition-delay: 0s !important; }
+  .vx-b, .vx-seal-cta { translate: none !important; }
+  .vx-b::after { display: none; }
+  .vx-rosette :is(.vx-gl__ring, .vx-gl__rule, .vx-gl__core) { stroke-dasharray: none; stroke-dashoffset: 0; }
+  .vx-reveal, .vx-enter, .vx-drawline { animation: none !important; opacity: 1 !important; translate: none !important; scale: none !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .vx-rosette { mix-blend-mode: normal; opacity: .5; }
+}
+@media (forced-colors: active) {
+  .vx-rosette, .vx-wm, .vx-paper::before, .vx-engrave::after, .vx-reg::before, .vx-rule--band, .vx-rule--micro, .vx-rule--microtext { display: none; }
+  .vx-b, .vx-seal-cta { border: 1px solid ButtonText; }
+}
+@media print {
+  .vx-rosette, .vx-paper::before, .vx-spot::before, .vx-spot::after { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   9. FIXES FOR EXISTING v2 COMPONENTS found in this review (research §10)
+   WCAG 1.4.11 needs 3:1 for focus indicators and input outlines; #2BB3C0 on white is 2.53:1.
+   -------------------------------------------------------------------------- */
+.vx-lang__list, .vx-finder__list { --vx-ring: #0F6E79; } /* white popovers inside the dark header/hero */
+:where(body.vx) :is(.vx-faq summary, .vx-switch button, .vx-chip, .vx-irow__more summary, .vx-est__field select, .vx-stepper button, .vx-lang__list button):focus-visible { outline-color: var(--vx-ring); }
+:where(body.vx) :is(.vx-toggle input:focus-visible + .vx-toggle__track, .vx-seg2 input:focus-visible + span, .vx-choice input:focus-visible + span) { outline-color: var(--vx-ring); }
+:where(body.vx) .vx-field :is(input[type], select, textarea) { border-color: var(--vx-line-input); }                 /* was #8FA7AE, 2.53:1 */
+:where(body.vx) .vx-field :is(input[type], select, textarea):focus { outline-color: color-mix(in srgb, var(--vx-ring) 75%, transparent); }
+:where(body.vx) .vx-stepper button:disabled { color: var(--vx-disabled-fg); background: var(--vx-disabled-bg); } /* was #9AAEB4, 2.31:1 */
+
+/* ==========================================================================
+   10. APPLICATION — the v4 system applied to the existing VitaCoreX markup
+   (bridge for .vx-btn, hero rosette, directory, team medallions, service
+   certificate, estimator stub, tariff tables, footer). Order matters: last.
+   ========================================================================== */
+
+/* 10.1 Buttons: every existing .vx-btn becomes an engraved plate (inner frame, one sheen pass, press depth) */
+.vx-btn {
+  --b-frame: rgba(255, 255, 255, .16); --b-sheen: rgba(255, 255, 255, .14);
+  position: relative; isolation: isolate; overflow: hidden; border-radius: 10px; font-weight: 600; letter-spacing: .005em;
+  translate: var(--tx, 0px) var(--ty, 0px);
+  transition: background-color var(--vx-d2) var(--vx-e-std), border-color var(--vx-d2) var(--vx-e-std), color var(--vx-d2) var(--vx-e-std),
+              box-shadow var(--vx-d2) var(--vx-e-std), translate 480ms var(--vx-e-spring), transform 90ms var(--vx-e-std);
+}
+.vx-btn::before { content: ""; position: absolute; inset: 3px; z-index: -1; border: 1px solid var(--b-frame); border-radius: 7px; pointer-events: none; }
+.vx-btn::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; translate: -120% 0; background: linear-gradient(105deg, transparent 30%, var(--b-sheen) 50%, transparent 70%); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .vx-btn:hover::after { translate: 120% 0; transition: translate 760ms var(--vx-e-out); } }
+.vx-btn:hover { transform: none; }
+.vx-btn:active { transform: translateY(1px); box-shadow: inset 0 2px 3px rgba(0, 0, 0, .22); }
+.vx-btn:focus-visible { outline: 2px solid var(--vx-ring); outline-offset: 3px; }
+.vx-btn--accent { --b-frame: rgba(10, 37, 48, .24); --b-sheen: rgba(255, 255, 255, .34); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 28px -14px rgba(43, 179, 192, .9); }
+.vx-btn--accent:active { background: var(--vx-accent-lo); }
+.vx-section:not(.vx-band) .vx-btn--accent, .vx-strip .vx-btn--accent, .vx-form .vx-btn--accent, .vx-receipt .vx-btn--accent { --b-frame: rgba(255, 255, 255, .16); --b-sheen: rgba(255, 255, 255, .12); }
+.vx-btn--dark { --b-frame: rgba(255, 255, 255, .16); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 10px 24px -14px rgba(10, 37, 48, .8); }
+/* hairline buttons: printer's crop marks instead of an inverted fill */
+.vx-btn--line, .vx-btn--ghost { overflow: visible; }
+.vx-btn--line::after, .vx-btn--ghost::after { display: none; }
+.vx-btn--line::before, .vx-btn--ghost::before {
+  inset: -6px; border: 0; border-radius: 0; opacity: 0; scale: .94; color: var(--vx-link);
+  background:
+    linear-gradient(currentColor 0 0) 0 0 / 8px 1px, linear-gradient(currentColor 0 0) 0 0 / 1px 8px,
+    linear-gradient(currentColor 0 0) 100% 0 / 8px 1px, linear-gradient(currentColor 0 0) 100% 0 / 1px 8px,
+    linear-gradient(currentColor 0 0) 0 100% / 8px 1px, linear-gradient(currentColor 0 0) 0 100% / 1px 8px,
+    linear-gradient(currentColor 0 0) 100% 100% / 8px 1px, linear-gradient(currentColor 0 0) 100% 100% / 1px 8px;
+  background-repeat: no-repeat; transition: opacity var(--vx-d2) var(--vx-e-std), scale var(--vx-d3) var(--vx-e-out);
+}
+.vx-btn--line:is(:hover, :focus-visible)::before, .vx-btn--ghost:is(:hover, :focus-visible)::before { opacity: 1; scale: 1; }
+.vx-btn--line { background: transparent; }
+.vx-btn--line:hover { background: var(--vx-frost); color: var(--vx-ink); }
+.vx-btn--ghost::before { color: var(--vx-accent-soft); }
+.vx-btn--ghost:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .7); }
+.vx-btn:is([disabled], [aria-disabled="true"]) { opacity: 1; background: var(--vx-disabled-bg); color: var(--vx-disabled-fg); border-color: transparent; box-shadow: none; --b-frame: transparent; }
+.vx-btn:is([disabled], [aria-disabled="true"])::after { display: none; }
+@media (hover: none) { .vx-btn { translate: none; } }
+@media (prefers-reduced-motion: reduce) { .vx-btn, .vx-btn::before, .vx-btn::after { transition-duration: 1ms !important; } .vx-btn { translate: none !important; } .vx-btn::after { display: none; } }
+/* links with an arrow: faint underline at rest, full rule on hover (existing .vx-link markup) */
+.vx-link { background-image: linear-gradient(color-mix(in srgb, currentColor 35%, transparent) 0 0), linear-gradient(currentColor 0 0); background-repeat: no-repeat; background-position: 0 100%, 0 100%; background-size: 100% 1px, 0 1px; }
+.vx-link:is(:hover, :focus-visible) { background-size: 100% 1px, 100% 1px; }
+
+/* 10.2 Type finish: optical sizing, balanced headings, tabular prices */
+:where(body.vx) :is(h1, h2) { text-wrap: balance; }
+:where(body.vx) p { text-wrap: pretty; }
+.vx-price__amount, .vx-dlist__price, .vx-irow__amount, .vx-ptable__price, .vx-est__num, .vx-mega a small, .vx-finder__meta { font-variant-numeric: tabular-nums; }
+.vx-h2 { font-size: var(--vx-fs-h2); letter-spacing: -.015em; }
+@supports (line-height: round(up, 1em, 4px)) { .vx-h2 { line-height: round(up, 1.1em, 4px); } }
+
+/* 10.3 Home hero: display type, italic accent, entrance, rosette, ruler */
+.vx-hero3 h1 { font-size: var(--vx-fs-display); line-height: 1.02; letter-spacing: -.022em; max-width: 16ch; }
+:root:lang(ru) .vx-hero3 h1, :root:lang(es) .vx-hero3 h1 { max-width: 18ch; }
+@supports (line-height: round(up, 1em, 4px)) { .vx-hero3 h1 { line-height: round(up, 1.02em, 4px); } }
+.vx-hero3 h1 em { font-style: italic; font-weight: 400; color: #8FE0EA; }
+.vx-hero3__cred { display: flex; flex-direction: column; gap: 12px; max-width: 34rem; letter-spacing: .02em; }
+.vx-hero3__cred::before { content: ""; display: block; height: 6px; background: rgba(124, 210, 222, .4); -webkit-mask: var(--vx-mask-micro) 0 50% / 24px 6px repeat-x; mask: var(--vx-mask-micro) 0 50% / 24px 6px repeat-x; }
+.vx-hero3 .vx-ruler-wrap { position: absolute; left: 0; right: 0; bottom: 0; pointer-events: none; }
+.vx-hero3__pause { z-index: 2; }
+@media (max-width: 47.5em) { .vx-hero3 .vx-ruler-wrap { display: none; } }
+
+/* 10.4 Guilloché band divider between major zones (max 2 per page) */
+.vx-bandrule { display: block; height: 28px; background: var(--vx-paper); position: relative; }
+.vx-bandrule::before { content: ""; position: absolute; inset: 0; background: rgba(15, 110, 121, .2); -webkit-mask: var(--vx-mask-band) 0 50% / 192px 28px repeat-x; mask: var(--vx-mask-band) 0 50% / 192px 28px repeat-x; }
+.vx-bandrule--white { background: #fff; }
+.vx-bandrule--dark { background: var(--vx-abyss); }
+.vx-bandrule--dark::before { background: rgba(124, 210, 222, .26); }
+
+/* 10.5 Trust strip: hairline dividers, credential typography */
+.vx-trust { background: #fff; }
+.vx-trust b { font-weight: 600; letter-spacing: .005em; }
+
+/* 10.6 Directory cards: spotlight, gradient hairline, tariff leaders, one watermark */
+.vx-dcard { position: relative; isolation: isolate; border: 1px solid transparent; box-shadow: none;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(160deg, rgba(43, 179, 192, .55), var(--vx-line) 26%, var(--vx-line) 74%, rgba(15, 110, 121, .4)) border-box;
+  transition: translate var(--vx-d3) var(--vx-e-out), box-shadow var(--vx-d3) var(--vx-e-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .vx-dcard:hover { translate: 0 -2px; box-shadow: 0 1px 2px rgba(10, 37, 48, .06), 0 24px 48px -28px rgba(10, 37, 48, .45); } }
+.vx-dcard__img { filter: saturate(.72) contrast(1.04) brightness(.96); }
+.vx-dcard h3 { font: 500 var(--vx-fs-title)/1.25 var(--vx-serif); letter-spacing: -.01em; padding-bottom: 12px; border-bottom: 4px double var(--vx-line-strong); }
+.vx-dlist li + li { border-top: 0; }
+.vx-dlist a { justify-content: flex-start; align-items: baseline; font-weight: 500; }
+.vx-dlist a::after { content: ""; order: 1; flex: 1 1 24px; min-width: 24px; border-bottom: 1px dotted var(--vx-line-strong); transform: translateY(-.3em); }
+.vx-dlist__name { order: 0; min-width: 0; }
+.vx-dlist__price { order: 2; font: 500 1.0625rem/1.2 var(--vx-serif); color: var(--vx-ink); letter-spacing: -.005em; }
+.vx-dlist a:hover .vx-dlist__price { color: var(--vx-link); }
+
+/* 10.7 B2B packages on the dark band: gradient-bordered dark cards */
+.vx-pkg { position: relative; isolation: isolate; border: 1px solid transparent; --card-bg: #0F3A47;
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, linear-gradient(160deg, rgba(124, 210, 222, .6), rgba(255, 255, 255, .10) 30%, rgba(255, 255, 255, .10) 70%, rgba(124, 210, 222, .3)) border-box; }
+.vx-pkg .vx-price__amount { font-family: var(--vx-serif); font-weight: 500; }
+
+/* 10.8 Team: colour portraits in a guilloché medallion */
+.vx-medal { position: relative; display: inline-grid; place-items: center; width: 116px; aspect-ratio: 1; flex: none; isolation: isolate; }
+.vx-medal__gl { position: absolute; inset: 0; z-index: -1; color: rgba(15, 110, 121, .3); transition: rotate 1400ms var(--vx-e-out); }
+.vx-medal .vx-portrait { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; filter: saturate(.86) contrast(1.03); box-shadow: 0 0 0 3px #fff, 0 0 0 4px rgba(15, 110, 121, .45), 0 14px 30px -16px rgba(10, 37, 48, .8); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .vx-person:hover .vx-medal__gl { rotate: 24deg; } }
+.vx-team .vx-person { gap: 14px; }
+.vx-person h3 { font: 500 var(--vx-fs-title)/1.25 var(--vx-serif); }
+
+/* 10.9 Service pages: the price aside becomes a fee certificate (dark card, watermark, serif price) */
+.vx-phero__aside { position: relative; isolation: isolate; overflow: hidden; border: 1px solid transparent; border-radius: 14px; padding: clamp(20px, 2.4vw, 28px);
+  background: linear-gradient(rgba(10, 37, 48, .78), rgba(10, 37, 48, .78)) padding-box, linear-gradient(160deg, rgba(124, 210, 222, .6), rgba(255, 255, 255, .10) 30%, rgba(255, 255, 255, .10) 70%, rgba(124, 210, 222, .3)) border-box; }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .vx-phero__aside { -webkit-backdrop-filter: blur(14px) saturate(130%); backdrop-filter: blur(14px) saturate(130%); } }
+.vx-phero__aside::after { content: ""; position: absolute; width: 240px; aspect-ratio: 1; right: -72px; bottom: -88px; z-index: -1; pointer-events: none; background: var(--vx-gl-dark);
+  -webkit-mask: var(--vx-mask-card) center / contain no-repeat; mask: var(--vx-mask-card) center / contain no-repeat; transition: rotate 1200ms var(--vx-e-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .vx-phero__aside:hover::after { rotate: 12deg; } }
+.vx-phero__aside .vx-price__amount { font: 500 clamp(2rem, 1.6rem + 1.4vw, 2.5rem)/1 var(--vx-serif); letter-spacing: -.015em; color: #fff; }
+.vx-phero__aside .vx-price { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.vx-phero__aside .vx-price__tag { display: none; } /* the legend explains price types; one less pill */
+.vx-phero__aside.vx-legend { background: linear-gradient(rgba(10, 37, 48, .72), rgba(10, 37, 48, .72)) padding-box, linear-gradient(160deg, rgba(124, 210, 222, .6), rgba(255, 255, 255, .10) 30%, rgba(255, 255, 255, .10) 70%, rgba(124, 210, 222, .3)) border-box; }
+/* detail boxes become ruled columns (less boxing, more print) */
+.vx-detail { gap: 0 clamp(24px, 3vw, 48px); }
+.vx-detail > .vx-box { background: none; border: 0; border-top: 4px double var(--vx-line-strong); border-radius: 0; padding: 20px 0 0; }
+.vx-detail > .vx-box h2 { font: 500 var(--vx-fs-title)/1.3 var(--vx-serif); }
+.vx-detail > .vx-box--next { background: none; }
+.vx-variants > .vx-box { position: relative; isolation: isolate; border: 1px solid transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(160deg, rgba(43, 179, 192, .55), var(--vx-line) 26%, var(--vx-line) 74%, rgba(15, 110, 121, .4)) border-box; }
+
+/* 10.10 Estimator: the totals are a perforated receipt stub */
+.vx-est__stub { position: relative; margin: 20px calc(-1 * clamp(20px, 3vw, 32px)) 0; padding: 22px clamp(20px, 3vw, 32px) 0; border-top: 1px dashed var(--vx-line-strong); }
+.vx-est__stub::before, .vx-est__stub::after { content: ""; position: absolute; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: var(--vx-stub-bg, var(--vx-paper)); box-shadow: inset 0 0 0 1px var(--vx-line); }
+.vx-est__stub::before { left: -11px; clip-path: inset(0 0 0 50%); }
+.vx-est__stub::after { right: -11px; clip-path: inset(0 50% 0 0); }
+.vx-est__total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.vx-est__total > span { font: 600 1rem/1.3 var(--vx-sans); color: var(--vx-ink); }
+.vx-est__total > strong { font: 500 clamp(1.6rem, 1.3rem + 1vw, 2.25rem)/1.1 var(--vx-serif); letter-spacing: -.015em; color: var(--vx-ink); font-variant-numeric: tabular-nums; }
+.vx-est__table tbody tr:last-child th, .vx-est__table tbody tr:last-child td { border-bottom: 0; }
+
+/* 10.11 Services index and pricing: tariff sheets */
+.vx-index__gtitle { border-bottom: 0; padding-bottom: 14px; position: relative; }
+.vx-index__gtitle::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; border-top: 1px solid var(--vx-ink); border-bottom: 1px solid var(--vx-line-strong); }
+.vx-irow__amount { font: 500 1.375rem/1.2 var(--vx-serif); letter-spacing: -.01em; }
+.vx-irow__amount .vx-pmark { vertical-align: .2em; }
+.vx-ptable { border: 0; border-radius: 0; background: #fff; box-shadow: 0 0 0 1px var(--vx-line); }
+.vx-ptable caption { font: 480 var(--vx-fs-h3)/1.25 var(--vx-serif); padding-bottom: 14px; }
+.vx-ptable thead th { background: #fff; border-top: 4px double var(--vx-line-strong); }
+.vx-ptable td.vx-ptable__price { font: 500 1.25rem/1.25 var(--vx-serif); letter-spacing: -.01em; }
+.vx-ptable td.vx-ptable__price .vx-pmark { vertical-align: .15em; }
+[data-vx-render="pricing"] { position: relative; }
+@media (min-width: 60em) {
+  [data-vx-render="pricing"]::before { content: ""; position: absolute; inset: -14px; pointer-events: none; opacity: .32; background: var(--vx-ink);
+    -webkit-mask: var(--vx-mask-reg) 0 0 / 16px no-repeat, var(--vx-mask-reg) 100% 0 / 16px no-repeat, var(--vx-mask-reg) 0 100% / 16px no-repeat, var(--vx-mask-reg) 100% 100% / 16px no-repeat;
+    mask: var(--vx-mask-reg) 0 0 / 16px no-repeat, var(--vx-mask-reg) 100% 0 / 16px no-repeat, var(--vx-mask-reg) 0 100% / 16px no-repeat, var(--vx-mask-reg) 100% 100% / 16px no-repeat; }
+}
+
+/* 10.12 Request tracker and path icons: hairline guilloché ring on the step dots */
+.vx-track__dot, .vx-path__icon { isolation: isolate; }
+.vx-track__dot::before, .vx-path__icon::before { content: ""; position: absolute; inset: -7px; z-index: -1; border-radius: 50%; pointer-events: none; background: rgba(15, 110, 121, .18);
+  -webkit-mask: var(--vx-mask-card) center / contain no-repeat; mask: var(--vx-mask-card) center / contain no-repeat; transition: rotate 1200ms var(--vx-e-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .vx-track__step:hover .vx-track__dot::before, .vx-path__step:hover .vx-path__icon::before { rotate: 30deg; } }
+
+/* 10.13 Closing strip with the seal CTA (the one seal on the home page) */
+.vx-strip__inner:has(.vx-seal-cta) { align-items: center; }
+.vx-strip .vx-seal-cta { margin-right: 8px; }
+.vx-seal-cta__ring text { font-size: 13.5px; }
+
+/* 10.14 Footer: abyss floor, rosette echo, ruler, microprint above the © bar, double-ruled notices */
+.vx-ftr { background: var(--vx-abyss); position: relative; isolation: isolate; overflow: hidden; }
+.vx-ftr__gl { position: absolute; z-index: -1; width: 520px; aspect-ratio: 1; right: max(-180px, calc((100vw - var(--vx-container)) / 2 - 140px)); top: -120px; color: rgba(124, 210, 222, .12); pointer-events: none; }
+.vx-ftr__inner { position: relative; }
+.vx-ftr .vx-ruler { margin: 0 0 clamp(32px, 4vw, 48px); }
+.vx-ftr__notices { border-top: 0; position: relative; padding-top: 28px; }
+.vx-ftr__notices::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; border-top: 1px solid rgba(255, 255, 255, .14); border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.vx-ftr__bottom { border-top: 0; position: relative; padding-top: 24px; }
+.vx-ftr__bottom::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: rgba(124, 210, 222, .35); -webkit-mask: var(--vx-mask-micro) 0 50% / 24px 6px repeat-x; mask: var(--vx-mask-micro) 0 50% / 24px 6px repeat-x; }
+.vx-ftr__statement em { font-style: italic; font-weight: 400; color: #8FE0EA; }
+@media (max-width: 47.5em) { .vx-ftr__gl { width: 360px; right: -160px; top: -80px; } }
+
+/* 10.15 Section tint: barely-there paper fibre */
+.vx-section--tint { position: relative; isolation: isolate; }
+.vx-section--tint::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--vx-grain); background-size: 160px; opacity: .05; }
+
+/* 10.16 Header CTA keeps 44px; mega feature image gets the engraved look */
+.vx-hdr__cta { min-height: 44px; }
+.vx-mega__feature img { filter: grayscale(1) contrast(1.1); mix-blend-mode: luminosity; opacity: .5; }
+.vx-mega__feature { background: #0E5C66; }
+.vx-mega__feature::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; mix-blend-mode: multiply; background: repeating-linear-gradient(-32deg, rgba(10, 37, 48, .26) 0 1px, transparent 1px 3px); }
+.vx-mega__feature-body { z-index: 2; }
+
+/* 10.17 Forced colours / print for the applied pieces */
+@media (forced-colors: active) { .vx-bandrule::before, .vx-ftr__gl, .vx-medal__gl, .vx-phero__aside::after, .vx-track__dot::before, .vx-path__icon::before, .vx-section--tint::before, .vx-hero3__cred::before, .vx-ftr__bottom::before { display: none; } }
+@media print { .vx-bandrule, .vx-ftr__gl, .vx-medal__gl, .vx-section--tint::before { display: none; } }
+@media (prefers-reduced-motion: reduce) { .vx-medal__gl, .vx-phero__aside::after, .vx-track__dot::before, .vx-path__icon::before { transition: none !important; } }
+
+/* 10.18 Review fixes: links on dark heroes, rosette strength, footer statement pair */
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr) .vx-link { color: #CDEFF3; }
+:is(.vx-hero3, .vx-phero, .vx-band, .vx-ftr) .vx-link:hover { color: #fff; }
+.vx-rosette { color: rgba(124, 210, 222, .26); }
+.vx-rosette__b { color: rgba(124, 210, 222, .18); }
+.vx-ftr__statement { max-width: 18ch; }
+:root:lang(ru) .vx-ftr__statement, :root:lang(es) .vx-ftr__statement { max-width: 22ch; }
+.vx-ftr__statement-sub { margin: 14px 0 0; color: #B8D8DE; font-size: var(--vx-fs-body); max-width: 40ch; }
+.vx-est__stub::before, .vx-est__stub::after { width: 24px; height: 24px; top: -12px; box-shadow: inset 0 0 0 1px var(--vx-line-strong); }
+.vx-est__stub::before { left: -12px; }
+.vx-est__stub::after { right: -12px; }
+/* 10.19 CLS: anchor the rosette to the viewport, not to the hero height (which changes when web fonts swap) */
+.vx-rosette { top: clamp(280px, 46vh, 430px); }
+@media (max-width: 47.5em) { .vx-rosette { top: auto; } }
+/* 10.20 CLS on phones: the hero measure in em (ch changes when the web font swaps in), rosette anchored from the top */
+.vx-hero3 h1 { max-width: 8.4em; }
+:root:lang(ru) .vx-hero3 h1, :root:lang(es) .vx-hero3 h1 { max-width: 9.4em; }
+@media (max-width: 47.5em) { .vx-rosette { top: clamp(420px, 72svh, 620px); bottom: auto; } }
