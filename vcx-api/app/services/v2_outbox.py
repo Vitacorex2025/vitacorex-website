@@ -12,6 +12,7 @@ import re
 import smtplib
 import threading
 from datetime import timedelta
+from email.header import Header
 from email.message import EmailMessage
 from email.utils import format_datetime, make_msgid
 
@@ -48,7 +49,7 @@ def _build_message(row: dict) -> EmailMessage:
     msg = EmailMessage()
     msg["From"] = from_email()
     msg["To"] = row["recipient"]
-    msg["Subject"] = row["subject"]
+    _set_subject(msg, row["subject"])
     msg["Date"] = format_datetime(utcnow())
     msg["Message-ID"] = make_msgid(domain="vitacorexllc.com")
     msg["X-VCX-Env"] = vcx_env()
@@ -59,6 +60,16 @@ def _build_message(row: dict) -> EmailMessage:
     if row.get("body_html"):
         msg.add_alternative(row["body_html"], subtype="html")
     return msg
+
+
+def _set_subject(msg: EmailMessage, subject: str) -> None:
+    # The default folder can put an encoded space right after a fold ("…{ref}\n =?utf-8?q?_?=…"),
+    # which mail clients show as a double space. Non-ASCII subjects are encoded whole instead:
+    # RFC 2047 words of at most 75 characters, folded between words, decoded back exactly.
+    if subject.isascii():
+        msg["Subject"] = subject
+    else:
+        msg.set_raw("Subject", Header(subject, "utf-8", header_name="Subject").encode())
 
 
 def _send_smtp(row: dict, cfg: dict) -> tuple[str, str]:

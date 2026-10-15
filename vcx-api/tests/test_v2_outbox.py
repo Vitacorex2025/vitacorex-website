@@ -30,7 +30,9 @@ def test_sink_delivery_subjects_and_localization(client, env):
                    f"/owner/requests/{req['request_id']}", "Next action:"):
         assert needle in owner_text, needle
     assert req["access_token"] not in owner_text  # bearer token never in owner mail
-    assert customer["Subject"].startswith("[TEST] VitaCoreX — заявка")
+    # exact match: the stdlib folder used to leave a double space before «получена»
+    assert customer["Subject"] == f"[TEST] VitaCoreX — заявка {req['request_id']} получена"
+    assert not any(b"?q?_?=" in f.read_bytes() for f in files)
     cust_text = customer.get_body(preferencelist=("plain",)).get_content()
     assert "Здравствуйте" in cust_text and "ТЕСТОВОЕ ПИСЬМО" in cust_text
     assert "нотариус" not in cust_text.lower() and "notario" not in cust_text.lower()
