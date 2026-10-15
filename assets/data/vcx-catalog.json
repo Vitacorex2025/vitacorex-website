@@ -3308,19 +3308,19 @@
       },
       "included": {
         "en": [
-          "Aging report by account and by amount",
+          "Aging report by account and amount, and your baseline: average monthly recovery for the last 3 months",
           "Disputes, missing documents and contact gaps flagged",
           "Next step for each account: reminder, payment plan, demand letter or court",
           "A 30-minute review call"
         ],
         "ru": [
-          "Отчёт по возрасту долга — по клиентам и суммам",
+          "Отчёт по возрасту долга по клиентам и суммам и ваша базовая линия: средний ежемесячный возврат за последние 3 месяца",
           "Отмеченные споры, недостающие документы и пробелы в контактах",
           "Следующий шаг по каждому счёту: напоминание, рассрочка, претензия или суд",
           "Разбор итогов на 30-минутном звонке"
         ],
         "es": [
-          "Informe de antigüedad por cuenta y por monto",
+          "Informe de antigüedad por cuenta y monto, y su línea base: recuperación mensual promedio de los últimos 3 meses",
           "Disputas, documentos faltantes y contactos incompletos señalados",
           "Siguiente paso por cuenta: recordatorio, plan de pagos, carta de cobro o corte",
           "Una llamada de revisión de 30 minutos"
@@ -3389,64 +3389,67 @@
         "retainer_free"
       ],
       "name": {
-        "en": "Financial Recovery pilot, 30 days",
-        "ru": "Пилот Financial Recovery, 30 дней",
-        "es": "Piloto Financial Recovery, 30 días"
+        "en": "Financial Recovery, month 1: setup and pilot",
+        "ru": "Financial Recovery, 1-й месяц: внедрение и пилот",
+        "es": "Financial Recovery, mes 1: implementación y piloto"
       },
       "short": {
-        "en": "Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in.",
-        "ru": "30 дней досудебного возврата по 25 просроченным счетам: напоминания, претензии и рассрочки от имени вашей компании и отчёт о деньгах, которые реально поступили.",
-        "es": "Treinta días de cobro antes de la corte con hasta 25 facturas vencidas: recordatorios, cartas de cobro y planes de pago a nombre de su empresa, con un informe del dinero que realmente entró."
+        "en": "We set the method up with your team on up to 25 overdue invoices: scripts, letter templates, payment plans, the document workflow and evidence for small claims. Your team runs it; we train, check and report.",
+        "ru": "Ставим методику вместе с вашей командой на 25 просроченных счетах: скрипты, шаблоны писем, рассрочки, порядок документов и доказательства для small claims. Работает ваша команда — мы обучаем, проверяем и отчитываемся.",
+        "es": "Implementamos el método con su equipo en hasta 25 facturas vencidas: guiones, plantillas de cartas, planes de pago, el flujo de documentos y las pruebas para small claims. Su equipo lo ejecuta; nosotros capacitamos, revisamos e informamos."
       },
       "unit": {
-        "en": "30 days, up to 25 invoices",
-        "ru": "30 дней, до 25 счетов",
-        "es": "30 días, hasta 25 facturas"
+        "en": "first month, up to 25 invoices",
+        "ru": "первый месяц, до 25 счетов",
+        "es": "primer mes, hasta 25 facturas"
       },
       "included": {
         "en": [
-          "Recovery plan for each pilot account",
-          "Email reminders, a call script and demand letters in your company’s name, approved by you",
-          "Payment-plan agreements for debtors who agree to pay in parts",
-          "Weekly report and a final net-recovery summary: paid, promised, silent",
-          "A decision at the end: roll the method out across all your invoices, or stop"
+          "Recovery plan for each account and your baseline: average monthly recovery before we joined",
+          "Call scripts, email and demand-letter templates in your company’s name",
+          "Which documents to send, sign and file, and when",
+          "Training your team to collect and keep evidence for small claims",
+          "Weekly checks of your team’s work with recommendations, and a net-recovery report"
         ],
         "ru": [
-          "План возврата по каждому счёту пилота",
-          "Напоминания по email, сценарий звонков и претензии от имени вашей компании — с вашим согласованием",
-          "Соглашения о рассрочке для должников, согласных платить частями",
-          "Еженедельный отчёт и итоговая сводка net recovery: оплачено, обещано, молчат",
-          "Решение в конце: внедряем методику на все счета или останавливаемся"
+          "План возврата по каждому счёту и ваша базовая линия: средний ежемесячный возврат до нашего входа",
+          "Скрипты звонков, шаблоны писем и претензий от имени вашей компании",
+          "Какие документы, когда отправлять, подписывать и подавать",
+          "Обучение вашей команды сбору и хранению доказательств для small claims",
+          "Еженедельная проверка работы команды с рекомендациями и отчёт net recovery"
         ],
         "es": [
-          "Plan de recuperación para cada cuenta del piloto",
-          "Recordatorios por email, guion de llamadas y cartas de cobro a nombre de su empresa, aprobados por usted",
-          "Acuerdos de plan de pagos para deudores que aceptan pagar en partes",
-          "Informe semanal y resumen final de net recovery: pagado, prometido, sin respuesta",
-          "Una decisión al final: implementar el método en todas sus facturas o parar"
+          "Plan de recuperación por cuenta y su línea base: recuperación mensual promedio antes de nuestra llegada",
+          "Guiones de llamadas, plantillas de email y cartas de cobro a nombre de su empresa",
+          "Qué documentos enviar, firmar y presentar, y cuándo",
+          "Capacitación de su equipo para reunir y conservar pruebas para small claims",
+          "Revisión semanal del trabajo de su equipo con recomendaciones, e informe de net recovery"
         ]
       },
       "extra": {
         "en": [
-          "Free 30 days for current small-claims retainer clients (promotion)",
-          "Letters by USPS certified mail with return receipt, at cost (about $11 per letter)",
+          "Free first month for current small-claims retainer clients (promotion)",
+          "From month 2: only a share of the increase in net recovery",
           "Skip tracing (debtor search), $49 per debtor",
+          "Letters we print and send for you by USPS certified mail, at cost (about $11 per letter)",
           "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
           "State, county and court fees, at cost",
           "Accounts that need court: small claims is a separate service"
         ],
         "ru": [
-          "Бесплатно 30 дней для действующих клиентов на ретейнере small claims (акция)",
-          "Отправка писем заказной почтой USPS с уведомлением — по факту (около $11 за письмо)",
+          "Первый месяц бесплатно для действующих клиентов на ретейнере small claims (акция)",
+          "Со 2-го месяца — только доля с прироста net recovery",
           "Поиск должника (skip tracing) — $49 за должника",
+          "Письма, которые мы печатаем и отправляем за вас заказной почтой USPS, — по факту (около $11 за письмо)",
           "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
           "Госпошлины и судебные сборы — по факту",
           "Счета, по которым нужен суд: small claims — отдельная услуга"
         ],
         "es": [
-          "Gratis 30 días para clientes actuales con el retainer de small claims (promoción)",
-          "Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta)",
+          "Primer mes gratis para clientes actuales con el retainer de small claims (promoción)",
+          "Desde el mes 2: solo una parte del aumento de net recovery",
           "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Cartas que imprimimos y enviamos por usted por correo certificado de USPS, al costo (unos $11 por carta)",
           "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
           "Tasas estatales, del condado y judiciales, al costo",
           "Cuentas que necesitan corte: small claims es un servicio aparte"
@@ -3530,7 +3533,7 @@
           "Pre-trial and mediation for your company",
           "Up to 2 hours in court included",
           "Steps after judgment",
-          "Promotion: free receivables analysis and a free 30-day Financial Recovery pilot"
+          "Promotion: free receivables analysis and a free first month of Financial Recovery"
         ],
         "ru": [
           "Пакет документов и подача",
@@ -3538,7 +3541,7 @@
           "Предварительное заседание и медиация за компанию",
           "До 2 часов в суде включено",
           "Шаги после решения суда",
-          "Акция: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот Financial Recovery"
+          "Акция: бесплатный анализ дебиторской задолженности и бесплатный первый месяц Financial Recovery"
         ],
         "es": [
           "Paquete y presentación",
@@ -3546,7 +3549,7 @@
           "Audiencia previa y mediación por su empresa",
           "Hasta 2 horas en la corte incluidas",
           "Pasos tras la sentencia",
-          "Promoción: análisis gratuito de cuentas por cobrar y piloto Financial Recovery gratuito de 30 días"
+          "Promoción: análisis gratuito de cuentas por cobrar y primer mes de Financial Recovery gratis"
         ]
       },
       "extra": {
@@ -3597,7 +3600,9 @@
         "amount_cents": null,
         "percent": 12,
         "percent_aged": 18,
-        "confidence": "medium"
+        "confidence": "medium",
+        "basis": "net_recovery_increase_over_baseline",
+        "baseline_months": 3
       },
       "fields": [
         "company",
@@ -3608,73 +3613,73 @@
         "on_monthly_plan"
       ],
       "name": {
-        "en": "Financial Recovery: full rollout",
-        "ru": "Financial Recovery: полное внедрение",
-        "es": "Financial Recovery: implementación completa"
+        "en": "Financial Recovery, from month 2",
+        "ru": "Financial Recovery, со 2-го месяца",
+        "es": "Financial Recovery, desde el mes 2"
       },
       "short": {
-        "en": "After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court.",
-        "ru": "После успешного пилота внедряем методику на все ваши просроченные счета и получаем оплату только с того, что должники заплатили до суда.",
-        "es": "Tras un piloto exitoso implementamos el método en todas sus facturas vencidas y cobramos solo de lo que los deudores pagan antes de la corte."
+        "en": "From the second month there is no fee for our time: we take a share only of the increase in net recovery — money that comes in after we joined, above your usual level.",
+        "ru": "Со второго месяца никакой платы за наше время: мы берём долю только с прироста net recovery — денег, которые пришли после нашего входа сверх вашего обычного уровня.",
+        "es": "Desde el segundo mes no se paga nuestro tiempo: cobramos una parte solo del aumento de net recovery, el dinero que entra después de nuestra llegada por encima de su nivel habitual."
       },
       "unit": {
-        "en": "of each payment received before court; 18% on invoices over a year overdue",
-        "ru": "с каждого платежа, поступившего до суда; 18% по счетам с просрочкой больше года",
-        "es": "de cada pago recibido antes de la corte; 18% en facturas con más de un año de atraso"
+        "en": "of the increase in net recovery; 18% on invoices over a year overdue",
+        "ru": "с прироста net recovery; 18% по счетам с просрочкой больше года",
+        "es": "del aumento de net recovery; 18% en facturas con más de un año de atraso"
       },
       "included": {
         "en": [
-          "The method on all your overdue B2B invoices: plan, letter sequence, payment plans, follow-up",
-          "Monthly net-recovery report from your own payment records",
-          "No setup fee and no monthly minimum",
-          "Debtors pay your company directly; we invoice our share once a month",
+          "The method on all your overdue B2B invoices, run by your team",
+          "Weekly checks of the team’s work; scripts and documents kept up to date",
+          "Monthly report: baseline, money in, increase, our share",
+          "No monthly fee and no minimum: no increase, nothing to pay",
           "Month to month, with 30 days’ notice"
         ],
         "ru": [
-          "Методика на всех ваших просроченных счетах между компаниями: план, цепочка писем, рассрочки, контроль",
-          "Ежемесячный отчёт net recovery по вашим же данным об оплатах",
-          "Без платы за внедрение и без ежемесячного минимума",
-          "Должники платят напрямую вашей компании; свою долю мы выставляем раз в месяц",
+          "Методика на всех ваших просроченных счетах между компаниями — работает ваша команда",
+          "Еженедельная проверка работы команды; скрипты и документы обновляем",
+          "Ежемесячный отчёт: базовая линия, поступления, прирост, наша доля",
+          "Без абонентской платы и без минимума: нет прироста — нечего платить",
           "Помесячно, расторжение с уведомлением за 30 дней"
         ],
         "es": [
-          "El método en todas sus facturas B2B vencidas: plan, secuencia de cartas, planes de pago y seguimiento",
-          "Informe mensual de net recovery según sus propios registros de pago",
-          "Sin cargo de implementación y sin mínimo mensual",
-          "Los deudores pagan directamente a su empresa; facturamos nuestra parte una vez al mes",
+          "El método en todas sus facturas B2B vencidas, ejecutado por su equipo",
+          "Revisión semanal del trabajo del equipo; guiones y documentos al día",
+          "Informe mensual: línea base, dinero recibido, aumento, nuestra parte",
+          "Sin cuota mensual ni mínimo: si no hay aumento, no paga nada",
           "Mes a mes, con aviso de 30 días"
         ]
       },
       "extra": {
         "en": [
           "18% on invoices more than 12 months overdue",
-          "Letters by USPS certified mail with return receipt, at cost (about $11 per letter)",
           "Skip tracing (debtor search), $49 per debtor",
+          "Letters we print and send for you by USPS certified mail, at cost (about $11 per letter)",
           "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
           "State, county and court fees, at cost",
           "Accounts that go to court: small-claims prices apply and the percentage stops for that account"
         ],
         "ru": [
           "18% по счетам с просрочкой больше 12 месяцев",
-          "Отправка писем заказной почтой USPS с уведомлением — по факту (около $11 за письмо)",
           "Поиск должника (skip tracing) — $49 за должника",
+          "Письма, которые мы печатаем и отправляем за вас заказной почтой USPS, — по факту (около $11 за письмо)",
           "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
           "Госпошлины и судебные сборы — по факту",
           "Счета, ушедшие в суд: действуют цены small claims, процент по этому счёту не берётся"
         ],
         "es": [
           "18% en facturas con más de 12 meses de atraso",
-          "Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta)",
           "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Cartas que imprimimos y enviamos por usted por correo certificado de USPS, al costo (unos $11 por carta)",
           "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
           "Tasas estatales, del condado y judiciales, al costo",
           "Cuentas que van a la corte: se aplican los precios de small claims y el porcentaje se detiene para esa cuenta"
         ]
       },
       "next": {
-        "en": "After the pilot summary we agree the accounts and the rate in writing, then roll the method out across your receivables.",
-        "ru": "После итогов пилота письменно согласуем счета и ставку, затем внедряем методику на всю дебиторскую задолженность.",
-        "es": "Tras el resumen del piloto acordamos por escrito las cuentas y la tarifa, y luego implementamos el método en sus cuentas por cobrar."
+        "en": "After the first month we agree the baseline, the accounts and the rate in writing, then the method goes onto all your overdue invoices.",
+        "ru": "После первого месяца письменно согласуем базовую линию, счета и ставку — и методика переходит на все ваши просроченные счета.",
+        "es": "Tras el primer mes acordamos por escrito la línea base, las cuentas y la tarifa, y el método pasa a todas sus facturas vencidas."
       },
       "family": "b2b",
       "group": "business",

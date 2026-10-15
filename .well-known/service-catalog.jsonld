@@ -558,13 +558,13 @@
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-recovery-pilot",
-        "name": "Financial Recovery pilot, 30 days",
+        "name": "Financial Recovery, month 1: setup and pilot",
         "alternateName": [
-          "Пилот Financial Recovery, 30 дней",
-          "Piloto Financial Recovery, 30 días"
+          "Financial Recovery, 1-й месяц: внедрение и пилот",
+          "Financial Recovery, mes 1: implementación y piloto"
         ],
-        "description": "Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in.",
-        "serviceType": "Financial Recovery pilot, 30 days",
+        "description": "We set the method up with your team on up to 25 overdue invoices: scripts, letter templates, payment plans, the document workflow and evidence for small claims. Your team runs it; we train, check and report.",
+        "serviceType": "Financial Recovery, month 1: setup and pilot",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/financial-recovery.html",
         "provider": {
@@ -584,7 +584,7 @@
           "url": "https://vitacorexllc.com/financial-recovery.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "$790 — 30 days, up to 25 invoices",
+          "description": "$790 — first month, up to 25 invoices",
           "price": "790.00"
         }
       }
@@ -595,13 +595,13 @@
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-recovery-rollout",
-        "name": "Financial Recovery: full rollout",
+        "name": "Financial Recovery, from month 2",
         "alternateName": [
-          "Financial Recovery: полное внедрение",
-          "Financial Recovery: implementación completa"
+          "Financial Recovery, со 2-го месяца",
+          "Financial Recovery, desde el mes 2"
         ],
-        "description": "After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court.",
-        "serviceType": "Financial Recovery: full rollout",
+        "description": "From the second month there is no fee for our time: we take a share only of the increase in net recovery — money that comes in after we joined, above your usual level.",
+        "serviceType": "Financial Recovery, from month 2",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/financial-recovery.html#rollout",
         "provider": {
@@ -621,7 +621,7 @@
           "url": "https://vitacorexllc.com/financial-recovery.html#rollout",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "12% — of each payment received before court; 18% on invoices over a year overdue"
+          "description": "12% — of the increase in net recovery; 18% on invoices over a year overdue"
         }
       }
     },

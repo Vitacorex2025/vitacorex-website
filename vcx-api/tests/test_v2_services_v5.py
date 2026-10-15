@@ -101,7 +101,8 @@ def test_rollout_is_a_success_fee_never_checked_out_and_skip_trace_is_priced(cli
     ro = catalog["services"]["b2b_recovery_rollout"]
     assert ro["price"]["display"] == "percent" and ro["price"]["percent"] == 12 and ro["price"]["percent_aged"] == 18
     assert ro["price"]["amount_cents"] is None and ro["action"] == "b2b"
-    assert price_display_text(ro, "en").startswith("12% of each payment")
+    assert price_display_text(ro, "en").startswith("12% of the increase in net recovery")
+    assert ro["price"]["basis"] == "net_recovery_increase_over_baseline" and ro["price"]["baseline_months"] == 3
     st = catalog["services"]["b2b_skip_trace"]
     assert st["price"]["amount_cents"] == 4900 and st["action"] == "b2b"
     for sid in ("b2b_recovery_rollout", "b2b_skip_trace"):

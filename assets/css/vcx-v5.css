@@ -724,24 +724,40 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 .vx-promo p { max-width: 64ch; margin: 0 0 16px; }
 @media (max-width: 47.99em) { .vx-promo { padding: 20px; } }
 
-/* 29. Menu group headings stand apart from the items (owner 2026-10-15): hierarchy by size, weight, colour and space —
-   an index line (01–05, the business order), a 24 px serif heading, a hairline with a short teal segment; items step back */
-.vx-mega { counter-reset: vxg; }
-.vx-mega__group { counter-increment: vxg; position: relative; padding-top: 22px !important; }
-.vx-mega__group::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgb(255 255 255 / .14); }
-.vx-mega__group::after { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 3px; background: var(--vx-accent); }
-.vx-mega__group h3 { display: grid; gap: 8px; margin: 0 0 10px !important; padding: 0 0 12px !important; border-bottom: 0 !important;
-  color: #fff; font: 500 clamp(1.25rem, 1.05rem + .5vw, 1.5rem)/1.2 var(--vx-serif) !important; letter-spacing: -.01em; }
-.vx-mega__group h3::before { content: counter(vxg, decimal-leading-zero); color: var(--vx-accent-soft); font: 600 12px/1 var(--vx-sans); letter-spacing: .14em; font-variant-numeric: lining-nums tabular-nums; }
+/* 29. Menu group headings stand apart (owner 2026-10-15): a framed plate like the home price-list tabs — hairline frame, teal edge,
+   brand dog-ear — and a soft glow on the group you are in. No numbering (owner: never number groups). Plates fade in one after another. */
+.vx-mega__group { position: relative; padding-top: 18px !important; }
+.vx-mega__group h3, .vx-drawer h3 {
+  position: relative; display: block; margin: 0 0 12px !important; padding: 11px 36px 11px 16px !important;
+  color: #fff; font: 500 clamp(1.125rem, 1rem + .35vw, 1.3125rem)/1.25 var(--vx-serif) !important; letter-spacing: -.005em;
+  background: linear-gradient(90deg, rgb(124 210 222 / .12), rgb(124 210 222 / .04)); border: 1px solid rgb(124 210 222 / .24) !important;
+  box-shadow: inset 3px 0 0 var(--vx-accent);
+  transition: box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+  --vx-plate-bg: var(--vx-ink-2);
+}
+.vx-drawer h3 { --vx-plate-bg: var(--vx-ink); }
+/* the dog-ear: the corner is covered with the panel colour (no clip-path, so the glow is not cut off), then the fold */
+.vx-mega__group h3::before, .vx-drawer h3::before { content: ""; position: absolute; top: -1px; right: -1px; width: 15px; height: 15px;
+  background: linear-gradient(225deg, var(--vx-plate-bg) 50%, transparent 50%); }
+.vx-mega__group h3::after, .vx-drawer h3::after { content: ""; position: absolute; top: -1px; right: -1px; width: 15px; height: 15px;
+  background: linear-gradient(225deg, transparent 50%, rgb(124 210 222 / .4) 50%); }
+/* the group you are in lights up softly */
+.vx-mega__group:hover h3, .vx-mega__group:focus-within h3 { border-color: rgb(124 210 222 / .5) !important;
+  box-shadow: inset 3px 0 0 var(--vx-accent-hi), 0 0 0 1px rgb(124 210 222 / .18), 0 10px 28px -12px rgb(43 179 192 / .55); }
 .vx-mega__group a { color: var(--vx-on-2) !important; font-size: 16px; }
 .vx-mega__group a:hover, .vx-mega__group a:focus-visible { color: #fff !important; }
 .vx-mega__group a small { font-size: 15px; }
-/* mobile menu: the same index + heading + rule */
-.vx-drawer { counter-reset: vxd; }
-.vx-drawer h3 { counter-increment: vxd; position: relative; display: grid; gap: 6px; margin: 28px 0 6px !important; padding-top: 18px !important;
-  border-top: 1px solid rgb(255 255 255 / .14) !important; color: #fff; font: 500 1.3125rem/1.2 var(--vx-serif) !important; }
-.vx-drawer h3::before { content: counter(vxd, decimal-leading-zero); color: var(--vx-accent-soft); font: 600 12px/1 var(--vx-sans); letter-spacing: .14em; }
-.vx-drawer h3::after { content: ""; position: absolute; top: -2px; left: 0; width: 32px; height: 3px; background: var(--vx-accent); }
+.vx-drawer h3 { margin: 26px 0 8px !important; }
 .vx-drawer li a { color: var(--vx-on-2); }
+/* plates arrive one after another when the menu opens */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes vxPlateIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .vx-nav__menu[data-open="true"] .vx-mega__group h3 { animation: vxPlateIn .32s cubic-bezier(.2, .7, .2, 1) both; }
+  .vx-nav__menu[data-open="true"] .vx-mega__group:nth-child(2) h3 { animation-delay: .05s; }
+  .vx-nav__menu[data-open="true"] .vx-mega__group:nth-child(3) h3 { animation-delay: .1s; }
+  .vx-nav__menu[data-open="true"] .vx-mega__group:nth-child(4) h3 { animation-delay: .15s; }
+  .vx-nav__menu[data-open="true"] .vx-mega__group:nth-child(5) h3 { animation-delay: .2s; }
+  .vx-drawer[data-open="true"] h3 { animation: vxPlateIn .32s cubic-bezier(.2, .7, .2, 1) both; }
+}
 /* the dev-only preview badge never sits on an open menu */
 body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawer[data-open="true"]) .vx-preview-ribbon { visibility: hidden; }

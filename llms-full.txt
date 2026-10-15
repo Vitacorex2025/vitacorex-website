@@ -274,7 +274,7 @@ How prices work:
 #### Retainer: full case with court representation
 - Price: From $749 — final price after review (per case, until judgment)
 - We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus.
-- Included: Filing packet and filing; Service of process and the court calendar; Pre-trial and mediation for your company; Up to 2 hours in court included; Steps after judgment; Promotion: free receivables analysis and a free 30-day Financial Recovery pilot
+- Included: Filing packet and filing; Service of process and the court calendar; Pre-trial and mediation for your company; Up to 2 hours in court included; Steps after judgment; Promotion: free receivables analysis and a free first month of Financial Recovery
 - Not included / extra: Court and service fees, at cost; Court time beyond 2 hours, at the hourly rate; Appeals: quoted separately
 - Next step: Send the case. We confirm the state and court, send the power of attorney for your company to sign and fix the price for the case in writing.
 - Page: https://vitacorexllc.com/small-claims-documentation.html#retainer
@@ -290,25 +290,25 @@ How prices work:
 #### Receivables analysis
 - Price: $390 — one analysis, up to 100 open invoices
 - Aging by account, disputes and missing documents, and the next step for each overdue invoice.
-- Included: Aging report by account and by amount; Disputes, missing documents and contact gaps flagged; Next step for each account: reminder, payment plan, demand letter or court; A 30-minute review call
+- Included: Aging report by account and amount, and your baseline: average monthly recovery for the last 3 months; Disputes, missing documents and contact gaps flagged; Next step for each account: reminder, payment plan, demand letter or court; A 30-minute review call
 - Not included / extra: Free for current small-claims retainer clients (promotion); More than 100 invoices: quoted in writing
 - Next step: Send an export of your open invoices. We confirm the scope in writing and deliver the analysis within 5 business days.
 - Page: https://vitacorexllc.com/financial-recovery.html
 
-#### Financial Recovery pilot, 30 days
-- Price: $790 — 30 days, up to 25 invoices
-- Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in.
-- Included: Recovery plan for each pilot account; Email reminders, a call script and demand letters in your company’s name, approved by you; Payment-plan agreements for debtors who agree to pay in parts; Weekly report and a final net-recovery summary: paid, promised, silent; A decision at the end: roll the method out across all your invoices, or stop
-- Not included / extra: Free 30 days for current small-claims retainer clients (promotion); Letters by USPS certified mail with return receipt, at cost (about $11 per letter); Skip tracing (debtor search), $49 per debtor; Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100); State, county and court fees, at cost; Accounts that need court: small claims is a separate service
+#### Financial Recovery, month 1: setup and pilot
+- Price: $790 — first month, up to 25 invoices
+- We set the method up with your team on up to 25 overdue invoices: scripts, letter templates, payment plans, the document workflow and evidence for small claims. Your team runs it; we train, check and report.
+- Included: Recovery plan for each account and your baseline: average monthly recovery before we joined; Call scripts, email and demand-letter templates in your company’s name; Which documents to send, sign and file, and when; Training your team to collect and keep evidence for small claims; Weekly checks of your team’s work with recommendations, and a net-recovery report
+- Not included / extra: Free first month for current small-claims retainer clients (promotion); From month 2: only a share of the increase in net recovery; Skip tracing (debtor search), $49 per debtor; Letters we print and send for you by USPS certified mail, at cost (about $11 per letter); Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100); State, county and court fees, at cost; Accounts that need court: small claims is a separate service
 - Next step: Send the list of overdue invoices. We agree the pilot accounts and the letter wording with you, then run 30 days with a weekly report.
 - Page: https://vitacorexllc.com/financial-recovery.html
 
-#### Financial Recovery: full rollout
-- Price: 12% — of each payment received before court; 18% on invoices over a year overdue
-- After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court.
-- Included: The method on all your overdue B2B invoices: plan, letter sequence, payment plans, follow-up; Monthly net-recovery report from your own payment records; No setup fee and no monthly minimum; Debtors pay your company directly; we invoice our share once a month; Month to month, with 30 days’ notice
-- Not included / extra: 18% on invoices more than 12 months overdue; Letters by USPS certified mail with return receipt, at cost (about $11 per letter); Skip tracing (debtor search), $49 per debtor; Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100); State, county and court fees, at cost; Accounts that go to court: small-claims prices apply and the percentage stops for that account
-- Next step: After the pilot summary we agree the accounts and the rate in writing, then roll the method out across your receivables.
+#### Financial Recovery, from month 2
+- Price: 12% — of the increase in net recovery; 18% on invoices over a year overdue
+- From the second month there is no fee for our time: we take a share only of the increase in net recovery — money that comes in after we joined, above your usual level.
+- Included: The method on all your overdue B2B invoices, run by your team; Weekly checks of the team’s work; scripts and documents kept up to date; Monthly report: baseline, money in, increase, our share; No monthly fee and no minimum: no increase, nothing to pay; Month to month, with 30 days’ notice
+- Not included / extra: 18% on invoices more than 12 months overdue; Skip tracing (debtor search), $49 per debtor; Letters we print and send for you by USPS certified mail, at cost (about $11 per letter); Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100); State, county and court fees, at cost; Accounts that go to court: small-claims prices apply and the percentage stops for that account
+- Next step: After the first month we agree the baseline, the accounts and the rate in writing, then the method goes onto all your overdue invoices.
 - Page: https://vitacorexllc.com/financial-recovery.html#rollout
 
 #### Skip tracing: debtor search
