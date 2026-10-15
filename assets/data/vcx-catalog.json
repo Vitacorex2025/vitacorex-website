@@ -1,6 +1,6 @@
 {
   "schema_version": "vcx-catalog/1",
-  "catalog_version": "2026-10-14-preview-1",
+  "catalog_version": "2026-10-15-preview-2",
   "status": "PREVIEW_PROPOSAL_NOT_LIVE_PRICING",
   "currency": "USD",
   "note": "Single source of truth for services, prices and routing. Rendered by assets/js/vcx-catalog.js, validated server-side by vcx-api, mirrored to the phone agent through /api/v2/catalog. Amounts are integer cents.",

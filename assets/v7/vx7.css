@@ -99,3 +99,22 @@ html.vx7-intro .vx7-guides { opacity: 1; }
 .vx7-replay:focus-visible { outline: 2px solid #7CD2DE; outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) { .vx7-marker { transition: none; } }
+
+/* 10. Status pages (404, thank-you, upload, order status): the drawn folder gives way to an abstract measured frame —
+   registration corners, the 17:22 brand slope and a baseline. Geometry only; no drawn documents (owner rule). */
+.vx7 .vx-st5-fold { display: none !important; }
+.vx7 .vx-st5-still { position: relative; width: 288px; max-width: 100%; aspect-ratio: 3 / 2; --c: rgb(43 179 192 / .75); --l: 14px; --t: 1px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 288 192' preserveAspectRatio='none'%3E%3Cpath d='M92 12 L240.5 180' stroke='%232BB3C0' stroke-width='1' vector-effect='non-scaling-stroke' fill='none'/%3E%3Cpath d='M24 180 H200' stroke='%232BB3C0' stroke-opacity='.45' stroke-width='1' vector-effect='non-scaling-stroke' fill='none'/%3E%3C/svg%3E") center / 100% 100% no-repeat,
+    linear-gradient(var(--c), var(--c)) left top / var(--l) var(--t) no-repeat, linear-gradient(var(--c), var(--c)) left top / var(--t) var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) right top / var(--l) var(--t) no-repeat, linear-gradient(var(--c), var(--c)) right top / var(--t) var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) left bottom / var(--l) var(--t) no-repeat, linear-gradient(var(--c), var(--c)) left bottom / var(--t) var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) right bottom / var(--l) var(--t) no-repeat, linear-gradient(var(--c), var(--c)) right bottom / var(--t) var(--l) no-repeat; }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes vx7Frame { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  .vx7 .vx-st5-still { animation: vx7Frame .7s cubic-bezier(.65, 0, .35, 1) .15s both; }
+}
+/* QA 2026-10-15: on phones the page name in the title block takes the full row (long RU/ES words never spill) */
+@media (max-width: 47.99em) { .vx7-title > div:first-child { grid-column: 1 / -1; } .vx7-title dd { overflow-wrap: break-word; } }
+/* narrow phones: a two-line label plus a two-line price still fit the fixed-height price-bar cell */
+@media (max-width: 22.5em) { .vx6-ticker a { gap: 2px; } .vx6-ticker__p { line-height: 19px; } }

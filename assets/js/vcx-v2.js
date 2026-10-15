@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = 'd18c848c65';
+  var VERSION = '3ff3ac9104';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 

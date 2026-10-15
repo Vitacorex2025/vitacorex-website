@@ -355,12 +355,33 @@ function ensureHead(html) {
   return html;
 }
 
+/* v7 "Assembly" layer on every rebuilt page: styles + script after the v2 engine; the body carries the site revision date and
+   the date prices were checked (catalog_version) for the footer title block; the intro plays on the home hero once per visit */
+const REV_DATE = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+const PRICES_DATE = (/^(\d{4}-\d{2}-\d{2})/.exec(catalog.catalog_version || '') || [])[1] || '';
+const V7_INTRO = "<!-- vx7:intro --><script>try{if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)&&!sessionStorage.getItem('vx7i')){document.documentElement.classList.add('vx7-intro');sessionStorage.setItem('vx7i','1')}}catch(e){}</script><!-- /vx7:intro -->";
+function addV7(html) {
+  if (!html.includes('/assets/v7/vx7.css')) html = html.replace(/(<link rel="stylesheet" href="\/assets\/css\/vcx-v5\.css[^>]*>)/, '$1\n<link rel="stylesheet" href="/assets/v7/vx7.css?v=1">');
+  if (!html.includes('/assets/v7/vx7.js')) html = html.replace(/(<script src="\/assets\/js\/vcx-v2\.js[^>]*><\/script>)/, '$1\n<script src="/assets/v7/vx7.js?v=1" defer></script>');
+  html = html.replace(/<!-- vx7:intro -->[\s\S]*?<!-- \/vx7:intro -->\n?/, '');
+  if (html.includes('class="vx6-hero"')) html = html.replace('</head>', V7_INTRO + '\n</head>');
+  html = html.replace(/<body([^>]*)>/, (m, attrs) => {
+    let a = attrs.replace(/\sdata-vx7-(rev|prices)="[^"]*"/g, '');
+    a = a.replace(/\bclass="([^"]*)"/, (m2, c) => `class="${c.split(/\s+/).includes('vx7') ? c : c + ' vx7'}"`);
+    return `<body${a} data-vx7-rev="${REV_DATE}" data-vx7-prices="${PRICES_DATE}">`;
+  });
+  return html;
+}
+
 /* v6 page heroes: a page-specific darkened Tampa landscape (frames of our own drone footage and photos, graded to ink teal) */
-const LAND = { 'services.html': 'skyline-a', 'pricing.html': 'skyline-b', 'translations.html': 'river-a', 'online-notary.html': 'dusk', 'apostille.html': 'skyway', 'tax-preparation.html': 'river-b', 'name-change.html': 'dock', 'fee-waiver.html': 'pier', 'business-filings.html': 'downtown-c', 'llc-formation-florida.html': 'skyline-b', 'founder-services.html': 'river-a', 'business-plans.html': 'downtown-c', 'small-claims-documentation.html': 'rail-bridge', 'immigration-packet-review.html': 'beach', 'n-400-naturalization.html': 'beach', 'contract-review-service.html': 'skyline-a', 'civil-case-referral.html': 'rail-bridge', 'net-recovery.html': 'river-b', 'about.html': 'dock', 'financial-recovery.html': 'downtown-c', 'careers.html': 'skyline-b' };
+/* stills chosen and graded from our own footage (media-curation 2026-10-15): one family per kind of page —
+   court/legal = towers, business = skyline + river, personal = water, supporting documents = bridges and lines; X steers the phone slice */
+const LAND = { 'services.html': 'skyline-river', 'pricing.html': 'skyline-river', 'small-claims-documentation.html': 'downtown-glass', 'financial-recovery.html': 'downtown-orbit', 'net-recovery.html': 'downtown-orbit', 'civil-case-referral.html': 'skyline-clouds', 'contract-review-service.html': 'downtown-core', 'careers.html': 'downtown-core', 'business-filings.html': 'skyline-bridge', 'tax-preparation.html': 'skyline-bridge', 'llc-formation-florida.html': 'river-towers', 'founder-services.html': 'river-boats', 'business-plans.html': 'river-boats', 'name-change.html': 'river-wide', 'fee-waiver.html': 'river-low-sun', 'immigration-packet-review.html': 'gulf-horizon', 'n-400-naturalization.html': 'gulf-beach', 'translations.html': 'rail-bridge', 'online-notary.html': 'shoreline', 'apostille.html': 'pier', 'about.html': 'river-park' };
+const LAND_POS = { 'downtown-orbit': '62% 40%', 'downtown-core': '55% 40%', 'downtown-glass': '58% 40%', 'skyline-clouds': '45% 35%', 'skyline-river': '66% 30%', 'skyline-bridge': '60% 30%', 'river-towers': '68% 35%', 'river-boats': '40% 35%', 'rail-bridge': '62% 35%', 'pier': '62% 45%', 'shoreline': '60% 45%', 'river-wide': '70% 45%', 'river-low-sun': '60% 45%', 'river-park': '75% 40%', 'gulf-horizon': '72% 45%', 'gulf-beach': '72% 40%' };
 function addTrait(html, f) {
   html = html.replace(/<svg class="vx-phero__art"[\s\S]*?<\/svg>/, '');
   const id = LAND[f]; if (!id) return html;
-  return html.replace(/<img class="vx-phero__img"[^>]*>/, `<img class="vx-phero__img" src="/assets/img/land/${id}-1920.webp" srcset="/assets/img/land/${id}-960.webp 960w, /assets/img/land/${id}-1920.webp 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">`);
+  return html.replace(/<img class="vx-phero__img"[^>]*>/, `<img class="vx-phero__img" src="/assets/img/scene/${id}-1920.webp" srcset="/assets/img/scene/${id}-960.webp 960w, /assets/img/scene/${id}-1920.webp 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" style="object-position:${LAND_POS[id] || '50% 50%'}">`);
 }
 
 /* Cache busting: the data version in vcx-v2.js follows the i18n + catalog content, and every local CSS/JS link
@@ -533,6 +554,7 @@ for (const f of pages) {
   } else html = next;
   html = ensureHead(html);
   if (isV2) html = addTrait(html, f);
+  if (isV2 && !isStub(html)) html = addV7(html);
   html = bust(html);
   if (API_ARG) html = html.replace(/<meta name="vcx-api" content="[^"]*">/g, `<meta name="vcx-api" content="${API_ARG.replace(/\/$/, '')}">`);
   if (!isV2 && !/data-vx-legacy=/.test(html)) html = html.replace(/<body\b/, '<body data-vx-legacy="1"');

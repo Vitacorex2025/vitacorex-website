@@ -527,7 +527,7 @@ body:has(.vx-consent) .vx-preview-ribbon, body.vx-drawer-open .vx-preview-ribbon
    ========================================================================== */
 .vx6-hero { --vx-focus: #7CD2DE; --vx-ring: #7CD2DE; position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end;
   min-height: clamp(640px, calc(100svh - 72px), 920px); overflow: hidden; background: #071B23; color: #fff; }
-.vx6-hero__media { position: absolute; inset: 0; z-index: -1; background: #071B23 url(/assets/img/tampa-1-poster.jpg) center / cover no-repeat; }
+.vx6-hero__media { position: absolute; inset: 0; z-index: -1; background: #071B23 url(/assets/img/hero-01-poster.jpg) center / cover no-repeat; }
 .vx6-hero__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 900ms ease; filter: saturate(.8) contrast(1.04); }
 .vx6-hero__media video.is-on { opacity: 1; }
 .vx6-hero__shade { position: absolute; inset: 0;
@@ -777,3 +777,7 @@ body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawe
   .vx-mega__foot a { padding: 8px 0 !important; }
   .vx-mega__foot .vx-btn { min-height: 44px; }
 }
+
+/* 31. Media curation (2026-10-15): the hero segments and the inner-page stills carry one baked-in cool grade, so the CSS grade is off */
+.vx6-hero__media video { filter: none; }
+.vx-phero__img { filter: none !important; }
