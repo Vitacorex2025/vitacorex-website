@@ -732,6 +732,8 @@ html[data-vx-grid] .vx-wrap {
 .vx-ticks li { position: relative; padding-left: 28px; }
 .vx-ticks li::before { content: ""; position: absolute; left: 2px; top: .45em; width: 14px; height: 8px; border-left: 2px solid var(--vx-accent); border-bottom: 2px solid var(--vx-accent); transform: rotate(-45deg); }
 @media (max-width: 47.5em) {
+  .vx-ptable--fees, .vx-ptable--fees tbody { display: block; }
+  .vx-ptable--fees caption { display: block; padding: 16px 16px 4px; font-size: 1.125rem; }
   .vx-ptable--fees thead { display: none; }
   .vx-ptable--fees tr { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--vx-line); }
   .vx-ptable--fees th[scope="row"] { grid-column: 1 / -1; border-bottom: 0; padding-bottom: 2px; }
