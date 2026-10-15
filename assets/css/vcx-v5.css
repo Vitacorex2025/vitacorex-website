@@ -415,3 +415,6 @@ body.vx::after { background: rgb(7 27 35 / .5); -webkit-backdrop-filter: none; b
 .vx-est__total > strong { font: 600 clamp(1.75rem, 1.1071rem + 1.1429vw, 2.5rem)/1.1 var(--vx-serif); color: var(--vx-ink); font-variant-numeric: lining-nums tabular-nums; }
 .vx-est__num { font-variant-numeric: lining-nums tabular-nums; }
 .vx-est { border-radius: var(--vx-radius); }
+
+/* 19. HEADER ROW ABOVE THE MOBILE SHEET: the menu button always stays clickable to close the sheet */
+.vx-hdr__row { z-index: 91; }

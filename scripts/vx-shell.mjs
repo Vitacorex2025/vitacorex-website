@@ -206,6 +206,11 @@ function fillLeaves(html, file) {
   html = html.replace(/<div((?:\s[^>]*?)?\sdata-svc-price="([a-z0-9_]+)"[^>]*)>(?:<div class="vx-price">[\s\S]*?<\/div>)?<\/div>/g, (m, attrs, id) => {
     if (!svc(id)) return m; return `<div${attrs}>${priceHTML(id, /data-no-tag/.test(attrs))}</div>`;
   });
+  // inline price holders (v5 services index rows): <span data-svc-price="id" data-no-tag><span class="vx-price">…</span></span>
+  html = html.replace(/<span((?:\s[^>]*?)?\sdata-svc-price="([a-z0-9_]+)"[^>]*)>(?:<span class="vx-price">(?:<span[^>]*>[^<]*<\/span>\s*)*<\/span>)?<\/span>/g, (m, attrs, id) => {
+    if (!svc(id)) return m; const pi = priceInfo(id); const tag = /data-no-tag/.test(attrs) ? '' : ` <span class="vx-price__tag ${pi.cls}">${esc(pi.tag)}</span>`;
+    return `<span${attrs}><span class="vx-price"><span class="vx-price__amount">${esc(pi.amount)}</span><span class="vx-price__unit">${esc(pi.unit)}</span>${tag}</span></span>`;
+  });
   // service action links: text + href
   html = html.replace(/<a((?:\s[^>]*?)?\sdata-svc-action="([a-z0-9_]+)"[^>]*)>([^<]*)<\/a>/g, (m, attrs, id) => {
     const s = svc(id); if (!s) return m;

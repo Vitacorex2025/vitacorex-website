@@ -285,6 +285,8 @@
     var mbtn = qs('.vx-menu-btn'), drawer = qs('.vx-drawer');
     if (mbtn && drawer) {
       var setD = function (v) {
+        /* the sheet starts exactly under the header row (a preview ribbon or banner above the header must not push the row under the sheet) */
+        if (v) { var hb = qs('.vx-hdr__row'); if (hb) drawer.style.top = Math.max(0, Math.round(hb.getBoundingClientRect().bottom)) + 'px'; }
         drawer.setAttribute('data-open', v ? 'true' : 'false'); mbtn.setAttribute('aria-expanded', v ? 'true' : 'false');
         document.body.classList.toggle('vx-drawer-open', v);
         var lbl = qs('[data-vx-menu-label]', mbtn); if (lbl) lbl.textContent = t(v ? 'nav.close' : 'nav.menu');
