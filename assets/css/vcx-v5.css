@@ -607,3 +607,11 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 @media (max-width: 80em) { .vx-mega { grid-template-areas: "court biz founders" "court personal documents" "foot foot foot" !important; } }
 /* hero pause button never overlaps the credential line */
 @media (max-width: 63.99em) { .vx6-hero__cred { padding-right: 56px; } }
+
+/* 23. CLS: the hero bar keeps one height while the web fonts arrive (prices may re-wrap inside) */
+@media (max-width: 47.99em) {
+  .vx6-ticker a { height: 112px; min-height: 0; overflow: hidden; }
+  .vx6-ticker__p { font-size: 16px; line-height: 21px; }
+}
+@media (min-width: 48em) { .vx6-ticker a { height: 84px; min-height: 0; } }
+.vx-ftr__statement br { display: none; }
