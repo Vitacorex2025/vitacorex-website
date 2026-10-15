@@ -61,7 +61,7 @@ const segBtn = (code, name, on) => `<button type="button" aria-pressed="${on}" d
 const svcLink = (id) => `<li><a href="${pageHref(id)}"><span data-svc-name="${id}">${esc(svc(id).name.en)}</span><small data-svc-price-short="${id}">${esc(priceInfo(id).short)}</small></a></li>`;
 
 function headerHTML() {
-  const feature = `<div class="vx-mega__feature"><img src="/assets/img/curated/w800/quick-confidential-review.jpg" alt="" width="800" height="533" loading="lazy"><div class="vx-mega__feature-body"><p class="vx-mega__feature-title" data-t="mega.feature.title">${esc(en['mega.feature.title'])}</p><p data-t="mega.feature.text">${esc(en['mega.feature.text'])}</p><a class="vx-btn vx-btn--accent" href="/request.html?service=legal_request" data-t="mega.feature.cta">${esc(en['mega.feature.cta'])}</a></div></div>`;
+  const feature = '';
   const menuIds = (g) => g.menu || g.services;
   const plain = (href, key) => `<li><a href="${href}"><span data-t="${key}">${esc(en[key])}</span></a></li>`;
   const bizLinks = plain('/small-claims-documentation.html', 'footer.small_claims') + plain('/small-claims-documentation.html#check', 'footer.check_case') + plain('/net-recovery.html', 'h3.b2b.existing');
@@ -75,7 +75,7 @@ function headerHTML() {
 <a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a>
 <nav class="vx-nav" aria-label="${esc(en['nav.primary_aria'])}" data-t-attr="aria-label:nav.primary_aria">
 <div class="vx-nav__menu" data-open="false"><button type="button" class="vx-nav__trigger" aria-expanded="false" aria-controls="vx-mega"><span data-t="nav.services">${esc(en['nav.services'])}</span><span class="vx-caret" aria-hidden="true"></span></button>
-<div class="vx-mega" id="vx-mega">${mega}<div class="vx-mega__foot"><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a><a href="/pricing.html" data-t="nav.all_prices">${esc(en['nav.all_prices'])}</a></div></div></div>
+<div class="vx-mega" id="vx-mega">${mega}<div class="vx-mega__foot"><span class="vx-mega__links"><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a><a href="/pricing.html" data-t="nav.all_prices">${esc(en['nav.all_prices'])}</a></span><span class="vx-mega__unsure"><span data-t="mega.feature.title">${esc(en['mega.feature.title'])}</span><a class="vx-btn vx-btn--ghost" href="/request.html?service=legal_request" data-t="mega.feature.cta">${esc(en['mega.feature.cta'])}</a></span></div></div></div>
 <a href="/small-claims-documentation.html" data-t="nav.business">${esc(en['nav.business'])}</a>
 <a href="/pricing.html" data-t="nav.prices">${esc(en['nav.prices'])}</a>
 <a href="/about.html" data-t="nav.about">${esc(en['nav.about'])}</a>
@@ -118,10 +118,9 @@ function footerHTML() {
     .map((id) => `<li><a href="${pageHref(id)}" data-svc-name="${id}">${esc(svc(id).name.en)}</a></li>`).join('');
   const li = (href, key) => `<li><a href="${href}" data-t="${key}">${esc(en[key])}</a></li>`;
   return `<!-- vx:footer:start -->
-<div class="vx-bandrule vx-bandrule--dark" aria-hidden="true"></div>
 <footer class="vx-ftr" role="contentinfo">
+<p class="vx-ftr__ghost" aria-hidden="true" data-t="v5.ftr.ghost">${esc(en['v5.ftr.ghost'])}</p>
 <div class="vx-ftr__inner">
-<div class="vx-ruler" aria-hidden="true"></div>
 <div class="vx-ftr__lead">
 <div class="vx-ftr__brand"><a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42" loading="lazy"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a><p class="vx-ftr__statement" data-t-html="h3.title">${en['h3.title']}</p><p class="vx-ftr__statement-sub" data-t="footer.statement">${esc(en['footer.statement'])}</p></div>
 <div class="vx-ftr__reach"><h2 class="vx-sr" data-t="footer.h.contact">${esc(en['footer.h.contact'])}</h2><a class="vx-ftr__phone" href="tel:+18887948292">${ICON_PHONE}<span>(888) 794-8292</span></a><a class="vx-ftr__mail" href="mailto:info@vitacorexllc.com">info@vitacorexllc.com</a><p><span data-t="footer.hours">${esc(en['footer.hours'])}</span><br><span data-t="footer.location">${esc(en['footer.location'])}</span></p></div>
@@ -319,13 +318,25 @@ function ensureHead(html) {
   if (!html.includes('/assets/js/vcx-v2.js')) html = html.replace('</head>', `${js}\n</head>`);
   // v4: static italic (one accent word per page; 19 KB instead of the 127 KB variable italic)
   html = html.replace('1,8..60,400..600&display=swap', '1,60,400&display=swap');
-  // v4 design layer (motif, buttons, cards, motion) after the v2 stylesheets, and its tiny script after vcx-v2.js
-  if (!html.includes('/assets/css/vcx-v4.css')) {
+  // v5 design layer ("Architecture of Order", variant B) replaces v4 (guilloché/rosette motif) on every page
+  html = html.replace(/\n?<link rel="stylesheet" href="\/assets\/css\/vcx-v4\.css[^>]*>/g, '').replace(/\n?<script src="\/assets\/js\/vcx-v4-motif\.js[^>]*><\/script>/g, '');
+  if (!html.includes('/assets/css/vcx-v5.css')) {
     const anchor = html.includes('/assets/css/vcx-v2.css') ? /<link rel="stylesheet" href="\/assets\/css\/vcx-v2\.css[^>]*>/ : /<link rel="stylesheet" href="\/assets\/css\/vcx-v2-shell\.css[^>]*>/;
-    html = html.replace(anchor, (m) => `${m}\n<link rel="stylesheet" href="/assets/css/vcx-v4.css?v=1">`);
+    html = html.replace(anchor, (m) => `${m}\n<link rel="stylesheet" href="/assets/css/vcx-v5.css?v=1">`);
   }
-  if (!html.includes('/assets/js/vcx-v4-motif.js')) html = html.replace(/<script src="\/assets\/js\/vcx-v2\.js[^>]*><\/script>/, (m) => `${m}\n<script src="/assets/js/vcx-v4-motif.js?v=1" defer></script>`);
   return html;
+}
+
+/* v5 page heroes (AD §6): each service page shows its composition from the §7 family at the top of the dark fact panel */
+const TRAIT = { 'translations.html': 'translation', 'online-notary.html': 'notary', 'apostille.html': 'apostille', 'tax-preparation.html': 'tax', 'pricing.html': 'tax',
+  'name-change.html': 'court', 'fee-waiver.html': 'court', 'immigration-packet-review.html': 'court', 'n-400-naturalization.html': 'court', 'contract-review-service.html': 'court',
+  'civil-case-referral.html': 'court', 'small-claims-documentation.html': 'court', 'llc-formation-florida.html': 'company', 'business-filings.html': 'company',
+  'founder-services.html': 'company', 'business-plans.html': 'company', 'services.html': 'company' };
+const HAS_FAMILY = fs.existsSync(path.join(ROOT, 'assets/vx5/vx5-family.svg'));
+function addTrait(html, f) {
+  html = html.replace(/<svg class="vx-phero__art"[\s\S]*?<\/svg>/, '');
+  const id = TRAIT[f]; if (!id || !HAS_FAMILY) return html;
+  return html.replace(/(<div class="vx-phero__aside[^"]*"[^>]*>)/, `$1<svg class="vx-phero__art" viewBox="0 0 384 200" aria-hidden="true" focusable="false"><use href="/assets/vx5/vx5-family.svg#vx5-g-${id}"/></svg>`);
 }
 
 /* ---------- run ---------- */
@@ -472,6 +483,7 @@ for (const f of pages) {
     html = html.slice(0, at) + '\n' + FOOTER + '\n' + html.slice(at);
   } else html = next;
   html = ensureHead(html);
+  if (isV2) html = addTrait(html, f);
   if (API_ARG) html = html.replace(/<meta name="vcx-api" content="[^"]*">/g, `<meta name="vcx-api" content="${API_ARG.replace(/\/$/, '')}">`);
   if (!isV2 && !/data-vx-legacy=/.test(html)) html = html.replace(/<body\b/, '<body data-vx-legacy="1"');
   if (!/id="main-content"/.test(html)) html = html.replace(/<main\b/, '<main id="main-content"');

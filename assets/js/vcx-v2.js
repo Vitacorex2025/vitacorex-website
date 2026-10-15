@@ -317,11 +317,14 @@
     if (saved) { applyConsent(saved); return; }
     var bar = document.createElement('section');
     bar.className = 'vx-consent'; bar.setAttribute('aria-label', t('consent.label'));
-    bar.innerHTML = '<p data-t-html="consent.text">' + t('consent.text') + '</p><div class="vx-consent__actions">' +
-      '<button type="button" class="vx-btn vx-btn--accent" data-c="analytics" data-t="consent.accept">' + esc(t('consent.accept')) + '</button>' +
-      '<button type="button" class="vx-btn vx-btn--ghost" data-c="essential" data-t="consent.essential">' + esc(t('consent.essential')) + '</button></div>';
-    document.body.appendChild(bar);
-    qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () { var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); applyConsent(c); }); });
+    /* two equal choices, neither highlighted (AD §9.7); the page reserves the slip's height so it never covers content */
+    bar.innerHTML = '<p class="vx-consent__title" data-t="consent.title">' + esc(t('consent.title')) + '</p><p data-t-html="consent.text">' + t('consent.text') + '</p><div class="vx-consent__actions">' +
+      '<button type="button" class="vx-btn vx-btn--ghost" data-c="essential" data-t="consent.essential">' + esc(t('consent.essential')) + '</button>' +
+      '<button type="button" class="vx-btn vx-btn--ghost" data-c="analytics" data-t="consent.accept">' + esc(t('consent.accept')) + '</button></div>';
+    var reserve = function () { document.body.style.paddingBottom = (bar.offsetHeight + 32) + 'px'; };
+    document.body.appendChild(bar); reserve();
+    window.addEventListener('resize', reserve);
+    qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () { var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); window.removeEventListener('resize', reserve); document.body.style.paddingBottom = ''; applyConsent(c); }); });
   }
 
   function initPreviewRibbon() {

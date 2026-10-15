@@ -959,5 +959,7 @@
   "b2b.mo.eyebrow": "Several cases at once",
   "b2b.mo.title": "A monthly back office for your small-claims cases",
   "b2b.mo.lead": "For companies with a steady flow of claims. One register for every case, exhibits kept in order, service tracked, and a status report every two weeks. Month to month, cancel any time.",
-  "b2b.mo.cta": "Check your cases first"
+  "b2b.mo.cta": "Check your cases first",
+  "consent.title": "Cookies",
+  "v5.ftr.ghost": "in order."
 }
