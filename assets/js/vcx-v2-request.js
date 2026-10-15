@@ -279,7 +279,7 @@
         if (target) { target.setAttribute('aria-invalid', 'true'); target.setAttribute('aria-describedby', ((target.getAttribute('aria-describedby') || '') + ' ' + eid).trim()); }
       }
       var label = wrap ? (wrap.querySelector('label, .vx-label') || {}).textContent : k;
-      items.push('<li><a href="#' + (target ? target.id : 'vx-req-form') + '">' + VX.esc((label || '').replace(/\s+/g, ' ').trim().replace(/[.:]+$/, '')) + ': ' + VX.esc(msg) + '</a></li>');
+      items.push('<li><a href="#' + (target ? target.id : 'vx-req-form') + '">' + VX.esc((label || '').replace(/\s+/g, ' ').trim().replace(/[.:]+$/, '')) + (/[?¿!]$/.test((label || '').trim()) ? ' — ' : ': ') + VX.esc(msg) + '</a></li>');
     });
     box.innerHTML = '<h2>' + VX.esc(T('err.summary_title', { count: keys.length })) + '</h2><ul>' + items.join('') + '</ul>';
     box.hidden = false; box.focus();

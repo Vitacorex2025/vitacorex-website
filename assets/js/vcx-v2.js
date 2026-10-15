@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = 'aaf20f18d4';
+  var VERSION = 'f6e5b9d5de';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -361,13 +361,15 @@
     /* any viewport: wait for the first scroll if the slip would cover the hero's primary button or price chips */
     var covers = function () {
       var h = window.innerHeight, w = Math.min(window.innerWidth, 536), top = h - 280;
-      return qsa('.vx5-hero .vx5-btn, .vx5-hero .vx5-chip, .vx-phero .vx-btn, .vx-hero3 .vx-btn').some(function (b) {
+      return qsa('.vx5-hero .vx5-btn, .vx5-hero .vx5-chip, .vx6-hero .vx-btn, .vx6-hero__b2b, .vx6-ticker a, .vx-phero .vx-btn, .vx-hero3 .vx-btn').some(function (b) {
         var r = b.getBoundingClientRect(); return r.width && r.bottom > top && r.top < h && r.left < w;
       });
     };
     var phone = window.matchMedia && window.matchMedia('(max-width: 47.99em)').matches;
-    if ((phone || covers()) && (window.scrollY || 0) < 120) {
-      var onScroll = function () { if ((window.scrollY || 0) >= 120) { window.removeEventListener('scroll', onScroll); show(); } };
+    /* on the v6 home hero the slip waits until the price bar has scrolled clear of it (about 250 px at 1440x900) */
+    var hv = qs('.vx6-hero'), need = hv ? Math.max(120, hv.offsetHeight - window.innerHeight + 320) : 120;
+    if ((phone || covers()) && (window.scrollY || 0) < need) {
+      var onScroll = function () { if ((window.scrollY || 0) >= need) { window.removeEventListener('scroll', onScroll); show(); } };
       window.addEventListener('scroll', onScroll, { passive: true });
     } else show();
     window.addEventListener('resize', reserve);

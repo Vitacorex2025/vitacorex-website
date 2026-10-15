@@ -66,10 +66,13 @@ function headerHTML() {
   const feature = '';
   const menuIds = (g) => g.menu || g.services;
   const plain = (href, key) => `<li><a href="${href}"><span data-t="${key}">${esc(en[key])}</span></a></li>`;
-  const bizLinks = plain('/small-claims-documentation.html', 'footer.small_claims') + plain('/small-claims-documentation.html#check', 'footer.check_case') + plain('/financial-recovery.html', 'fr.nav') + plain('/net-recovery.html', 'h3.b2b.existing');
-  const biz = `<div class="vx-mega__group vx-mega__group--biz"><h3 data-t="mega.biz.title">${esc(en['mega.biz.title'])}</h3><ul class="vx-mega__plain">${bizLinks}</ul></div>`;
-  const mega = feature + privateGroups.map((g) => `<div class="vx-mega__group vx-mega__group--${g.id}"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul></div>`).join('') + biz;
-  const drawerGroups = privateGroups.map((g) => `<h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul>`).join('');
+  // the business lane carries prices like every other group, and comes right after court everywhere (mega DOM, drawer)
+  const bizLinks = ['b2b_small_claims_packet', 'b2b_small_claims_support', 'b2b_small_claims_retainer', 'b2b_small_claims_hourly', 'b2b_recovery_analysis'].map(svcLink).join('') + plain('/net-recovery.html', 'h3.b2b.existing');
+  const biz = `<div class="vx-mega__group vx-mega__group--biz"><h3 data-t="mega.biz.title">${esc(en['mega.biz.title'])}</h3><ul>${bizLinks}</ul></div>`;
+  const megaGroup = (g) => `<div class="vx-mega__group vx-mega__group--${g.id}"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul></div>`;
+  const mega = feature + megaGroup(privateGroups[0]) + biz + privateGroups.slice(1).map(megaGroup).join('');
+  const drawerGroup = (g) => `<h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul>`;
+  const drawerGroups = drawerGroup(privateGroups[0]) + `<h3 data-t="nav.business">${esc(en['nav.business'])}</h3><ul>${bizLinks}</ul>` + privateGroups.slice(1).map(drawerGroup).join('');
   return `<!-- vx:header:start -->
 <a class="vx-skip" href="#main-content" data-t="skip">${esc(en.skip)}</a>
 <header class="vx-hdr" role="banner">
@@ -94,7 +97,6 @@ function headerHTML() {
 <div class="vx-drawer" id="vx-drawer" data-open="false">
 <div class="vx-drawer__lang" role="group" aria-labelledby="vx-drawer-lang-h"><p id="vx-drawer-lang-h">Language / Язык / Idioma</p><div class="vx-seg">${segBtn('en', 'English', true)}${segBtn('ru', 'Русский', false)}${segBtn('es', 'Español', false)}</div></div>
 ${drawerGroups}
-<h3 data-t="nav.business">${esc(en['nav.business'])}</h3><ul>${bizLinks}</ul>
 <ul><li><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li><li><a href="/pricing.html" data-t="nav.prices">${esc(en['nav.prices'])}</a></li><li><a href="/about.html" data-t="nav.about">${esc(en['nav.about'])}</a></li><li><a href="/contact.html" data-t="nav.contact">${esc(en['nav.contact'])}</a></li></ul>
 <div class="vx-drawer__cta"><a class="vx-btn vx-btn--accent" href="/services.html" data-t="nav.choose">${esc(en['nav.choose'])}</a><a class="vx-btn vx-btn--ghost" href="tel:+18887948292">${ICON_PHONE}<span>(888) 794-8292</span></a></div>
 </div>
@@ -116,7 +118,7 @@ const NOTARY = {
 export const NOTICES = { IMM, NOTARY };
 
 function footerHTML() {
-  const fsvc = ['translation_certified', 'notary_ron_single', 'apostille_coordination', 'tax_1040_simple', 'name_change_adult_fl', 'fee_waiver_application', 'immigration_simple', 'company_basic', 'contracts_documents']
+  const fsvc = ['name_change_adult_fl', 'fee_waiver_application', 'immigration_simple', 'company_basic', 'tax_1040_simple', 'translation_certified', 'notary_ron_single', 'apostille_coordination']
     .map((id) => `<li><a href="${pageHref(id)}" data-svc-name="${id}">${esc(svc(id).name.en)}</a></li>`).join('');
   const li = (href, key) => `<li><a href="${href}" data-t="${key}">${esc(en[key])}</a></li>`;
   return `<!-- vx:footer:start -->
@@ -270,7 +272,8 @@ function indexRowEN(id) {
   return `<article class="vx-irow" data-service="${id}" data-pay="${s.action === 'order' || s.action === 'book_pay' ? '1' : '0'}"><div class="vx-irow__main"><h3>${name}</h3><p>${esc(loc(s.short))}</p></div><div class="vx-irow__price"><span class="vx-irow__amount"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></span><span class="vx-irow__unit">${esc(pi.unit)}</span></div><div class="vx-irow__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(T('action.' + s.action))}</a></div><details class="vx-irow__more"><summary>${esc(T('ix.more'))}</summary><div class="vx-irow__lists"><div><h4>${esc(T('scope.included'))}</h4><ul>${list('included')}</ul></div><div><h4>${esc(T('scope.extra'))}</h4><ul>${list('extra')}</ul></div></div></details></article>`;
 }
 function serviceIndexEN() {
-  return catalog.groups.filter((g) => g.lane === 'private').map((g) => `<section class="vx-index__group" id="${g.id}" data-group="${g.id}" aria-labelledby="ix-${g.id}"><h2 class="vx-index__gtitle" id="ix-${g.id}">${esc(loc(g.name))}</h2>${g.services.map(indexRowEN).join('')}</section>`).join('');
+  // every group in catalog order (court, for companies, business, taxes, documents): the B2B lane is a normal group with prices
+  return catalog.groups.map((g) => `<section class="vx-index__group" id="${g.id}" data-group="${g.id}" aria-labelledby="ix-${g.id}"><h2 class="vx-index__gtitle" id="ix-${g.id}">${esc(loc(g.name))}</h2>${g.services.map(indexRowEN).join('')}</section>`).join('');
 }
 function pricingEN() {
   return catalog.groups.map((g) => {
@@ -476,8 +479,15 @@ function seoHead(html, f) {
   while ((m = reF.exec(html))) { const q = textOf(m[1]), a = textOf(m[2]); if (q && a) faq.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }); }
   if (faq.length) graph.push({ '@type': 'FAQPage', '@id': pageUrl + '#faq', inLanguage: IN_LANG[LC], mainEntity: faq });
   if (f === 'about.html') {
-    const team = [['steven-miller', 'Steven Miller', 'team.steven.role'], ['michael-lyapin', 'Michael Lyapin', 'team.michael.role'], ['polina-zaic', 'Polina Zaic', 'team.polina.role']];
-    for (const [slug, name, rk] of team) graph.push({ '@type': 'Person', '@id': SITE + '/#' + slug, name, jobTitle: T(rk), image: SITE + '/assets/img/team/' + slug + '-384.jpg', worksFor: { '@id': SITE + '/#org' } });
+    // education as stated by the owner (2026-10-15); the notary commission is a separate license credential
+    // which of the two degrees is the master's was not stated, so the level is set only where it is unambiguous
+    const degree = (name, about, lvl) => ({ '@type': 'EducationalOccupationalCredential', credentialCategory: 'degree', ...(lvl ? { educationalLevel: lvl } : {}), name, about });
+    const team = [
+      ['steven-miller', 'Steven Miller', 'team.steven.role', 'team.steven.edu', [degree('Law degree (United States)', 'Law'), degree('Law degree (Russia)', 'Law'),
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Florida Notary Public', recognizedBy: { '@type': 'GovernmentOrganization', name: 'State of Florida' } }]],
+      ['michael-lyapin', 'Michael Lyapin', 'team.michael.role', 'team.michael.edu', [degree('Accounting degree (United States)', 'Accounting'), degree('Accounting degree (Russia)', 'Accounting')]],
+      ['polina-zaic', 'Polina Zaic', 'team.polina.role', 'team.polina.edu', [degree("Master's degree in linguistics", 'Linguistics', "Master's degree")]]];
+    for (const [slug, name, rk, ek, cred] of team) graph.push({ '@type': 'Person', '@id': SITE + '/#' + slug, name, jobTitle: T(rk), description: T(ek).replace(/<br\s*\/?>/g, '; '), hasCredential: cred, image: SITE + '/assets/img/team/' + slug + '-384.jpg', worksFor: { '@id': SITE + '/#org' } });
   }
   const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
   const ld = `<!-- vx:jsonld:start --><script type="application/ld+json">${json}</script><!-- vx:jsonld:end -->`;

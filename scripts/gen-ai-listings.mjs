@@ -10,13 +10,14 @@ import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
-const write = (p, s) => fs.writeFileSync(path.join(ROOT, p), s);
+const write = (p, s) => fs.writeFileSync(path.join(ROOT, p), s.replace(/\u00a0/g, ' ')); // no typographic no-break spaces in machine-read listings
 const catalog = JSON.parse(read('assets/data/vcx-catalog.json'));
 const I = Object.fromEntries(['en', 'ru', 'es'].map((l) => [l, JSON.parse(read(`assets/i18n/${l}.json`))]));
 const SITE = 'https://vitacorexllc.com';
 const money = (c) => (c % 100 === 0 ? `$${(c / 100).toLocaleString('en-US')}` : `$${(c / 100).toFixed(2)}`);
-const fmt = (l, k, p = {}) => (I[l][k] ?? I.en[k] ?? '').replace(/\{(\w+)\}/g, (m, x) => (p[x] ?? m));
-const loc = (o, l) => (o && (o[l] ?? o.en)) || '';
+const fmt = (l, k, p = {}) => (I[l][k] ?? I.en[k] ?? '').replace(/\u00a0/g, ' ').replace(/\{(\w+)\}/g, (m, x) => (p[x] ?? m));
+// listings are plain text for crawlers and AI agents: typographic no-break spaces become ordinary spaces
+const loc = (o, l) => ((o && (o[l] ?? o.en)) || '').replace(/\u00a0/g, ' ');
 const pageUrl = (s, id, l = 'en') => {
   const own = s.page && !s.page.startsWith('/request.html') ? s.page : null;
   // localized copies (/ru/, /es/) exist for indexable rebuilt pages; listings in those languages point to them
@@ -49,9 +50,25 @@ const LABEL = {
 };
 const privateGroups = catalog.groups.filter((g) => g.lane === 'private');
 
-function blocks(l) {
+const bizGroups = catalog.groups.filter((g) => g.lane === 'business');
+const BIZ_NOTES = {
+  en: ['Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.',
+    'On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.',
+    'Retainer clients get a free receivables analysis and a free 30-day recovery pilot. Flat prices, never a percentage of what you recover.',
+    'Court filing fees and service of process are paid at cost.'],
+  ru: ['Каждое дело начинается с проверки (штат, суд, суть требования); объём работы для вашего штата и суда подтверждаем до оплаты.',
+    'На ретейнере мы ведём документы, судебный календарь и заседание за вашу компанию по доверенности — там, где это допускает суд.',
+    'Клиенты на ретейнере получают бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот по возврату. Фиксированные цены, никогда не процент от возвращённого.',
+    'Судебные сборы и вручение документов — по фактической стоимости.'],
+  es: ['Cada caso empieza con una revisión (estado, tribunal, datos del reclamo); confirmamos el alcance para su estado y tribunal antes de que pague.',
+    'Con el retainer por caso llevamos los documentos, el calendario judicial y la audiencia por su empresa con un poder, donde el tribunal lo permite.',
+    'Los clientes con retainer reciben gratis un análisis de cuentas por cobrar y un piloto de recuperación de 30 días. Precios fijos, nunca un porcentaje de lo recuperado.',
+    'Las tasas judiciales y la notificación se pagan al costo.'],
+};
+const bullets = (l) => BIZ_NOTES[l].map((x) => `- ${x}`).join('\n') + '\n\n';
+function blocks(l, groups = privateGroups) {
   const L = LABEL[l];
-  return privateGroups.map((g) => `### ${loc(g.name, l)}\n\n` + g.services.map((id) => {
+  return groups.map((g) => `### ${loc(g.name, l)}\n\n` + g.services.map((id) => {
     const s = catalog.services[id];
     return [`#### ${loc(s.name, l)}`, `- ${L.price}: ${priceText(id, l)}`, `- ${loc(s.short, l)}`,
       `- ${L.inc}: ${(s.included?.[l] || s.included?.en || []).join('; ')}`, `- ${L.exc}: ${(s.extra?.[l] || s.extra?.en || []).join('; ')}`,
@@ -63,9 +80,13 @@ function replaceBlocks(file, l) {
   const src = read(file);
   const first = `### ${loc(privateGroups[0].name, l)}`;
   const biz = `### ${loc(catalog.groups.find((g) => g.lane === 'business').name, l)}`;
-  const a = src.indexOf(first), b = src.indexOf(biz);
-  if (a === -1 || b === -1 || b < a) throw new Error(`${file}: section markers not found (${first} / ${biz})`);
-  write(file, src.slice(0, a) + blocks(l) + '\n' + src.slice(b));
+  // start at the first group heading in the file, whatever its old name was: when groups are renamed or reordered,
+  // starting at the current first group would leave the old blocks above it as stale duplicates
+  const b = src.indexOf(biz), a = src.indexOf('\n### ') + 1;
+  if (a === 0 || b === -1 || b < a) throw new Error(`${file}: section markers not found (${first} / ${biz})`);
+  // the business section runs to the next H2 and is regenerated too, so the B2B lineup never goes stale
+  const e = src.indexOf('\n## ', b) + 1 || src.length;
+  write(file, src.slice(0, a) + blocks(l) + '\n' + blocks(l, bizGroups) + '\n' + bullets(l) + src.slice(e));
 }
 
 function replaceTable() {
@@ -78,7 +99,16 @@ function replaceTable() {
     const s = catalog.services[id];
     return `| ${s.name.en} | ${shortText(id, 'en')} | ${s.unit.en}; ${s.short.en.replace(/\|/g, '/')} | ${pageUrl(s, id).replace(SITE, '')} |`;
   }).join('\n') + '\n';
-  write(file, src.slice(0, body0) + rows + src.slice(body1));
+  let out = src.slice(0, body0) + rows + src.slice(body1);
+  const bh = out.indexOf('\n## Companies'); if (bh === -1) throw new Error('llms.txt: companies heading not found');
+  const be = out.indexOf('\n## ', bh + 1) + 1;
+  const brows = bizGroups.flatMap((g) => g.services).map((id) => {
+    const s = catalog.services[id];
+    return `| ${s.name.en} | ${shortText(id, 'en')} | ${s.unit.en}; ${s.short.en.replace(/\|/g, '/')} | ${pageUrl(s, id).replace(SITE, '')} |`;
+  }).join('\n');
+  out = out.slice(0, bh + 1) + '## Companies — small claims and financial recovery (B2B lane)\n\n| Service | Price | Unit / what it covers | Page |\n|---|---|---|---|\n'
+    + brows + '\n\n' + bullets('en') + out.slice(be);
+  write(file, out);
 }
 
 function catalogJsonld() {

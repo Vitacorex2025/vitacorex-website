@@ -1,0 +1,111 @@
+/* ==========================================================================
+   VitaCoreX v5 — legal documents (privacy-policy, terms-of-use, cookie-policy).
+   Loaded after vcx-v5.css on those three pages only. A calm document page:
+   a short ink hero over the darkened skyline, a sticky contents column on desktop,
+   the text in a readable measure. Tokens only from vcx-v2-shell.css / vcx-v5.css.
+   No circles, no glass, no glow. Cool palette only.
+   ========================================================================== */
+
+/* 1. HERO — short, solid ink with the skyline barely showing through */
+.vx-lhero { --vx-focus: #7CD2DE; --vx-ring: #7CD2DE; position: relative; isolation: isolate; overflow: hidden;
+  background: var(--vx-ink); color: #fff; border-bottom: 1px solid rgb(124 210 222 / .14); }
+.vx-lhero__img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; filter: saturate(.7); }
+.vx-lhero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, rgb(7 27 35 / .95) 0%, rgb(7 27 35 / .9) 48%, rgb(7 27 35 / .82) 100%); }
+.vx-lhero__inner { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(40px, 5vw, 64px); }
+.vx-lhero .vx-eyebrow { color: var(--vx-accent-soft); }
+.vx-lhero h1 { margin: 0 0 16px; max-width: 20ch; color: #fff;
+  font: 440 calc(clamp(2.25rem, 1.75rem + 2vw, 3.5rem) * var(--vx-k))/1.06 var(--vx-serif); letter-spacing: -.012em; }
+.vx-lhero__sub { margin: 0; max-width: 44em; color: var(--vx-on-2); font: 400 var(--vx-fs-lead)/1.55 var(--vx-sans); }
+/* the one detail: the date sits on a hairline cut at the 17:22 fold slope */
+.vx-lhero__meta { position: relative; display: inline-block; margin: 28px 0 0; padding: 14px 32px 0 0; color: var(--vx-on-2); font: 500 14px/20px var(--vx-sans);
+  font-variant-numeric: lining-nums tabular-nums; }
+.vx-lhero__meta::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, rgb(124 210 222 / .55), rgb(124 210 222 / .55) calc(100% - 17px), transparent calc(100% - 17px)); }
+.vx-lhero__meta::after { content: ""; position: absolute; right: 0; top: 0; width: 17px; height: 22px;
+  background: linear-gradient(to top right, transparent calc(50% - .5px), rgb(124 210 222 / .55) calc(50% - .5px), rgb(124 210 222 / .55) calc(50% + .5px), transparent calc(50% + .5px)); }
+.vx-lhero__meta time { color: #fff; white-space: nowrap; }
+
+/* 2. LAYOUT — 12-column lines: contents 1–4, text 6–12 */
+.vx-legal { background: #fff; padding: var(--vx-s8) 0 var(--vx-s9); }
+.vx-legal__grid { display: block; }
+.vx-legal__toc { display: none; }
+@media (min-width: 64em) {
+  .vx-legal__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; align-items: start; }
+  .vx-legal__toc { display: block; grid-column: 1 / 5; position: sticky; top: calc(var(--vx-hdr-h) + 24px);
+    max-height: calc(100vh - var(--vx-hdr-h) - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-right: 4px; }
+  .vx-legal__mtoc { display: none; }
+  .vx-legal__doc { grid-column: 6 / 13; }
+}
+
+/* 3. CONTENTS (desktop column and the folded mobile list share the item style) */
+.vx-legal__toc-h { margin: 0; padding: 0 0 12px; border-bottom: 1px solid var(--vx-line-strong); color: var(--vx-link) !important;
+  font: 600 13px/1.45 var(--vx-sans) !important; letter-spacing: 0 !important; }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) ol { margin: 0; padding: 0; list-style: none; counter-reset: lp-toc; }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li { counter-increment: lp-toc; }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li a { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: baseline; min-height: 44px; padding: 11px 0;
+  border-bottom: 1px solid var(--vx-line); color: var(--vx-text); text-decoration: none; font: 500 15px/1.4 var(--vx-sans); }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li a::before { content: counter(lp-toc, decimal-leading-zero); content: counter(lp-toc, decimal-leading-zero) / "";
+  color: var(--vx-link); font: 600 13px/1.4 var(--vx-sans); font-variant-numeric: lining-nums tabular-nums; }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li a:hover { color: var(--vx-link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.vx-legal a:focus-visible, .vx-legal summary:focus-visible { outline: 2px solid var(--vx-focus); outline-offset: 2px; border-radius: var(--vx-radius-sm); }
+
+.vx-legal__mtoc { margin: 0 0 var(--vx-s6); border: 1px solid var(--vx-line-strong); border-radius: var(--vx-radius); background: var(--vx-paper); }
+.vx-legal__mtoc summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; padding: 0 16px;
+  color: var(--vx-ink); font: 600 15px/1.3 var(--vx-sans); cursor: pointer; list-style: none; }
+.vx-legal__mtoc summary::-webkit-details-marker { display: none; }
+.vx-legal__mtoc summary::after { content: ""; flex: none; width: 9px; height: 9px; margin-top: -4px; border-right: 2px solid var(--vx-link); border-bottom: 2px solid var(--vx-link);
+  transform: rotate(45deg); transition: transform 200ms var(--vx-e-out); }
+.vx-legal__mtoc[open] summary::after { margin-top: 4px; transform: rotate(225deg); }
+.vx-legal__mtoc ol { padding: 0 16px 8px !important; border-top: 1px solid var(--vx-line); }
+.vx-legal__mtoc li:last-child a { border-bottom: 0; }
+
+.vx-legal__top { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 12px; color: var(--vx-link); font: 600 14px/20px var(--vx-sans);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.vx-legal__top::before { content: "↑"; content: "↑" / ""; font-weight: 600; text-decoration: none; }
+.vx-legal__top:hover { color: var(--vx-ink); }
+
+/* 4. DOCUMENT — 17px/1.65 in a 72ch measure, serif headings, numbered sections */
+.vx-legal__doc { max-width: 72ch; counter-reset: lp-sec; color: var(--vx-text); font: 400 17px/1.65 var(--vx-sans); overflow-wrap: break-word; }
+.vx-legal__doc p, .vx-legal__doc li { font-size: 17px; line-height: 1.65; }
+html:lang(ru) .vx-legal__doc :is(p, li) { line-height: 1.68; }
+.vx-legal__intro { margin: 0 0 var(--vx-s6); color: var(--vx-ink); font: 400 var(--vx-fs-lead)/1.6 var(--vx-sans) !important; }
+.vx-legal__sec { counter-increment: lp-sec; padding: var(--vx-s6) 0; border-top: 1px solid var(--vx-line); scroll-margin-top: 16px; }
+.vx-legal__sec h2 { margin: 0 0 16px; color: var(--vx-ink); font: 500 calc(clamp(1.375rem, 1.2rem + .7vw, 1.75rem) * var(--vx-k))/1.25 var(--vx-serif); letter-spacing: -.008em; }
+.vx-legal__sec h2::before { content: counter(lp-sec, decimal-leading-zero); content: counter(lp-sec, decimal-leading-zero) / ""; display: block; margin: 0 0 8px;
+  color: var(--vx-link); font: 600 13px/1.45 var(--vx-sans); letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; }
+.vx-legal__sec:target h2::before { color: var(--vx-ink); }
+.vx-legal__sec p { margin: 0 0 16px; }
+.vx-legal__sec > :last-child { margin-bottom: 0; }
+.vx-legal__sec ul { margin: 0 0 16px; padding: 0; list-style: none; }
+.vx-legal__sec li { position: relative; margin: 0 0 10px; padding-left: 26px; }
+.vx-legal__sec li:last-child { margin-bottom: 0; }
+.vx-legal__sec li::before { content: ""; position: absolute; left: 2px; top: .8em; width: 12px; height: 2px; background: var(--vx-accent-lo); }
+.vx-legal__doc strong { color: var(--vx-ink); font-weight: 600; }
+.vx-legal__doc a { color: var(--vx-link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.vx-legal__doc a:hover { color: var(--vx-ink); }
+.vx-legal__doc time { font-variant-numeric: lining-nums tabular-nums; }
+
+/* 5. END OF DOCUMENT — back to top and the other legal documents */
+.vx-legal__end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 32px; margin-top: var(--vx-s4); padding-top: var(--vx-s4); border-top: 1px solid var(--vx-line-strong); }
+.vx-legal__top--end { margin-top: 0; }
+.vx-legal__rel { display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px; }
+.vx-legal__rel p { margin: 0; color: var(--vx-muted); font: 600 13px/1.45 var(--vx-sans); }
+.vx-legal__rel ul { display: flex; flex-wrap: wrap; gap: 0 20px; margin: 0; padding: 0; list-style: none; }
+.vx-legal__rel li { margin: 0; padding: 0; }
+.vx-legal__rel li::before { content: none; }
+.vx-legal__rel a { display: inline-flex; align-items: center; min-height: 44px; font: 500 15px/20px var(--vx-sans); }
+
+/* 6. PRINT — the document only */
+@media print {
+  .vx-hdr, .vx-skip, .vx-ftr, .vx-consent, .vx-preview-ribbon, .vx-legal__toc, .vx-legal__mtoc, .vx-legal__end, .vx-lhero__img { display: none !important; }
+  .vx-lhero { background: none; color: #000; border: 0; }
+  .vx-lhero::after { content: none; }
+  .vx-lhero h1, .vx-lhero__meta time { color: #000; }
+  .vx-lhero__sub, .vx-lhero__meta, .vx-lhero .vx-eyebrow { color: #333; }
+  .vx-lhero__inner { padding: 0 0 16px; }
+  .vx-legal { padding: 0; }
+  .vx-legal__doc { max-width: none; font-size: 11pt; }
+  .vx-legal__sec { break-inside: avoid-page; padding: 12pt 0; }
+  .vx-legal__doc a[href^="/"]::after, .vx-legal__doc a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #333; }
+}

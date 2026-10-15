@@ -10,7 +10,7 @@
       "lane": "private",
       "name": {
         "en": "Court, immigration & contracts",
-        "ru": "Суд, иммиграция и договоры",
+        "ru": "Суд, иммиграция и договоры",
         "es": "Corte, inmigración y contratos"
       },
       "services": [
@@ -38,7 +38,7 @@
       "lane": "business",
       "name": {
         "en": "For companies: small claims",
-        "ru": "Для компаний: small claims",
+        "ru": "Для компаний: small claims",
         "es": "Para empresas: small claims"
       },
       "services": [
@@ -56,7 +56,7 @@
       "lane": "private",
       "name": {
         "en": "Start and run a business",
-        "ru": "Открытие и сопровождение бизнеса",
+        "ru": "Открытие и сопровождение бизнеса",
         "es": "Abrir y mantener un negocio"
       },
       "services": [
@@ -98,7 +98,7 @@
       "lane": "private",
       "name": {
         "en": "Translations, notary and apostille",
-        "ru": "Переводы, заверение и апостиль",
+        "ru": "Переводы, заверение и апостиль",
         "es": "Traducciones, notarización y apostilla"
       },
       "services": [
@@ -154,12 +154,12 @@
       },
       "short": {
         "en": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
-        "ru": "Свидетельства, дипломы, судебные и банковские документы: полный перевод и подписанное заявление переводчика о его точности.",
+        "ru": "Свидетельства, дипломы, судебные и банковские документы: полный перевод и подписанное заявление переводчика о его точности.",
         "es": "Actas, diplomas, documentos judiciales y bancarios: traducción completa con certificado firmado del traductor."
       },
       "unit": {
         "en": "per 250 source words (one standard page)",
-        "ru": "за 250 слов оригинала (одна стандартная страница)",
+        "ru": "за 250 слов оригинала (одна стандартная страница)",
         "es": "por cada 250 palabras del original (una página estándar)"
       },
       "included": {
@@ -171,9 +171,9 @@
         ],
         "ru": [
           "Полный перевод документа",
-          "Подписанное заявление переводчика о точности перевода",
-          "Доставка в электронном виде (PDF)",
-          "Проверка языковой пары и читаемости до оплаты"
+          "Подписанное заявление переводчика о точности перевода",
+          "Доставка в электронном виде (PDF)",
+          "Проверка языковой пары и читаемости до оплаты"
         ],
         "es": [
           "Traducción completa del documento",
@@ -191,9 +191,9 @@
         ],
         "ru": [
           "Срочное выполнение",
-          "Редкие языковые пары и сложная вёрстка",
-          "Заявление переводчика с нотариальным заверением (отдельное нотариальное действие)",
-          "Печатные копии и почтовая доставка"
+          "Редкие языковые пары и сложная вёрстка",
+          "Заявление переводчика с нотариальным заверением (отдельное нотариальное действие)",
+          "Печатные копии и почтовая доставка"
         ],
         "es": [
           "Entrega urgente",
@@ -204,7 +204,7 @@
       },
       "next": {
         "en": "Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.",
-        "ru": "Укажите языковую пару и примерный объём. Мы подтвердим количество слов, цену и срок, затем вы оплатите и загрузите документ по закрытой ссылке.",
+        "ru": "Укажите языковую пару и примерный объём. Мы подтвердим количество слов, цену и срок, затем вы оплатите и загрузите документ по закрытой ссылке.",
         "es": "Indique el par de idiomas y el tamaño aproximado. Confirmamos palabras, precio y fecha; luego paga y sube el documento por un enlace privado."
       },
       "keywords": {
@@ -224,12 +224,12 @@
           "перевод",
           "перевести",
           "заверенный перевод",
-          "свидетельство о рождении",
+          "свидетельство о рождении",
           "диплом",
           "аттестат",
-          "свидетельство о браке",
+          "свидетельство о браке",
           "справка",
-          "перевод для uscis",
+          "перевод для uscis",
           "выписка"
         ],
         "es": [
@@ -279,12 +279,12 @@
       },
       "short": {
         "en": "Letters, websites, business and personal texts that do not need a certificate.",
-        "ru": "Письма, сайты, деловые и личные тексты, для которых не нужно удостоверение.",
+        "ru": "Письма, сайты, деловые и личные тексты, для которых не нужно удостоверение.",
         "es": "Cartas, sitios web, textos personales y de negocio que no requieren certificado."
       },
       "unit": {
         "en": "per source word, $25 minimum order",
-        "ru": "за слово оригинала, минимальный заказ $25",
+        "ru": "за слово оригинала, минимальный заказ $25",
         "es": "por palabra del original, pedido mínimo de $25"
       },
       "included": {
@@ -296,7 +296,7 @@
         "ru": [
           "Перевод согласованного текста",
           "Один раунд уточнений",
-          "Передача в редактируемом файле"
+          "Передача в редактируемом файле"
         ],
         "es": [
           "Traducción del texto acordado",
@@ -323,7 +323,7 @@
       },
       "next": {
         "en": "Tell us the language pair, size and deadline. You receive a written quote before any payment.",
-        "ru": "Укажите языковую пару, объём и срок. До оплаты вы получите письменную смету.",
+        "ru": "Укажите языковую пару, объём и срок. До оплаты вы получите письменную смету.",
         "es": "Indique el par de idiomas, el tamaño y el plazo. Recibirá un presupuesto escrito antes de pagar."
       },
       "keywords": {
@@ -382,12 +382,12 @@
       },
       "short": {
         "en": "Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.",
-        "ru": "Заверение по видеосвязи у Florida Notary Public. Нужны камера и действующее удостоверение личности с фото; если вы за пределами США, сначала проверим, возможно ли заверение.",
-        "es": "Notarización por video en vivo ante un Florida Notary Public. Necesita una cámara y una identificación vigente con foto; si está fuera de EE. UU., primero confirmamos si es posible."
+        "ru": "Заверение по видеосвязи у Florida Notary Public. Нужны камера и действующее удостоверение личности с фото; если вы за пределами США, сначала проверим, возможно ли заверение.",
+        "es": "Notarización por video en vivo ante un Florida Notary Public. Necesita una cámara y una identificación vigente con foto; si está fuera de EE. UU., primero confirmamos si es posible."
       },
       "unit": {
         "en": "per notarial act",
-        "ru": "за одно нотариальное действие",
+        "ru": "за одно нотариальное действие",
         "es": "por acto notarial"
       },
       "included": {
@@ -398,10 +398,10 @@
           "Session recording kept as required by Florida law"
         ],
         "ru": [
-          "Одно нотариальное действие онлайн по вашему документу",
-          "Проверка личности на онлайн-платформе",
-          "Документ с электронным заверением",
-          "Хранение записи сеанса по требованиям закона Флориды"
+          "Одно нотариальное действие онлайн по вашему документу",
+          "Проверка личности на онлайн-платформе",
+          "Документ с электронным заверением",
+          "Хранение записи сеанса по требованиям закона Флориды"
         ],
         "es": [
           "Un acto notarial en línea sobre su documento",
@@ -417,9 +417,9 @@
           "Printed copy and mailing"
         ],
         "ru": [
-          "Каждая дополнительная подпись или действие",
-          "Свидетели, если они нужны для документа",
-          "Печатная копия и отправка по почте"
+          "Каждая дополнительная подпись или действие",
+          "Свидетели, если они нужны для документа",
+          "Печатная копия и отправка по почте"
         ],
         "es": [
           "Cada firma o acto adicional",
@@ -429,7 +429,7 @@
       },
       "next": {
         "en": "Answer three quick questions, pay for the notarial act and pick a time. Your appointment is confirmed once the calendar email arrives.",
-        "ru": "Ответьте на три коротких вопроса, оплатите нотариальное действие и выберите время. Запись подтверждена, когда придёт письмо из календаря.",
+        "ru": "Ответьте на три коротких вопроса, оплатите нотариальное действие и выберите время. Запись подтверждена, когда придёт письмо из календаря.",
         "es": "Responda tres preguntas breves, pague el acto notarial y elija la hora. Su cita queda confirmada cuando le llegue el correo del calendario."
       },
       "keywords": {
@@ -493,17 +493,17 @@
       "notices": [],
       "name": {
         "en": "Apostille assistance",
-        "ru": "Помощь с апостилем",
+        "ru": "Помощь с апостилем",
         "es": "Gestión de apostilla"
       },
       "short": {
         "en": "We find the office that apostilles your document for the country you need, prepare the request and track it.",
-        "ru": "Определим, какой орган ставит апостиль на ваш документ для нужной страны, подготовим запрос и проследим за ним.",
+        "ru": "Определим, какой орган ставит апостиль на ваш документ для нужной страны, подготовим запрос и проследим за ним.",
         "es": "Identificamos qué oficina apostilla su documento para el país de destino, preparamos la solicitud y le damos seguimiento."
       },
       "unit": {
         "en": "service fee for the first document",
-        "ru": "плата за услугу по первому документу",
+        "ru": "плата за услугу по первому документу",
         "es": "tarifa de servicio por el primer documento"
       },
       "included": {
@@ -514,10 +514,10 @@
           "Tracking and status updates"
         ],
         "ru": [
-          "Проверка происхождения, вида документа и страны назначения",
-          "Выбор нужного органа штата или федерального уровня",
-          "Подготовка запроса и сопроводительного письма",
-          "Отслеживание и сообщения о статусе"
+          "Проверка происхождения, вида документа и страны назначения",
+          "Выбор нужного органа штата или федерального уровня",
+          "Подготовка запроса и сопроводительного письма",
+          "Отслеживание и сообщения о статусе"
         ],
         "es": [
           "Revisión del origen, tipo de documento y destino",
@@ -533,8 +533,8 @@
           "Certified copies, translation, embassy legalization"
         ],
         "ru": [
-          "Государственные сборы за апостиль",
-          "Доставка и курьер",
+          "Государственные сборы за апостиль",
+          "Доставка и курьер",
           "Заверенные копии, перевод, консульская легализация"
         ],
         "es": [
@@ -545,7 +545,7 @@
       },
       "next": {
         "en": "Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.",
-        "ru": "Укажите, где выдан документ и где он будет использоваться. До оплаты вы получите смету по статьям: услуга, госсбор и доставка.",
+        "ru": "Укажите, где выдан документ и где он будет использоваться. До оплаты вы получите смету по статьям: услуга, госсбор и доставка.",
         "es": "Indique dónde se emitió el documento y dónde lo usará. Antes de pagar recibe un presupuesto detallado: servicio, tasa oficial y envío."
       },
       "keywords": {
@@ -559,8 +559,8 @@
         "ru": [
           "апостиль",
           "легализация",
-          "документы за границу",
-          "для заграницы",
+          "документы за границу",
+          "для заграницы",
           "гаагская"
         ],
         "es": [
@@ -607,7 +607,7 @@
       },
       "short": {
         "en": "Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.",
-        "ru": "Федеральная декларация (Form 1040), которую готовит наша бухгалтерия после короткого разговора о вашей ситуации.",
+        "ru": "Федеральная декларация (Form 1040), которую готовит наша бухгалтерия после короткого разговора о вашей ситуации.",
         "es": "Declaración federal individual (Formulario 1040) preparada por nuestro equipo contable tras una breve llamada sobre su situación."
       },
       "unit": {
@@ -623,10 +623,10 @@
           "Secure document exchange through a private link"
         ],
         "ru": [
-          "Короткий разговор о налоговом годе и видах дохода",
-          "Подготовка простой федеральной декларации по W-2",
-          "Согласование декларации с вами до подачи",
-          "Обмен документами по закрытой ссылке"
+          "Короткий разговор о налоговом годе и видах дохода",
+          "Подготовка простой федеральной декларации по W-2",
+          "Согласование декларации с вами до подачи",
+          "Обмен документами по закрытой ссылке"
         ],
         "es": [
           "Una breve conversación sobre su año fiscal y tipos de ingreso",
@@ -643,8 +643,8 @@
         ],
         "ru": [
           "Декларация штата",
-          "Самозанятость, аренда или иностранный доход",
-          "Исправленные декларации и прошлые годы"
+          "Самозанятость, аренда или иностранный доход",
+          "Исправленные декларации и прошлые годы"
         ],
         "es": [
           "Declaración estatal",
@@ -654,7 +654,7 @@
       },
       "next": {
         "en": "Tell us the tax year and the type of return. We confirm what is included and the price, then send a private link for your documents.",
-        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим, что входит в работу и сколько она стоит, и пришлём закрытую ссылку для документов.",
+        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим, что входит в работу и сколько она стоит, и пришлём закрытую ссылку для документов.",
         "es": "Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace privado para sus documentos."
       },
       "keywords": {
@@ -716,17 +716,17 @@
       "notices": [],
       "name": {
         "en": "Self-employed tax return",
-        "ru": "Декларация для самозанятых",
+        "ru": "Декларация для самозанятых",
         "es": "Declaración para trabajadores independientes"
       },
       "short": {
         "en": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
-        "ru": "Федеральная декларация с одним простым Schedule C — для фрилансеров, подрядчиков и ИП.",
+        "ru": "Федеральная декларация с одним простым Schedule C — для фрилансеров, подрядчиков и ИП.",
         "es": "Declaración federal con un Anexo C sencillo para independientes, contratistas y negocios unipersonales."
       },
       "unit": {
         "en": "federal return with one simple Schedule C",
-        "ru": "федеральная декларация с одним простым Schedule C",
+        "ru": "федеральная декларация с одним простым Schedule C",
         "es": "declaración federal con un Anexo C sencillo"
       },
       "included": {
@@ -736,9 +736,9 @@
           "Review with you before filing"
         ],
         "ru": [
-          "Проверка готовности учёта доходов и расходов",
-          "Федеральная декларация с одним Schedule C",
-          "Согласование с вами до подачи"
+          "Проверка готовности учёта доходов и расходов",
+          "Федеральная декларация с одним Schedule C",
+          "Согласование с вами до подачи"
         ],
         "es": [
           "Revisión de sus registros de ingresos y gastos",
@@ -754,7 +754,7 @@
         ],
         "ru": [
           "Восстановление бухгалтерского учёта",
-          "Несколько видов бизнеса, несколько штатов или иностранные формы",
+          "Несколько видов бизнеса, несколько штатов или иностранные формы",
           "Декларация штата"
         ],
         "es": [
@@ -765,7 +765,7 @@
       },
       "next": {
         "en": "Tell us the tax year and how you earn your income. After a quick look at your records, we confirm the price.",
-        "ru": "Укажите налоговый год и источник дохода. Посмотрим ваш учёт и подтвердим цену.",
+        "ru": "Укажите налоговый год и источник дохода. Посмотрим ваш учёт и подтвердим цену.",
         "es": "Indique el año fiscal y cómo obtiene sus ingresos. Tras revisar brevemente sus registros, le confirmamos el precio."
       },
       "keywords": {
@@ -825,17 +825,17 @@
       "notices": [],
       "name": {
         "en": "State return add-on",
-        "ru": "Декларация штата — дополнение",
+        "ru": "Декларация штата — дополнение",
         "es": "Declaración estatal adicional"
       },
       "short": {
         "en": "One state return prepared together with your federal return.",
-        "ru": "Одна декларация штата вместе с федеральной декларацией.",
+        "ru": "Одна декларация штата вместе с федеральной декларацией.",
         "es": "Una declaración estatal preparada junto con la federal."
       },
       "unit": {
         "en": "one supported state, with a federal return",
-        "ru": "один штат, вместе с федеральной декларацией",
+        "ru": "один штат, вместе с федеральной декларацией",
         "es": "un estado admitido, junto con la federal"
       },
       "included": {
@@ -845,7 +845,7 @@
         ],
         "ru": [
           "Одна декларация штата проживания",
-          "Готовится вместе с федеральной декларацией"
+          "Готовится вместе с федеральной декларацией"
         ],
         "es": [
           "Una declaración del estado de residencia",
@@ -857,7 +857,7 @@
           "Part-year, non-resident or several states"
         ],
         "ru": [
-          "Неполный год, нерезидент или несколько штатов"
+          "Неполный год, нерезидент или несколько штатов"
         ],
         "es": [
           "Residencia parcial, no residente o varios estados"
@@ -865,7 +865,7 @@
       },
       "next": {
         "en": "Added to your federal tax request; the preparer confirms the price.",
-        "ru": "Добавляется к заявке на федеральную декларацию; цену подтверждает бухгалтер.",
+        "ru": "Добавляется к заявке на федеральную декларацию; цену подтверждает бухгалтер.",
         "es": "Se añade a su solicitud federal; el preparador confirma el precio."
       },
       "keywords": {
@@ -911,12 +911,12 @@
       "notices": [],
       "name": {
         "en": "Contracts & document support",
-        "ru": "Договоры и подготовка документов",
+        "ru": "Договоры и подготовка документов",
         "es": "Contratos y preparación de documentos"
       },
       "short": {
         "en": "Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts.",
-        "ru": "Договоры, письма и формы, которые вы выбрали: подготовим или приведём в порядок. Что вы получите, согласуем до начала работы.",
+        "ru": "Договоры, письма и формы, которые вы выбрали: подготовим или приведём в порядок. Что вы получите, согласуем до начала работы.",
         "es": "Contratos, cartas y formularios que usted eligió, preparados u ordenados. Acordamos el resultado antes de empezar."
       },
       "unit": {
@@ -931,8 +931,8 @@
           "One round of edits"
         ],
         "ru": [
-          "Согласование задачи и результата",
-          "Подготовка или оформление согласованного документа",
+          "Согласование задачи и результата",
+          "Подготовка или оформление согласованного документа",
           "Один раунд правок"
         ],
         "es": [
@@ -946,7 +946,7 @@
           "Larger or multi-document tasks"
         ],
         "ru": [
-          "Объёмные задачи и пакеты документов"
+          "Объёмные задачи и пакеты документов"
         ],
         "es": [
           "Tareas más grandes o con varios documentos",
@@ -955,7 +955,7 @@
       },
       "next": {
         "en": "Describe the document you need. Before you pay, we confirm what we can prepare, what you will receive and the price.",
-        "ru": "Опишите нужный документ. До оплаты мы подтвердим, что можем подготовить, что вы получите и сколько это стоит.",
+        "ru": "Опишите нужный документ. До оплаты мы подтвердим, что можем подготовить, что вы получите и сколько это стоит.",
         "es": "Describa el documento que necesita. Antes de pagar confirmamos qué podemos preparar, qué recibirá y el precio."
       },
       "keywords": {
@@ -1013,12 +1013,12 @@
       ],
       "name": {
         "en": "Immigration forms & documents",
-        "ru": "Иммиграционные формы и документы",
+        "ru": "Иммиграционные формы и документы",
         "es": "Formularios y documentos migratorios"
       },
       "short": {
         "en": "Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents.",
-        "ru": "Техническое заполнение формы USCIS, которую выбрали вы или ваш адвокат, и подборка сопроводительных документов.",
+        "ru": "Техническое заполнение формы USCIS, которую выбрали вы или ваш адвокат, и подборка сопроводительных документов.",
         "es": "Preparación administrativa de un formulario de USCIS elegido por usted o su abogado, y organización de sus documentos de apoyo."
       },
       "unit": {
@@ -1033,9 +1033,9 @@
           "Organized document checklist and packet"
         ],
         "ru": [
-          "Заполнение формы по вашим ответам",
-          "Проверка полноты по инструкции к форме",
-          "Список и подборка документов"
+          "Заполнение формы по вашим ответам",
+          "Проверка полноты по инструкции к форме",
+          "Список и подборка документов"
         ],
         "es": [
           "Llenado del formulario con sus respuestas",
@@ -1059,7 +1059,7 @@
       },
       "next": {
         "en": "Tell us which form you are filing and your deadline. We confirm the scope and price before any work.",
-        "ru": "Укажите, какую форму вы подаёте, и срок. До начала работы подтвердим объём и цену.",
+        "ru": "Укажите, какую форму вы подаёте, и срок. До начала работы подтвердим объём и цену.",
         "es": "Indique qué formulario presentará y su plazo. Confirmamos alcance y precio antes de empezar."
       },
       "keywords": {
@@ -1081,7 +1081,7 @@
           "i-485",
           "i-765",
           "грин карта",
-          "разрешение на работу",
+          "разрешение на работу",
           "форма uscis"
         ],
         "es": [
@@ -1121,17 +1121,17 @@
       ],
       "name": {
         "en": "Naturalization document support (N-400)",
-        "ru": "Документы для натурализации (N-400)",
+        "ru": "Документы для натурализации (N-400)",
         "es": "Documentación para naturalización (N-400)"
       },
       "short": {
         "en": "Administrative help with Form N-400: typing, completeness check and an organized document packet.",
-        "ru": "Административная помощь с формой N-400: заполнение, проверка полноты и подборка документов.",
+        "ru": "Административная помощь с формой N-400: заполнение, проверка полноты и подборка документов.",
         "es": "Ayuda administrativa con el Formulario N-400: llenado, revisión y paquete de documentos organizado."
       },
       "unit": {
         "en": "defined N-400 support scope",
-        "ru": "определённый объём помощи с N-400",
+        "ru": "определённый объём помощи с N-400",
         "es": "alcance definido de apoyo con el N-400"
       },
       "included": {
@@ -1141,9 +1141,9 @@
           "Organized packet ready for you to file"
         ],
         "ru": [
-          "Форма N-400, заполненная по вашим ответам",
-          "Проверка полноты и список документов",
-          "Готовый пакет для самостоятельной подачи"
+          "Форма N-400, заполненная по вашим ответам",
+          "Проверка полноты и список документов",
+          "Готовый пакет для самостоятельной подачи"
         ],
         "es": [
           "Formulario N-400 llenado con sus respuestas",
@@ -1164,7 +1164,7 @@
       },
       "next": {
         "en": "Send a short request. We confirm the scope and price; the decision to apply remains yours.",
-        "ru": "Отправьте короткую заявку. Мы подтвердим объём и цену; решение о подаче остаётся за вами.",
+        "ru": "Отправьте короткую заявку. Мы подтвердим объём и цену; решение о подаче остаётся за вами.",
         "es": "Envíe una solicitud breve. Confirmamos alcance y precio; la decisión de presentar es suya."
       },
       "keywords": {
@@ -1223,7 +1223,7 @@
       },
       "short": {
         "en": "Not sure which service fits? Describe the task — we tell you what we can do and what it costs.",
-        "ru": "Не знаете, какая услуга подходит? Опишите задачу — мы скажем, чем можем помочь и сколько это стоит.",
+        "ru": "Не знаете, какая услуга подходит? Опишите задачу — мы скажем, чем можем помочь и сколько это стоит.",
         "es": "¿No sabe qué servicio necesita? Describa la tarea y le diremos qué podemos hacer y cuánto cuesta."
       },
       "unit": {
@@ -1238,9 +1238,9 @@
           "If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent"
         ],
         "ru": [
-          "Прочитаем заявку и поймём, насколько это срочно",
-          "Предложим подходящую услугу и цену",
-          "Если нужен адвокат — с вашего согласия передадим краткое описание независимому адвокату"
+          "Прочитаем заявку и поймём, насколько это срочно",
+          "Предложим подходящую услугу и цену",
+          "Если нужен адвокат — с вашего согласия передадим краткое описание независимому адвокату"
         ],
         "es": [
           "Leemos su solicitud y vemos qué tan urgente es",
@@ -1250,20 +1250,18 @@
       },
       "extra": {
         "en": [
-          "This is not a free legal consultation",
           "Paid work starts only after you accept a quote"
         ],
         "ru": [
           "Платная работа начинается только после согласования сметы"
         ],
         "es": [
-          "No es una consulta legal gratuita",
           "El trabajo pagado empieza solo cuando acepta un presupuesto"
         ]
       },
       "next": {
         "en": "We reply with the suitable service, price or next step.",
-        "ru": "Мы ответим, какая услуга подходит, сколько она стоит и что делать дальше.",
+        "ru": "Мы ответим, какая услуга подходит, сколько она стоит и что делать дальше.",
         "es": "Le respondemos con el servicio adecuado, el precio o el siguiente paso."
       },
       "keywords": {
@@ -1277,7 +1275,7 @@
         ],
         "ru": [
           "вопрос",
-          "не знаю",
+          "не знаю",
           "помощь",
           "адвокат",
           "юрист",
@@ -1324,12 +1322,12 @@
       },
       "short": {
         "en": "We prepare and submit the formation filing for the state and entity type you have chosen.",
-        "ru": "Подготовим и подадим документы на регистрацию компании в выбранном вами штате и форме.",
+        "ru": "Подготовим и подадим документы на регистрацию компании в выбранном вами штате и форме.",
         "es": "Preparamos y presentamos la constitución en el estado y tipo de entidad que usted elige."
       },
       "unit": {
         "en": "service fee + state filing fee",
-        "ru": "плата за услугу + госпошлина штата",
+        "ru": "плата за услугу + госпошлина штата",
         "es": "tarifa de servicio + tasa estatal"
       },
       "included": {
@@ -1341,9 +1339,9 @@
         ],
         "ru": [
           "Проверка доступности названия",
-          "Подготовка и подача учредительного документа",
-          "Подтверждение регистрации и комплект документов",
-          "Одно техническое исправление по запросу штата"
+          "Подготовка и подача учредительного документа",
+          "Подтверждение регистрации и комплект документов",
+          "Одно техническое исправление по запросу штата"
         ],
         "es": [
           "Verificación del nombre",
@@ -1359,7 +1357,7 @@
           "Tax elections"
         ],
         "ru": [
-          "Госпошлина штата (по факту)",
+          "Госпошлина штата (по факту)",
           "Зарегистрированный агент, годовые отчёты, лицензии",
           "Выбор налогового статуса"
         ],
@@ -1371,7 +1369,7 @@
       },
       "next": {
         "en": "Choose the state and entity type, pay the service fee, and we confirm the state fee before filing. No subscription.",
-        "ru": "Выберите штат и форму компании, оплатите услугу — госпошлину подтвердим перед подачей. Без подписки.",
+        "ru": "Выберите штат и форму компании, оплатите услугу — госпошлину подтвердим перед подачей. Без подписки.",
         "es": "Elija estado y tipo de entidad, pague el servicio y confirmamos la tasa estatal antes de presentar. Sin suscripción."
       },
       "keywords": {
@@ -1428,17 +1426,17 @@
       "notices": [],
       "name": {
         "en": "Company formation + EIN",
-        "ru": "Компания + помощь с EIN",
+        "ru": "Компания + помощь с EIN",
         "es": "Empresa + asistencia con EIN"
       },
       "short": {
         "en": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
-        "ru": "Всё из «Открытия компании», плюс помощь с получением EIN и готовый стартовый комплект документов.",
+        "ru": "Всё из «Открытия компании», плюс помощь с получением EIN и готовый стартовый комплект документов.",
         "es": "Todo lo de Creación de empresa, más ayuda para solicitar su EIN y un archivo inicial organizado."
       },
       "unit": {
         "en": "service fee + state filing fee",
-        "ru": "плата за услугу + госпошлина штата",
+        "ru": "плата за услугу + госпошлина штата",
         "es": "tarifa de servicio + tasa estatal"
       },
       "included": {
@@ -1448,8 +1446,8 @@
           "Organized formation records"
         ],
         "ru": [
-          "Всё из «Открытия компании»",
-          "Помощь с заявлением на EIN (IRS не берёт плату за EIN)",
+          "Всё из «Открытия компании»",
+          "Помощь с заявлением на EIN (IRS не берёт плату за EIN)",
           "Комплект регистрационных документов"
         ],
         "es": [
@@ -1464,7 +1462,7 @@
           "Registered agent, renewals, bank account opening"
         ],
         "ru": [
-          "Госпошлина штата (по факту)",
+          "Госпошлина штата (по факту)",
           "Зарегистрированный агент, продления, открытие счёта"
         ],
         "es": [
@@ -1474,7 +1472,7 @@
       },
       "next": {
         "en": "Choose the state and entity type, pay the service fee, and we confirm the state fee before filing.",
-        "ru": "Выберите штат и форму, оплатите услугу — госпошлину подтвердим перед подачей.",
+        "ru": "Выберите штат и форму, оплатите услугу — госпошлину подтвердим перед подачей.",
         "es": "Elija estado y tipo de entidad, pague el servicio y confirmamos la tasa estatal antes de presentar."
       },
       "keywords": {
@@ -1522,7 +1520,7 @@
       },
       "short": {
         "en": "A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.",
-        "ru": "План по вашей анкете: бизнес-модель, обзор рынка с источниками и простой финансовый расчёт.",
+        "ru": "План по вашей анкете: бизнес-модель, обзор рынка с источниками и простой финансовый расчёт.",
         "es": "Un plan hecho a partir de su cuestionario: modelo de negocio, resumen de mercado con fuentes y una proyección financiera sencilla."
       },
       "unit": {
@@ -1538,10 +1536,10 @@
           "Editable file and one revision"
         ],
         "ru": [
-          "Анкета и один рабочий созвон",
-          "Бизнес-модель и обзор рынка с источниками",
-          "Финансовый расчёт на ваших допущениях",
-          "Редактируемый файл и одна доработка"
+          "Анкета и один рабочий созвон",
+          "Бизнес-модель и обзор рынка с источниками",
+          "Финансовый расчёт на ваших допущениях",
+          "Редактируемый файл и одна доработка"
         ],
         "es": [
           "Cuestionario y una llamada de trabajo",
@@ -1556,8 +1554,8 @@
           "Paid market data and complex financial models"
         ],
         "ru": [
-          "Планы для инвесторов, SBA или визовых целей",
-          "Платные рыночные данные и сложные финмодели"
+          "Планы для инвесторов, SBA или визовых целей",
+          "Платные рыночные данные и сложные финмодели"
         ],
         "es": [
           "Planes para inversionistas, SBA o fines migratorios",
@@ -1566,7 +1564,7 @@
       },
       "next": {
         "en": "Tell us what the plan is for and your deadline. We confirm scope and price in writing.",
-        "ru": "Укажите, для чего нужен план, и срок. Объём и цену подтвердим письменно.",
+        "ru": "Укажите, для чего нужен план, и срок. Объём и цену подтвердим письменно.",
         "es": "Indique para qué es el plan y su plazo. Confirmamos alcance y precio por escrito."
       },
       "keywords": {
@@ -1578,7 +1576,7 @@
         "ru": [
           "бизнес-план",
           "бизнес план",
-          "план для банка"
+          "план для банка"
         ],
         "es": [
           "plan de negocio",
@@ -1620,12 +1618,12 @@
       "notices": [],
       "name": {
         "en": "Small-claims filing packet",
-        "ru": "Пакет документов на подачу small claims",
+        "ru": "Пакет документов на подачу small claims",
         "es": "Paquete para presentar un small claims"
       },
       "short": {
         "en": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.",
-        "ru": "Пакет документов по одному иску к одному ответчику: хронология, расчёт сумм, приложения и формы там, где это разрешено.",
+        "ru": "Пакет документов по одному иску к одному ответчику: хронология, расчёт сумм, приложения и формы там, где это разрешено.",
         "es": "Un expediente organizado para un reclamo contra un demandado: cronología, montos, anexos y formularios donde esté permitido."
       },
       "unit": {
@@ -1641,10 +1639,10 @@
           "Preparation of forms where this is permitted in your state"
         ],
         "ru": [
-          "Разбор документов по делу",
-          "Хронология и расчёт суммы",
+          "Разбор документов по делу",
+          "Хронология и расчёт суммы",
           "Пронумерованный пакет приложений",
-          "Подготовка форм там, где это разрешено в вашем штате"
+          "Подготовка форм там, где это разрешено в вашем штате"
         ],
         "es": [
           "Revisión de los documentos del caso",
@@ -1660,9 +1658,9 @@
           "Court hours on request, at the hourly rate"
         ],
         "ru": [
-          "Судебные сборы и вручение документов ответчику",
-          "Апелляция и исполнение решения — по отдельной смете",
-          "Часы в суде — по запросу, по почасовой ставке"
+          "Судебные сборы и вручение документов ответчику",
+          "Апелляция и исполнение решения — по отдельной смете",
+          "Часы в суде — по запросу, по почасовой ставке"
         ],
         "es": [
           "Tasas judiciales y notificación al demandado",
@@ -1672,7 +1670,7 @@
       },
       "next": {
         "en": "Send the basics: state, court and what the claim is about. We confirm what we can do in that state and send a quote.",
-        "ru": "Пришлите основное: штат, суд и суть требования. Мы подтвердим, что можем сделать в этом штате, и пришлём смету.",
+        "ru": "Пришлите основное: штат, суд и суть требования. Мы подтвердим, что можем сделать в этом штате, и пришлём смету.",
         "es": "Envíenos lo básico: estado, tribunal y de qué trata el reclamo. Confirmamos qué podemos hacer en ese estado y le enviamos un presupuesto."
       },
       "keywords": {
@@ -1685,7 +1683,7 @@
         "ru": [
           "small claims",
           "неоплаченный счёт",
-          "клиент не платит",
+          "клиент не платит",
           "долг компании",
           "иск"
         ],
@@ -1732,12 +1730,12 @@
       "notices": [],
       "name": {
         "en": "One month of case support",
-        "ru": "Сопровождение дела на месяц",
+        "ru": "Сопровождение дела на месяц",
         "es": "Un mes de seguimiento del caso"
       },
       "short": {
         "en": "We run your case for a month: filing, service of process, deadlines, settlement talks and the hearing packet. Court hours are added separately.",
-        "ru": "Ведём ваше дело месяц: подача, вручение, сроки, переговоры об урегулировании и пакет к заседанию. Часы в суде добавляются отдельно.",
+        "ru": "Ведём ваше дело месяц: подача, вручение, сроки, переговоры об урегулировании и пакет к заседанию. Часы в суде добавляются отдельно.",
         "es": "Llevamos su caso durante un mes: presentación, notificación, plazos, negociación y paquete para la audiencia. Las horas en la corte se añaden aparte."
       },
       "unit": {
@@ -1754,11 +1752,11 @@
           "Hearing packet and a status report every week"
         ],
         "ru": [
-          "Всё, что входит в пакет на подачу",
-          "Подача и судебный календарь",
-          "Организация и контроль вручения",
-          "Переговоры об урегулировании и рассрочке от имени компании",
-          "Пакет к заседанию и еженедельный отчёт"
+          "Всё, что входит в пакет на подачу",
+          "Подача и судебный календарь",
+          "Организация и контроль вручения",
+          "Переговоры об урегулировании и рассрочке от имени компании",
+          "Пакет к заседанию и еженедельный отчёт"
         ],
         "es": [
           "Todo lo del paquete para presentar",
@@ -1775,9 +1773,9 @@
           "Next month by agreement"
         ],
         "ru": [
-          "Судебные сборы и вручение — по факту",
-          "Часы в суде — по запросу, по почасовой ставке",
-          "Следующий месяц — по согласованию"
+          "Судебные сборы и вручение — по факту",
+          "Часы в суде — по запросу, по почасовой ставке",
+          "Следующий месяц — по согласованию"
         ],
         "es": [
           "Tasas judiciales y de notificación, al costo",
@@ -1787,7 +1785,7 @@
       },
       "next": {
         "en": "Start by sending the case details. Before quoting, we confirm what we're permitted to do in your state and court.",
-        "ru": "Начните с данных по делу. До сметы подтвердим, что нам разрешено делать в вашем штате и суде.",
+        "ru": "Начните с данных по делу. До сметы подтвердим, что нам разрешено делать в вашем штате и суде.",
         "es": "Empiece enviando los datos del caso. Antes del presupuesto confirmamos qué se nos permite hacer en su estado y tribunal."
       },
       "keywords": {
@@ -1826,12 +1824,12 @@
       "notices": [],
       "name": {
         "en": "Recovery support for existing clients",
-        "ru": "Возврат задолженности для действующих клиентов",
+        "ru": "Возврат задолженности для действующих клиентов",
         "es": "Apoyo de recuperación para clientes actuales"
       },
       "short": {
         "en": "An additional option for current business clients, quoted individually.",
-        "ru": "Дополнительная опция для действующих бизнес-клиентов, по индивидуальной смете.",
+        "ru": "Дополнительная опция для действующих бизнес-клиентов, по индивидуальной смете.",
         "es": "Una opción adicional para clientes empresariales actuales, con presupuesto individual."
       },
       "unit": {
@@ -1858,7 +1856,7 @@
           "Available to existing business clients only"
         ],
         "ru": [
-          "Только для действующих бизнес-клиентов"
+          "Только для действующих бизнес-клиентов"
         ],
         "es": [
           "Solo para clientes empresariales actuales"
@@ -1866,7 +1864,7 @@
       },
       "next": {
         "en": "Send your client reference; your manager replies with options.",
-        "ru": "Укажите номер клиента — ваш менеджер ответит с вариантами.",
+        "ru": "Укажите номер клиента — ваш менеджер ответит с вариантами.",
         "es": "Indique su referencia de cliente; la persona a cargo de su cuenta le responde con opciones."
       },
       "keywords": {
@@ -1920,12 +1918,12 @@
       },
       "short": {
         "en": "A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you.",
-        "ru": "Спор о деньгах, договоре, жилье или ущербе? С вашего согласия передадим краткое описание независимому адвокату — он сам решит, связаться ли с вами.",
+        "ru": "Спор о деньгах, договоре, жилье или ущербе? С вашего согласия передадим краткое описание независимому адвокату — он сам решит, связаться ли с вами.",
         "es": "¿Una disputa por dinero, un contrato, vivienda o daños? Con su consentimiento enviamos un resumen a un abogado independiente, que decide si le contacta."
       },
       "unit": {
         "en": "no charge to you",
-        "ru": "для вас бесплатно",
+        "ru": "для вас бесплатно",
         "es": "sin costo para usted"
       },
       "included": {
@@ -1935,9 +1933,9 @@
           "You hear back from the attorney directly if they can help"
         ],
         "ru": [
-          "Сведём ваш рассказ в короткое описание",
-          "С вашего письменного согласия направим её независимому лицензированному адвокату",
-          "Если адвокат сможет помочь, он свяжется с вами напрямую"
+          "Сведём ваш рассказ в короткое описание",
+          "С вашего письменного согласия направим её независимому лицензированному адвокату",
+          "Если адвокат сможет помочь, он свяжется с вами напрямую"
         ],
         "es": [
           "Resumimos su relato en pocas líneas",
@@ -1950,7 +1948,7 @@
           "The attorney decides whether to take the case and agrees any fees with you directly"
         ],
         "ru": [
-          "Адвокат сам решает, браться ли за дело, и договаривается об оплате с вами напрямую"
+          "Адвокат сам решает, браться ли за дело, и договаривается об оплате с вами напрямую"
         ],
         "es": [
           "El abogado decide si toma el caso y acuerda sus honorarios directamente con usted"
@@ -1958,7 +1956,7 @@
       },
       "next": {
         "en": "Describe the dispute and confirm your consent. We aim to pass the summary on within one business day; the attorney contacts you if they can help.",
-        "ru": "Опишите спор и подтвердите согласие. Описание стараемся передать в течение рабочего дня; адвокат свяжется с вами, если сможет помочь.",
+        "ru": "Опишите спор и подтвердите согласие. Описание стараемся передать в течение рабочего дня; адвокат свяжется с вами, если сможет помочь.",
         "es": "Describa la disputa y confirme su consentimiento. Procuramos enviar el resumen en un día hábil; el abogado le contacta si puede ayudarle."
       },
       "keywords": {
@@ -1980,12 +1978,12 @@
           "юрист",
           "гражданское дело",
           "иск",
-          "подать в суд",
+          "подать в суд",
           "спор",
           "арендодатель",
           "депозит",
           "долг",
-          "спор по договору",
+          "спор по договору",
           "ущерб"
         ],
         "es": [
@@ -2036,12 +2034,12 @@
       },
       "short": {
         "en": "Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.",
-        "ru": "Пакет документов для суда Флориды по вашим ответам — с инструкцией по подаче в вашем округе и списком дел после решения суда.",
+        "ru": "Пакет документов для суда Флориды по вашим ответам — с инструкцией по подаче в вашем округе и списком дел после решения суда.",
         "es": "Su paquete para la corte de Florida preparado con sus respuestas, con instrucciones de presentación del condado y una lista para después del fallo."
       },
       "unit": {
         "en": "service fee; court fees go to the clerk",
-        "ru": "плата за услугу; судебные сборы — канцелярии суда",
+        "ru": "плата за услугу; судебные сборы — канцелярии суда",
         "es": "tarifa del servicio; las tasas judiciales van a la secretaría"
       },
       "included": {
@@ -2052,10 +2050,10 @@
           "Questionnaire and disclosure in English, Russian or Spanish"
         ],
         "ru": [
-          "Утверждённые Верховным судом Флориды формы, заполненные по вашим ответам (петиция и итоговое решение)",
-          "Письменная инструкция по подаче в вашем округе, включая отпечатки пальцев",
+          "Утверждённые Верховным судом Флориды формы, заполненные по вашим ответам (петиция и итоговое решение)",
+          "Письменная инструкция по подаче в вашем округе, включая отпечатки пальцев",
           "Список ведомств, где нужно обновить имя после решения суда",
-          "Анкета и раскрытие информации на русском, английском или испанском"
+          "Анкета и раскрытие информации на русском, английском или испанском"
         ],
         "es": [
           "Formularios aprobados por la Corte Suprema de Florida llenados con sus respuestas (petición y fallo final)",
@@ -2071,8 +2069,8 @@
           "Certified copies of the judgment"
         ],
         "ru": [
-          "Судебный сбор (около $400–415 в округах района Тампы)",
-          "Проверка биографии и отпечатки пальцев (около $50–65)",
+          "Судебный сбор (около $400–415 в округах района Тампы)",
+          "Проверка биографии и отпечатки пальцев (около $50–65)",
           "Заверенные копии решения суда"
         ],
         "es": [
@@ -2082,9 +2080,9 @@
         ]
       },
       "next": {
-        "en": "Answer a short questionnaire, sign the nonlawyer disclosure and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.",
-        "ru": "Заполните короткую анкету, подпишите раскрытие о том, что мы не адвокаты, и оплатите услугу. Мы подготовим пакет и инструкцию — вы подаёте его в канцелярию суда своего округа.",
-        "es": "Complete un cuestionario breve, firme el aviso de que no somos abogados y pague el servicio. Preparamos el paquete y las instrucciones; usted lo presenta ante la secretaría de su condado."
+        "en": "Answer a short questionnaire, sign the required disclosure (Form 12.900(a)) and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.",
+        "ru": "Заполните короткую анкету, подпишите обязательное раскрытие (форма 12.900(a)), и оплатите услугу. Мы подготовим пакет и инструкцию — вы подаёте его в канцелярию суда своего округа.",
+        "es": "Complete un cuestionario breve, firme la divulgación obligatoria (Formulario 12.900(a)) y pague el servicio. Preparamos el paquete y las instrucciones; usted lo presenta ante la secretaría de su condado."
       },
       "keywords": {
         "en": [
@@ -2189,17 +2187,17 @@
       ],
       "name": {
         "en": "Court name change for a child or family (Florida)",
-        "ru": "Смена имени ребёнку или семье через суд (Флорида)",
+        "ru": "Смена имени ребёнку или семье через суд (Флорида)",
         "es": "Cambio de nombre por la corte para un menor o familia (Florida)"
       },
       "short": {
         "en": "Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review.",
-        "ru": "Пакеты документов для смены имени ребёнку или всей семье по вашим ответам; цену подтвердим после короткой проверки.",
+        "ru": "Пакеты документов для смены имени ребёнку или всей семье по вашим ответам; цену подтвердим после короткой проверки.",
         "es": "Paquetes de petición para un menor o toda la familia, preparados con sus respuestas; cotizamos tras una breve revisión."
       },
       "unit": {
         "en": "starting price per petition",
-        "ru": "стартовая цена за одну петицию",
+        "ru": "стартовая цена за одну петицию",
         "es": "precio inicial por petición"
       },
       "included": {
@@ -2208,8 +2206,8 @@
           "Filing instructions for your county"
         ],
         "ru": [
-          "Утверждённые формы для ребёнка или семьи, заполненные по вашим ответам",
-          "Инструкция по подаче в вашем округе"
+          "Утверждённые формы для ребёнка или семьи, заполненные по вашим ответам",
+          "Инструкция по подаче в вашем округе"
         ],
         "es": [
           "Formularios aprobados para menores o familias llenados con sus respuestas",
@@ -2222,8 +2220,8 @@
           "Consent or notice to the other parent where the law requires it"
         ],
         "ru": [
-          "Судебные сборы, проверки и заверенные копии",
-          "Согласие или уведомление второго родителя, если этого требует закон"
+          "Судебные сборы, проверки и заверенные копии",
+          "Согласие или уведомление второго родителя, если этого требует закон"
         ],
         "es": [
           "Tasas judiciales, verificaciones y copias certificadas",
@@ -2232,7 +2230,7 @@
       },
       "next": {
         "en": "Tell us who is changing their name and in which county. We confirm the scope and price before any work.",
-        "ru": "Укажите, кто меняет имя и в каком округе. Объём и цену подтвердим до начала работы.",
+        "ru": "Укажите, кто меняет имя и в каком округе. Объём и цену подтвердим до начала работы.",
         "es": "Indique quién cambia de nombre y en qué condado. Confirmamos alcance y precio antes de empezar."
       },
       "keywords": {
@@ -2282,17 +2280,17 @@
       ],
       "name": {
         "en": "Fee waiver application",
-        "ru": "Заявление об освобождении от пошлины",
+        "ru": "Заявление об освобождении от пошлины",
         "es": "Solicitud de exención de tarifas"
       },
       "short": {
         "en": "Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides.",
-        "ru": "Заявление об освобождении от судебной пошлины или сбора USCIS, заполненное по вашим письменным ответам, — одна цена за заявление. Решение принимает суд или USCIS.",
+        "ru": "Заявление об освобождении от судебной пошлины или сбора USCIS, заполненное по вашим письменным ответам, — одна цена за заявление. Решение принимает суд или USCIS.",
         "es": "Formularios de exención de tarifas de la corte o de USCIS llenados con sus respuestas por escrito; un precio fijo por solicitud. Decide la corte o USCIS."
       },
       "unit": {
         "en": "per application",
-        "ru": "за одно заявление",
+        "ru": "за одно заявление",
         "es": "por solicitud"
       },
       "included": {
@@ -2302,9 +2300,9 @@
           "Preparer section completed as the form requires"
         ],
         "ru": [
-          "Форма заявления, заполненная по вашим письменным ответам",
+          "Форма заявления, заполненная по вашим письменным ответам",
           "Список подтверждающих документов, которые требует форма",
-          "Раздел о помощнике в заполнении — так, как требует форма"
+          "Раздел о помощнике в заполнении — так, как требует форма"
         ],
         "es": [
           "El formulario de exención llenado con sus respuestas por escrito",
@@ -2319,7 +2317,7 @@
         ],
         "ru": [
           "Переводы подтверждающих документов",
-          "Основное заявление в суд или USCIS"
+          "Основное заявление в суд или USCIS"
         ],
         "es": [
           "Traducción de documentos de respaldo",
@@ -2328,7 +2326,7 @@
       },
       "next": {
         "en": "Tell us which court or USCIS form the waiver is for and pay the fixed fee. We send you a questionnaire to answer in writing and return the typed form for your signature.",
-        "ru": "Укажите, для какого суда или формы USCIS нужно освобождение, и оплатите фиксированную цену. Мы пришлём анкету для письменных ответов и вернём заполненную форму на подпись.",
+        "ru": "Укажите, для какого суда или формы USCIS нужно освобождение, и оплатите фиксированную цену. Мы пришлём анкету для письменных ответов и вернём заполненную форму на подпись.",
         "es": "Indique para qué corte o formulario de USCIS es la exención y pague la tarifa fija. Le enviamos un cuestionario para responder por escrito y le devolvemos el formulario listo para firmar."
       },
       "keywords": {
@@ -2341,12 +2339,12 @@
           "in forma pauperis"
         ],
         "ru": [
-          "освобождение от пошлины",
+          "освобождение от пошлины",
           "fee waiver",
           "i-912",
-          "не могу оплатить пошлину",
+          "не могу оплатить пошлину",
           "малоимущий",
-          "без пошлины"
+          "без пошлины"
         ],
         "es": [
           "exención de tarifas",
@@ -2389,12 +2387,12 @@
       ],
       "name": {
         "en": "Florida annual report filing",
-        "ru": "Ежегодный отчёт компании во Флориде",
+        "ru": "Ежегодный отчёт компании во Флориде",
         "es": "Informe anual en Florida"
       },
       "short": {
         "en": "We check your Sunbiz record, type the annual report with any address or manager changes, file it and send you the filed copy.",
-        "ru": "Проверим запись компании в Sunbiz, заполним ежегодный отчёт с новыми адресами или менеджерами, подадим его и пришлём подтверждение.",
+        "ru": "Проверим запись компании в Sunbiz, заполним ежегодный отчёт с новыми адресами или менеджерами, подадим его и пришлём подтверждение.",
         "es": "Revisamos su registro en Sunbiz, llenamos el informe anual con los cambios de dirección o gerentes, lo presentamos y le enviamos la copia presentada."
       },
       "unit": {
@@ -2410,9 +2408,9 @@
           "A reminder before next year’s window"
         ],
         "ru": [
-          "Проверка записи в Sunbiz до подачи",
-          "Новые адреса, директора, менеджеры и регистрационный агент — прямо в отчёте",
-          "Подача и подтверждение в PDF",
+          "Проверка записи в Sunbiz до подачи",
+          "Новые адреса, директора, менеджеры и регистрационный агент — прямо в отчёте",
+          "Подача и подтверждение в PDF",
           "Напоминание перед следующим сроком"
         ],
         "es": [
@@ -2430,10 +2428,10 @@
           "Tax returns are a separate service"
         ],
         "ru": [
-          "Сбор штата Флорида: $138.75 для LLC, $150 для корпорации",
+          "Сбор штата Флорида: $138.75 для LLC, $150 для корпорации",
           "Штраф штата $400 после 1 мая",
-          "Восстановление после ликвидации (по смете)",
-          "Налоговые декларации — отдельная услуга"
+          "Восстановление после ликвидации (по смете)",
+          "Налоговые декларации — отдельная услуга"
         ],
         "es": [
           "Tasa de Florida: $138.75 para una LLC, $150 para una corporación",
@@ -2444,7 +2442,7 @@
       },
       "next": {
         "en": "Send the company name or Sunbiz document number. We confirm what changes, you pay, and we file. You can also file yourself at sunbiz.org and pay only the state fee.",
-        "ru": "Пришлите название компании или номер документа в Sunbiz. Подтвердим изменения, вы оплачиваете — мы подаём. Подать самостоятельно можно и на sunbiz.org, оплатив только сбор штата.",
+        "ru": "Пришлите название компании или номер документа в Sunbiz. Подтвердим изменения, вы оплачиваете — мы подаём. Подать самостоятельно можно и на sunbiz.org, оплатив только сбор штата.",
         "es": "Envíe el nombre de la empresa o el número de documento de Sunbiz. Confirmamos los cambios, usted paga y presentamos. También puede presentarlo usted en sunbiz.org pagando solo la tasa estatal."
       },
       "keywords": {
@@ -2501,12 +2499,12 @@
       },
       "short": {
         "en": "The annual report plus reminders, one certificate of status and one mid-year update. Renews only when you say so.",
-        "ru": "Ежегодный отчёт, напоминания, одна справка о статусе и одно обновление данных в течение года. Продлевается только с вашего согласия.",
+        "ru": "Ежегодный отчёт, напоминания, одна справка о статусе и одно обновление данных в течение года. Продлевается только с вашего согласия.",
         "es": "El informe anual, recordatorios, un certificado de estado y una actualización a mitad de año. Solo se renueva si usted lo decide."
       },
       "unit": {
         "en": "per entity, per year + state fees",
-        "ru": "за компанию в год + сборы штата",
+        "ru": "за компанию в год + сборы штата",
         "es": "por entidad, por año + tasas estatales"
       },
       "included": {
@@ -2518,8 +2516,8 @@
         ],
         "ru": [
           "Подача ежегодного отчёта",
-          "Напоминания в январе, марте и апреле",
-          "Одна справка о статусе после подачи",
+          "Напоминания в январе, марте и апреле",
+          "Одна справка о статусе после подачи",
           "Одна корректировка отчёта, если данные изменятся"
         ],
         "es": [
@@ -2538,7 +2536,7 @@
         ],
         "ru": [
           "Все сборы штата",
-          "Без автопродления: каждый год — только с вашего нового согласия",
+          "Без автопродления: каждый год — только с вашего нового согласия",
           "Услуги регистрационного агента",
           "Налоговые декларации"
         ],
@@ -2551,7 +2549,7 @@
       },
       "next": {
         "en": "Choose the plan, confirm the company details and pay for one year. We handle the report and remind you before each step.",
-        "ru": "Выберите план, подтвердите данные компании и оплатите один год. Мы подадим отчёт и напомним о каждом шаге.",
+        "ru": "Выберите план, подтвердите данные компании и оплатите один год. Мы подадим отчёт и напомним о каждом шаге.",
         "es": "Elija el plan, confirme los datos de la empresa y pague un año. Nos ocupamos del informe y le avisamos antes de cada paso."
       },
       "keywords": {
@@ -2598,7 +2596,7 @@
       },
       "short": {
         "en": "Register a trade name for your business in Florida, valid for five years.",
-        "ru": "Зарегистрируем торговое имя вашего бизнеса во Флориде на пять лет.",
+        "ru": "Зарегистрируем торговое имя вашего бизнеса во Флориде на пять лет.",
         "es": "Registramos el nombre comercial de su negocio en Florida por cinco años."
       },
       "unit": {
@@ -2614,10 +2612,10 @@
           "The filed document as a PDF"
         ],
         "ru": [
-          "Проверка записи или названия в Sunbiz",
-          "Форма по вашим письменным ответам",
-          "Подача или заказ и отслеживание",
-          "Готовый документ в PDF"
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
         ],
         "es": [
           "Búsqueda del registro o del nombre en Sunbiz",
@@ -2634,8 +2632,8 @@
         ],
         "ru": [
           "Сбор штата Флорида: $50",
-          "Объявление в газете вашего округа, как требует закон (по цене газеты)",
-          "Проверка товарных знаков и заключения по ним"
+          "Объявление в газете вашего округа, как требует закон (по цене газеты)",
+          "Проверка товарных знаков и заключения по ним"
         ],
         "es": [
           "Tasa de Florida: $50",
@@ -2645,7 +2643,7 @@
       },
       "next": {
         "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
-        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
         "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
       },
       "keywords": {
@@ -2695,12 +2693,12 @@
       ],
       "name": {
         "en": "Articles of amendment, Florida",
-        "ru": "Изменения в учредительные документы, Флорида",
+        "ru": "Изменения в учредительные документы, Флорида",
         "es": "Enmienda de artículos, Florida"
       },
       "short": {
         "en": "Change your company’s name, address or other recorded details, typed exactly as you decide.",
-        "ru": "Изменим название, адрес или другие данные компании — ровно так, как решите вы.",
+        "ru": "Изменим название, адрес или другие данные компании — ровно так, как решите вы.",
         "es": "Cambiamos el nombre, la dirección u otros datos registrados de su empresa, tal como usted lo decida."
       },
       "unit": {
@@ -2716,10 +2714,10 @@
           "The filed document as a PDF"
         ],
         "ru": [
-          "Проверка записи или названия в Sunbiz",
-          "Форма по вашим письменным ответам",
-          "Подача или заказ и отслеживание",
-          "Готовый документ в PDF"
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
         ],
         "es": [
           "Búsqueda del registro o del nombre en Sunbiz",
@@ -2735,9 +2733,9 @@
           "Advice on ownership changes, mergers or conversions"
         ],
         "ru": [
-          "Сбор штата Флорида: $25 для LLC, $35 для корпорации",
-          "Почта или курьер (Флорида принимает изменения только по почте)",
-          "Консультации по смене владельцев, слияниям и преобразованиям"
+          "Сбор штата Флорида: $25 для LLC, $35 для корпорации",
+          "Почта или курьер (Флорида принимает изменения только по почте)",
+          "Консультации по смене владельцев, слияниям и преобразованиям"
         ],
         "es": [
           "Tasa de Florida: $25 para una LLC, $35 para una corporación",
@@ -2747,7 +2745,7 @@
       },
       "next": {
         "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
-        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
         "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
       },
       "keywords": {
@@ -2758,7 +2756,7 @@
         ],
         "ru": [
           "изменить название llc",
-          "изменения в llc",
+          "изменения в llc",
           "смена адреса компании"
         ],
         "es": [
@@ -2791,12 +2789,12 @@
       "notices": [],
       "name": {
         "en": "Certificate of status (good standing), Florida",
-        "ru": "Справка о статусе компании (good standing), Флорида",
+        "ru": "Справка о статусе компании (good standing), Флорида",
         "es": "Certificado de estado (good standing), Florida"
       },
       "short": {
         "en": "The official certificate that your company is active, often asked for by banks and partners.",
-        "ru": "Официальная справка, что компания действует, — её часто просят банки и партнёры.",
+        "ru": "Официальная справка, что компания действует, — её часто просят банки и партнёры.",
         "es": "El certificado oficial de que su empresa está activa, que suelen pedir bancos y socios."
       },
       "unit": {
@@ -2812,10 +2810,10 @@
           "The filed document as a PDF"
         ],
         "ru": [
-          "Проверка записи или названия в Sunbiz",
-          "Форма по вашим письменным ответам",
-          "Подача или заказ и отслеживание",
-          "Готовый документ в PDF"
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
         ],
         "es": [
           "Búsqueda del registro o del nombre en Sunbiz",
@@ -2830,8 +2828,8 @@
           "Apostille for use abroad (separate service)"
         ],
         "ru": [
-          "Сбор штата Флорида: $5 для LLC, $8.75 для корпорации",
-          "Апостиль для использования за рубежом (отдельная услуга)"
+          "Сбор штата Флорида: $5 для LLC, $8.75 для корпорации",
+          "Апостиль для использования за рубежом (отдельная услуга)"
         ],
         "es": [
           "Tasa de Florida: $5 para una LLC, $8.75 para una corporación",
@@ -2840,7 +2838,7 @@
       },
       "next": {
         "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
-        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
         "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
       },
       "keywords": {
@@ -2849,7 +2847,7 @@
           "certificate of status"
         ],
         "ru": [
-          "справка о статусе",
+          "справка о статусе",
           "good standing"
         ],
         "es": [
@@ -2890,7 +2888,7 @@
       },
       "short": {
         "en": "Certified copies of your articles or other filed records, ordered from the state.",
-        "ru": "Заверенные копии учредительных и других поданных документов — закажем в штате.",
+        "ru": "Заверенные копии учредительных и других поданных документов — закажем в штате.",
         "es": "Copias certificadas de sus artículos u otros registros, pedidas al estado."
       },
       "unit": {
@@ -2906,10 +2904,10 @@
           "The filed document as a PDF"
         ],
         "ru": [
-          "Проверка записи или названия в Sunbiz",
-          "Форма по вашим письменным ответам",
-          "Подача или заказ и отслеживание",
-          "Готовый документ в PDF"
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
         ],
         "es": [
           "Búsqueda del registro o del nombre en Sunbiz",
@@ -2925,8 +2923,8 @@
           "Apostille (separate service)"
         ],
         "ru": [
-          "Сбор штата Флорида: $30 для LLC; от $8.75 для корпорации",
-          "Почта или курьер",
+          "Сбор штата Флорида: $30 для LLC; от $8.75 для корпорации",
+          "Почта или курьер",
           "Апостиль (отдельная услуга)"
         ],
         "es": [
@@ -2937,7 +2935,7 @@
       },
       "next": {
         "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
-        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
         "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
       },
       "keywords": {
@@ -2977,17 +2975,17 @@
       "notices": [],
       "name": {
         "en": "Company filings in other states",
-        "ru": "Документы компании в других штатах",
+        "ru": "Документы компании в других штатах",
         "es": "Trámites de empresas en otros estados"
       },
       "short": {
         "en": "Annual reports, DBAs, amendments and certificates outside Florida, where the state accepts them online or by mail.",
-        "ru": "Ежегодные отчёты, DBA, изменения и справки за пределами Флориды — где штат принимает их онлайн или по почте.",
+        "ru": "Ежегодные отчёты, DBA, изменения и справки за пределами Флориды — где штат принимает их онлайн или по почте.",
         "es": "Informes anuales, DBA, enmiendas y certificados fuera de Florida, donde el estado los acepte en línea o por correo."
       },
       "unit": {
         "en": "quoted per operation and state",
-        "ru": "по смете для каждого действия и штата",
+        "ru": "по смете для каждого действия и штата",
         "es": "cotización por trámite y estado"
       },
       "included": {
@@ -2996,8 +2994,8 @@
           "Written quote before any payment"
         ],
         "ru": [
-          "Проверка действующих сборов и правил штата",
-          "Письменная смета до оплаты"
+          "Проверка действующих сборов и правил штата",
+          "Письменная смета до оплаты"
         ],
         "es": [
           "Revisión de las tasas y reglas vigentes de ese estado",
@@ -3011,7 +3009,7 @@
         ],
         "ru": [
           "Сборы этого штата",
-          "Публикация в газете, где она требуется"
+          "Публикация в газете, где она требуется"
         ],
         "es": [
           "Las tasas de ese estado",
@@ -3020,7 +3018,7 @@
       },
       "next": {
         "en": "Tell us the state and the operation. We reply with the state fee, our fee and what we need from you.",
-        "ru": "Укажите штат и нужное действие. Ответим сбором штата, нашей ценой и списком того, что нужно от вас.",
+        "ru": "Укажите штат и нужное действие. Ответим сбором штата, нашей ценой и списком того, что нужно от вас.",
         "es": "Indíquenos el estado y el trámite. Le respondemos con la tasa estatal, nuestra tarifa y lo que necesitamos."
       },
       "keywords": {
@@ -3029,7 +3027,7 @@
           "dba texas"
         ],
         "ru": [
-          "отчёт llc в другом штате"
+          "отчёт llc в другом штате"
         ],
         "es": [
           "informe anual otro estado"
@@ -3073,12 +3071,12 @@
       },
       "short": {
         "en": "We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.",
-        "ru": "Закажем заверенные копии, на которые у вас есть право, — например, свидетельство о рождении или судебные документы — и сразу передадим их на апостиль, если он нужен.",
+        "ru": "Закажем заверенные копии, на которые у вас есть право, — например, свидетельство о рождении или судебные документы — и сразу передадим их на апостиль, если он нужен.",
         "es": "Pedimos las copias certificadas a las que usted tiene derecho, como actas de nacimiento o documentos judiciales, y las pasamos directamente a la apostilla si la necesita."
       },
       "unit": {
         "en": "per record + agency fee",
-        "ru": "за один документ + сбор ведомства",
+        "ru": "за один документ + сбор ведомства",
         "es": "por documento + tasa de la agencia"
       },
       "included": {
@@ -3089,10 +3087,10 @@
           "Hand-off to translation, notarization or apostille only if required"
         ],
         "ru": [
-          "Проверим, что у вас есть право на документ",
-          "Подготовим запрос на вашу подпись или доверенность",
-          "Заказ, отслеживание и получение",
-          "Передача на перевод, заверение или апостиль — только если они нужны"
+          "Проверим, что у вас есть право на документ",
+          "Подготовим запрос на вашу подпись или доверенность",
+          "Заказ, отслеживание и получение",
+          "Передача на перевод, заверение или апостиль — только если они нужны"
         ],
         "es": [
           "Verificamos que usted tiene derecho al documento",
@@ -3109,10 +3107,10 @@
           "Records you are not entitled to"
         ],
         "ru": [
-          "Сборы ведомств (например, свидетельство о рождении во Флориде — $9)",
-          "Доставка и курьер",
-          "Справки FBI и документы других штатов — по смете",
-          "Документы, на которые у вас нет права"
+          "Сборы ведомств (например, свидетельство о рождении во Флориде — $9)",
+          "Доставка и курьер",
+          "Справки FBI и документы других штатов — по смете",
+          "Документы, на которые у вас нет права"
         ],
         "es": [
           "Tasas de las agencias (p. ej., acta de nacimiento en Florida: $9)",
@@ -3123,7 +3121,7 @@
       },
       "next": {
         "en": "Tell us which record, where it was issued and which country needs it. We reply with the steps you actually need and the full cost.",
-        "ru": "Укажите, какой документ, где он выдан и для какой страны. Ответим, какие шаги действительно нужны и сколько стоит всё вместе.",
+        "ru": "Укажите, какой документ, где он выдан и для какой страны. Ответим, какие шаги действительно нужны и сколько стоит всё вместе.",
         "es": "Indíquenos qué documento, dónde se emitió y qué país lo necesita. Le respondemos con los pasos que realmente necesita y el costo total."
       },
       "keywords": {
@@ -3134,8 +3132,8 @@
           "vital records"
         ],
         "ru": [
-          "получить свидетельство о рождении",
-          "копия свидетельства о рождении",
+          "получить свидетельство о рождении",
+          "копия свидетельства о рождении",
           "судебные документы копия"
         ],
         "es": [
@@ -3178,12 +3176,12 @@
       },
       "short": {
         "en": "After a marriage, divorce or court order: Social Security and passport forms typed, a driver license checklist and letters to your banks.",
-        "ru": "После брака, развода или решения суда: заполним формы для Social Security и паспорта, дадим список шагов для водительских прав и письма в банки.",
+        "ru": "После брака, развода или решения суда: заполним формы для Social Security и паспорта, дадим список шагов для водительских прав и письма в банки.",
         "es": "Tras un matrimonio, divorcio u orden judicial: llenamos los formularios del Seguro Social y del pasaporte, la lista para la licencia de conducir y las cartas a sus bancos."
       },
       "unit": {
         "en": "per person",
-        "ru": "за одного человека",
+        "ru": "за одного человека",
         "es": "por persona"
       },
       "included": {
@@ -3194,10 +3192,10 @@
           "Up to 10 name-change letters to banks, insurers and employers"
         ],
         "ru": [
-          "Форма SS-5 для Social Security",
-          "Одна паспортная форма (DS-82, DS-5504 или DS-11)",
-          "Список шагов для прав и ID во Флориде",
-          "До 10 писем о смене имени в банки, страховые и работодателю"
+          "Форма SS-5 для Social Security",
+          "Одна паспортная форма (DS-82, DS-5504 или DS-11)",
+          "Список шагов для прав и ID во Флориде",
+          "До 10 писем о смене имени в банки, страховые и работодателю"
         ],
         "es": [
           "Formulario SS-5 del Seguro Social",
@@ -3214,9 +3212,9 @@
           "Advice on which name to use"
         ],
         "ru": [
-          "Госпошлины (Social Security — бесплатно; паспорт — по тарифам Госдепартамента)",
-          "Фото на паспорт и почта",
-          "Заверенные копии свидетельства о браке или решения суда",
+          "Госпошлины (Social Security — бесплатно; паспорт — по тарифам Госдепартамента)",
+          "Фото на паспорт и почта",
+          "Заверенные копии свидетельства о браке или решения суда",
           "Советы, какое имя выбрать"
         ],
         "es": [
@@ -3228,7 +3226,7 @@
       },
       "next": {
         "en": "Tell us how the name changed and which documents you hold. You pay, answer a short questionnaire, and receive the forms ready to sign.",
-        "ru": "Расскажите, как изменилось имя и какие документы у вас на руках. Вы оплачиваете, отвечаете на короткую анкету и получаете формы, готовые к подписи.",
+        "ru": "Расскажите, как изменилось имя и какие документы у вас на руках. Вы оплачиваете, отвечаете на короткую анкету и получаете формы, готовые к подписи.",
         "es": "Cuéntenos cómo cambió su nombre y qué documentos tiene. Usted paga, responde un breve cuestionario y recibe los formularios listos para firmar."
       },
       "keywords": {
@@ -3239,7 +3237,7 @@
         ],
         "ru": [
           "сменить фамилию после брака",
-          "сменить имя в паспорте",
+          "сменить имя в паспорте",
           "social security смена фамилии"
         ],
         "es": [
@@ -3279,17 +3277,17 @@
       ],
       "name": {
         "en": "Court hour for your company (add-on)",
-        "ru": "Час в суде за компанию (дополнительно)",
+        "ru": "Час в суде за компанию (дополнительно)",
         "es": "Hora en la corte para su empresa (adicional)"
       },
       "short": {
         "en": "For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney.",
-        "ru": "Для клиентов с пакетом или месячным сопровождением: время на заседании или медиации за вашу компанию — по её доверенности.",
+        "ru": "Для клиентов с пакетом или месячным сопровождением: время на заседании или медиации за вашу компанию — по её доверенности.",
         "es": "Para clientes con paquete o mes de seguimiento: tiempo en la audiencia o mediación por su empresa, con su poder."
       },
       "unit": {
         "en": "per hour, 1-hour minimum, 15-minute steps",
-        "ru": "за час, минимум 1 час, учёт по 15 минут",
+        "ru": "за час, минимум 1 час, учёт по 15 минут",
         "es": "por hora, mínimo 1 hora, tramos de 15 minutos"
       },
       "included": {
@@ -3299,8 +3297,8 @@
           "A short written report afterwards"
         ],
         "ru": [
-          "Подготовка в день заседания",
-          "Участие в заседании или медиации",
+          "Подготовка в день заседания",
+          "Участие в заседании или медиации",
           "Короткий письменный отчёт после"
         ],
         "es": [
@@ -3315,8 +3313,8 @@
           "Your state and court confirmed before work starts"
         ],
         "ru": [
-          "Выезд за пределы округа — по смете",
-          "Штат и суд подтверждаем до начала работы"
+          "Выезд за пределы округа — по смете",
+          "Штат и суд подтверждаем до начала работы"
         ],
         "es": [
           "Desplazamiento fuera del condado: cotización",
@@ -3325,7 +3323,7 @@
       },
       "next": {
         "en": "Send your cases. We send the power of attorney for the company to sign and confirm the hourly estimate in writing before we start.",
-        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим оценку часов до начала работы.",
+        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим оценку часов до начала работы.",
         "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito la estimación de horas antes de empezar."
       },
       "keywords": {
@@ -3378,12 +3376,12 @@
       },
       "short": {
         "en": "Aging by account, disputes and missing documents, and the next step for each overdue invoice.",
-        "ru": "Возраст долга по каждому клиенту, споры и недостающие документы, следующий шаг по каждому просроченному счёту.",
+        "ru": "Возраст долга по каждому клиенту, споры и недостающие документы, следующий шаг по каждому просроченному счёту.",
         "es": "Antigüedad por cuenta, disputas y documentos faltantes, y el siguiente paso para cada factura vencida."
       },
       "unit": {
         "en": "one analysis, up to 100 open invoices",
-        "ru": "один анализ, до 100 открытых счетов",
+        "ru": "один анализ, до 100 открытых счетов",
         "es": "un análisis, hasta 100 facturas abiertas"
       },
       "included": {
@@ -3394,10 +3392,10 @@
           "A 30-minute review call"
         ],
         "ru": [
-          "Отчёт по возрасту долга — по клиентам и суммам",
-          "Отмеченные споры, недостающие документы и пробелы в контактах",
-          "Следующий шаг по каждому счёту: напоминание, график платежей или small claims",
-          "Разбор итогов на 30-минутном звонке"
+          "Отчёт по возрасту долга — по клиентам и суммам",
+          "Отмеченные споры, недостающие документы и пробелы в контактах",
+          "Следующий шаг по каждому счёту: напоминание, график платежей или small claims",
+          "Разбор итогов на 30-минутном звонке"
         ],
         "es": [
           "Informe de antigüedad por cuenta y por monto",
@@ -3412,8 +3410,8 @@
           "More than 100 invoices: quoted in writing"
         ],
         "ru": [
-          "Бесплатно для клиентов на ретейнере small claims",
-          "Больше 100 счетов — по письменной смете"
+          "Бесплатно для клиентов на ретейнере small claims",
+          "Больше 100 счетов — по письменной смете"
         ],
         "es": [
           "Gratis para clientes con el retainer de small claims",
@@ -3422,7 +3420,7 @@
       },
       "next": {
         "en": "Send an export of your open invoices. We confirm the scope in writing and deliver the analysis within 5 business days.",
-        "ru": "Пришлите выгрузку открытых счетов. Подтвердим объём письменно и сдадим анализ за 5 рабочих дней.",
+        "ru": "Пришлите выгрузку открытых счетов. Подтвердим объём письменно и сдадим анализ за 5 рабочих дней.",
         "es": "Envíe una exportación de sus facturas abiertas. Confirmamos el alcance por escrito y entregamos el análisis en 5 días hábiles."
       },
       "keywords": {
@@ -3470,17 +3468,17 @@
       ],
       "name": {
         "en": "Recovery pilot, 30 days",
-        "ru": "Пилотный проект по возврату, 30 дней",
+        "ru": "Пилотный проект по возврату, 30 дней",
         "es": "Piloto de recuperación, 30 días"
       },
       "short": {
         "en": "A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets.",
-        "ru": "30 дней работы по 25 просроченным счетам: напоминания и претензии от имени вашей компании, графики платежей и пакеты small claims.",
+        "ru": "30 дней работы по 25 просроченным счетам: напоминания и претензии от имени вашей компании, графики платежей и пакеты small claims.",
         "es": "30 días de trabajo con hasta 25 facturas vencidas: recordatorios y cartas de cobro a nombre de su empresa, planes de pago y paquetes de small claims."
       },
       "unit": {
         "en": "30 days, up to 25 invoices",
-        "ru": "30 дней, до 25 счетов",
+        "ru": "30 дней, до 25 счетов",
         "es": "30 días, hasta 25 facturas"
       },
       "included": {
@@ -3492,11 +3490,11 @@
           "Weekly report and a final summary"
         ],
         "ru": [
-          "Анализ задолженности по счетам пилота",
-          "Цепочка напоминаний и претензий от имени вашей компании — с вашим согласованием",
-          "Документы по рассрочке для должников, согласных платить частями",
-          "Пакеты small claims для счетов, по которым нужен суд",
-          "Еженедельный отчёт и итоговая сводка"
+          "Анализ задолженности по счетам пилота",
+          "Цепочка напоминаний и претензий от имени вашей компании — с вашим согласованием",
+          "Документы по рассрочке для должников, согласных платить частями",
+          "Пакеты small claims для счетов, по которым нужен суд",
+          "Еженедельный отчёт и итоговая сводка"
         ],
         "es": [
           "Análisis de las cuentas del piloto",
@@ -3513,9 +3511,9 @@
           "Postage or certified mail, at cost"
         ],
         "ru": [
-          "Бесплатный 30-дневный пилот для клиентов на ретейнере small claims",
-          "Судебные сборы и вручение — по фактической стоимости",
-          "Почта или заказные письма — по фактической стоимости"
+          "Бесплатный 30-дневный пилот для клиентов на ретейнере small claims",
+          "Судебные сборы и вручение — по фактической стоимости",
+          "Почта или заказные письма — по фактической стоимости"
         ],
         "es": [
           "Piloto gratuito de 30 días para clientes con el retainer de small claims",
@@ -3525,7 +3523,7 @@
       },
       "next": {
         "en": "Send the list of overdue invoices. We agree the pilot accounts and the letter wording with you, then run 30 days with a weekly report.",
-        "ru": "Пришлите список просроченных счетов. Согласуем с вами счета пилота и тексты писем, затем 30 дней работы с еженедельным отчётом.",
+        "ru": "Пришлите список просроченных счетов. Согласуем с вами счета пилота и тексты писем, затем 30 дней работы с еженедельным отчётом.",
         "es": "Envíe la lista de facturas vencidas. Acordamos con usted las cuentas del piloto y el texto de las cartas, y trabajamos 30 días con un informe semanal."
       },
       "keywords": {
@@ -3536,7 +3534,7 @@
         ],
         "ru": [
           "возврат дебиторской задолженности",
-          "вернуть долги по счетам",
+          "вернуть долги по счетам",
           "неоплаченные счета компании"
         ],
         "es": [
@@ -3581,17 +3579,17 @@
       ],
       "name": {
         "en": "Retainer: full case with court representation",
-        "ru": "Ретейнер: полное ведение дела с представительством в суде",
+        "ru": "Ретейнер: полное ведение дела с представительством в суде",
         "es": "Retainer: caso completo con representación en la corte"
       },
       "short": {
         "en": "We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus.",
-        "ru": "Берём на себя всё дело вашей компании: документы, подачу, вручение, сроки, переговоры и само заседание — по доверенности. Бонус по возврату задолженности включён.",
+        "ru": "Берём на себя всё дело вашей компании: документы, подачу, вручение, сроки, переговоры и само заседание — по доверенности. Бонус по возврату задолженности включён.",
         "es": "Llevamos todo el caso de su empresa: documentos, presentación, notificación, plazos, negociación y la audiencia, con un poder. Incluye el bono de recuperación."
       },
       "unit": {
         "en": "per case, until judgment",
-        "ru": "за дело, до решения суда",
+        "ru": "за дело, до решения суда",
         "es": "por caso, hasta la sentencia"
       },
       "included": {
@@ -3604,12 +3602,12 @@
           "Bonus: free receivables analysis and a free 30-day recovery pilot"
         ],
         "ru": [
-          "Пакет документов и подача",
-          "Вручение и судебный календарь",
-          "Предварительное заседание и медиация за компанию",
-          "До 2 часов в суде включено",
+          "Пакет документов и подача",
+          "Вручение и судебный календарь",
+          "Предварительное заседание и медиация за компанию",
+          "До 2 часов в суде включено",
           "Шаги после решения суда",
-          "Бонус: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот"
+          "Бонус: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот"
         ],
         "es": [
           "Paquete y presentación",
@@ -3627,9 +3625,9 @@
           "Appeals: quoted separately"
         ],
         "ru": [
-          "Судебные сборы и вручение — по факту",
-          "Время в суде сверх 2 часов — по почасовой ставке",
-          "Апелляция — по отдельной смете"
+          "Судебные сборы и вручение — по факту",
+          "Время в суде сверх 2 часов — по почасовой ставке",
+          "Апелляция — по отдельной смете"
         ],
         "es": [
           "Tasas judiciales y de notificación, al costo",
@@ -3639,7 +3637,7 @@
       },
       "next": {
         "en": "Send the case. We confirm the state and court, send the power of attorney for your company to sign and fix the price for the case in writing.",
-        "ru": "Пришлите дело. Подтвердим штат и суд, отправим доверенность на подпись компании и письменно зафиксируем цену за дело.",
+        "ru": "Пришлите дело. Подтвердим штат и суд, отправим доверенность на подпись компании и письменно зафиксируем цену за дело.",
         "es": "Envíe el caso. Confirmamos el estado y el tribunal, le enviamos el poder para que lo firme la empresa y fijamos por escrito el precio del caso."
       },
       "keywords": {
@@ -3650,7 +3648,7 @@
         ],
         "ru": [
           "представительство small claims",
-          "ведение дела в суде компания",
+          "ведение дела в суде компания",
           "взыскание через суд"
         ],
         "es": [

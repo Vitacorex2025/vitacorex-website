@@ -23,79 +23,11 @@ How prices work:
 - "from" means a starting price; the final price is confirmed in a written quote before any payment.
 - Government, state, USCIS, apostille and court fees, shipping and courier are separate and itemized.
 - Paid work starts only after the client accepts a quote (or, for fixed-price services, pays the listed fee after the eligibility questions).
-- Documents are exchanged through a private secure link. Do not send SSNs, tax forms or ID numbers through the website form or by email.
+- Documents are exchanged through a private secure link.
 
 ================================================================================
 ## Services and prices
 ================================================================================
-
-### Documents & translations
-
-#### Certified translation
-- Price: $25 per 250 source words (one standard page)
-- Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.
-- Included: Complete translation of the document; Signed translator certificate of accuracy; Digital delivery (PDF); Check of language pair and legibility before you pay
-- Not included / extra: Rush delivery; Rare language pairs and complex layout; Notarized translator affidavit (a separate notarial act); Printed copies and postage
-- Next step: Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.
-- Page: https://vitacorexllc.com/translations.html
-
-#### General translation
-- Price: $0.10 per source word, $25 minimum order
-- Letters, websites, business and personal texts that do not need a certificate.
-- Included: Translation of the agreed text; One round of clarifications; Delivery in an editable file
-- Not included / extra: Specialist subject matter (medical, technical, legal terminology); Rush delivery; Layout restoration
-- Next step: Tell us the language pair, size and deadline. You receive a written quote before any payment.
-- Page: https://vitacorexllc.com/translations.html
-
-#### Online notarization
-- Price: $25 — per notarial act
-- Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.
-- Included: One online notarial act on your document; Identity verification on the online platform; Electronic notarized document; Session recording kept as required by Florida law
-- Not included / extra: Each additional signature or act; Witnesses, if your document needs them; Printed copy and mailing
-- Next step: Answer three quick questions, pay for the notarial act and pick a time. Your appointment is confirmed once the calendar email arrives.
-- Page: https://vitacorexllc.com/online-notary.html
-
-#### Apostille assistance
-- Price: From $119 — final price after review (service fee for the first document)
-- We find the office that apostilles your document for the country you need, prepare the request and track it.
-- Included: Check of document origin, type and destination; Route to the correct state or federal authority; Preparation of the request and cover letter; Tracking and status updates
-- Not included / extra: Government apostille fees; Shipping and courier; Certified copies, translation, embassy legalization
-- Next step: Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.
-- Page: https://vitacorexllc.com/apostille.html
-
-#### Official record retrieval
-- Price: From $59 — final price after review (per record + agency fee)
-- We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.
-- Included: Check that you are entitled to the record; Request typed for your signature or authorization; Order, tracking and receipt; Hand-off to translation, notarization or apostille only if required
-- Not included / extra: Agency fees (e.g. a Florida birth certificate: $9); Shipping and courier; FBI background checks and out-of-state records: quote; Records you are not entitled to
-- Next step: Tell us which record, where it was issued and which country needs it. We reply with the steps you actually need and the full cost.
-- Page: https://vitacorexllc.com/apostille.html
-
-### Taxes
-
-#### Individual tax return
-- Price: From $149 — final price after review (simple federal return, one tax year)
-- Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.
-- Included: A short talk about your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
-- Not included / extra: State return; Self-employment, rental or foreign income; Amended or prior-year returns
-- Next step: Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.
-- Page: https://vitacorexllc.com/tax-preparation.html
-
-#### Self-employed tax return
-- Price: From $249 — final price after review (federal return with one simple Schedule C)
-- Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.
-- Included: Readiness check of your income and expense records; Federal return with one Schedule C; Review with you before filing
-- Not included / extra: Bookkeeping cleanup; Several businesses, multi-state or foreign forms; State return
-- Next step: Tell us the tax year and how you earn your income. After a quick look at your records, we confirm the price.
-- Page: https://vitacorexllc.com/tax-preparation.html
-
-#### State return add-on
-- Price: From $49 — final price after review (one supported state, with a federal return)
-- One state return prepared together with your federal return.
-- Included: One resident state return; Prepared together with your federal return
-- Not included / extra: Part-year, non-resident or several states
-- Next step: Added to your federal tax request; the preparer confirms the price.
-- Page: https://vitacorexllc.com/tax-preparation.html
 
 ### Court, immigration & contracts
 
@@ -104,7 +36,7 @@ How prices work:
 - Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.
 - Included: Florida Supreme Court approved forms typed from your answers (petition and final judgment); Written filing instructions for your county, including fingerprints; Checklist of agencies to update after the judgment; Questionnaire and disclosure in English, Russian or Spanish
 - Not included / extra: Court filing fee (about $400–$415 in Tampa-area counties); Background check and fingerprinting (about $50–$65); Certified copies of the judgment
-- Next step: Answer a short questionnaire, sign the nonlawyer disclosure and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.
+- Next step: Answer a short questionnaire, sign the required disclosure (Form 12.900(a)) and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.
 - Page: https://vitacorexllc.com/name-change.html
 
 #### Court name change for a child or family (Florida)
@@ -167,7 +99,7 @@ How prices work:
 - Price: No charge — no charge to send a request
 - Not sure which service fits? Describe the task — we tell you what we can do and what it costs.
 - Included: We read your request and check how urgent it is; We suggest a matching service and price; If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent
-- Not included / extra: This is not a free legal consultation; Paid work starts only after you accept a quote
+- Not included / extra: Paid work starts only after you accept a quote
 - Next step: We reply with the suitable service, price or next step.
 - Page: https://vitacorexllc.com/request.html?service=legal_request
 
@@ -323,36 +255,67 @@ How prices work:
 
 ### For companies: small claims
 
-#### Small-claims case packet
-- Price: from $199 — final price after review (one eligible case, one defendant)
+#### Small-claims filing packet
+- Price: From $199 — final price after review (one eligible case, one defendant)
 - An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.
-- Included: Case intake and document review; Chronology and amount calculation; Indexed exhibit packet; Preparation of forms where this is permitted in your state
-- Not included / extra: Court filing fees and service of process; Court appearance, appeals and enforcement — not provided; Additional defendants
-- Next step: Check your case: state, court and claim basics. We confirm what we can do in that state and send a quote.
+- Included: Review of your case documents; Chronology and amount calculation; Indexed exhibit packet; Preparation of forms where this is permitted in your state
+- Not included / extra: Court filing fees and service of process; Appeals and judgment enforcement: quoted separately; Court hours on request, at the hourly rate
+- Next step: Send the basics: state, court and what the claim is about. We confirm what we can do in that state and send a quote.
 - Page: https://vitacorexllc.com/small-claims-documentation.html
 
-#### Small-claims preparation & case support
-- Price: from $399 — final price after review (one case, one defendant, first 30 days)
-- The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.
-- Included: Everything in the case packet; Filing coordination where permitted; Docket follow-up and milestone updates; 30-day service window
-- Not included / extra: Court fees and service of process; Representation, appeals, enforcement — not provided; Continuation after 30 days by separate agreement
-- Next step: Start with the case check. We confirm the permitted scope for your state and court before a quote.
+#### One month of case support
+- Price: From $399 — final price after review (one case, 30 days)
+- We run your case for a month: filing, service of process, deadlines, settlement talks and the hearing packet. Court hours are added separately.
+- Included: Everything in the filing packet; Filing coordination and the court calendar; Service of process arranged and tracked; Settlement and payment-plan talks in your company’s name; Hearing packet and a status report every week
+- Not included / extra: Court and service fees, at cost; Court hours on request, at the hourly rate; Next month by agreement
+- Next step: Start by sending the case details. Before quoting, we confirm what we're permitted to do in your state and court.
 - Page: https://vitacorexllc.com/small-claims-documentation.html
+
+#### Retainer: full case with court representation
+- Price: From $749 — final price after review (per case, until judgment)
+- We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus.
+- Included: Filing packet and filing; Service of process and the court calendar; Pre-trial and mediation for your company; Up to 2 hours in court included; Steps after judgment; Bonus: free receivables analysis and a free 30-day recovery pilot
+- Not included / extra: Court and service fees, at cost; Court time beyond 2 hours, at the hourly rate; Appeals: quoted separately
+- Next step: Send the case. We confirm the state and court, send the power of attorney for your company to sign and fix the price for the case in writing.
+- Page: https://vitacorexllc.com/small-claims-documentation.html#retainer
+
+#### Court hour for your company (add-on)
+- Price: $65 per hour, 1-hour minimum, 15-minute steps
+- For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney.
+- Included: Preparation on the day of the hearing; Attendance at the hearing or mediation; A short written report afterwards
+- Not included / extra: Travel outside the county: quoted; Your state and court confirmed before work starts
+- Next step: Send your cases. We send the power of attorney for the company to sign and confirm the hourly estimate in writing before we start.
+- Page: https://vitacorexllc.com/small-claims-documentation.html#court-hours
+
+#### Receivables analysis
+- Price: $390 — one analysis, up to 100 open invoices
+- Aging by account, disputes and missing documents, and the next step for each overdue invoice.
+- Included: Aging report by account and by amount; Disputes, missing documents and contact gaps flagged; Next step for each account: reminder, payment plan or small claims; A 30-minute review call
+- Not included / extra: Free for clients on the small-claims retainer; More than 100 invoices: quoted in writing
+- Next step: Send an export of your open invoices. We confirm the scope in writing and deliver the analysis within 5 business days.
+- Page: https://vitacorexllc.com/financial-recovery.html
+
+#### Recovery pilot, 30 days
+- Price: $790 — 30 days, up to 25 invoices
+- A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets.
+- Included: Receivables analysis for the pilot accounts; Reminder and demand-letter sequence in your company’s name, approved by you; Payment-plan documents for debtors who agree to pay in parts; Small-claims packets for the accounts that need court; Weekly report and a final summary
+- Not included / extra: Free 30-day pilot for clients on the small-claims retainer; Court filing fees and service of process, at cost; Postage or certified mail, at cost
+- Next step: Send the list of overdue invoices. We agree the pilot accounts and the letter wording with you, then run 30 days with a weekly report.
+- Page: https://vitacorexllc.com/financial-recovery.html
 
 #### Recovery support for existing clients
-- Price: individual quote
+- Price: Individual quote — individual quote
 - An additional option for current business clients, quoted individually.
 - Included: Review of your current matter; Individual written quote
 - Not included / extra: Available to existing business clients only
 - Next step: Send your client reference; your manager replies with options.
 - Page: https://vitacorexllc.com/net-recovery.html
 
-Small claims for companies — scope notes:
-- Each case starts with a case check (state, court, entity type, claim basics). The permitted scope for that state and court is confirmed before a quote.
-- State and court rules differ: we confirm what we can do for your state and court before you pay.
-- Court filing fees and service of process are separate. Court appearance, representation, appeals and enforcement are not provided.
+- Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.
+- On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.
+- Retainer clients get a free receivables analysis and a free 30-day recovery pilot. Flat prices, never a percentage of what you recover.
+- Court filing fees and service of process are paid at cost.
 
-================================================================================
 ## Immigration notice
 ================================================================================
 

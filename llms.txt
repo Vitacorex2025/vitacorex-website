@@ -43,19 +43,24 @@
 | Apostille assistance | From $119 | service fee for the first document; We find the office that apostilles your document for the country you need, prepare the request and track it. | /apostille.html |
 | Official record retrieval | From $59 | per record + agency fee; We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one. | /apostille.html |
 
-Not included unless quoted: rush delivery, rare language pairs, notarized translator affidavits, witnesses, printed copies and postage, state or federal government fees, courier, embassy legalization, bookkeeping cleanup, registered agent and annual reports, legal advice or representation.
+Not included unless quoted: rush delivery, rare language pairs, notarized translator affidavits, witnesses, printed copies and postage, state or federal government fees, courier, embassy legalization, bookkeeping cleanup.
 
-## Companies — small claims (separate B2B lane)
+## Companies — small claims and financial recovery (B2B lane)
 
 | Service | Price | Unit / what it covers | Page |
 |---|---|---|---|
-| Small-claims case packet | from $199 | one eligible case, one defendant: chronology, amounts, indexed exhibits, forms where permitted in that state | /small-claims-documentation.html |
-| Small-claims preparation & case support | from $399 | one case, one defendant, first 30 days: packet plus filing coordination where permitted, docket follow-up, status updates | /small-claims-documentation.html |
-| Recovery support for existing clients | individual quote | additional option for current business clients only | /net-recovery.html |
+| Small-claims filing packet | From $199 | one eligible case, one defendant; An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted. | /small-claims-documentation.html |
+| One month of case support | From $399 | one case, 30 days; We run your case for a month: filing, service of process, deadlines, settlement talks and the hearing packet. Court hours are added separately. | /small-claims-documentation.html |
+| Retainer: full case with court representation | From $749 | per case, until judgment; We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus. | /small-claims-documentation.html#retainer |
+| Court hour for your company (add-on) | $65 per hour | per hour, 1-hour minimum, 15-minute steps; For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney. | /small-claims-documentation.html#court-hours |
+| Receivables analysis | $390 | one analysis, up to 100 open invoices; Aging by account, disputes and missing documents, and the next step for each overdue invoice. | /financial-recovery.html |
+| Recovery pilot, 30 days | $790 | 30 days, up to 25 invoices; A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets. | /financial-recovery.html |
+| Recovery support for existing clients | Individual quote | individual quote; An additional option for current business clients, quoted individually. | /net-recovery.html |
 
-- Each case starts with a case check (state, court, claim basics); the permitted scope is confirmed before a quote.
-- State and court rules differ: we confirm what we can do for your state and court before you pay.
-- Court filing fees and service of process are separate. Court appearance, representation, appeals and enforcement are not provided.
+- Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.
+- On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.
+- Retainer clients get a free receivables analysis and a free 30-day recovery pilot. Flat prices, never a percentage of what you recover.
+- Court filing fees and service of process are paid at cost.
 
 ## Immigration notice
 
@@ -65,7 +70,7 @@ I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR A
 
 1. Choose a service on /services.html or describe the task on /request.html.
 2. For fixed-price services (online notarization, company formation) you answer a few eligibility questions and pay the listed fee. For everything else you receive a written quote first.
-3. Documents are exchanged through a private secure link. Do not send SSNs, tax forms or ID numbers through the website form or by email.
+3. Documents are exchanged through a private secure link.
 
 ## Team
 

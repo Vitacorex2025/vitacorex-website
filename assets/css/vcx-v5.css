@@ -92,7 +92,7 @@ html:lang(ru) body.vx .vx-lead { line-height: 1.6; }
 .vx-btn--ghost:active { --bg: rgb(124 210 222 / .16); }
 .vx-btn--line::after, .vx-btn--ghost::after { background: linear-gradient(to bottom right, transparent calc(50% - .75px), var(--bd) calc(50% - .75px) calc(50% + .25px), transparent calc(50% + .25px)); }
 /* teal focus ring flips on dark surfaces */
-:is(.vx-hdr, .vx-drawer, .vx-mega, .vx-phero, .vx-band, .vx-ftr, .vx-consent, .vx-hero3, .vx-dark) .vx-btn--accent { --ring: var(--vx-accent-soft); }
+:is(.vx-hdr, .vx-drawer, .vx-mega, .vx-phero, .vx-band, .vx-ftr, .vx-consent, .vx-hero3, .vx6-hero, .vx-dark) .vx-btn--accent { --ring: var(--vx-accent-soft); }
 /* disabled */
 .vx-btn[disabled], .vx-btn[aria-disabled="true"] { --bg: var(--vx-disabled-bg); --fg: var(--vx-disabled-fg); --bd: transparent; --fw: 0px; --fh: 0px; opacity: 1; cursor: not-allowed; }
 /* loading: the arrow becomes the fold spinner; width is locked by the element */
@@ -441,7 +441,10 @@ body.vx::after { background: rgb(7 27 35 / .5); -webkit-backdrop-filter: none; b
 .vx-index__bar { background: #fff !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 100vmax #fff; clip-path: inset(0 -100vmax); }
 
 /* M7 targets ≥ 44 px */
-.vx-nav > a, .vx-nav__trigger, .vx-hdr__phone { min-height: 44px; display: inline-flex; align-items: center; }
+.vx-nav > a, .vx-nav__trigger { min-height: 44px; display: inline-flex; align-items: center; }
+.vx-hdr__phone { min-height: 44px; align-items: center; }
+@media (min-width: 27.51em) { .vx-hdr__phone { display: inline-flex; } }
+@media (max-width: 27.5em) { .vx-hdr__phone { display: none !important; } } /* phones: the drawer has the phone row; keeps the wordmark clear of the language button */
 .vx-ftr ul a, .vx-ftr__mail, .vx-ftr__all, .vx-link { display: inline-flex; align-items: center; min-height: 44px; }
 .vx-ftr ul { gap: 0; }
 .vx-ftr__phone { min-height: 44px; }
@@ -639,3 +642,67 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 .vx-drawer__cta .vx-btn { gap: 10px; }
 .vx-hdr__phone svg, .vx-ftr__phone svg { width: 18px; height: 18px; flex: none; }
 .vx-drawer__cta .vx-btn { justify-content: center; }
+
+/* 26. Owner request 2026-10-15: "in order" / «в порядок» / «en orden» in signal red — the one warm accent on the site.
+   #FF4D4D on ink #071B23 = 5.4:1; the soft shadow keeps it readable over the brightest video frames */
+:root { --vx-signal: #FF4D4D; }
+.vx6-hero__h1 em, .vx-ftr__statement em { color: var(--vx-signal); text-shadow: 0 0 2px rgb(7 27 35 / .55), 0 0 14px rgb(7 27 35 / .75), 0 1px 30px rgb(7 27 35 / .6); }
+@media (forced-colors: active) { .vx6-hero__h1 em, .vx-ftr__statement em { color: CanvasText; text-shadow: none; } }
+
+/* 27. Critique round 2 fixes (2026-10-15) */
+/* team: education line under the role */
+.vx-person__edu { margin: 10px 0 12px; padding-top: 10px; border-top: 1px solid var(--vx-line); color: var(--vx-text); font: 500 .875rem/1.45 var(--vx-sans); }
+/* focus on the hero link and the price bar: the brand ring, not the browser default */
+.vx6-hero__b2b:focus-visible, .vx6-ticker a:focus-visible { outline: 2px solid var(--vx-accent-soft); outline-offset: 2px; }
+/* the slanted window only where the 17:22 slope clears the text (from 1280); below, the same veil covers the whole frame */
+@media (max-width: 79.99em) {
+  .vx6-hero__window { display: none; }
+  .vx6-hero__shade { box-shadow: inset 0 0 0 100vmax rgb(7 27 35 / .38); }
+}
+/* small text over imagery on phones stays above 4.5:1 */
+@media (max-width: 47.99em) {
+  .vx6-hero__cred { color: var(--vx-on-2); }
+  .vx6-hero__shade { background: linear-gradient(90deg, rgb(7 27 35 / .86), rgb(7 27 35 / .66)), linear-gradient(0deg, rgb(7 27 35 / .92) 0%, rgb(7 27 35 / 0) 40%); }
+}
+@media (max-width: 63.99em) { .vx-phero::after { background: linear-gradient(180deg, rgb(7 27 35 / .72), rgb(7 27 35 / .9)) !important; } }
+/* action labels fit their buttons in RU/ES */
+@media (min-width: 64.01em) { .vx-irow { grid-template-columns: minmax(0, 1fr) 208px 192px; } }
+@media (min-width: 48em) and (max-width: 64em) { .vx-irow { grid-template-columns: minmax(0, 1fr) 160px 176px; } }
+/* 3-up cards on the 32 px gutter; prices of one row on one line */
+.vx-cards { column-gap: 32px; }
+@media (min-width: 48em) { .vx-cards .vx-scard h3 { min-height: 2lh; } }
+/* footer social links are real targets */
+.vx-ftr__social a { min-height: 44px; display: inline-flex; align-items: center; }
+/* the dev-only preview badge sits under the header, clear of the hero buttons and prices */
+.vx-preview-ribbon { top: 80px !important; bottom: auto !important; }
+/* owner screenshots 2026-10-15: nothing may run over a neighbour. The price may take a second line; the action column fits the longest RU/ES label;
+   if a label is ever longer than its button, it wraps inside the button instead of spilling out */
+.vx-ptable td.vx-ptable__price { white-space: normal; overflow-wrap: normal; text-wrap: balance; }
+.vx-ptable th:nth-child(4), .vx-ptable td:nth-child(4), .vx-ptable__go { width: 232px; }
+.vx-ptable__go .vx-btn, .vx-irow .vx-btn { white-space: normal; text-wrap: balance; text-align: center; line-height: 1.25; }
+@media (max-width: 47.5em) { .vx-ptable__go { width: auto; } }
+/* mobile menu at 320: a long price unit takes a second line instead of running past the sheet edge */
+.vx-drawer a > span { min-width: 0; }
+.vx-drawer a small { white-space: normal; text-align: right; max-width: 8.5em; flex: none; }
+/* R2 M7: on phones the price-type legend shrinks to one compact key, so the first prices reach the first screen */
+@media (max-width: 47.99em) {
+  .vx-phero__aside.vx-legend { padding: 14px 16px !important; }
+  .vx-legend .vx-legend__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .vx-legend dl { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
+  .vx-legend dl > div { margin: 0; padding: 0; border: 0; }
+  .vx-legend dt { margin: 0; font-size: 14px; line-height: 20px; }
+  .vx-legend dd { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .vx-phero--index .vx-phero__inner { padding-top: 88px !important; padding-bottom: 20px !important; gap: 20px; }
+}
+/* phones: one-column grids never grow wider than the screen because of a long word or a fixed-width child */
+@media (max-width: 47.99em) {
+  .vx-form-wrap, .vx-detail, .vx-band__grid, .vx-cards { grid-template-columns: minmax(0, 1fr) !important; }
+  .vx-form-wrap > *, .vx-detail > *, .vx-band__grid > *, .vx-cards > * { min-width: 0; }
+}
+/* price list between 768 and 1024: the price column is wider, so «Цена по смете» / "Individual quote" never runs into the next column */
+@media (min-width: 47.51em) and (max-width: 64em) {
+  .vx-ptable th:nth-child(1), .vx-ptable td:nth-child(1) { width: 28%; }
+  .vx-ptable th:nth-child(2), .vx-ptable td:nth-child(2) { width: 22%; }
+  .vx-ptable th:nth-child(4), .vx-ptable td:nth-child(4), .vx-ptable__go { width: 196px; }
+}
+@media (max-width: 47.5em) { .vx-ptable caption { display: block; width: auto; padding: 16px 16px 8px; text-align: left; } }

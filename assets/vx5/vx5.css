@@ -91,7 +91,7 @@ html:lang(ru) { --vx5-k: .92; }
 .vx5-btn--dark:active, .vx5-btn--dark.is-pressed { --bg: rgb(124 210 222 / .16); }
 .vx5-btn--dark[aria-disabled="true"] { --bg: transparent; --fg: var(--vx5-on-3); --bd: rgb(255 255 255 / .18); }
 /* on dark sections the teal ring flips */
-.vx5-hero .vx5-btn--teal, .vx5-rs .vx5-btn--teal, .lab-board__dark .vx5-btn--teal { --ring: var(--vx5-soft); }
+.vx5-hero .vx5-btn--teal, .vx5-rs .vx5-btn--teal, .vx5-ix--b2b .vx5-btn--teal, .lab-board__dark .vx5-btn--teal { --ring: var(--vx5-soft); }
 
 /* 5 text-arrow link */
 .vx5-tlink { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--vx5-link); font: 600 15px/20px var(--vx-sans);
@@ -650,7 +650,10 @@ html[data-vx5-mode="still"] .vx5-card:hover .vx5-acc, html[data-vx5-mode="still"
   box-shadow: 0 1px 0 rgb(3 14 19 / .3);
 }
 /* M8 business row: the 24 px inset belongs to the row; the action never wraps */
-.vx5-ix--b2b { padding-right: 24px; }
+/* R2 M5: the ink bleeds 24 px past the grid, so price and button stay on the same lines as the light rows */
+.vx5-ix--b2b { padding-right: 0; position: relative; isolation: isolate; }
+.vx5-ix--b2b::before { content: ""; position: absolute; inset: 0 -24px 0 0; z-index: -1; background: var(--vx5-ink); border-radius: 0 4px 4px 0; }
+@media (max-width: 47.99em) { .vx5-ix--b2b::before { inset: 0 -16px; border-radius: 0; } }
 .vx5-ix--b2b .vx5-ix__act { padding-right: 0; }
 .vx5-ix__act .vx5-btn { white-space: nowrap; }
 @media (max-width: 75em) { .vx5-ix__rows { grid-column: 6 / 10; } .vx5-ix__act { grid-column: 10 / 13; } .vx5-ix__act .vx5-btn { max-width: none; } }
@@ -690,3 +693,15 @@ html[data-vx5-mode="still"] .vx5-card:hover .vx5-acc, html[data-vx5-mode="still"
 @media (max-width: 47.99em) { .vx5-ix__head, .vx5-ix__rows, .vx5-ix__act { grid-column: 1 / -1; } }
 @media (max-width: 63.99em) { .vx5-ix__head { grid-column: 1 / 6; } .vx5-ix__rows { grid-column: 1 / -1; } .vx5-ix__act { grid-column: 6 / 9; } }
 @media (max-width: 47.99em) { .vx5-ix__head, .vx5-ix__rows, .vx5-ix__act { grid-column: 1 / -1; } }
+
+/* R2 M4: phone price list: the name keeps the full width, the amount sits on its right, the unit goes below */
+@media (max-width: 47.99em) {
+  .vx5-ix .vx5-row a { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 2px; }
+  .vx5-ix .vx5-row__lead { display: none; }
+  .vx5-ix .vx5-row__p, .vx5-ix .vx5-row__p .vx-price { display: contents; }
+  .vx5-ix .vx5-row__p .vx-price__amount { grid-column: 2; grid-row: 1; text-align: right; }
+  .vx5-ix .vx5-row__p .vx-price__unit { grid-column: 1 / -1; max-width: none; text-align: left; }
+}
+/* R2 m9: under reduced motion the pause button really goes away */
+.vx5-hero__pause[hidden] { display: none !important; }
+@media (max-width: 47.99em) { .vx5-ix--b2b .vx5-ix__act { padding-right: 20px; } .vx5-ix--b2b::before { display: none; } }

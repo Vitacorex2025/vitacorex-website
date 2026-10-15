@@ -22,7 +22,7 @@
   }
   function render(list) {
     var cat = VX.catalog();
-    list.innerHTML = cat.groups.filter(function (g) { return g.lane === 'private'; }).map(function (g) {
+    list.innerHTML = cat.groups.map(function (g) {
       return '<section class="vx-index__group" id="' + g.id + '" data-group="' + g.id + '" aria-labelledby="ix-' + g.id + '"><h2 class="vx-index__gtitle" id="ix-' + g.id + '">' + VX.esc(VX.loc(g.name)) + '</h2>' +
         g.services.map(rowHTML).join('') + '</section>';
     }).join('');
