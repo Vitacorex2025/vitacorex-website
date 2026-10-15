@@ -66,7 +66,7 @@ function headerHTML() {
   const feature = '';
   const menuIds = (g) => g.menu || g.services;
   const plain = (href, key) => `<li><a href="${href}"><span data-t="${key}">${esc(en[key])}</span></a></li>`;
-  const bizLinks = plain('/small-claims-documentation.html', 'footer.small_claims') + plain('/small-claims-documentation.html#check', 'footer.check_case') + plain('/net-recovery.html', 'h3.b2b.existing');
+  const bizLinks = plain('/small-claims-documentation.html', 'footer.small_claims') + plain('/small-claims-documentation.html#check', 'footer.check_case') + plain('/financial-recovery.html', 'fr.nav') + plain('/net-recovery.html', 'h3.b2b.existing');
   const biz = `<div class="vx-mega__group vx-mega__group--biz"><h3 data-t="mega.biz.title">${esc(en['mega.biz.title'])}</h3><ul class="vx-mega__plain">${bizLinks}</ul></div>`;
   const mega = feature + privateGroups.map((g) => `<div class="vx-mega__group vx-mega__group--${g.id}"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul></div>`).join('') + biz;
   const drawerGroups = privateGroups.map((g) => `<h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul>`).join('');
@@ -129,7 +129,7 @@ function footerHTML() {
 </div>
 <div class="vx-ftr__grid">
 <nav aria-labelledby="vx-f-svc"><h2 id="vx-f-svc" data-t="footer.h.services">${esc(en['footer.h.services'])}</h2><ul>${fsvc}<li><a class="vx-ftr__all" href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li></ul></nav>
-<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul>${li('/small-claims-documentation.html', 'footer.small_claims')}${li('/small-claims-documentation.html#check', 'footer.check_case')}${li('/net-recovery.html', 'footer.existing')}</ul></nav>
+<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul>${li('/small-claims-documentation.html', 'footer.small_claims')}${li('/small-claims-documentation.html#check', 'footer.check_case')}${li('/financial-recovery.html', 'fr.nav')}${li('/net-recovery.html', 'footer.existing')}</ul></nav>
 <nav aria-labelledby="vx-f-co"><h2 id="vx-f-co" data-t="footer.h.company">${esc(en['footer.h.company'])}</h2><ul>${li('/about.html', 'nav.about')}${li('/pricing.html', 'nav.prices')}${li('/contact.html', 'nav.contact')}${li('/careers.html', 'footer.careers')}</ul></nav>
 <nav aria-labelledby="vx-f-legal"><h2 id="vx-f-legal" data-t="footer.h.legal">${esc(en['footer.h.legal'])}</h2><ul>${li('/privacy-policy.html', 'footer.privacy')}${li('/terms-of-use.html', 'footer.terms')}${li('/cookie-policy.html', 'footer.cookies')}</ul></nav>
 </div>
@@ -351,7 +351,7 @@ function ensureHead(html) {
 }
 
 /* v6 page heroes: a page-specific darkened Tampa landscape (frames of our own drone footage and photos, graded to ink teal) */
-const LAND = { 'services.html': 'skyline-a', 'pricing.html': 'skyline-b', 'translations.html': 'river-a', 'online-notary.html': 'dusk', 'apostille.html': 'skyway', 'tax-preparation.html': 'river-b', 'name-change.html': 'dock', 'fee-waiver.html': 'pier', 'business-filings.html': 'downtown-c', 'llc-formation-florida.html': 'skyline-b', 'founder-services.html': 'river-a', 'business-plans.html': 'downtown-c', 'small-claims-documentation.html': 'rail-bridge', 'immigration-packet-review.html': 'beach', 'n-400-naturalization.html': 'beach', 'contract-review-service.html': 'skyline-a', 'civil-case-referral.html': 'rail-bridge', 'net-recovery.html': 'river-b', 'about.html': 'dock' };
+const LAND = { 'services.html': 'skyline-a', 'pricing.html': 'skyline-b', 'translations.html': 'river-a', 'online-notary.html': 'dusk', 'apostille.html': 'skyway', 'tax-preparation.html': 'river-b', 'name-change.html': 'dock', 'fee-waiver.html': 'pier', 'business-filings.html': 'downtown-c', 'llc-formation-florida.html': 'skyline-b', 'founder-services.html': 'river-a', 'business-plans.html': 'downtown-c', 'small-claims-documentation.html': 'rail-bridge', 'immigration-packet-review.html': 'beach', 'n-400-naturalization.html': 'beach', 'contract-review-service.html': 'skyline-a', 'civil-case-referral.html': 'rail-bridge', 'net-recovery.html': 'river-b', 'about.html': 'dock', 'financial-recovery.html': 'downtown-c' };
 function addTrait(html, f) {
   html = html.replace(/<svg class="vx-phero__art"[\s\S]*?<\/svg>/, '');
   const id = LAND[f]; if (!id) return html;

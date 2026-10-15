@@ -60,6 +60,7 @@ const PRIVATE_PERSONAL = [
   ['florida-small-claims-help.html','weekly', '0.8', PREV]
 ];
 const PRIVATE_FOUNDERS = [
+  ['financial-recovery.html',       'monthly', '0.7', TODAY],
   ['business-filings.html',         'monthly', '0.7', TODAY],
   ['llc-formation-florida.html',    'weekly', '0.8', PREV],
   ['founder-services.html',         'monthly', '0.7', TODAY],

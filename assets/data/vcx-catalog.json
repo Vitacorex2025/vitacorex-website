@@ -46,6 +46,8 @@
         "b2b_small_claims_packet",
         "b2b_small_claims_support",
         "b2b_small_claims_monthly",
+        "b2b_recovery_analysis",
+        "b2b_recovery_pilot",
         "existing_client_recovery"
       ]
     },
@@ -3296,19 +3298,25 @@
           "Case register with chronology and amounts",
           "Exhibit index upkeep",
           "Service-of-process and docket tracking",
-          "Status report every two weeks and a hand-off packet for your representative"
+          "Status report every two weeks and a hand-off packet for your representative",
+          "Receivables analysis every month, free",
+          "First recovery pilot, free"
         ],
         "ru": [
           "Реестр дел с хронологией и суммами",
           "Ведение списка приложений",
           "Контроль вручений и судебного календаря",
-          "Отчёт каждые две недели и пакет для вашего представителя"
+          "Отчёт каждые две недели и пакет для вашего представителя",
+          "Анализ дебиторской задолженности каждый месяц — бесплатно",
+          "Первый пилот по возврату — бесплатно"
         ],
         "es": [
           "Registro de casos con cronología y montos",
           "Mantenimiento del índice de anexos",
           "Seguimiento de notificaciones y del expediente",
-          "Informe cada dos semanas y paquete para su representante"
+          "Informe cada dos semanas y paquete para su representante",
+          "Análisis de cuentas por cobrar cada mes, gratis",
+          "Primer piloto de recuperación, gratis"
         ]
       },
       "extra": {
@@ -3452,6 +3460,206 @@
         "es": [
           "small claims por hora",
           "cobro de facturas corte"
+        ]
+      }
+    },
+    "b2b_recovery_analysis": {
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/financial-recovery.html",
+      "action": "b2b",
+      "image": "/assets/img/land/downtown-c-960.webp",
+      "price": {
+        "mode": "fixed_after_review",
+        "display": "fixed",
+        "amount_cents": 39000,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "company",
+        "b2b_state",
+        "overdue_count",
+        "overdue_total",
+        "overdue_age",
+        "on_monthly_plan"
+      ],
+      "notices": [
+        "retainer_free"
+      ],
+      "name": {
+        "en": "Receivables analysis",
+        "ru": "Анализ дебиторской задолженности",
+        "es": "Análisis de cuentas por cobrar"
+      },
+      "short": {
+        "en": "Aging by account, disputes and missing documents, and the next step for each overdue invoice.",
+        "ru": "Возраст долга по каждому клиенту, споры и недостающие документы, следующий шаг по каждому просроченному счёту.",
+        "es": "Antigüedad por cuenta, disputas y documentos faltantes, y el siguiente paso para cada factura vencida."
+      },
+      "unit": {
+        "en": "one analysis, up to 100 open invoices",
+        "ru": "один анализ, до 100 открытых счетов",
+        "es": "un análisis, hasta 100 facturas abiertas"
+      },
+      "included": {
+        "en": [
+          "Aging report by account and by amount",
+          "Disputes, missing documents and contact gaps flagged",
+          "Next step for each account: reminder, payment plan or small claims",
+          "A 30-minute review call"
+        ],
+        "ru": [
+          "Отчёт по возрасту долга — по клиентам и суммам",
+          "Отмеченные споры, недостающие документы и пробелы в контактах",
+          "Следующий шаг по каждому счёту: напоминание, график платежей или small claims",
+          "Разбор итогов на 30-минутном звонке"
+        ],
+        "es": [
+          "Informe de antigüedad por cuenta y por monto",
+          "Disputas, documentos faltantes y contactos incompletos señalados",
+          "Siguiente paso por cuenta: recordatorio, plan de pagos o small claims",
+          "Una llamada de revisión de 30 minutos"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Free every month on the monthly small-claims plan",
+          "More than 100 invoices: quoted in writing"
+        ],
+        "ru": [
+          "Бесплатно каждый месяц на ежемесячном плане small claims",
+          "Больше 100 счетов — по письменной смете"
+        ],
+        "es": [
+          "Gratis cada mes con el plan mensual de small claims",
+          "Más de 100 facturas: cotización por escrito"
+        ]
+      },
+      "next": {
+        "en": "Send an export of your open invoices. We confirm the scope in writing and deliver the analysis within 5 business days.",
+        "ru": "Пришлите выгрузку открытых счетов. Подтвердим объём письменно и сдадим анализ за 5 рабочих дней.",
+        "es": "Envíe una exportación de sus facturas abiertas. Confirmamos el alcance por escrito y entregamos el análisis en 5 días hábiles."
+      },
+      "keywords": {
+        "en": [
+          "accounts receivable analysis",
+          "ar aging review",
+          "overdue invoices"
+        ],
+        "ru": [
+          "анализ дебиторской задолженности",
+          "просроченные счета",
+          "дебиторка"
+        ],
+        "es": [
+          "análisis de cuentas por cobrar",
+          "facturas vencidas"
+        ]
+      }
+    },
+    "b2b_recovery_pilot": {
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/financial-recovery.html",
+      "action": "b2b",
+      "image": "/assets/img/land/downtown-c-960.webp",
+      "price": {
+        "mode": "fixed_after_review",
+        "display": "fixed",
+        "amount_cents": 79000,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "company",
+        "b2b_state",
+        "overdue_count",
+        "overdue_total",
+        "overdue_age",
+        "on_monthly_plan"
+      ],
+      "notices": [
+        "retainer_free"
+      ],
+      "name": {
+        "en": "Recovery pilot, 30 days",
+        "ru": "Пилотный проект по возврату, 30 дней",
+        "es": "Piloto de recuperación, 30 días"
+      },
+      "short": {
+        "en": "A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets.",
+        "ru": "30 дней работы по 25 просроченным счетам: напоминания и претензии от имени вашей компании, графики платежей и пакеты small claims.",
+        "es": "30 días de trabajo con hasta 25 facturas vencidas: recordatorios y cartas de cobro a nombre de su empresa, planes de pago y paquetes de small claims."
+      },
+      "unit": {
+        "en": "30 days, up to 25 invoices",
+        "ru": "30 дней, до 25 счетов",
+        "es": "30 días, hasta 25 facturas"
+      },
+      "included": {
+        "en": [
+          "Receivables analysis for the pilot accounts",
+          "Reminder and demand-letter sequence in your company’s name, approved by you",
+          "Payment-plan documents for debtors who agree to pay in parts",
+          "Small-claims packets for the accounts that need court",
+          "Weekly report and a final summary"
+        ],
+        "ru": [
+          "Анализ задолженности по счетам пилота",
+          "Цепочка напоминаний и претензий от имени вашей компании — с вашим согласованием",
+          "Документы по рассрочке для должников, согласных платить частями",
+          "Пакеты small claims для счетов, по которым нужен суд",
+          "Еженедельный отчёт и итоговая сводка"
+        ],
+        "es": [
+          "Análisis de las cuentas del piloto",
+          "Secuencia de recordatorios y cartas de cobro a nombre de su empresa, aprobada por usted",
+          "Documentos de plan de pagos para deudores que aceptan pagar en partes",
+          "Paquetes de small claims para las cuentas que necesitan corte",
+          "Informe semanal y resumen final"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Free (first pilot) on the monthly small-claims plan",
+          "Court filing fees and service of process, at cost",
+          "Postage or certified mail, at cost"
+        ],
+        "ru": [
+          "Бесплатно (первый пилот) на ежемесячном плане small claims",
+          "Судебные сборы и вручение — по фактической стоимости",
+          "Почта или заказные письма — по фактической стоимости"
+        ],
+        "es": [
+          "Gratis (primer piloto) con el plan mensual de small claims",
+          "Tasas judiciales y notificación, al costo",
+          "Correo o correo certificado, al costo"
+        ]
+      },
+      "next": {
+        "en": "Send the list of overdue invoices. We agree the pilot accounts and the letter wording with you, then run 30 days with a weekly report.",
+        "ru": "Пришлите список просроченных счетов. Согласуем с вами счета пилота и тексты писем, затем 30 дней работы с еженедельным отчётом.",
+        "es": "Envíe la lista de facturas vencidas. Acordamos con usted las cuentas del piloto y el texto de las cartas, y trabajamos 30 días con un informe semanal."
+      },
+      "keywords": {
+        "en": [
+          "recover unpaid invoices",
+          "receivables recovery pilot",
+          "b2b debt recovery"
+        ],
+        "ru": [
+          "возврат дебиторской задолженности",
+          "вернуть долги по счетам",
+          "неоплаченные счета компании"
+        ],
+        "es": [
+          "recuperar facturas impagas",
+          "recuperación de cuentas por cobrar"
         ]
       }
     }

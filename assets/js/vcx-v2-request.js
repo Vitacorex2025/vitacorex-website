@@ -64,7 +64,11 @@
     dl_state: { type: 'select', label: 'fld.dl_state', options: 'states+none', optKey: 'opt.' },
     letters_count: { type: 'number', label: 'fld.letters_count', hint: 'fld.letters_count_hint', min: 0, max: 10 },
     active_cases: { type: 'number', label: 'fld.active_cases', min: 1, max: 200 },
-    poa_ready: { type: 'select', label: 'fld.poa_ready', options: ['yes', 'template', 'unsure'], optKey: 'opt.poa.' }
+    poa_ready: { type: 'select', label: 'fld.poa_ready', options: ['yes', 'template', 'unsure'], optKey: 'opt.poa.' },
+    overdue_count: { type: 'number', label: 'fld.overdue_count', min: 1, max: 100000 },
+    overdue_total: { type: 'number', label: 'fld.overdue_total', min: 1, max: 100000000 },
+    overdue_age: { type: 'select', label: 'fld.overdue_age', options: ['lt90', 'lt180', 'lt365', 'gt365'], optKey: 'opt.age.' },
+    on_monthly_plan: { type: 'select', label: 'fld.on_monthly_plan', options: ['yes', 'no', 'want'], optKey: 'opt.yn3.' }
   };
   /* which fields are required per family (others optional) */
   var REQUIRED = {
@@ -84,7 +88,7 @@
     name_records: ['passport_status']
   };
   var SUMMARY_REQUIRED = ['contracts', 'inquiry'];
-  var SVC_NOTICES = ['may1_late_fee', 'self_file_sunbiz', 'no_auto_renew', 'mail_only', 'poa_company'];
+  var SVC_NOTICES = ['may1_late_fee', 'self_file_sunbiz', 'no_auto_renew', 'mail_only', 'poa_company', 'retainer_free'];
 
   var $ = function (id) { return document.getElementById(id); };
   var el = function (tag, attrs, text) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) e.setAttribute(k, attrs[k]); }); if (text != null) e.textContent = text; return e; };

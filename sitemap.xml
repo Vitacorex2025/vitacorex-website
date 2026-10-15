@@ -482,6 +482,36 @@
   </url>
   <!-- Private · Starting a business -->
   <url>
+    <loc>https://vitacorexllc.com/financial-recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/ru/financial-recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/es/financial-recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/financial-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/financial-recovery.html"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vitacorexllc.com/business-filings.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/business-filings.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/business-filings.html"/>

@@ -67,3 +67,16 @@ def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(
     assert _checkout(client, req).status_code in (400, 409, 422)
     r = client.post("/api/v2/requests", json=payload("b2b_small_claims_hourly", details={"company": "Test Co", "b2b_state": "NY"}))
     assert r.status_code == 422 and r.json()["code"] == "B2B_NY_EXCLUDED"
+
+
+def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, catalog):
+    for sid, cents in (("b2b_recovery_analysis", 39000), ("b2b_recovery_pilot", 79000)):
+        svc = catalog["services"][sid]
+        assert svc["price"]["amount_cents"] == cents and svc["lane"] == "business"
+        req = create(client, sid, details={"company": "Test Supply LLC", "b2b_state": "FL", "overdue_count": 18, "overdue_total": 42000, "overdue_age": "lt180", "on_monthly_plan": "no"})
+        assert req["next_action"] == "b2b_review"
+        assert _checkout(client, req).status_code in (400, 409, 422)
+    r = client.post("/api/v2/requests", json=payload("b2b_recovery_pilot", details={"company": "Test Co", "b2b_state": "NY"}))
+    assert r.status_code == 422 and r.json()["code"] == "B2B_NY_EXCLUDED"
+    perks = catalog["services"]["b2b_small_claims_monthly"]["included"]["en"]
+    assert any("analysis every month" in p for p in perks) and any("pilot" in p for p in perks)
