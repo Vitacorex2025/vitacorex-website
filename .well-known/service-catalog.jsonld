@@ -5,7 +5,7 @@
   "description": "Services and starting prices of VitaCoreX LLC (Tampa, FL). Private clients: translations, online notarization, apostille assistance, individual tax returns, Florida court name-change packets, fee-waiver applications, contracts and document support, immigration forms (clerical), N-400 document support, company formation and business plans. Companies: small-claims filing packets, a month of case support, a per-case retainer with court representation, court hours, financial recovery, annual reports and business filings. All prices are USD service fees; government, filing and court fees are separate.",
   "url": "https://vitacorexllc.com/services.html",
   "dateModified": "2026-10-14",
-  "numberOfItems": 34,
+  "numberOfItems": 35,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -558,13 +558,13 @@
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-recovery-pilot",
-        "name": "Recovery pilot, 30 days",
+        "name": "Financial Recovery pilot, 30 days",
         "alternateName": [
-          "Пилотный проект по возврату, 30 дней",
-          "Piloto de recuperación, 30 días"
+          "Пилот Financial Recovery, 30 дней",
+          "Piloto Financial Recovery, 30 días"
         ],
-        "description": "A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets.",
-        "serviceType": "Recovery pilot, 30 days",
+        "description": "Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in.",
+        "serviceType": "Financial Recovery pilot, 30 days",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/financial-recovery.html",
         "provider": {
@@ -594,16 +594,16 @@
       "position": 16,
       "item": {
         "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-existing-client-recovery",
-        "name": "Recovery support for existing clients",
+        "@id": "https://vitacorexllc.com/#service-b2b-recovery-rollout",
+        "name": "Financial Recovery: full rollout",
         "alternateName": [
-          "Возврат задолженности для действующих клиентов",
-          "Apoyo de recuperación para clientes actuales"
+          "Financial Recovery: полное внедрение",
+          "Financial Recovery: implementación completa"
         ],
-        "description": "An additional option for current business clients, quoted individually.",
-        "serviceType": "Recovery support for existing clients",
+        "description": "After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court.",
+        "serviceType": "Financial Recovery: full rollout",
         "category": "For companies: small claims",
-        "url": "https://vitacorexllc.com/net-recovery.html",
+        "url": "https://vitacorexllc.com/financial-recovery.html#rollout",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
         },
@@ -618,16 +618,53 @@
         ],
         "offers": {
           "@type": "Offer",
-          "url": "https://vitacorexllc.com/net-recovery.html",
+          "url": "https://vitacorexllc.com/financial-recovery.html#rollout",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "Individual quote — individual quote"
+          "description": "12% — of each payment received before court; 18% on invoices over a year overdue"
         }
       }
     },
     {
       "@type": "ListItem",
       "position": 17,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-b2b-skip-trace",
+        "name": "Skip tracing: debtor search",
+        "alternateName": [
+          "Поиск должника (skip tracing)",
+          "Búsqueda del deudor (skip tracing)"
+        ],
+        "description": "A current address, phone and registered agent for a business debtor, checked before letters or service go out.",
+        "serviceType": "Skip tracing: debtor search",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/financial-recovery.html#extras",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/financial-recovery.html#extras",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$49 — per debtor",
+          "price": "49.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-basic",
@@ -664,7 +701,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-plus",
@@ -701,7 +738,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-annual-report-fl",
@@ -738,7 +775,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-annual-plan-fl",
@@ -775,7 +812,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-fl-fictitious-name",
@@ -812,7 +849,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-fl-amendment",
@@ -849,7 +886,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-fl-certificate-status",
@@ -886,7 +923,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-fl-certified-copy",
@@ -923,7 +960,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-business-filing-other-state",
@@ -959,7 +996,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 27,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-business-plan-basic",
@@ -1000,7 +1037,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 28,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-tax-1040-simple",
@@ -1041,7 +1078,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 29,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-tax-self-employed",
@@ -1082,7 +1119,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 30,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-tax-state-addon",
@@ -1123,7 +1160,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 31,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-translation-certified",
@@ -1160,7 +1197,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 32,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-translation-standard",
@@ -1197,7 +1234,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 33,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-notary-ron-single",
@@ -1234,7 +1271,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 34,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-apostille-coordination",
@@ -1275,7 +1312,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 35,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-record-retrieval",

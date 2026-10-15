@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = 'f6e5b9d5de';
+  var VERSION = '16524f0774';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -123,6 +123,7 @@
       case 'per_hour': out.amount = money(a); out.short = t('price.per_hour_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'per_word': out.amount = money(a); out.short = t('price.per_word_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'free_scope': out.amount = t('price.no_charge'); out.short = out.amount; out.tag = t('price.tag.free'); out.tagClass = 'vx-tag--free'; break;
+      case 'percent': out.amount = p.percent + '%'; out.short = out.amount; out.tag = t('price.tag.success'); out.tagClass = 'vx-tag--fixed'; break;
       default: out.amount = t('price.quote'); out.short = out.amount; out.tag = t('price.tag.individual'); out.tagClass = 'vx-tag--quote';
     }
     return out;

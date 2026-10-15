@@ -79,7 +79,7 @@ def test_owner_status_transitions_and_reclassify_audit(client, env):
     bad_sub = client.post(f"/api/v2/owner/requests/{rid}/reclassify",
                           json={"service_id": "tax_1040_simple", "subtype": "nope", "reason": "x"}, headers=h)
     assert bad_sub.status_code == 422
-    ny = create(client, "existing_client_recovery", details={"company": "Test Co"})
+    ny = create(client, "business_filing_other_state", details={"entity_name": "Test Co LLC"})
     db_rows(env, "SELECT 1")
     q = client.post(f"/api/v2/owner/requests/{ny['request_id']}/quote", headers=h,
                     json={"amount_cents": 50, "scope_text": "x", "expires_in_days": 5})

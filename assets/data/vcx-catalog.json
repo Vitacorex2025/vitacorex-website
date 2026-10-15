@@ -48,7 +48,8 @@
         "b2b_small_claims_hourly",
         "b2b_recovery_analysis",
         "b2b_recovery_pilot",
-        "existing_client_recovery"
+        "b2b_recovery_rollout",
+        "b2b_skip_trace"
       ]
     },
     {
@@ -1800,85 +1801,6 @@
         ]
       }
     },
-    "existing_client_recovery": {
-      "family": "b2b_optional",
-      "group": "business",
-      "lane": "business",
-      "queue": "EXISTING_CLIENT_RECOVERY",
-      "page": "/net-recovery.html",
-      "action": "existing_client",
-      "image": "/assets/img/curated/quick-recovery-workflow.jpg",
-      "price": {
-        "mode": "existing_client_quote_only",
-        "display": "quote",
-        "amount_cents": null,
-        "confidence": "not_applicable"
-      },
-      "subtypes": [
-        "other_business_claim"
-      ],
-      "fields": [
-        "company",
-        "existing_client_reference"
-      ],
-      "notices": [],
-      "name": {
-        "en": "Recovery support for existing clients",
-        "ru": "Возврат задолженности для действующих клиентов",
-        "es": "Apoyo de recuperación para clientes actuales"
-      },
-      "short": {
-        "en": "An additional option for current business clients, quoted individually.",
-        "ru": "Дополнительная опция для действующих бизнес-клиентов, по индивидуальной смете.",
-        "es": "Una opción adicional para clientes empresariales actuales, con presupuesto individual."
-      },
-      "unit": {
-        "en": "individual quote",
-        "ru": "индивидуальная смета",
-        "es": "presupuesto individual"
-      },
-      "included": {
-        "en": [
-          "Review of your current matter",
-          "Individual written quote"
-        ],
-        "ru": [
-          "Разбор текущего дела",
-          "Индивидуальная письменная смета"
-        ],
-        "es": [
-          "Revisión de su asunto actual",
-          "Presupuesto individual por escrito"
-        ]
-      },
-      "extra": {
-        "en": [
-          "Available to existing business clients only"
-        ],
-        "ru": [
-          "Только для действующих бизнес-клиентов"
-        ],
-        "es": [
-          "Solo para clientes empresariales actuales"
-        ]
-      },
-      "next": {
-        "en": "Send your client reference; your manager replies with options.",
-        "ru": "Укажите номер клиента — ваш менеджер ответит с вариантами.",
-        "es": "Indique su referencia de cliente; la persona a cargo de su cuenta le responde con opciones."
-      },
-      "keywords": {
-        "en": [
-          "recovery"
-        ],
-        "ru": [
-          "взыскание"
-        ],
-        "es": [
-          "recuperación"
-        ]
-      }
-    },
     "attorney_referral": {
       "family": "inquiry",
       "group": "court",
@@ -3388,33 +3310,33 @@
         "en": [
           "Aging report by account and by amount",
           "Disputes, missing documents and contact gaps flagged",
-          "Next step for each account: reminder, payment plan or small claims",
+          "Next step for each account: reminder, payment plan, demand letter or court",
           "A 30-minute review call"
         ],
         "ru": [
           "Отчёт по возрасту долга — по клиентам и суммам",
           "Отмеченные споры, недостающие документы и пробелы в контактах",
-          "Следующий шаг по каждому счёту: напоминание, график платежей или small claims",
+          "Следующий шаг по каждому счёту: напоминание, рассрочка, претензия или суд",
           "Разбор итогов на 30-минутном звонке"
         ],
         "es": [
           "Informe de antigüedad por cuenta y por monto",
           "Disputas, documentos faltantes y contactos incompletos señalados",
-          "Siguiente paso por cuenta: recordatorio, plan de pagos o small claims",
+          "Siguiente paso por cuenta: recordatorio, plan de pagos, carta de cobro o corte",
           "Una llamada de revisión de 30 minutos"
         ]
       },
       "extra": {
         "en": [
-          "Free for clients on the small-claims retainer",
+          "Free for current small-claims retainer clients (promotion)",
           "More than 100 invoices: quoted in writing"
         ],
         "ru": [
-          "Бесплатно для клиентов на ретейнере small claims",
+          "Бесплатно для действующих клиентов на ретейнере small claims (акция)",
           "Больше 100 счетов — по письменной смете"
         ],
         "es": [
-          "Gratis para clientes con el retainer de small claims",
+          "Gratis para clientes actuales con el retainer de small claims (promoción)",
           "Más de 100 facturas: cotización por escrito"
         ]
       },
@@ -3467,14 +3389,14 @@
         "retainer_free"
       ],
       "name": {
-        "en": "Recovery pilot, 30 days",
-        "ru": "Пилотный проект по возврату, 30 дней",
-        "es": "Piloto de recuperación, 30 días"
+        "en": "Financial Recovery pilot, 30 days",
+        "ru": "Пилот Financial Recovery, 30 дней",
+        "es": "Piloto Financial Recovery, 30 días"
       },
       "short": {
-        "en": "A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets.",
-        "ru": "30 дней работы по 25 просроченным счетам: напоминания и претензии от имени вашей компании, графики платежей и пакеты small claims.",
-        "es": "30 días de trabajo con hasta 25 facturas vencidas: recordatorios y cartas de cobro a nombre de su empresa, planes de pago y paquetes de small claims."
+        "en": "Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in.",
+        "ru": "30 дней досудебного возврата по 25 просроченным счетам: напоминания, претензии и рассрочки от имени вашей компании и отчёт о деньгах, которые реально поступили.",
+        "es": "Treinta días de cobro antes de la corte con hasta 25 facturas vencidas: recordatorios, cartas de cobro y planes de pago a nombre de su empresa, con un informe del dinero que realmente entró."
       },
       "unit": {
         "en": "30 days, up to 25 invoices",
@@ -3483,42 +3405,51 @@
       },
       "included": {
         "en": [
-          "Receivables analysis for the pilot accounts",
-          "Reminder and demand-letter sequence in your company’s name, approved by you",
-          "Payment-plan documents for debtors who agree to pay in parts",
-          "Small-claims packets for the accounts that need court",
-          "Weekly report and a final summary"
+          "Recovery plan for each pilot account",
+          "Email reminders, a call script and demand letters in your company’s name, approved by you",
+          "Payment-plan agreements for debtors who agree to pay in parts",
+          "Weekly report and a final net-recovery summary: paid, promised, silent",
+          "A decision at the end: roll the method out across all your invoices, or stop"
         ],
         "ru": [
-          "Анализ задолженности по счетам пилота",
-          "Цепочка напоминаний и претензий от имени вашей компании — с вашим согласованием",
-          "Документы по рассрочке для должников, согласных платить частями",
-          "Пакеты small claims для счетов, по которым нужен суд",
-          "Еженедельный отчёт и итоговая сводка"
+          "План возврата по каждому счёту пилота",
+          "Напоминания по email, сценарий звонков и претензии от имени вашей компании — с вашим согласованием",
+          "Соглашения о рассрочке для должников, согласных платить частями",
+          "Еженедельный отчёт и итоговая сводка net recovery: оплачено, обещано, молчат",
+          "Решение в конце: внедряем методику на все счета или останавливаемся"
         ],
         "es": [
-          "Análisis de las cuentas del piloto",
-          "Secuencia de recordatorios y cartas de cobro a nombre de su empresa, aprobada por usted",
-          "Documentos de plan de pagos para deudores que aceptan pagar en partes",
-          "Paquetes de small claims para las cuentas que necesitan corte",
-          "Informe semanal y resumen final"
+          "Plan de recuperación para cada cuenta del piloto",
+          "Recordatorios por email, guion de llamadas y cartas de cobro a nombre de su empresa, aprobados por usted",
+          "Acuerdos de plan de pagos para deudores que aceptan pagar en partes",
+          "Informe semanal y resumen final de net recovery: pagado, prometido, sin respuesta",
+          "Una decisión al final: implementar el método en todas sus facturas o parar"
         ]
       },
       "extra": {
         "en": [
-          "Free 30-day pilot for clients on the small-claims retainer",
-          "Court filing fees and service of process, at cost",
-          "Postage or certified mail, at cost"
+          "Free 30 days for current small-claims retainer clients (promotion)",
+          "Letters by USPS certified mail with return receipt, at cost (about $11 per letter)",
+          "Skip tracing (debtor search), $49 per debtor",
+          "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
+          "State, county and court fees, at cost",
+          "Accounts that need court: small claims is a separate service"
         ],
         "ru": [
-          "Бесплатный 30-дневный пилот для клиентов на ретейнере small claims",
-          "Судебные сборы и вручение — по фактической стоимости",
-          "Почта или заказные письма — по фактической стоимости"
+          "Бесплатно 30 дней для действующих клиентов на ретейнере small claims (акция)",
+          "Отправка писем заказной почтой USPS с уведомлением — по факту (около $11 за письмо)",
+          "Поиск должника (skip tracing) — $49 за должника",
+          "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
+          "Госпошлины и судебные сборы — по факту",
+          "Счета, по которым нужен суд: small claims — отдельная услуга"
         ],
         "es": [
-          "Piloto gratuito de 30 días para clientes con el retainer de small claims",
-          "Tasas judiciales y notificación, al costo",
-          "Correo o correo certificado, al costo"
+          "Gratis 30 días para clientes actuales con el retainer de small claims (promoción)",
+          "Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta)",
+          "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
+          "Tasas estatales, del condado y judiciales, al costo",
+          "Cuentas que necesitan corte: small claims es un servicio aparte"
         ]
       },
       "next": {
@@ -3599,7 +3530,7 @@
           "Pre-trial and mediation for your company",
           "Up to 2 hours in court included",
           "Steps after judgment",
-          "Bonus: free receivables analysis and a free 30-day recovery pilot"
+          "Promotion: free receivables analysis and a free 30-day Financial Recovery pilot"
         ],
         "ru": [
           "Пакет документов и подача",
@@ -3607,7 +3538,7 @@
           "Предварительное заседание и медиация за компанию",
           "До 2 часов в суде включено",
           "Шаги после решения суда",
-          "Бонус: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот"
+          "Акция: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот Financial Recovery"
         ],
         "es": [
           "Paquete y presentación",
@@ -3615,7 +3546,7 @@
           "Audiencia previa y mediación por su empresa",
           "Hasta 2 horas en la corte incluidas",
           "Pasos tras la sentencia",
-          "Bono: análisis gratuito de cuentas por cobrar y un piloto de recuperación gratuito de 30 días"
+          "Promoción: análisis gratuito de cuentas por cobrar y piloto Financial Recovery gratuito de 30 días"
         ]
       },
       "extra": {
@@ -3654,6 +3585,208 @@
         "es": [
           "representación small claims empresa",
           "retainer small claims"
+        ]
+      }
+    },
+    "b2b_recovery_rollout": {
+      "page": "/financial-recovery.html#rollout",
+      "action": "b2b",
+      "price": {
+        "mode": "percent_of_recovery",
+        "display": "percent",
+        "amount_cents": null,
+        "percent": 12,
+        "percent_aged": 18,
+        "confidence": "medium"
+      },
+      "fields": [
+        "company",
+        "b2b_state",
+        "overdue_count",
+        "overdue_total",
+        "overdue_age",
+        "on_monthly_plan"
+      ],
+      "name": {
+        "en": "Financial Recovery: full rollout",
+        "ru": "Financial Recovery: полное внедрение",
+        "es": "Financial Recovery: implementación completa"
+      },
+      "short": {
+        "en": "After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court.",
+        "ru": "После успешного пилота внедряем методику на все ваши просроченные счета и получаем оплату только с того, что должники заплатили до суда.",
+        "es": "Tras un piloto exitoso implementamos el método en todas sus facturas vencidas y cobramos solo de lo que los deudores pagan antes de la corte."
+      },
+      "unit": {
+        "en": "of each payment received before court; 18% on invoices over a year overdue",
+        "ru": "с каждого платежа, поступившего до суда; 18% по счетам с просрочкой больше года",
+        "es": "de cada pago recibido antes de la corte; 18% en facturas con más de un año de atraso"
+      },
+      "included": {
+        "en": [
+          "The method on all your overdue B2B invoices: plan, letter sequence, payment plans, follow-up",
+          "Monthly net-recovery report from your own payment records",
+          "No setup fee and no monthly minimum",
+          "Debtors pay your company directly; we invoice our share once a month",
+          "Month to month, with 30 days’ notice"
+        ],
+        "ru": [
+          "Методика на всех ваших просроченных счетах между компаниями: план, цепочка писем, рассрочки, контроль",
+          "Ежемесячный отчёт net recovery по вашим же данным об оплатах",
+          "Без платы за внедрение и без ежемесячного минимума",
+          "Должники платят напрямую вашей компании; свою долю мы выставляем раз в месяц",
+          "Помесячно, расторжение с уведомлением за 30 дней"
+        ],
+        "es": [
+          "El método en todas sus facturas B2B vencidas: plan, secuencia de cartas, planes de pago y seguimiento",
+          "Informe mensual de net recovery según sus propios registros de pago",
+          "Sin cargo de implementación y sin mínimo mensual",
+          "Los deudores pagan directamente a su empresa; facturamos nuestra parte una vez al mes",
+          "Mes a mes, con aviso de 30 días"
+        ]
+      },
+      "extra": {
+        "en": [
+          "18% on invoices more than 12 months overdue",
+          "Letters by USPS certified mail with return receipt, at cost (about $11 per letter)",
+          "Skip tracing (debtor search), $49 per debtor",
+          "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
+          "State, county and court fees, at cost",
+          "Accounts that go to court: small-claims prices apply and the percentage stops for that account"
+        ],
+        "ru": [
+          "18% по счетам с просрочкой больше 12 месяцев",
+          "Отправка писем заказной почтой USPS с уведомлением — по факту (около $11 за письмо)",
+          "Поиск должника (skip tracing) — $49 за должника",
+          "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
+          "Госпошлины и судебные сборы — по факту",
+          "Счета, ушедшие в суд: действуют цены small claims, процент по этому счёту не берётся"
+        ],
+        "es": [
+          "18% en facturas con más de 12 meses de atraso",
+          "Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta)",
+          "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
+          "Tasas estatales, del condado y judiciales, al costo",
+          "Cuentas que van a la corte: se aplican los precios de small claims y el porcentaje se detiene para esa cuenta"
+        ]
+      },
+      "next": {
+        "en": "After the pilot summary we agree the accounts and the rate in writing, then roll the method out across your receivables.",
+        "ru": "После итогов пилота письменно согласуем счета и ставку, затем внедряем методику на всю дебиторскую задолженность.",
+        "es": "Tras el resumen del piloto acordamos por escrito las cuentas y la tarifa, y luego implementamos el método en sus cuentas por cobrar."
+      },
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "image": "/assets/img/land/downtown-c-960.webp",
+      "subtypes": [],
+      "notices": [],
+      "keywords": {
+        "en": [
+          "financial recovery",
+          "net recovery",
+          "get paid before court",
+          "b2b invoice recovery"
+        ],
+        "ru": [
+          "financial recovery",
+          "возврат долгов до суда",
+          "дебиторская задолженность компаний"
+        ],
+        "es": [
+          "financial recovery",
+          "cobro antes de la corte",
+          "recuperación de facturas b2b"
+        ]
+      }
+    },
+    "b2b_skip_trace": {
+      "page": "/financial-recovery.html#extras",
+      "action": "b2b",
+      "price": {
+        "mode": "fixed_after_review",
+        "display": "fixed",
+        "amount_cents": 4900,
+        "confidence": "medium"
+      },
+      "fields": [
+        "company",
+        "b2b_state",
+        "overdue_count",
+        "on_monthly_plan"
+      ],
+      "name": {
+        "en": "Skip tracing: debtor search",
+        "ru": "Поиск должника (skip tracing)",
+        "es": "Búsqueda del deudor (skip tracing)"
+      },
+      "short": {
+        "en": "A current address, phone and registered agent for a business debtor, checked before letters or service go out.",
+        "ru": "Актуальный адрес, телефон и зарегистрированный агент компании-должника — проверяем до отправки писем или вручения.",
+        "es": "Dirección, teléfono y agente registrado actuales de una empresa deudora, verificados antes de enviar cartas o notificar."
+      },
+      "unit": {
+        "en": "per debtor",
+        "ru": "за должника",
+        "es": "por deudor"
+      },
+      "included": {
+        "en": [
+          "Search of state business records and commercial data sources",
+          "Current address, phone and registered agent, verified",
+          "Result usually within 2 business days"
+        ],
+        "ru": [
+          "Поиск по реестрам компаний штатов и коммерческим базам данных",
+          "Актуальный адрес, телефон и зарегистрированный агент — с проверкой",
+          "Результат обычно за 2 рабочих дня"
+        ],
+        "es": [
+          "Búsqueda en registros estatales de empresas y fuentes de datos comerciales",
+          "Dirección, teléfono y agente registrado actuales, verificados",
+          "Resultado normalmente en 2 días hábiles"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Paid official records beyond a standard search, at cost"
+        ],
+        "ru": [
+          "Платные официальные выписки сверх стандартного поиска — по факту"
+        ],
+        "es": [
+          "Registros oficiales de pago fuera de la búsqueda estándar, al costo"
+        ]
+      },
+      "next": {
+        "en": "Send the debtor’s last known details; we confirm the search and reply within 2 business days.",
+        "ru": "Пришлите последние известные данные должника — подтвердим поиск и ответим в течение 2 рабочих дней.",
+        "es": "Envíe los últimos datos conocidos del deudor; confirmamos la búsqueda y respondemos en 2 días hábiles."
+      },
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "image": "/assets/img/land/downtown-c-960.webp",
+      "subtypes": [],
+      "notices": [],
+      "keywords": {
+        "en": [
+          "skip tracing",
+          "find a debtor",
+          "business debtor address"
+        ],
+        "ru": [
+          "поиск должника",
+          "skip tracing",
+          "адрес компании-должника"
+        ],
+        "es": [
+          "skip tracing",
+          "localizar deudor",
+          "dirección de empresa deudora"
         ]
       }
     }

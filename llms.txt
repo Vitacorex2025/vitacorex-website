@@ -54,8 +54,9 @@ Not included unless quoted: rush delivery, rare language pairs, notarized transl
 | Retainer: full case with court representation | From $749 | per case, until judgment; We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus. | /small-claims-documentation.html#retainer |
 | Court hour for your company (add-on) | $65 per hour | per hour, 1-hour minimum, 15-minute steps; For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney. | /small-claims-documentation.html#court-hours |
 | Receivables analysis | $390 | one analysis, up to 100 open invoices; Aging by account, disputes and missing documents, and the next step for each overdue invoice. | /financial-recovery.html |
-| Recovery pilot, 30 days | $790 | 30 days, up to 25 invoices; A 30-day run on up to 25 overdue invoices: reminders and demand letters in your company’s name, payment plans and small-claims packets. | /financial-recovery.html |
-| Recovery support for existing clients | Individual quote | individual quote; An additional option for current business clients, quoted individually. | /net-recovery.html |
+| Financial Recovery pilot, 30 days | $790 | 30 days, up to 25 invoices; Thirty days of pre-court recovery on up to 25 overdue invoices: reminders, demand letters and payment plans in your company’s name, with a report on the money that actually came in. | /financial-recovery.html |
+| Financial Recovery: full rollout | 12% | of each payment received before court; 18% on invoices over a year overdue; After a successful pilot we roll the method out across all your overdue invoices and are paid only from what debtors pay before court. | /financial-recovery.html#rollout |
+| Skip tracing: debtor search | $49 | per debtor; A current address, phone and registered agent for a business debtor, checked before letters or service go out. | /financial-recovery.html#extras |
 
 - Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.
 - On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.

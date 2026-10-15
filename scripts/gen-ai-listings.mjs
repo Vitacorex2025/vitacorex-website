@@ -33,6 +33,7 @@ function priceText(id, l) {
     case 'from': return `${fmt(l, 'price.from', { amount: money(a) })} — ${fmt(l, 'price.tag.after_review').toLowerCase()} (${unit})`;
     case 'per_unit': case 'per_word': case 'per_hour': return `${money(a)} ${unit}`;
     case 'free_scope': return `${fmt(l, 'price.no_charge')} — ${unit}`;
+    case 'percent': return `${p.percent}% — ${unit}`;
     default: return `${fmt(l, 'price.quote')} — ${unit}`;
   }
 }
@@ -41,6 +42,7 @@ function shortText(id, l) {
   if (p.display === 'per_unit') return fmt(l, 'price.per_page_short', { amount: money(a) });
   if (p.display === 'per_word') return fmt(l, 'price.per_word_short', { amount: money(a) });
   if (p.display === 'per_hour') return fmt(l, 'price.per_hour_short', { amount: money(a) });
+  if (p.display === 'percent') return `${p.percent}%`;
   return priceText(id, l).split(' — ')[0];
 }
 const LABEL = {

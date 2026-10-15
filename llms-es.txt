@@ -259,7 +259,7 @@
 #### Retainer: caso completo con representación en la corte
 - Precio: Desde $749 — precio final tras revisión (por caso, hasta la sentencia)
 - Llevamos todo el caso de su empresa: documentos, presentación, notificación, plazos, negociación y la audiencia, con un poder. Incluye el bono de recuperación.
-- Incluye: Paquete y presentación; Notificación y calendario judicial; Audiencia previa y mediación por su empresa; Hasta 2 horas en la corte incluidas; Pasos tras la sentencia; Bono: análisis gratuito de cuentas por cobrar y un piloto de recuperación gratuito de 30 días
+- Incluye: Paquete y presentación; Notificación y calendario judicial; Audiencia previa y mediación por su empresa; Hasta 2 horas en la corte incluidas; Pasos tras la sentencia; Promoción: análisis gratuito de cuentas por cobrar y piloto Financial Recovery gratuito de 30 días
 - No incluye / se cobra aparte: Tasas judiciales y de notificación, al costo; Tiempo en la corte por encima de 2 horas, por hora; Apelaciones: cotización aparte
 - Siguiente paso: Envíe el caso. Confirmamos el estado y el tribunal, le enviamos el poder para que lo firme la empresa y fijamos por escrito el precio del caso.
 - Página: https://vitacorexllc.com/small-claims-documentation.html#retainer
@@ -275,26 +275,34 @@
 #### Análisis de cuentas por cobrar
 - Precio: $390 — un análisis, hasta 100 facturas abiertas
 - Antigüedad por cuenta, disputas y documentos faltantes, y el siguiente paso para cada factura vencida.
-- Incluye: Informe de antigüedad por cuenta y por monto; Disputas, documentos faltantes y contactos incompletos señalados; Siguiente paso por cuenta: recordatorio, plan de pagos o small claims; Una llamada de revisión de 30 minutos
-- No incluye / se cobra aparte: Gratis para clientes con el retainer de small claims; Más de 100 facturas: cotización por escrito
+- Incluye: Informe de antigüedad por cuenta y por monto; Disputas, documentos faltantes y contactos incompletos señalados; Siguiente paso por cuenta: recordatorio, plan de pagos, carta de cobro o corte; Una llamada de revisión de 30 minutos
+- No incluye / se cobra aparte: Gratis para clientes actuales con el retainer de small claims (promoción); Más de 100 facturas: cotización por escrito
 - Siguiente paso: Envíe una exportación de sus facturas abiertas. Confirmamos el alcance por escrito y entregamos el análisis en 5 días hábiles.
 - Página: https://vitacorexllc.com/es/financial-recovery.html
 
-#### Piloto de recuperación, 30 días
+#### Piloto Financial Recovery, 30 días
 - Precio: $790 — 30 días, hasta 25 facturas
-- 30 días de trabajo con hasta 25 facturas vencidas: recordatorios y cartas de cobro a nombre de su empresa, planes de pago y paquetes de small claims.
-- Incluye: Análisis de las cuentas del piloto; Secuencia de recordatorios y cartas de cobro a nombre de su empresa, aprobada por usted; Documentos de plan de pagos para deudores que aceptan pagar en partes; Paquetes de small claims para las cuentas que necesitan corte; Informe semanal y resumen final
-- No incluye / se cobra aparte: Piloto gratuito de 30 días para clientes con el retainer de small claims; Tasas judiciales y notificación, al costo; Correo o correo certificado, al costo
+- Treinta días de cobro antes de la corte con hasta 25 facturas vencidas: recordatorios, cartas de cobro y planes de pago a nombre de su empresa, con un informe del dinero que realmente entró.
+- Incluye: Plan de recuperación para cada cuenta del piloto; Recordatorios por email, guion de llamadas y cartas de cobro a nombre de su empresa, aprobados por usted; Acuerdos de plan de pagos para deudores que aceptan pagar en partes; Informe semanal y resumen final de net recovery: pagado, prometido, sin respuesta; Una decisión al final: implementar el método en todas sus facturas o parar
+- No incluye / se cobra aparte: Gratis 30 días para clientes actuales con el retainer de small claims (promoción); Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta); Búsqueda del deudor (skip tracing), $49 por deudor; Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100); Tasas estatales, del condado y judiciales, al costo; Cuentas que necesitan corte: small claims es un servicio aparte
 - Siguiente paso: Envíe la lista de facturas vencidas. Acordamos con usted las cuentas del piloto y el texto de las cartas, y trabajamos 30 días con un informe semanal.
 - Página: https://vitacorexllc.com/es/financial-recovery.html
 
-#### Apoyo de recuperación para clientes actuales
-- Precio: Presupuesto individual — presupuesto individual
-- Una opción adicional para clientes empresariales actuales, con presupuesto individual.
-- Incluye: Revisión de su asunto actual; Presupuesto individual por escrito
-- No incluye / se cobra aparte: Solo para clientes empresariales actuales
-- Siguiente paso: Indique su referencia de cliente; la persona a cargo de su cuenta le responde con opciones.
-- Página: https://vitacorexllc.com/net-recovery.html
+#### Financial Recovery: implementación completa
+- Precio: 12% — de cada pago recibido antes de la corte; 18% en facturas con más de un año de atraso
+- Tras un piloto exitoso implementamos el método en todas sus facturas vencidas y cobramos solo de lo que los deudores pagan antes de la corte.
+- Incluye: El método en todas sus facturas B2B vencidas: plan, secuencia de cartas, planes de pago y seguimiento; Informe mensual de net recovery según sus propios registros de pago; Sin cargo de implementación y sin mínimo mensual; Los deudores pagan directamente a su empresa; facturamos nuestra parte una vez al mes; Mes a mes, con aviso de 30 días
+- No incluye / se cobra aparte: 18% en facturas con más de 12 meses de atraso; Cartas por correo certificado de USPS con acuse de recibo, al costo (unos $11 por carta); Búsqueda del deudor (skip tracing), $49 por deudor; Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100); Tasas estatales, del condado y judiciales, al costo; Cuentas que van a la corte: se aplican los precios de small claims y el porcentaje se detiene para esa cuenta
+- Siguiente paso: Tras el resumen del piloto acordamos por escrito las cuentas y la tarifa, y luego implementamos el método en sus cuentas por cobrar.
+- Página: https://vitacorexllc.com/financial-recovery.html#rollout
+
+#### Búsqueda del deudor (skip tracing)
+- Precio: $49 — por deudor
+- Dirección, teléfono y agente registrado actuales de una empresa deudora, verificados antes de enviar cartas o notificar.
+- Incluye: Búsqueda en registros estatales de empresas y fuentes de datos comerciales; Dirección, teléfono y agente registrado actuales, verificados; Resultado normalmente en 2 días hábiles
+- No incluye / se cobra aparte: Registros oficiales de pago fuera de la búsqueda estándar, al costo
+- Siguiente paso: Envíe los últimos datos conocidos del deudor; confirmamos la búsqueda y respondemos en 2 días hábiles.
+- Página: https://vitacorexllc.com/financial-recovery.html#extras
 
 - Cada caso empieza con una revisión (estado, tribunal, datos del reclamo); confirmamos el alcance para su estado y tribunal antes de que pague.
 - Con el retainer por caso llevamos los documentos, el calendario judicial y la audiencia por su empresa con un poder, donde el tribunal lo permite.

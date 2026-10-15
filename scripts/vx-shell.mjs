@@ -46,6 +46,8 @@ function priceInfo(id) {
     case 'per_hour': return { ...o, amount: money(a), short: fmt('price.per_hour_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
     case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
     case 'free_scope': return { ...o, amount: T('price.no_charge'), short: T('price.no_charge'), tag: T('price.tag.free'), cls: 'vx-tag--free' };
+    // success fee: a share of what debtors actually pay; no amount in cents
+    case 'percent': return { ...o, amount: p.percent + '%', short: p.percent + '%', tag: T('price.tag.success'), cls: 'vx-tag--fixed' };
     default: return { ...o, amount: T('price.quote'), short: T('price.quote'), tag: T('price.tag.individual'), cls: 'vx-tag--quote' };
   }
 }
@@ -67,7 +69,7 @@ function headerHTML() {
   const menuIds = (g) => g.menu || g.services;
   const plain = (href, key) => `<li><a href="${href}"><span data-t="${key}">${esc(en[key])}</span></a></li>`;
   // the business lane carries prices like every other group, and comes right after court everywhere (mega DOM, drawer)
-  const bizLinks = ['b2b_small_claims_packet', 'b2b_small_claims_support', 'b2b_small_claims_retainer', 'b2b_small_claims_hourly', 'b2b_recovery_analysis'].map(svcLink).join('') + plain('/net-recovery.html', 'h3.b2b.existing');
+  const bizLinks = ['b2b_small_claims_packet', 'b2b_small_claims_support', 'b2b_small_claims_retainer', 'b2b_small_claims_hourly', 'b2b_recovery_analysis', 'b2b_recovery_rollout'].map(svcLink).join('');
   const biz = `<div class="vx-mega__group vx-mega__group--biz"><h3 data-t="mega.biz.title">${esc(en['mega.biz.title'])}</h3><ul>${bizLinks}</ul></div>`;
   const megaGroup = (g) => `<div class="vx-mega__group vx-mega__group--${g.id}"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul></div>`;
   const mega = feature + megaGroup(privateGroups[0]) + biz + privateGroups.slice(1).map(megaGroup).join('');

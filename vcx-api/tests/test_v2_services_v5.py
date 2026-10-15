@@ -55,7 +55,7 @@ def test_records_update_fixed_and_rejects_unknown_fields(client, env):
 def test_retainer_is_per_case_business_lane_with_bonus_and_no_checkout(client, env, catalog):
     svc = catalog["services"]["b2b_small_claims_retainer"]
     assert svc["price"]["amount_cents"] == 74900 and svc["action"] == "b2b"
-    assert any("Bonus" in x for x in svc["included"]["en"]) and any("2 hours in court" in x for x in svc["included"]["en"])
+    assert any(x.startswith("Promotion") for x in svc["included"]["en"]) and any("2 hours in court" in x for x in svc["included"]["en"])
     req = create(client, "b2b_small_claims_retainer", subtype="unpaid_invoice",
                  details={"company": "Test Co LLC", "b2b_state": "FL", "claim_amount": "4200", "party_role": "claimant", "poa_ready": "template"})
     assert req["queue"] == "B2B_SMALL_CLAIMS" and req["next_action"] == "b2b_review"
@@ -84,3 +84,27 @@ def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, cat
     assert r.status_code == 201  # New York: accepted for a jurisdiction check
     for sid in ("b2b_recovery_analysis", "b2b_recovery_pilot"):
         assert any("retainer" in x for x in catalog["services"][sid]["extra"]["en"])
+
+
+def test_financial_recovery_pilot_is_pre_court_and_extras_are_listed_separately(client, env, catalog):
+    pl = catalog["services"]["b2b_recovery_pilot"]
+    assert "Financial Recovery" in pl["name"]["en"]
+    text = " ".join(pl["included"]["en"] + [pl["short"]["en"]]).lower()
+    assert "small-claims packet" not in text and "small claims packet" not in text, "small claims is a separate service, not part of the pilot"
+    extra = " ".join(pl["extra"]["en"]).lower()
+    for word in ("certified mail", "skip tracing", "service on the debtor", "court fees", "promotion"):
+        assert word in extra, word
+
+
+def test_rollout_is_a_success_fee_never_checked_out_and_skip_trace_is_priced(client, env, catalog):
+    from app.services.v2_catalog import price_display_text
+    ro = catalog["services"]["b2b_recovery_rollout"]
+    assert ro["price"]["display"] == "percent" and ro["price"]["percent"] == 12 and ro["price"]["percent_aged"] == 18
+    assert ro["price"]["amount_cents"] is None and ro["action"] == "b2b"
+    assert price_display_text(ro, "en").startswith("12% of each payment")
+    st = catalog["services"]["b2b_skip_trace"]
+    assert st["price"]["amount_cents"] == 4900 and st["action"] == "b2b"
+    for sid in ("b2b_recovery_rollout", "b2b_skip_trace"):
+        req = create(client, sid, details={"company": "Test Supply LLC", "b2b_state": "FL", "overdue_count": 40, "on_monthly_plan": "no"})
+        assert req["next_action"] == "b2b_review"
+        assert _checkout(client, req).status_code in (400, 409, 422)

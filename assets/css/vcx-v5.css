@@ -706,3 +706,20 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
   .vx-ptable th:nth-child(4), .vx-ptable td:nth-child(4), .vx-ptable__go { width: 196px; }
 }
 @media (max-width: 47.5em) { .vx-ptable caption { display: block; width: auto; padding: 16px 16px 8px; text-align: left; } }
+
+/* 28. Financial Recovery v2: the rollout rate block and the retainer promotion */
+.vx-rate { display: grid; gap: 12px; margin: 28px 0 0; padding-top: 22px; border-top: 1px solid rgb(124 210 222 / .25); }
+.vx-rate__row { display: grid; grid-template-columns: clamp(6.5rem, 4.6rem + 5vw, 9.5rem) minmax(0, 1fr); align-items: baseline; column-gap: 20px; margin: 0; }
+.vx-rate__n { color: #fff; font: 440 clamp(3rem, 2.2rem + 2.6vw, 4.5rem)/1 var(--vx-serif); font-variant-numeric: lining-nums tabular-nums; letter-spacing: -.02em; }
+.vx-rate__row--alt .vx-rate__n { font-size: clamp(2rem, 1.6rem + 1.2vw, 2.75rem); }
+.vx-rate__row--alt .vx-rate__n { color: var(--vx-accent-soft); }
+.vx-rate__t { color: var(--vx-on-2); font: 500 1rem/1.4 var(--vx-sans); max-width: 26ch; }
+.vx-rate__note { margin: 18px 0 0; color: var(--vx-on-3); font-size: .9375rem; }
+.vx-band .vx-ticks li { color: var(--vx-on-2); }
+.vx-rate__side { align-self: end; }
+.vx-rate__side .vx-ticks { margin: 0 0 28px; }
+#extras { margin-top: 32px; }
+.vx-promo { margin-top: 32px; padding: 24px 28px; border-top: 2px solid var(--vx-accent); }
+.vx-promo h3 { margin: 6px 0 8px; color: var(--vx-ink); font: 480 1.375rem/1.3 var(--vx-serif); }
+.vx-promo p { max-width: 64ch; margin: 0 0 16px; }
+@media (max-width: 47.99em) { .vx-promo { padding: 20px; } }

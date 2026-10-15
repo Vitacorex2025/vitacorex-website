@@ -135,6 +135,8 @@ def price_display_text(service: dict, locale: str) -> str:
     amount = price.get("amount_cents")
     unit = loc(service.get("unit"), locale)
     words = _PRICE_WORDS.get(locale, _PRICE_WORDS["en"])
+    if display == "percent" and price.get("percent") is not None:
+        return f"{price['percent']}% {unit}".strip()
     if not isinstance(amount, int):
         return _cap(unit)
     m = money_text(amount, locale)
