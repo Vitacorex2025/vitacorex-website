@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = 'ea7c2a7c2c';
+  var VERSION = '772a82441e';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -284,22 +284,43 @@
 
     var mbtn = qs('.vx-menu-btn'), drawer = qs('.vx-drawer');
     if (mbtn && drawer) {
+      /* the sheet is a modal dialog: the page behind is inert, Tab cycles burger + sheet, Escape closes from anywhere */
+      var behind = function () { return qsa('body > main, body > footer, .vx-ftr, body > .vx-notice, .vx-consent'); };
+      var trap = function (e) {
+        if (drawer.getAttribute('data-open') !== 'true') return;
+        if (e.key === 'Escape') { e.preventDefault(); setD(false); mbtn.focus(); return; }
+        if (e.key !== 'Tab') return;
+        var f = [mbtn].concat(qsa('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])', drawer).filter(function (x) { return x.offsetParent !== null; }));
+        var i = f.indexOf(document.activeElement);
+        if (e.shiftKey && (i <= 0)) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+      };
       var setD = function (v) {
         /* the sheet starts exactly under the header row (a preview ribbon or banner above the header must not push the row under the sheet) */
         if (v) { var hb = qs('.vx-hdr__row'); if (hb) drawer.style.top = Math.max(0, Math.round(hb.getBoundingClientRect().bottom)) + 'px'; }
         drawer.setAttribute('data-open', v ? 'true' : 'false'); mbtn.setAttribute('aria-expanded', v ? 'true' : 'false');
+        if (v) { drawer.setAttribute('role', 'dialog'); drawer.setAttribute('aria-modal', 'true'); drawer.setAttribute('aria-label', t('nav.menu')); }
+        else { drawer.removeAttribute('role'); drawer.removeAttribute('aria-modal'); }
+        behind().forEach(function (el) { if (v) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
+        if (v) document.addEventListener('keydown', trap); else document.removeEventListener('keydown', trap);
         document.body.classList.toggle('vx-drawer-open', v);
         var lbl = qs('[data-vx-menu-label]', mbtn); if (lbl) lbl.textContent = t(v ? 'nav.close' : 'nav.menu');
         if (v) { var first = qs('button, a', drawer); if (first) first.focus(); }
       };
       mbtn.addEventListener('click', function () { setD(drawer.getAttribute('data-open') !== 'true'); });
-      drawer.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setD(false); mbtn.focus(); } });
       drawer.addEventListener('click', function (e) { if (e.target.closest('a')) setD(false); });
       window.addEventListener('resize', function () { if (window.innerWidth > 1180 && drawer.getAttribute('data-open') === 'true') setD(false); });
     }
 
     var path = location.pathname.replace(/\/index\.html$/, '/');
     qsa('.vx-nav > a').forEach(function (a) { var h = a.getAttribute('href'); if (h && (h === path || (h !== '/' && path.indexOf(h) === 0))) a.setAttribute('aria-current', 'page'); });
+    /* Services trigger: current on the services index and on every catalog service page (all languages) */
+    var trig = qs('.vx-nav__trigger'), bare = path.replace(/^\/(ru|es)\//, '/');
+    if (trig && !qs('.vx-nav > a[aria-current]')) {
+      var svcPages = { '/services.html': 1 };
+      if (state.catalog) Object.keys(state.catalog.services).forEach(function (id) { var pg = state.catalog.services[id].page; if (pg && pg.indexOf('/request.html') !== 0) svcPages[pg.split('#')[0]] = 1; });
+      if (svcPages[bare]) trig.setAttribute('aria-current', 'true');
+    }
   }
 
   /* ---------------- consent (same key/values as legacy site.js) ---------------- */
@@ -336,7 +357,15 @@
     var reserve = function () { document.body.style.paddingBottom = (bar.offsetHeight + 32) + 'px'; };
     /* phones: the slip docks after the first scroll, so it never covers the hero's primary button on the first screen */
     var show = function () { if (bar.isConnected) return; document.body.appendChild(bar); reserve(); };
-    if (window.matchMedia && window.matchMedia('(max-width: 47.99em)').matches && (window.scrollY || 0) < 120) {
+    /* any viewport: wait for the first scroll if the slip would cover the hero's primary button or price chips */
+    var covers = function () {
+      var h = window.innerHeight, w = Math.min(window.innerWidth, 536), top = h - 280;
+      return qsa('.vx5-hero .vx5-btn, .vx5-hero .vx5-chip, .vx-phero .vx-btn, .vx-hero3 .vx-btn').some(function (b) {
+        var r = b.getBoundingClientRect(); return r.width && r.bottom > top && r.top < h && r.left < w;
+      });
+    };
+    var phone = window.matchMedia && window.matchMedia('(max-width: 47.99em)').matches;
+    if ((phone || covers()) && (window.scrollY || 0) < 120) {
       var onScroll = function () { if ((window.scrollY || 0) >= 120) { window.removeEventListener('scroll', onScroll); show(); } };
       window.addEventListener('scroll', onScroll, { passive: true });
     } else show();

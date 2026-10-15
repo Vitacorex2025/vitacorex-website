@@ -252,7 +252,7 @@
   "err.sensitive_data": "Parece un número de Seguro Social, tarjeta o cuenta. Elimínelo; le enviaremos un enlace seguro para datos sensibles.",
   "err.consent_required": "Confirme que leyó la información de privacidad.",
   "err.ny_excluded": "No ofrecemos el servicio de small claims para empresas en Nueva York. Con gusto le ayudamos con nuestros otros servicios.",
-  "err.summary_title": "Revise {count} campo(s)",
+  "err.summary_title": "Revise los campos marcados ({count})",
   "err.not_sent_title": "Su solicitud aún no se envió",
   "err.network": "No pudimos confirmar su solicitud. Sus datos siguen aquí; inténtelo de nuevo o llámenos o escríbanos.",
   "err.rate_limited": "Demasiados intentos en poco tiempo. Espere un minuto y vuelva a intentarlo.",

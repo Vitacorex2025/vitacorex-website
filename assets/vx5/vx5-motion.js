@@ -186,10 +186,10 @@
     var once = !!sget('vx5_m01b', true);
     inView(kit, function (v) {
       if (!v || once || S.mode === 'still' || mqPhone.matches) return; once = true; sset('vx5_m01b', '1', true);
-      qsa('.vx5-k-sheet', kit).forEach(function (s, i) { anim(s, [{ transform: 'translateX(-40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 600, delay: i * 120, easing: OUT, fill: 'backwards' }); });
-      anim(kit.querySelector('.vx5-k-flap'), [{ transform: 'rotate(-37.69deg)', opacity: 0 }, { opacity: 1, offset: .3 }, { transform: 'none', opacity: 1 }], { duration: 500, delay: 600, easing: OUT, fill: 'backwards' });
-      anim(kit.querySelector('.vx5-k-band'), [{ transform: 'translateX(-40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 300, delay: 1100, easing: OUT, fill: 'backwards' });
-    }, { threshold: .3 });
+      qsa('.vx5-k-sheet', kit).forEach(function (s, i) { anim(s, [{ transform: 'translateX(-40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 520, delay: i * 80, easing: OUT, fill: 'backwards' }); });
+      anim(kit.querySelector('.vx5-k-flap'), [{ transform: 'rotate(-37.69deg)', opacity: 0 }, { opacity: 1, offset: .3 }, { transform: 'none', opacity: 1 }], { duration: 420, delay: 440, easing: OUT, fill: 'backwards' });
+      anim(kit.querySelector('.vx5-k-band'), [{ transform: 'translateX(-40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 280, delay: 780, easing: OUT, fill: 'backwards' });
+    }, { threshold: .05 });
   }
 
   /* ---------------- typographic glue: keep set phrases on one line per language (e.g. RU H1 B "ваши документы") ---------------- */

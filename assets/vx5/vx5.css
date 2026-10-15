@@ -627,3 +627,39 @@ html[data-vx5-mode="still"] .vx5-card:hover .vx5-acc, html[data-vx5-mode="still"
 .vx5-hero__video::-webkit-media-controls { display: none !important; }
 .vx5-hero__video::-webkit-media-controls-enclosure { display: none !important; }
 @media (max-width: 47.99em) { .vx5-chips .vx5-chip__p { white-space: normal; font-size: 15px; line-height: 18px; } }
+
+/* ==========================================================================
+   Critique round 1 fixes (worklogs/CRITIQUE_V5_R1.md) — integrator
+   ========================================================================== */
+/* M1 phone hero uses the full 4-column width (the credential line must not create implicit tracks) */
+@media (max-width: 63.99em) { .vx5-cred { grid-column: 1 / -1; } }
+/* M2 no horizontal scroll at 320: the finder input takes no intrinsic width */
+.vx5-finder__box input { width: 0; }
+@media (max-width: 47.99em) { .vx5-svc-head { grid-template-columns: minmax(0, 1fr); } .vx5-svc-head .vx5-h2, .vx5-svc-head__find { grid-column: 1 / -1; } }
+/* M3 step 3: one SAMPLE mark (front sheet), tabs of the back sheets clear the 8 px stack offset, a label on the inner cover */
+.vx5-rs__box[data-step="3"] .vx5-sh:not([data-i="3"]) .vx5-sh__sample { visibility: hidden; }
+.vx5-rs__box[data-step="3"] .vx5-sh__tab { margin-left: calc((2 - var(--d, 0)) * 9.3px); }
+.vx5-kit__open::before {
+  content: ""; position: absolute; z-index: 1; left: 50px; top: 64px; width: 200px; height: 80px; border-radius: 2px;
+  background:
+    linear-gradient(var(--vx5-accent), var(--vx5-accent)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(rgb(10 37 48 / .55), rgb(10 37 48 / .55)) 18px 22px / 110px 2px no-repeat,
+    linear-gradient(rgb(10 37 48 / .25), rgb(10 37 48 / .25)) 18px 40px / 150px 1px no-repeat,
+    linear-gradient(rgb(10 37 48 / .25), rgb(10 37 48 / .25)) 18px 54px / 96px 1px no-repeat,
+    #F4F7F8;
+  box-shadow: 0 1px 0 rgb(3 14 19 / .3);
+}
+/* M8 business row: the 24 px inset belongs to the row; the action never wraps */
+.vx5-ix--b2b { padding-right: 24px; }
+.vx5-ix--b2b .vx5-ix__act { padding-right: 0; }
+.vx5-ix__act .vx5-btn { white-space: nowrap; }
+@media (max-width: 75em) { .vx5-ix__rows { grid-column: 6 / 10; } .vx5-ix__act { grid-column: 10 / 13; } .vx5-ix__act .vx5-btn { max-width: none; } }
+/* M10 no micro-text: the phone kit drops its SVG labels (the caption says SAMPLE), index art labels hide below 1.0 scale */
+@media (max-width: 47.99em) { .vx5-bkit__svg text { display: none; } }
+.vx5-ix__art svg text { display: none; }
+/* MINOR 3 / 4 index price rows: balanced unit lines; the dotted leader runs to the price */
+.vx5-row__p .vx-price__unit { text-wrap: balance; max-width: 15em; }
+/* MINOR 12 kit caption stays readable over bright video frames */
+.vx5-bkit__cap { width: max-content; max-width: 100%; padding: 4px 8px; background: rgb(7 27 35 / .85); border-radius: 2px; }
+/* MINOR 15 phone kit selector: the cut-off third tab fades instead of looking broken */
+@media (max-width: 47.99em) { .vx5-tabs { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); } }

@@ -350,7 +350,7 @@ function ensureHead(html) {
 const TRAIT = { 'translations.html': 'translation', 'online-notary.html': 'notary', 'apostille.html': 'apostille', 'tax-preparation.html': 'tax', 'pricing.html': 'tax',
   'name-change.html': 'court', 'fee-waiver.html': 'court', 'immigration-packet-review.html': 'court', 'n-400-naturalization.html': 'court', 'contract-review-service.html': 'court',
   'civil-case-referral.html': 'court', 'small-claims-documentation.html': 'court', 'llc-formation-florida.html': 'company', 'business-filings.html': 'company',
-  'founder-services.html': 'company', 'business-plans.html': 'company', 'services.html': 'company' };
+  'founder-services.html': 'company', 'business-plans.html': 'company' };
 const HAS_FAMILY = fs.existsSync(path.join(ROOT, 'assets/vx5/vx5-family.svg'));
 function addTrait(html, f) {
   html = html.replace(/<svg class="vx-phero__art"[\s\S]*?<\/svg>/, '');

@@ -418,3 +418,101 @@ body.vx::after { background: rgb(7 27 35 / .5); -webkit-backdrop-filter: none; b
 
 /* 19. HEADER ROW ABOVE THE MOBILE SHEET: the menu button always stays clickable to close the sheet */
 .vx-hdr__row { z-index: 91; }
+
+/* ==========================================================================
+   20. CRITIQUE ROUND 1 FIXES (worklogs/CRITIQUE_V5_R1.md)
+   ========================================================================== */
+/* B4 focus ring on dark surfaces: #7CD2DE (6.7:1 on the header) instead of the light-surface link teal */
+.vx-hdr, .vx-drawer, .vx-ftr, .vx-mega, .vx-consent, .vx-phero, .vx-band, .vx5-hero, .vx5-rs, .vx5-ix--b2b { --vx-focus: #7CD2DE; --vx-ring: #7CD2DE; }
+.vx-lang__list, .vx-finder__list { --vx-focus: #0F6E79; --vx-ring: #0F6E79; }
+.vx-hdr a:focus-visible, .vx-hdr button:focus-visible, .vx-drawer a:focus-visible, .vx-drawer button:focus-visible, .vx-ftr a:focus-visible { outline: 2px solid var(--vx-focus) !important; outline-offset: 2px !important; border-radius: 2px; }
+
+/* B1 services index: fixed price and action tracks, so every price starts on one x («под линеечку») */
+.vx-irow { grid-template-columns: minmax(0, 1fr) 208px 176px; column-gap: 32px; }
+.vx-irow__go .vx-btn { width: 100%; min-height: 44px; justify-content: space-between; }
+.vx-irow__amount { font: 600 18px/24px var(--vx-serif); font-variant-numeric: lining-nums tabular-nums; }
+@media (max-width: 64em) { .vx-irow { grid-template-columns: minmax(0, 1fr) 176px 160px; } }
+@media (max-width: 47.99em) { .vx-irow { grid-template-columns: minmax(0, 1fr) auto; } .vx-irow__go .vx-btn { width: auto; } }
+.vx-ptable__price { font: 600 18px/24px var(--vx-serif); font-variant-numeric: lining-nums tabular-nums; }
+.vx-ptable__go { width: 200px; padding-right: 16px !important; }
+.vx-ptable__go .vx-btn { max-width: 100%; }
+
+/* M6 no glass on the services filter bar */
+.vx-index__bar { background: #fff !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: 0 0 0 100vmax #fff; clip-path: inset(0 -100vmax); }
+
+/* M7 targets ≥ 44 px */
+.vx-nav > a, .vx-nav__trigger, .vx-hdr__phone { min-height: 44px; display: inline-flex; align-items: center; }
+.vx-ftr ul a, .vx-ftr__mail, .vx-ftr__all, .vx-link { display: inline-flex; align-items: center; min-height: 44px; }
+.vx-ftr ul { gap: 0; }
+.vx-ftr__phone { min-height: 44px; }
+.vx-irow__more summary, .vx-index .vx-chip, .vx-chips .vx-chip { min-height: 44px; }
+.vx-menu-btn { min-width: 44px; }
+
+/* M4 form errors (§9.9): the JS marks invalid fields with aria-invalid */
+:where(body.vx) .vx-field :is(input, select, textarea)[aria-invalid="true"] { border-color: var(--vx-danger); box-shadow: inset 0 0 0 1px var(--vx-danger); }
+:where(body.vx) .vx-field [id^="err-"], :where(body.vx) .vx-field .vx-err { display: flex; align-items: flex-start; gap: 6px; min-height: 20px; font: 500 14px/20px var(--vx-sans); color: var(--vx-danger); }
+:where(body.vx) .vx-field [id^="err-"]:not(:empty)::before, :where(body.vx) .vx-field .vx-err:not(:empty)::before {
+  content: ""; flex: none; width: 16px; height: 16px; margin-top: 2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.5 15 14.5H1z' fill='none' stroke='%239B2C35' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M8 6v4M8 11.6v.9' stroke='%239B2C35' stroke-width='1.5'/%3E%3C/svg%3E") center / 16px no-repeat; }
+#f-phone, :where(body.vx) .vx-field input[type="tel"] { min-height: 48px; height: 48px; }
+/* M5 the request form keeps its height while the service script settles (no jump below it) */
+html:not(.vx-ready) .vx-form-wrap { visibility: hidden; } /* painted once, after the service script has set the fields */
+/* MINOR 18 alerts and error summaries: cool surfaces with a 2 px rule, no warm tint */
+.vx-alert { border-radius: var(--vx-radius); }
+.vx-alert--err { background: #fff; color: #6E1A23; border: 1px solid var(--vx-line); border-left: 2px solid var(--vx-danger); }
+.vx-alert--info, .vx-alert--warn { background: var(--vx-frost); color: var(--vx-ink); border: 1px solid var(--vx-line); border-left: 2px solid var(--vx-link); }
+.vx-alert--ok { background: #fff; color: #144A35; border: 1px solid var(--vx-line); border-left: 2px solid var(--vx-ok); }
+/* MINOR 17 order status: reserve the status block so the footer does not jump */
+#vx-status { min-height: 120px; }
+
+/* M9 inner page heroes: solid ink, no stock photo; text and panel start on the same line; 12-column grid */
+.vx-phero__img { display: none !important; }
+.vx-phero::after { background: none !important; }
+.vx-phero { background: var(--vx-ink); border-bottom: 1px solid rgb(124 210 222 / .14); }
+.vx-phero__inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; align-items: start; padding-top: clamp(48px, 6vw, 96px); padding-bottom: clamp(48px, 5vw, 80px); }
+.vx-phero__inner > :first-child { grid-column: 1 / 8; }
+.vx-phero__aside { grid-column: 8 / 13; }
+@media (max-width: 63.99em) { .vx-phero__inner { grid-template-columns: minmax(0, 1fr); row-gap: 32px; } .vx-phero__inner > :first-child, .vx-phero__aside { grid-column: 1 / -1; } }
+
+/* MINOR 1 three-up rows and FAQ on the 12-column lines */
+.vx-detail, .vx-team { column-gap: 32px; }
+.vx-variants { column-gap: 32px; }
+@media (min-width: 64em) {
+  .vx-faq2 { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; }
+  .vx-faq2__aside { grid-column: 1 / 5; }
+  .vx-faq2 > :last-child { grid-column: 6 / 13; }
+}
+.vx-narrow { max-width: 800px; }
+/* MINOR 2 stepped gutters: 16 / 24 / 32 */
+:root { --vx-gutter: 16px; }
+@media (min-width: 48em) { :root { --vx-gutter: 24px; } }
+@media (min-width: 64em) { :root { --vx-gutter: 32px; } }
+
+/* MINOR 6 retired radii */
+.vx-finder__box, .vx-finder__box input { border-radius: var(--vx-radius) !important; }
+.vx-seg2 span, .vx-stepper, :where(body.vx) select { border-radius: var(--vx-radius) !important; }
+.vx-toggle__track { border-radius: 2px !important; }
+.vx-toggle__track::after { border-radius: 1px !important; }
+
+/* MINOR 7 the language button is words only (no globe) */
+.vx-lang__btn > svg:first-child { display: none; }
+
+/* MINOR 8 services trigger marked on services pages */
+.vx-nav__trigger[aria-current]::before {
+  content: ""; position: absolute; left: 50%; bottom: -3px; width: 7px; height: 9px; margin-left: -3.5px;
+  background: var(--vx-accent-soft); clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.vx-nav__trigger[aria-current]::after { transform: scaleX(1); }
+
+/* MINOR 9 mega: centred button label, a visible 17×22 notch with a hairline edge */
+.vx-mega__foot .vx-btn { display: inline-flex; align-items: center; min-height: 48px; }
+.vx-nav__menu[data-open="true"] .vx-nav__trigger::before { bottom: -18px; width: 34px; height: 22px; margin-left: -17px;
+  background: linear-gradient(var(--vx-ink-2), var(--vx-ink-2)); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 -1px 0 rgb(255 255 255 / .10)); }
+
+/* 21. PREVIEW BADGE (non-production only): a fixed corner note instead of a top ribbon, so it never shifts the layout */
+.vx-preview-ribbon { position: fixed !important; top: auto !important; left: auto !important; right: 12px; bottom: 12px; z-index: 130; width: auto; max-width: min(300px, calc(100vw - 24px));
+  margin: 0 !important; padding: 6px 10px !important; border-radius: 2px; background: #3B1F4F !important; color: #fff !important; font: 600 12px/16px var(--vx-sans) !important; text-align: left !important;
+  box-shadow: 0 8px 20px -10px rgb(0 0 0 / .5); pointer-events: none; opacity: .92; }
+@media (max-width: 47.99em) { .vx-preview-ribbon { right: 8px; bottom: 8px; max-width: 180px; line-height: 15px !important; padding: 4px 8px !important; } }
+body:has(.vx-consent) .vx-preview-ribbon, body.vx-drawer-open .vx-preview-ribbon { display: none !important; }
