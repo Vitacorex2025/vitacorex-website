@@ -21,23 +21,30 @@ const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/data/vcx-cata
 const enPath = path.join(ROOT, 'assets/i18n/en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 let enChanged = false;
+/* Localized static pages (/ru/, /es/): the same pipeline runs with LC/D switched (SEO + no flash of English). */
+const DICTS = { en, ru: JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/i18n/ru.json'), 'utf8')), es: JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/i18n/es.json'), 'utf8')) };
+const NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
+let LC = 'en'; let D = en;
+const T = (k) => (D[k] ?? en[k] ?? '');
+const loc = (o) => (o ? (o[LC] ?? o.en) : '');
+const locList = (o) => (o ? (o[LC] || o.en || []) : []);
 const report = { files: 0, changed: [], newKeys: [], conflicts: [], noFooter: [] };
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const money = (c) => (c % 100 === 0 ? `$${(c / 100).toLocaleString('en-US')}` : `$${(c / 100).toFixed(2)}`);
-const fmt = (k, p) => (en[k] || '').replace(/\{(\w+)\}/g, (m, x) => (p[x] ?? m));
+const fmt = (k, p) => (T(k) || '').replace(/\{(\w+)\}/g, (m, x) => (p[x] ?? m));
 const svc = (id) => catalog.services[id];
 
 function priceInfo(id) {
-  const s = svc(id); const p = s.price; const a = p.amount_cents; const o = { unit: s.unit.en };
+  const s = svc(id); const p = s.price; const a = p.amount_cents; const o = { unit: loc(s.unit) };
   switch (p.display) {
-    case 'fixed': return { ...o, amount: money(a), short: money(a), tag: en['price.tag.fixed'], cls: 'vx-tag--fixed' };
-    case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt(p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) }), tag: en['price.tag.fixed_fees'], cls: 'vx-tag--fixed' };
-    case 'from': { const v = fmt('price.from', { amount: money(a) }); return { ...o, amount: v, short: v, tag: en['price.tag.after_review'], cls: 'vx-tag--quote' }; }
-    case 'per_unit': return { ...o, amount: money(a), short: fmt('price.per_page_short', { amount: money(a) }), tag: en['price.tag.after_review'], cls: 'vx-tag--quote' };
-    case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: en['price.tag.after_review'], cls: 'vx-tag--quote' };
-    case 'free_scope': return { ...o, amount: en['price.no_charge'], short: en['price.no_charge'], tag: en['price.tag.free'], cls: 'vx-tag--free' };
-    default: return { ...o, amount: en['price.quote'], short: en['price.quote'], tag: en['price.tag.individual'], cls: 'vx-tag--quote' };
+    case 'fixed': return { ...o, amount: money(a), short: money(a), tag: T('price.tag.fixed'), cls: 'vx-tag--fixed' };
+    case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt(p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) }), tag: T('price.tag.fixed_fees'), cls: 'vx-tag--fixed' };
+    case 'from': { const v = fmt('price.from', { amount: money(a) }); return { ...o, amount: v, short: v, tag: T('price.tag.after_review'), cls: 'vx-tag--quote' }; }
+    case 'per_unit': return { ...o, amount: money(a), short: fmt('price.per_page_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
+    case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
+    case 'free_scope': return { ...o, amount: T('price.no_charge'), short: T('price.no_charge'), tag: T('price.tag.free'), cls: 'vx-tag--free' };
+    default: return { ...o, amount: T('price.quote'), short: T('price.quote'), tag: T('price.tag.individual'), cls: 'vx-tag--quote' };
   }
 }
 const priceHTML = (id, noTag) => { const pi = priceInfo(id); return `<div class="vx-price"><span class="vx-price__amount">${esc(pi.amount)}</span><span class="vx-price__unit">${esc(pi.unit)}</span>${noTag ? '' : ` <span class="vx-price__tag ${pi.cls}">${esc(pi.tag)}</span>`}</div>`; };
@@ -113,7 +120,6 @@ function footerHTML() {
   return `<!-- vx:footer:start -->
 <div class="vx-bandrule vx-bandrule--dark" aria-hidden="true"></div>
 <footer class="vx-ftr" role="contentinfo">
-<div class="vx-ftr__gl" data-vx-guilloche="heroB" aria-hidden="true"></div>
 <div class="vx-ftr__inner">
 <div class="vx-ruler" aria-hidden="true"></div>
 <div class="vx-ftr__lead">
@@ -158,8 +164,8 @@ function addKey(key, text, file) {
 function fillLeaves(html, file) {
   // data-t leaves: <tag ... data-t="key" ...>text</tag> (text without tags)
   html = html.replace(/<(\w+)((?:\s[^>]*?)?\sdata-t="([^"]+)"[^>]*)>([^<]*)<\/\1>/g, (m, tag, attrs, key, text) => {
-    addKey(key, decodeEntities(text), file);
-    return `<${tag}${attrs}>${esc(en[key])}</${tag}>`;
+    if (LC === 'en') addKey(key, decodeEntities(text), file);
+    return `<${tag}${attrs}>${esc(T(key))}</${tag}>`;
   });
   // data-t-html blocks: balanced; seed only
   const reH = /<(\w+)(?:\s[^>]*?)?\sdata-t-html="([^"]+)"[^>]*>/g; let mm;
@@ -169,19 +175,19 @@ function fillLeaves(html, file) {
     while ((x = re.exec(html))) { if (x[0].startsWith('</')) { if (--depth === 0) { endInner = x.index; break; } } else depth++; }
     if (endInner === -1) continue;
     const inner = html.slice(startInner, endInner);
-    if (!(key in en)) { en[key] = inner.replace(/\s+/g, ' ').trim(); enChanged = true; report.newKeys.push(`${key} (${file})`); }
-    else if (inner.replace(/\s+/g, ' ').trim() !== en[key]) { html = html.slice(0, startInner) + en[key] + html.slice(endInner); reH.lastIndex = startInner + en[key].length; }
+    if (LC === 'en' && !(key in en)) { en[key] = inner.replace(/\s+/g, ' ').trim(); enChanged = true; report.newKeys.push(`${key} (${file})`); }
+    else if (inner.replace(/\s+/g, ' ').trim() !== T(key)) { html = html.slice(0, startInner) + T(key) + html.slice(endInner); reH.lastIndex = startInner + T(key).length; }
   }
   // catalog leaves
   html = html.replace(/<(\w+)((?:\s[^>]*?)?\sdata-svc-(name|short|unit|next|price-short)="([a-z0-9_]+)"[^>]*)>([^<]*)<\/\1>/g, (m, tag, attrs, kind, id) => {
     const s = svc(id); if (!s) { report.conflicts.push(`${file}: unknown service ${id}`); return m; }
-    const v = kind === 'price-short' ? priceInfo(id).short : s[kind].en;
+    const v = kind === 'price-short' ? priceInfo(id).short : loc(s[kind]);
     return `<${tag}${attrs}>${esc(v)}</${tag}>`;
   });
   // catalog lists: <ul data-svc-list="id:included|extra">…</ul> → English items (runtime swaps language)
   html = html.replace(/<ul((?:\s[^>]*?)?\sdata-svc-list="([a-z0-9_]+):(included|extra)"[^>]*)>[\s\S]*?<\/ul>/g, (m, attrs, id, kind) => {
     const s = svc(id); if (!s || !s[kind]) return m;
-    return `<ul${attrs}>${(s[kind].en || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+    return `<ul${attrs}>${locList(s[kind]).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
   });
   // price blocks: <div data-svc-price="id" ...>...</div> (inner replaced; no nested divs expected besides our own)
   html = html.replace(/<div((?:\s[^>]*?)?\sdata-svc-price="([a-z0-9_]+)"[^>]*)>(?:<div class="vx-price">[\s\S]*?<\/div>)?<\/div>/g, (m, attrs, id) => {
@@ -191,12 +197,27 @@ function fillLeaves(html, file) {
   html = html.replace(/<a((?:\s[^>]*?)?\sdata-svc-action="([a-z0-9_]+)"[^>]*)>([^<]*)<\/a>/g, (m, attrs, id) => {
     const s = svc(id); if (!s) return m;
     let a = attrs; if (!/data-keep-href/.test(a)) a = a.replace(/\shref="[^"]*"/, '') + ` href="${reqHref(id)}"`;
-    return `<a${a}>${esc(en['action.' + s.action])}</a>`;
+    return `<a${a}>${esc(T('action.' + s.action))}</a>`;
   });
+  html = fillAttrs(html);
   html = prerender(html);
   html = prerenderEstimate(html);
   html = inlineIcons(html);
   return html;
+}
+
+/* data-t-attr="placeholder:key;aria-label:key2" → static attribute values in the page language. */
+function fillAttrs(html) {
+  return html.replace(/<[a-zA-Z][^>]*\sdata-t-attr="([^"]+)"[^>]*>/g, (tagSrc, spec) => {
+    let out = tagSrc;
+    for (const pair of spec.split(';')) {
+      const bits = pair.split(':').map((x) => (x || '').trim()); const attr = bits[0], key = bits[1];
+      if (!attr || !key || !(key in D || key in en)) continue;
+      const v = esc(T(key)); const re = new RegExp(`(\\s${attr}=")[^"]*(")`);
+      out = re.test(out) ? out.replace(re, (m0, a, b) => a + v + b) : out.replace(/\sdata-t-attr=/, () => ` ${attr}="${v}" data-t-attr=`);
+    }
+    return out;
+  });
 }
 
 /* Static icons: <span data-icon="globe"></span> → inline SVG (same set as assets/js/vcx-icons.js). */
@@ -216,28 +237,28 @@ function inlineIcons(html) {
 function serviceCardEN(id) {
   const s = svc(id); if (!s) return '';
   const details = s.page && !s.page.startsWith('/request.html');
-  return `<article class="vx-scard" data-service="${id}"><h3>${esc(s.name.en)}</h3><p>${esc(s.short.en)}</p>${priceHTML(id)}<div class="vx-scard__actions"><a class="vx-btn vx-btn--accent" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a>${details ? `<a class="vx-btn vx-btn--line" href="${s.page}">${esc(en['action.details'])}</a>` : ''}</div></article>`;
+  return `<article class="vx-scard" data-service="${id}"><h3>${esc(loc(s.name))}</h3><p>${esc(loc(s.short))}</p>${priceHTML(id)}<div class="vx-scard__actions"><a class="vx-btn vx-btn--accent" href="${reqHref(id)}">${esc(T('action.' + s.action))}</a>${details ? `<a class="vx-btn vx-btn--line" href="${s.page}">${esc(T('action.details'))}</a>` : ''}</div></article>`;
 }
 /* Service index rows (services.html) — same template as assets/js/vcx-v2-index.js rowHTML(). */
 function indexRowEN(id) {
   const s = svc(id); if (!s) return '';
   const pi = priceInfo(id); const page = s.page && !s.page.startsWith('/request.html') ? s.page : null;
-  const list = (k) => (s[k]?.en || []).map((x) => `<li>${esc(x)}</li>`).join('');
-  const name = page ? `<a href="${page}">${esc(s.name.en)}</a>` : esc(s.name.en);
-  return `<article class="vx-irow" data-service="${id}" data-pay="${s.action === 'order' || s.action === 'book_pay' ? '1' : '0'}"><div class="vx-irow__main"><h3>${name}</h3><p>${esc(s.short.en)}</p></div><div class="vx-irow__price"><span class="vx-irow__amount"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></span><span class="vx-irow__unit">${esc(pi.unit)}</span></div><div class="vx-irow__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a></div><details class="vx-irow__more"><summary>${esc(en['ix.more'])}</summary><div class="vx-irow__lists"><div><h4>${esc(en['scope.included'])}</h4><ul>${list('included')}</ul></div><div><h4>${esc(en['scope.extra'])}</h4><ul>${list('extra')}</ul></div></div></details></article>`;
+  const list = (k) => locList(s[k]).map((x) => `<li>${esc(x)}</li>`).join('');
+  const name = page ? `<a href="${page}">${esc(loc(s.name))}</a>` : esc(loc(s.name));
+  return `<article class="vx-irow" data-service="${id}" data-pay="${s.action === 'order' || s.action === 'book_pay' ? '1' : '0'}"><div class="vx-irow__main"><h3>${name}</h3><p>${esc(loc(s.short))}</p></div><div class="vx-irow__price"><span class="vx-irow__amount"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></span><span class="vx-irow__unit">${esc(pi.unit)}</span></div><div class="vx-irow__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(T('action.' + s.action))}</a></div><details class="vx-irow__more"><summary>${esc(T('ix.more'))}</summary><div class="vx-irow__lists"><div><h4>${esc(T('scope.included'))}</h4><ul>${list('included')}</ul></div><div><h4>${esc(T('scope.extra'))}</h4><ul>${list('extra')}</ul></div></div></details></article>`;
 }
 function serviceIndexEN() {
-  return catalog.groups.filter((g) => g.lane === 'private').map((g) => `<section class="vx-index__group" id="${g.id}" data-group="${g.id}" aria-labelledby="ix-${g.id}"><h2 class="vx-index__gtitle" id="ix-${g.id}">${esc(g.name.en)}</h2>${g.services.map(indexRowEN).join('')}</section>`).join('');
+  return catalog.groups.filter((g) => g.lane === 'private').map((g) => `<section class="vx-index__group" id="${g.id}" data-group="${g.id}" aria-labelledby="ix-${g.id}"><h2 class="vx-index__gtitle" id="ix-${g.id}">${esc(loc(g.name))}</h2>${g.services.map(indexRowEN).join('')}</section>`).join('');
 }
 function pricingEN() {
   return catalog.groups.map((g) => {
     const rows = g.services.map((id) => {
       const s = svc(id), pi = priceInfo(id);
-      const extra = (s.extra.en || []).slice(0, 2).join(' · ');
-      const link = s.page && !s.page.startsWith('/request.html') ? `<a href="${s.page}">${esc(s.name.en)}</a>` : esc(s.name.en);
-      return `<tr><th scope="row">${link}<small>${esc(s.unit.en)}</small></th><td class="vx-ptable__price" data-label="${esc(en['pricing.col.price'])}"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></td><td data-label="${esc(en['pricing.col.extra'])}">${esc(extra)}</td><td class="vx-ptable__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a></td></tr>`;
+      const extra = locList(s.extra).slice(0, 2).join(' · ');
+      const link = s.page && !s.page.startsWith('/request.html') ? `<a href="${s.page}">${esc(loc(s.name))}</a>` : esc(loc(s.name));
+      return `<tr><th scope="row">${link}<small>${esc(loc(s.unit))}</small></th><td class="vx-ptable__price" data-label="${esc(T('pricing.col.price'))}"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></td><td data-label="${esc(T('pricing.col.extra'))}">${esc(extra)}</td><td class="vx-ptable__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(T('action.' + s.action))}</a></td></tr>`;
     }).join('');
-    return `<table class="vx-ptable"><caption>${esc(g.name.en)}</caption><thead><tr><th scope="col">${esc(en['pricing.col.service'])}</th><th scope="col">${esc(en['pricing.col.price'])}</th><th scope="col">${esc(en['pricing.col.extra'])}</th><th scope="col"><span class="vx-sr">${esc(en['pricing.col.action'])}</span></th></tr></thead><tbody>${rows}</tbody></table>`;
+    return `<table class="vx-ptable"><caption>${esc(loc(g.name))}</caption><thead><tr><th scope="col">${esc(T('pricing.col.service'))}</th><th scope="col">${esc(T('pricing.col.price'))}</th><th scope="col">${esc(T('pricing.col.extra'))}</th><th scope="col"><span class="vx-sr">${esc(T('pricing.col.action'))}</span></th></tr></thead><tbody>${rows}</tbody></table>`;
   }).join('');
 }
 function prerender(html) {
@@ -272,11 +293,11 @@ function prerenderEstimate(html) {
   const cc = F.certified_copy_cents * copies;
   const min = fee + fmin + F.background_check_cents + F.fingerprint_service_min_cents + cc;
   const max = fee + fmax + F.background_check_cents + F.fingerprint_service_max_cents + cc;
-  const rows = row(en['nc.est.r_ours'], 'VitaCoreX', money(fee)) + row(en['nc.est.r_filing'], en['nc.est.p_clerk'], fam)
-    + row(en['nc.est.r_check'], en['nc.est.p_fdle'], money(F.background_check_cents))
-    + row(en['nc.est.r_prints'], en['nc.est.p_vendor'], range(F.fingerprint_service_min_cents, F.fingerprint_service_max_cents))
-    + row(fmt('nc.est.r_copies', { n: copies }), en['nc.est.p_clerk'], money(cc));
-  const opts = F.counties.map((x) => `<option value="${x.id}">${esc(x.name || en['nc.est.county_other'])}</option>`).join('');
+  const rows = row(T('nc.est.r_ours'), 'VitaCoreX', money(fee)) + row(T('nc.est.r_filing'), T('nc.est.p_clerk'), fam)
+    + row(T('nc.est.r_check'), T('nc.est.p_fdle'), money(F.background_check_cents))
+    + row(T('nc.est.r_prints'), T('nc.est.p_vendor'), range(F.fingerprint_service_min_cents, F.fingerprint_service_max_cents))
+    + row(fmt('nc.est.r_copies', { n: copies }), T('nc.est.p_clerk'), money(cc));
+  const opts = F.counties.map((x) => `<option value="${x.id}">${esc(x.name || T('nc.est.county_other'))}</option>`).join('');
   return html
     .replace(/(<select[^>]*data-est="county"[^>]*>)[\s\S]*?(<\/select>)/, (m0, a, b) => a + opts + b)
     .replace(/(<tbody data-est="rows">)[\s\S]*?(<\/tbody>)/, (m0, a, b) => a + rows + b)
@@ -313,6 +334,119 @@ const pages = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !SKIP.ha
 const HEADER = headerHTML();
 const FOOTER = footerHTML();
 
+/* ---------- multilingual URLs ---------- */
+const SITE = 'https://vitacorexllc.com';
+const LOCALES = ['ru', 'es'];
+const isStub = (h) => /http-equiv="refresh"/i.test(h) && h.length < 4000;
+const isNoindex = (h) => /<meta name="robots" content="[^"]*noindex/i.test(h);
+const isV2Page = (h) => /<body[^>]*\bclass="[^"]*\bvx\b/.test(h) && !/data-vx-legacy="1"/.test(h);
+/* Pages that get /ru/ and /es/ copies: rebuilt (v2), indexable, not stubs. */
+const LOCALIZED = new Set(pages.filter((f) => { const h = fs.readFileSync(path.join(ROOT, f), 'utf8'); return !isStub(h) && isV2Page(h) && !isNoindex(h); }));
+const urlPath = (f, lc) => (lc === 'en' ? '' : `/${lc}`) + (f === 'index.html' ? '/' : `/${f}`);
+function hreflangBlock(f) {
+  const links = ['en', ...LOCALES].map((lc) => `<link rel="alternate" hreflang="${lc}" href="${SITE}${urlPath(f, lc)}">`).join('');
+  return `<!-- vx:hreflang:start -->${links}<link rel="alternate" hreflang="x-default" href="${SITE}${urlPath(f, 'en')}"><!-- vx:hreflang:end -->`;
+}
+function setHreflang(html, f) {
+  const block = hreflangBlock(f);
+  const next = replaceBetween(html, '<!-- vx:hreflang:start -->', '<!-- vx:hreflang:end -->', block);
+  if (next != null) return next;
+  return html.replace(/(<link rel="canonical"[^>]*>)/, (m) => `${m}\n${block}`);
+}
+/* <title> and meta description from the page's data-t-title/data-t-desc keys, in the current language */
+function applyTitleDesc(html) {
+  const tk = /<html[^>]*\sdata-t-title="([^"]+)"/.exec(html); const dk = /<html[^>]*\sdata-t-desc="([^"]+)"/.exec(html);
+  if (tk && T(tk[1])) html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(T(tk[1]))}</title>`);
+  if (dk && T(dk[1])) html = html.replace(/(<meta name="description" content=")[^"]*(")/, (m0, a1, b1) => a1 + esc(T(dk[1])) + b1);
+  return html;
+}
+function localizePage(html, f) {
+  html = html.replace(/<html lang="[a-z]+"/, `<html lang="${LC}" data-vx-page-lang="${LC}"`);
+  html = applyTitleDesc(html);
+  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, (m0, a1, b1) => a1 + SITE + urlPath(f, LC) + b1);
+  html = html.replace(/(<meta property="og:url" content=")[^"]*(")/, (m0, a1, b1) => a1 + SITE + urlPath(f, LC) + b1);
+  // internal links to localized pages stay in the language
+  html = html.replace(/\shref="\/([a-z0-9-]+\.html)?([?#][^"]*)?"/g, (m0, file, rest) => {
+    const target = file || 'index.html';
+    if (!LOCALIZED.has(target)) return m0;
+    return ` href="/${LC}/${file || ''}${rest || ''}"`;
+  });
+  // language controls: static state for the page language
+  html = html.replace(/aria-checked="(true|false)" data-vx-lang="([a-z]{2})"/g, (m0, v, lc) => `aria-checked="${lc === LC}" data-vx-lang="${lc}"`);
+  html = html.replace(/aria-pressed="(true|false)" data-vx-lang="([a-z]{2})"/g, (m0, v, lc) => `aria-pressed="${lc === LC}" data-vx-lang="${lc}"`);
+  html = html.replace(/<span data-vx-lang-current>[^<]*<\/span>/g, () => `<span data-vx-lang-current>${NATIVE[LC]}</span>`);
+  // language-specific required notices (e.g. Fla. Stat. 117.05(10) notary notice) visible without JS
+  html = html.replace(/(<[a-z]+[^>]*\sdata-vx-show-lang="([^"]+)")([^>]*?)\shidden([^>]*>)/g, (m0, a1, langs, mid, end) => (langs.split(/\s+/).includes(LC) ? a1 + mid + end : m0));
+  return html;
+}
+
+const EN_BUILT = new Map();
+/* ---------- SEO head: one JSON-LD graph + Open Graph per page and language ---------- */
+const OG_LOCALE = { en: 'en_US', ru: 'ru_RU', es: 'es_ES' };
+const IN_LANG = { en: 'en-US', ru: 'ru', es: 'es' };
+const textOf = (h) => decodeEntities(String(h || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+function offerFor(id) {
+  const s = svc(id), p = s.price, a = p.amount_cents, url = SITE + (LC === 'en' ? '' : '/' + LC) + (s.page && !s.page.startsWith('/request.html') ? s.page : '/request.html?service=' + id);
+  const o = { '@type': 'Offer', url, priceCurrency: 'USD', availability: 'https://schema.org/InStock', description: priceInfo(id).short + (loc(s.unit) ? ' — ' + loc(s.unit) : '') };
+  if (['fixed', 'fixed_plus_fees', 'per_unit', 'per_word'].includes(p.display)) o.price = (a / 100).toFixed(2);
+  else if (p.display === 'from') o.priceSpecification = { '@type': 'PriceSpecification', minPrice: (a / 100).toFixed(2), priceCurrency: 'USD' };
+  else if (p.display === 'free_scope') o.price = '0';
+  return o;
+}
+function seoHead(html, f) {
+  const pageUrl = SITE + urlPath(f, LC);
+  const title = textOf((/<title>([^<]*)<\/title>/.exec(html) || [])[1]);
+  const desc = textOf((/<meta name="description" content="([^"]*)"/.exec(html) || [])[1]);
+  const h1 = textOf((/<h1[^>]*>([\s\S]*?)<\/h1>/.exec(html) || [])[1]) || title;
+  const home = SITE + urlPath('index.html', LC);
+  const org = { '@type': ['ProfessionalService', 'LocalBusiness'], '@id': SITE + '/#org', name: 'VitaCoreX LLC', alternateName: ['VitaCoreX', 'ВитаКорекс'], url: SITE + '/',
+    logo: SITE + '/assets/img/logo.png', image: SITE + '/assets/img/og/og-' + LC + '.jpg', telephone: '+1-888-794-8292', email: 'info@vitacorexllc.com',
+    address: { '@type': 'PostalAddress', addressLocality: 'Tampa', addressRegion: 'FL', addressCountry: 'US' },
+    areaServed: [{ '@type': 'Country', name: 'United States' }, { '@type': 'State', name: 'Florida' }],
+    availableLanguage: ['English', 'Russian', 'Spanish'], knowsLanguage: ['en', 'ru', 'es'],
+    openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
+    priceRange: '$$', founder: { '@id': SITE + '/#steven-miller' },
+    sameAs: ['https://www.instagram.com/vitacorex_llc/', 'https://www.facebook.com/profile.php?id=61554844507884'],
+    description: T('home.meta.desc') || desc };
+  const graph = [org,
+    { '@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: 'VitaCoreX', inLanguage: ['en-US', 'ru', 'es'], publisher: { '@id': SITE + '/#org' },
+      potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: home.replace(/\/$/, '') + '/services.html?q={search_term_string}' }, 'query-input': 'required name=search_term_string' } },
+    { '@type': f === 'about.html' ? 'AboutPage' : f === 'contact.html' ? 'ContactPage' : 'WebPage', '@id': pageUrl + '#webpage', url: pageUrl, name: title, description: desc, inLanguage: IN_LANG[LC],
+      isPartOf: { '@id': SITE + '/#website' }, about: { '@id': SITE + '/#org' }, breadcrumb: { '@id': pageUrl + '#breadcrumb' } },
+    { '@type': 'BreadcrumbList', '@id': pageUrl + '#breadcrumb', itemListElement: f === 'index.html'
+      ? [{ '@type': 'ListItem', position: 1, name: 'VitaCoreX', item: home }]
+      : [{ '@type': 'ListItem', position: 1, name: 'VitaCoreX', item: home }, { '@type': 'ListItem', position: 2, name: h1, item: pageUrl }] }];
+  // services described on this page (catalog `page`)
+  const ids = Object.keys(catalog.services).filter((id) => (catalog.services[id].page || '') === '/' + f);
+  for (const id of ids) {
+    const sv = svc(id);
+    graph.push({ '@type': 'Service', '@id': pageUrl + '#' + id, name: loc(sv.name), description: loc(sv.short), serviceType: loc(sv.name), provider: { '@id': SITE + '/#org' },
+      areaServed: id.endsWith('_fl') ? { '@type': 'State', name: 'Florida' } : { '@type': 'Country', name: 'United States' }, availableLanguage: ['English', 'Russian', 'Spanish'], offers: offerFor(id) });
+  }
+  // FAQ from the rendered page
+  const faq = []; const reF = /<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>\s*<div>([\s\S]*?)<\/div>\s*<\/details>/g; let m;
+  while ((m = reF.exec(html))) { const q = textOf(m[1]), a = textOf(m[2]); if (q && a) faq.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }); }
+  if (faq.length) graph.push({ '@type': 'FAQPage', '@id': pageUrl + '#faq', inLanguage: IN_LANG[LC], mainEntity: faq });
+  if (f === 'about.html') {
+    const team = [['steven-miller', 'Steven Miller', 'team.steven.role'], ['michael-lyapin', 'Michael Lyapin', 'team.michael.role'], ['polina-zaic', 'Polina Zaic', 'team.polina.role']];
+    for (const [slug, name, rk] of team) graph.push({ '@type': 'Person', '@id': SITE + '/#' + slug, name, jobTitle: T(rk), image: SITE + '/assets/img/team/' + slug + '-384.jpg', worksFor: { '@id': SITE + '/#org' } });
+  }
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+  const ld = `<!-- vx:jsonld:start --><script type="application/ld+json">${json}</script><!-- vx:jsonld:end -->`;
+  // drop hand-written JSON-LD on generated pages (the graph above replaces it), then insert/replace ours
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g, (m0) => (m0.includes('vx:jsonld') ? m0 : ''));
+  const nx = replaceBetween(html, '<!-- vx:jsonld:start -->', '<!-- vx:jsonld:end -->', ld);
+  html = nx != null ? nx : html.replace('</head>', ld + '\n</head>');
+  // Open Graph / Twitter (replaced as one block)
+  const og = [['og:type', 'website'], ['og:site_name', 'VitaCoreX'], ['og:url', pageUrl], ['og:title', title], ['og:description', desc], ['og:image', SITE + '/assets/img/og/og-' + LC + '.jpg'], ['og:image:width', '1200'], ['og:image:height', '630'], ['og:locale', OG_LOCALE[LC]]]
+    .map(([k, v]) => `<meta property="${k}" content="${esc(v)}">`).concat(['en', 'ru', 'es'].filter((x) => x !== LC).map((x) => `<meta property="og:locale:alternate" content="${OG_LOCALE[x]}">`))
+    .concat([`<meta name="twitter:card" content="summary_large_image">`, `<meta name="twitter:title" content="${esc(title)}">`, `<meta name="twitter:description" content="${esc(desc)}">`, `<meta name="twitter:image" content="${SITE}/assets/img/og/og-${LC}.jpg">`]).join('');
+  html = html.replace(/<meta (?:property|name)="(?:og:[a-z:_]+|twitter:[a-z:_]+)" content="[^"]*">\s*/g, '');
+  const ogBlock = `<!-- vx:og:start -->${og}<!-- vx:og:end -->`;
+  const nx2 = replaceBetween(html, '<!-- vx:og:start -->', '<!-- vx:og:end -->', ogBlock);
+  return nx2 != null ? nx2 : html.replace('</head>', ogBlock + '\n</head>');
+}
+
 for (const f of pages) {
   const p = path.join(ROOT, f);
   let html = fs.readFileSync(p, 'utf8'); const orig = html;
@@ -342,8 +476,26 @@ for (const f of pages) {
   if (!isV2 && !/data-vx-legacy=/.test(html)) html = html.replace(/<body\b/, '<body data-vx-legacy="1"');
   if (!/id="main-content"/.test(html)) html = html.replace(/<main\b/, '<main id="main-content"');
   html = fillLeaves(html, f);
+  if (LOCALIZED.has(f)) html = seoHead(setHreflang(applyTitleDesc(html), f), f);
   if (html !== orig) { report.changed.push(f); if (!CHECK) fs.writeFileSync(p, html); }
+  if (LOCALIZED.has(f)) EN_BUILT.set(f, html);
 }
+/* /ru/ and /es/ copies from the finished English pages */
+const localeReport = {};
+for (const lc of LOCALES) {
+  LC = lc; D = DICTS[lc]; localeReport[lc] = 0;
+  const dir = path.join(ROOT, lc); if (!CHECK) fs.mkdirSync(dir, { recursive: true });
+  for (const [f, enHtml] of EN_BUILT) {
+    let html = fillLeaves(enHtml, f);
+    html = seoHead(localizePage(html, f), f);
+    const out = path.join(dir, f);
+    const prev = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : '';
+    if (html !== prev) { localeReport[lc]++; if (!CHECK) fs.writeFileSync(out, html); }
+  }
+  // remove stale copies of pages that are no longer localized
+  if (!CHECK && fs.existsSync(dir)) for (const f of fs.readdirSync(dir)) if (f.endsWith('.html') && !LOCALIZED.has(f)) fs.unlinkSync(path.join(dir, f));
+}
+LC = 'en'; D = en;
 if (enChanged && !CHECK) fs.writeFileSync(enPath, JSON.stringify(en, null, 2) + '\n');
-console.log(JSON.stringify({ files: report.files, changed: report.changed.length, newKeys: report.newKeys.length, conflicts: report.conflicts, noFooter: report.noFooter }, null, 1));
+console.log(JSON.stringify({ files: report.files, changed: report.changed.length, newKeys: report.newKeys.length, localized: LOCALIZED.size, localeWrites: localeReport, conflicts: report.conflicts, noFooter: report.noFooter }, null, 1));
 if (report.newKeys.length) console.log('new keys:\n  ' + report.newKeys.slice(0, 400).join('\n  '));

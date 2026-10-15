@@ -23,8 +23,20 @@
   function initialLang() {
     var p = new URLSearchParams(location.search).get('lang');
     if (p && LANGS.indexOf(p) !== -1) { safeSet(STORE_KEY, p); return p; }
+    /* /ru/ and /es/ pages are pre-rendered in their language: the URL wins over a stored preference */
+    var pageLang = document.documentElement.getAttribute('data-vx-page-lang');
+    if (pageLang && LANGS.indexOf(pageLang) !== -1) { safeSet(STORE_KEY, pageLang); return pageLang; }
     var s = safeGet(STORE_KEY);
     return LANGS.indexOf(s) !== -1 ? s : 'en';
+  }
+  /* Keep the address in step with the language (hreflang alternates name the counterpart page); no reload, form values stay. */
+  function syncLangURL(lang) {
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+    if (!alt || !window.history || !history.replaceState) return;
+    try {
+      var path = new URL(alt.getAttribute('href'), location.href).pathname;
+      if (path !== location.pathname) history.replaceState(history.state, '', path + location.search.replace(/([?&])lang=[a-z]{2}(&|$)/, '$1').replace(/[?&]$/, '') + location.hash);
+    } catch (e) { /* old browsers: keep the URL */ }
   }
 
   function fetchJSON(url) {
@@ -182,7 +194,7 @@
     safeSet(STORE_KEY, lang);
     return loadLang(lang).then(function () {
       state.applying = true;
-      applyStrings(); applyCatalog(); syncLangUI();
+      applyStrings(); applyCatalog(); syncLangUI(); syncLangURL(lang);
       state.applying = false;
       document.dispatchEvent(new CustomEvent('vx:lang', { detail: { lang: lang } }));
       /* Legacy pages: let the old engine translate its own body content too. */
@@ -378,7 +390,7 @@
   var lang = initialLang();
   window.VX.ready = Promise.all([loadLang(lang), fetchJSON('/assets/data/vcx-catalog.json').then(function (c) { state.catalog = c; })])
     .then(function () {
-      applyStrings(); applyCatalog(); syncLangUI(); initHeader(); initBehaviours(); initPreviewRibbon(); initConsent();
+      applyStrings(); applyCatalog(); syncLangUI(); syncLangURL(lang); initHeader(); initBehaviours(); initPreviewRibbon(); initConsent();
       state.ready = true;
       document.documentElement.classList.add('vx-ready');
       document.dispatchEvent(new CustomEvent('vx:ready', { detail: { lang: state.lang } }));

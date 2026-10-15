@@ -50,7 +50,20 @@
     party_role_civil: { type: 'select', label: 'fld.party_role_civil', options: ['claimant', 'defendant', 'not_filed'], optKey: 'opt.civrole.' },
     florida_county: { type: 'text', label: 'fld.florida_county', hint: 'fld.florida_county_hint', max: 60 },
     born_in_florida: { type: 'select', label: 'fld.born_in_florida', options: ['yes', 'no', 'unsure'], optKey: 'opt.yn.' },
-    waiver_form: { type: 'text', label: 'fld.waiver_form', hint: 'fld.waiver_form_hint', max: 80 }
+    waiver_form: { type: 'text', label: 'fld.waiver_form', hint: 'fld.waiver_form_hint', max: 80 },
+    entity_name: { type: 'text', label: 'fld.entity_name', hint: 'fld.entity_name_hint', max: 160, autocomplete: 'organization' },
+    document_number: { type: 'text', label: 'fld.document_number', hint: 'fld.document_number_hint', max: 20 },
+    entity_type_fl: { type: 'select', label: 'fld.entity_type_fl', options: ['llc', 'corporation', 'nonprofit', 'other'], optKey: 'opt.entity.' },
+    filing_year: { type: 'select', label: 'fld.filing_year', options: 'filingyears', optKey: 'opt.' },
+    changes_requested: { type: 'text', label: 'fld.changes_requested', hint: 'fld.changes_requested_hint', max: 300 },
+    proposed_name: { type: 'text', label: 'fld.proposed_name', max: 160 },
+    copies_count: { type: 'number', label: 'fld.copies_count', min: 1, max: 20 },
+    issuing_authority: { type: 'text', label: 'fld.issuing_authority', hint: 'fld.issuing_authority_hint', max: 120 },
+    requester_relation: { type: 'select', label: 'fld.requester_relation', options: ['self', 'parent', 'child', 'spouse', 'authorized', 'other'], optKey: 'opt.rel.' },
+    passport_status: { type: 'select', label: 'fld.passport_status', options: ['recent', 'valid', 'expired', 'none'], optKey: 'opt.pp.' },
+    dl_state: { type: 'select', label: 'fld.dl_state', options: 'states+none', optKey: 'opt.' },
+    letters_count: { type: 'number', label: 'fld.letters_count', hint: 'fld.letters_count_hint', min: 0, max: 10 },
+    active_cases: { type: 'number', label: 'fld.active_cases', min: 1, max: 200 }
   };
   /* which fields are required per family (others optional) */
   var REQUIRED = {
@@ -64,9 +77,13 @@
     formation: ['formation_state', 'entity_type'],
     business_plan: ['plan_purpose'],
     b2b: ['company', 'b2b_state', 'claim_amount', 'party_role', 'authorized_rep'],
-    b2b_optional: ['company', 'existing_client_reference']
+    b2b_optional: ['company', 'existing_client_reference'],
+    company_filing: ['entity_name', 'proposed_name', 'jurisdiction_state'],
+    records: ['document_type', 'issuing_authority', 'requester_relation'],
+    name_records: ['passport_status']
   };
   var SUMMARY_REQUIRED = ['contracts', 'inquiry'];
+  var SVC_NOTICES = ['may1_late_fee', 'self_file_sunbiz', 'no_auto_renew', 'mail_only'];
 
   var $ = function (id) { return document.getElementById(id); };
   var el = function (tag, attrs, text) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) e.setAttribute(k, attrs[k]); }); if (text != null) e.textContent = text; return e; };
@@ -93,6 +110,7 @@
     if (o === 'states+fed') return base.concat([['FEDERAL', 'opt.federal'], ['FOREIGN', 'opt.foreign'], ['UNSURE', 'opt.unsure']]);
     if (o === 'states+none') return [['NONE', 'opt.no_state']].concat(base, [['UNSURE', 'opt.unsure']]);
     if (o === 'states+unsure') return base.concat([['UNSURE', 'opt.unsure']]);
+    if (o === 'filingyears') return [String(thisYear), String(thisYear + 1)].map(function (y) { return [y, null, y]; });
     if (o === 'taxyears') return TAX_YEARS.map(function (y) { return [y, null, y]; }).concat([['EARLIER', 'opt.earlier_year']]);
     return [];
   }
@@ -180,6 +198,8 @@
     }
     /* Rules Regulating The Florida Bar 10-2.2: nonlawyer disclosure (Form 12.900(a)) comes before any help */
     if ((s.notices || []).indexOf('nonlawyer_fl') !== -1) n.innerHTML += '<div class="vx-pnotice vx-pnotice--compact"><h2>' + VX.esc(T('notice.nonlawyer.title')) + '</h2><p>' + VX.esc(T('notice.nonlawyer.text')) + '</p></div>';
+    /* plain service notices: Sunbiz self-filing, May 1 late fee, no auto-renewal, mail-only filings */
+    (s.notices || []).forEach(function (k) { if (SVC_NOTICES.indexOf(k) !== -1) n.innerHTML += '<div class="vx-pnotice vx-pnotice--compact"><p>' + VX.esc(T('notice.svc.' + k)) + '</p></div>'; });
   }
 
   function updateSubmitLabel() {

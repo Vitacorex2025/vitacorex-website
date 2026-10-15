@@ -23,7 +23,8 @@ OWNER_DETAIL_KEYS = [
     "tax_year", "tax_type", "tax_state", "b2b_state", "county_court", "claim_amount",
     "entity_type_b2b", "party_role", "jurisdiction_state", "formation_state", "entity_type",
     "issuing_state", "destination_country", "signer_location", "source_language",
-    "target_language", "form_number", "deadline",
+    "target_language", "form_number", "deadline", "entity_name", "document_number",
+    "proposed_name", "filing_year", "document_type", "active_cases",
 ]
 
 COMPANY_FOOTER = "VitaCoreX LLC · (888) 794-8292"

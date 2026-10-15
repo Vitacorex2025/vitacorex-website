@@ -95,6 +95,9 @@
         e.preventDefault(); input.focus();
       });
       var form = root.querySelector('form'); if (form) form.addEventListener('submit', function (e) { e.preventDefault(); if (input.value) { render(input.value); go(active < 0 ? 0 : active); } });
+      /* ?q= (WebSite SearchAction target, shared links): prefill the first finder on the page and show matches */
+      var q = new URLSearchParams(location.search).get('q');
+      if (q && root === document.querySelector('[data-vx-finder]')) { input.value = q.slice(0, 80); stopRot && stopRot(); render(input.value); }
     });
   }
   ready(init);

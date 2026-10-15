@@ -38,3 +38,6 @@ desktop.ini
 
 # local MCP tool config (contains an API key) — never publish
 .mcp.json
+
+# dev-only design lab (iteration 5): never committed, never published
+_lab/

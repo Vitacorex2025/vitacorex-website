@@ -709,3 +709,32 @@ html[data-vx-grid] .vx-wrap {
 .vx-hero3 h1 { max-width: 8.4em; }
 :root:lang(ru) .vx-hero3 h1, :root:lang(es) .vx-hero3 h1 { max-width: 9.4em; }
 @media (max-width: 47.5em) { .vx-rosette { top: clamp(420px, 72svh, 620px); bottom: auto; } }
+
+/* 11. Iteration 5 service blocks: deadline callout, record-to-apostille chain, state-fee table, tick lists */
+.vx-callout { position: relative; max-width: 62rem; padding: clamp(22px, 3vw, 36px) clamp(22px, 3.4vw, 44px); background: #fff; border: 1px solid var(--vx-line); border-left: 4px solid var(--vx-accent); border-radius: var(--vx-radius); box-shadow: var(--vx-shadow); }
+.vx-callout .vx-h2 { margin: 6px 0 12px; }
+.vx-callout p { max-width: 68ch; margin: 0 0 12px; }
+.vx-callout__self { padding-top: 14px; border-top: 1px solid var(--vx-line); color: var(--vx-muted); font-size: var(--vx-fs-sm); margin-bottom: 0 !important; }
+.vx-callout a, .vx-source a { color: var(--vx-link); text-decoration: underline; text-underline-offset: 3px; }
+.vx-chain { list-style: none; margin: 0 0 var(--vx-s6, 32px); padding: 0; display: grid; gap: 16px; counter-reset: none; }
+@media (min-width: 37.5em) { .vx-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64em) { .vx-chain { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.vx-chain__step { position: relative; display: flex; gap: 14px; align-items: flex-start; padding: 18px; background: #fff; border: 1px solid var(--vx-line); border-radius: var(--vx-radius); }
+.vx-chain__step h3 { font-size: 1.0625rem; margin: 2px 0 6px; }
+.vx-chain__step p { margin: 0; color: var(--vx-muted); font-size: var(--vx-fs-sm); }
+.vx-chain__n { flex: 0 0 auto; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--vx-accent); color: var(--vx-accent); font: 600 .9375rem/1 var(--vx-sans); font-variant-numeric: tabular-nums; }
+@media (min-width: 64em) { .vx-chain__step:not(:last-child)::after { content: ""; position: absolute; top: 33px; right: -17px; width: 18px; height: 1px; background: var(--vx-line-strong); } }
+.vx-ptable--fees th[scope="col"]:first-child { width: 52%; }
+.vx-box > .vx-btn { margin-top: 18px; }
+.vx-ptable__num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vx-source { margin-top: 12px; color: var(--vx-muted); font-size: var(--vx-fs-sm); max-width: 72ch; }
+.vx-ticks { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.vx-ticks li { position: relative; padding-left: 28px; }
+.vx-ticks li::before { content: ""; position: absolute; left: 2px; top: .45em; width: 14px; height: 8px; border-left: 2px solid var(--vx-accent); border-bottom: 2px solid var(--vx-accent); transform: rotate(-45deg); }
+@media (max-width: 47.5em) {
+  .vx-ptable--fees thead { display: none; }
+  .vx-ptable--fees tr { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--vx-line); }
+  .vx-ptable--fees th[scope="row"] { grid-column: 1 / -1; border-bottom: 0; padding-bottom: 2px; }
+  .vx-ptable--fees td { border-bottom: 0; padding-top: 4px; }
+  .vx-ptable--fees td::before { content: attr(data-label) ": "; color: var(--vx-muted); }
+}

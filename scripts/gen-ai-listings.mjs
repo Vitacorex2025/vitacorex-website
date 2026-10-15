@@ -17,7 +17,12 @@ const SITE = 'https://vitacorexllc.com';
 const money = (c) => (c % 100 === 0 ? `$${(c / 100).toLocaleString('en-US')}` : `$${(c / 100).toFixed(2)}`);
 const fmt = (l, k, p = {}) => (I[l][k] ?? I.en[k] ?? '').replace(/\{(\w+)\}/g, (m, x) => (p[x] ?? m));
 const loc = (o, l) => (o && (o[l] ?? o.en)) || '';
-const pageUrl = (s, id) => SITE + (s.page && !s.page.startsWith('/request.html') ? s.page : `/request.html?service=${id}`);
+const pageUrl = (s, id, l = 'en') => {
+  const own = s.page && !s.page.startsWith('/request.html') ? s.page : null;
+  // localized copies (/ru/, /es/) exist for indexable rebuilt pages; listings in those languages point to them
+  if (own && l !== 'en' && fs.existsSync(path.join(ROOT, l, own.replace(/^\//, '')))) return `${SITE}/${l}${own}`;
+  return SITE + (own || `/request.html?service=${id}`);
+};
 
 function priceText(id, l) {
   const s = catalog.services[id], p = s.price, a = p.amount_cents, unit = loc(s.unit, l);
@@ -49,7 +54,7 @@ function blocks(l) {
     const s = catalog.services[id];
     return [`#### ${loc(s.name, l)}`, `- ${L.price}: ${priceText(id, l)}`, `- ${loc(s.short, l)}`,
       `- ${L.inc}: ${(s.included?.[l] || s.included?.en || []).join('; ')}`, `- ${L.exc}: ${(s.extra?.[l] || s.extra?.en || []).join('; ')}`,
-      `- ${L.next}: ${loc(s.next, l)}`, `- ${L.page}: ${pageUrl(s, id)}`].join('\n') + '\n';
+      `- ${L.next}: ${loc(s.next, l)}`, `- ${L.page}: ${pageUrl(s, id, l)}`].join('\n') + '\n';
   }).join('\n')).join('\n');
 }
 /* Replace from the first private-group heading to the business-group heading (exclusive). */

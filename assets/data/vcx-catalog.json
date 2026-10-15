@@ -17,7 +17,8 @@
         "translation_certified",
         "translation_standard",
         "notary_ron_single",
-        "apostille_coordination"
+        "apostille_coordination",
+        "record_retrieval"
       ]
     },
     {
@@ -45,6 +46,7 @@
       "services": [
         "name_change_adult_fl",
         "name_change_family_fl",
+        "name_change_records_update",
         "fee_waiver_application",
         "immigration_simple",
         "immigration_naturalization",
@@ -65,13 +67,27 @@
       "id": "founders",
       "lane": "private",
       "name": {
-        "en": "Starting a business",
-        "ru": "Открытие бизнеса",
-        "es": "Iniciar un negocio"
+        "en": "Start and run a business",
+        "ru": "Открытие и сопровождение бизнеса",
+        "es": "Abrir y mantener un negocio"
       },
       "services": [
         "company_basic",
         "company_plus",
+        "company_annual_report_fl",
+        "company_annual_plan_fl",
+        "fl_fictitious_name",
+        "fl_amendment",
+        "fl_certificate_status",
+        "fl_certified_copy",
+        "business_filing_other_state",
+        "business_plan_basic"
+      ],
+      "menu": [
+        "company_basic",
+        "company_plus",
+        "company_annual_report_fl",
+        "fl_fictitious_name",
         "business_plan_basic"
       ]
     },
@@ -86,6 +102,7 @@
       "services": [
         "b2b_small_claims_packet",
         "b2b_small_claims_support",
+        "b2b_small_claims_monthly",
         "existing_client_recovery"
       ]
     }
@@ -2355,6 +2372,992 @@
         "immigration_counsel_signoff_nominal_fee_i912",
         "upl_review_typing_only"
       ]
+    },
+    "company_annual_report_fl": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 7900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "document_number",
+        "entity_type_fl",
+        "filing_year",
+        "changes_requested",
+        "deadline"
+      ],
+      "notices": [
+        "may1_late_fee",
+        "self_file_sunbiz"
+      ],
+      "name": {
+        "en": "Florida annual report filing",
+        "ru": "Ежегодный отчёт компании во Флориде",
+        "es": "Informe anual en Florida"
+      },
+      "short": {
+        "en": "We check your Sunbiz record, type the annual report with any address or manager changes, file it and send you the filed copy.",
+        "ru": "Проверим запись компании в Sunbiz, заполним ежегодный отчёт с новыми адресами или менеджерами, подадим его и пришлём подтверждение.",
+        "es": "Revisamos su registro en Sunbiz, llenamos el informe anual con los cambios de dirección o gerentes, lo presentamos y le enviamos la copia presentada."
+      },
+      "unit": {
+        "en": "one entity, one year + state fee",
+        "ru": "одна компания, один год + сбор штата",
+        "es": "una entidad, un año + tasa estatal"
+      },
+      "included": {
+        "en": [
+          "Check of your Sunbiz record before filing",
+          "Address, officer, manager and registered agent updates typed into the report",
+          "Filing and the filed PDF",
+          "A reminder before next year’s window"
+        ],
+        "ru": [
+          "Проверка записи в Sunbiz до подачи",
+          "Новые адреса, директора, менеджеры и регистрационный агент — прямо в отчёте",
+          "Подача и подтверждение в PDF",
+          "Напоминание перед следующим сроком"
+        ],
+        "es": [
+          "Revisión de su registro en Sunbiz antes de presentar",
+          "Cambios de dirección, directivos, gerentes y agente registrado dentro del informe",
+          "Presentación y copia en PDF",
+          "Recordatorio antes del próximo plazo"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Florida state fee: $138.75 for an LLC, $150 for a corporation",
+          "State late fee of $400 after May 1",
+          "Reinstatement after dissolution (quote)",
+          "Tax returns are a separate service"
+        ],
+        "ru": [
+          "Сбор штата Флорида: $138.75 для LLC, $150 для корпорации",
+          "Штраф штата $400 после 1 мая",
+          "Восстановление после ликвидации (по смете)",
+          "Налоговые декларации — отдельная услуга"
+        ],
+        "es": [
+          "Tasa de Florida: $138.75 para una LLC, $150 para una corporación",
+          "Recargo estatal de $400 después del 1 de mayo",
+          "Reinstalación tras la disolución (cotización)",
+          "Las declaraciones de impuestos son un servicio aparte"
+        ]
+      },
+      "next": {
+        "en": "Send the company name or Sunbiz document number. We confirm what changes, you pay, and we file. You can also file yourself at sunbiz.org and pay only the state fee.",
+        "ru": "Пришлите название компании или номер документа в Sunbiz. Подтвердим изменения, вы оплачиваете — мы подаём. Подать самостоятельно можно и на sunbiz.org, оплатив только сбор штата.",
+        "es": "Envíe el nombre de la empresa o el número de documento de Sunbiz. Confirmamos los cambios, usted paga y presentamos. También puede presentarlo usted en sunbiz.org pagando solo la tasa estatal."
+      },
+      "keywords": {
+        "en": [
+          "annual report",
+          "sunbiz annual report",
+          "llc annual report florida",
+          "renew llc"
+        ],
+        "ru": [
+          "ежегодный отчёт llc",
+          "annual report",
+          "продлить llc",
+          "отчёт sunbiz"
+        ],
+        "es": [
+          "informe anual",
+          "annual report",
+          "renovar llc",
+          "informe anual sunbiz"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "company_annual_plan_fl": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 11900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "document_number",
+        "entity_type_fl",
+        "changes_requested",
+        "deadline"
+      ],
+      "notices": [
+        "no_auto_renew",
+        "self_file_sunbiz"
+      ],
+      "name": {
+        "en": "Yearly company upkeep (Florida)",
+        "ru": "Годовое сопровождение компании (Флорида)",
+        "es": "Mantenimiento anual de la empresa (Florida)"
+      },
+      "short": {
+        "en": "The annual report plus reminders, one certificate of status and one mid-year update. Renews only when you say so.",
+        "ru": "Ежегодный отчёт, напоминания, одна справка о статусе и одно обновление данных в течение года. Продлевается только с вашего согласия.",
+        "es": "El informe anual, recordatorios, un certificado de estado y una actualización a mitad de año. Solo se renueva si usted lo decide."
+      },
+      "unit": {
+        "en": "per entity, per year + state fees",
+        "ru": "за компанию в год + сборы штата",
+        "es": "por entidad, por año + tasas estatales"
+      },
+      "included": {
+        "en": [
+          "Annual report filing",
+          "Reminders in January, March and April",
+          "One certificate of status after filing",
+          "One amended annual report if your data changes"
+        ],
+        "ru": [
+          "Подача ежегодного отчёта",
+          "Напоминания в январе, марте и апреле",
+          "Одна справка о статусе после подачи",
+          "Одна корректировка отчёта, если данные изменятся"
+        ],
+        "es": [
+          "Presentación del informe anual",
+          "Recordatorios en enero, marzo y abril",
+          "Un certificado de estado tras la presentación",
+          "Un informe anual enmendado si cambian sus datos"
+        ]
+      },
+      "extra": {
+        "en": [
+          "All state fees",
+          "No automatic renewal: each year needs your new consent",
+          "Registered agent service",
+          "Tax returns"
+        ],
+        "ru": [
+          "Все сборы штата",
+          "Без автопродления: каждый год — только с вашего нового согласия",
+          "Услуги регистрационного агента",
+          "Налоговые декларации"
+        ],
+        "es": [
+          "Todas las tasas estatales",
+          "Sin renovación automática: cada año requiere su nuevo consentimiento",
+          "Servicio de agente registrado",
+          "Declaraciones de impuestos"
+        ]
+      },
+      "next": {
+        "en": "Choose the plan, confirm the company details and pay for one year. We handle the report and remind you before each step.",
+        "ru": "Выберите план, подтвердите данные компании и оплатите один год. Мы подадим отчёт и напомним о каждом шаге.",
+        "es": "Elija el plan, confirme los datos de la empresa y pague un año. Nos ocupamos del informe y le avisamos antes de cada paso."
+      },
+      "keywords": {
+        "en": [
+          "compliance plan",
+          "llc maintenance"
+        ],
+        "ru": [
+          "сопровождение llc",
+          "обслуживание компании"
+        ],
+        "es": [
+          "mantenimiento de llc",
+          "cumplimiento anual"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "fl_fictitious_name": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 6900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "proposed_name",
+        "florida_county",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Fictitious name (DBA) registration, Florida",
+        "ru": "Регистрация вымышленного имени (DBA), Флорида",
+        "es": "Registro de nombre ficticio (DBA), Florida"
+      },
+      "short": {
+        "en": "Register a trade name for your business in Florida, valid for five years.",
+        "ru": "Зарегистрируем торговое имя вашего бизнеса во Флориде на пять лет.",
+        "es": "Registramos el nombre comercial de su negocio en Florida por cinco años."
+      },
+      "unit": {
+        "en": "one registration + state fee",
+        "ru": "одна регистрация + сбор штата",
+        "es": "un registro + tasa estatal"
+      },
+      "included": {
+        "en": [
+          "Sunbiz record or name search",
+          "Form typed from your written answers",
+          "Filing or order and tracking",
+          "The filed document as a PDF"
+        ],
+        "ru": [
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
+        ],
+        "es": [
+          "Búsqueda del registro o del nombre en Sunbiz",
+          "Formulario llenado con sus respuestas por escrito",
+          "Presentación o pedido y seguimiento",
+          "El documento presentado en PDF"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Florida state fee: $50",
+          "Newspaper notice in your county, as the law requires (newspaper’s price)",
+          "Trademark searches or opinions"
+        ],
+        "ru": [
+          "Сбор штата Флорида: $50",
+          "Объявление в газете вашего округа, как требует закон (по цене газеты)",
+          "Проверка товарных знаков и заключения по ним"
+        ],
+        "es": [
+          "Tasa de Florida: $50",
+          "Aviso en un periódico de su condado, como exige la ley (precio del periódico)",
+          "Búsquedas u opiniones sobre marcas"
+        ]
+      },
+      "next": {
+        "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
+      },
+      "keywords": {
+        "en": [
+          "dba",
+          "fictitious name",
+          "doing business as",
+          "trade name"
+        ],
+        "ru": [
+          "dba",
+          "вымышленное имя",
+          "торговое имя",
+          "название бизнеса"
+        ],
+        "es": [
+          "dba",
+          "nombre ficticio",
+          "nombre comercial"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "fl_amendment": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 8900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "document_number",
+        "entity_type_fl",
+        "changes_requested",
+        "deadline"
+      ],
+      "notices": [
+        "mail_only"
+      ],
+      "name": {
+        "en": "Articles of amendment, Florida",
+        "ru": "Изменения в учредительные документы, Флорида",
+        "es": "Enmienda de artículos, Florida"
+      },
+      "short": {
+        "en": "Change your company’s name, address or other recorded details, typed exactly as you decide.",
+        "ru": "Изменим название, адрес или другие данные компании — ровно так, как решите вы.",
+        "es": "Cambiamos el nombre, la dirección u otros datos registrados de su empresa, tal como usted lo decida."
+      },
+      "unit": {
+        "en": "one amendment + state fee",
+        "ru": "одно изменение + сбор штата",
+        "es": "una enmienda + tasa estatal"
+      },
+      "included": {
+        "en": [
+          "Sunbiz record or name search",
+          "Form typed from your written answers",
+          "Filing or order and tracking",
+          "The filed document as a PDF"
+        ],
+        "ru": [
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
+        ],
+        "es": [
+          "Búsqueda del registro o del nombre en Sunbiz",
+          "Formulario llenado con sus respuestas por escrito",
+          "Presentación o pedido y seguimiento",
+          "El documento presentado en PDF"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Florida state fee: $25 for an LLC, $35 for a corporation",
+          "Postage or courier (Florida accepts amendments by mail)",
+          "Advice on ownership changes, mergers or conversions"
+        ],
+        "ru": [
+          "Сбор штата Флорида: $25 для LLC, $35 для корпорации",
+          "Почта или курьер (Флорида принимает изменения только по почте)",
+          "Консультации по смене владельцев, слияниям и преобразованиям"
+        ],
+        "es": [
+          "Tasa de Florida: $25 para una LLC, $35 para una corporación",
+          "Correo o mensajería (Florida recibe enmiendas por correo)",
+          "Asesoría sobre cambios de propietarios, fusiones o conversiones"
+        ]
+      },
+      "next": {
+        "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
+      },
+      "keywords": {
+        "en": [
+          "amendment",
+          "change llc name",
+          "change company address"
+        ],
+        "ru": [
+          "изменить название llc",
+          "изменения в llc",
+          "смена адреса компании"
+        ],
+        "es": [
+          "enmienda llc",
+          "cambiar nombre de llc"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "fl_certificate_status": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 2900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "document_number",
+        "entity_type_fl",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Certificate of status (good standing), Florida",
+        "ru": "Справка о статусе компании (good standing), Флорида",
+        "es": "Certificado de estado (good standing), Florida"
+      },
+      "short": {
+        "en": "The official certificate that your company is active, often asked for by banks and partners.",
+        "ru": "Официальная справка, что компания действует, — её часто просят банки и партнёры.",
+        "es": "El certificado oficial de que su empresa está activa, que suelen pedir bancos y socios."
+      },
+      "unit": {
+        "en": "one certificate + state fee",
+        "ru": "одна справка + сбор штата",
+        "es": "un certificado + tasa estatal"
+      },
+      "included": {
+        "en": [
+          "Sunbiz record or name search",
+          "Form typed from your written answers",
+          "Filing or order and tracking",
+          "The filed document as a PDF"
+        ],
+        "ru": [
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
+        ],
+        "es": [
+          "Búsqueda del registro o del nombre en Sunbiz",
+          "Formulario llenado con sus respuestas por escrito",
+          "Presentación o pedido y seguimiento",
+          "El documento presentado en PDF"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Florida state fee: $5 for an LLC, $8.75 for a corporation",
+          "Apostille for use abroad (separate service)"
+        ],
+        "ru": [
+          "Сбор штата Флорида: $5 для LLC, $8.75 для корпорации",
+          "Апостиль для использования за рубежом (отдельная услуга)"
+        ],
+        "es": [
+          "Tasa de Florida: $5 para una LLC, $8.75 para una corporación",
+          "Apostilla para uso en el extranjero (servicio aparte)"
+        ]
+      },
+      "next": {
+        "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
+      },
+      "keywords": {
+        "en": [
+          "certificate of good standing",
+          "certificate of status"
+        ],
+        "ru": [
+          "справка о статусе",
+          "good standing"
+        ],
+        "es": [
+          "certificado de buena reputación",
+          "good standing"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "fl_certified_copy": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 3900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "document_number",
+        "entity_type_fl",
+        "copies_count",
+        "deadline"
+      ],
+      "notices": [
+        "mail_only"
+      ],
+      "name": {
+        "en": "Certified copy of company documents, Florida",
+        "ru": "Заверенная копия документов компании, Флорида",
+        "es": "Copia certificada de documentos de la empresa, Florida"
+      },
+      "short": {
+        "en": "Certified copies of your articles or other filed records, ordered from the state.",
+        "ru": "Заверенные копии учредительных и других поданных документов — закажем в штате.",
+        "es": "Copias certificadas de sus artículos u otros registros, pedidas al estado."
+      },
+      "unit": {
+        "en": "one order + state fee",
+        "ru": "один заказ + сбор штата",
+        "es": "un pedido + tasa estatal"
+      },
+      "included": {
+        "en": [
+          "Sunbiz record or name search",
+          "Form typed from your written answers",
+          "Filing or order and tracking",
+          "The filed document as a PDF"
+        ],
+        "ru": [
+          "Проверка записи или названия в Sunbiz",
+          "Форма по вашим письменным ответам",
+          "Подача или заказ и отслеживание",
+          "Готовый документ в PDF"
+        ],
+        "es": [
+          "Búsqueda del registro o del nombre en Sunbiz",
+          "Formulario llenado con sus respuestas por escrito",
+          "Presentación o pedido y seguimiento",
+          "El documento presentado en PDF"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Florida state fee: $30 for an LLC; $8.75 and up for a corporation",
+          "Postage or courier",
+          "Apostille (separate service)"
+        ],
+        "ru": [
+          "Сбор штата Флорида: $30 для LLC; от $8.75 для корпорации",
+          "Почта или курьер",
+          "Апостиль (отдельная услуга)"
+        ],
+        "es": [
+          "Tasa de Florida: $30 para una LLC; desde $8.75 para una corporación",
+          "Correo o mensajería",
+          "Apostilla (servicio aparte)"
+        ]
+      },
+      "next": {
+        "en": "Tell us the company and what you need. We confirm the state fee and the details, you pay, and we file.",
+        "ru": "Укажите компанию и что нужно сделать. Подтвердим сбор штата и детали, вы оплачиваете — мы подаём.",
+        "es": "Indíquenos la empresa y lo que necesita. Confirmamos la tasa estatal y los detalles, usted paga y presentamos."
+      },
+      "keywords": {
+        "en": [
+          "certified copy articles of organization"
+        ],
+        "ru": [
+          "заверенная копия устава",
+          "копия документов llc"
+        ],
+        "es": [
+          "copia certificada de artículos"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "business_filing_other_state": {
+      "family": "company_filing",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-filings.html",
+      "action": "quote",
+      "price": {
+        "mode": "quote_required",
+        "display": "quote",
+        "amount_cents": null,
+        "confidence": "low"
+      },
+      "subtypes": [],
+      "fields": [
+        "entity_name",
+        "jurisdiction_state",
+        "changes_requested",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Company filings in other states",
+        "ru": "Документы компании в других штатах",
+        "es": "Trámites de empresas en otros estados"
+      },
+      "short": {
+        "en": "Annual reports, DBAs, amendments and certificates outside Florida, where the state accepts them online or by mail.",
+        "ru": "Ежегодные отчёты, DBA, изменения и справки за пределами Флориды — где штат принимает их онлайн или по почте.",
+        "es": "Informes anuales, DBA, enmiendas y certificados fuera de Florida, donde el estado los acepte en línea o por correo."
+      },
+      "unit": {
+        "en": "quoted per operation and state",
+        "ru": "по смете для каждого действия и штата",
+        "es": "cotización por trámite y estado"
+      },
+      "included": {
+        "en": [
+          "Check of that state’s current fees and rules",
+          "Written quote before any payment"
+        ],
+        "ru": [
+          "Проверка действующих сборов и правил штата",
+          "Письменная смета до оплаты"
+        ],
+        "es": [
+          "Revisión de las tasas y reglas vigentes de ese estado",
+          "Cotización por escrito antes de pagar"
+        ]
+      },
+      "extra": {
+        "en": [
+          "That state’s fees",
+          "Newspaper publication where required"
+        ],
+        "ru": [
+          "Сборы этого штата",
+          "Публикация в газете, где она требуется"
+        ],
+        "es": [
+          "Las tasas de ese estado",
+          "Publicación en periódico donde se exija"
+        ]
+      },
+      "next": {
+        "en": "Tell us the state and the operation. We reply with the state fee, our fee and what we need from you.",
+        "ru": "Укажите штат и нужное действие. Ответим сбором штата, нашей ценой и списком того, что нужно от вас.",
+        "es": "Indíquenos el estado y el trámite. Le respondemos con la tasa estatal, nuestra tarifa y lo que necesitamos."
+      },
+      "keywords": {
+        "en": [
+          "annual report other state",
+          "dba texas"
+        ],
+        "ru": [
+          "отчёт llc в другом штате"
+        ],
+        "es": [
+          "informe anual otro estado"
+        ]
+      },
+      "image": "/assets/img/curated/quick-structured-intake.jpg"
+    },
+    "record_retrieval": {
+      "family": "records",
+      "group": "documents",
+      "lane": "private",
+      "queue": "TRANSLATION_NOTARY_APOSTILLE",
+      "page": "/apostille.html",
+      "action": "quote",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 5900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "vital_record",
+        "court_record",
+        "company_record",
+        "fbi_record",
+        "other_record"
+      ],
+      "fields": [
+        "document_type",
+        "issuing_authority",
+        "requester_relation",
+        "destination_country",
+        "copies_count",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Official record retrieval",
+        "ru": "Получение официальных документов",
+        "es": "Obtención de documentos oficiales"
+      },
+      "short": {
+        "en": "We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.",
+        "ru": "Закажем заверенные копии, на которые у вас есть право, — например, свидетельство о рождении или судебные документы — и сразу передадим их на апостиль, если он нужен.",
+        "es": "Pedimos las copias certificadas a las que usted tiene derecho, como actas de nacimiento o documentos judiciales, y las pasamos directamente a la apostilla si la necesita."
+      },
+      "unit": {
+        "en": "per record + agency fee",
+        "ru": "за один документ + сбор ведомства",
+        "es": "por documento + tasa de la agencia"
+      },
+      "included": {
+        "en": [
+          "Check that you are entitled to the record",
+          "Request typed for your signature or authorization",
+          "Order, tracking and receipt",
+          "Hand-off to translation, notarization or apostille only if required"
+        ],
+        "ru": [
+          "Проверим, что у вас есть право на документ",
+          "Подготовим запрос на вашу подпись или доверенность",
+          "Заказ, отслеживание и получение",
+          "Передача на перевод, заверение или апостиль — только если они нужны"
+        ],
+        "es": [
+          "Verificamos que usted tiene derecho al documento",
+          "Preparamos la solicitud para su firma o autorización",
+          "Pedido, seguimiento y recepción",
+          "Paso a traducción, notarización o apostilla solo si se necesita"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Agency fees (e.g. a Florida birth certificate: $9)",
+          "Shipping and courier",
+          "FBI background checks and out-of-state records: quote",
+          "Records you are not entitled to"
+        ],
+        "ru": [
+          "Сборы ведомств (например, свидетельство о рождении во Флориде — $9)",
+          "Доставка и курьер",
+          "Справки FBI и документы других штатов — по смете",
+          "Документы, на которые у вас нет права"
+        ],
+        "es": [
+          "Tasas de las agencias (p. ej., acta de nacimiento en Florida: $9)",
+          "Envío y mensajería",
+          "Antecedentes del FBI y registros de otros estados: cotización",
+          "Documentos a los que usted no tiene derecho"
+        ]
+      },
+      "next": {
+        "en": "Tell us which record, where it was issued and which country needs it. We reply with the steps you actually need and the full cost.",
+        "ru": "Укажите, какой документ, где он выдан и для какой страны. Ответим, какие шаги действительно нужны и сколько стоит всё вместе.",
+        "es": "Indíquenos qué documento, dónde se emitió y qué país lo necesita. Le respondemos con los pasos que realmente necesita y el costo total."
+      },
+      "keywords": {
+        "en": [
+          "birth certificate copy",
+          "get my birth certificate",
+          "court records copy",
+          "vital records"
+        ],
+        "ru": [
+          "получить свидетельство о рождении",
+          "копия свидетельства о рождении",
+          "судебные документы копия"
+        ],
+        "es": [
+          "copia de acta de nacimiento",
+          "obtener acta de nacimiento",
+          "copias de registros judiciales"
+        ]
+      },
+      "image": "/assets/img/curated/quick-file-control.jpg"
+    },
+    "name_change_records_update": {
+      "family": "name_records",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/name-change.html",
+      "action": "order",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed",
+        "amount_cents": 6900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "after_marriage",
+        "after_divorce",
+        "after_court_order"
+      ],
+      "fields": [
+        "passport_status",
+        "dl_state",
+        "letters_count",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Records update after a name change",
+        "ru": "Обновление документов после смены имени",
+        "es": "Actualización de documentos tras el cambio de nombre"
+      },
+      "short": {
+        "en": "After a marriage, divorce or court order: Social Security and passport forms typed, a driver license checklist and letters to your banks.",
+        "ru": "После брака, развода или решения суда: заполним формы для Social Security и паспорта, дадим список шагов для водительских прав и письма в банки.",
+        "es": "Tras un matrimonio, divorcio u orden judicial: llenamos los formularios del Seguro Social y del pasaporte, la lista para la licencia de conducir y las cartas a sus bancos."
+      },
+      "unit": {
+        "en": "per person",
+        "ru": "за одного человека",
+        "es": "por persona"
+      },
+      "included": {
+        "en": [
+          "Social Security form SS-5 typed",
+          "One passport form typed (DS-82, DS-5504 or DS-11)",
+          "Florida driver license and ID checklist",
+          "Up to 10 name-change letters to banks, insurers and employers"
+        ],
+        "ru": [
+          "Форма SS-5 для Social Security",
+          "Одна паспортная форма (DS-82, DS-5504 или DS-11)",
+          "Список шагов для прав и ID во Флориде",
+          "До 10 писем о смене имени в банки, страховые и работодателю"
+        ],
+        "es": [
+          "Formulario SS-5 del Seguro Social",
+          "Un formulario de pasaporte (DS-82, DS-5504 o DS-11)",
+          "Lista para la licencia de conducir e ID en Florida",
+          "Hasta 10 cartas de cambio de nombre a bancos, aseguradoras y empleadores"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Government fees (Social Security is free; passport fees per the State Department)",
+          "Passport photos and postage",
+          "Certified copies of the marriage certificate or decree",
+          "Advice on which name to use"
+        ],
+        "ru": [
+          "Госпошлины (Social Security — бесплатно; паспорт — по тарифам Госдепартамента)",
+          "Фото на паспорт и почта",
+          "Заверенные копии свидетельства о браке или решения суда",
+          "Советы, какое имя выбрать"
+        ],
+        "es": [
+          "Tasas oficiales (el Seguro Social es gratis; el pasaporte según el Departamento de Estado)",
+          "Fotos de pasaporte y envío",
+          "Copias certificadas del acta de matrimonio o del fallo",
+          "Asesoría sobre qué nombre usar"
+        ]
+      },
+      "next": {
+        "en": "Tell us how the name changed and which documents you hold. You pay, answer a short questionnaire, and receive the forms ready to sign.",
+        "ru": "Расскажите, как изменилось имя и какие документы у вас на руках. Вы оплачиваете, отвечаете на короткую анкету и получаете формы, готовые к подписи.",
+        "es": "Cuéntenos cómo cambió su nombre y qué documentos tiene. Usted paga, responde un breve cuestionario y recibe los formularios listos para firmar."
+      },
+      "keywords": {
+        "en": [
+          "change name social security",
+          "change name passport after marriage",
+          "name change after marriage"
+        ],
+        "ru": [
+          "сменить фамилию после брака",
+          "сменить имя в паспорте",
+          "social security смена фамилии"
+        ],
+        "es": [
+          "cambiar apellido después del matrimonio",
+          "cambiar nombre en pasaporte",
+          "seguro social cambio de nombre"
+        ]
+      },
+      "image": "/assets/img/curated/hero-document-control.jpg"
+    },
+    "b2b_small_claims_monthly": {
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/small-claims-documentation.html",
+      "action": "b2b",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 44900,
+        "confidence": "medium"
+      },
+      "subtypes": [],
+      "fields": [
+        "company",
+        "b2b_state",
+        "county_court",
+        "active_cases",
+        "authorized_rep"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Small-claims back office (monthly)",
+        "ru": "Сопровождение small claims (помесячно)",
+        "es": "Apoyo de small claims (mensual)"
+      },
+      "short": {
+        "en": "For companies with several cases: a case register, exhibits, service tracking and a status report every two weeks.",
+        "ru": "Для компаний с несколькими делами: реестр дел, приложения, контроль вручений и отчёт каждые две недели.",
+        "es": "Para empresas con varios casos: registro de casos, anexos, seguimiento de notificaciones y un informe cada dos semanas."
+      },
+      "unit": {
+        "en": "per month, up to 5 active cases",
+        "ru": "в месяц, до 5 активных дел",
+        "es": "por mes, hasta 5 casos activos"
+      },
+      "included": {
+        "en": [
+          "Case register with chronology and amounts",
+          "Exhibit index upkeep",
+          "Service-of-process and docket tracking",
+          "Status report every two weeks and a hand-off packet for your representative"
+        ],
+        "ru": [
+          "Реестр дел с хронологией и суммами",
+          "Ведение списка приложений",
+          "Контроль вручений и судебного календаря",
+          "Отчёт каждые две недели и пакет для вашего представителя"
+        ],
+        "es": [
+          "Registro de casos con cronología y montos",
+          "Mantenimiento del índice de anexos",
+          "Seguimiento de notificaciones y del expediente",
+          "Informe cada dos semanas y paquete para su representante"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Court and service fees",
+          "Appearing, signing or representing the company",
+          "New-case packets (billed at the packet price)",
+          "New York is not served"
+        ],
+        "ru": [
+          "Судебные сборы и вручение",
+          "Участие в суде, подписание и представительство",
+          "Пакеты по новым делам (по цене пакета)",
+          "Нью-Йорк не обслуживается"
+        ],
+        "es": [
+          "Tasas judiciales y de notificación",
+          "Comparecer, firmar o representar a la empresa",
+          "Paquetes de casos nuevos (al precio del paquete)",
+          "No atendemos Nueva York"
+        ]
+      },
+      "next": {
+        "en": "Send the number of cases, courts and stages. We confirm the scope and the monthly price in writing; the plan runs month to month.",
+        "ru": "Пришлите количество дел, суды и стадии. Объём и месячную цену подтвердим письменно; план помесячный.",
+        "es": "Envíe el número de casos, tribunales y etapas. Confirmamos por escrito el alcance y el precio mensual; el plan es mes a mes."
+      },
+      "keywords": {
+        "en": [
+          "small claims back office",
+          "case management small claims"
+        ],
+        "ru": [
+          "ведение small claims",
+          "сопровождение дел компании"
+        ],
+        "es": [
+          "gestión de small claims"
+        ]
+      },
+      "image": "/assets/img/curated/quick-executive-briefs.jpg"
     }
   }
 }
