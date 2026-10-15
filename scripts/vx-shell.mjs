@@ -9,6 +9,7 @@
      HTML are added to en.json (HTML text is the seed; en.json is the master afterwards).
    Usage: node scripts/vx-shell.mjs [--check]   (--check: report only, write nothing) */
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -160,7 +161,20 @@ function addKey(key, text, file) {
   if (!v) return;
   if (!(key in en)) { en[key] = v; enChanged = true; report.newKeys.push(`${key} (${file})`); }
 }
+/* v5 template strings (data-t5-tpl): the same substitutions as vcx-v2.js, so RU/ES static copies are complete without JS */
+function fillTpl(html) {
+  html = html.replace(/<(\w+)((?:\s[^>]*?)?\sdata-t5-tpl="([^"]+)"[^>]*)>([^<]*)<\/\1>/g, (m, tag, attrs, key) => {
+    let v = T(key); if (!v) return m;
+    const lk = /data-t5-lang="([^"]+)"/.exec(attrs); if (lk) v = v.replace('{lang}', T(lk[1]) || '');
+    const n = /data-t5-n="([^"]+)"/.exec(attrs); if (n) v = v.replace('{n}', n[1]);
+    const sid = /data-t5-svc="([^"]+)"/.exec(attrs); const s = sid && svc(sid[1]);
+    if (s && s.price && s.price.amount_cents != null) v = v.replace('{money}', money(s.price.amount_cents)).replace('{ex}', money(2 * s.price.amount_cents));
+    return v.includes('{') ? m : `<${tag}${attrs}>${esc(v)}</${tag}>`;
+  });
+  return html.replace(/(\sdata-vx5-src-lang="1")(?:\slang="[a-z]+")?/g, `$1 lang="${LC === 'ru' ? 'ru' : 'es'}"`);
+}
 function fillLeaves(html, file) {
+  html = fillTpl(html);
   // data-t leaves: <tag ... data-t="key" ...>text</tag> (text without tags)
   html = html.replace(/<(\w+)((?:\s[^>]*?)?\sdata-t="([^"]+)"[^>]*)>([^<]*)<\/\1>/g, (m, tag, attrs, key, text) => {
     if (LC === 'en') addKey(key, decodeEntities(text), file);
@@ -339,6 +353,23 @@ function addTrait(html, f) {
   return html.replace(/(<div class="vx-phero__aside[^"]*"[^>]*>)/, `$1<svg class="vx-phero__art" viewBox="0 0 384 200" aria-hidden="true" focusable="false"><use href="/assets/vx5/vx5-family.svg#vx5-g-${id}"/></svg>`);
 }
 
+/* Cache busting: the data version in vcx-v2.js follows the i18n + catalog content, and every local CSS/JS link
+   carries a hash of its file, so a release never mixes new pages with stale strings, prices or styles. */
+const sha = (buf) => crypto.createHash('sha1').update(buf).digest('hex').slice(0, 10);
+const DATA_V = sha(['en', 'ru', 'es'].map((l) => fs.readFileSync(path.join(ROOT, `assets/i18n/${l}.json`), 'utf8')).join('') + fs.readFileSync(path.join(ROOT, 'assets/data/vcx-catalog.json'), 'utf8'));
+{
+  const jp = path.join(ROOT, 'assets/js/vcx-v2.js'); const js = fs.readFileSync(jp, 'utf8');
+  const next = js.replace(/var VERSION = '[^']*';/, `var VERSION = '${DATA_V}';`);
+  if (next !== js && !process.argv.includes('--check')) fs.writeFileSync(jp, next);
+}
+const FILE_V = new Map();
+function bust(html) {
+  return html.replace(/(href|src)="(\/assets\/[^"?#]+\.(?:css|js))(?:\?v=[^"]*)?"/g, (m, attr, url) => {
+    if (!FILE_V.has(url)) { const f = path.join(ROOT, url); FILE_V.set(url, fs.existsSync(f) ? sha(fs.readFileSync(f)) : null); }
+    const v = FILE_V.get(url); return v ? `${attr}="${url}?v=${v}"` : m;
+  });
+}
+
 /* ---------- run ---------- */
 const SKIP = new Set(['google4ac6122041612c23.html', 'yandex_7c27f4f2ed32ff4d.html', 'curated-preview.html', 'app.html', 'index.html.bak-4cells']);
 const pages = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !SKIP.has(f));
@@ -484,6 +515,7 @@ for (const f of pages) {
   } else html = next;
   html = ensureHead(html);
   if (isV2) html = addTrait(html, f);
+  html = bust(html);
   if (API_ARG) html = html.replace(/<meta name="vcx-api" content="[^"]*">/g, `<meta name="vcx-api" content="${API_ARG.replace(/\/$/, '')}">`);
   if (!isV2 && !/data-vx-legacy=/.test(html)) html = html.replace(/<body\b/, '<body data-vx-legacy="1"');
   if (!/id="main-content"/.test(html)) html = html.replace(/<main\b/, '<main id="main-content"');

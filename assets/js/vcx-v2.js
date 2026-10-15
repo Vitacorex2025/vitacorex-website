@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = '2026-10-14.1';
+  var VERSION = 'ea7c2a7c2c';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -82,6 +82,16 @@
         if (v != null) el.setAttribute(bits[0].trim(), v);
       });
     });
+    /* v5 templates: {lang} from another key, {n} from data-t5-n, {money}/{ex} from the catalog — prices are never written into strings */
+    qsa('[data-t5-tpl]', root).forEach(function (el) {
+      var k = el.getAttribute('data-t5-tpl'), v = state.dict[k] != null ? state.dict[k] : state.en[k]; if (v == null) return;
+      var lk = el.getAttribute('data-t5-lang'); if (lk) v = v.replace('{lang}', (state.dict[lk] != null ? state.dict[lk] : state.en[lk]) || '');
+      if (el.hasAttribute('data-t5-n')) v = v.replace('{n}', el.getAttribute('data-t5-n'));
+      var sid = el.getAttribute('data-t5-svc'), sv = sid && state.catalog ? state.catalog.services[sid] : null;
+      if (sv && sv.price && sv.price.amount_cents != null) v = v.replace('{money}', money(sv.price.amount_cents)).replace('{ex}', money(2 * sv.price.amount_cents));
+      if (v.indexOf('{') === -1) el.textContent = v;
+    });
+    qsa('[data-vx5-src-lang]', root).forEach(function (el) { el.setAttribute('lang', state.lang === 'ru' ? 'ru' : 'es'); });
     qsa('[data-vx-show-lang]', root).forEach(function (el) {
       el.hidden = el.getAttribute('data-vx-show-lang').split(/\s+/).indexOf(state.lang) === -1;
     });
@@ -318,11 +328,16 @@
     var bar = document.createElement('section');
     bar.className = 'vx-consent'; bar.setAttribute('aria-label', t('consent.label'));
     /* two equal choices, neither highlighted (AD §9.7); the page reserves the slip's height so it never covers content */
-    bar.innerHTML = '<p class="vx-consent__title" data-t="consent.title">' + esc(t('consent.title')) + '</p><p data-t-html="consent.text">' + t('consent.text') + '</p><div class="vx-consent__actions">' +
+    bar.innerHTML = '<p class="vx-consent__title" data-t="consent.title">' + esc(t('consent.title')) + '</p><p class="vx-consent__full" data-t-html="consent.text">' + t('consent.text') + '</p><p class="vx-consent__short" data-t-html="consent.short">' + t('consent.short') + '</p><div class="vx-consent__actions">' +
       '<button type="button" class="vx-btn vx-btn--ghost" data-c="essential" data-t="consent.essential">' + esc(t('consent.essential')) + '</button>' +
       '<button type="button" class="vx-btn vx-btn--ghost" data-c="analytics" data-t="consent.accept">' + esc(t('consent.accept')) + '</button></div>';
     var reserve = function () { document.body.style.paddingBottom = (bar.offsetHeight + 32) + 'px'; };
-    document.body.appendChild(bar); reserve();
+    /* phones: the slip docks after the first scroll, so it never covers the hero's primary button on the first screen */
+    var show = function () { if (bar.isConnected) return; document.body.appendChild(bar); reserve(); };
+    if (window.matchMedia && window.matchMedia('(max-width: 47.99em)').matches && (window.scrollY || 0) < 120) {
+      var onScroll = function () { if ((window.scrollY || 0) >= 120) { window.removeEventListener('scroll', onScroll); show(); } };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    } else show();
     window.addEventListener('resize', reserve);
     qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () { var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); window.removeEventListener('resize', reserve); document.body.style.paddingBottom = ''; applyConsent(c); }); });
   }
