@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = '3ff3ac9104';
+  var VERSION = '24f370770d';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -120,7 +120,10 @@
       case 'fixed_plus_fees': out.amount = money(a); out.short = t(p.fees_label ? 'price.plus_fees_' + p.fees_label : 'price.plus_fees', { amount: money(a) }); out.tag = t('price.tag.fixed_fees'); out.tagClass = 'vx-tag--fixed'; break;
       case 'from': out.amount = t('price.from', { amount: money(a) }); out.short = out.amount; out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'per_unit': out.amount = money(a); out.short = t('price.per_page_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
-      case 'per_hour': out.amount = money(a); out.short = t('price.per_hour_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
+      case 'per_hour': out.amount = money(a); out.short = t('price.per_hour_short', { amount: money(a) });
+        if (p.prepay_units) { out.tag = t('price.tag.prepay', { amount: money(a * p.prepay_units) }); out.tagClass = 'vx-tag--fixed'; }
+        else { out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; }
+        break;
       case 'per_word': out.amount = money(a); out.short = t('price.per_word_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'free_scope': out.amount = t('price.no_charge'); out.short = out.amount; out.tag = t('price.tag.free'); out.tagClass = 'vx-tag--free'; break;
       case 'percent': out.amount = p.percent + '%'; out.short = out.amount; out.tag = t('price.tag.success'); out.tagClass = 'vx-tag--fixed'; break;

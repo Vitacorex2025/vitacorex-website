@@ -1,6 +1,6 @@
 {
   "schema_version": "vcx-catalog/1",
-  "catalog_version": "2026-10-15-preview-2",
+  "catalog_version": "2026-10-15-preview-3",
   "status": "PREVIEW_PROPOSAL_NOT_LIVE_PRICING",
   "currency": "USD",
   "note": "Single source of truth for services, prices and routing. Rendered by assets/js/vcx-catalog.js, validated server-side by vcx-api, mirrored to the phone agent through /api/v2/catalog. Amounts are integer cents.",
@@ -48,8 +48,7 @@
         "b2b_small_claims_hourly",
         "b2b_recovery_analysis",
         "b2b_recovery_pilot",
-        "b2b_recovery_rollout",
-        "b2b_skip_trace"
+        "b2b_recovery_rollout"
       ]
     },
     {
@@ -3182,8 +3181,9 @@
         "mode": "unit_after_quote",
         "display": "per_hour",
         "amount_cents": 6500,
-        "minimum_units": 1,
-        "confidence": "medium"
+        "minimum_units": 2,
+        "confidence": "medium",
+        "prepay_units": 2
       },
       "subtypes": [],
       "fields": [
@@ -3208,9 +3208,9 @@
         "es": "Para clientes con paquete o mes de seguimiento: tiempo en la audiencia o mediación por su empresa, con su poder."
       },
       "unit": {
-        "en": "per hour, 1-hour minimum, 15-minute steps",
-        "ru": "за час, минимум 1 час, учёт по 15 минут",
-        "es": "por hora, mínimo 1 hora, tramos de 15 minutos"
+        "en": "per hour, 2-hour minimum paid upfront, then 15-minute steps",
+        "ru": "за час, минимум 2 часа с оплатой вперёд, дальше учёт по 15 минут",
+        "es": "por hora, mínimo 2 horas pagadas por adelantado, luego tramos de 15 minutos"
       },
       "included": {
         "en": [
@@ -3231,22 +3231,25 @@
       },
       "extra": {
         "en": [
+          "Time beyond the paid hours: 15-minute steps, billed after the hearing",
           "Travel outside the county: quoted",
           "Your state and court confirmed before work starts"
         ],
         "ru": [
+          "Время сверх оплаченных часов — по 15 минут, счёт после заседания",
           "Выезд за пределы округа — по смете",
           "Штат и суд подтверждаем до начала работы"
         ],
         "es": [
+          "Tiempo por encima de las horas pagadas: tramos de 15 minutos, facturados después de la audiencia",
           "Desplazamiento fuera del condado: cotización",
           "Su estado y tribunal confirmados antes de empezar"
         ]
       },
       "next": {
-        "en": "Send your cases. We send the power of attorney for the company to sign and confirm the hourly estimate in writing before we start.",
-        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим оценку часов до начала работы.",
-        "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito la estimación de horas antes de empezar."
+        "en": "Send your cases. We send the power of attorney for the company to sign and confirm the court and the hours in writing. Then you pay the first 2 hours upfront by card.",
+        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим суд и часы. Затем вы оплачиваете первые 2 часа вперёд картой.",
+        "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito el tribunal y las horas. Después paga por adelantado las primeras 2 horas con tarjeta."
       },
       "keywords": {
         "en": [
@@ -3430,7 +3433,7 @@
         "en": [
           "Free first month for current small-claims retainer clients (promotion)",
           "From month 2: only a share of the increase in net recovery",
-          "Skip tracing (debtor search), $49 per debtor",
+          "Debtor search (skip tracing): your company orders and pays for it directly; we do not provide it",
           "Letters we print and send for you by USPS certified mail, at cost (about $11 per letter)",
           "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
           "State, county and court fees, at cost",
@@ -3439,7 +3442,7 @@
         "ru": [
           "Первый месяц бесплатно для действующих клиентов на ретейнере small claims (акция)",
           "Со 2-го месяца — только доля с прироста net recovery",
-          "Поиск должника (skip tracing) — $49 за должника",
+          "Поиск должника (skip tracing) — заказывает и оплачивает ваша компания напрямую; мы эту услугу не оказываем",
           "Письма, которые мы печатаем и отправляем за вас заказной почтой USPS, — по факту (около $11 за письмо)",
           "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
           "Госпошлины и судебные сборы — по факту",
@@ -3448,7 +3451,7 @@
         "es": [
           "Primer mes gratis para clientes actuales con el retainer de small claims (promoción)",
           "Desde el mes 2: solo una parte del aumento de net recovery",
-          "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Búsqueda del deudor (skip tracing): la encarga y paga su empresa directamente; no la prestamos",
           "Cartas que imprimimos y enviamos por usted por correo certificado de USPS, al costo (unos $11 por carta)",
           "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
           "Tasas estatales, del condado y judiciales, al costo",
@@ -3613,19 +3616,19 @@
         "on_monthly_plan"
       ],
       "name": {
-        "en": "Financial Recovery, from month 2",
-        "ru": "Financial Recovery, со 2-го месяца",
-        "es": "Financial Recovery, desde el mes 2"
+        "en": "Financial Recovery: full rollout after the pilot",
+        "ru": "Financial Recovery: полное внедрение методики после пилота",
+        "es": "Financial Recovery: implementación completa tras el piloto"
       },
       "short": {
-        "en": "From the second month there is no fee for our time: we take a share only of the increase in net recovery — money that comes in after we joined, above your usual level.",
-        "ru": "Со второго месяца никакой платы за наше время: мы берём долю только с прироста net recovery — денег, которые пришли после нашего входа сверх вашего обычного уровня.",
-        "es": "Desde el segundo mes no se paga nuestro tiempo: cobramos una parte solo del aumento de net recovery, el dinero que entra después de nuestra llegada por encima de su nivel habitual."
+        "en": "After the pilot the method goes onto all your overdue invoices. From the second month there is no fee for our time: we take a share only of the increase in net recovery — money that comes in after we joined, above your usual level.",
+        "ru": "После пилота методика переходит на все ваши просроченные счета. Со второго месяца никакой платы за наше время: мы берём долю только с прироста net recovery — денег, которые пришли после нашего входа сверх вашего обычного уровня.",
+        "es": "Tras el piloto, el método pasa a todas sus facturas vencidas. Desde el segundo mes no se paga nuestro tiempo: cobramos una parte solo del aumento de net recovery, el dinero que entra después de nuestra llegada por encima de su nivel habitual."
       },
       "unit": {
-        "en": "of the increase in net recovery; 18% on invoices over a year overdue",
-        "ru": "с прироста net recovery; 18% по счетам с просрочкой больше года",
-        "es": "del aumento de net recovery; 18% en facturas con más de un año de atraso"
+        "en": "of the increase in net recovery, from month 2; 18% on invoices over a year overdue",
+        "ru": "с прироста net recovery, со 2-го месяца; 18% по счетам с просрочкой больше года",
+        "es": "del aumento de net recovery, desde el mes 2; 18% en facturas con más de un año de atraso"
       },
       "included": {
         "en": [
@@ -3653,7 +3656,7 @@
       "extra": {
         "en": [
           "18% on invoices more than 12 months overdue",
-          "Skip tracing (debtor search), $49 per debtor",
+          "Debtor search (skip tracing): your company orders and pays for it directly; we do not provide it",
           "Letters we print and send for you by USPS certified mail, at cost (about $11 per letter)",
           "Hand delivery or service on the debtor, at cost (Florida sheriff $40; private process server about $40–$100)",
           "State, county and court fees, at cost",
@@ -3661,7 +3664,7 @@
         ],
         "ru": [
           "18% по счетам с просрочкой больше 12 месяцев",
-          "Поиск должника (skip tracing) — $49 за должника",
+          "Поиск должника (skip tracing) — заказывает и оплачивает ваша компания напрямую; мы эту услугу не оказываем",
           "Письма, которые мы печатаем и отправляем за вас заказной почтой USPS, — по факту (около $11 за письмо)",
           "Вручение должнику — по факту (шериф во Флориде $40; частный вручитель около $40–100)",
           "Госпошлины и судебные сборы — по факту",
@@ -3669,7 +3672,7 @@
         ],
         "es": [
           "18% en facturas con más de 12 meses de atraso",
-          "Búsqueda del deudor (skip tracing), $49 por deudor",
+          "Búsqueda del deudor (skip tracing): la encarga y paga su empresa directamente; no la prestamos",
           "Cartas que imprimimos y enviamos por usted por correo certificado de USPS, al costo (unos $11 por carta)",
           "Entrega en mano o notificación al deudor, al costo (sheriff de Florida $40; notificador privado unos $40–$100)",
           "Tasas estatales, del condado y judiciales, al costo",
@@ -3704,94 +3707,6 @@
           "financial recovery",
           "cobro antes de la corte",
           "recuperación de facturas b2b"
-        ]
-      }
-    },
-    "b2b_skip_trace": {
-      "page": "/financial-recovery.html#extras",
-      "action": "b2b",
-      "price": {
-        "mode": "fixed_after_review",
-        "display": "fixed",
-        "amount_cents": 4900,
-        "confidence": "medium"
-      },
-      "fields": [
-        "company",
-        "b2b_state",
-        "overdue_count",
-        "on_monthly_plan"
-      ],
-      "name": {
-        "en": "Skip tracing: debtor search",
-        "ru": "Поиск должника (skip tracing)",
-        "es": "Búsqueda del deudor (skip tracing)"
-      },
-      "short": {
-        "en": "A current address, phone and registered agent for a business debtor, checked before letters or service go out.",
-        "ru": "Актуальный адрес, телефон и зарегистрированный агент компании-должника — проверяем до отправки писем или вручения.",
-        "es": "Dirección, teléfono y agente registrado actuales de una empresa deudora, verificados antes de enviar cartas o notificar."
-      },
-      "unit": {
-        "en": "per debtor",
-        "ru": "за должника",
-        "es": "por deudor"
-      },
-      "included": {
-        "en": [
-          "Search of state business records and commercial data sources",
-          "Current address, phone and registered agent, verified",
-          "Result usually within 2 business days"
-        ],
-        "ru": [
-          "Поиск по реестрам компаний штатов и коммерческим базам данных",
-          "Актуальный адрес, телефон и зарегистрированный агент — с проверкой",
-          "Результат обычно за 2 рабочих дня"
-        ],
-        "es": [
-          "Búsqueda en registros estatales de empresas y fuentes de datos comerciales",
-          "Dirección, teléfono y agente registrado actuales, verificados",
-          "Resultado normalmente en 2 días hábiles"
-        ]
-      },
-      "extra": {
-        "en": [
-          "Paid official records beyond a standard search, at cost"
-        ],
-        "ru": [
-          "Платные официальные выписки сверх стандартного поиска — по факту"
-        ],
-        "es": [
-          "Registros oficiales de pago fuera de la búsqueda estándar, al costo"
-        ]
-      },
-      "next": {
-        "en": "Send the debtor’s last known details; we confirm the search and reply within 2 business days.",
-        "ru": "Пришлите последние известные данные должника — подтвердим поиск и ответим в течение 2 рабочих дней.",
-        "es": "Envíe los últimos datos conocidos del deudor; confirmamos la búsqueda y respondemos en 2 días hábiles."
-      },
-      "family": "b2b",
-      "group": "business",
-      "lane": "business",
-      "queue": "B2B_SMALL_CLAIMS",
-      "image": "/assets/img/land/downtown-c-960.webp",
-      "subtypes": [],
-      "notices": [],
-      "keywords": {
-        "en": [
-          "skip tracing",
-          "find a debtor",
-          "business debtor address"
-        ],
-        "ru": [
-          "поиск должника",
-          "skip tracing",
-          "адрес компании-должника"
-        ],
-        "es": [
-          "skip tracing",
-          "localizar deudor",
-          "dirección de empresa deudora"
         ]
       }
     }

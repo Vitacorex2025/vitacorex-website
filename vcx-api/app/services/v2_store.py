@@ -253,6 +253,10 @@ def create_quote(request_id: str, amount_cents: int, scope_text: str, external_c
             raise StoreError(409, "locked_scope")
         if req["status"] in ("DECLINED", "WITHDRAWN"):
             raise StoreError(409, "invalid_transition")
+        service = v2_catalog.get_service(req["service_id"]) or {}
+        floor = v2_catalog.prepay_cents(service)
+        if floor and amount_cents < floor:
+            raise StoreError(422, "below_minimum", fields={"amount_cents": "below_minimum"})
         prev = latest_quote(conn, request_id)
         quote_id = prev["quote_id"] if prev else new_ref("VX-QUO-")
         revision = (prev["revision"] + 1) if prev else 1

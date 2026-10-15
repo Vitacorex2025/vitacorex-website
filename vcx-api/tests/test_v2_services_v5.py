@@ -2,7 +2,7 @@
 
 import uuid
 
-from conftest import create, payload
+from conftest import admin_headers, create, payload
 
 
 def _checkout(client, req):
@@ -73,6 +73,24 @@ def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(
     assert r.status_code == 201  # New York: accepted for a jurisdiction check
 
 
+def test_court_hours_first_two_hours_paid_upfront(client, env, catalog):
+    price = catalog["services"]["b2b_small_claims_hourly"]["price"]
+    assert price["amount_cents"] == 6500 and price["minimum_units"] == 2 and price["prepay_units"] == 2
+    req = create(client, "b2b_small_claims_hourly", locale="ru",
+                 details={"company": "Test Co LLC", "b2b_state": "FL", "active_cases": 1, "poa_ready": "template"})
+    rid, tok = req["request_id"], req["access_token"]
+    one_hour = client.post(f"/api/v2/owner/requests/{rid}/quote", headers=admin_headers(),
+                           json={"amount_cents": 6500, "scope_text": "TEST one hour", "expires_in_days": 7})
+    assert one_hour.status_code == 422 and one_hour.json()["error"] == "below_minimum"
+    q = client.post(f"/api/v2/owner/requests/{rid}/quote", headers=admin_headers(),
+                    json={"amount_cents": 13000, "scope_text": "TEST hearing, first 2 hours", "expires_in_days": 7}).json()
+    assert client.post(f"/api/v2/quotes/{q['quote_id']}/accept", json={"access_token": tok}).status_code == 200
+    body = {"request_id": rid, "access_token": tok, "idempotency_key": str(uuid.uuid4()), "quote_id": q["quote_id"]}
+    assert client.post("/api/v2/checkout", json=body).json()["amount_cents"] == 13000
+    text = {s["id"]: s["price_display_text"] for s in client.get("/api/v2/catalog?locale=ru").json()["services"]}
+    assert "первый платёж $130" in text["b2b_small_claims_hourly"]
+
+
 def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, catalog):
     for sid, cents in (("b2b_recovery_analysis", 39000), ("b2b_recovery_pilot", 79000)):
         svc = catalog["services"][sid]
@@ -96,16 +114,21 @@ def test_financial_recovery_pilot_is_pre_court_and_extras_are_listed_separately(
         assert word in extra, word
 
 
-def test_rollout_is_a_success_fee_never_checked_out_and_skip_trace_is_priced(client, env, catalog):
+def test_rollout_is_a_success_fee_never_checked_out_and_skip_trace_is_the_clients(client, env, catalog):
     from app.services.v2_catalog import price_display_text
     ro = catalog["services"]["b2b_recovery_rollout"]
     assert ro["price"]["display"] == "percent" and ro["price"]["percent"] == 12 and ro["price"]["percent_aged"] == 18
     assert ro["price"]["amount_cents"] is None and ro["action"] == "b2b"
     assert price_display_text(ro, "en").startswith("12% of the increase in net recovery")
     assert ro["price"]["basis"] == "net_recovery_increase_over_baseline" and ro["price"]["baseline_months"] == 3
-    st = catalog["services"]["b2b_skip_trace"]
-    assert st["price"]["amount_cents"] == 4900 and st["action"] == "b2b"
-    for sid in ("b2b_recovery_rollout", "b2b_skip_trace"):
-        req = create(client, sid, details={"company": "Test Supply LLC", "b2b_state": "FL", "overdue_count": 40, "on_monthly_plan": "no"})
-        assert req["next_action"] == "b2b_review"
-        assert _checkout(client, req).status_code in (400, 409, 422)
+    assert "after the pilot" in ro["name"]["en"] and "пилота" in ro["name"]["ru"]
+    # debtor search is not our service: the client orders and pays for it directly
+    assert "b2b_skip_trace" not in catalog["services"]
+    assert all("b2b_skip_trace" not in g["services"] for g in catalog["groups"])
+    for sid in ("b2b_recovery_pilot", "b2b_recovery_rollout"):
+        line = next(x for x in catalog["services"][sid]["extra"]["en"] if "skip tracing" in x)
+        assert "your company orders and pays" in line and "$" not in line
+    req = create(client, "b2b_recovery_rollout", details={"company": "Test Supply LLC", "b2b_state": "FL", "overdue_count": 40, "on_monthly_plan": "no"})
+    assert req["next_action"] == "b2b_review"
+    assert _checkout(client, req).status_code in (400, 409, 422)
+    assert client.post("/api/v2/requests", json=payload("b2b_skip_trace", details={"company": "Test Co"})).status_code in (400, 404, 422)

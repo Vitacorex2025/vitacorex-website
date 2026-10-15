@@ -781,3 +781,9 @@ body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawe
 /* 31. Media curation (2026-10-15): the hero segments and the inner-page stills carry one baked-in cool grade, so the CSS grade is off */
 .vx6-hero__media video { filter: none; }
 .vx-phero__img { filter: none !important; }
+
+/* 32. Price lists (owner 2026-10-15: the guide line ran through «Узнать цену»): every action button in a price table
+   has one width, so the buttons line up on both edges and the alignment guide stays clear of all of them */
+@media (min-width: 47.51em) {
+  .vx-ptable td.vx-ptable__go .vx-btn { width: 100%; justify-content: center; }
+}

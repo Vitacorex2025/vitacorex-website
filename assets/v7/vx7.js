@@ -54,13 +54,25 @@
     h.innerHTML = '<span class="vx-sr">' + full + '</span><span aria-hidden="true">' + lines.join('') + '</span>';
     return h;
   }
+  /* bottom of the painted glyph boxes of a line (font descent included), viewport px */
+  function inkBottom(inn) {
+    var b = -Infinity, tw = d.createTreeWalker(inn, NodeFilter.SHOW_TEXT), n, rg = d.createRange();
+    while ((n = tw.nextNode())) {
+      if (!n.nodeValue.trim()) continue;
+      rg.selectNodeContents(n);
+      Array.prototype.forEach.call(rg.getClientRects(), function (rc) { if (rc.bottom > b) b = rc.bottom; });
+    }
+    return b;
+  }
   function placeRules(h) {
-    var fs = parseFloat(getComputedStyle(h).fontSize);
-    h.querySelectorAll('.vx7-ln').forEach(function (ln) {
+    var fs = parseFloat(getComputedStyle(h).fontSize), lns = h.querySelectorAll('.vx7-ln');
+    lns.forEach(function (ln, k) {
       var inn = ln.querySelector('.vx7-ln__in'), bl = ln.querySelector('.vx7-bl'), r = ln.querySelector('.vx7-rule');
       if (!r) { r = d.createElement('i'); r.className = 'vx7-rule'; r.setAttribute('aria-hidden', 'true'); ln.appendChild(r); }
-      var lr = ln.getBoundingClientRect();
-      r.style.top = px(bl.getBoundingClientRect().top - lr.top);
+      var lr = ln.getBoundingClientRect(), y = bl.getBoundingClientRect().top;
+      /* the last line keeps its rule at rest: it runs under the descenders (р, д, g, y), never through them */
+      if (k === lns.length - 1) y = Math.max(y, inkBottom(inn) + 2);
+      r.style.top = px(y - lr.top);
       r.style.width = px(inn.getBoundingClientRect().width + .3 * fs);
     });
   }
@@ -143,7 +155,9 @@
       var lns = h.querySelectorAll('.vx7-ln');
       lns.forEach(function (ln, k) {
         anim(ln.querySelector('.vx7-ln__in'), [{ transform: 'translateY(1.35em)' }, { transform: 'none' }], { duration: rise, delay: 200 + k * step, easing: E_OUT });
-        anim(ln.querySelector('.vx7-rule'), [{ transform: 'scaleX(0)', opacity: 1 }, { transform: 'scaleX(1)', opacity: 1, offset: .3 }, { transform: 'scaleX(1)', opacity: 1, offset: .82 }, { transform: 'scaleX(1)', opacity: k === lns.length - 1 ? .43 : 0 }],
+        /* upper lines land on their baseline rules, which then fade before the line has settled; the last rule stays */
+        var last = k === lns.length - 1;
+        anim(ln.querySelector('.vx7-rule'), [{ transform: 'scaleX(0)', opacity: 1 }, { transform: 'scaleX(1)', opacity: 1, offset: .3 }, { transform: 'scaleX(1)', opacity: last ? 1 : 0, offset: last ? .82 : .5 }, { transform: 'scaleX(1)', opacity: last ? .43 : 0 }],
           { duration: 1640, delay: 160 + k * step, easing: E_DRAW });
       });
       var from = ['translate(0, .09em) rotate(-1.5deg)', 'translate(.03em, -.07em) rotate(1.2deg)'];
@@ -170,33 +184,64 @@
   /* ================= every page ================= */
   /* alignment guides: the shared price edge and the action edge of a price list, drawn once on entry, back on hover / focus */
   /* edges() returns [[x, side], …]: side −1 = the guide sits 6 px left of the edge, +1 = 6 px right, so it never touches a glyph;
-     span() returns the first and last element the guides run between (rows, not headings) */
+     span() returns the first and last element the guides run between (rows, not headings), or a list of such pairs —
+     one segment per table or group, so a guide never runs through the captions and headings between them */
   function alignSet(host, groups, edges, span) {
     if (!host || !groups.length || window.innerWidth < 1024) return;
     if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
     var hr = host.getBoundingClientRect(), sp = span ? span() : [groups[0], groups[groups.length - 1]];
-    if (!sp[0] || !sp[1]) return;
-    var top = sp[0].getBoundingClientRect().top - hr.top, bottom = sp[1].getBoundingClientRect().bottom - hr.top;
+    var segs = (Array.isArray(sp[0]) ? sp : [sp]).filter(function (sg) { return sg && sg[0] && sg[1]; });
+    if (!segs.length) return;
     var xs = edges().map(function (e) { return e[0] + e[1] * 6 - hr.left; }).filter(function (x) { return x > 0; });
     /* lists re-rendered by script drop our guides: make them again */
-    var els = host.__vx7a && host.__vx7a.length && host.__vx7a[0].isConnected ? host.__vx7a
-      : [0, 1].map(function () { var i = d.createElement('i'); i.className = 'vx7-align'; i.setAttribute('aria-hidden', 'true'); host.appendChild(i); return i; });
+    var els = host.__vx7a && host.__vx7a.length && host.__vx7a[0].isConnected ? host.__vx7a : [];
+    while (els.length < segs.length * 2) { var g = d.createElement('i'); g.className = 'vx7-align'; g.setAttribute('aria-hidden', 'true'); host.appendChild(g); els.push(g); }
     host.__vx7a = els;
-    els.forEach(function (i, k) { if (xs[k] == null) { i.hidden = true; return; } i.hidden = false; i.style.left = px(xs[k] - .5); i.style.top = px(top); i.style.height = px(bottom - top); });
+    els.forEach(function (i, n) {
+      var sg = segs[n >> 1], k = n & 1;
+      if (!sg || xs[k] == null) { i.hidden = true; return; }
+      var top = sg[0].getBoundingClientRect().top - hr.top, bottom = sg[1].getBoundingClientRect().bottom - hr.top;
+      /* a guide that would touch a glyph or a button anywhere on its run is not drawn at all */
+      if (bottom - top < 8 || touches(host, xs[k] + hr.left, top + hr.top, bottom + hr.top)) { i.hidden = true; return; }
+      i.hidden = false; i.style.left = px(xs[k] - .5); i.style.top = px(top); i.style.height = px(bottom - top);
+    });
     if (host.__vx7w === groups[0]) return;
     host.__vx7w = groups[0];
-    var hint = function (v) { return function () { els.forEach(function (i) { i.classList.toggle('is-hint', v); }); }; };
+    var hint = function (v) { return function () { (host.__vx7a || []).forEach(function (i) { i.classList.toggle('is-hint', v); }); }; };
     Array.prototype.forEach.call(groups, function (gr) { gr.addEventListener('pointerenter', hint(true)); gr.addEventListener('pointerleave', hint(false)); gr.addEventListener('focusin', hint(true)); gr.addEventListener('focusout', hint(false)); });
     if (!reduce && 'IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
         if (!en[0].isIntersecting) return; io.disconnect();
-        els.forEach(function (i, k) {
+        (host.__vx7a || []).forEach(function (i, n) {
+          if (i.hidden) return;
           i.animate([{ opacity: 1, transform: 'scaleY(0)' }, { opacity: 1, transform: 'scaleY(1)', offset: .55 }, { opacity: 1, transform: 'scaleY(1)', offset: .8 }, { opacity: 0, transform: 'scaleY(1)' }],
-            { duration: 1300, delay: k * 120, easing: E_DRAW });
+            { duration: 1300, delay: (n & 1) * 120, easing: E_DRAW });
         });
       }, { threshold: .15 });
       io.observe(groups[0]);
     }
+  }
+  /* true when the vertical line x (viewport px) from top to bottom comes within 3 px of text or a control inside host */
+  function touches(host, x, top, bottom) {
+    var near = function (r) { return r.width > 1 && r.height > 1 && r.bottom > top && r.top < bottom && x > r.left - 3 && x < r.right + 3; };
+    var ctl = host.querySelectorAll('.vx-btn, button, input, select, textarea');
+    for (var c = 0; c < ctl.length; c++) if (ctl[c].offsetWidth && (!ctl[c].checkVisibility || ctl[c].checkVisibility({ checkVisibilityCSS: true })) && near(ctl[c].getBoundingClientRect())) return true;
+    var tw = d.createTreeWalker(host, NodeFilter.SHOW_TEXT), n, rg = d.createRange(), el;
+    while ((n = tw.nextNode())) {
+      el = n.parentElement;
+      /* painted text only: not inside a closed panel, not a screen-reader label */
+      if (!n.nodeValue.trim() || !el || !el.offsetWidth || el.closest('.vx-sr, .vx5-sr, .sr-only')) continue;
+      if (el.checkVisibility && !el.checkVisibility({ checkVisibilityCSS: true })) continue;
+      rg.selectNodeContents(n);
+      var rs = rg.getClientRects();
+      for (var k = 0; k < rs.length; k++) if (near(rs[k])) return true;
+    }
+    return false;
+  }
+  function minLeft(els, pad) {
+    var m = Infinity;
+    Array.prototype.forEach.call(els, function (el) { if (!el.offsetWidth) return; var l = el.getBoundingClientRect().left + (pad ? parseFloat(getComputedStyle(el).paddingLeft) || 0 : 0); if (l < m) m = l; });
+    return m === Infinity ? null : m;
   }
   function alignGuides() {
     /* home price list: right edge of the prices, left edge of the actions */
@@ -209,26 +254,30 @@
     var list = d.querySelector('.vx-index__list');
     if (list) {
       var vis = Array.prototype.filter.call(list.querySelectorAll('.vx-index__group'), function (gr) { return !gr.hidden && gr.offsetHeight > 0; });
+      var shown = function (root) { return Array.prototype.filter.call(root.querySelectorAll('.vx-irow'), function (r) { return !r.hidden && r.offsetHeight > 0; }); };
       alignSet(list, vis, function () {
-        var row = list.querySelector('.vx-irow:not([hidden])'), p = row && row.querySelector('.vx-irow__price'), a = row && row.querySelector('.vx-irow__go');
-        return p && a ? [[p.getBoundingClientRect().left, -1], [a.getBoundingClientRect().left, -1]] : [];
+        var rows = shown(list), q = function (sel) { return rows.map(function (r) { return r.querySelector(sel); }).filter(Boolean); };
+        var p = minLeft(q('.vx-irow__price')), a = minLeft(q('.vx-irow__go'));
+        return p != null && a != null ? [[p, -1], [a, -1]] : [];
       }, function () {
-        var rows = list.querySelectorAll('.vx-irow'), vr = Array.prototype.filter.call(rows, function (r) { return !r.hidden && r.offsetHeight > 0; });
-        return [vr[0], vr[vr.length - 1]];
+        /* one segment per visible group: the group titles between them stay clear */
+        return vis.map(function (gr) { var vr = shown(gr); return [vr[0], vr[vr.length - 1]]; });
       });
     }
-    /* pricing tables share one set of columns: one pair of guides runs through all of them —
-       left edge of the price text, left edge of the action buttons */
+    /* pricing tables share one set of columns: the same two guides run through each table (header to last row) —
+       left edge of the price text, left edge of the action buttons; captions between the tables stay clear */
     var byParent = new Map();
     d.querySelectorAll('.vx-ptable:not(.vx-ptable--fees)').forEach(function (tb) { var p = tb.parentElement; if (!byParent.has(p)) byParent.set(p, []); byParent.get(p).push(tb); });
     byParent.forEach(function (tbs, host) {
       alignSet(host, tbs, function () {
-        var tb = tbs[0], c = tb.querySelector('tbody tr td.vx-ptable__price'), b = tb.querySelector('tbody tr td.vx-ptable__go .vx-btn');
-        if (!c) return [];
-        var out = [[c.getBoundingClientRect().left + (parseFloat(getComputedStyle(c).paddingLeft) || 0), -1]];
-        if (b) out.push([b.getBoundingClientRect().left, -1]);
+        /* leftmost edge over every row of every table, so no wider price or label ever reaches across the line */
+        var all = function (sel) { var a = []; tbs.forEach(function (tb) { a.push.apply(a, tb.querySelectorAll(sel)); }); return a; };
+        var c = minLeft(all('tbody tr td.vx-ptable__price'), true), b = minLeft(all('tbody tr td.vx-ptable__go .vx-btn'));
+        if (c == null) return [];
+        var out = [[c, -1]];
+        if (b != null) out.push([b, -1]);
         return out;
-      }, function () { return [tbs[0].tHead || tbs[0], tbs[tbs.length - 1]]; });
+      }, function () { return tbs.map(function (tb) { return [tb.tHead || tb, tb]; }); });
     });
   }
 
@@ -285,9 +334,11 @@
   /* lists rendered and filtered by script (services index) change height: re-measure the guides */
   if ('MutationObserver' in window) {
     var mt, mo = new MutationObserver(function (recs) {
-      if (recs.every(function (r) { return r.type === 'childList' && Array.prototype.every.call(r.addedNodes, function (n) { return n.classList && n.classList.contains('vx7-align'); }) && !r.removedNodes.length; })) return;
+      /* our own guides (added, shown, hidden) never trigger a re-measure */
+      var own = function (n) { return n.classList && n.classList.contains('vx7-align'); };
+      if (recs.every(function (r) { return r.type === 'attributes' ? own(r.target) : Array.prototype.every.call(r.addedNodes, own) && !r.removedNodes.length; })) return;
       clearTimeout(mt); mt = setTimeout(function () { if (started) alignGuides(); }, 80);
     });
-    d.querySelectorAll('.vx-index__list, [data-vx-render="pricing"]').forEach(function (el) { mo.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden'] }); });
+    d.querySelectorAll('.vx-index__list, [data-vx-render="pricing"]').forEach(function (el) { mo.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden', 'open'] }); });
   }
 })();

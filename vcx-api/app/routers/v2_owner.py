@@ -53,6 +53,7 @@ FLASH = {
     "jurisdiction_excluded": "B2B small-claims service is excluded for NY.",
     "sensitive_data": "Text looks like it contains an SSN or card number. Not saved.",
     "not_found": "Not found.",
+    "below_minimum": "Below the upfront minimum for this service (see the note under the amount). Not saved.",
 }
 
 try:
@@ -372,8 +373,11 @@ def owner_request_detail(request: Request, request_id: str):
 <div><label>New status</label><select name="status" required>{_options(allowed, None, blank="Choose new status…")}</select></div>
 <div><label>Internal note (optional, not sent to the customer)</label><textarea name="note" maxlength="500"></textarea></div>
 <button type="submit">Update status</button></form>""" if allowed else "<p class='muted'>No manual status changes from this state.</p>")
+    floor = v2_catalog.prepay_cents(v2_catalog.get_service(r["service_id"]) or {})
+    floor_note = (f"<p class='muted'>Minimum {e(v2_catalog.money_text(floor, 'en'))}: the first hours are paid upfront "
+                  f"(catalog rule).</p>" if floor else "")
     quote_form = f"""<form method="post" action="/api/v2/owner/requests/{rid}/quote" class="stack">{csrf_field}
-<div><label>Amount, USD (e.g. 149.00)</label><input name="amount_usd" inputmode="decimal" required></div>
+<div><label>Amount, USD (e.g. 149.00)</label><input name="amount_usd" inputmode="decimal" required>{floor_note}</div>
 <div><label>Scope (customer sees this)</label><textarea name="scope_text" maxlength="2000" required></textarea></div>
 <div><label>External costs (state fees, shipping…)</label><textarea name="external_costs_text" maxlength="1000"></textarea></div>
 <div><label>Valid for, days</label><input name="expires_in_days" value="14" inputmode="numeric"></div>

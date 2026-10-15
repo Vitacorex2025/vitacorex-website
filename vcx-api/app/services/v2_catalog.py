@@ -27,12 +27,15 @@ PAYABLE_FIXED_MODE = "fixed_after_eligibility"
 _PRICE_WORDS = {
     "en": {"from": "from {m} — price confirmed after review",
            "after_review": " — price confirmed after review",
+           "prepay": "; first payment {m}",
            "plus": " plus "},
     "ru": {"from": "от {m} — цена подтверждается после проверки",
            "after_review": " — цена подтверждается после проверки",
+           "prepay": "; первый платёж {m}",
            "plus": " плюс "},
     "es": {"from": "desde {m} — el precio se confirma tras la revisión",
            "after_review": " — el precio se confirma tras la revisión",
+           "prepay": "; primer pago {m}",
            "plus": " más "},
 }
 
@@ -103,6 +106,15 @@ def fixed_amount_cents(service: dict) -> int | None:
     return None
 
 
+def prepay_cents(service: dict) -> int | None:
+    """Upfront minimum for unit-priced services that are paid before the work (court hours: 2 hours)."""
+    price = service.get("price") or {}
+    amount, units = price.get("amount_cents"), price.get("prepay_units")
+    if isinstance(amount, int) and amount > 0 and isinstance(units, int) and units > 0:
+        return amount * units
+    return None
+
+
 def _ru_plural(n: int, one: str, few: str, many: str) -> str:
     if n % 10 == 1 and n % 100 != 11:
         return one
@@ -147,7 +159,9 @@ def price_display_text(service: dict, locale: str) -> str:
     if display == "from":
         return words["from"].format(m=m)
     if display in ("per_unit", "per_word", "per_hour"):
-        return f"{m} {unit}{words['after_review']}".strip()
+        prepay = prepay_cents(service)
+        first = words["prepay"].format(m=money_text(prepay, locale)) if prepay else ""
+        return f"{m} {unit}{first}{words['after_review']}".strip()
     return f"{m} {unit}".strip()
 
 
