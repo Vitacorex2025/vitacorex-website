@@ -219,7 +219,9 @@ async def ai_auto_deal_analyze(
     request: Request,
     body: AutoDealRequest,
 ):
-    """AI-powered auto deal analysis with negotiation tips."""
+    """Retired 2026-10: the automotive purchase review service is no longer offered."""
+    from fastapi.responses import JSONResponse
+    return JSONResponse(status_code=410, content={"error": "service_retired"})
     if not is_available():
         return AIAnalysisResponse(
             ok=False, ai_powered=False,

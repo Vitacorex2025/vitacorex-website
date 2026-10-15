@@ -21,9 +21,9 @@ const EXPECTED_B2C = [
   'immigration-packet-review.html','immigration-services-tampa.html','n-400-naturalization.html'
 ];
 const EXPECTED_SHARED = [
-  'about.html','contact.html','careers.html','insights.html','faq.html',
+  'about.html','contact.html','careers.html','insights.html',
   'privacy-policy.html','terms-of-use.html','cookie-policy.html',
-  'secure-coordination.html','sub-processors-and-dpa.html','thank-you.html'
+  'secure-coordination.html','sub-processors-and-dpa.html'
 ];
 // P03 Step 3.2 — Samples cluster under /samples/<slug>.html (ADR-008).
 const EXPECTED_SAMPLES = [

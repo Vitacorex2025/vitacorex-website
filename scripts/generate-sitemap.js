@@ -179,6 +179,14 @@ out.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
 let count = 0;
 function urlEntry([p, changefreq, priority, lastmod]) {
+  // Never list redirect stubs or noindex pages (they would contradict robots directives).
+  if (p.endsWith('.html')) {
+    const file = path.join(ROOT, p);
+    if (fs.existsSync(file)) {
+      const html = fs.readFileSync(file, 'utf8');
+      if (/http-equiv="refresh"/i.test(html) || /<meta name="robots" content="noindex/i.test(html)) { DROPPED.add(p); return; }
+    }
+  }
   out.push('  <url>');
   out.push('    <loc>' + BASE + '/' + p + '</loc>');
   out.push('    <lastmod>' + lastmod + '</lastmod>');

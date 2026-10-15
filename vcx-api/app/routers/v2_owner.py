@@ -369,7 +369,7 @@ def owner_request_detail(request: Request, request_id: str):
 
     allowed = sorted(OWNER_TRANSITIONS.get(r["status"], set()))
     status_form = (f"""<form method="post" action="/api/v2/owner/requests/{rid}/status" class="stack">{csrf_field}
-<div><label>New status</label><select name="status">{_options(allowed, None, blank=None)}</select></div>
+<div><label>New status</label><select name="status" required>{_options(allowed, None, blank="Choose new status…")}</select></div>
 <div><label>Internal note (optional, not sent to the customer)</label><textarea name="note" maxlength="500"></textarea></div>
 <button type="submit">Update status</button></form>""" if allowed else "<p class='muted'>No manual status changes from this state.</p>")
     quote_form = f"""<form method="post" action="/api/v2/owner/requests/{rid}/quote" class="stack">{csrf_field}

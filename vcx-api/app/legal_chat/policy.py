@@ -121,7 +121,7 @@ _GENERAL_GREETINGS = {
 _GENERAL_GREETING_RESPONSE = (
     "Hello! I'm the VitaCoreX assistant. I can help with:\n\n"
     "- General questions and conversation\n"
-    "- Legal topic information (contracts, immigration, auto deals, Florida portals)\n"
+    "- Legal topic information (contracts, immigration, Florida portals)\n"
     "- Navigating VitaCoreX services and tools\n\n"
     "What can I help you with today?"
 )
@@ -136,7 +136,7 @@ _GENERAL_CHAT_RESPONSE = (
 
 _BROAD_LEGAL_ANSWER = (
     "I can see this is a legal topic. While my deepest knowledge covers "
-    "contracts, immigration packets, auto deal review, and Florida portal "
+    "contracts, immigration packets and Florida portal "
     "routing, I can help with initial issue spotting on broader topics.\n\n"
     "Important: I provide general information only, not legal advice. For "
     "document-specific review or strategy, please use Structured Intake."
@@ -268,7 +268,6 @@ def _try_llm_response(
                 "Tell me about your services",
                 "I need help with a contract",
                 "Help me organize immigration documents",
-                "Check my auto deal",
             ])
             return ChatResponse(
                 session_id=session_id,
@@ -493,7 +492,6 @@ def _handle_broad_legal(message: str, session_id: str) -> ChatResponse:
             "Submit to Structured Intake",
             "Ask about contracts instead",
             "Ask about immigration packets",
-            "Ask about auto deals",
         ],
         escalation_links=DEFAULT_PRODUCT_ROUTES,
     )

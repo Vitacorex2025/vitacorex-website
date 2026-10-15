@@ -35,3 +35,6 @@ docs/qa/cta-opaque.md
 !docs/**/*.jpg
 index.html.bak-4cells
 desktop.ini
+
+# local MCP tool config (contains an API key) — never publish
+.mcp.json
