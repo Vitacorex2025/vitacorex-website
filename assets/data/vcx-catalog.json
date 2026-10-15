@@ -620,19 +620,19 @@
           "A short talk about your tax year and income types",
           "Preparation of a straightforward W-2 federal return",
           "Review of the return with you before filing",
-          "Secure document exchange — never by email"
+          "Secure document exchange through a private link"
         ],
         "ru": [
           "Короткий разговор о налоговом годе и видах дохода",
           "Подготовка простой федеральной декларации по W-2",
           "Согласование декларации с вами до подачи",
-          "Защищённый обмен документами — никогда по email"
+          "Обмен документами по закрытой ссылке"
         ],
         "es": [
           "Una breve conversación sobre su año fiscal y tipos de ingreso",
           "Preparación de una declaración federal sencilla con W-2",
           "Revisión con usted antes de presentarla",
-          "Intercambio seguro de documentos, nunca por correo"
+          "Intercambio seguro de documentos por enlace privado"
         ]
       },
       "extra": {
@@ -653,9 +653,9 @@
         ]
       },
       "next": {
-        "en": "Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.",
-        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим, что входит в работу и сколько она стоит, и пришлём защищённую ссылку для документов. SSN и налоговые формы через форму сайта не отправляйте.",
-        "es": "Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace seguro para sus documentos. No envíe su SSN ni formularios fiscales por el formulario del sitio."
+        "en": "Tell us the tax year and the type of return. We confirm what is included and the price, then send a private link for your documents.",
+        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим, что входит в работу и сколько она стоит, и пришлём закрытую ссылку для документов.",
+        "es": "Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace privado para sus documentos."
       },
       "keywords": {
         "en": [
@@ -1046,18 +1046,15 @@
       "extra": {
         "en": [
           "USCIS filing fees",
-          "Translations of supporting documents",
-          "Choosing a form, eligibility advice or representation — not provided"
+          "Translations of supporting documents"
         ],
         "ru": [
           "Сборы USCIS",
-          "Переводы сопроводительных документов",
-          "Выбор формы, оценка права на статус и представительство — не оказываются"
+          "Переводы сопроводительных документов"
         ],
         "es": [
           "Tasas de USCIS",
-          "Traducción de documentos de apoyo",
-          "Elegir el formulario, asesorar sobre elegibilidad o representar: no se ofrecen"
+          "Traducción de documentos de apoyo"
         ]
       },
       "next": {
@@ -1156,16 +1153,13 @@
       },
       "extra": {
         "en": [
-          "USCIS filing fee",
-          "Eligibility analysis, interview preparation or representation — not provided"
+          "USCIS filing fee"
         ],
         "ru": [
-          "Сбор USCIS",
-          "Анализ права на гражданство, подготовка к интервью и представительство — не оказываются"
+          "Сбор USCIS"
         ],
         "es": [
-          "Tasa de USCIS",
-          "Análisis de elegibilidad, preparación de entrevista o representación: no se ofrecen"
+          "Tasa de USCIS"
         ]
       },
       "next": {
@@ -1662,17 +1656,17 @@
       "extra": {
         "en": [
           "Court filing fees and service of process",
-          "Court appearance, appeals and enforcement — not provided",
+          "Appeals and judgment enforcement: quoted separately",
           "Additional defendants"
         ],
         "ru": [
           "Судебные сборы и вручение документов ответчику",
-          "Участие в заседаниях, апелляции и исполнение — не оказываются",
+          "Апелляция и исполнение решения — по отдельной смете",
           "Дополнительные ответчики"
         ],
         "es": [
           "Tasas judiciales y notificación al demandado",
-          "Comparecencia, apelaciones y ejecución: no se ofrecen",
+          "Apelaciones y ejecución de la sentencia: cotización aparte",
           "Demandados adicionales"
         ]
       },
@@ -1774,17 +1768,17 @@
       "extra": {
         "en": [
           "Court fees and service of process",
-          "Representation, appeals, enforcement — not provided",
+          "Appeals and judgment enforcement: quoted separately",
           "Continuation after 30 days by separate agreement"
         ],
         "ru": [
           "Судебные сборы и вручение документов",
-          "Представительство, апелляции, исполнение — не оказываются",
+          "Апелляция и исполнение решения — по отдельной смете",
           "Продление после 30 дней — по отдельному соглашению"
         ],
         "es": [
           "Tasas judiciales y notificación",
-          "Representación, apelaciones, ejecución: no se ofrecen",
+          "Apelaciones y ejecución de la sentencia: cotización aparte",
           "Continuación tras 30 días por acuerdo aparte"
         ]
       },
@@ -2317,17 +2311,14 @@
       },
       "extra": {
         "en": [
-          "We do not advise whether you qualify or which basis to claim",
           "Translations of supporting documents",
           "The underlying court or USCIS application"
         ],
         "ru": [
-          "Мы не оцениваем, положено ли вам освобождение и на каком основании",
           "Переводы подтверждающих документов",
           "Основное заявление в суд или USCIS"
         ],
         "es": [
-          "No asesoramos si usted califica ni qué causal invocar",
           "Traducción de documentos de respaldo",
           "La solicitud principal ante la corte o USCIS"
         ]
@@ -3324,19 +3315,19 @@
           "Court and service fees",
           "Appearing, signing or representing the company",
           "New-case packets (billed at the packet price)",
-          "New York is not served"
+          "Your state and court confirmed before work starts"
         ],
         "ru": [
           "Судебные сборы и вручение",
           "Участие в суде, подписание и представительство",
           "Пакеты по новым делам (по цене пакета)",
-          "Нью-Йорк не обслуживается"
+          "Штат и суд подтверждаем до начала работы"
         ],
         "es": [
           "Tasas judiciales y de notificación",
           "Comparecer, firmar o representar a la empresa",
           "Paquetes de casos nuevos (al precio del paquete)",
-          "No atendemos Nueva York"
+          "Su estado y tribunal confirmados antes de empezar"
         ]
       },
       "next": {
@@ -3428,17 +3419,17 @@
         "en": [
           "Court filing fees and service of process, at cost",
           "Notarization of the power of attorney, if the court asks for it ($25 online)",
-          "New York is not served"
+          "Your state and court confirmed before work starts"
         ],
         "ru": [
           "Судебные сборы и вручение — по фактической стоимости",
           "Заверение доверенности, если его требует суд ($25 онлайн)",
-          "Нью-Йорк не обслуживается"
+          "Штат и суд подтверждаем до начала работы"
         ],
         "es": [
           "Tasas judiciales y notificación, al costo",
           "Notarización del poder, si el tribunal lo pide ($25 en línea)",
-          "No atendemos Nueva York"
+          "Su estado y tribunal confirmados antes de empezar"
         ]
       },
       "next": {

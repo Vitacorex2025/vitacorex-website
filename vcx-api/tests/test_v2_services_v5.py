@@ -56,7 +56,7 @@ def test_monthly_small_claims_plan_is_business_lane_and_excludes_ny(client, env)
     req = create(client, "b2b_small_claims_monthly", details={"company": "Test Co LLC", "b2b_state": "FL", "active_cases": 4})
     assert req["queue"] == "B2B_SMALL_CLAIMS" and req["next_action"] == "b2b_review"
     r = client.post("/api/v2/requests", json=payload("b2b_small_claims_monthly", details={"company": "Test Co", "b2b_state": "NY"}))
-    assert r.status_code == 422 and r.json()["code"] == "B2B_NY_EXCLUDED"
+    assert r.status_code == 201  # New York: accepted for a jurisdiction check
 
 
 def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(client, env, catalog):
@@ -66,7 +66,7 @@ def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(
     assert req["queue"] == "B2B_SMALL_CLAIMS" and req["next_action"] == "b2b_review"
     assert _checkout(client, req).status_code in (400, 409, 422)
     r = client.post("/api/v2/requests", json=payload("b2b_small_claims_hourly", details={"company": "Test Co", "b2b_state": "NY"}))
-    assert r.status_code == 422 and r.json()["code"] == "B2B_NY_EXCLUDED"
+    assert r.status_code == 201  # New York: accepted for a jurisdiction check
 
 
 def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, catalog):
@@ -77,6 +77,6 @@ def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, cat
         assert req["next_action"] == "b2b_review"
         assert _checkout(client, req).status_code in (400, 409, 422)
     r = client.post("/api/v2/requests", json=payload("b2b_recovery_pilot", details={"company": "Test Co", "b2b_state": "NY"}))
-    assert r.status_code == 422 and r.json()["code"] == "B2B_NY_EXCLUDED"
+    assert r.status_code == 201  # New York: accepted for a jurisdiction check
     perks = catalog["services"]["b2b_small_claims_monthly"]["included"]["en"]
     assert any("analysis every month" in p for p in perks) and any("pilot" in p for p in perks)

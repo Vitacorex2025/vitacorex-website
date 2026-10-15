@@ -112,7 +112,7 @@
 - Precio: $49 — por solicitud
 - Formularios de exención de tarifas de la corte o de USCIS llenados con sus respuestas por escrito; un precio fijo por solicitud. Decide la corte o USCIS.
 - Incluye: El formulario de exención llenado con sus respuestas por escrito; La lista de documentos de respaldo que pide el formulario; La sección del preparador completada como lo exige el formulario
-- No incluye / se cobra aparte: No asesoramos si usted califica ni qué causal invocar; Traducción de documentos de respaldo; La solicitud principal ante la corte o USCIS
+- No incluye / se cobra aparte: Traducción de documentos de respaldo; La solicitud principal ante la corte o USCIS
 - Siguiente paso: Indique para qué corte o formulario de USCIS es la exención y pague la tarifa fija. Le enviamos un cuestionario para responder por escrito y le devolvemos el formulario listo para firmar.
 - Página: https://vitacorexllc.com/es/fee-waiver.html
 
@@ -120,7 +120,7 @@
 - Precio: Desde $149 — precio final tras revisión (un formulario sencillo elegido por usted)
 - Preparación administrativa de un formulario de USCIS elegido por usted o su abogado, y organización de sus documentos de apoyo.
 - Incluye: Llenado del formulario con sus respuestas; Revisión de que esté completo según las instrucciones; Lista y paquete de documentos organizado
-- No incluye / se cobra aparte: Tasas de USCIS; Traducción de documentos de apoyo; Elegir el formulario, asesorar sobre elegibilidad o representar: no se ofrecen
+- No incluye / se cobra aparte: Tasas de USCIS; Traducción de documentos de apoyo
 - Siguiente paso: Indique qué formulario presentará y su plazo. Confirmamos alcance y precio antes de empezar.
 - Página: https://vitacorexllc.com/es/immigration-packet-review.html
 
@@ -128,7 +128,7 @@
 - Precio: Desde $249 — precio final tras revisión (alcance definido de apoyo con el N-400)
 - Ayuda administrativa con el Formulario N-400: llenado, revisión y paquete de documentos organizado.
 - Incluye: Formulario N-400 llenado con sus respuestas; Revisión y lista de documentos; Paquete organizado listo para que usted lo presente
-- No incluye / se cobra aparte: Tasa de USCIS; Análisis de elegibilidad, preparación de entrevista o representación: no se ofrecen
+- No incluye / se cobra aparte: Tasa de USCIS
 - Siguiente paso: Envíe una solicitud breve. Confirmamos alcance y precio; la decisión de presentar es suya.
 - Página: https://vitacorexllc.com/es/n-400-naturalization.html
 
@@ -243,9 +243,9 @@
 #### Declaración de impuestos individual
 - Precio: Desde $149 — precio final tras revisión (declaración federal sencilla, un año fiscal)
 - Declaración federal individual (Formulario 1040) preparada por nuestro equipo contable tras una breve llamada sobre su situación.
-- Incluye: Una breve conversación sobre su año fiscal y tipos de ingreso; Preparación de una declaración federal sencilla con W-2; Revisión con usted antes de presentarla; Intercambio seguro de documentos, nunca por correo
+- Incluye: Una breve conversación sobre su año fiscal y tipos de ingreso; Preparación de una declaración federal sencilla con W-2; Revisión con usted antes de presentarla; Intercambio seguro de documentos por enlace privado
 - No incluye / se cobra aparte: Declaración estatal; Trabajo independiente, alquileres o ingresos del extranjero; Declaraciones enmendadas o de años anteriores
-- Siguiente paso: Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace seguro para sus documentos. No envíe su SSN ni formularios fiscales por el formulario del sitio.
+- Siguiente paso: Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace privado para sus documentos.
 - Página: https://vitacorexllc.com/es/tax-preparation.html
 
 #### Declaración para trabajadores independientes
@@ -334,7 +334,7 @@
 
 Small claims para empresas — alcance:
 - Cada caso empieza con una revisión: estado, tribunal, tipo de entidad y datos básicos del reclamo. El alcance permitido para ese estado y tribunal se confirma antes del presupuesto.
-- Nueva York no está disponible para este producto B2B (política de la empresa).
+- Las reglas cambian según el estado y el tribunal: confirmamos lo que podemos hacer en su caso antes de que pague.
 - Las tasas judiciales y la notificación de documentos se cobran aparte. No se ofrecen comparecencia ante el tribunal, representación, apelaciones ni ejecución de sentencias.
 
 ## Aviso sobre servicios migratorios (texto oficial en inglés)

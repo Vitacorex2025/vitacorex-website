@@ -54,7 +54,7 @@ Not included unless quoted: rush delivery, rare language pairs, notarized transl
 | Recovery support for existing clients | individual quote | additional option for current business clients only | /net-recovery.html |
 
 - Each case starts with a case check (state, court, claim basics); the permitted scope is confirmed before a quote.
-- New York is not offered for this B2B product (company policy).
+- State and court rules differ: we confirm what we can do for your state and court before you pay.
 - Court filing fees and service of process are separate. Court appearance, representation, appeals and enforcement are not provided.
 
 ## Immigration notice
@@ -84,8 +84,8 @@ It is $25 per notarial act. Additional signatures or acts, witnesses, and printe
 **Are government fees included?**
 No. State filing fees, apostille fees, USCIS fees and court fees are separate and listed in the quote.
 
-**Can VitaCoreX handle small claims in New York?**
-The B2B small-claims product is not offered in New York.
+**Can VitaCoreX handle small claims in my state?**
+Tell us the state and court: rules differ, and we confirm in writing what we can do before you pay.
 
 ## Site structure
 

@@ -127,7 +127,7 @@ How prices work:
 - Price: $49 — per application
 - Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides.
 - Included: The fee-waiver form typed from your written answers; A list of the supporting documents the form asks for; Preparer section completed as the form requires
-- Not included / extra: We do not advise whether you qualify or which basis to claim; Translations of supporting documents; The underlying court or USCIS application
+- Not included / extra: Translations of supporting documents; The underlying court or USCIS application
 - Next step: Tell us which court or USCIS form the waiver is for and pay the fixed fee. We send you a questionnaire to answer in writing and return the typed form for your signature.
 - Page: https://vitacorexllc.com/fee-waiver.html
 
@@ -135,7 +135,7 @@ How prices work:
 - Price: From $149 — final price after review (one simple form you have selected)
 - Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents.
 - Included: Typing the form from your answers; Completeness check against the form instructions; Organized document checklist and packet
-- Not included / extra: USCIS filing fees; Translations of supporting documents; Choosing a form, eligibility advice or representation — not provided
+- Not included / extra: USCIS filing fees; Translations of supporting documents
 - Next step: Tell us which form you are filing and your deadline. We confirm the scope and price before any work.
 - Page: https://vitacorexllc.com/immigration-packet-review.html
 
@@ -143,7 +143,7 @@ How prices work:
 - Price: From $249 — final price after review (defined N-400 support scope)
 - Administrative help with Form N-400: typing, completeness check and an organized document packet.
 - Included: Form N-400 typed from your answers; Completeness check and document checklist; Organized packet ready for you to file
-- Not included / extra: USCIS filing fee; Eligibility analysis, interview preparation or representation — not provided
+- Not included / extra: USCIS filing fee
 - Next step: Send a short request. We confirm the scope and price; the decision to apply remains yours.
 - Page: https://vitacorexllc.com/n-400-naturalization.html
 
@@ -258,9 +258,9 @@ How prices work:
 #### Individual tax return
 - Price: From $149 — final price after review (simple federal return, one tax year)
 - Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.
-- Included: A short talk about your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
+- Included: A short talk about your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange through a private link
 - Not included / extra: State return; Self-employment, rental or foreign income; Amended or prior-year returns
-- Next step: Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.
+- Next step: Tell us the tax year and the type of return. We confirm what is included and the price, then send a private link for your documents.
 - Page: https://vitacorexllc.com/tax-preparation.html
 
 #### Self-employed tax return
@@ -349,7 +349,7 @@ How prices work:
 
 Small claims for companies — scope notes:
 - Each case starts with a case check (state, court, entity type, claim basics). The permitted scope for that state and court is confirmed before a quote.
-- New York is not offered for this B2B product (company policy).
+- State and court rules differ: we confirm what we can do for your state and court before you pay.
 - Court filing fees and service of process are separate. Court appearance, representation, appeals and enforcement are not provided.
 
 ================================================================================
@@ -395,7 +395,7 @@ Q: Can I ask a question before choosing a service?
 A: Yes. Sending a request through "Ask about your situation" is free of charge. It is not a free legal consultation; VitaCoreX replies with a matching service and price.
 
 Q: Does VitaCoreX handle small claims for companies?
-A: Yes, as document preparation and case support: a case packet from $199 or preparation & case support for the first 30 days from $399, one case and one defendant. Court fees are separate; no court appearance or representation. The product is not offered in New York.
+A: Yes. Case management by the hour ($65/h) under the company’s power of attorney, a case packet from $199, case support for the first 30 days from $399, or the monthly back office from $449 with a free receivables analysis every month. Court fees are paid at cost; we confirm your state and court before you pay.
 
 Q: What languages does VitaCoreX work in?
 A: English, Russian and Spanish. Translations for other language pairs are quoted on request, subject to availability.

@@ -221,9 +221,8 @@
     if (MODE !== 'b2b') return false;
     var st = form.elements.b2b_state, box = $('vx-ny');
     var isNY = st && st.value === 'NY';
-    if (box) box.hidden = !isNY;
-    $('vx-req-submit').disabled = !!isNY;
-    return isNY;
+    if (box) box.hidden = !isNY;   /* New York: a friendly note; the request goes to a jurisdiction check */
+    return false;
   }
 
   function collectDetails() {
@@ -260,7 +259,7 @@
     if (SSN.test(all)) errors.summary = 'sensitive_data';
     if (!form.elements.consent.checked) errors['consent.privacy'] = 'consent_required';
     if (s && s.requires_referral_consent && !form.elements.referral.checked) errors['consent.referral'] = 'referral_required';
-    if (nyCheck()) errors['details.b2b_state'] = 'ny_excluded';
+    nyCheck();
     return Object.keys(errors).length === 0;
   }
   function showErrors(serverFields) {

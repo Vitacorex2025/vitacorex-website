@@ -20,6 +20,7 @@ except Exception:  # pragma: no cover
 LANGUAGE_NAMES = {"en": "English", "ru": "Russian", "es": "Spanish"}
 
 OWNER_DETAIL_KEYS = [
+    "jurisdiction_check",
     "tax_year", "tax_type", "tax_state", "b2b_state", "county_court", "claim_amount",
     "entity_type_b2b", "party_role", "jurisdiction_state", "formation_state", "entity_type",
     "issuing_state", "destination_country", "signer_location", "source_language",

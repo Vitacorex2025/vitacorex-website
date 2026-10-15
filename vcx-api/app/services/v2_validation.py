@@ -270,7 +270,8 @@ def validate_request(payload, source_channel: str) -> dict:
 
     # B2B NY exclusion — business lane only; private services never check NY.
     if service.get("lane") == "business" and clean_details.get("b2b_state") == "NY":
-        raise RequestRejected(422, {"error": "jurisdiction_excluded", "code": "B2B_NY_EXCLUDED"})
+        # owner 2026-10-15: no blanket refusal; New York requests go to a jurisdiction check by the team
+        clean_details["jurisdiction_check"] = "NY"
 
     return {
         "idempotency_key": idem,

@@ -115,13 +115,18 @@ def test_ssn_and_card_rejected(client, env):
     assert db_rows(env, "SELECT COUNT(*) n FROM v2_requests")[0]["n"] == 1
 
 
-def test_ny_b2b_rejected_and_ny_private_accepted(client, env):
-    for state in ("NY", "ny", "New York"):
-        r = client.post("/api/v2/requests", json=payload(
-            "b2b_small_claims_support", details={"company": "Test Co", "b2b_state": state}))
-        assert r.status_code == 422
-        assert r.json() == {"error": "jurisdiction_excluded", "code": "B2B_NY_EXCLUDED"}
-    assert db_rows(env, "SELECT COUNT(*) n FROM v2_requests")[0]["n"] == 0
+def _has_details_column(env):
+    return any(c["name"] == "details_json" for c in db_rows(env, "PRAGMA table_info(v2_requests)"))
+
+
+def test_ny_b2b_goes_to_a_jurisdiction_check_and_ny_private_accepted(client, env):
+    """Owner 2026-10-15: no blanket refusal. New York business requests are accepted and flagged for the team."""
+    for i, state in enumerate(("NY", "ny", "New York")):
+        req = create(client, "b2b_small_claims_support", details={"company": f"Test Co {i}", "b2b_state": state})
+        assert req["next_action"] == "b2b_review"
+    rows = db_rows(env, "SELECT details_json FROM v2_requests") if _has_details_column(env) else []
+    for r in rows:
+        assert '"jurisdiction_check": "NY"' in r["details_json"]
     ok = create(client, "apostille_coordination", details={"issuing_state": "NY", "destination_country": "Spain"})
     assert ok["status"] == "SUBMITTED"
     ok2 = create(client, "tax_1040_simple", details={"tax_state": "NY", "tax_year": "2025"})
