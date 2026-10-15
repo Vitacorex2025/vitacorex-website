@@ -52,11 +52,15 @@ def test_records_update_fixed_and_rejects_unknown_fields(client, env):
     assert r.status_code == 422
 
 
-def test_monthly_small_claims_plan_is_business_lane_and_excludes_ny(client, env):
-    req = create(client, "b2b_small_claims_monthly", details={"company": "Test Co LLC", "b2b_state": "FL", "active_cases": 4})
+def test_retainer_is_per_case_business_lane_with_bonus_and_no_checkout(client, env, catalog):
+    svc = catalog["services"]["b2b_small_claims_retainer"]
+    assert svc["price"]["amount_cents"] == 74900 and svc["action"] == "b2b"
+    assert any("Bonus" in x for x in svc["included"]["en"]) and any("2 hours in court" in x for x in svc["included"]["en"])
+    req = create(client, "b2b_small_claims_retainer", subtype="unpaid_invoice",
+                 details={"company": "Test Co LLC", "b2b_state": "FL", "claim_amount": "4200", "party_role": "claimant", "poa_ready": "template"})
     assert req["queue"] == "B2B_SMALL_CLAIMS" and req["next_action"] == "b2b_review"
-    r = client.post("/api/v2/requests", json=payload("b2b_small_claims_monthly", details={"company": "Test Co", "b2b_state": "NY"}))
-    assert r.status_code == 201  # New York: accepted for a jurisdiction check
+    assert _checkout(client, req).status_code in (400, 409, 422)
+    assert "b2b_small_claims_monthly" not in catalog["services"], "the multi-case back office duplicated the month of support"
 
 
 def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(client, env, catalog):
@@ -78,5 +82,5 @@ def test_financial_recovery_is_reviewed_first_never_checked_out(client, env, cat
         assert _checkout(client, req).status_code in (400, 409, 422)
     r = client.post("/api/v2/requests", json=payload("b2b_recovery_pilot", details={"company": "Test Co", "b2b_state": "NY"}))
     assert r.status_code == 201  # New York: accepted for a jurisdiction check
-    perks = catalog["services"]["b2b_small_claims_monthly"]["included"]["en"]
-    assert any("analysis every month" in p for p in perks) and any("pilot" in p for p in perks)
+    for sid in ("b2b_recovery_analysis", "b2b_recovery_pilot"):
+        assert any("retainer" in x for x in catalog["services"][sid]["extra"]["en"])

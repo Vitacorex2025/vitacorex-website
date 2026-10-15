@@ -42,10 +42,10 @@
         "es": "Para empresas: small claims"
       },
       "services": [
-        "b2b_small_claims_hourly",
         "b2b_small_claims_packet",
         "b2b_small_claims_support",
-        "b2b_small_claims_monthly",
+        "b2b_small_claims_retainer",
+        "b2b_small_claims_hourly",
         "b2b_recovery_analysis",
         "b2b_recovery_pilot",
         "existing_client_recovery"
@@ -1619,9 +1619,9 @@
       ],
       "notices": [],
       "name": {
-        "en": "Small-claims case packet",
-        "ru": "Пакет документов small claims",
-        "es": "Paquete de documentos de small claims"
+        "en": "Small-claims filing packet",
+        "ru": "Пакет документов на подачу small claims",
+        "es": "Paquete para presentar un small claims"
       },
       "short": {
         "en": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.",
@@ -1657,17 +1657,17 @@
         "en": [
           "Court filing fees and service of process",
           "Appeals and judgment enforcement: quoted separately",
-          "Additional defendants"
+          "Court hours on request, at the hourly rate"
         ],
         "ru": [
           "Судебные сборы и вручение документов ответчику",
           "Апелляция и исполнение решения — по отдельной смете",
-          "Дополнительные ответчики"
+          "Часы в суде — по запросу, по почасовой ставке"
         ],
         "es": [
           "Tasas judiciales y notificación al demandado",
           "Apelaciones y ejecución de la sentencia: cotización aparte",
-          "Demandados adicionales"
+          "Horas en la corte a pedido, con la tarifa por hora"
         ]
       },
       "next": {
@@ -1731,55 +1731,58 @@
       ],
       "notices": [],
       "name": {
-        "en": "Small-claims preparation & case support",
-        "ru": "Подготовка и сопровождение small claims",
-        "es": "Preparación y seguimiento de small claims"
+        "en": "One month of case support",
+        "ru": "Сопровождение дела на месяц",
+        "es": "Un mes de seguimiento del caso"
       },
       "short": {
-        "en": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.",
-        "ru": "Пакет документов плюс координация подачи там, где это разрешено, отслеживание дела и отчёты о статусе в течение 30 дней.",
-        "es": "El paquete del caso más coordinación de la presentación donde se permita, seguimiento del expediente y avisos durante 30 días."
+        "en": "We run your case for a month: filing, service of process, deadlines, settlement talks and the hearing packet. Court hours are added separately.",
+        "ru": "Ведём ваше дело месяц: подача, вручение, сроки, переговоры об урегулировании и пакет к заседанию. Часы в суде добавляются отдельно.",
+        "es": "Llevamos su caso durante un mes: presentación, notificación, plazos, negociación y paquete para la audiencia. Las horas en la corte se añaden aparte."
       },
       "unit": {
-        "en": "one case, one defendant, first 30 days",
-        "ru": "одно дело, один ответчик, первые 30 дней",
-        "es": "un caso, un demandado, primeros 30 días"
+        "en": "one case, 30 days",
+        "ru": "одно дело, 30 дней",
+        "es": "un caso, 30 días"
       },
       "included": {
         "en": [
-          "Everything in the case packet",
-          "Filing coordination where permitted",
-          "Docket follow-up and milestone updates",
-          "30-day service window"
+          "Everything in the filing packet",
+          "Filing coordination and the court calendar",
+          "Service of process arranged and tracked",
+          "Settlement and payment-plan talks in your company’s name",
+          "Hearing packet and a status report every week"
         ],
         "ru": [
-          "Всё из пакета документов",
-          "Координация подачи там, где это разрешено",
-          "Отслеживание дела и отчёты по этапам",
-          "Срок сопровождения 30 дней"
+          "Всё, что входит в пакет на подачу",
+          "Подача и судебный календарь",
+          "Организация и контроль вручения",
+          "Переговоры об урегулировании и рассрочке от имени компании",
+          "Пакет к заседанию и еженедельный отчёт"
         ],
         "es": [
-          "Todo lo del paquete del caso",
-          "Coordinación de la presentación donde se permita",
-          "Seguimiento y avisos por etapas",
-          "Servicio durante 30 días"
+          "Todo lo del paquete para presentar",
+          "Coordinación de la presentación y del calendario judicial",
+          "Notificación organizada y controlada",
+          "Negociación y planes de pago a nombre de su empresa",
+          "Paquete para la audiencia e informe semanal"
         ]
       },
       "extra": {
         "en": [
-          "Court fees and service of process",
-          "Appeals and judgment enforcement: quoted separately",
-          "Continuation after 30 days by separate agreement"
+          "Court and service fees, at cost",
+          "Court hours on request, at the hourly rate",
+          "Next month by agreement"
         ],
         "ru": [
-          "Судебные сборы и вручение документов",
-          "Апелляция и исполнение решения — по отдельной смете",
-          "Продление после 30 дней — по отдельному соглашению"
+          "Судебные сборы и вручение — по факту",
+          "Часы в суде — по запросу, по почасовой ставке",
+          "Следующий месяц — по согласованию"
         ],
         "es": [
-          "Tasas judiciales y notificación",
-          "Apelaciones y ejecución de la sentencia: cotización aparte",
-          "Continuación tras 30 días por acuerdo aparte"
+          "Tasas judiciales y de notificación, al costo",
+          "Horas en la corte a pedido, con la tarifa por hora",
+          "El mes siguiente, de mutuo acuerdo"
         ]
       },
       "next": {
@@ -3247,115 +3250,12 @@
       },
       "image": "/assets/img/curated/hero-document-control.jpg"
     },
-    "b2b_small_claims_monthly": {
-      "family": "b2b",
-      "group": "business",
-      "lane": "business",
-      "queue": "B2B_SMALL_CLAIMS",
-      "page": "/small-claims-documentation.html",
-      "action": "b2b",
-      "price": {
-        "mode": "from_quote_required",
-        "display": "from",
-        "amount_cents": 44900,
-        "confidence": "medium"
-      },
-      "subtypes": [],
-      "fields": [
-        "company",
-        "b2b_state",
-        "county_court",
-        "active_cases",
-        "authorized_rep"
-      ],
-      "notices": [],
-      "name": {
-        "en": "Small-claims back office (monthly)",
-        "ru": "Сопровождение small claims (помесячно)",
-        "es": "Apoyo de small claims (mensual)"
-      },
-      "short": {
-        "en": "For companies with several cases: a case register, exhibits, service tracking and a status report every two weeks.",
-        "ru": "Для компаний с несколькими делами: реестр дел, приложения, контроль вручений и отчёт каждые две недели.",
-        "es": "Para empresas con varios casos: registro de casos, anexos, seguimiento de notificaciones y un informe cada dos semanas."
-      },
-      "unit": {
-        "en": "per month, up to 5 active cases",
-        "ru": "в месяц, до 5 активных дел",
-        "es": "por mes, hasta 5 casos activos"
-      },
-      "included": {
-        "en": [
-          "Case register with chronology and amounts",
-          "Exhibit index upkeep",
-          "Service-of-process and docket tracking",
-          "Status report every two weeks and a hand-off packet for your representative",
-          "Receivables analysis every month, free",
-          "First recovery pilot, free"
-        ],
-        "ru": [
-          "Реестр дел с хронологией и суммами",
-          "Ведение списка приложений",
-          "Контроль вручений и судебного календаря",
-          "Отчёт каждые две недели и пакет для вашего представителя",
-          "Анализ дебиторской задолженности каждый месяц — бесплатно",
-          "Первый пилот по возврату — бесплатно"
-        ],
-        "es": [
-          "Registro de casos con cronología y montos",
-          "Mantenimiento del índice de anexos",
-          "Seguimiento de notificaciones y del expediente",
-          "Informe cada dos semanas y paquete para su representante",
-          "Análisis de cuentas por cobrar cada mes, gratis",
-          "Primer piloto de recuperación, gratis"
-        ]
-      },
-      "extra": {
-        "en": [
-          "Court and service fees",
-          "Appearing, signing or representing the company",
-          "New-case packets (billed at the packet price)",
-          "Your state and court confirmed before work starts"
-        ],
-        "ru": [
-          "Судебные сборы и вручение",
-          "Участие в суде, подписание и представительство",
-          "Пакеты по новым делам (по цене пакета)",
-          "Штат и суд подтверждаем до начала работы"
-        ],
-        "es": [
-          "Tasas judiciales y de notificación",
-          "Comparecer, firmar o representar a la empresa",
-          "Paquetes de casos nuevos (al precio del paquete)",
-          "Su estado y tribunal confirmados antes de empezar"
-        ]
-      },
-      "next": {
-        "en": "Send the number of cases, courts and stages. We confirm the scope and the monthly price in writing; the plan runs month to month.",
-        "ru": "Пришлите количество дел, суды и стадии. Объём и месячную цену подтвердим письменно; план помесячный.",
-        "es": "Envíe el número de casos, tribunales y etapas. Confirmamos por escrito el alcance y el precio mensual; el plan es mes a mes."
-      },
-      "keywords": {
-        "en": [
-          "small claims back office",
-          "case management small claims"
-        ],
-        "ru": [
-          "ведение small claims",
-          "сопровождение дел компании"
-        ],
-        "es": [
-          "gestión de small claims"
-        ]
-      },
-      "image": "/assets/img/curated/quick-executive-briefs.jpg"
-    },
     "b2b_small_claims_hourly": {
       "family": "b2b",
       "group": "business",
       "lane": "business",
       "queue": "B2B_SMALL_CLAIMS",
-      "page": "/small-claims-documentation.html#hourly",
+      "page": "/small-claims-documentation.html#court-hours",
       "action": "b2b",
       "image": "/assets/img/land/rail-bridge-960.webp",
       "price": {
@@ -3378,57 +3278,48 @@
         "poa_company"
       ],
       "name": {
-        "en": "Small claims case management (hourly)",
-        "ru": "Ведение дел small claims (почасово)",
-        "es": "Gestión de casos de small claims (por hora)"
+        "en": "Court hour for your company (add-on)",
+        "ru": "Час в суде за компанию (дополнительно)",
+        "es": "Hora en la corte para su empresa (adicional)"
       },
       "short": {
-        "en": "We run your small-claims cases by the hour: filing, service of process, deadlines, hearing preparation and the steps after judgment, under the claimant company’s power of attorney.",
-        "ru": "Ведём ваши дела small claims почасово: подача, вручение, сроки, подготовка к заседанию и шаги после решения — по доверенности от компании-истца.",
-        "es": "Llevamos sus casos de small claims por hora: presentación, notificación, plazos, preparación de la audiencia y los pasos tras la sentencia, con el poder de la empresa demandante."
+        "en": "For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney.",
+        "ru": "Для клиентов с пакетом или месячным сопровождением: время на заседании или медиации за вашу компанию — по её доверенности.",
+        "es": "Para clientes con paquete o mes de seguimiento: tiempo en la audiencia o mediación por su empresa, con su poder."
       },
       "unit": {
-        "en": "per hour, billed in 15-minute steps",
-        "ru": "за час, учёт по 15 минут",
-        "es": "por hora, en tramos de 15 minutos"
+        "en": "per hour, 1-hour minimum, 15-minute steps",
+        "ru": "за час, минимум 1 час, учёт по 15 минут",
+        "es": "por hora, mínimo 1 hora, tramos de 15 minutos"
       },
       "included": {
         "en": [
-          "Power of attorney template for the claimant company",
-          "Filing and court calendar tracking",
-          "Service of process arranged and tracked",
-          "Hearing packet: chronology, amounts, exhibits",
-          "Steps after judgment and payment follow-up"
+          "Preparation on the day of the hearing",
+          "Attendance at the hearing or mediation",
+          "A short written report afterwards"
         ],
         "ru": [
-          "Шаблон доверенности для компании-истца",
-          "Подача и контроль судебного календаря",
-          "Организация и контроль вручения",
-          "Пакет к заседанию: хронология, суммы, приложения",
-          "Шаги после решения и контроль оплаты"
+          "Подготовка в день заседания",
+          "Участие в заседании или медиации",
+          "Короткий письменный отчёт после"
         ],
         "es": [
-          "Modelo de poder para la empresa demandante",
-          "Presentación y control del calendario judicial",
-          "Notificación organizada y controlada",
-          "Paquete para la audiencia: cronología, montos, anexos",
-          "Pasos tras la sentencia y seguimiento del pago"
+          "Preparación el día de la audiencia",
+          "Asistencia a la audiencia o mediación",
+          "Un breve informe por escrito después"
         ]
       },
       "extra": {
         "en": [
-          "Court filing fees and service of process, at cost",
-          "Notarization of the power of attorney, if the court asks for it ($25 online)",
+          "Travel outside the county: quoted",
           "Your state and court confirmed before work starts"
         ],
         "ru": [
-          "Судебные сборы и вручение — по фактической стоимости",
-          "Заверение доверенности, если его требует суд ($25 онлайн)",
+          "Выезд за пределы округа — по смете",
           "Штат и суд подтверждаем до начала работы"
         ],
         "es": [
-          "Tasas judiciales y notificación, al costo",
-          "Notarización del poder, si el tribunal lo pide ($25 en línea)",
+          "Desplazamiento fuera del condado: cotización",
           "Su estado y tribunal confirmados antes de empezar"
         ]
       },
@@ -3517,15 +3408,15 @@
       },
       "extra": {
         "en": [
-          "Free every month on the monthly small-claims plan",
+          "Free for clients on the small-claims retainer",
           "More than 100 invoices: quoted in writing"
         ],
         "ru": [
-          "Бесплатно каждый месяц на ежемесячном плане small claims",
+          "Бесплатно для клиентов на ретейнере small claims",
           "Больше 100 счетов — по письменной смете"
         ],
         "es": [
-          "Gratis cada mes con el plan mensual de small claims",
+          "Gratis para clientes con el retainer de small claims",
           "Más de 100 facturas: cotización por escrito"
         ]
       },
@@ -3617,17 +3508,17 @@
       },
       "extra": {
         "en": [
-          "Free (first pilot) on the monthly small-claims plan",
+          "Free 30-day pilot for clients on the small-claims retainer",
           "Court filing fees and service of process, at cost",
           "Postage or certified mail, at cost"
         ],
         "ru": [
-          "Бесплатно (первый пилот) на ежемесячном плане small claims",
+          "Бесплатный 30-дневный пилот для клиентов на ретейнере small claims",
           "Судебные сборы и вручение — по фактической стоимости",
           "Почта или заказные письма — по фактической стоимости"
         ],
         "es": [
-          "Gratis (primer piloto) con el plan mensual de small claims",
+          "Piloto gratuito de 30 días para clientes con el retainer de small claims",
           "Tasas judiciales y notificación, al costo",
           "Correo o correo certificado, al costo"
         ]
@@ -3651,6 +3542,120 @@
         "es": [
           "recuperar facturas impagas",
           "recuperación de cuentas por cobrar"
+        ]
+      }
+    },
+    "b2b_small_claims_retainer": {
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/small-claims-documentation.html#retainer",
+      "action": "b2b",
+      "image": "/assets/img/land/rail-bridge-960.webp",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 74900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "unpaid_invoice",
+        "commercial_contract",
+        "existing_case_admin",
+        "other_business_claim"
+      ],
+      "fields": [
+        "company",
+        "b2b_state",
+        "county_court",
+        "entity_type_b2b",
+        "claim_amount",
+        "party_role",
+        "has_existing_case",
+        "poa_ready",
+        "authorized_rep"
+      ],
+      "notices": [
+        "poa_company"
+      ],
+      "name": {
+        "en": "Retainer: full case with court representation",
+        "ru": "Ретейнер: полное ведение дела с представительством в суде",
+        "es": "Retainer: caso completo con representación en la corte"
+      },
+      "short": {
+        "en": "We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus.",
+        "ru": "Берём на себя всё дело вашей компании: документы, подачу, вручение, сроки, переговоры и само заседание — по доверенности. Бонус по возврату задолженности включён.",
+        "es": "Llevamos todo el caso de su empresa: documentos, presentación, notificación, plazos, negociación y la audiencia, con un poder. Incluye el bono de recuperación."
+      },
+      "unit": {
+        "en": "per case, until judgment",
+        "ru": "за дело, до решения суда",
+        "es": "por caso, hasta la sentencia"
+      },
+      "included": {
+        "en": [
+          "Filing packet and filing",
+          "Service of process and the court calendar",
+          "Pre-trial and mediation for your company",
+          "Up to 2 hours in court included",
+          "Steps after judgment",
+          "Bonus: free receivables analysis and a free 30-day recovery pilot"
+        ],
+        "ru": [
+          "Пакет документов и подача",
+          "Вручение и судебный календарь",
+          "Предварительное заседание и медиация за компанию",
+          "До 2 часов в суде включено",
+          "Шаги после решения суда",
+          "Бонус: бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот"
+        ],
+        "es": [
+          "Paquete y presentación",
+          "Notificación y calendario judicial",
+          "Audiencia previa y mediación por su empresa",
+          "Hasta 2 horas en la corte incluidas",
+          "Pasos tras la sentencia",
+          "Bono: análisis gratuito de cuentas por cobrar y un piloto de recuperación gratuito de 30 días"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Court and service fees, at cost",
+          "Court time beyond 2 hours, at the hourly rate",
+          "Appeals: quoted separately"
+        ],
+        "ru": [
+          "Судебные сборы и вручение — по факту",
+          "Время в суде сверх 2 часов — по почасовой ставке",
+          "Апелляция — по отдельной смете"
+        ],
+        "es": [
+          "Tasas judiciales y de notificación, al costo",
+          "Tiempo en la corte por encima de 2 horas, por hora",
+          "Apelaciones: cotización aparte"
+        ]
+      },
+      "next": {
+        "en": "Send the case. We confirm the state and court, send the power of attorney for your company to sign and fix the price for the case in writing.",
+        "ru": "Пришлите дело. Подтвердим штат и суд, отправим доверенность на подпись компании и письменно зафиксируем цену за дело.",
+        "es": "Envíe el caso. Confirmamos el estado y el tribunal, le enviamos el poder para que lo firme la empresa y fijamos por escrito el precio del caso."
+      },
+      "keywords": {
+        "en": [
+          "small claims representation company",
+          "small claims retainer",
+          "collect unpaid invoices court"
+        ],
+        "ru": [
+          "представительство small claims",
+          "ведение дела в суде компания",
+          "взыскание через суд"
+        ],
+        "es": [
+          "representación small claims empresa",
+          "retainer small claims"
         ]
       }
     }

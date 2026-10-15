@@ -361,50 +361,14 @@
       "position": 10,
       "item": {
         "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-hourly",
-        "name": "Small claims case management (hourly)",
-        "alternateName": [
-          "Ведение дел small claims (почасово)",
-          "Gestión de casos de small claims (por hora)"
-        ],
-        "description": "We run your small-claims cases by the hour: filing, service of process, deadlines, hearing preparation and the steps after judgment, under the claimant company’s power of attorney.",
-        "serviceType": "Small claims case management (hourly)",
-        "category": "For companies: small claims",
-        "url": "https://vitacorexllc.com/small-claims-documentation.html#hourly",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/small-claims-documentation.html#hourly",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$65 per hour, billed in 15-minute steps"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 11,
-      "item": {
-        "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-packet",
-        "name": "Small-claims case packet",
+        "name": "Small-claims filing packet",
         "alternateName": [
-          "Пакет документов small claims",
-          "Paquete de documentos de small claims"
+          "Пакет документов на подачу small claims",
+          "Paquete para presentar un small claims"
         ],
         "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.",
-        "serviceType": "Small-claims case packet",
+        "serviceType": "Small-claims filing packet",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/small-claims-documentation.html",
         "provider": {
@@ -435,17 +399,17 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 11,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-support",
-        "name": "Small-claims preparation & case support",
+        "name": "One month of case support",
         "alternateName": [
-          "Подготовка и сопровождение small claims",
-          "Preparación y seguimiento de small claims"
+          "Сопровождение дела на месяц",
+          "Un mes de seguimiento del caso"
         ],
-        "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.",
-        "serviceType": "Small-claims preparation & case support",
+        "description": "We run your case for a month: filing, service of process, deadlines, settlement talks and the hearing packet. Court hours are added separately.",
+        "serviceType": "One month of case support",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/small-claims-documentation.html",
         "provider": {
@@ -465,7 +429,7 @@
           "url": "https://vitacorexllc.com/small-claims-documentation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "From $399 — final price after review (one case, one defendant, first 30 days)",
+          "description": "From $399 — final price after review (one case, 30 days)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "399",
@@ -476,19 +440,19 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 12,
       "item": {
         "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-monthly",
-        "name": "Small-claims back office (monthly)",
+        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-retainer",
+        "name": "Retainer: full case with court representation",
         "alternateName": [
-          "Сопровождение small claims (помесячно)",
-          "Apoyo de small claims (mensual)"
+          "Ретейнер: полное ведение дела с представительством в суде",
+          "Retainer: caso completo con representación en la corte"
         ],
-        "description": "For companies with several cases: a case register, exhibits, service tracking and a status report every two weeks.",
-        "serviceType": "Small-claims back office (monthly)",
+        "description": "We take the whole case for your company: documents, filing, service, deadlines, settlement talks and the hearing itself, under a power of attorney. Includes the recovery bonus.",
+        "serviceType": "Retainer: full case with court representation",
         "category": "For companies: small claims",
-        "url": "https://vitacorexllc.com/small-claims-documentation.html",
+        "url": "https://vitacorexllc.com/small-claims-documentation.html#retainer",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
         },
@@ -503,15 +467,51 @@
         ],
         "offers": {
           "@type": "Offer",
-          "url": "https://vitacorexllc.com/small-claims-documentation.html",
+          "url": "https://vitacorexllc.com/small-claims-documentation.html#retainer",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "From $449 — final price after review (per month, up to 5 active cases)",
+          "description": "From $749 — final price after review (per case, until judgment)",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "449",
+            "minPrice": "749",
             "priceCurrency": "USD"
           }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-hourly",
+        "name": "Court hour for your company (add-on)",
+        "alternateName": [
+          "Час в суде за компанию (дополнительно)",
+          "Hora en la corte para su empresa (adicional)"
+        ],
+        "description": "For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney.",
+        "serviceType": "Court hour for your company (add-on)",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/small-claims-documentation.html#court-hours",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/small-claims-documentation.html#court-hours",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$65 per hour, 1-hour minimum, 15-minute steps"
         }
       }
     },
