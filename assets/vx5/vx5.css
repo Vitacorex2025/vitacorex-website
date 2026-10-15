@@ -663,3 +663,30 @@ html[data-vx5-mode="still"] .vx5-card:hover .vx5-acc, html[data-vx5-mode="still"
 .vx5-bkit__cap { width: max-content; max-width: 100%; padding: 4px 8px; background: rgb(7 27 35 / .85); border-radius: 2px; }
 /* MINOR 15 phone kit selector: the cut-off third tab fades instead of looking broken */
 @media (max-width: 47.99em) { .vx5-tabs { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); } }
+
+/* ==========================================================================
+   v6 (owner 2026-10-15): no kit drawing anywhere. Services index thumbnails are darkened Tampa landscapes;
+   the samples block shows only the documents (no folder, flap, band or pocket) over a darkened Skyway still.
+   ========================================================================== */
+.vx5-ix__art { background: #071B23; }
+.vx5-ix__art img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.85) brightness(.82); transition: filter 240ms ease, transform 600ms var(--vx5-out); }
+.vx5-ix:hover .vx5-ix__art img, .vx5-ix:focus-within .vx5-ix__art img { filter: saturate(1) brightness(.95); transform: scale(1.03); }
+.vx5-kit__open, .vx5-kit__pocket, .vx5-kit__band, .vx5-kit__back, .vx5-kit__open::before { display: none !important; }
+.vx5-rs { background:
+    linear-gradient(180deg, rgb(10 37 48 / .93), rgb(10 37 48 / .88) 40%, rgb(10 37 48 / .95)),
+    #0A2530 url(/assets/img/land/skyway-1920.webp) center / cover no-repeat; }
+.vx5-rs__stage { background: rgb(7 27 35 / .55) !important; }
+/* step 3: the finished set, neatly stacked in the middle of the stage, tabs on the right edge */
+.vx5-rs__box[data-step="3"] .vx5-sh[data-i="1"] { --x: 230px; --y: 64px; --s: .86; }
+.vx5-rs__box[data-step="3"] .vx5-sh[data-i="2"] { --x: 252px; --y: 50px; --s: .86; }
+.vx5-rs__box[data-step="3"] .vx5-sh[data-i="3"] { --x: 274px; --y: 36px; --s: .86; }
+.vx5-rs__box[data-step="3"] .vx5-sh__tab { margin-left: calc((2 - var(--d, 0)) * 25.6px); }
+
+/* v6 logic: services index without pictures (name and description, prices, action) */
+.vx5-ix__head { grid-column: 1 / 5; }
+.vx5-ix__rows { grid-column: 5 / 11; }
+.vx5-ix__act { grid-column: 11 / 13; }
+@media (max-width: 75em) { .vx5-ix__head { grid-column: 1 / 5; } .vx5-ix__rows { grid-column: 5 / 10; } .vx5-ix__act { grid-column: 10 / 13; } }
+@media (max-width: 47.99em) { .vx5-ix__head, .vx5-ix__rows, .vx5-ix__act { grid-column: 1 / -1; } }
+@media (max-width: 63.99em) { .vx5-ix__head { grid-column: 1 / 6; } .vx5-ix__rows { grid-column: 1 / -1; } .vx5-ix__act { grid-column: 6 / 9; } }
+@media (max-width: 47.99em) { .vx5-ix__head, .vx5-ix__rows, .vx5-ix__act { grid-column: 1 / -1; } }

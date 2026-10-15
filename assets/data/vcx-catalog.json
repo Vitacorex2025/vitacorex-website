@@ -6,36 +6,6 @@
   "note": "Single source of truth for services, prices and routing. Rendered by assets/js/vcx-catalog.js, validated server-side by vcx-api, mirrored to the phone agent through /api/v2/catalog. Amounts are integer cents.",
   "groups": [
     {
-      "id": "documents",
-      "lane": "private",
-      "name": {
-        "en": "Documents & translations",
-        "ru": "Документы и переводы",
-        "es": "Documentos y traducciones"
-      },
-      "services": [
-        "translation_certified",
-        "translation_standard",
-        "notary_ron_single",
-        "apostille_coordination",
-        "record_retrieval"
-      ]
-    },
-    {
-      "id": "personal",
-      "lane": "private",
-      "name": {
-        "en": "Taxes",
-        "ru": "Налоги",
-        "es": "Impuestos"
-      },
-      "services": [
-        "tax_1040_simple",
-        "tax_self_employed",
-        "tax_state_addon"
-      ]
-    },
-    {
       "id": "court",
       "lane": "private",
       "name": {
@@ -61,6 +31,22 @@
         "immigration_naturalization",
         "contracts_documents",
         "attorney_referral"
+      ]
+    },
+    {
+      "id": "business",
+      "lane": "business",
+      "name": {
+        "en": "For companies: small claims",
+        "ru": "Для компаний: small claims",
+        "es": "Para empresas: small claims"
+      },
+      "services": [
+        "b2b_small_claims_hourly",
+        "b2b_small_claims_packet",
+        "b2b_small_claims_support",
+        "b2b_small_claims_monthly",
+        "existing_client_recovery"
       ]
     },
     {
@@ -92,18 +78,33 @@
       ]
     },
     {
-      "id": "business",
-      "lane": "business",
+      "id": "personal",
+      "lane": "private",
       "name": {
-        "en": "For companies: small claims",
-        "ru": "Для компаний: small claims",
-        "es": "Para empresas: small claims"
+        "en": "Taxes",
+        "ru": "Налоги",
+        "es": "Impuestos"
       },
       "services": [
-        "b2b_small_claims_packet",
-        "b2b_small_claims_support",
-        "b2b_small_claims_monthly",
-        "existing_client_recovery"
+        "tax_1040_simple",
+        "tax_self_employed",
+        "tax_state_addon"
+      ]
+    },
+    {
+      "id": "documents",
+      "lane": "private",
+      "name": {
+        "en": "Translations, notary and apostille",
+        "ru": "Переводы, заверение и апостиль",
+        "es": "Traducciones, notarización y apostilla"
+      },
+      "services": [
+        "translation_certified",
+        "translation_standard",
+        "notary_ron_single",
+        "apostille_coordination",
+        "record_retrieval"
       ]
     }
   ],
@@ -940,12 +941,10 @@
       },
       "extra": {
         "en": [
-          "Larger or multi-document tasks",
-          "Legal advice or representation — only through an independent licensed attorney, with your consent"
+          "Larger or multi-document tasks"
         ],
         "ru": [
-          "Объёмные задачи и пакеты документов",
-          "Юридическая консультация или представительство — только через независимого лицензированного адвоката и с вашего согласия"
+          "Объёмные задачи и пакеты документов"
         ],
         "es": [
           "Tareas más grandes o con varios documentos",
@@ -1259,7 +1258,6 @@
           "Paid work starts only after you accept a quote"
         ],
         "ru": [
-          "Это не бесплатная юридическая консультация",
           "Платная работа начинается только после согласования сметы"
         ],
         "es": [
@@ -1362,17 +1360,17 @@
         "en": [
           "State filing fee (paid at cost)",
           "Registered agent, annual reports, licenses",
-          "Tax elections or legal advice"
+          "Tax elections"
         ],
         "ru": [
           "Госпошлина штата (по факту)",
           "Зарегистрированный агент, годовые отчёты, лицензии",
-          "Налоговый статус и юридические консультации"
+          "Выбор налогового статуса"
         ],
         "es": [
           "Tasa estatal (al costo)",
           "Agente registrado, informes anuales, licencias",
-          "Elecciones fiscales o asesoría legal"
+          "Elecciones fiscales"
         ]
       },
       "next": {
@@ -1950,15 +1948,12 @@
       },
       "extra": {
         "en": [
-          "VitaCoreX is not a law firm and does not give legal advice",
           "The attorney decides whether to take the case and agrees any fees with you directly"
         ],
         "ru": [
-          "VitaCoreX не является юридической фирмой и не даёт юридических консультаций",
           "Адвокат сам решает, браться ли за дело, и договаривается об оплате с вами напрямую"
         ],
         "es": [
-          "VitaCoreX no es un bufete y no brinda asesoría legal",
           "El abogado decide si toma el caso y acuerda sus honorarios directamente con usted"
         ]
       },
@@ -2074,20 +2069,17 @@
         "en": [
           "Court filing fee (about $400–$415 in Tampa-area counties)",
           "Background check and fingerprinting (about $50–$65)",
-          "Certified copies of the judgment",
-          "Legal advice or court representation — not provided"
+          "Certified copies of the judgment"
         ],
         "ru": [
           "Судебный сбор (около $400–415 в округах района Тампы)",
           "Проверка биографии и отпечатки пальцев (около $50–65)",
-          "Заверенные копии решения суда",
-          "Юридические консультации и представительство в суде — не оказываются"
+          "Заверенные копии решения суда"
         ],
         "es": [
           "Tasa de presentación (unos $400–$415 en los condados del área de Tampa)",
           "Verificación de antecedentes y huellas (unos $50–$65)",
-          "Copias certificadas del fallo",
-          "Asesoría legal o representación en la corte: no se ofrecen"
+          "Copias certificadas del fallo"
         ]
       },
       "next": {
@@ -3358,6 +3350,110 @@
         ]
       },
       "image": "/assets/img/curated/quick-executive-briefs.jpg"
+    },
+    "b2b_small_claims_hourly": {
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/small-claims-documentation.html#hourly",
+      "action": "b2b",
+      "image": "/assets/img/land/rail-bridge-960.webp",
+      "price": {
+        "mode": "unit_after_quote",
+        "display": "per_hour",
+        "amount_cents": 8500,
+        "minimum_units": 1,
+        "confidence": "proposal"
+      },
+      "subtypes": [],
+      "fields": [
+        "company",
+        "b2b_state",
+        "county_court",
+        "active_cases",
+        "poa_ready",
+        "authorized_rep"
+      ],
+      "notices": [
+        "poa_company"
+      ],
+      "name": {
+        "en": "Small claims case management (hourly)",
+        "ru": "Ведение дел small claims (почасово)",
+        "es": "Gestión de casos de small claims (por hora)"
+      },
+      "short": {
+        "en": "We run your small-claims cases by the hour: filing, service of process, deadlines, hearing preparation and the steps after judgment, under the claimant company’s power of attorney.",
+        "ru": "Ведём ваши дела small claims почасово: подача, вручение, сроки, подготовка к заседанию и шаги после решения — по доверенности от компании-истца.",
+        "es": "Llevamos sus casos de small claims por hora: presentación, notificación, plazos, preparación de la audiencia y los pasos tras la sentencia, con el poder de la empresa demandante."
+      },
+      "unit": {
+        "en": "per hour, billed in 15-minute steps",
+        "ru": "за час, учёт по 15 минут",
+        "es": "por hora, en tramos de 15 minutos"
+      },
+      "included": {
+        "en": [
+          "Power of attorney template for the claimant company",
+          "Filing and court calendar tracking",
+          "Service of process arranged and tracked",
+          "Hearing packet: chronology, amounts, exhibits",
+          "Steps after judgment and payment follow-up"
+        ],
+        "ru": [
+          "Шаблон доверенности для компании-истца",
+          "Подача и контроль судебного календаря",
+          "Организация и контроль вручения",
+          "Пакет к заседанию: хронология, суммы, приложения",
+          "Шаги после решения и контроль оплаты"
+        ],
+        "es": [
+          "Modelo de poder para la empresa demandante",
+          "Presentación y control del calendario judicial",
+          "Notificación organizada y controlada",
+          "Paquete para la audiencia: cronología, montos, anexos",
+          "Pasos tras la sentencia y seguimiento del pago"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Court filing fees and service of process, at cost",
+          "Notarization of the power of attorney, if the court asks for it ($25 online)",
+          "New York is not served"
+        ],
+        "ru": [
+          "Судебные сборы и вручение — по фактической стоимости",
+          "Заверение доверенности, если его требует суд ($25 онлайн)",
+          "Нью-Йорк не обслуживается"
+        ],
+        "es": [
+          "Tasas judiciales y notificación, al costo",
+          "Notarización del poder, si el tribunal lo pide ($25 en línea)",
+          "No atendemos Nueva York"
+        ]
+      },
+      "next": {
+        "en": "Send your cases. We send the power of attorney for the company to sign and confirm the hourly estimate in writing before we start.",
+        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим оценку часов до начала работы.",
+        "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito la estimación de horas antes de empezar."
+      },
+      "keywords": {
+        "en": [
+          "small claims hourly",
+          "small claims representation company",
+          "collect unpaid invoices court"
+        ],
+        "ru": [
+          "small claims почасово",
+          "ведение дел small claims",
+          "взыскание через суд компания"
+        ],
+        "es": [
+          "small claims por hora",
+          "cobro de facturas corte"
+        ]
+      }
     }
   }
 }

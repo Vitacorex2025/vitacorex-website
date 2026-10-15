@@ -5,327 +5,11 @@
   "description": "Services and starting prices of VitaCoreX LLC (Tampa, FL). Private clients: translations, online notarization, apostille assistance, individual tax returns, Florida court name-change packets, fee-waiver applications, contracts and document support, immigration forms (clerical), N-400 document support, company formation and business plans. Companies: small-claims document preparation and case support. All prices are USD service fees; government, filing and court fees are separate. VitaCoreX LLC is not a law firm.",
   "url": "https://vitacorexllc.com/services.html",
   "dateModified": "2026-10-14",
-  "numberOfItems": 31,
+  "numberOfItems": 32,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-translation-certified",
-        "name": "Certified translation",
-        "alternateName": [
-          "Сертифицированный перевод",
-          "Traducción certificada"
-        ],
-        "description": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
-        "serviceType": "Certified translation",
-        "category": "Documents & translations",
-        "url": "https://vitacorexllc.com/translations.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/translations.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$25 per 250 source words (one standard page)",
-          "price": "25.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-translation-standard",
-        "name": "General translation",
-        "alternateName": [
-          "Обычный перевод",
-          "Traducción general"
-        ],
-        "description": "Letters, websites, business and personal texts that do not need a certificate.",
-        "serviceType": "General translation",
-        "category": "Documents & translations",
-        "url": "https://vitacorexllc.com/translations.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/translations.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$0.10 per source word, $25 minimum order",
-          "price": "0.10"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-notary-ron-single",
-        "name": "Online notarization",
-        "alternateName": [
-          "Заверение документов онлайн",
-          "Notarización en línea"
-        ],
-        "description": "Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.",
-        "serviceType": "Online notarization",
-        "category": "Documents & translations",
-        "url": "https://vitacorexllc.com/online-notary.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/online-notary.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$25 — per notarial act",
-          "price": "25.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-apostille-coordination",
-        "name": "Apostille assistance",
-        "alternateName": [
-          "Помощь с апостилем",
-          "Gestión de apostilla"
-        ],
-        "description": "We find the office that apostilles your document for the country you need, prepare the request and track it.",
-        "serviceType": "Apostille assistance",
-        "category": "Documents & translations",
-        "url": "https://vitacorexllc.com/apostille.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/apostille.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $119 — final price after review (service fee for the first document)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "119",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-record-retrieval",
-        "name": "Official record retrieval",
-        "alternateName": [
-          "Получение официальных документов",
-          "Obtención de documentos oficiales"
-        ],
-        "description": "We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.",
-        "serviceType": "Official record retrieval",
-        "category": "Documents & translations",
-        "url": "https://vitacorexllc.com/apostille.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/apostille.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $59 — final price after review (per record + agency fee)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "59",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-tax-1040-simple",
-        "name": "Individual tax return",
-        "alternateName": [
-          "Личная налоговая декларация",
-          "Declaración de impuestos individual"
-        ],
-        "description": "Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.",
-        "serviceType": "Individual tax return",
-        "category": "Taxes",
-        "url": "https://vitacorexllc.com/tax-preparation.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/tax-preparation.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $149 — final price after review (simple federal return, one tax year)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "149",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-tax-self-employed",
-        "name": "Self-employed tax return",
-        "alternateName": [
-          "Декларация для самозанятых",
-          "Declaración para trabajadores independientes"
-        ],
-        "description": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
-        "serviceType": "Self-employed tax return",
-        "category": "Taxes",
-        "url": "https://vitacorexllc.com/tax-preparation.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/tax-preparation.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $249 — final price after review (federal return with one simple Schedule C)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "249",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-tax-state-addon",
-        "name": "State return add-on",
-        "alternateName": [
-          "Декларация штата — дополнение",
-          "Declaración estatal adicional"
-        ],
-        "description": "One state return prepared together with your federal return.",
-        "serviceType": "State return add-on",
-        "category": "Taxes",
-        "url": "https://vitacorexllc.com/tax-preparation.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/tax-preparation.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $49 — final price after review (one supported state, with a federal return)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "49",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-name-change-adult-fl",
@@ -362,7 +46,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 2,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-name-change-family-fl",
@@ -403,7 +87,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 3,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-name-change-records-update",
@@ -440,7 +124,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 4,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-fee-waiver-application",
@@ -477,7 +161,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 5,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-immigration-simple",
@@ -518,7 +202,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 6,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-immigration-naturalization",
@@ -559,7 +243,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 7,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-contracts-documents",
@@ -600,7 +284,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 8,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-attorney-referral",
@@ -637,7 +321,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 9,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-legal-request",
@@ -674,19 +358,19 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 10,
       "item": {
         "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-company-basic",
-        "name": "Company formation",
+        "@id": "https://vitacorexllc.com/#service-b2b-small-claims-hourly",
+        "name": "Small claims case management (hourly)",
         "alternateName": [
-          "Открытие компании",
-          "Creación de empresa"
+          "Ведение дел small claims (почасово)",
+          "Gestión de casos de small claims (por hora)"
         ],
-        "description": "We prepare and submit the formation filing for the state and entity type you have chosen.",
-        "serviceType": "Company formation",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/llc-formation-florida.html",
+        "description": "We run your small-claims cases by the hour: filing, service of process, deadlines, hearing preparation and the steps after judgment, under the claimant company’s power of attorney.",
+        "serviceType": "Small claims case management (hourly)",
+        "category": "For companies: small claims",
+        "url": "https://vitacorexllc.com/small-claims-documentation.html#hourly",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
         },
@@ -701,353 +385,16 @@
         ],
         "offers": {
           "@type": "Offer",
-          "url": "https://vitacorexllc.com/llc-formation-florida.html",
+          "url": "https://vitacorexllc.com/small-claims-documentation.html#hourly",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "$99 + state fee — service fee + state filing fee",
-          "price": "99.00"
+          "description": "$85 per hour, billed in 15-minute steps"
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 19,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-company-plus",
-        "name": "Company formation + EIN",
-        "alternateName": [
-          "Компания + помощь с EIN",
-          "Empresa + asistencia con EIN"
-        ],
-        "description": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
-        "serviceType": "Company formation + EIN",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/llc-formation-florida.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/llc-formation-florida.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$199 + state fee — service fee + state filing fee",
-          "price": "199.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 20,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-company-annual-report-fl",
-        "name": "Florida annual report filing",
-        "alternateName": [
-          "Ежегодный отчёт компании во Флориде",
-          "Informe anual en Florida"
-        ],
-        "description": "We check your Sunbiz record, type the annual report with any address or manager changes, file it and send you the filed copy.",
-        "serviceType": "Florida annual report filing",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Florida"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$79 + state fee — one entity, one year + state fee",
-          "price": "79.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 21,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-company-annual-plan-fl",
-        "name": "Yearly company upkeep (Florida)",
-        "alternateName": [
-          "Годовое сопровождение компании (Флорида)",
-          "Mantenimiento anual de la empresa (Florida)"
-        ],
-        "description": "The annual report plus reminders, one certificate of status and one mid-year update. Renews only when you say so.",
-        "serviceType": "Yearly company upkeep (Florida)",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Florida"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$119 + state fee — per entity, per year + state fees",
-          "price": "119.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 22,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-fl-fictitious-name",
-        "name": "Fictitious name (DBA) registration, Florida",
-        "alternateName": [
-          "Регистрация вымышленного имени (DBA), Флорида",
-          "Registro de nombre ficticio (DBA), Florida"
-        ],
-        "description": "Register a trade name for your business in Florida, valid for five years.",
-        "serviceType": "Fictitious name (DBA) registration, Florida",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$69 + state fee — one registration + state fee",
-          "price": "69.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 23,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-fl-amendment",
-        "name": "Articles of amendment, Florida",
-        "alternateName": [
-          "Изменения в учредительные документы, Флорида",
-          "Enmienda de artículos, Florida"
-        ],
-        "description": "Change your company’s name, address or other recorded details, typed exactly as you decide.",
-        "serviceType": "Articles of amendment, Florida",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$89 + state fee — one amendment + state fee",
-          "price": "89.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 24,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-fl-certificate-status",
-        "name": "Certificate of status (good standing), Florida",
-        "alternateName": [
-          "Справка о статусе компании (good standing), Флорида",
-          "Certificado de estado (good standing), Florida"
-        ],
-        "description": "The official certificate that your company is active, often asked for by banks and partners.",
-        "serviceType": "Certificate of status (good standing), Florida",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$29 + state fee — one certificate + state fee",
-          "price": "29.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 25,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-fl-certified-copy",
-        "name": "Certified copy of company documents, Florida",
-        "alternateName": [
-          "Заверенная копия документов компании, Флорида",
-          "Copia certificada de documentos de la empresa, Florida"
-        ],
-        "description": "Certified copies of your articles or other filed records, ordered from the state.",
-        "serviceType": "Certified copy of company documents, Florida",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "$39 + state fee — one order + state fee",
-          "price": "39.00"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 26,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-business-filing-other-state",
-        "name": "Company filings in other states",
-        "alternateName": [
-          "Документы компании в других штатах",
-          "Trámites de empresas en otros estados"
-        ],
-        "description": "Annual reports, DBAs, amendments and certificates outside Florida, where the state accepts them online or by mail.",
-        "serviceType": "Company filings in other states",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-filings.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-filings.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "Individual quote — quoted per operation and state"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 27,
-      "item": {
-        "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-business-plan-basic",
-        "name": "Business plan",
-        "alternateName": [
-          "Бизнес-план",
-          "Plan de negocio"
-        ],
-        "description": "A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.",
-        "serviceType": "Business plan",
-        "category": "Start and run a business",
-        "url": "https://vitacorexllc.com/business-plans.html",
-        "provider": {
-          "@id": "https://vitacorexllc.com/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "availableLanguage": [
-          "English",
-          "Russian",
-          "Spanish"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "url": "https://vitacorexllc.com/business-plans.html",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "description": "From $499 — final price after review (defined basic plan)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "499",
-            "priceCurrency": "USD"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 28,
+      "position": 11,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-packet",
@@ -1088,7 +435,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 12,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-support",
@@ -1129,7 +476,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 13,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-monthly",
@@ -1170,7 +517,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 14,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-existing-client-recovery",
@@ -1201,6 +548,695 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "description": "Individual quote — individual quote"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-company-basic",
+        "name": "Company formation",
+        "alternateName": [
+          "Открытие компании",
+          "Creación de empresa"
+        ],
+        "description": "We prepare and submit the formation filing for the state and entity type you have chosen.",
+        "serviceType": "Company formation",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/llc-formation-florida.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/llc-formation-florida.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$99 + state fee — service fee + state filing fee",
+          "price": "99.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-company-plus",
+        "name": "Company formation + EIN",
+        "alternateName": [
+          "Компания + помощь с EIN",
+          "Empresa + asistencia con EIN"
+        ],
+        "description": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
+        "serviceType": "Company formation + EIN",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/llc-formation-florida.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/llc-formation-florida.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$199 + state fee — service fee + state filing fee",
+          "price": "199.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-company-annual-report-fl",
+        "name": "Florida annual report filing",
+        "alternateName": [
+          "Ежегодный отчёт компании во Флориде",
+          "Informe anual en Florida"
+        ],
+        "description": "We check your Sunbiz record, type the annual report with any address or manager changes, file it and send you the filed copy.",
+        "serviceType": "Florida annual report filing",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Florida"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$79 + state fee — one entity, one year + state fee",
+          "price": "79.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-company-annual-plan-fl",
+        "name": "Yearly company upkeep (Florida)",
+        "alternateName": [
+          "Годовое сопровождение компании (Флорида)",
+          "Mantenimiento anual de la empresa (Florida)"
+        ],
+        "description": "The annual report plus reminders, one certificate of status and one mid-year update. Renews only when you say so.",
+        "serviceType": "Yearly company upkeep (Florida)",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Florida"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$119 + state fee — per entity, per year + state fees",
+          "price": "119.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-fl-fictitious-name",
+        "name": "Fictitious name (DBA) registration, Florida",
+        "alternateName": [
+          "Регистрация вымышленного имени (DBA), Флорида",
+          "Registro de nombre ficticio (DBA), Florida"
+        ],
+        "description": "Register a trade name for your business in Florida, valid for five years.",
+        "serviceType": "Fictitious name (DBA) registration, Florida",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$69 + state fee — one registration + state fee",
+          "price": "69.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-fl-amendment",
+        "name": "Articles of amendment, Florida",
+        "alternateName": [
+          "Изменения в учредительные документы, Флорида",
+          "Enmienda de artículos, Florida"
+        ],
+        "description": "Change your company’s name, address or other recorded details, typed exactly as you decide.",
+        "serviceType": "Articles of amendment, Florida",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$89 + state fee — one amendment + state fee",
+          "price": "89.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-fl-certificate-status",
+        "name": "Certificate of status (good standing), Florida",
+        "alternateName": [
+          "Справка о статусе компании (good standing), Флорида",
+          "Certificado de estado (good standing), Florida"
+        ],
+        "description": "The official certificate that your company is active, often asked for by banks and partners.",
+        "serviceType": "Certificate of status (good standing), Florida",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$29 + state fee — one certificate + state fee",
+          "price": "29.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-fl-certified-copy",
+        "name": "Certified copy of company documents, Florida",
+        "alternateName": [
+          "Заверенная копия документов компании, Флорида",
+          "Copia certificada de documentos de la empresa, Florida"
+        ],
+        "description": "Certified copies of your articles or other filed records, ordered from the state.",
+        "serviceType": "Certified copy of company documents, Florida",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$39 + state fee — one order + state fee",
+          "price": "39.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-business-filing-other-state",
+        "name": "Company filings in other states",
+        "alternateName": [
+          "Документы компании в других штатах",
+          "Trámites de empresas en otros estados"
+        ],
+        "description": "Annual reports, DBAs, amendments and certificates outside Florida, where the state accepts them online or by mail.",
+        "serviceType": "Company filings in other states",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-filings.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-filings.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "Individual quote — quoted per operation and state"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-business-plan-basic",
+        "name": "Business plan",
+        "alternateName": [
+          "Бизнес-план",
+          "Plan de negocio"
+        ],
+        "description": "A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.",
+        "serviceType": "Business plan",
+        "category": "Start and run a business",
+        "url": "https://vitacorexllc.com/business-plans.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/business-plans.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $499 — final price after review (defined basic plan)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "499",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-tax-1040-simple",
+        "name": "Individual tax return",
+        "alternateName": [
+          "Личная налоговая декларация",
+          "Declaración de impuestos individual"
+        ],
+        "description": "Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.",
+        "serviceType": "Individual tax return",
+        "category": "Taxes",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $149 — final price after review (simple federal return, one tax year)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "149",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-tax-self-employed",
+        "name": "Self-employed tax return",
+        "alternateName": [
+          "Декларация для самозанятых",
+          "Declaración para trabajadores independientes"
+        ],
+        "description": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
+        "serviceType": "Self-employed tax return",
+        "category": "Taxes",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $249 — final price after review (federal return with one simple Schedule C)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "249",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-tax-state-addon",
+        "name": "State return add-on",
+        "alternateName": [
+          "Декларация штата — дополнение",
+          "Declaración estatal adicional"
+        ],
+        "description": "One state return prepared together with your federal return.",
+        "serviceType": "State return add-on",
+        "category": "Taxes",
+        "url": "https://vitacorexllc.com/tax-preparation.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/tax-preparation.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $49 — final price after review (one supported state, with a federal return)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "49",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-translation-certified",
+        "name": "Certified translation",
+        "alternateName": [
+          "Сертифицированный перевод",
+          "Traducción certificada"
+        ],
+        "description": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
+        "serviceType": "Certified translation",
+        "category": "Translations, notary and apostille",
+        "url": "https://vitacorexllc.com/translations.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/translations.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$25 per 250 source words (one standard page)",
+          "price": "25.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-translation-standard",
+        "name": "General translation",
+        "alternateName": [
+          "Обычный перевод",
+          "Traducción general"
+        ],
+        "description": "Letters, websites, business and personal texts that do not need a certificate.",
+        "serviceType": "General translation",
+        "category": "Translations, notary and apostille",
+        "url": "https://vitacorexllc.com/translations.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/translations.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$0.10 per source word, $25 minimum order",
+          "price": "0.10"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-notary-ron-single",
+        "name": "Online notarization",
+        "alternateName": [
+          "Заверение документов онлайн",
+          "Notarización en línea"
+        ],
+        "description": "Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.",
+        "serviceType": "Online notarization",
+        "category": "Translations, notary and apostille",
+        "url": "https://vitacorexllc.com/online-notary.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/online-notary.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$25 — per notarial act",
+          "price": "25.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-apostille-coordination",
+        "name": "Apostille assistance",
+        "alternateName": [
+          "Помощь с апостилем",
+          "Gestión de apostilla"
+        ],
+        "description": "We find the office that apostilles your document for the country you need, prepare the request and track it.",
+        "serviceType": "Apostille assistance",
+        "category": "Translations, notary and apostille",
+        "url": "https://vitacorexllc.com/apostille.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/apostille.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $119 — final price after review (service fee for the first document)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "119",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 32,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-record-retrieval",
+        "name": "Official record retrieval",
+        "alternateName": [
+          "Получение официальных документов",
+          "Obtención de documentos oficiales"
+        ],
+        "description": "We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.",
+        "serviceType": "Official record retrieval",
+        "category": "Translations, notary and apostille",
+        "url": "https://vitacorexllc.com/apostille.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/apostille.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $59 — final price after review (per record + agency fee)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "59",
+            "priceCurrency": "USD"
+          }
         }
       }
     }

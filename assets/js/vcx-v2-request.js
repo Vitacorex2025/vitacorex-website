@@ -63,7 +63,8 @@
     passport_status: { type: 'select', label: 'fld.passport_status', options: ['recent', 'valid', 'expired', 'none'], optKey: 'opt.pp.' },
     dl_state: { type: 'select', label: 'fld.dl_state', options: 'states+none', optKey: 'opt.' },
     letters_count: { type: 'number', label: 'fld.letters_count', hint: 'fld.letters_count_hint', min: 0, max: 10 },
-    active_cases: { type: 'number', label: 'fld.active_cases', min: 1, max: 200 }
+    active_cases: { type: 'number', label: 'fld.active_cases', min: 1, max: 200 },
+    poa_ready: { type: 'select', label: 'fld.poa_ready', options: ['yes', 'template', 'unsure'], optKey: 'opt.poa.' }
   };
   /* which fields are required per family (others optional) */
   var REQUIRED = {
@@ -83,7 +84,7 @@
     name_records: ['passport_status']
   };
   var SUMMARY_REQUIRED = ['contracts', 'inquiry'];
-  var SVC_NOTICES = ['may1_late_fee', 'self_file_sunbiz', 'no_auto_renew', 'mail_only'];
+  var SVC_NOTICES = ['may1_late_fee', 'self_file_sunbiz', 'no_auto_renew', 'mail_only', 'poa_company'];
 
   var $ = function (id) { return document.getElementById(id); };
   var el = function (tag, attrs, text) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) e.setAttribute(k, attrs[k]); }); if (text != null) e.textContent = text; return e; };

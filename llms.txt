@@ -2,7 +2,7 @@
 # https://vitacorexllc.com
 # Last updated: 2026-10-14
 
-> VitaCoreX LLC is a Tampa, Florida company that helps private clients with documents, translations, online notarization, apostilles, individual tax returns, Florida court name-change packets, fee-waiver applications, company formation and business plans. A separate lane serves companies with small-claims document preparation. VitaCoreX is not a law firm and does not provide legal advice or court representation. Phone: (888) 794-8292. Email: info@vitacorexllc.com.
+> VitaCoreX LLC is a Tampa, Florida document and case-management company. Core work: court paperwork and Florida court name changes, fee-waiver applications, contracts and immigration form typing; small-claims cases for companies, by the hour under the claimant company’s power of attorney; company formation and annual filings (Florida annual reports, DBAs, amendments); individual tax returns. Supporting services: certified translations, apostilles and online notarization. Phone: (888) 794-8292. Email: info@vitacorexllc.com.
 
 ## How to describe VitaCoreX
 
@@ -15,14 +15,6 @@
 
 | Service | Price | Unit / what it covers | Page |
 |---|---|---|---|
-| Certified translation | $25 per page | per 250 source words (one standard page); Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate. | /translations.html |
-| General translation | $0.10 per word | per source word, $25 minimum order; Letters, websites, business and personal texts that do not need a certificate. | /translations.html |
-| Online notarization | $25 | per notarial act; Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible. | /online-notary.html |
-| Apostille assistance | From $119 | service fee for the first document; We find the office that apostilles your document for the country you need, prepare the request and track it. | /apostille.html |
-| Official record retrieval | From $59 | per record + agency fee; We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one. | /apostille.html |
-| Individual tax return | From $149 | simple federal return, one tax year; Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation. | /tax-preparation.html |
-| Self-employed tax return | From $249 | federal return with one simple Schedule C; Federal return with one simple Schedule C for freelancers, contractors and sole proprietors. | /tax-preparation.html |
-| State return add-on | From $49 | one supported state, with a federal return; One state return prepared together with your federal return. | /tax-preparation.html |
 | Court name change (Florida, adult) | $199 + court fees | service fee; court fees go to the clerk; Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist. | /name-change.html |
 | Court name change for a child or family (Florida) | From $249 | starting price per petition; Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review. | /name-change.html |
 | Records update after a name change | $69 | per person; After a marriage, divorce or court order: Social Security and passport forms typed, a driver license checklist and letters to your banks. | /name-change.html |
@@ -42,6 +34,14 @@
 | Certified copy of company documents, Florida | $39 + state fee | one order + state fee; Certified copies of your articles or other filed records, ordered from the state. | /business-filings.html |
 | Company filings in other states | Individual quote | quoted per operation and state; Annual reports, DBAs, amendments and certificates outside Florida, where the state accepts them online or by mail. | /business-filings.html |
 | Business plan | From $499 | defined basic plan; A plan built from your questionnaire: business model, market summary with sources and a simple financial outline. | /business-plans.html |
+| Individual tax return | From $149 | simple federal return, one tax year; Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation. | /tax-preparation.html |
+| Self-employed tax return | From $249 | federal return with one simple Schedule C; Federal return with one simple Schedule C for freelancers, contractors and sole proprietors. | /tax-preparation.html |
+| State return add-on | From $49 | one supported state, with a federal return; One state return prepared together with your federal return. | /tax-preparation.html |
+| Certified translation | $25 per page | per 250 source words (one standard page); Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate. | /translations.html |
+| General translation | $0.10 per word | per source word, $25 minimum order; Letters, websites, business and personal texts that do not need a certificate. | /translations.html |
+| Online notarization | $25 | per notarial act; Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible. | /online-notary.html |
+| Apostille assistance | From $119 | service fee for the first document; We find the office that apostilles your document for the country you need, prepare the request and track it. | /apostille.html |
+| Official record retrieval | From $59 | per record + agency fee; We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one. | /apostille.html |
 
 Not included unless quoted: rush delivery, rare language pairs, notarized translator affidavits, witnesses, printed copies and postage, state or federal government fees, courier, embassy legalization, bookkeeping cleanup, registered agent and annual reports, legal advice or representation.
 
@@ -74,9 +74,6 @@ I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR A
 - Polina Zaic — Linguist and translation coordinator
 
 ## Frequently asked questions
-
-**Is VitaCoreX a law firm?**
-No. VitaCoreX LLC is not a law firm and does not provide legal advice or court representation.
 
 **Does VitaCoreX choose my immigration form?**
 No. VitaCoreX types and organizes a form that you or your adviser have chosen. Eligibility advice, form selection and representation are not provided.

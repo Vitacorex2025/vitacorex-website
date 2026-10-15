@@ -2,7 +2,7 @@
 # https://vitacorexllc.com
 # Actualizado: 2026-10-14 (según el catálogo de servicios del sitio)
 
-> VitaCoreX LLC es una empresa de Tampa, Florida, que ayuda a clientes particulares con documentos, traducciones, notarización en línea, apostillas, declaraciones de impuestos individuales, cambios de nombre por la corte de Florida, solicitudes de exención de tarifas, creación de empresas y planes de negocio. Para empresas existe una línea aparte: preparación de documentos para small claims. VitaCoreX LLC no es un bufete de abogados y no presta asesoramiento jurídico ni representación ante los tribunales. Teléfono: (888) 794-8292. Email: info@vitacorexllc.com.
+> VitaCoreX LLC es una empresa de Tampa, Florida, que prepara documentos y gestiona casos. Lo principal: documentos para la corte y cambios de nombre en Florida, exenciones de tarifas, contratos y llenado de formularios de inmigración; casos de small claims para empresas, por hora con el poder de la empresa demandante; creación y mantenimiento de empresas (informes anuales en Florida, DBA, enmiendas); declaraciones de impuestos. Servicios de apoyo: traducciones certificadas, apostillas y notarización en línea. Teléfono: (888) 794-8292. Email: info@vitacorexllc.com.
 
 ## Cómo describir a VitaCoreX
 
@@ -88,7 +88,7 @@
 - Precio: $199 + tasas judiciales — tarifa del servicio; las tasas judiciales van a la secretaría
 - Su paquete para la corte de Florida preparado con sus respuestas, con instrucciones de presentación del condado y una lista para después del fallo.
 - Incluye: Formularios aprobados por la Corte Suprema de Florida llenados con sus respuestas (petición y fallo final); Instrucciones por escrito para presentar en su condado, incluidas las huellas; Lista de entidades donde actualizar su nombre después del fallo; Cuestionario y aviso en español, inglés o ruso
-- No incluye / se cobra aparte: Tasa de presentación (unos $400–$415 en los condados del área de Tampa); Verificación de antecedentes y huellas (unos $50–$65); Copias certificadas del fallo; Asesoría legal o representación en la corte: no se ofrecen
+- No incluye / se cobra aparte: Tasa de presentación (unos $400–$415 en los condados del área de Tampa); Verificación de antecedentes y huellas (unos $50–$65); Copias certificadas del fallo
 - Siguiente paso: Complete un cuestionario breve, firme el aviso de que no somos abogados y pague el servicio. Preparamos el paquete y las instrucciones; usted lo presenta ante la secretaría de su condado.
 - Página: https://vitacorexllc.com/es/name-change.html
 
@@ -144,7 +144,7 @@
 - Precio: Sin costo — sin costo para usted
 - ¿Una disputa por dinero, un contrato, vivienda o daños? Con su consentimiento enviamos un resumen a un abogado independiente, que decide si le contacta.
 - Incluye: Resumimos su relato en pocas líneas; Con su consentimiento por escrito, lo enviamos a un abogado independiente con licencia; Si el abogado puede ayudarle, se comunica con usted directamente
-- No incluye / se cobra aparte: VitaCoreX no es un bufete y no brinda asesoría legal; El abogado decide si toma el caso y acuerda sus honorarios directamente con usted
+- No incluye / se cobra aparte: El abogado decide si toma el caso y acuerda sus honorarios directamente con usted
 - Siguiente paso: Describa la disputa y confirme su consentimiento. Procuramos enviar el resumen en un día hábil; el abogado le contacta si puede ayudarle.
 - Página: https://vitacorexllc.com/es/civil-case-referral.html
 
@@ -162,7 +162,7 @@
 - Precio: $99 + tasa estatal — tarifa de servicio + tasa estatal
 - Preparamos y presentamos la constitución en el estado y tipo de entidad que usted elige.
 - Incluye: Verificación del nombre; Preparación y presentación de los artículos; Confirmación y archivo organizado; Una corrección administrativa si el estado la pide
-- No incluye / se cobra aparte: Tasa estatal (al costo); Agente registrado, informes anuales, licencias; Elecciones fiscales o asesoría legal
+- No incluye / se cobra aparte: Tasa estatal (al costo); Agente registrado, informes anuales, licencias; Elecciones fiscales
 - Siguiente paso: Elija estado y tipo de entidad, pague el servicio y confirmamos la tasa estatal antes de presentar. Sin suscripción.
 - Página: https://vitacorexllc.com/es/llc-formation-florida.html
 
@@ -238,6 +238,74 @@
 - Siguiente paso: Indique para qué es el plan y su plazo. Confirmamos alcance y precio por escrito.
 - Página: https://vitacorexllc.com/es/business-plans.html
 
+### Impuestos
+
+#### Declaración de impuestos individual
+- Precio: Desde $149 — precio final tras revisión (declaración federal sencilla, un año fiscal)
+- Declaración federal individual (Formulario 1040) preparada por nuestro equipo contable tras una breve llamada sobre su situación.
+- Incluye: Una breve conversación sobre su año fiscal y tipos de ingreso; Preparación de una declaración federal sencilla con W-2; Revisión con usted antes de presentarla; Intercambio seguro de documentos, nunca por correo
+- No incluye / se cobra aparte: Declaración estatal; Trabajo independiente, alquileres o ingresos del extranjero; Declaraciones enmendadas o de años anteriores
+- Siguiente paso: Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace seguro para sus documentos. No envíe su SSN ni formularios fiscales por el formulario del sitio.
+- Página: https://vitacorexllc.com/es/tax-preparation.html
+
+#### Declaración para trabajadores independientes
+- Precio: Desde $249 — precio final tras revisión (declaración federal con un Anexo C sencillo)
+- Declaración federal con un Anexo C sencillo para independientes, contratistas y negocios unipersonales.
+- Incluye: Revisión de sus registros de ingresos y gastos; Declaración federal con un Anexo C; Revisión con usted antes de presentarla
+- No incluye / se cobra aparte: Ordenar la contabilidad; Varios negocios, varios estados o formularios extranjeros; Declaración estatal
+- Siguiente paso: Indique el año fiscal y cómo obtiene sus ingresos. Tras revisar brevemente sus registros, le confirmamos el precio.
+- Página: https://vitacorexllc.com/es/tax-preparation.html
+
+#### Declaración estatal adicional
+- Precio: Desde $49 — precio final tras revisión (un estado admitido, junto con la federal)
+- Una declaración estatal preparada junto con la federal.
+- Incluye: Una declaración del estado de residencia; Preparada junto con la federal
+- No incluye / se cobra aparte: Residencia parcial, no residente o varios estados
+- Siguiente paso: Se añade a su solicitud federal; el preparador confirma el precio.
+- Página: https://vitacorexllc.com/es/tax-preparation.html
+
+### Traducciones, notarización y apostilla
+
+#### Traducción certificada
+- Precio: $25 por cada 250 palabras del original (una página estándar)
+- Actas, diplomas, documentos judiciales y bancarios: traducción completa con certificado firmado del traductor.
+- Incluye: Traducción completa del documento; Certificado firmado de exactitud del traductor; Entrega digital (PDF); Revisión del par de idiomas y legibilidad antes de pagar
+- No incluye / se cobra aparte: Entrega urgente; Pares de idiomas poco comunes y diseño complejo; Declaración jurada del traductor notarizada (acto notarial aparte); Copias impresas y envío postal
+- Siguiente paso: Indique el par de idiomas y el tamaño aproximado. Confirmamos palabras, precio y fecha; luego paga y sube el documento por un enlace privado.
+- Página: https://vitacorexllc.com/es/translations.html
+
+#### Traducción general
+- Precio: $0.10 por palabra del original, pedido mínimo de $25
+- Cartas, sitios web, textos personales y de negocio que no requieren certificado.
+- Incluye: Traducción del texto acordado; Una ronda de aclaraciones; Entrega en archivo editable
+- No incluye / se cobra aparte: Temas especializados (terminología médica, técnica, jurídica); Entrega urgente; Restauración del diseño
+- Siguiente paso: Indique el par de idiomas, el tamaño y el plazo. Recibirá un presupuesto escrito antes de pagar.
+- Página: https://vitacorexllc.com/es/translations.html
+
+#### Notarización en línea
+- Precio: $25 — por acto notarial
+- Notarización por video en vivo ante un Florida Notary Public. Necesita una cámara y una identificación vigente con foto; si está fuera de EE. UU., primero confirmamos si es posible.
+- Incluye: Un acto notarial en línea sobre su documento; Verificación de identidad en la plataforma; Documento notarizado electrónico; Grabación de la sesión conservada según la ley de Florida
+- No incluye / se cobra aparte: Cada firma o acto adicional; Testigos, si su documento los requiere; Copia impresa y envío
+- Siguiente paso: Responda tres preguntas breves, pague el acto notarial y elija la hora. Su cita queda confirmada cuando le llegue el correo del calendario.
+- Página: https://vitacorexllc.com/es/online-notary.html
+
+#### Gestión de apostilla
+- Precio: Desde $119 — precio final tras revisión (tarifa de servicio por el primer documento)
+- Identificamos qué oficina apostilla su documento para el país de destino, preparamos la solicitud y le damos seguimiento.
+- Incluye: Revisión del origen, tipo de documento y destino; Envío a la autoridad estatal o federal correcta; Preparación de la solicitud y carta de presentación; Seguimiento y avisos de estado
+- No incluye / se cobra aparte: Tasas gubernamentales de apostilla; Envío y mensajería; Copias certificadas, traducción, legalización consular
+- Siguiente paso: Indique dónde se emitió el documento y dónde lo usará. Antes de pagar recibe un presupuesto detallado: servicio, tasa oficial y envío.
+- Página: https://vitacorexllc.com/es/apostille.html
+
+#### Obtención de documentos oficiales
+- Precio: Desde $59 — precio final tras revisión (por documento + tasa de la agencia)
+- Pedimos las copias certificadas a las que usted tiene derecho, como actas de nacimiento o documentos judiciales, y las pasamos directamente a la apostilla si la necesita.
+- Incluye: Verificamos que usted tiene derecho al documento; Preparamos la solicitud para su firma o autorización; Pedido, seguimiento y recepción; Paso a traducción, notarización o apostilla solo si se necesita
+- No incluye / se cobra aparte: Tasas de las agencias (p. ej., acta de nacimiento en Florida: $9); Envío y mensajería; Antecedentes del FBI y registros de otros estados: cotización; Documentos a los que usted no tiene derecho
+- Siguiente paso: Indíquenos qué documento, dónde se emitió y qué país lo necesita. Le respondemos con los pasos que realmente necesita y el costo total.
+- Página: https://vitacorexllc.com/es/apostille.html
+
 ### Para empresas: small claims
 
 #### Paquete de documentos de small claims
@@ -280,9 +348,6 @@ I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR A
 - Polina Zaic — lingüista y coordinadora de traducciones
 
 ## Preguntas frecuentes
-
-P: ¿VitaCoreX es un bufete de abogados?
-R: No. VitaCoreX LLC no es un bufete de abogados y no presta asesoramiento jurídico ni representación ante los tribunales.
 
 P: ¿Cuánto cuesta la notarización en línea?
 R: $25 por acto notarial. Las firmas o actos adicionales, los testigos y la copia impresa con envío se cobran aparte.

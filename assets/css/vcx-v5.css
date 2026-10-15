@@ -516,3 +516,94 @@ html:not(.vx-ready) .vx-form-wrap { visibility: hidden; } /* painted once, after
   box-shadow: 0 8px 20px -10px rgb(0 0 0 / .5); pointer-events: none; opacity: .92; }
 @media (max-width: 47.99em) { .vx-preview-ribbon { right: 8px; bottom: 8px; max-width: 180px; line-height: 15px !important; padding: 4px 8px !important; } }
 body:has(.vx-consent) .vx-preview-ribbon, body.vx-drawer-open .vx-preview-ribbon { display: none !important; }
+
+/* ==========================================================================
+   22. v6 CINEMA (owner 2026-10-15): full-screen darkened Tampa video on home, darkened landscapes on inner pages.
+   Reference technique (Robins Kaplan): the city footage is the protagonist, framed by one brand shape: here a slanted
+   brighter window on the 17:22 slope with hairlines; everything else stays dark and quiet. No drawings, no kit.
+   ========================================================================== */
+.vx6-hero { --vx-focus: #7CD2DE; --vx-ring: #7CD2DE; position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: clamp(640px, calc(100svh - 72px), 920px); overflow: hidden; background: #071B23; color: #fff; }
+.vx6-hero__media { position: absolute; inset: 0; z-index: -1; background: #071B23 url(/assets/img/tampa-1-poster.jpg) center / cover no-repeat; }
+.vx6-hero__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 900ms ease; filter: saturate(.8) contrast(1.04); }
+.vx6-hero__media video.is-on { opacity: 1; }
+.vx6-hero__shade { position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgb(7 27 35 / .88) 0%, rgb(7 27 35 / .72) 34%, rgb(7 27 35 / .28) 58%, rgb(7 27 35 / .08) 100%),
+    linear-gradient(0deg, rgb(7 27 35 / .92) 0%, rgb(7 27 35 / 0) 32%),
+    linear-gradient(180deg, rgb(7 27 35 / .55) 0%, rgb(7 27 35 / 0) 18%); }
+.vx6-hero__window { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.vx6-hero__veil { fill: rgb(7 27 35 / .38); }
+.vx6-hero__line { fill: none; stroke: rgb(255 255 255 / .62); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.vx6-hero__line--slope { stroke: rgb(124 210 222 / .9); }
+@media (prefers-reduced-motion: no-preference) {
+  .vx6-hero__line { animation: vx6draw 1200ms var(--vx-e-out) 300ms both; }
+  .vx6-hero__line--slope { animation-delay: 150ms; }
+  .vx6-hero__inner > * { animation: vx6rise 700ms var(--vx-e-out) both; }
+  .vx6-hero__h1 { animation-delay: 60ms !important; } .vx6-hero__lead { animation-delay: 140ms !important; } .vx6-hero__ctas { animation-delay: 220ms !important; } .vx6-hero__b2b { animation-delay: 280ms !important; }
+}
+@keyframes vx6draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes vx6rise { from { transform: translateY(14px); } to { transform: none; } } /* motion only: text is readable from 0 ms even if animations never run */
+.vx6-hero__inner { position: relative; width: 100%; padding-top: clamp(72px, 12vh, 150px); padding-bottom: clamp(40px, 6vh, 72px); }
+.vx6-hero__inner > * { max-width: 640px; }
+.vx6-hero__cred { display: flex; align-items: center; gap: 12px; margin: 0 0 28px; color: var(--vx-on-3); font: 500 13px/20px var(--vx-sans); }
+.vx6-hero__cred::before { content: ""; width: 34px; height: 1px; background: var(--vx-accent-soft); }
+.vx6-hero__h1 { margin: 0; color: #fff; font: 440 calc(clamp(2.875rem, 1.65rem + 4.6vw, 6rem) * var(--vx6-k, 1))/1.0 var(--vx-serif); letter-spacing: -.022em; text-wrap: balance; max-width: 11.5em !important; }
+html:lang(ru) .vx6-hero__h1 { --vx6-k: .84; line-height: 1.04; letter-spacing: -.012em; }
+html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
+.vx6-hero__h1 em { font-style: italic; color: var(--vx-accent-soft); white-space: nowrap; }
+.vx6-hero__lead { margin: 24px 0 0; color: var(--vx-on-2); font: 400 var(--vx-fs-lead)/1.55 var(--vx-sans); max-width: 36em !important; }
+.vx6-hero__ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px; }
+.vx6-hero__b2b { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 18px; color: var(--vx-accent-soft); font: 600 15px/20px var(--vx-sans); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.vx6-hero__b2b:hover { color: #fff; }
+.vx6-hero__b2b .vx-arrow { width: 16px; height: 16px; }
+/* the service bar: four quick paths with prices, on one hairline */
+.vx6-hero__bar { position: relative; border-top: 1px solid rgb(255 255 255 / .14); background: rgb(7 27 35 / .78); }
+.vx6-ticker { list-style: none; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.vx6-ticker li + li { border-left: 1px solid rgb(255 255 255 / .12); }
+.vx6-ticker a { display: flex; flex-direction: column; gap: 4px; min-height: 84px; justify-content: center; padding: 16px 24px; color: #fff; text-decoration: none; transition: background-color 160ms ease; }
+.vx6-ticker li:first-child a { padding-left: 0; }
+.vx6-ticker a:hover { background: rgb(124 210 222 / .08); }
+.vx6-ticker a:hover .vx6-ticker__l { text-decoration: underline; text-underline-offset: 5px; }
+.vx6-ticker__l { font: 600 15px/20px var(--vx-sans); }
+.vx6-ticker__p { color: var(--vx-accent-soft); font: 600 18px/24px var(--vx-serif); font-variant-numeric: lining-nums tabular-nums; }
+.vx6-hero .vx5-hero__pause { position: absolute; right: var(--vx-gutter); top: 20px; z-index: 2; }
+@media (max-width: 63.99em) {
+  .vx6-hero__window { display: none; }
+  .vx6-hero__shade { background: linear-gradient(90deg, rgb(7 27 35 / .82), rgb(7 27 35 / .5)), linear-gradient(0deg, rgb(7 27 35 / .92) 0%, rgb(7 27 35 / 0) 40%); }
+  .vx6-ticker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vx6-ticker li:nth-child(3) { border-left: 0; }
+  .vx6-ticker li:nth-child(n+3) { border-top: 1px solid rgb(255 255 255 / .12); }
+  .vx6-ticker li:nth-child(3) a { padding-left: 0; }
+}
+@media (max-width: 47.99em) {
+  .vx6-hero { min-height: 0; }
+  .vx6-hero__inner { padding-top: 40px; padding-bottom: 32px; }
+  .vx6-hero__cred { margin-bottom: 20px; }
+  .vx6-hero__h1 { font-size: calc(2.75rem * var(--vx6-k, 1)); }
+  .vx6-hero__ctas .vx-btn { flex: 1 1 100%; }
+  .vx6-ticker a { min-height: 72px; padding: 12px 12px 12px 16px; }
+  .vx6-ticker li:nth-child(odd) a { padding-left: 0; }
+}
+
+/* inner page heroes: the page darkened landscape behind, text on the left, the solid price panel on the right */
+.vx-phero__img { display: block !important; position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; opacity: 1 !important; filter: saturate(.85); }
+.vx-phero::after { content: "" !important; display: block; background:
+    linear-gradient(90deg, rgb(7 27 35 / .9) 0%, rgb(7 27 35 / .76) 42%, rgb(7 27 35 / .42) 72%, rgb(7 27 35 / .3) 100%),
+    linear-gradient(0deg, rgb(7 27 35 / .6) 0%, rgb(7 27 35 / 0) 45%) !important; }
+.vx-phero { min-height: clamp(480px, 62vh, 640px); display: flex; align-items: stretch; }
+.vx-phero > .vx-phero__inner { width: 100%; align-items: end !important; padding-top: clamp(96px, 14vh, 160px) !important; }
+.vx-phero__art { display: none !important; }
+.vx-phero__aside { background: rgb(14 50 62 / .94) !important; }
+@media (max-width: 63.99em) { .vx-phero::after { background: linear-gradient(180deg, rgb(7 27 35 / .55), rgb(7 27 35 / .88)) !important; } .vx-phero { min-height: 0; } }
+
+/* v6 logic: the mega menu in business order (court first, translations and apostille as supporting services last) */
+.vx-mega__group--court { grid-area: court; }
+.vx-mega__group--founders { grid-area: founders; }
+.vx-mega__group--personal { grid-area: personal; }
+.vx-mega__group--documents { grid-area: documents; }
+.vx-mega__group--biz { grid-area: biz; }
+.vx-mega { grid-template-areas: "court biz founders" "court personal documents" "foot foot foot" !important; }
+@media (max-width: 80em) { .vx-mega { grid-template-areas: "court biz founders" "court personal documents" "foot foot foot" !important; } }
+/* hero pause button never overlaps the credential line */
+@media (max-width: 63.99em) { .vx6-hero__cred { padding-right: 56px; } }

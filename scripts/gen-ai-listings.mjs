@@ -30,7 +30,7 @@ function priceText(id, l) {
     case 'fixed': return `${money(a)} — ${unit}`;
     case 'fixed_plus_fees': return `${fmt(l, p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) })} — ${unit}`;
     case 'from': return `${fmt(l, 'price.from', { amount: money(a) })} — ${fmt(l, 'price.tag.after_review').toLowerCase()} (${unit})`;
-    case 'per_unit': case 'per_word': return `${money(a)} ${unit}`;
+    case 'per_unit': case 'per_word': case 'per_hour': return `${money(a)} ${unit}`;
     case 'free_scope': return `${fmt(l, 'price.no_charge')} — ${unit}`;
     default: return `${fmt(l, 'price.quote')} — ${unit}`;
   }
@@ -39,6 +39,7 @@ function shortText(id, l) {
   const p = catalog.services[id].price, a = p.amount_cents;
   if (p.display === 'per_unit') return fmt(l, 'price.per_page_short', { amount: money(a) });
   if (p.display === 'per_word') return fmt(l, 'price.per_word_short', { amount: money(a) });
+  if (p.display === 'per_hour') return fmt(l, 'price.per_hour_short', { amount: money(a) });
   return priceText(id, l).split(' — ')[0];
 }
 const LABEL = {

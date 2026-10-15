@@ -16,7 +16,7 @@ Service languages: English, Russian, Spanish
 
 VitaCoreX LLC helps private clients with documents, translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork. A separate lane serves companies with small-claims document preparation and case support. Existing business clients can ask for recovery support, quoted individually.
 
-VitaCoreX LLC is not a law firm and does not provide legal advice or court representation. It does not choose immigration forms or give eligibility advice. If a client needs a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with the client's consent.
+It does not choose immigration forms or give eligibility advice. If a client needs a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with the client's consent.
 
 How prices work:
 - All amounts are in USD and are service fees.
@@ -103,7 +103,7 @@ How prices work:
 - Price: $199 + court fees — service fee; court fees go to the clerk
 - Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.
 - Included: Florida Supreme Court approved forms typed from your answers (petition and final judgment); Written filing instructions for your county, including fingerprints; Checklist of agencies to update after the judgment; Questionnaire and disclosure in English, Russian or Spanish
-- Not included / extra: Court filing fee (about $400–$415 in Tampa-area counties); Background check and fingerprinting (about $50–$65); Certified copies of the judgment; Legal advice or court representation — not provided
+- Not included / extra: Court filing fee (about $400–$415 in Tampa-area counties); Background check and fingerprinting (about $50–$65); Certified copies of the judgment
 - Next step: Answer a short questionnaire, sign the nonlawyer disclosure and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.
 - Page: https://vitacorexllc.com/name-change.html
 
@@ -151,7 +151,7 @@ How prices work:
 - Price: From $99 — final price after review (starting price for a limited document task)
 - Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts.
 - Included: Agreeing on the task and the result; Preparation or organization of the agreed document; One round of edits
-- Not included / extra: Larger or multi-document tasks; Legal advice or representation — only through an independent licensed attorney, with your consent
+- Not included / extra: Larger or multi-document tasks
 - Next step: Describe the document you need. Before you pay, we confirm what we can prepare, what you will receive and the price.
 - Page: https://vitacorexllc.com/contract-review-service.html
 
@@ -159,7 +159,7 @@ How prices work:
 - Price: No charge — no charge to you
 - A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you.
 - Included: We turn your description into a short summary; With your written consent, we send it to an independent licensed attorney; You hear back from the attorney directly if they can help
-- Not included / extra: VitaCoreX is not a law firm and does not give legal advice; The attorney decides whether to take the case and agrees any fees with you directly
+- Not included / extra: The attorney decides whether to take the case and agrees any fees with you directly
 - Next step: Describe the dispute and confirm your consent. We aim to pass the summary on within one business day; the attorney contacts you if they can help.
 - Page: https://vitacorexllc.com/civil-case-referral.html
 
@@ -177,7 +177,7 @@ How prices work:
 - Price: $99 + state fee — service fee + state filing fee
 - We prepare and submit the formation filing for the state and entity type you have chosen.
 - Included: Name availability check; Articles prepared and submitted; Filing confirmation and organized records; One clerical correction if the state requests it
-- Not included / extra: State filing fee (paid at cost); Registered agent, annual reports, licenses; Tax elections or legal advice
+- Not included / extra: State filing fee (paid at cost); Registered agent, annual reports, licenses; Tax elections
 - Next step: Choose the state and entity type, pay the service fee, and we confirm the state fee before filing. No subscription.
 - Page: https://vitacorexllc.com/llc-formation-florida.html
 
@@ -253,6 +253,74 @@ How prices work:
 - Next step: Tell us what the plan is for and your deadline. We confirm scope and price in writing.
 - Page: https://vitacorexllc.com/business-plans.html
 
+### Taxes
+
+#### Individual tax return
+- Price: From $149 — final price after review (simple federal return, one tax year)
+- Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.
+- Included: A short talk about your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
+- Not included / extra: State return; Self-employment, rental or foreign income; Amended or prior-year returns
+- Next step: Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.
+- Page: https://vitacorexllc.com/tax-preparation.html
+
+#### Self-employed tax return
+- Price: From $249 — final price after review (federal return with one simple Schedule C)
+- Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.
+- Included: Readiness check of your income and expense records; Federal return with one Schedule C; Review with you before filing
+- Not included / extra: Bookkeeping cleanup; Several businesses, multi-state or foreign forms; State return
+- Next step: Tell us the tax year and how you earn your income. After a quick look at your records, we confirm the price.
+- Page: https://vitacorexllc.com/tax-preparation.html
+
+#### State return add-on
+- Price: From $49 — final price after review (one supported state, with a federal return)
+- One state return prepared together with your federal return.
+- Included: One resident state return; Prepared together with your federal return
+- Not included / extra: Part-year, non-resident or several states
+- Next step: Added to your federal tax request; the preparer confirms the price.
+- Page: https://vitacorexllc.com/tax-preparation.html
+
+### Translations, notary and apostille
+
+#### Certified translation
+- Price: $25 per 250 source words (one standard page)
+- Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.
+- Included: Complete translation of the document; Signed translator certificate of accuracy; Digital delivery (PDF); Check of language pair and legibility before you pay
+- Not included / extra: Rush delivery; Rare language pairs and complex layout; Notarized translator affidavit (a separate notarial act); Printed copies and postage
+- Next step: Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.
+- Page: https://vitacorexllc.com/translations.html
+
+#### General translation
+- Price: $0.10 per source word, $25 minimum order
+- Letters, websites, business and personal texts that do not need a certificate.
+- Included: Translation of the agreed text; One round of clarifications; Delivery in an editable file
+- Not included / extra: Specialist subject matter (medical, technical, legal terminology); Rush delivery; Layout restoration
+- Next step: Tell us the language pair, size and deadline. You receive a written quote before any payment.
+- Page: https://vitacorexllc.com/translations.html
+
+#### Online notarization
+- Price: $25 — per notarial act
+- Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.
+- Included: One online notarial act on your document; Identity verification on the online platform; Electronic notarized document; Session recording kept as required by Florida law
+- Not included / extra: Each additional signature or act; Witnesses, if your document needs them; Printed copy and mailing
+- Next step: Answer three quick questions, pay for the notarial act and pick a time. Your appointment is confirmed once the calendar email arrives.
+- Page: https://vitacorexllc.com/online-notary.html
+
+#### Apostille assistance
+- Price: From $119 — final price after review (service fee for the first document)
+- We find the office that apostilles your document for the country you need, prepare the request and track it.
+- Included: Check of document origin, type and destination; Route to the correct state or federal authority; Preparation of the request and cover letter; Tracking and status updates
+- Not included / extra: Government apostille fees; Shipping and courier; Certified copies, translation, embassy legalization
+- Next step: Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.
+- Page: https://vitacorexllc.com/apostille.html
+
+#### Official record retrieval
+- Price: From $59 — final price after review (per record + agency fee)
+- We order certified copies you are entitled to, such as birth or court records, and pass them straight to the apostille step if you need one.
+- Included: Check that you are entitled to the record; Request typed for your signature or authorization; Order, tracking and receipt; Hand-off to translation, notarization or apostille only if required
+- Not included / extra: Agency fees (e.g. a Florida birth certificate: $9); Shipping and courier; FBI background checks and out-of-state records: quote; Records you are not entitled to
+- Next step: Tell us which record, where it was issued and which country needs it. We reply with the steps you actually need and the full cost.
+- Page: https://vitacorexllc.com/apostille.html
+
 ### For companies: small claims
 
 #### Small-claims case packet
@@ -303,10 +371,7 @@ I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR A
 ================================================================================
 
 Q: What is VitaCoreX LLC?
-A: A Tampa, Florida company that helps private clients with translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork, plus a separate small-claims document service for companies.
-
-Q: Is VitaCoreX a law firm?
-A: No. VitaCoreX LLC is not a law firm and does not provide legal advice or court representation.
+A: A Tampa, Florida document and case-management company: court paperwork and Florida name changes, small-claims cases for companies by the hour under a power of attorney, company formation and annual filings, individual tax returns; plus certified translations, apostilles and online notarization.
 
 Q: How much does online notarization cost?
 A: $25 per notarial act. Additional signatures or acts, witnesses, and a printed copy with mailing are extra.

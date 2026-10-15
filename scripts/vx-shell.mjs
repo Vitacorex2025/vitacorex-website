@@ -43,6 +43,7 @@ function priceInfo(id) {
     case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt(p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) }), tag: T('price.tag.fixed_fees'), cls: 'vx-tag--fixed' };
     case 'from': { const v = fmt('price.from', { amount: money(a) }); return { ...o, amount: v, short: v, tag: T('price.tag.after_review'), cls: 'vx-tag--quote' }; }
     case 'per_unit': return { ...o, amount: money(a), short: fmt('price.per_page_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
+    case 'per_hour': return { ...o, amount: money(a), short: fmt('price.per_hour_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
     case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
     case 'free_scope': return { ...o, amount: T('price.no_charge'), short: T('price.no_charge'), tag: T('price.tag.free'), cls: 'vx-tag--free' };
     default: return { ...o, amount: T('price.quote'), short: T('price.quote'), tag: T('price.tag.individual'), cls: 'vx-tag--quote' };
@@ -133,7 +134,6 @@ function footerHTML() {
 <nav aria-labelledby="vx-f-legal"><h2 id="vx-f-legal" data-t="footer.h.legal">${esc(en['footer.h.legal'])}</h2><ul>${li('/privacy-policy.html', 'footer.privacy')}${li('/terms-of-use.html', 'footer.terms')}${li('/cookie-policy.html', 'footer.cookies')}</ul></nav>
 </div>
 <div class="vx-ftr__notices" role="region" aria-label="${esc(en['footer.notices_aria'])}" data-t-attr="aria-label:footer.notices_aria">
-<p class="vx-ftr__general" data-t="footer.general">${esc(en['footer.general'])}</p>
 <section class="vx-notice vx-notice--imm" aria-labelledby="vx-n-imm"><h3 id="vx-n-imm" data-t="notice.imm.title">${esc(en['notice.imm.title'])}</h3><div class="vx-notice__cols"><p lang="en">${IMM.en}</p><p lang="ru">${IMM.ru}</p><p lang="es">${IMM.es}</p></div></section>
 <section class="vx-notice" data-vx-show-lang="ru" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><div class="vx-notice__cols vx-notice__cols--2"><p lang="en">${NOTARY.en}</p><p lang="ru">${NOTARY.ru}</p></div></section>
 <section class="vx-notice" data-vx-show-lang="es" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><div class="vx-notice__cols vx-notice__cols--2"><p lang="en">${NOTARY.en}</p><p lang="es">${NOTARY.es}</p></div></section>
@@ -210,6 +210,10 @@ function fillLeaves(html, file) {
   html = html.replace(/<span((?:\s[^>]*?)?\sdata-svc-price="([a-z0-9_]+)"[^>]*)>(?:<span class="vx-price">(?:<span[^>]*>[^<]*<\/span>\s*)*<\/span>)?<\/span>/g, (m, attrs, id) => {
     if (!svc(id)) return m; const pi = priceInfo(id); const tag = /data-no-tag/.test(attrs) ? '' : ` <span class="vx-price__tag ${pi.cls}">${esc(pi.tag)}</span>`;
     return `<span${attrs}><span class="vx-price"><span class="vx-price__amount">${esc(pi.amount)}</span><span class="vx-price__unit">${esc(pi.unit)}</span>${tag}</span></span>`;
+  });
+  // action labels inside buttons (v5 index rows): <span data-svc-action="id">label</span>
+  html = html.replace(/<span((?:\s[^>]*?)?\sdata-svc-action="([a-z0-9_]+)"[^>]*)>([^<]*)<\/span>/g, (m, attrs, id) => {
+    const s = svc(id); return s ? `<span${attrs}>${esc(T('action.' + s.action))}</span>` : m;
   });
   // service action links: text + href
   html = html.replace(/<a((?:\s[^>]*?)?\sdata-svc-action="([a-z0-9_]+)"[^>]*)>([^<]*)<\/a>/g, (m, attrs, id) => {
@@ -346,16 +350,12 @@ function ensureHead(html) {
   return html;
 }
 
-/* v5 page heroes (AD §6): each service page shows its composition from the §7 family at the top of the dark fact panel */
-const TRAIT = { 'translations.html': 'translation', 'online-notary.html': 'notary', 'apostille.html': 'apostille', 'tax-preparation.html': 'tax', 'pricing.html': 'tax',
-  'name-change.html': 'court', 'fee-waiver.html': 'court', 'immigration-packet-review.html': 'court', 'n-400-naturalization.html': 'court', 'contract-review-service.html': 'court',
-  'civil-case-referral.html': 'court', 'small-claims-documentation.html': 'court', 'llc-formation-florida.html': 'company', 'business-filings.html': 'company',
-  'founder-services.html': 'company', 'business-plans.html': 'company' };
-const HAS_FAMILY = fs.existsSync(path.join(ROOT, 'assets/vx5/vx5-family.svg'));
+/* v6 page heroes: a page-specific darkened Tampa landscape (frames of our own drone footage and photos, graded to ink teal) */
+const LAND = { 'services.html': 'skyline-a', 'pricing.html': 'skyline-b', 'translations.html': 'river-a', 'online-notary.html': 'dusk', 'apostille.html': 'skyway', 'tax-preparation.html': 'river-b', 'name-change.html': 'dock', 'fee-waiver.html': 'pier', 'business-filings.html': 'downtown-c', 'llc-formation-florida.html': 'skyline-b', 'founder-services.html': 'river-a', 'business-plans.html': 'downtown-c', 'small-claims-documentation.html': 'rail-bridge', 'immigration-packet-review.html': 'beach', 'n-400-naturalization.html': 'beach', 'contract-review-service.html': 'skyline-a', 'civil-case-referral.html': 'rail-bridge', 'net-recovery.html': 'river-b', 'about.html': 'dock' };
 function addTrait(html, f) {
   html = html.replace(/<svg class="vx-phero__art"[\s\S]*?<\/svg>/, '');
-  const id = TRAIT[f]; if (!id || !HAS_FAMILY) return html;
-  return html.replace(/(<div class="vx-phero__aside[^"]*"[^>]*>)/, `$1<svg class="vx-phero__art" viewBox="0 0 384 200" aria-hidden="true" focusable="false"><use href="/assets/vx5/vx5-family.svg#vx5-g-${id}"/></svg>`);
+  const id = LAND[f]; if (!id) return html;
+  return html.replace(/<img class="vx-phero__img"[^>]*>/, `<img class="vx-phero__img" src="/assets/img/land/${id}-1920.webp" srcset="/assets/img/land/${id}-960.webp 960w, /assets/img/land/${id}-1920.webp 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">`);
 }
 
 /* Cache busting: the data version in vcx-v2.js follows the i18n + catalog content, and every local CSS/JS link
@@ -438,6 +438,7 @@ function offerFor(id) {
   if (['fixed', 'fixed_plus_fees', 'per_unit', 'per_word'].includes(p.display)) o.price = (a / 100).toFixed(2);
   else if (p.display === 'from') o.priceSpecification = { '@type': 'PriceSpecification', minPrice: (a / 100).toFixed(2), priceCurrency: 'USD' };
   else if (p.display === 'free_scope') o.price = '0';
+  else if (p.display === 'per_hour') o.priceSpecification = { '@type': 'UnitPriceSpecification', price: (a / 100).toFixed(2), priceCurrency: 'USD', unitCode: 'HUR' };
   return o;
 }
 function seoHead(html, f) {

@@ -144,7 +144,7 @@ def price_display_text(service: dict, locale: str) -> str:
         return f"{m} {unit.replace(' + ', words['plus'])}".strip()
     if display == "from":
         return words["from"].format(m=m)
-    if display in ("per_unit", "per_word"):
+    if display in ("per_unit", "per_word", "per_hour"):
         return f"{m} {unit}{words['after_review']}".strip()
     return f"{m} {unit}".strip()
 
