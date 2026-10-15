@@ -615,3 +615,27 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 }
 @media (min-width: 48em) { .vx6-ticker a { height: 84px; min-height: 0; } }
 .vx-ftr__statement br { display: none; }
+
+/* 24. CAREERS: role cards on the 12-column grid, the application form in a readable measure */
+.vx-jobs { display: grid; gap: 24px 32px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 63.99em) { .vx-jobs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 47.99em) { .vx-jobs { grid-template-columns: minmax(0, 1fr); } }
+.vx-job { display: flex; flex-direction: column; }
+.vx-job h3 { font: 500 calc(var(--vx-fs-h3) * var(--vx-k))/1.2 var(--vx-serif); margin: 0 0 6px; }
+.vx-job__meta { margin: 0 0 14px; color: var(--vx-muted); font: 500 14px/1.45 var(--vx-sans); }
+.vx-job h4 { margin: 14px 0 6px; font: 600 13px/1.45 var(--vx-sans); color: var(--vx-link); }
+.vx-job .vx-ticks { margin-top: 4px; }
+.vx-job p { margin: 0; }
+.vx-job > .vx-btn { margin-top: auto; align-self: flex-start; }
+.vx-job > p + .vx-btn, .vx-job > ul + .vx-btn { margin-top: 20px; }
+.vx-jobs__form { max-width: 760px; display: grid; gap: 4px; }
+.vx-jobs__form .vx-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+@media (max-width: 47.99em) { .vx-jobs__form .vx-row { grid-template-columns: minmax(0, 1fr); } }
+.vx-jobs__form button { justify-self: start; margin-top: 12px; }
+.vx-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+/* 25. Icons inside buttons always have a fixed size (the phone button in the mobile menu lost its size with v4) */
+.vx-btn svg, .vx-btn > svg:not(.vx-arrow) { width: 18px; height: 18px; flex: none; }
+.vx-drawer__cta .vx-btn { gap: 10px; }
+.vx-hdr__phone svg, .vx-ftr__phone svg { width: 18px; height: 18px; flex: none; }
+.vx-drawer__cta .vx-btn { justify-content: center; }

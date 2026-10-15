@@ -97,7 +97,31 @@
   </url>
   <url>
     <loc>https://vitacorexllc.com/careers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/careers.html"/>
     <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/ru/careers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/careers.html"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vitacorexllc.com/es/careers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vitacorexllc.com/es/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vitacorexllc.com/careers.html"/>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
