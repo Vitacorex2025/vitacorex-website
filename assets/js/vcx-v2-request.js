@@ -46,7 +46,11 @@
     party_role: { type: 'select', label: 'fld.party_role', options: ['claimant', 'defendant'], optKey: 'opt.role.' },
     has_existing_case: { type: 'select', label: 'fld.has_existing_case', options: ['no', 'yes'], optKey: 'opt.yn.' },
     authorized_rep: { type: 'select', label: 'fld.authorized_rep', options: ['yes', 'no', 'unsure'], optKey: 'opt.yn.' },
-    existing_client_reference: { type: 'text', label: 'fld.existing_client_reference', max: 60 }
+    existing_client_reference: { type: 'text', label: 'fld.existing_client_reference', max: 60 },
+    party_role_civil: { type: 'select', label: 'fld.party_role_civil', options: ['claimant', 'defendant', 'not_filed'], optKey: 'opt.civrole.' },
+    florida_county: { type: 'text', label: 'fld.florida_county', hint: 'fld.florida_county_hint', max: 60 },
+    born_in_florida: { type: 'select', label: 'fld.born_in_florida', options: ['yes', 'no', 'unsure'], optKey: 'opt.yn.' },
+    waiver_form: { type: 'text', label: 'fld.waiver_form', hint: 'fld.waiver_form_hint', max: 80 }
   };
   /* which fields are required per family (others optional) */
   var REQUIRED = {
@@ -55,6 +59,8 @@
     apostille: ['issuing_state', 'document_type', 'destination_country'],
     tax: ['tax_year'],
     immigration: ['form_number'],
+    name_change: ['florida_county'],
+    fee_waiver: ['jurisdiction_state', 'waiver_form'],
     formation: ['formation_state', 'entity_type'],
     business_plan: ['plan_purpose'],
     b2b: ['company', 'b2b_state', 'claim_amount', 'party_role', 'authorized_rep'],
@@ -145,6 +151,7 @@
     $('f-summary').required = sumReq;
     $('f-summary-label').setAttribute('data-t', sumReq ? 'form.summary_required' : 'form.summary');
     $('vx-referral-wrap').hidden = !(s.family === 'inquiry' || s.family === 'contracts');
+    $('f-referral').required = !!s.requires_referral_consent;
     renderSummary();
     updateSubmitLabel();
     nyCheck();
@@ -161,7 +168,18 @@
     $('vx-sum-extra').innerHTML = list('extra');
     $('vx-sum-next').textContent = VX.loc(s.next);
     var n = $('vx-sum-notice'); n.innerHTML = '';
-    if ((s.notices || []).indexOf('immigration') !== -1) n.innerHTML = '<div class="vx-pnotice vx-pnotice--compact"><h2>' + VX.esc(T('notice.imm.title')) + '</h2><p lang="en">I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p></div>';
+    /* Fla. Stat. 501.1391: English text plus the visitor's language */
+    if ((s.notices || []).indexOf('immigration') !== -1) {
+      var IMM = {
+        en: 'I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.',
+        ru: 'Я НЕ ЯВЛЯЮСЬ АДВОКАТОМ С ЛИЦЕНЗИЕЙ НА ЮРИДИЧЕСКУЮ ПРАКТИКУ И НЕ МОГУ ДАВАТЬ ЮРИДИЧЕСКИЕ КОНСУЛЬТАЦИИ ИЛИ ПРИНИМАТЬ ПЛАТУ ЗА ЮРИДИЧЕСКИЕ КОНСУЛЬТАЦИИ. Я НЕ АККРЕДИТОВАН ПРЕДСТАВЛЯТЬ ВАС ПО ИММИГРАЦИОННЫМ ВОПРОСАМ.',
+        es: 'NO SOY ABOGADO CON LICENCIA PARA EJERCER LA ABOGACÍA Y NO PUEDO DAR ASESORAMIENTO LEGAL NI ACEPTAR HONORARIOS POR ASESORAMIENTO LEGAL. NO ESTOY ACREDITADO PARA REPRESENTARLE EN ASUNTOS DE INMIGRACIÓN.'
+      };
+      var lg = VX.lang(), extra = (lg !== 'en' && IMM[lg]) ? '<p lang="' + lg + '">' + IMM[lg] + '</p>' : '';
+      n.innerHTML = '<div class="vx-pnotice vx-pnotice--compact"><h2>' + VX.esc(T('notice.imm.title')) + '</h2><p lang="en">' + IMM.en + '</p>' + extra + '</div>';
+    }
+    /* Rules Regulating The Florida Bar 10-2.2: nonlawyer disclosure (Form 12.900(a)) comes before any help */
+    if ((s.notices || []).indexOf('nonlawyer_fl') !== -1) n.innerHTML += '<div class="vx-pnotice vx-pnotice--compact"><h2>' + VX.esc(T('notice.nonlawyer.title')) + '</h2><p>' + VX.esc(T('notice.nonlawyer.text')) + '</p></div>';
   }
 
   function updateSubmitLabel() {
@@ -216,6 +234,7 @@
     var all = form.elements.summary.value + ' ' + JSON.stringify(collectDetails());
     if (SSN.test(all)) errors.summary = 'sensitive_data';
     if (!form.elements.consent.checked) errors['consent.privacy'] = 'consent_required';
+    if (s && s.requires_referral_consent && !form.elements.referral.checked) errors['consent.referral'] = 'referral_required';
     if (nyCheck()) errors['details.b2b_state'] = 'ny_excluded';
     return Object.keys(errors).length === 0;
   }
@@ -274,7 +293,7 @@
         if (res.status === 201 || res.status === 200) return success(res.body);
         if (res.status === 202) return success({ request_id: null, dropped: true });
         var b = res.body || {};
-        if (b.error === 'validation') { var f = b.fields || {}; Object.keys(f).forEach(function (k) { var key = (k === 'contact') ? 'contact.email' : k; errors[key] = f[k] === 'email_or_phone_required' ? 'contact_required' : f[k]; }); showErrors(); return; }
+        if (b.error === 'validation') { var f = b.fields || {}; Object.keys(f).forEach(function (k) { var key = (k === 'contact') ? 'contact.email' : k; errors[key] = f[k] === 'email_or_phone_required' ? 'contact_required' : (k === 'consent.referral' ? 'referral_required' : f[k]); }); showErrors(); return; }
         if (b.error === 'sensitive_data') { errors.summary = 'sensitive_data'; showErrors(); return; }
         if (b.error === 'jurisdiction_excluded') { errors['details.b2b_state'] = 'ny_excluded'; showErrors(); return; }
         if (b.error === 'unknown_service') { errors.service_id = 'required'; showErrors(); return; }

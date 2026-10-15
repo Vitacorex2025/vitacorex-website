@@ -48,6 +48,9 @@ const PRIVATE_DOCUMENTS = [
 ];
 const PRIVATE_PERSONAL = [
   ['tax-preparation.html',          'weekly', '0.8', TODAY],
+  ['name-change.html',              'monthly', '0.7', TODAY],
+  ['fee-waiver.html',               'monthly', '0.7', TODAY],
+  ['civil-case-referral.html',      'monthly', '0.6', TODAY],
   ['contract-review-service.html',  'weekly', '0.8', PREV],
   ['immigration-packet-review.html','weekly', '0.8', PREV],
   ['immigration-services-tampa.html','weekly','0.8', PREV],

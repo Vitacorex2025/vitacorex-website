@@ -2,7 +2,7 @@
 # https://vitacorexllc.com
 # Last updated: 2026-10-14
 
-> VitaCoreX LLC is a Tampa, Florida company that helps private clients with documents, translations, online notarization, apostilles, individual tax returns, company formation and business plans. A separate lane serves companies with small-claims document preparation. VitaCoreX is not a law firm and does not provide legal advice or court representation. Phone: (888) 794-8292. Email: info@vitacorexllc.com.
+> VitaCoreX LLC is a Tampa, Florida company that helps private clients with documents, translations, online notarization, apostilles, individual tax returns, Florida court name-change packets, fee-waiver applications, company formation and business plans. A separate lane serves companies with small-claims document preparation. VitaCoreX is not a law firm and does not provide legal advice or court representation. Phone: (888) 794-8292. Email: info@vitacorexllc.com.
 
 ## How to describe VitaCoreX
 
@@ -15,20 +15,24 @@
 
 | Service | Price | Unit / what it covers | Page |
 |---|---|---|---|
-| Certified translation | $25 | per 250 source words (one standard page); signed translator certificate, PDF delivery | /translations.html |
-| General translation | $0.10 per source word | $25 minimum order; written quote before payment | /translations.html |
-| Online notarization | $25 | per notarial act; remote online notarization by a Florida Notary Public by video, valid photo ID required | /online-notary.html |
-| Apostille assistance | from $119 | service fee for the first document; government fees and shipping are separate and itemized | /apostille.html |
-| Individual tax return (Form 1040) | from $149 — final price after review | simple federal return, one tax year | /tax-preparation.html |
-| Self-employed tax return | from $249 — final price after review | federal return with one simple Schedule C | /tax-preparation.html |
-| State return add-on | from $49 | one supported state, with a federal return | /tax-preparation.html |
-| Company formation | $99 + state filing fee | the state and entity type you have chosen; no subscription | /llc-formation-florida.html |
-| Company formation + EIN | $199 + state filing fee | formation plus EIN application assistance (the IRS does not charge for an EIN) | /llc-formation-florida.html |
-| Business plan | from $499 | defined basic plan: business model, market summary, financial outline, one revision | /business-plans.html |
-| Contracts & document support | from $99 | starting price for a limited document task agreed before work starts | /contract-review-service.html |
-| Immigration forms & documents | from $149 | clerical preparation of one simple USCIS form you or your adviser have chosen; USCIS fees separate | /immigration-packet-review.html |
-| Naturalization document support (N-400) | from $249 | defined N-400 support scope: typing, completeness check, organized packet | /n-400-naturalization.html |
-| Ask about your situation | no charge to send a request | we reply with a matching service and price; not a free legal consultation | /request.html?service=legal_request |
+| Certified translation | $25 per page | per 250 source words (one standard page); Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate. | /translations.html |
+| General translation | $0.10 per word | per source word, $25 minimum order; Letters, websites, business and personal texts that do not need a certificate. | /translations.html |
+| Online notarization | $25 | per notarial act; Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible. | /online-notary.html |
+| Apostille assistance | From $119 | service fee for the first document; We find the office that apostilles your document for the country you need, prepare the request and track it. | /apostille.html |
+| Individual tax return | From $149 | simple federal return, one tax year; Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation. | /tax-preparation.html |
+| Self-employed tax return | From $249 | federal return with one simple Schedule C; Federal return with one simple Schedule C for freelancers, contractors and sole proprietors. | /tax-preparation.html |
+| State return add-on | From $49 | one supported state, with a federal return; One state return prepared together with your federal return. | /tax-preparation.html |
+| Court name change (Florida, adult) | $199 + court fees | service fee; court fees go to the clerk; Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist. | /name-change.html |
+| Court name change for a child or family (Florida) | From $249 | starting price per petition; Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review. | /name-change.html |
+| Fee waiver application | $49 | per application; Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides. | /fee-waiver.html |
+| Immigration forms & documents | From $149 | one simple form you have selected; Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents. | /immigration-packet-review.html |
+| Naturalization document support (N-400) | From $249 | defined N-400 support scope; Administrative help with Form N-400: typing, completeness check and an organized document packet. | /n-400-naturalization.html |
+| Contracts & document support | From $99 | starting price for a limited document task; Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts. | /contract-review-service.html |
+| Civil dispute: summary to an independent attorney | No charge | no charge to you; A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you. | /civil-case-referral.html |
+| Ask about your situation | No charge | no charge to send a request; Not sure which service fits? Describe the task — we tell you what we can do and what it costs. | /request.html?service=legal_request |
+| Company formation | $99 + state fee | service fee + state filing fee; We prepare and submit the formation filing for the state and entity type you have chosen. | /llc-formation-florida.html |
+| Company formation + EIN | $199 + state fee | service fee + state filing fee; Everything in Company formation, plus help applying for your EIN and an organized starter file. | /llc-formation-florida.html |
+| Business plan | From $499 | defined basic plan; A plan built from your questionnaire: business model, market summary with sources and a simple financial outline. | /business-plans.html |
 
 Not included unless quoted: rush delivery, rare language pairs, notarized translator affidavits, witnesses, printed copies and postage, state or federal government fees, courier, embassy legalization, bookkeeping cleanup, registered agent and annual reports, legal advice or representation.
 

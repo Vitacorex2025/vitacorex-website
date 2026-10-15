@@ -32,7 +32,7 @@ function priceInfo(id) {
   const s = svc(id); const p = s.price; const a = p.amount_cents; const o = { unit: s.unit.en };
   switch (p.display) {
     case 'fixed': return { ...o, amount: money(a), short: money(a), tag: en['price.tag.fixed'], cls: 'vx-tag--fixed' };
-    case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt('price.plus_fees', { amount: money(a) }), tag: en['price.tag.fixed_fees'], cls: 'vx-tag--fixed' };
+    case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt(p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) }), tag: en['price.tag.fixed_fees'], cls: 'vx-tag--fixed' };
     case 'from': { const v = fmt('price.from', { amount: money(a) }); return { ...o, amount: v, short: v, tag: en['price.tag.after_review'], cls: 'vx-tag--quote' }; }
     case 'per_unit': return { ...o, amount: money(a), short: fmt('price.per_page_short', { amount: money(a) }), tag: en['price.tag.after_review'], cls: 'vx-tag--quote' };
     case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: en['price.tag.after_review'], cls: 'vx-tag--quote' };
@@ -54,8 +54,13 @@ const segBtn = (code, name, on) => `<button type="button" aria-pressed="${on}" d
 const svcLink = (id) => `<li><a href="${pageHref(id)}"><span data-svc-name="${id}">${esc(svc(id).name.en)}</span><small data-svc-price-short="${id}">${esc(priceInfo(id).short)}</small></a></li>`;
 
 function headerHTML() {
-  const mega = privateGroups.map((g) => `<div class="vx-mega__group"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${g.services.map(svcLink).join('')}</ul></div>`).join('');
-  const drawerGroups = privateGroups.map((g) => `<h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${g.services.map(svcLink).join('')}</ul>`).join('');
+  const feature = `<div class="vx-mega__feature"><img src="/assets/img/curated/w800/quick-confidential-review.jpg" alt="" width="800" height="533" loading="lazy"><div class="vx-mega__feature-body"><p class="vx-mega__feature-title" data-t="mega.feature.title">${esc(en['mega.feature.title'])}</p><p data-t="mega.feature.text">${esc(en['mega.feature.text'])}</p><a class="vx-btn vx-btn--accent" href="/request.html?service=legal_request" data-t="mega.feature.cta">${esc(en['mega.feature.cta'])}</a></div></div>`;
+  const menuIds = (g) => g.menu || g.services;
+  const plain = (href, key) => `<li><a href="${href}"><span data-t="${key}">${esc(en[key])}</span></a></li>`;
+  const bizLinks = plain('/small-claims-documentation.html', 'footer.small_claims') + plain('/small-claims-documentation.html#check', 'footer.check_case') + plain('/net-recovery.html', 'h3.b2b.existing');
+  const biz = `<div class="vx-mega__group vx-mega__group--biz"><h3 data-t="mega.biz.title">${esc(en['mega.biz.title'])}</h3><ul class="vx-mega__plain">${bizLinks}</ul></div>`;
+  const mega = feature + privateGroups.map((g) => `<div class="vx-mega__group vx-mega__group--${g.id}"><h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul></div>`).join('') + biz;
+  const drawerGroups = privateGroups.map((g) => `<h3 data-t="group.${g.id}">${esc(g.name.en)}</h3><ul>${menuIds(g).map(svcLink).join('')}</ul>`).join('');
   return `<!-- vx:header:start -->
 <a class="vx-skip" href="#main-content" data-t="skip">${esc(en.skip)}</a>
 <header class="vx-hdr" role="banner">
@@ -63,7 +68,7 @@ function headerHTML() {
 <a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a>
 <nav class="vx-nav" aria-label="${esc(en['nav.primary_aria'])}" data-t-attr="aria-label:nav.primary_aria">
 <div class="vx-nav__menu" data-open="false"><button type="button" class="vx-nav__trigger" aria-expanded="false" aria-controls="vx-mega"><span data-t="nav.services">${esc(en['nav.services'])}</span><span class="vx-caret" aria-hidden="true"></span></button>
-<div class="vx-mega" id="vx-mega">${mega}<div class="vx-mega__foot"><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a><a href="/pricing.html" data-t="nav.all_prices">${esc(en['nav.all_prices'])}</a><a href="/request.html?service=legal_request" data-t="nav.not_sure">${esc(en['nav.not_sure'])}</a></div></div></div>
+<div class="vx-mega" id="vx-mega">${mega}<div class="vx-mega__foot"><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a><a href="/pricing.html" data-t="nav.all_prices">${esc(en['nav.all_prices'])}</a></div></div></div>
 <a href="/small-claims-documentation.html" data-t="nav.business">${esc(en['nav.business'])}</a>
 <a href="/pricing.html" data-t="nav.prices">${esc(en['nav.prices'])}</a>
 <a href="/about.html" data-t="nav.about">${esc(en['nav.about'])}</a>
@@ -80,7 +85,7 @@ function headerHTML() {
 <div class="vx-drawer" id="vx-drawer" data-open="false">
 <div class="vx-drawer__lang" role="group" aria-labelledby="vx-drawer-lang-h"><p id="vx-drawer-lang-h">Language / Язык / Idioma</p><div class="vx-seg">${segBtn('en', 'English', true)}${segBtn('ru', 'Русский', false)}${segBtn('es', 'Español', false)}</div></div>
 ${drawerGroups}
-<h3 data-t="nav.business">${esc(en['nav.business'])}</h3><ul><li><a href="/small-claims-documentation.html" data-t="footer.small_claims">${esc(en['footer.small_claims'])}</a></li></ul>
+<h3 data-t="nav.business">${esc(en['nav.business'])}</h3><ul>${bizLinks}</ul>
 <ul><li><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li><li><a href="/pricing.html" data-t="nav.prices">${esc(en['nav.prices'])}</a></li><li><a href="/about.html" data-t="nav.about">${esc(en['nav.about'])}</a></li><li><a href="/contact.html" data-t="nav.contact">${esc(en['nav.contact'])}</a></li></ul>
 <div class="vx-drawer__cta"><a class="vx-btn vx-btn--accent" href="/services.html" data-t="nav.choose">${esc(en['nav.choose'])}</a><a class="vx-btn vx-btn--ghost" href="tel:+18887948292">${ICON_PHONE}<span>(888) 794-8292</span></a></div>
 </div>
@@ -102,25 +107,29 @@ const NOTARY = {
 export const NOTICES = { IMM, NOTARY };
 
 function footerHTML() {
-  const fsvc = ['translation_certified', 'notary_ron_single', 'apostille_coordination', 'tax_1040_simple', 'company_basic', 'business_plan_basic', 'contracts_documents', 'immigration_simple', 'legal_request']
+  const fsvc = ['translation_certified', 'notary_ron_single', 'apostille_coordination', 'tax_1040_simple', 'name_change_adult_fl', 'fee_waiver_application', 'immigration_simple', 'company_basic', 'contracts_documents']
     .map((id) => `<li><a href="${pageHref(id)}" data-svc-name="${id}">${esc(svc(id).name.en)}</a></li>`).join('');
+  const li = (href, key) => `<li><a href="${href}" data-t="${key}">${esc(en[key])}</a></li>`;
   return `<!-- vx:footer:start -->
 <footer class="vx-ftr" role="contentinfo">
 <div class="vx-ftr__inner">
+<div class="vx-ftr__lead">
+<div class="vx-ftr__brand"><a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42" loading="lazy"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a><p class="vx-ftr__statement" data-t="footer.statement">${esc(en['footer.statement'])}</p></div>
+<div class="vx-ftr__reach"><h2 class="vx-sr" data-t="footer.h.contact">${esc(en['footer.h.contact'])}</h2><a class="vx-ftr__phone" href="tel:+18887948292">${ICON_PHONE}<span>(888) 794-8292</span></a><a class="vx-ftr__mail" href="mailto:info@vitacorexllc.com">info@vitacorexllc.com</a><p><span data-t="footer.hours">${esc(en['footer.hours'])}</span><br><span data-t="footer.location">${esc(en['footer.location'])}</span></p></div>
+</div>
 <div class="vx-ftr__grid">
-<div class="vx-ftr__brand"><a class="vx-brand" href="/" aria-label="${esc(en['nav.home_aria'])}" data-t-attr="aria-label:nav.home_aria"><img src="/assets/img/logo-84.png" alt="" width="42" height="42" loading="lazy"><span class="vx-brand__text"><span class="vx-brand__name">VitaCoreX</span><span class="vx-brand__tag">Consulting</span></span></a><p data-t="footer.desc">${esc(en['footer.desc'])}</p></div>
-<nav aria-labelledby="vx-f-svc"><h2 id="vx-f-svc" data-t="footer.h.services">${esc(en['footer.h.services'])}</h2><ul>${fsvc}<li><a href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li></ul></nav>
-<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul><li><a href="/small-claims-documentation.html" data-t="footer.small_claims">${esc(en['footer.small_claims'])}</a></li><li><a href="/small-claims-documentation.html#check" data-t="footer.check_case">${esc(en['footer.check_case'])}</a></li><li><a href="/net-recovery.html" data-t="footer.existing">${esc(en['footer.existing'])}</a></li></ul></nav>
-<nav aria-labelledby="vx-f-co"><h2 id="vx-f-co" data-t="footer.h.company">${esc(en['footer.h.company'])}</h2><ul><li><a href="/about.html" data-t="nav.about">${esc(en['nav.about'])}</a></li><li><a href="/pricing.html" data-t="nav.prices">${esc(en['nav.prices'])}</a></li><li><a href="/contact.html" data-t="nav.contact">${esc(en['nav.contact'])}</a></li><li><a href="/careers.html" data-t="footer.careers">${esc(en['footer.careers'])}</a></li><li><a href="/privacy-policy.html" data-t="footer.privacy">${esc(en['footer.privacy'])}</a></li><li><a href="/terms-of-use.html" data-t="footer.terms">${esc(en['footer.terms'])}</a></li><li><a href="/cookie-policy.html" data-t="footer.cookies">${esc(en['footer.cookies'])}</a></li></ul></nav>
-<div><h2 data-t="footer.h.contact">${esc(en['footer.h.contact'])}</h2><ul><li><a href="tel:+18887948292">(888) 794-8292</a></li><li><a href="mailto:info@vitacorexllc.com">info@vitacorexllc.com</a></li><li data-t="footer.hours">${esc(en['footer.hours'])}</li><li data-t="footer.location">${esc(en['footer.location'])}</li><li><a href="https://www.instagram.com/vitacorex_llc/" rel="noopener" target="_blank">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61554844507884" rel="noopener" target="_blank">Facebook</a></li></ul></div>
+<nav aria-labelledby="vx-f-svc"><h2 id="vx-f-svc" data-t="footer.h.services">${esc(en['footer.h.services'])}</h2><ul>${fsvc}<li><a class="vx-ftr__all" href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li></ul></nav>
+<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul>${li('/small-claims-documentation.html', 'footer.small_claims')}${li('/small-claims-documentation.html#check', 'footer.check_case')}${li('/net-recovery.html', 'footer.existing')}</ul></nav>
+<nav aria-labelledby="vx-f-co"><h2 id="vx-f-co" data-t="footer.h.company">${esc(en['footer.h.company'])}</h2><ul>${li('/about.html', 'nav.about')}${li('/pricing.html', 'nav.prices')}${li('/contact.html', 'nav.contact')}${li('/careers.html', 'footer.careers')}</ul></nav>
+<nav aria-labelledby="vx-f-legal"><h2 id="vx-f-legal" data-t="footer.h.legal">${esc(en['footer.h.legal'])}</h2><ul>${li('/privacy-policy.html', 'footer.privacy')}${li('/terms-of-use.html', 'footer.terms')}${li('/cookie-policy.html', 'footer.cookies')}</ul></nav>
 </div>
 <div class="vx-ftr__notices" role="region" aria-label="${esc(en['footer.notices_aria'])}" data-t-attr="aria-label:footer.notices_aria">
-<section class="vx-notice" aria-labelledby="vx-n-imm"><h3 id="vx-n-imm" data-t="notice.imm.title">${esc(en['notice.imm.title'])}</h3><p lang="en">${IMM.en}</p><p lang="ru">${IMM.ru}</p><p lang="es">${IMM.es}</p></section>
-<section class="vx-notice" data-vx-show-lang="ru" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><p lang="en">${NOTARY.en}</p><p lang="ru">${NOTARY.ru}</p></section>
-<section class="vx-notice" data-vx-show-lang="es" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><p lang="en">${NOTARY.en}</p><p lang="es">${NOTARY.es}</p></section>
 <p class="vx-ftr__general" data-t="footer.general">${esc(en['footer.general'])}</p>
+<section class="vx-notice vx-notice--imm" aria-labelledby="vx-n-imm"><h3 id="vx-n-imm" data-t="notice.imm.title">${esc(en['notice.imm.title'])}</h3><div class="vx-notice__cols"><p lang="en">${IMM.en}</p><p lang="ru">${IMM.ru}</p><p lang="es">${IMM.es}</p></div></section>
+<section class="vx-notice" data-vx-show-lang="ru" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><div class="vx-notice__cols vx-notice__cols--2"><p lang="en">${NOTARY.en}</p><p lang="ru">${NOTARY.ru}</p></div></section>
+<section class="vx-notice" data-vx-show-lang="es" hidden><h3 data-t="notice.notary.title">${esc(en['notice.notary.title'])}</h3><div class="vx-notice__cols vx-notice__cols--2"><p lang="en">${NOTARY.en}</p><p lang="es">${NOTARY.es}</p></div></section>
 </div>
-<div class="vx-ftr__bottom"><span data-t="footer.copyright">${esc(en['footer.copyright'])}</span><span>Tampa, FL</span></div>
+<div class="vx-ftr__bottom"><span data-t="footer.copyright">${esc(en['footer.copyright'])}</span><span class="vx-ftr__social"><a href="https://www.instagram.com/vitacorex_llc/" rel="noopener" target="_blank">Instagram</a><a href="https://www.facebook.com/profile.php?id=61554844507884" rel="noopener" target="_blank">Facebook</a></span></div>
 </div>
 </footer>
 <!-- vx:footer:end -->`;
@@ -166,6 +175,11 @@ function fillLeaves(html, file) {
     const v = kind === 'price-short' ? priceInfo(id).short : s[kind].en;
     return `<${tag}${attrs}>${esc(v)}</${tag}>`;
   });
+  // catalog lists: <ul data-svc-list="id:included|extra">…</ul> → English items (runtime swaps language)
+  html = html.replace(/<ul((?:\s[^>]*?)?\sdata-svc-list="([a-z0-9_]+):(included|extra)"[^>]*)>[\s\S]*?<\/ul>/g, (m, attrs, id, kind) => {
+    const s = svc(id); if (!s || !s[kind]) return m;
+    return `<ul${attrs}>${(s[kind].en || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+  });
   // price blocks: <div data-svc-price="id" ...>...</div> (inner replaced; no nested divs expected besides our own)
   html = html.replace(/<div((?:\s[^>]*?)?\sdata-svc-price="([a-z0-9_]+)"[^>]*)>(?:<div class="vx-price">[\s\S]*?<\/div>)?<\/div>/g, (m, attrs, id) => {
     if (!svc(id)) return m; return `<div${attrs}>${priceHTML(id, /data-no-tag/.test(attrs))}</div>`;
@@ -177,7 +191,22 @@ function fillLeaves(html, file) {
     return `<a${a}>${esc(en['action.' + s.action])}</a>`;
   });
   html = prerender(html);
+  html = prerenderEstimate(html);
+  html = inlineIcons(html);
   return html;
+}
+
+/* Static icons: <span data-icon="globe"></span> → inline SVG (same set as assets/js/vcx-icons.js). */
+const ICONS = (() => {
+  const src = fs.readFileSync(path.join(ROOT, 'assets/js/vcx-icons.js'), 'utf8');
+  const m = /var P = (\{[\s\S]*?\n  \});/.exec(src);
+  return m ? Function(`"use strict"; return (${m[1]});`)() : {};
+})();
+function inlineIcons(html) {
+  return html.replace(/<span([^>]*?)\sdata-icon="([a-z]+)"([^>]*)>(?:<svg[\s\S]*?<\/svg>)?<\/span>/g, (m, a, name, b) => {
+    const d = ICONS[name]; if (!d) { report.conflicts.push('unknown icon ' + name); return m; }
+    return `<span${a} data-icon="${name}"${b.replace(/\sdata-icon-done="1"/, '')} data-icon-done="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg></span>`;
+  });
 }
 
 /* Static EN pre-render for JS-rendered catalog blocks (no-JS/SEO parity with vcx-v2.js). */
@@ -186,19 +215,30 @@ function serviceCardEN(id) {
   const details = s.page && !s.page.startsWith('/request.html');
   return `<article class="vx-scard" data-service="${id}"><h3>${esc(s.name.en)}</h3><p>${esc(s.short.en)}</p>${priceHTML(id)}<div class="vx-scard__actions"><a class="vx-btn vx-btn--accent" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a>${details ? `<a class="vx-btn vx-btn--line" href="${s.page}">${esc(en['action.details'])}</a>` : ''}</div></article>`;
 }
+/* Service index rows (services.html) — same template as assets/js/vcx-v2-index.js rowHTML(). */
+function indexRowEN(id) {
+  const s = svc(id); if (!s) return '';
+  const pi = priceInfo(id); const page = s.page && !s.page.startsWith('/request.html') ? s.page : null;
+  const list = (k) => (s[k]?.en || []).map((x) => `<li>${esc(x)}</li>`).join('');
+  const name = page ? `<a href="${page}">${esc(s.name.en)}</a>` : esc(s.name.en);
+  return `<article class="vx-irow" data-service="${id}" data-pay="${s.action === 'order' || s.action === 'book_pay' ? '1' : '0'}"><div class="vx-irow__main"><h3>${name}</h3><p>${esc(s.short.en)}</p></div><div class="vx-irow__price"><span class="vx-irow__amount"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></span><span class="vx-irow__unit">${esc(pi.unit)}</span></div><div class="vx-irow__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a></div><details class="vx-irow__more"><summary>${esc(en['ix.more'])}</summary><div class="vx-irow__lists"><div><h4>${esc(en['scope.included'])}</h4><ul>${list('included')}</ul></div><div><h4>${esc(en['scope.extra'])}</h4><ul>${list('extra')}</ul></div></div></details></article>`;
+}
+function serviceIndexEN() {
+  return catalog.groups.filter((g) => g.lane === 'private').map((g) => `<section class="vx-index__group" id="${g.id}" data-group="${g.id}" aria-labelledby="ix-${g.id}"><h2 class="vx-index__gtitle" id="ix-${g.id}">${esc(g.name.en)}</h2>${g.services.map(indexRowEN).join('')}</section>`).join('');
+}
 function pricingEN() {
   return catalog.groups.map((g) => {
     const rows = g.services.map((id) => {
       const s = svc(id), pi = priceInfo(id);
-      const extra = (s.extra.en || []).slice(0, 2).join('; ');
+      const extra = (s.extra.en || []).slice(0, 2).join(' · ');
       const link = s.page && !s.page.startsWith('/request.html') ? `<a href="${s.page}">${esc(s.name.en)}</a>` : esc(s.name.en);
-      return `<tr><th scope="row">${link}<small>${esc(s.unit.en)}</small></th><td class="vx-ptable__price" data-label="${esc(en['pricing.col.price'])}">${esc(pi.short)}<small>${esc(pi.tag)}</small></td><td data-label="${esc(en['pricing.col.extra'])}">${esc(extra)}</td><td class="vx-ptable__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a></td></tr>`;
+      return `<tr><th scope="row">${link}<small>${esc(s.unit.en)}</small></th><td class="vx-ptable__price" data-label="${esc(en['pricing.col.price'])}"><span class="vx-pmark vx-pmark--${pi.cls.replace('vx-tag--', '')}" aria-hidden="true"></span>${esc(pi.short)}<span class="vx-sr"> (${esc(pi.tag)})</span></td><td data-label="${esc(en['pricing.col.extra'])}">${esc(extra)}</td><td class="vx-ptable__go"><a class="vx-btn vx-btn--line" href="${reqHref(id)}">${esc(en['action.' + s.action])}</a></td></tr>`;
     }).join('');
     return `<table class="vx-ptable"><caption>${esc(g.name.en)}</caption><thead><tr><th scope="col">${esc(en['pricing.col.service'])}</th><th scope="col">${esc(en['pricing.col.price'])}</th><th scope="col">${esc(en['pricing.col.extra'])}</th><th scope="col"><span class="vx-sr">${esc(en['pricing.col.action'])}</span></th></tr></thead><tbody>${rows}</tbody></table>`;
   }).join('');
 }
 function prerender(html) {
-  const re = /<div((?:\s[^>]*?)?\sdata-vx-render="(service-cards|pricing)"[^>]*)>/g; let m; let out = html;
+  const re = /<div((?:\s[^>]*?)?\sdata-vx-render="(service-cards|pricing|service-index)"[^>]*)>/g; let m; let out = html;
   const jobs = [];
   while ((m = re.exec(html))) {
     const start = m.index + m[0].length; let depth = 1; const r2 = /<div\b[^>]*>|<\/div>/g; r2.lastIndex = start; let x, end = -1;
@@ -206,6 +246,7 @@ function prerender(html) {
     if (end === -1) continue;
     let inner;
     if (m[2] === 'pricing') inner = pricingEN();
+    else if (m[2] === 'service-index') inner = serviceIndexEN();
     else {
       const g = /data-group="([a-z_]+)"/.exec(m[1]); const ids = /data-services="([^"]+)"/.exec(m[1]);
       const list = g ? (catalog.groups.find((y) => y.id === g[1]) || { services: [] }).services : (ids ? ids[1].split(/[\s,]+/) : []);
@@ -216,12 +257,41 @@ function prerender(html) {
   for (const [s, e, inner] of jobs.reverse()) out = out.slice(0, s) + inner + out.slice(e);
   return out;
 }
+/* Full-cost estimator, English default state (first county, new name, default copies) — mirrors assets/js/vcx-v2-estimate.js. */
+function prerenderEstimate(html) {
+  const m = /data-vx-estimate="([a-z0-9_]+)"/.exec(html); if (!m) return html;
+  const s = svc(m[1]); const F = s && s.third_party_fees; if (!F) return html;
+  const range = (a, b) => (a === b ? money(a) : `${money(a)}–${money(b)}`);
+  const row = (item, payee, amount) => `<tr><th scope="row">${esc(item)}</th><td>${esc(payee)}</td><td class="vx-est__num">${esc(amount)}</td></tr>`;
+  const c = F.counties[0], fee = s.price.amount_cents, copies = F.default_copies || 3;
+  const fmin = c.filing_cents ?? c.filing_min_cents, fmax = c.filing_cents ?? c.filing_max_cents;
+  let fam = range(fmin, fmax); if (!c.verified && fmin === fmax) fam = fmt('nc.est.about', { amount: fam });
+  const cc = F.certified_copy_cents * copies;
+  const min = fee + fmin + F.background_check_cents + F.fingerprint_service_min_cents + cc;
+  const max = fee + fmax + F.background_check_cents + F.fingerprint_service_max_cents + cc;
+  const rows = row(en['nc.est.r_ours'], 'VitaCoreX', money(fee)) + row(en['nc.est.r_filing'], en['nc.est.p_clerk'], fam)
+    + row(en['nc.est.r_check'], en['nc.est.p_fdle'], money(F.background_check_cents))
+    + row(en['nc.est.r_prints'], en['nc.est.p_vendor'], range(F.fingerprint_service_min_cents, F.fingerprint_service_max_cents))
+    + row(fmt('nc.est.r_copies', { n: copies }), en['nc.est.p_clerk'], money(cc));
+  const opts = F.counties.map((x) => `<option value="${x.id}">${esc(x.name || en['nc.est.county_other'])}</option>`).join('');
+  return html
+    .replace(/(<select[^>]*data-est="county"[^>]*>)[\s\S]*?(<\/select>)/, (m0, a, b) => a + opts + b)
+    .replace(/(<tbody data-est="rows">)[\s\S]*?(<\/tbody>)/, (m0, a, b) => a + rows + b)
+    .replace(/(<td[^>]*data-est="total"[^>]*>)[^<]*(<\/td>)/, (m0, a, b) => a + esc(fmt('nc.est.about', { amount: range(min, max) })) + b)
+    .replace(/(<p[^>]*data-est="paynote"[^>]*>)[^<]*(<\/p>)/, (m0, a, b) => a + esc(fmt('nc.est.paynote', { ours: money(fee), rest: range(min - fee, max - fee) })) + b)
+    .replace(/(<output data-est="copies"[^>]*>)[^<]*(<\/output>)/, (m0, a, b) => a + copies + b);
+}
 function decodeEntities(s) { return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ').replace(/&mdash;/g, '—').replace(/&ndash;/g, '–'); }
 
 function ensureHead(html) {
   const css = '<link rel="stylesheet" href="/assets/css/vcx-v2-shell.css?v=1">';
   const js = '<script src="/assets/js/vcx-v2.js?v=1" defer></script>';
+  const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap">';
   if (!html.includes('/assets/css/vcx-v2-shell.css')) html = html.replace('</head>', `${css}\n</head>`);
+  if (!html.includes('family=Source+Serif+4')) {
+    const i = html.indexOf('<link rel="stylesheet" href="/assets/css/vcx-v2-shell.css');
+    html = i === -1 ? html.replace('</head>', `${fonts}\n</head>`) : html.slice(0, i) + fonts + '\n' + html.slice(i);
+  }
   if (!html.includes('/assets/js/vcx-v2.js')) html = html.replace('</head>', `${js}\n</head>`);
   return html;
 }

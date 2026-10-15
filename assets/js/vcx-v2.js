@@ -95,7 +95,7 @@
     var p = s.price, a = p.amount_cents, out = { unit: loc(s.unit) };
     switch (p.display) {
       case 'fixed': out.amount = money(a); out.short = money(a); out.tag = t('price.tag.fixed'); out.tagClass = 'vx-tag--fixed'; break;
-      case 'fixed_plus_fees': out.amount = money(a); out.short = t('price.plus_fees', { amount: money(a) }); out.tag = t('price.tag.fixed_fees'); out.tagClass = 'vx-tag--fixed'; break;
+      case 'fixed_plus_fees': out.amount = money(a); out.short = t(p.fees_label ? 'price.plus_fees_' + p.fees_label : 'price.plus_fees', { amount: money(a) }); out.tag = t('price.tag.fixed_fees'); out.tagClass = 'vx-tag--fixed'; break;
       case 'from': out.amount = t('price.from', { amount: money(a) }); out.short = out.amount; out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'per_unit': out.amount = money(a); out.short = t('price.per_page_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
       case 'per_word': out.amount = money(a); out.short = t('price.per_word_short', { amount: money(a) }); out.tag = t('price.tag.after_review'); out.tagClass = 'vx-tag--quote'; break;
@@ -159,10 +159,10 @@
         '<th scope="col">' + esc(t('pricing.col.extra')) + '</th><th scope="col"><span class="vx-sr">' + esc(t('pricing.col.action')) + '</span></th></tr></thead><tbody>';
       g.services.forEach(function (id) {
         var s = svc(id), pi = priceInfo(id); if (!s) return;
-        var extra = ((s.extra && (s.extra[state.lang] || s.extra.en)) || []).slice(0, 2).join('; ');
+        var extra = ((s.extra && (s.extra[state.lang] || s.extra.en)) || []).slice(0, 2).join(' · ');
         var link = s.page && s.page.indexOf('/request.html') !== 0 ? '<a href="' + esc(s.page) + '">' + esc(loc(s.name)) + '</a>' : esc(loc(s.name));
         html += '<tr><th scope="row">' + link + '<small>' + esc(loc(s.unit)) + '</small></th>' +
-          '<td class="vx-ptable__price" data-label="' + esc(t('pricing.col.price')) + '">' + esc(pi.short) + '<small>' + esc(pi.tag) + '</small></td>' +
+          '<td class="vx-ptable__price" data-label="' + esc(t('pricing.col.price')) + '"><span class="vx-pmark vx-pmark--' + pi.tagClass.replace('vx-tag--', '') + '" aria-hidden="true"></span>' + esc(pi.short) + '<span class="vx-sr"> (' + esc(pi.tag) + ')</span></td>' +
           '<td data-label="' + esc(t('pricing.col.extra')) + '">' + esc(extra) + '</td>' +
           '<td class="vx-ptable__go"><a class="vx-btn vx-btn--line" href="' + esc(requestHref(id)) + '">' + esc(actionLabel(id)) + '</a></td></tr>';
       });
@@ -314,6 +314,38 @@
     document.body.insertBefore(r, document.body.firstChild);
   }
 
+  /* ---------------- small shared behaviours ---------------- */
+  function initBehaviours() {
+    /* segmented switch: <div class="vx-switch" data-vx-switch="#target" data-attr="data-mode"><button data-value=…> */
+    qsa('[data-vx-switch]').forEach(function (sw) {
+      var target = qs(sw.getAttribute('data-vx-switch')); if (!target) return;
+      var attr = sw.getAttribute('data-attr') || 'data-mode';
+      qsa('button[data-value]', sw).forEach(function (b) {
+        b.addEventListener('click', function () {
+          target.setAttribute(attr, b.getAttribute('data-value'));
+          qsa('button[data-value]', sw).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        });
+      });
+    });
+    /* FAQ: animate height open/close, keep native <details> semantics */
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) qsa('.vx-faq details').forEach(function (d) {
+      var sum = qs('summary', d), body = qs('summary + div', d); if (!sum || !body) return;
+      sum.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (d.open) {
+          var h = body.scrollHeight; body.style.height = h + 'px';
+          requestAnimationFrame(function () { body.style.transition = 'height .28s cubic-bezier(.16,1,.3,1)'; body.style.height = '0px'; });
+          body.addEventListener('transitionend', function te() { body.removeEventListener('transitionend', te); d.open = false; body.style.cssText = ''; });
+        } else {
+          d.open = true; var h2 = body.scrollHeight; body.style.height = '0px';
+          requestAnimationFrame(function () { body.style.transition = 'height .32s cubic-bezier(.16,1,.3,1)'; body.style.height = h2 + 'px'; });
+          body.addEventListener('transitionend', function te2() { body.removeEventListener('transitionend', te2); body.style.cssText = ''; });
+        }
+      });
+    });
+  }
+
   /* ---------------- public API ---------------- */
   window.VX = {
     t: t, money: money, priceInfo: priceInfo, priceHTML: priceHTML, svc: svc, loc: loc, esc: esc,
@@ -341,7 +373,7 @@
   var lang = initialLang();
   window.VX.ready = Promise.all([loadLang(lang), fetchJSON('/assets/data/vcx-catalog.json').then(function (c) { state.catalog = c; })])
     .then(function () {
-      applyStrings(); applyCatalog(); syncLangUI(); initHeader(); initPreviewRibbon(); initConsent();
+      applyStrings(); applyCatalog(); syncLangUI(); initHeader(); initBehaviours(); initPreviewRibbon(); initConsent();
       state.ready = true;
       document.documentElement.classList.add('vx-ready');
       document.dispatchEvent(new CustomEvent('vx:ready', { detail: { lang: state.lang } }));

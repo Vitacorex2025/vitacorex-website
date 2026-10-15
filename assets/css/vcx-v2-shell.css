@@ -24,8 +24,8 @@
   --vx-focus: #7CD2DE;
   --vx-danger: #9B2C35;
   --vx-ok: #1F6B4F;
-  --vx-serif: 'Practice', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --vx-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --vx-serif: 'Source Serif 4', 'VX Serif Fallback', Georgia, 'Times New Roman', serif;
+  --vx-sans: 'Inter', 'VX Sans Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --vx-container: 1280px;
   --vx-gutter: clamp(16px, 3vw, 32px);
   --vx-radius: 12px;
@@ -69,7 +69,7 @@
 .vx-brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; min-width: 0; min-height: 44px; }
 .vx-brand img { width: 42px; height: 42px; border-radius: 8px; flex: none; }
 .vx-brand__text { display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
-.vx-brand__name { font: 800 1.4rem/1.05 var(--vx-serif); letter-spacing: .02em; white-space: nowrap; }
+.vx-brand__name { font: 600 1.42rem/1.05 var(--vx-serif); letter-spacing: .02em; white-space: nowrap; }
 .vx-brand__tag { font: 700 .75rem/1.2 var(--vx-sans); letter-spacing: .26em; text-transform: uppercase; color: var(--vx-accent-soft); margin-top: 3px; white-space: nowrap; }
 
 .vx-nav { display: flex; justify-content: center; align-items: center; gap: 2px; }
@@ -85,18 +85,20 @@
 .vx-nav > a:hover::after, .vx-nav > a[aria-current="page"]::after, .vx-nav__trigger:hover::after,
 .vx-nav__menu[data-open="true"] .vx-nav__trigger::after { transform: scaleX(1); }
 .vx-nav__trigger .vx-caret { display: inline-block; width: 7px; height: 7px; margin-left: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-3px) rotate(45deg); transition: transform .2s ease; }
-.vx-nav__menu { position: relative; }
+.vx-hdr__row { position: relative; }
+.vx-nav__menu { position: static; }
 .vx-nav__menu[data-open="true"] .vx-caret { transform: translateY(1px) rotate(225deg); }
+/* Mega panel is anchored to the header container (not to the trigger), so it can never leave the viewport. */
 .vx-mega {
-  position: absolute; left: 50%; top: calc(100% + 8px); transform: translateX(-50%);
-  width: min(860px, calc(100vw - 32px)); background: #fff; color: var(--vx-text);
-  border: 1px solid rgba(8, 36, 48, .18); border-radius: 14px;
-  box-shadow: 0 18px 44px rgba(8, 36, 48, .28), 0 4px 12px rgba(8, 36, 48, .14);
-  padding: 20px; display: none; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  position: absolute; left: var(--vx-gutter); right: var(--vx-gutter); top: calc(100% - 6px); z-index: 95;
+  background: #fff; color: var(--vx-text);
+  border: 1px solid rgba(8, 36, 48, .16); border-radius: 16px;
+  box-shadow: 0 30px 60px -20px rgba(8, 36, 48, .45), 0 6px 18px rgba(8, 36, 48, .12);
+  padding: 22px; display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
 }
-.vx-mega::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+.vx-mega::before { content: ''; position: absolute; left: 0; right: 0; top: -28px; height: 28px; }
 .vx-nav__menu[data-open="true"] .vx-mega { display: grid; }
-.vx-mega__group h3 { font: 700 .78rem/1.3 var(--vx-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--vx-link); margin: 0 0 8px; }
+.vx-mega__group h3 { font: 600 .9rem/1.3 var(--vx-sans); letter-spacing: .01em; color: var(--vx-link); margin: 0 0 8px; }
 .vx-mega__group ul { list-style: none; margin: 0; padding: 0; }
 .vx-mega a {
   display: flex; justify-content: space-between; gap: 12px; padding: 9px 10px; border-radius: 8px;
@@ -167,7 +169,7 @@
 .vx-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .vx-seg button { min-height: 48px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .3); background: transparent; color: #fff; font: 700 .95rem/1 var(--vx-sans); cursor: pointer; }
 .vx-seg button[aria-pressed="true"] { background: var(--vx-accent); color: var(--vx-ink); border-color: var(--vx-accent); }
-.vx-drawer h3 { font: 700 .8rem/1.3 var(--vx-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--vx-accent-soft); margin: 18px 0 6px; }
+.vx-drawer h3 { font: 600 .92rem/1.3 var(--vx-sans); letter-spacing: .01em; color: var(--vx-accent-soft); margin: 18px 0 6px; }
 .vx-drawer ul { list-style: none; margin: 0; padding: 0; }
 .vx-drawer a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; padding: 0 4px; color: #fff; text-decoration: none; font: 600 1rem/1.3 var(--vx-sans); border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .vx-drawer a small { font: 500 .82rem/1.3 var(--vx-sans); color: #B8D8DE; white-space: nowrap; }
@@ -208,12 +210,12 @@ body.vx-drawer-open { overflow: hidden; }
 .vx-ftr__inner { max-width: var(--vx-container); margin: 0 auto; padding: 56px var(--vx-gutter) 28px; }
 .vx-ftr__grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
 .vx-ftr__brand p { margin: 12px 0 0; color: #B8D8DE; max-width: 34ch; }
-.vx-ftr h2 { font: 700 .8rem/1.3 var(--vx-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--vx-accent-soft); margin: 0 0 12px; }
+.vx-ftr h2 { font: 600 .95rem/1.3 var(--vx-sans); letter-spacing: .01em; color: var(--vx-accent-soft); margin: 0 0 12px; }
 .vx-ftr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .vx-ftr ul a { display: inline-block; padding: 3px 0; }
 .vx-ftr__notices { margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, .14); padding-top: 24px; display: grid; gap: 16px; }
 .vx-notice { border: 1px solid rgba(124, 210, 222, .35); border-radius: 10px; padding: 14px 16px; background: rgba(255, 255, 255, .03); }
-.vx-notice h3 { margin: 0 0 6px; font: 700 .8rem/1.3 var(--vx-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--vx-accent-soft); }
+.vx-notice h3 { margin: 0 0 6px; font: 600 .92rem/1.3 var(--vx-sans); letter-spacing: .01em; color: var(--vx-accent-soft); }
 .vx-notice p { margin: 0 0 4px; font: 500 .92rem/1.5 var(--vx-sans); color: #fff; }
 .vx-notice p[lang] { font-weight: 600; }
 .vx-ftr__general { margin: 0; color: #DCEBEE; font-size: .95rem; max-width: 110ch; }
@@ -257,3 +259,101 @@ header.vcx-header, header.vcx-header-glass { display: none !important; }
 .vx-ftr__brand { grid-column: 1 / -1; }
 @media (min-width: 68.75em) { .vx-ftr__brand { grid-column: auto; } }
 .vx-ftr a, .vx-ftr li, .vx-ftr p { overflow-wrap: anywhere; }
+/* mega v3: featured column + 3 service columns */
+.vx-mega { grid-template-columns: minmax(0, 1.15fr) repeat(3, minmax(0, 1fr)); padding: 14px 22px 18px 14px; }
+.vx-mega__feature { position: relative; border-radius: 12px; overflow: hidden; min-height: 280px; background: var(--vx-ink); color: #fff; display: flex; align-items: flex-end; }
+.vx-mega__feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .38; filter: grayscale(.4); }
+.vx-mega__feature::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 37, 48, .1) 0%, rgba(10, 37, 48, .92) 75%); }
+.vx-mega__feature-body { position: relative; z-index: 1; padding: 20px; }
+.vx-mega__feature-body .vx-mega__feature-title { font: 500 1.3rem/1.25 var(--vx-serif); margin: 0 0 8px; color: #fff; }
+.vx-mega__feature-body p { margin: 0 0 14px; font: 400 .92rem/1.5 var(--vx-sans); color: #DCEBEE; }
+.vx-mega .vx-mega__feature a.vx-btn { display: inline-flex; justify-content: center; color: var(--vx-ink); background: var(--vx-accent); padding: 0 16px; }
+.vx-mega .vx-mega__feature a.vx-btn:hover { background: var(--vx-accent-hi); color: var(--vx-ink); }
+.vx-mega__group { padding-top: 10px; }
+
+/* Fonts: metric-matched local fallbacks so layout does not jump while web fonts load */
+@font-face { font-family: 'VX Serif Fallback'; src: local('Georgia'); size-adjust: 103%; ascent-override: 92%; descent-override: 26%; line-gap-override: 0%; }
+@font-face { font-family: 'VX Sans Fallback'; src: local('Segoe UI'), local('Arial'); size-adjust: 107%; ascent-override: 90%; descent-override: 22%; line-gap-override: 0%; }
+body { font-optical-sizing: auto; }
+
+/* ==========================================================================
+   Shell v3 — dark glass mega panel continuing the header, page scrim,
+   footer with contact statement, directory and notice rows.
+   ========================================================================== */
+.vx-mega {
+  top: 100%; border-radius: 0 0 18px 18px; border: 1px solid rgba(124, 210, 222, .18); border-top: 0;
+  background: rgba(12, 44, 56, .97); color: #E3EFF1;
+  -webkit-backdrop-filter: blur(22px) saturate(140%); backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: 0 48px 90px -36px rgba(0, 10, 16, .75), 0 12px 28px rgba(0, 10, 16, .25);
+  padding: 22px 24px 18px; gap: 6px 28px;
+  grid-template-columns: minmax(0, 1fr) repeat(3, minmax(0, 1fr));
+  grid-template-areas: "feat documents court founders" "feat personal court biz" "foot foot foot foot";
+  align-content: start;
+}
+.vx-mega::before { top: -14px; height: 14px; }
+.vx-nav__menu[data-open="true"] .vx-mega { animation: vxMegaIn .26s var(--vx-ease-out, cubic-bezier(.16, 1, .3, 1)) both; }
+@keyframes vxMegaIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.vx-mega__feature { grid-area: feat; min-height: 0; align-self: stretch; border: 1px solid rgba(255, 255, 255, .08); }
+.vx-mega__feature img { opacity: .45; filter: saturate(.6); }
+.vx-mega__group--documents { grid-area: documents; }
+.vx-mega__group--personal { grid-area: personal; }
+.vx-mega__group--court { grid-area: court; }
+.vx-mega__group--founders { grid-area: founders; }
+.vx-mega__group--biz { grid-area: biz; }
+.vx-mega__group { padding: 6px 0 10px; }
+.vx-mega__group h3 { color: var(--vx-accent-soft); font: 600 .84rem/1.3 var(--vx-sans); letter-spacing: .02em; padding: 0 10px 8px; margin: 0 0 4px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.vx-mega a { color: #fff; font-weight: 500; padding: 8px 10px; align-items: baseline; }
+.vx-mega a small { color: #9FBFC6; font-weight: 500; }
+.vx-mega a:hover, .vx-mega a:focus-visible { background: rgba(124, 210, 222, .12); color: #fff; }
+.vx-mega a:hover small, .vx-mega a:focus-visible small { color: var(--vx-accent-soft); }
+.vx-mega__plain a { justify-content: flex-start; }
+.vx-mega__foot { grid-area: foot; border-top: 1px solid rgba(255, 255, 255, .1); padding-top: 12px; margin-top: 4px; justify-content: flex-end; }
+.vx-mega__foot a { color: var(--vx-accent-soft); font-weight: 600; }
+.vx-mega__foot a:hover { color: #fff; }
+@media (max-width: 80em) {
+  .vx-mega { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: "documents court founders" "personal court biz" "foot foot foot"; }
+  .vx-mega__feature { display: none; }
+}
+/* page scrim while the services panel is open (pointer-events off: hover logic stays on the menu) */
+body.vx::after { content: ''; position: fixed; inset: 0; z-index: 80; background: rgba(4, 18, 24, .45); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .22s ease, visibility 0s linear .22s; }
+body.vx:has(.vx-nav__menu[data-open="true"])::after { opacity: 1; visibility: visible; transition: opacity .22s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .vx-nav__menu[data-open="true"] .vx-mega { animation: none; }
+  body.vx::after { transition: none; }
+}
+
+/* footer v3 */
+.vx-ftr { background: var(--vx-ink); }
+.vx-ftr__inner { padding-top: clamp(48px, 6vw, 80px); }
+.vx-ftr__lead { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 48px; align-items: end; padding-bottom: clamp(32px, 4vw, 48px); border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.vx-ftr__statement { font: 460 clamp(1.45rem, 2.5vw, 2.15rem)/1.22 var(--vx-serif); color: #fff; max-width: 24ch; margin: 22px 0 0; letter-spacing: -.005em; }
+.vx-ftr__reach { justify-self: end; display: grid; gap: 6px; text-align: right; }
+.vx-ftr__reach p { margin: 6px 0 0; color: #B8D8DE; font-size: .92rem; }
+.vx-ftr__phone { display: inline-flex; align-items: center; justify-content: flex-end; gap: 10px; font: 600 clamp(1.25rem, 2vw, 1.6rem)/1.2 var(--vx-sans); color: #fff; }
+.vx-ftr__phone svg { width: 20px; height: 20px; color: var(--vx-accent-soft); }
+.vx-ftr__mail { font-weight: 500; color: var(--vx-accent-soft) !important; }
+.vx-ftr__grid { margin-top: clamp(32px, 4vw, 44px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr)); gap: 28px 32px; }
+.vx-ftr__grid h2 { color: #9FBFC6; font: 600 .84rem/1.3 var(--vx-sans); letter-spacing: .02em; }
+.vx-ftr__all { color: var(--vx-accent-soft) !important; font-weight: 600; }
+.vx-ftr__notices { margin-top: clamp(36px, 4vw, 48px); padding-top: 24px; gap: 20px; }
+.vx-ftr__general { color: #C9DFE3; max-width: 92ch; font-size: .92rem; }
+.vx-ftr .vx-notice { border: 0; border-radius: 0; background: none; padding: 0 0 0 16px; border-left: 2px solid rgba(124, 210, 222, .45); }
+.vx-ftr .vx-notice h3 { color: #9FBFC6; font: 600 .84rem/1.3 var(--vx-sans); margin: 0 0 8px; }
+.vx-notice__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 28px; }
+.vx-notice__cols--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.vx-ftr .vx-notice p { margin: 0; font: 500 .8rem/1.6 var(--vx-sans); letter-spacing: .01em; color: #D5E6EA; }
+.vx-ftr__bottom { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .1); align-items: center; }
+.vx-ftr__social { display: inline-flex; gap: 18px; }
+@media (max-width: 56em) {
+  .vx-ftr__lead { grid-template-columns: 1fr; }
+  .vx-ftr__reach { justify-self: start; text-align: left; }
+  .vx-ftr__phone { justify-content: flex-start; }
+  .vx-notice__cols, .vx-notice__cols--2 { grid-template-columns: 1fr; }
+}
+.vx-ftr__lead .vx-ftr__brand { grid-column: auto; }
+
+/* mega v3b: name over price (no squeezed columns), feature button kept as a button */
+.vx-mega__group a { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; }
+.vx-mega__group a small { white-space: normal; }
+.vx-mega .vx-mega__feature a.vx-btn { display: inline-flex; flex-direction: row; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 10px; font: 600 .92rem/1 var(--vx-sans); }
+.vx-mega__group ul { display: grid; gap: 2px; }

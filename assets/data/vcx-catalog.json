@@ -8,539 +8,2353 @@
     {
       "id": "documents",
       "lane": "private",
-      "name": {"en": "Documents & translations", "ru": "Документы и переводы", "es": "Documentos y traducciones"},
-      "services": ["translation_certified", "translation_standard", "notary_ron_single", "apostille_coordination"]
+      "name": {
+        "en": "Documents & translations",
+        "ru": "Документы и переводы",
+        "es": "Documentos y traducciones"
+      },
+      "services": [
+        "translation_certified",
+        "translation_standard",
+        "notary_ron_single",
+        "apostille_coordination"
+      ]
     },
     {
       "id": "personal",
       "lane": "private",
-      "name": {"en": "Taxes & personal paperwork", "ru": "Налоги и личные документы", "es": "Impuestos y trámites personales"},
-      "services": ["tax_1040_simple", "tax_self_employed", "tax_state_addon", "contracts_documents", "immigration_simple", "immigration_naturalization", "legal_request"]
+      "name": {
+        "en": "Taxes",
+        "ru": "Налоги",
+        "es": "Impuestos"
+      },
+      "services": [
+        "tax_1040_simple",
+        "tax_self_employed",
+        "tax_state_addon"
+      ]
+    },
+    {
+      "id": "court",
+      "lane": "private",
+      "name": {
+        "en": "Court, immigration & contracts",
+        "ru": "Суд, иммиграция и договоры",
+        "es": "Corte, inmigración y contratos"
+      },
+      "services": [
+        "name_change_adult_fl",
+        "name_change_family_fl",
+        "fee_waiver_application",
+        "immigration_simple",
+        "immigration_naturalization",
+        "contracts_documents",
+        "attorney_referral",
+        "legal_request"
+      ],
+      "menu": [
+        "name_change_adult_fl",
+        "fee_waiver_application",
+        "immigration_simple",
+        "immigration_naturalization",
+        "contracts_documents",
+        "attorney_referral"
+      ]
     },
     {
       "id": "founders",
       "lane": "private",
-      "name": {"en": "Starting a business", "ru": "Открытие бизнеса", "es": "Iniciar un negocio"},
-      "services": ["company_basic", "company_plus", "business_plan_basic"]
+      "name": {
+        "en": "Starting a business",
+        "ru": "Открытие бизнеса",
+        "es": "Iniciar un negocio"
+      },
+      "services": [
+        "company_basic",
+        "company_plus",
+        "business_plan_basic"
+      ]
     },
     {
       "id": "business",
       "lane": "business",
-      "name": {"en": "For companies: small claims", "ru": "Для компаний: small claims", "es": "Para empresas: small claims"},
-      "services": ["b2b_small_claims_packet", "b2b_small_claims_support", "existing_client_recovery"]
+      "name": {
+        "en": "For companies: small claims",
+        "ru": "Для компаний: small claims",
+        "es": "Para empresas: small claims"
+      },
+      "services": [
+        "b2b_small_claims_packet",
+        "b2b_small_claims_support",
+        "existing_client_recovery"
+      ]
     }
   ],
-  "featured_home": ["translation_certified", "notary_ron_single", "apostille_coordination", "tax_1040_simple", "company_basic", "contracts_documents"],
+  "featured_home": [
+    "translation_certified",
+    "notary_ron_single",
+    "apostille_coordination",
+    "tax_1040_simple",
+    "company_basic",
+    "contracts_documents"
+  ],
   "services": {
     "translation_certified": {
-      "family": "translation", "group": "documents", "lane": "private", "queue": "TRANSLATION_NOTARY_APOSTILLE",
-      "page": "/translations.html", "action": "quote", "image": "/assets/img/curated/hero-client-workspace.jpg",
-      "price": {"mode": "unit_after_quote", "display": "per_unit", "amount_cents": 2500, "unit_words": 250, "minimum_units": 1, "confidence": "high"},
-      "subtypes": ["certified", "translation_affidavit_optional"],
-      "fields": ["source_language", "target_language", "document_type", "approx_words", "deadline"],
+      "family": "translation",
+      "group": "documents",
+      "lane": "private",
+      "queue": "TRANSLATION_NOTARY_APOSTILLE",
+      "page": "/translations.html",
+      "action": "quote",
+      "image": "/assets/img/curated/hero-client-workspace.jpg",
+      "price": {
+        "mode": "unit_after_quote",
+        "display": "per_unit",
+        "amount_cents": 2500,
+        "unit_words": 250,
+        "minimum_units": 1,
+        "confidence": "high"
+      },
+      "subtypes": [
+        "certified",
+        "translation_affidavit_optional"
+      ],
+      "fields": [
+        "source_language",
+        "target_language",
+        "document_type",
+        "approx_words",
+        "deadline"
+      ],
       "notices": [],
-      "name": {"en": "Certified translation", "ru": "Перевод с удостоверением переводчика", "es": "Traducción certificada"},
+      "name": {
+        "en": "Certified translation",
+        "ru": "Сертифицированный перевод",
+        "es": "Traducción certificada"
+      },
       "short": {
         "en": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
-        "ru": "Свидетельства, дипломы, судебные и банковские документы — полный перевод с подписанным удостоверением переводчика.",
+        "ru": "Свидетельства, дипломы, судебные и банковские документы: полный перевод и подписанное заявление переводчика о его точности.",
         "es": "Actas, diplomas, documentos judiciales y bancarios: traducción completa con certificado firmado del traductor."
       },
-      "unit": {"en": "per 250 source words (one standard page)", "ru": "за 250 слов оригинала (одна стандартная страница)", "es": "por cada 250 palabras del original (una página estándar)"},
+      "unit": {
+        "en": "per 250 source words (one standard page)",
+        "ru": "за 250 слов оригинала (одна стандартная страница)",
+        "es": "por cada 250 palabras del original (una página estándar)"
+      },
       "included": {
-        "en": ["Complete translation of the document", "Signed translator certificate of accuracy", "Digital delivery (PDF)", "Check of language pair and legibility before you pay"],
-        "ru": ["Полный перевод документа", "Подписанное удостоверение переводчика о точности перевода", "Доставка в электронном виде (PDF)", "Проверка языковой пары и читаемости до оплаты"],
-        "es": ["Traducción completa del documento", "Certificado firmado de exactitud del traductor", "Entrega digital (PDF)", "Revisión del par de idiomas y legibilidad antes de pagar"]
+        "en": [
+          "Complete translation of the document",
+          "Signed translator certificate of accuracy",
+          "Digital delivery (PDF)",
+          "Check of language pair and legibility before you pay"
+        ],
+        "ru": [
+          "Полный перевод документа",
+          "Подписанное заявление переводчика о точности перевода",
+          "Доставка в электронном виде (PDF)",
+          "Проверка языковой пары и читаемости до оплаты"
+        ],
+        "es": [
+          "Traducción completa del documento",
+          "Certificado firmado de exactitud del traductor",
+          "Entrega digital (PDF)",
+          "Revisión del par de idiomas y legibilidad antes de pagar"
+        ]
       },
       "extra": {
-        "en": ["Rush delivery", "Rare language pairs and complex layout", "Notarized translator affidavit (separate notary)", "Printed copies and postage"],
-        "ru": ["Срочное выполнение", "Редкие языковые пары и сложная вёрстка", "Нотариально заверенное заявление переводчика (отдельный нотариат)", "Печатные копии и почтовая доставка"],
-        "es": ["Entrega urgente", "Pares de idiomas poco comunes y diseño complejo", "Declaración jurada del traductor notarizada (por separado)", "Copias impresas y envío postal"]
+        "en": [
+          "Rush delivery",
+          "Rare language pairs and complex layout",
+          "Notarized translator affidavit (a separate notarial act)",
+          "Printed copies and postage"
+        ],
+        "ru": [
+          "Срочное выполнение",
+          "Редкие языковые пары и сложная вёрстка",
+          "Заявление переводчика с нотариальным заверением (отдельное нотариальное действие)",
+          "Печатные копии и почтовая доставка"
+        ],
+        "es": [
+          "Entrega urgente",
+          "Pares de idiomas poco comunes y diseño complejo",
+          "Declaración jurada del traductor notarizada (acto notarial aparte)",
+          "Copias impresas y envío postal"
+        ]
       },
       "next": {
         "en": "Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.",
         "ru": "Укажите языковую пару и примерный объём. Мы подтвердим количество слов, цену и срок, затем вы оплатите и загрузите документ по закрытой ссылке.",
         "es": "Indique el par de idiomas y el tamaño aproximado. Confirmamos palabras, precio y fecha; luego paga y sube el documento por un enlace privado."
+      },
+      "keywords": {
+        "en": [
+          "translate",
+          "translation",
+          "certified",
+          "birth certificate",
+          "diploma",
+          "transcript",
+          "marriage certificate",
+          "uscis translation",
+          "court translation",
+          "bank statement"
+        ],
+        "ru": [
+          "перевод",
+          "перевести",
+          "заверенный перевод",
+          "свидетельство о рождении",
+          "диплом",
+          "аттестат",
+          "свидетельство о браке",
+          "справка",
+          "перевод для uscis",
+          "выписка"
+        ],
+        "es": [
+          "traducción",
+          "traducir",
+          "certificada",
+          "acta de nacimiento",
+          "diploma",
+          "título",
+          "acta de matrimonio",
+          "traducción para uscis",
+          "certificado"
+        ]
       }
     },
     "translation_standard": {
-      "family": "translation", "group": "documents", "lane": "private", "queue": "TRANSLATION_NOTARY_APOSTILLE",
-      "page": "/translations.html", "action": "quote", "image": "/assets/img/curated/hero-client-workspace.jpg",
-      "price": {"mode": "per_word_quote_required", "display": "per_word", "amount_cents": 10, "minimum_cents": 2500, "confidence": "medium"},
-      "subtypes": ["general", "specialist"],
-      "fields": ["source_language", "target_language", "document_type", "approx_words", "deadline"],
+      "family": "translation",
+      "group": "documents",
+      "lane": "private",
+      "queue": "TRANSLATION_NOTARY_APOSTILLE",
+      "page": "/translations.html",
+      "action": "quote",
+      "image": "/assets/img/curated/hero-client-workspace.jpg",
+      "price": {
+        "mode": "per_word_quote_required",
+        "display": "per_word",
+        "amount_cents": 10,
+        "minimum_cents": 2500,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "general",
+        "specialist"
+      ],
+      "fields": [
+        "source_language",
+        "target_language",
+        "document_type",
+        "approx_words",
+        "deadline"
+      ],
       "notices": [],
-      "name": {"en": "General translation", "ru": "Обычный перевод", "es": "Traducción general"},
+      "name": {
+        "en": "General translation",
+        "ru": "Обычный перевод",
+        "es": "Traducción general"
+      },
       "short": {
         "en": "Letters, websites, business and personal texts that do not need a certificate.",
         "ru": "Письма, сайты, деловые и личные тексты, для которых не нужно удостоверение.",
         "es": "Cartas, sitios web, textos personales y de negocio que no requieren certificado."
       },
-      "unit": {"en": "per source word, $25 minimum order", "ru": "за слово оригинала, минимальный заказ $25", "es": "por palabra del original, pedido mínimo de $25"},
+      "unit": {
+        "en": "per source word, $25 minimum order",
+        "ru": "за слово оригинала, минимальный заказ $25",
+        "es": "por palabra del original, pedido mínimo de $25"
+      },
       "included": {
-        "en": ["Translation of the agreed text", "One round of clarifications", "Delivery in an editable file"],
-        "ru": ["Перевод согласованного текста", "Один раунд уточнений", "Передача в редактируемом файле"],
-        "es": ["Traducción del texto acordado", "Una ronda de aclaraciones", "Entrega en archivo editable"]
+        "en": [
+          "Translation of the agreed text",
+          "One round of clarifications",
+          "Delivery in an editable file"
+        ],
+        "ru": [
+          "Перевод согласованного текста",
+          "Один раунд уточнений",
+          "Передача в редактируемом файле"
+        ],
+        "es": [
+          "Traducción del texto acordado",
+          "Una ronda de aclaraciones",
+          "Entrega en archivo editable"
+        ]
       },
       "extra": {
-        "en": ["Specialist subject matter (medical, technical, legal terminology)", "Rush delivery", "Layout restoration"],
-        "ru": ["Узкая тематика (медицинская, техническая, юридическая терминология)", "Срочное выполнение", "Восстановление вёрстки"],
-        "es": ["Temas especializados (terminología médica, técnica, jurídica)", "Entrega urgente", "Restauración del diseño"]
+        "en": [
+          "Specialist subject matter (medical, technical, legal terminology)",
+          "Rush delivery",
+          "Layout restoration"
+        ],
+        "ru": [
+          "Узкая тематика (медицинская, техническая, юридическая терминология)",
+          "Срочное выполнение",
+          "Восстановление вёрстки"
+        ],
+        "es": [
+          "Temas especializados (terminología médica, técnica, jurídica)",
+          "Entrega urgente",
+          "Restauración del diseño"
+        ]
       },
       "next": {
         "en": "Tell us the language pair, size and deadline. You receive a written quote before any payment.",
         "ru": "Укажите языковую пару, объём и срок. До оплаты вы получите письменную смету.",
         "es": "Indique el par de idiomas, el tamaño y el plazo. Recibirá un presupuesto escrito antes de pagar."
+      },
+      "keywords": {
+        "en": [
+          "translate letter",
+          "website translation",
+          "text translation",
+          "general translation"
+        ],
+        "ru": [
+          "перевод письма",
+          "перевод сайта",
+          "перевод текста",
+          "обычный перевод"
+        ],
+        "es": [
+          "traducir carta",
+          "traducción de sitio web",
+          "traducción de texto"
+        ]
       }
     },
     "notary_ron_single": {
-      "family": "notary", "group": "documents", "lane": "private", "queue": "TRANSLATION_NOTARY_APOSTILLE",
-      "page": "/online-notary.html", "action": "book_pay", "image": "/assets/img/curated/quick-private-clients.jpg",
-      "price": {"mode": "fixed_after_eligibility", "display": "fixed", "amount_cents": 2500, "confidence": "high"},
-      "subtypes": ["acknowledgment_scope", "oath_affirmation_scope", "unsure_notarial_act"],
-      "fields": ["document_type", "signer_count", "signer_location", "has_photo_id", "preferred_time"],
-      "notices": ["notary_advertising"],
-      "name": {"en": "Online notarization", "ru": "Заверение документов онлайн", "es": "Notarización en línea"},
-      "short": {
-        "en": "Remote online notarization by a Florida Notary Public — by video, from anywhere you have a camera and a valid photo ID.",
-        "ru": "Удалённое заверение по видео у Florida Notary Public — из любого места, где есть камера и действующее удостоверение личности с фото.",
-        "es": "Notarización remota por video ante un Florida Notary Public, desde cualquier lugar con cámara e identificación vigente con foto."
+      "family": "notary",
+      "group": "documents",
+      "lane": "private",
+      "queue": "TRANSLATION_NOTARY_APOSTILLE",
+      "page": "/online-notary.html",
+      "action": "book_pay",
+      "image": "/assets/img/curated/quick-private-clients.jpg",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed",
+        "amount_cents": 2500,
+        "confidence": "high"
       },
-      "unit": {"en": "per notarial act", "ru": "за одно нотариальное действие", "es": "por acto notarial"},
+      "subtypes": [
+        "acknowledgment_scope",
+        "oath_affirmation_scope",
+        "unsure_notarial_act"
+      ],
+      "fields": [
+        "document_type",
+        "signer_count",
+        "signer_location",
+        "has_photo_id",
+        "preferred_time"
+      ],
+      "notices": [
+        "notary_advertising"
+      ],
+      "name": {
+        "en": "Online notarization",
+        "ru": "Заверение документов онлайн",
+        "es": "Notarización en línea"
+      },
+      "short": {
+        "en": "Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.",
+        "ru": "Заверение по видеосвязи у Florida Notary Public. Нужны камера и действующее удостоверение личности с фото; если вы за пределами США, сначала проверим, возможно ли заверение.",
+        "es": "Notarización por video en vivo ante un Florida Notary Public. Necesita una cámara y una identificación vigente con foto; si está fuera de EE. UU., primero confirmamos si es posible."
+      },
+      "unit": {
+        "en": "per notarial act",
+        "ru": "за одно нотариальное действие",
+        "es": "por acto notarial"
+      },
       "included": {
-        "en": ["One online notarial act on your document", "Identity verification on the online platform", "Electronic notarized document", "Session recording kept as required by Florida law"],
-        "ru": ["Одно онлайн-действие по вашему документу", "Проверка личности на онлайн-платформе", "Документ с электронным заверением", "Хранение записи сеанса по требованиям закона Флориды"],
-        "es": ["Un acto notarial en línea sobre su documento", "Verificación de identidad en la plataforma", "Documento notarizado electrónico", "Grabación de la sesión conservada según la ley de Florida"]
+        "en": [
+          "One online notarial act on your document",
+          "Identity verification on the online platform",
+          "Electronic notarized document",
+          "Session recording kept as required by Florida law"
+        ],
+        "ru": [
+          "Одно нотариальное действие онлайн по вашему документу",
+          "Проверка личности на онлайн-платформе",
+          "Документ с электронным заверением",
+          "Хранение записи сеанса по требованиям закона Флориды"
+        ],
+        "es": [
+          "Un acto notarial en línea sobre su documento",
+          "Verificación de identidad en la plataforma",
+          "Documento notarizado electrónico",
+          "Grabación de la sesión conservada según la ley de Florida"
+        ]
       },
       "extra": {
-        "en": ["Each additional signature or act", "Witnesses, if your document needs them", "Printed copy and mailing"],
-        "ru": ["Каждая дополнительная подпись или действие", "Свидетели, если они нужны для документа", "Печатная копия и отправка по почте"],
-        "es": ["Cada firma o acto adicional", "Testigos, si su documento los requiere", "Copia impresa y envío"]
+        "en": [
+          "Each additional signature or act",
+          "Witnesses, if your document needs them",
+          "Printed copy and mailing"
+        ],
+        "ru": [
+          "Каждая дополнительная подпись или действие",
+          "Свидетели, если они нужны для документа",
+          "Печатная копия и отправка по почте"
+        ],
+        "es": [
+          "Cada firma o acto adicional",
+          "Testigos, si su documento los requiere",
+          "Copia impresa y envío"
+        ]
       },
       "next": {
-        "en": "Answer three quick questions, pay $25 and choose a time. We confirm the appointment by email once the calendar accepts it.",
-        "ru": "Ответьте на три коротких вопроса, оплатите $25 и выберите время. Встречу подтверждаем письмом после того, как её примет календарь.",
-        "es": "Responda tres preguntas, pague $25 y elija la hora. Confirmamos la cita por correo cuando el calendario la acepta."
+        "en": "Answer three quick questions, pay for the notarial act and pick a time. Your appointment is confirmed once the calendar email arrives.",
+        "ru": "Ответьте на три коротких вопроса, оплатите нотариальное действие и выберите время. Запись подтверждена, когда придёт письмо из календаря.",
+        "es": "Responda tres preguntas breves, pague el acto notarial y elija la hora. Su cita queda confirmada cuando le llegue el correo del calendario."
+      },
+      "keywords": {
+        "en": [
+          "notary",
+          "notarize",
+          "notarization",
+          "power of attorney",
+          "affidavit",
+          "sign",
+          "signature",
+          "online notary",
+          "ron"
+        ],
+        "ru": [
+          "заверить",
+          "заверение",
+          "нотариально",
+          "доверенность",
+          "подпись",
+          "аффидевит",
+          "заверить подпись",
+          "онлайн заверение"
+        ],
+        "es": [
+          "notarizar",
+          "notarización",
+          "poder notarial",
+          "declaración jurada",
+          "firma",
+          "notarizar en línea"
+        ]
       }
     },
     "apostille_coordination": {
-      "family": "apostille", "group": "documents", "lane": "private", "queue": "TRANSLATION_NOTARY_APOSTILLE",
-      "page": "/apostille.html", "action": "quote", "image": "/assets/img/curated/quick-file-control.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 11900, "confidence": "medium"},
-      "subtypes": ["state_document", "federal_document", "foreign_document", "unsure_origin"],
-      "fields": ["issuing_state", "document_type", "destination_country", "has_original"],
-      "notices": [],
-      "name": {"en": "Apostille assistance", "ru": "Помощь с апостилем", "es": "Gestión de apostilla"},
-      "short": {
-        "en": "We find the right authority for your document and destination country, prepare the submission and track it.",
-        "ru": "Определим нужный орган для вашего документа и страны назначения, подготовим подачу и отследим её.",
-        "es": "Identificamos la autoridad correcta según su documento y país de destino, preparamos la solicitud y le damos seguimiento."
+      "family": "apostille",
+      "group": "documents",
+      "lane": "private",
+      "queue": "TRANSLATION_NOTARY_APOSTILLE",
+      "page": "/apostille.html",
+      "action": "quote",
+      "image": "/assets/img/curated/quick-file-control.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 11900,
+        "confidence": "medium"
       },
-      "unit": {"en": "service fee for the first document", "ru": "плата за услугу по первому документу", "es": "tarifa de servicio por el primer documento"},
+      "subtypes": [
+        "state_document",
+        "federal_document",
+        "foreign_document",
+        "unsure_origin"
+      ],
+      "fields": [
+        "issuing_state",
+        "document_type",
+        "destination_country",
+        "has_original"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Apostille assistance",
+        "ru": "Помощь с апостилем",
+        "es": "Gestión de apostilla"
+      },
+      "short": {
+        "en": "We find the office that apostilles your document for the country you need, prepare the request and track it.",
+        "ru": "Определим, какой орган ставит апостиль на ваш документ для нужной страны, подготовим запрос и проследим за ним.",
+        "es": "Identificamos qué oficina apostilla su documento para el país de destino, preparamos la solicitud y le damos seguimiento."
+      },
+      "unit": {
+        "en": "service fee for the first document",
+        "ru": "плата за услугу по первому документу",
+        "es": "tarifa de servicio por el primer documento"
+      },
       "included": {
-        "en": ["Check of document origin, type and destination", "Route to the correct state or federal authority", "Preparation of the request and cover letter", "Tracking and status updates"],
-        "ru": ["Проверка происхождения, вида документа и страны назначения", "Выбор нужного органа штата или федерального уровня", "Подготовка запроса и сопроводительного письма", "Отслеживание и сообщения о статусе"],
-        "es": ["Revisión del origen, tipo de documento y destino", "Envío a la autoridad estatal o federal correcta", "Preparación de la solicitud y carta de presentación", "Seguimiento y avisos de estado"]
+        "en": [
+          "Check of document origin, type and destination",
+          "Route to the correct state or federal authority",
+          "Preparation of the request and cover letter",
+          "Tracking and status updates"
+        ],
+        "ru": [
+          "Проверка происхождения, вида документа и страны назначения",
+          "Выбор нужного органа штата или федерального уровня",
+          "Подготовка запроса и сопроводительного письма",
+          "Отслеживание и сообщения о статусе"
+        ],
+        "es": [
+          "Revisión del origen, tipo de documento y destino",
+          "Envío a la autoridad estatal o federal correcta",
+          "Preparación de la solicitud y carta de presentación",
+          "Seguimiento y avisos de estado"
+        ]
       },
       "extra": {
-        "en": ["Government apostille fees", "Shipping and courier", "Certified copies, translation, embassy legalization"],
-        "ru": ["Государственные сборы за апостиль", "Доставка и курьер", "Заверенные копии, перевод, консульская легализация"],
-        "es": ["Tasas gubernamentales de apostilla", "Envío y mensajería", "Copias certificadas, traducción, legalización consular"]
+        "en": [
+          "Government apostille fees",
+          "Shipping and courier",
+          "Certified copies, translation, embassy legalization"
+        ],
+        "ru": [
+          "Государственные сборы за апостиль",
+          "Доставка и курьер",
+          "Заверенные копии, перевод, консульская легализация"
+        ],
+        "es": [
+          "Tasas gubernamentales de apostilla",
+          "Envío y mensajería",
+          "Copias certificadas, traducción, legalización consular"
+        ]
       },
       "next": {
         "en": "Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.",
         "ru": "Укажите, где выдан документ и где он будет использоваться. До оплаты вы получите смету по статьям: услуга, госсбор и доставка.",
         "es": "Indique dónde se emitió el documento y dónde lo usará. Antes de pagar recibe un presupuesto detallado: servicio, tasa oficial y envío."
+      },
+      "keywords": {
+        "en": [
+          "apostille",
+          "legalize",
+          "legalization",
+          "documents for abroad",
+          "hague"
+        ],
+        "ru": [
+          "апостиль",
+          "легализация",
+          "документы за границу",
+          "для заграницы",
+          "гаагская"
+        ],
+        "es": [
+          "apostilla",
+          "legalizar",
+          "legalización",
+          "documentos para el extranjero"
+        ]
       }
     },
     "tax_1040_simple": {
-      "family": "tax", "group": "personal", "lane": "private", "queue": "TAX",
-      "page": "/tax-preparation.html", "action": "quote", "image": "/assets/img/curated/leak-payment-plan.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 14900, "confidence": "high"},
-      "subtypes": ["simple_w2", "mixed_income", "prior_year", "amendment", "extension_question", "other_tax"],
-      "fields": ["tax_year", "tax_type", "tax_state", "deadline"],
-      "notices": [],
-      "name": {"en": "Individual tax return", "ru": "Налоговая декларация физлица", "es": "Declaración de impuestos individual"},
-      "short": {
-        "en": "Federal individual return (Form 1040) prepared by our accounting team after a short scoping call.",
-        "ru": "Федеральная декларация физлица (Form 1040), которую готовит наша бухгалтерия после короткого уточнения задачи.",
-        "es": "Declaración federal individual (Formulario 1040) preparada por nuestro equipo contable tras una breve revisión."
+      "family": "tax",
+      "group": "personal",
+      "lane": "private",
+      "queue": "TAX",
+      "page": "/tax-preparation.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-payment-plan.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 14900,
+        "confidence": "high"
       },
-      "unit": {"en": "simple federal return, one tax year", "ru": "простая федеральная декларация, один налоговый год", "es": "declaración federal sencilla, un año fiscal"},
+      "subtypes": [
+        "simple_w2",
+        "mixed_income",
+        "prior_year",
+        "amendment",
+        "extension_question",
+        "other_tax"
+      ],
+      "fields": [
+        "tax_year",
+        "tax_type",
+        "tax_state",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Individual tax return",
+        "ru": "Личная налоговая декларация",
+        "es": "Declaración de impuestos individual"
+      },
+      "short": {
+        "en": "Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.",
+        "ru": "Федеральная декларация (Form 1040), которую готовит наша бухгалтерия после короткого разговора о вашей ситуации.",
+        "es": "Declaración federal individual (Formulario 1040) preparada por nuestro equipo contable tras una breve llamada sobre su situación."
+      },
+      "unit": {
+        "en": "simple federal return, one tax year",
+        "ru": "простая федеральная декларация, один налоговый год",
+        "es": "declaración federal sencilla, un año fiscal"
+      },
       "included": {
-        "en": ["Scoping of your tax year and income types", "Preparation of a straightforward W-2 federal return", "Review of the return with you before filing", "Secure document exchange — never by email"],
-        "ru": ["Уточнение налогового года и видов дохода", "Подготовка простой федеральной декларации по W-2", "Согласование декларации с вами до подачи", "Защищённый обмен документами — никогда по email"],
-        "es": ["Revisión del año fiscal y tipos de ingreso", "Preparación de una declaración federal sencilla con W-2", "Revisión con usted antes de presentarla", "Intercambio seguro de documentos, nunca por correo"]
+        "en": [
+          "A short talk about your tax year and income types",
+          "Preparation of a straightforward W-2 federal return",
+          "Review of the return with you before filing",
+          "Secure document exchange — never by email"
+        ],
+        "ru": [
+          "Короткий разговор о налоговом годе и видах дохода",
+          "Подготовка простой федеральной декларации по W-2",
+          "Согласование декларации с вами до подачи",
+          "Защищённый обмен документами — никогда по email"
+        ],
+        "es": [
+          "Una breve conversación sobre su año fiscal y tipos de ingreso",
+          "Preparación de una declaración federal sencilla con W-2",
+          "Revisión con usted antes de presentarla",
+          "Intercambio seguro de documentos, nunca por correo"
+        ]
       },
       "extra": {
-        "en": ["State return", "Self-employment, rental or foreign income", "Amended or prior-year returns"],
-        "ru": ["Декларация штата", "Самозанятость, аренда или иностранный доход", "Исправленные декларации и прошлые годы"],
-        "es": ["Declaración estatal", "Trabajo independiente, alquileres o ingresos del extranjero", "Declaraciones enmendadas o de años anteriores"]
+        "en": [
+          "State return",
+          "Self-employment, rental or foreign income",
+          "Amended or prior-year returns"
+        ],
+        "ru": [
+          "Декларация штата",
+          "Самозанятость, аренда или иностранный доход",
+          "Исправленные декларации и прошлые годы"
+        ],
+        "es": [
+          "Declaración estatal",
+          "Trabajo independiente, alquileres o ingresos del extranjero",
+          "Declaraciones enmendadas o de años anteriores"
+        ]
       },
       "next": {
-        "en": "Tell us the tax year and type of return. We confirm scope and price, then send a secure link for documents. Do not send SSNs or tax forms through the website form.",
-        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим объём и цену и пришлём защищённую ссылку для документов. Не отправляйте SSN и налоговые формы через форму сайта.",
-        "es": "Indique el año fiscal y el tipo de declaración. Confirmamos alcance y precio y enviamos un enlace seguro para documentos. No envíe su SSN ni formularios fiscales por el sitio web."
+        "en": "Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.",
+        "ru": "Укажите налоговый год и тип декларации. Мы подтвердим, что входит в работу и сколько она стоит, и пришлём защищённую ссылку для документов. SSN и налоговые формы через форму сайта не отправляйте.",
+        "es": "Indique el año fiscal y el tipo de declaración. Confirmamos qué incluye y el precio, y le enviamos un enlace seguro para sus documentos. No envíe su SSN ni formularios fiscales por el formulario del sitio."
+      },
+      "keywords": {
+        "en": [
+          "tax",
+          "taxes",
+          "tax return",
+          "1040",
+          "w-2",
+          "irs",
+          "refund",
+          "file taxes"
+        ],
+        "ru": [
+          "налог",
+          "налоги",
+          "декларация",
+          "налоговая декларация",
+          "1040",
+          "w-2",
+          "irs",
+          "возврат налога",
+          "подать налоги"
+        ],
+        "es": [
+          "impuestos",
+          "declaración de impuestos",
+          "taxes",
+          "1040",
+          "w-2",
+          "irs",
+          "reembolso"
+        ]
       }
     },
     "tax_self_employed": {
-      "family": "tax", "group": "personal", "lane": "private", "queue": "TAX",
-      "page": "/tax-preparation.html", "action": "quote", "image": "/assets/img/curated/leak-payment-plan.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 24900, "confidence": "low"},
-      "subtypes": ["self_employed"],
-      "fields": ["tax_year", "tax_type", "tax_state", "deadline"],
+      "family": "tax",
+      "group": "personal",
+      "lane": "private",
+      "queue": "TAX",
+      "page": "/tax-preparation.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-payment-plan.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 24900,
+        "confidence": "low"
+      },
+      "subtypes": [
+        "self_employed"
+      ],
+      "fields": [
+        "tax_year",
+        "tax_type",
+        "tax_state",
+        "deadline"
+      ],
       "notices": [],
-      "name": {"en": "Self-employed tax return", "ru": "Декларация для самозанятых", "es": "Declaración para trabajadores independientes"},
+      "name": {
+        "en": "Self-employed tax return",
+        "ru": "Декларация для самозанятых",
+        "es": "Declaración para trabajadores independientes"
+      },
       "short": {
         "en": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
         "ru": "Федеральная декларация с одним простым Schedule C — для фрилансеров, подрядчиков и ИП.",
         "es": "Declaración federal con un Anexo C sencillo para independientes, contratistas y negocios unipersonales."
       },
-      "unit": {"en": "federal return with one simple Schedule C", "ru": "федеральная декларация с одним простым Schedule C", "es": "declaración federal con un Anexo C sencillo"},
+      "unit": {
+        "en": "federal return with one simple Schedule C",
+        "ru": "федеральная декларация с одним простым Schedule C",
+        "es": "declaración federal con un Anexo C sencillo"
+      },
       "included": {
-        "en": ["Readiness check of your income and expense records", "Federal return with one Schedule C", "Review with you before filing"],
-        "ru": ["Проверка готовности учёта доходов и расходов", "Федеральная декларация с одним Schedule C", "Согласование с вами до подачи"],
-        "es": ["Revisión de sus registros de ingresos y gastos", "Declaración federal con un Anexo C", "Revisión con usted antes de presentarla"]
+        "en": [
+          "Readiness check of your income and expense records",
+          "Federal return with one Schedule C",
+          "Review with you before filing"
+        ],
+        "ru": [
+          "Проверка готовности учёта доходов и расходов",
+          "Федеральная декларация с одним Schedule C",
+          "Согласование с вами до подачи"
+        ],
+        "es": [
+          "Revisión de sus registros de ingresos y gastos",
+          "Declaración federal con un Anexo C",
+          "Revisión con usted antes de presentarla"
+        ]
       },
       "extra": {
-        "en": ["Bookkeeping cleanup", "Several businesses, multi-state or foreign forms", "State return"],
-        "ru": ["Восстановление бухгалтерского учёта", "Несколько видов бизнеса, несколько штатов или иностранные формы", "Декларация штата"],
-        "es": ["Ordenar la contabilidad", "Varios negocios, varios estados o formularios extranjeros", "Declaración estatal"]
+        "en": [
+          "Bookkeeping cleanup",
+          "Several businesses, multi-state or foreign forms",
+          "State return"
+        ],
+        "ru": [
+          "Восстановление бухгалтерского учёта",
+          "Несколько видов бизнеса, несколько штатов или иностранные формы",
+          "Декларация штата"
+        ],
+        "es": [
+          "Ordenar la contabilidad",
+          "Varios negocios, varios estados o formularios extranjeros",
+          "Declaración estatal"
+        ]
       },
       "next": {
-        "en": "Tell us the tax year and how you earn. We confirm the starting price after a short review of your records.",
-        "ru": "Укажите налоговый год и источник дохода. Стартовую цену подтвердим после короткой проверки вашего учёта.",
-        "es": "Indique el año fiscal y cómo obtiene sus ingresos. Confirmamos el precio tras revisar brevemente sus registros."
+        "en": "Tell us the tax year and how you earn your income. After a quick look at your records, we confirm the price.",
+        "ru": "Укажите налоговый год и источник дохода. Посмотрим ваш учёт и подтвердим цену.",
+        "es": "Indique el año fiscal y cómo obtiene sus ingresos. Tras revisar brevemente sus registros, le confirmamos el precio."
+      },
+      "keywords": {
+        "en": [
+          "self-employed",
+          "1099",
+          "schedule c",
+          "freelancer",
+          "contractor",
+          "uber",
+          "business income"
+        ],
+        "ru": [
+          "самозанятый",
+          "1099",
+          "schedule c",
+          "фрилансер",
+          "подрядчик",
+          "убер",
+          "ип"
+        ],
+        "es": [
+          "trabajador independiente",
+          "1099",
+          "anexo c",
+          "contratista",
+          "por cuenta propia"
+        ]
       }
     },
     "tax_state_addon": {
-      "family": "tax", "group": "personal", "lane": "private", "queue": "TAX",
-      "page": "/tax-preparation.html", "action": "quote", "image": "/assets/img/curated/leak-payment-plan.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 4900, "confidence": "low", "addon_of": "tax_1040_simple"},
-      "subtypes": ["simple_w2", "self_employed", "mixed_income"],
-      "fields": ["tax_year", "tax_type", "tax_state", "deadline"],
+      "family": "tax",
+      "group": "personal",
+      "lane": "private",
+      "queue": "TAX",
+      "page": "/tax-preparation.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-payment-plan.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 4900,
+        "confidence": "low",
+        "addon_of": "tax_1040_simple"
+      },
+      "subtypes": [
+        "simple_w2",
+        "self_employed",
+        "mixed_income"
+      ],
+      "fields": [
+        "tax_year",
+        "tax_type",
+        "tax_state",
+        "deadline"
+      ],
       "notices": [],
-      "name": {"en": "State return add-on", "ru": "Декларация штата — дополнение", "es": "Declaración estatal adicional"},
+      "name": {
+        "en": "State return add-on",
+        "ru": "Декларация штата — дополнение",
+        "es": "Declaración estatal adicional"
+      },
       "short": {
         "en": "One state return prepared together with your federal return.",
         "ru": "Одна декларация штата вместе с федеральной декларацией.",
         "es": "Una declaración estatal preparada junto con la federal."
       },
-      "unit": {"en": "one supported state, with a federal return", "ru": "один штат, вместе с федеральной декларацией", "es": "un estado admitido, junto con la federal"},
+      "unit": {
+        "en": "one supported state, with a federal return",
+        "ru": "один штат, вместе с федеральной декларацией",
+        "es": "un estado admitido, junto con la federal"
+      },
       "included": {
-        "en": ["One resident state return", "Prepared together with your federal return"],
-        "ru": ["Одна декларация штата проживания", "Готовится вместе с федеральной декларацией"],
-        "es": ["Una declaración del estado de residencia", "Preparada junto con la federal"]
+        "en": [
+          "One resident state return",
+          "Prepared together with your federal return"
+        ],
+        "ru": [
+          "Одна декларация штата проживания",
+          "Готовится вместе с федеральной декларацией"
+        ],
+        "es": [
+          "Una declaración del estado de residencia",
+          "Preparada junto con la federal"
+        ]
       },
       "extra": {
-        "en": ["Part-year, non-resident or several states"],
-        "ru": ["Неполный год, нерезидент или несколько штатов"],
-        "es": ["Residencia parcial, no residente o varios estados"]
+        "en": [
+          "Part-year, non-resident or several states"
+        ],
+        "ru": [
+          "Неполный год, нерезидент или несколько штатов"
+        ],
+        "es": [
+          "Residencia parcial, no residente o varios estados"
+        ]
       },
       "next": {
         "en": "Added to your federal tax request; the preparer confirms the price.",
         "ru": "Добавляется к заявке на федеральную декларацию; цену подтверждает бухгалтер.",
         "es": "Se añade a su solicitud federal; el preparador confirma el precio."
+      },
+      "keywords": {
+        "en": [
+          "state return",
+          "state tax"
+        ],
+        "ru": [
+          "декларация штата",
+          "налог штата"
+        ],
+        "es": [
+          "declaración estatal",
+          "impuesto estatal"
+        ]
       }
     },
     "contracts_documents": {
-      "family": "contracts", "group": "personal", "lane": "private", "queue": "DOCUMENTS_LEGAL_TOPIC",
-      "page": "/contract-review-service.html", "action": "quote", "image": "/assets/img/curated/hero-document-control.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 9900, "confidence": "low"},
-      "subtypes": ["contract_document", "demand_document_scope", "court_papers_scope", "name_change_scope", "other_document"],
-      "fields": ["topic", "jurisdiction_state", "deadline"],
-      "notices": [],
-      "name": {"en": "Contracts & document support", "ru": "Договоры и подготовка документов", "es": "Contratos y preparación de documentos"},
-      "short": {
-        "en": "Preparing and organizing agreements, letters and forms you have chosen — with a clear deliverable agreed before work starts.",
-        "ru": "Подготовка и оформление выбранных вами договоров, писем и форм — с понятным результатом, согласованным до начала работы.",
-        "es": "Preparación y organización de contratos, cartas y formularios que usted elige, con un resultado claro acordado antes de empezar."
+      "family": "contracts",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/contract-review-service.html",
+      "action": "quote",
+      "image": "/assets/img/curated/hero-document-control.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 9900,
+        "confidence": "low"
       },
-      "unit": {"en": "starting price for a limited document task", "ru": "стартовая цена небольшой задачи", "es": "precio inicial de una tarea documental limitada"},
+      "subtypes": [
+        "contract_document",
+        "demand_document_scope",
+        "court_papers_scope",
+        "other_document"
+      ],
+      "fields": [
+        "topic",
+        "jurisdiction_state",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Contracts & document support",
+        "ru": "Договоры и подготовка документов",
+        "es": "Contratos y preparación de documentos"
+      },
+      "short": {
+        "en": "Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts.",
+        "ru": "Договоры, письма и формы, которые вы выбрали: подготовим или приведём в порядок. Что вы получите, согласуем до начала работы.",
+        "es": "Contratos, cartas y formularios que usted eligió, preparados u ordenados. Acordamos el resultado antes de empezar."
+      },
+      "unit": {
+        "en": "starting price for a limited document task",
+        "ru": "стартовая цена небольшой задачи",
+        "es": "precio inicial de una tarea documental limitada"
+      },
       "included": {
-        "en": ["Scoping of your document task", "Preparation or organization of the agreed document", "One round of edits"],
-        "ru": ["Уточнение задачи по документу", "Подготовка или оформление согласованного документа", "Один раунд правок"],
-        "es": ["Definición de la tarea", "Preparación u organización del documento acordado", "Una ronda de cambios"]
+        "en": [
+          "Agreeing on the task and the result",
+          "Preparation or organization of the agreed document",
+          "One round of edits"
+        ],
+        "ru": [
+          "Согласование задачи и результата",
+          "Подготовка или оформление согласованного документа",
+          "Один раунд правок"
+        ],
+        "es": [
+          "Acuerdo sobre la tarea y el resultado",
+          "Preparación u organización del documento acordado",
+          "Una ronda de cambios"
+        ]
       },
       "extra": {
-        "en": ["Larger or multi-document tasks", "Legal advice or representation — only through an independent licensed attorney, with your consent"],
-        "ru": ["Объёмные задачи и пакеты документов", "Юридическая консультация или представительство — только через независимого лицензированного адвоката и с вашего согласия"],
-        "es": ["Tareas más grandes o con varios documentos", "Asesoría o representación legal, solo mediante un abogado independiente con licencia y con su consentimiento"]
+        "en": [
+          "Larger or multi-document tasks",
+          "Legal advice or representation — only through an independent licensed attorney, with your consent"
+        ],
+        "ru": [
+          "Объёмные задачи и пакеты документов",
+          "Юридическая консультация или представительство — только через независимого лицензированного адвоката и с вашего согласия"
+        ],
+        "es": [
+          "Tareas más grandes o con varios documentos",
+          "Asesoría o representación legal, solo mediante un abogado independiente con licencia y con su consentimiento"
+        ]
       },
       "next": {
-        "en": "Describe the document you need. We confirm what we can prepare, the deliverable and the price before you pay.",
+        "en": "Describe the document you need. Before you pay, we confirm what we can prepare, what you will receive and the price.",
         "ru": "Опишите нужный документ. До оплаты мы подтвердим, что можем подготовить, что вы получите и сколько это стоит.",
-        "es": "Describa el documento que necesita. Antes de pagar confirmamos qué podemos preparar, el resultado y el precio."
+        "es": "Describa el documento que necesita. Antes de pagar confirmamos qué podemos preparar, qué recibirá y el precio."
+      },
+      "keywords": {
+        "en": [
+          "contract",
+          "agreement",
+          "letter",
+          "demand letter",
+          "lease",
+          "document preparation",
+          "form"
+        ],
+        "ru": [
+          "договор",
+          "соглашение",
+          "письмо",
+          "претензия",
+          "аренда",
+          "подготовить документ",
+          "составить договор"
+        ],
+        "es": [
+          "contrato",
+          "acuerdo",
+          "carta",
+          "carta de reclamación",
+          "arrendamiento",
+          "preparar documento"
+        ]
       }
     },
     "immigration_simple": {
-      "family": "immigration", "group": "personal", "lane": "private", "queue": "DOCUMENTS_LEGAL_TOPIC",
-      "page": "/immigration-packet-review.html", "action": "quote", "image": "/assets/img/curated/leak-file-control.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 14900, "confidence": "medium"},
-      "subtypes": ["immigration_document"],
-      "fields": ["form_number", "deadline"],
-      "notices": ["immigration"],
-      "name": {"en": "Immigration forms & documents", "ru": "Иммиграционные формы и документы", "es": "Formularios y documentos migratorios"},
-      "short": {
-        "en": "Clerical preparation of a USCIS form you or your adviser have chosen, plus organizing supporting documents.",
-        "ru": "Техническое заполнение формы USCIS, которую выбрали вы или ваш консультант, и подборка сопроводительных документов.",
-        "es": "Preparación administrativa de un formulario de USCIS elegido por usted o su asesor, y organización de documentos de apoyo."
+      "family": "immigration",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/immigration-packet-review.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-file-control.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 14900,
+        "confidence": "medium"
       },
-      "unit": {"en": "one simple form you have selected", "ru": "одна простая форма, выбранная вами", "es": "un formulario sencillo elegido por usted"},
+      "subtypes": [
+        "immigration_document"
+      ],
+      "fields": [
+        "form_number",
+        "deadline"
+      ],
+      "notices": [
+        "immigration"
+      ],
+      "name": {
+        "en": "Immigration forms & documents",
+        "ru": "Иммиграционные формы и документы",
+        "es": "Formularios y documentos migratorios"
+      },
+      "short": {
+        "en": "Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents.",
+        "ru": "Техническое заполнение формы USCIS, которую выбрали вы или ваш адвокат, и подборка сопроводительных документов.",
+        "es": "Preparación administrativa de un formulario de USCIS elegido por usted o su abogado, y organización de sus documentos de apoyo."
+      },
+      "unit": {
+        "en": "one simple form you have selected",
+        "ru": "одна простая форма, выбранная вами",
+        "es": "un formulario sencillo elegido por usted"
+      },
       "included": {
-        "en": ["Typing the form from your answers", "Completeness check against the form instructions", "Organized document checklist and packet"],
-        "ru": ["Заполнение формы по вашим ответам", "Проверка полноты по инструкции к форме", "Список и подборка документов"],
-        "es": ["Llenado del formulario con sus respuestas", "Revisión de que esté completo según las instrucciones", "Lista y paquete de documentos organizado"]
+        "en": [
+          "Typing the form from your answers",
+          "Completeness check against the form instructions",
+          "Organized document checklist and packet"
+        ],
+        "ru": [
+          "Заполнение формы по вашим ответам",
+          "Проверка полноты по инструкции к форме",
+          "Список и подборка документов"
+        ],
+        "es": [
+          "Llenado del formulario con sus respuestas",
+          "Revisión de que esté completo según las instrucciones",
+          "Lista y paquete de documentos organizado"
+        ]
       },
       "extra": {
-        "en": ["USCIS filing fees", "Translations of supporting documents", "Choosing a form, eligibility advice or representation — not provided"],
-        "ru": ["Сборы USCIS", "Переводы сопроводительных документов", "Выбор формы, оценка права на статус и представительство — не оказываются"],
-        "es": ["Tasas de USCIS", "Traducción de documentos de apoyo", "Elegir el formulario, asesorar sobre elegibilidad o representar: no se ofrecen"]
+        "en": [
+          "USCIS filing fees",
+          "Translations of supporting documents",
+          "Choosing a form, eligibility advice or representation — not provided"
+        ],
+        "ru": [
+          "Сборы USCIS",
+          "Переводы сопроводительных документов",
+          "Выбор формы, оценка права на статус и представительство — не оказываются"
+        ],
+        "es": [
+          "Tasas de USCIS",
+          "Traducción de documentos de apoyo",
+          "Elegir el formulario, asesorar sobre elegibilidad o representar: no se ofrecen"
+        ]
       },
       "next": {
         "en": "Tell us which form you are filing and your deadline. We confirm the scope and price before any work.",
         "ru": "Укажите, какую форму вы подаёте, и срок. До начала работы подтвердим объём и цену.",
         "es": "Indique qué formulario presentará y su plazo. Confirmamos alcance y precio antes de empezar."
+      },
+      "keywords": {
+        "en": [
+          "immigration",
+          "uscis",
+          "i-130",
+          "i-485",
+          "i-765",
+          "i-131",
+          "green card form",
+          "work permit",
+          "travel document"
+        ],
+        "ru": [
+          "иммиграция",
+          "uscis",
+          "i-130",
+          "i-485",
+          "i-765",
+          "грин карта",
+          "разрешение на работу",
+          "форма uscis"
+        ],
+        "es": [
+          "inmigración",
+          "uscis",
+          "i-130",
+          "i-485",
+          "i-765",
+          "green card",
+          "permiso de trabajo"
+        ]
       }
     },
     "immigration_naturalization": {
-      "family": "immigration", "group": "personal", "lane": "private", "queue": "DOCUMENTS_LEGAL_TOPIC",
-      "page": "/n-400-naturalization.html", "action": "quote", "image": "/assets/img/curated/leak-file-control.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 24900, "confidence": "medium"},
-      "subtypes": ["immigration_document"],
-      "fields": ["form_number", "deadline"],
-      "notices": ["immigration"],
-      "name": {"en": "Naturalization document support (N-400)", "ru": "Документы для натурализации (N-400)", "es": "Documentación para naturalización (N-400)"},
+      "family": "immigration",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/n-400-naturalization.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-file-control.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 24900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "immigration_document"
+      ],
+      "fields": [
+        "form_number",
+        "deadline"
+      ],
+      "notices": [
+        "immigration"
+      ],
+      "name": {
+        "en": "Naturalization document support (N-400)",
+        "ru": "Документы для натурализации (N-400)",
+        "es": "Documentación para naturalización (N-400)"
+      },
       "short": {
         "en": "Administrative help with Form N-400: typing, completeness check and an organized document packet.",
         "ru": "Административная помощь с формой N-400: заполнение, проверка полноты и подборка документов.",
         "es": "Ayuda administrativa con el Formulario N-400: llenado, revisión y paquete de documentos organizado."
       },
-      "unit": {"en": "defined N-400 support scope", "ru": "определённый объём помощи с N-400", "es": "alcance definido de apoyo con el N-400"},
+      "unit": {
+        "en": "defined N-400 support scope",
+        "ru": "определённый объём помощи с N-400",
+        "es": "alcance definido de apoyo con el N-400"
+      },
       "included": {
-        "en": ["Form N-400 typed from your answers", "Completeness check and document checklist", "Organized packet ready for you to file"],
-        "ru": ["Форма N-400, заполненная по вашим ответам", "Проверка полноты и список документов", "Готовый пакет для самостоятельной подачи"],
-        "es": ["Formulario N-400 llenado con sus respuestas", "Revisión y lista de documentos", "Paquete organizado listo para que usted lo presente"]
+        "en": [
+          "Form N-400 typed from your answers",
+          "Completeness check and document checklist",
+          "Organized packet ready for you to file"
+        ],
+        "ru": [
+          "Форма N-400, заполненная по вашим ответам",
+          "Проверка полноты и список документов",
+          "Готовый пакет для самостоятельной подачи"
+        ],
+        "es": [
+          "Formulario N-400 llenado con sus respuestas",
+          "Revisión y lista de documentos",
+          "Paquete organizado listo para que usted lo presente"
+        ]
       },
       "extra": {
-        "en": ["USCIS filing fee", "Eligibility analysis, interview preparation or representation — not provided"],
-        "ru": ["Сбор USCIS", "Анализ права на гражданство, подготовка к интервью и представительство — не оказываются"],
-        "es": ["Tasa de USCIS", "Análisis de elegibilidad, preparación de entrevista o representación: no se ofrecen"]
+        "en": [
+          "USCIS filing fee",
+          "Eligibility analysis, interview preparation or representation — not provided"
+        ],
+        "ru": [
+          "Сбор USCIS",
+          "Анализ права на гражданство, подготовка к интервью и представительство — не оказываются"
+        ],
+        "es": [
+          "Tasa de USCIS",
+          "Análisis de elegibilidad, preparación de entrevista o representación: no se ofrecen"
+        ]
       },
       "next": {
         "en": "Send a short request. We confirm the scope and price; the decision to apply remains yours.",
         "ru": "Отправьте короткую заявку. Мы подтвердим объём и цену; решение о подаче остаётся за вами.",
         "es": "Envíe una solicitud breve. Confirmamos alcance y precio; la decisión de presentar es suya."
+      },
+      "keywords": {
+        "en": [
+          "citizenship",
+          "naturalization",
+          "n-400"
+        ],
+        "ru": [
+          "гражданство",
+          "натурализация",
+          "n-400"
+        ],
+        "es": [
+          "ciudadanía",
+          "naturalización",
+          "n-400"
+        ]
       }
     },
     "legal_request": {
-      "family": "inquiry", "group": "personal", "lane": "private", "queue": "DOCUMENTS_LEGAL_TOPIC",
-      "page": "/request.html?service=legal_request", "action": "scope", "image": "/assets/img/curated/leak-billing-cadence.jpg",
-      "price": {"mode": "scope_request_no_charge", "display": "free_scope", "amount_cents": null, "confidence": "not_applicable"},
-      "subtypes": ["contract_document", "demand_document_scope", "court_papers_scope", "name_change_scope", "immigration_document", "other_document", "independent_referral_request", "unsure"],
-      "fields": ["topic", "jurisdiction_state", "desired_outcome", "deadline"],
+      "family": "inquiry",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/request.html?service=legal_request",
+      "action": "scope",
+      "image": "/assets/img/curated/leak-billing-cadence.jpg",
+      "price": {
+        "mode": "scope_request_no_charge",
+        "display": "free_scope",
+        "amount_cents": null,
+        "confidence": "not_applicable"
+      },
+      "subtypes": [
+        "contract_document",
+        "demand_document_scope",
+        "court_papers_scope",
+        "name_change_scope",
+        "immigration_document",
+        "other_document",
+        "independent_referral_request",
+        "unsure"
+      ],
+      "fields": [
+        "topic",
+        "jurisdiction_state",
+        "desired_outcome",
+        "deadline"
+      ],
       "notices": [],
-      "name": {"en": "Ask about your situation", "ru": "Опишите ваш вопрос", "es": "Cuéntenos su situación"},
+      "name": {
+        "en": "Ask about your situation",
+        "ru": "Опишите ваш вопрос",
+        "es": "Cuéntenos su situación"
+      },
       "short": {
         "en": "Not sure which service fits? Describe the task — we tell you what we can do and what it costs.",
         "ru": "Не знаете, какая услуга подходит? Опишите задачу — мы скажем, чем можем помочь и сколько это стоит.",
         "es": "¿No sabe qué servicio necesita? Describa la tarea y le diremos qué podemos hacer y cuánto cuesta."
       },
-      "unit": {"en": "no charge to send a request", "ru": "отправка заявки бесплатна", "es": "enviar la solicitud no tiene costo"},
+      "unit": {
+        "en": "no charge to send a request",
+        "ru": "отправка заявки бесплатна",
+        "es": "enviar la solicitud no tiene costo"
+      },
       "included": {
-        "en": ["We sort your request by topic and urgency", "We suggest a matching service and price", "If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent"],
-        "ru": ["Разберём заявку по теме и срочности", "Предложим подходящую услугу и цену", "Если нужен адвокат — с вашего согласия передадим краткое описание независимому адвокату"],
-        "es": ["Clasificamos su solicitud por tema y urgencia", "Le proponemos un servicio y precio", "Si necesita un abogado, con su consentimiento enviamos un resumen a un abogado independiente"]
+        "en": [
+          "We read your request and check how urgent it is",
+          "We suggest a matching service and price",
+          "If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent"
+        ],
+        "ru": [
+          "Прочитаем заявку и поймём, насколько это срочно",
+          "Предложим подходящую услугу и цену",
+          "Если нужен адвокат — с вашего согласия передадим краткое описание независимому адвокату"
+        ],
+        "es": [
+          "Leemos su solicitud y vemos qué tan urgente es",
+          "Le proponemos un servicio y precio",
+          "Si necesita un abogado, con su consentimiento enviamos un resumen a un abogado independiente"
+        ]
       },
       "extra": {
-        "en": ["This is not a free legal consultation", "Paid work starts only after you accept a quote"],
-        "ru": ["Это не бесплатная юридическая консультация", "Платная работа начинается только после согласования сметы"],
-        "es": ["No es una consulta legal gratuita", "El trabajo pagado empieza solo cuando acepta un presupuesto"]
+        "en": [
+          "This is not a free legal consultation",
+          "Paid work starts only after you accept a quote"
+        ],
+        "ru": [
+          "Это не бесплатная юридическая консультация",
+          "Платная работа начинается только после согласования сметы"
+        ],
+        "es": [
+          "No es una consulta legal gratuita",
+          "El trabajo pagado empieza solo cuando acepta un presupuesto"
+        ]
       },
       "next": {
         "en": "We reply with the suitable service, price or next step.",
         "ru": "Мы ответим, какая услуга подходит, сколько она стоит и что делать дальше.",
         "es": "Le respondemos con el servicio adecuado, el precio o el siguiente paso."
+      },
+      "keywords": {
+        "en": [
+          "question",
+          "not sure",
+          "help",
+          "lawyer",
+          "attorney",
+          "other"
+        ],
+        "ru": [
+          "вопрос",
+          "не знаю",
+          "помощь",
+          "адвокат",
+          "юрист",
+          "другое"
+        ],
+        "es": [
+          "pregunta",
+          "no sé",
+          "ayuda",
+          "abogado",
+          "otro"
+        ]
       }
     },
     "company_basic": {
-      "family": "formation", "group": "founders", "lane": "private", "queue": "FORMATION_BUSINESS_PLAN",
-      "page": "/llc-formation-florida.html", "action": "order", "image": "/assets/img/curated/quick-structured-intake.jpg",
-      "price": {"mode": "fixed_after_eligibility", "display": "fixed_plus_fees", "amount_cents": 9900, "confidence": "medium"},
-      "subtypes": ["llc_selected", "corporation_selected", "unsure_scope"],
-      "fields": ["formation_state", "entity_type", "company_name_idea"],
+      "family": "formation",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/llc-formation-florida.html",
+      "action": "order",
+      "image": "/assets/img/curated/quick-structured-intake.jpg",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 9900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "llc_selected",
+        "corporation_selected",
+        "unsure_scope"
+      ],
+      "fields": [
+        "formation_state",
+        "entity_type",
+        "company_name_idea"
+      ],
       "notices": [],
-      "name": {"en": "Company formation", "ru": "Открытие компании", "es": "Creación de empresa"},
+      "name": {
+        "en": "Company formation",
+        "ru": "Открытие компании",
+        "es": "Creación de empresa"
+      },
       "short": {
         "en": "We prepare and submit the formation filing for the state and entity type you have chosen.",
         "ru": "Подготовим и подадим документы на регистрацию компании в выбранном вами штате и форме.",
         "es": "Preparamos y presentamos la constitución en el estado y tipo de entidad que usted elige."
       },
-      "unit": {"en": "service fee + state filing fee", "ru": "плата за услугу + госпошлина штата", "es": "tarifa de servicio + tasa estatal"},
+      "unit": {
+        "en": "service fee + state filing fee",
+        "ru": "плата за услугу + госпошлина штата",
+        "es": "tarifa de servicio + tasa estatal"
+      },
       "included": {
-        "en": ["Name availability check", "Articles prepared and submitted", "Filing confirmation and organized records", "One clerical correction if the state requests it"],
-        "ru": ["Проверка доступности названия", "Подготовка и подача учредительного документа", "Подтверждение регистрации и комплект документов", "Одно техническое исправление по запросу штата"],
-        "es": ["Verificación del nombre", "Preparación y presentación de los artículos", "Confirmación y archivo organizado", "Una corrección administrativa si el estado la pide"]
+        "en": [
+          "Name availability check",
+          "Articles prepared and submitted",
+          "Filing confirmation and organized records",
+          "One clerical correction if the state requests it"
+        ],
+        "ru": [
+          "Проверка доступности названия",
+          "Подготовка и подача учредительного документа",
+          "Подтверждение регистрации и комплект документов",
+          "Одно техническое исправление по запросу штата"
+        ],
+        "es": [
+          "Verificación del nombre",
+          "Preparación y presentación de los artículos",
+          "Confirmación y archivo organizado",
+          "Una corrección administrativa si el estado la pide"
+        ]
       },
       "extra": {
-        "en": ["State filing fee (paid at cost)", "Registered agent, annual reports, licenses", "Tax elections or legal advice"],
-        "ru": ["Госпошлина штата (по факту)", "Зарегистрированный агент, годовые отчёты, лицензии", "Налоговый статус и юридические консультации"],
-        "es": ["Tasa estatal (al costo)", "Agente registrado, informes anuales, licencias", "Elecciones fiscales o asesoría legal"]
+        "en": [
+          "State filing fee (paid at cost)",
+          "Registered agent, annual reports, licenses",
+          "Tax elections or legal advice"
+        ],
+        "ru": [
+          "Госпошлина штата (по факту)",
+          "Зарегистрированный агент, годовые отчёты, лицензии",
+          "Налоговый статус и юридические консультации"
+        ],
+        "es": [
+          "Tasa estatal (al costo)",
+          "Agente registrado, informes anuales, licencias",
+          "Elecciones fiscales o asesoría legal"
+        ]
       },
       "next": {
         "en": "Choose the state and entity type, pay the service fee, and we confirm the state fee before filing. No subscription.",
         "ru": "Выберите штат и форму компании, оплатите услугу — госпошлину подтвердим перед подачей. Без подписки.",
         "es": "Elija estado y tipo de entidad, pague el servicio y confirmamos la tasa estatal antes de presentar. Sin suscripción."
+      },
+      "keywords": {
+        "en": [
+          "llc",
+          "company",
+          "open a business",
+          "incorporate",
+          "corporation",
+          "register company"
+        ],
+        "ru": [
+          "llc",
+          "компания",
+          "открыть компанию",
+          "открыть бизнес",
+          "регистрация компании",
+          "корпорация",
+          "ооо"
+        ],
+        "es": [
+          "llc",
+          "empresa",
+          "abrir negocio",
+          "registrar empresa",
+          "corporación"
+        ]
       }
     },
     "company_plus": {
-      "family": "formation", "group": "founders", "lane": "private", "queue": "FORMATION_BUSINESS_PLAN",
-      "page": "/llc-formation-florida.html", "action": "order", "image": "/assets/img/curated/quick-structured-intake.jpg",
-      "price": {"mode": "fixed_after_eligibility", "display": "fixed_plus_fees", "amount_cents": 19900, "confidence": "medium"},
-      "subtypes": ["llc_selected", "corporation_selected", "ein_assistance"],
-      "fields": ["formation_state", "entity_type", "company_name_idea"],
+      "family": "formation",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/llc-formation-florida.html",
+      "action": "order",
+      "image": "/assets/img/curated/quick-structured-intake.jpg",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 19900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "llc_selected",
+        "corporation_selected",
+        "ein_assistance"
+      ],
+      "fields": [
+        "formation_state",
+        "entity_type",
+        "company_name_idea"
+      ],
       "notices": [],
-      "name": {"en": "Company formation + EIN", "ru": "Компания + помощь с EIN", "es": "Empresa + asistencia con EIN"},
+      "name": {
+        "en": "Company formation + EIN",
+        "ru": "Компания + помощь с EIN",
+        "es": "Empresa + asistencia con EIN"
+      },
       "short": {
         "en": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
         "ru": "Всё из «Открытия компании», плюс помощь с получением EIN и готовый стартовый комплект документов.",
         "es": "Todo lo de Creación de empresa, más ayuda para solicitar su EIN y un archivo inicial organizado."
       },
-      "unit": {"en": "service fee + state filing fee", "ru": "плата за услугу + госпошлина штата", "es": "tarifa de servicio + tasa estatal"},
+      "unit": {
+        "en": "service fee + state filing fee",
+        "ru": "плата за услугу + госпошлина штата",
+        "es": "tarifa de servicio + tasa estatal"
+      },
       "included": {
-        "en": ["Everything in Company formation", "EIN application assistance (the IRS does not charge for an EIN)", "Organized formation records"],
-        "ru": ["Всё из «Открытия компании»", "Помощь с заявлением на EIN (IRS не берёт плату за EIN)", "Комплект регистрационных документов"],
-        "es": ["Todo lo de Creación de empresa", "Ayuda con la solicitud del EIN (el IRS no cobra por el EIN)", "Archivo de constitución organizado"]
+        "en": [
+          "Everything in Company formation",
+          "EIN application assistance (the IRS does not charge for an EIN)",
+          "Organized formation records"
+        ],
+        "ru": [
+          "Всё из «Открытия компании»",
+          "Помощь с заявлением на EIN (IRS не берёт плату за EIN)",
+          "Комплект регистрационных документов"
+        ],
+        "es": [
+          "Todo lo de Creación de empresa",
+          "Ayuda con la solicitud del EIN (el IRS no cobra por el EIN)",
+          "Archivo de constitución organizado"
+        ]
       },
       "extra": {
-        "en": ["State filing fee (paid at cost)", "Registered agent, renewals, bank account opening"],
-        "ru": ["Госпошлина штата (по факту)", "Зарегистрированный агент, продления, открытие счёта"],
-        "es": ["Tasa estatal (al costo)", "Agente registrado, renovaciones, apertura de cuenta"]
+        "en": [
+          "State filing fee (paid at cost)",
+          "Registered agent, renewals, bank account opening"
+        ],
+        "ru": [
+          "Госпошлина штата (по факту)",
+          "Зарегистрированный агент, продления, открытие счёта"
+        ],
+        "es": [
+          "Tasa estatal (al costo)",
+          "Agente registrado, renovaciones, apertura de cuenta"
+        ]
       },
       "next": {
         "en": "Choose the state and entity type, pay the service fee, and we confirm the state fee before filing.",
         "ru": "Выберите штат и форму, оплатите услугу — госпошлину подтвердим перед подачей.",
         "es": "Elija estado y tipo de entidad, pague el servicio y confirmamos la tasa estatal antes de presentar."
+      },
+      "keywords": {
+        "en": [
+          "ein",
+          "tax id",
+          "llc with ein"
+        ],
+        "ru": [
+          "ein",
+          "налоговый номер компании"
+        ],
+        "es": [
+          "ein",
+          "número de identificación fiscal"
+        ]
       }
     },
     "business_plan_basic": {
-      "family": "business_plan", "group": "founders", "lane": "private", "queue": "FORMATION_BUSINESS_PLAN",
-      "page": "/business-plans.html", "action": "quote", "image": "/assets/img/curated/leak-kpi-visibility.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 49900, "confidence": "medium"},
-      "subtypes": ["unsure_scope"],
-      "fields": ["plan_purpose", "deadline"],
-      "notices": [],
-      "name": {"en": "Business plan", "ru": "Бизнес-план", "es": "Plan de negocio"},
-      "short": {
-        "en": "A clear plan built from your questionnaire: business model, market summary and a simple financial outline.",
-        "ru": "Понятный план по вашей анкете: бизнес-модель, обзор рынка и простой финансовый расчёт.",
-        "es": "Un plan claro a partir de su cuestionario: modelo de negocio, resumen de mercado y proyección financiera sencilla."
+      "family": "business_plan",
+      "group": "founders",
+      "lane": "private",
+      "queue": "FORMATION_BUSINESS_PLAN",
+      "page": "/business-plans.html",
+      "action": "quote",
+      "image": "/assets/img/curated/leak-kpi-visibility.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 49900,
+        "confidence": "medium"
       },
-      "unit": {"en": "defined basic plan", "ru": "базовый план определённого объёма", "es": "plan básico de alcance definido"},
+      "subtypes": [
+        "unsure_scope"
+      ],
+      "fields": [
+        "plan_purpose",
+        "deadline"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Business plan",
+        "ru": "Бизнес-план",
+        "es": "Plan de negocio"
+      },
+      "short": {
+        "en": "A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.",
+        "ru": "План по вашей анкете: бизнес-модель, обзор рынка с источниками и простой финансовый расчёт.",
+        "es": "Un plan hecho a partir de su cuestionario: modelo de negocio, resumen de mercado con fuentes y una proyección financiera sencilla."
+      },
+      "unit": {
+        "en": "defined basic plan",
+        "ru": "базовый план определённого объёма",
+        "es": "plan básico de alcance definido"
+      },
       "included": {
-        "en": ["Questionnaire and one working call", "Business model and market summary with sources", "Assumption-based financial outline", "Editable file and one revision"],
-        "ru": ["Анкета и один рабочий созвон", "Бизнес-модель и обзор рынка с источниками", "Финансовый расчёт на ваших допущениях", "Редактируемый файл и одна доработка"],
-        "es": ["Cuestionario y una llamada de trabajo", "Modelo de negocio y resumen de mercado con fuentes", "Proyección financiera basada en supuestos", "Archivo editable y una revisión"]
+        "en": [
+          "Questionnaire and one working call",
+          "Business model and market summary with sources",
+          "Assumption-based financial outline",
+          "Editable file and one revision"
+        ],
+        "ru": [
+          "Анкета и один рабочий созвон",
+          "Бизнес-модель и обзор рынка с источниками",
+          "Финансовый расчёт на ваших допущениях",
+          "Редактируемый файл и одна доработка"
+        ],
+        "es": [
+          "Cuestionario y una llamada de trabajo",
+          "Modelo de negocio y resumen de mercado con fuentes",
+          "Proyección financiera basada en supuestos",
+          "Archivo editable y una revisión"
+        ]
       },
       "extra": {
-        "en": ["Investor, SBA or visa-specific plans", "Paid market data and complex financial models"],
-        "ru": ["Планы для инвесторов, SBA или визовых целей", "Платные рыночные данные и сложные финмодели"],
-        "es": ["Planes para inversionistas, SBA o fines migratorios", "Datos de mercado de pago y modelos financieros complejos"]
+        "en": [
+          "Investor, SBA or visa-specific plans",
+          "Paid market data and complex financial models"
+        ],
+        "ru": [
+          "Планы для инвесторов, SBA или визовых целей",
+          "Платные рыночные данные и сложные финмодели"
+        ],
+        "es": [
+          "Planes para inversionistas, SBA o fines migratorios",
+          "Datos de mercado de pago y modelos financieros complejos"
+        ]
       },
       "next": {
         "en": "Tell us what the plan is for and your deadline. We confirm scope and price in writing.",
         "ru": "Укажите, для чего нужен план, и срок. Объём и цену подтвердим письменно.",
         "es": "Indique para qué es el plan y su plazo. Confirmamos alcance y precio por escrito."
+      },
+      "keywords": {
+        "en": [
+          "business plan",
+          "plan for bank",
+          "investor plan"
+        ],
+        "ru": [
+          "бизнес-план",
+          "бизнес план",
+          "план для банка"
+        ],
+        "es": [
+          "plan de negocio",
+          "plan para el banco"
+        ]
       }
     },
     "b2b_small_claims_packet": {
-      "family": "b2b", "group": "business", "lane": "business", "queue": "B2B_SMALL_CLAIMS",
-      "page": "/small-claims-documentation.html", "action": "b2b", "image": "/assets/img/curated/quick-confidential-review.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 19900, "confidence": "high"},
-      "subtypes": ["unpaid_invoice", "commercial_contract", "existing_case_admin", "other_business_claim"],
-      "fields": ["company", "b2b_state", "county_court", "entity_type_b2b", "claim_amount", "claim_category", "party_role", "has_existing_case", "authorized_rep"],
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/small-claims-documentation.html",
+      "action": "b2b",
+      "image": "/assets/img/curated/quick-confidential-review.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 19900,
+        "confidence": "high"
+      },
+      "subtypes": [
+        "unpaid_invoice",
+        "commercial_contract",
+        "existing_case_admin",
+        "other_business_claim"
+      ],
+      "fields": [
+        "company",
+        "b2b_state",
+        "county_court",
+        "entity_type_b2b",
+        "claim_amount",
+        "claim_category",
+        "party_role",
+        "has_existing_case",
+        "authorized_rep"
+      ],
       "notices": [],
-      "name": {"en": "Small-claims case packet", "ru": "Пакет документов small claims", "es": "Paquete de documentos de small claims"},
+      "name": {
+        "en": "Small-claims case packet",
+        "ru": "Пакет документов small claims",
+        "es": "Paquete de documentos de small claims"
+      },
       "short": {
         "en": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.",
-        "ru": "Подготовленное дело по одному иску к одному ответчику: хронология, расчёт сумм, приложения и формы там, где это разрешено.",
+        "ru": "Пакет документов по одному иску к одному ответчику: хронология, расчёт сумм, приложения и формы там, где это разрешено.",
         "es": "Un expediente organizado para un reclamo contra un demandado: cronología, montos, anexos y formularios donde esté permitido."
       },
-      "unit": {"en": "one eligible case, one defendant", "ru": "одно подходящее дело, один ответчик", "es": "un caso elegible, un demandado"},
+      "unit": {
+        "en": "one eligible case, one defendant",
+        "ru": "одно подходящее дело, один ответчик",
+        "es": "un caso elegible, un demandado"
+      },
       "included": {
-        "en": ["Case intake and document review", "Chronology and amount calculation", "Indexed exhibit packet", "Preparation of forms where this is permitted in your state"],
-        "ru": ["Приём дела и проверка документов", "Хронология и расчёт суммы", "Пронумерованный пакет приложений", "Подготовка форм там, где это разрешено в вашем штате"],
-        "es": ["Recepción del caso y revisión de documentos", "Cronología y cálculo de montos", "Paquete de anexos indexado", "Preparación de formularios donde su estado lo permita"]
+        "en": [
+          "Review of your case documents",
+          "Chronology and amount calculation",
+          "Indexed exhibit packet",
+          "Preparation of forms where this is permitted in your state"
+        ],
+        "ru": [
+          "Разбор документов по делу",
+          "Хронология и расчёт суммы",
+          "Пронумерованный пакет приложений",
+          "Подготовка форм там, где это разрешено в вашем штате"
+        ],
+        "es": [
+          "Revisión de los documentos del caso",
+          "Cronología y cálculo de montos",
+          "Paquete de anexos indexado",
+          "Preparación de formularios donde su estado lo permita"
+        ]
       },
       "extra": {
-        "en": ["Court filing fees and service of process", "Court appearance, appeals and enforcement — not provided", "Additional defendants"],
-        "ru": ["Судебные сборы и вручение документов ответчику", "Участие в заседаниях, апелляции и исполнение — не оказываются", "Дополнительные ответчики"],
-        "es": ["Tasas judiciales y notificación al demandado", "Comparecencia, apelaciones y ejecución: no se ofrecen", "Demandados adicionales"]
+        "en": [
+          "Court filing fees and service of process",
+          "Court appearance, appeals and enforcement — not provided",
+          "Additional defendants"
+        ],
+        "ru": [
+          "Судебные сборы и вручение документов ответчику",
+          "Участие в заседаниях, апелляции и исполнение — не оказываются",
+          "Дополнительные ответчики"
+        ],
+        "es": [
+          "Tasas judiciales y notificación al demandado",
+          "Comparecencia, apelaciones y ejecución: no se ofrecen",
+          "Demandados adicionales"
+        ]
       },
       "next": {
-        "en": "Check your case: state, court and claim basics. We confirm what we can do in that state and send a quote.",
-        "ru": "Проверьте дело: штат, суд и суть требования. Мы подтвердим, что можем сделать в этом штате, и пришлём смету.",
-        "es": "Revise su caso: estado, tribunal y datos básicos. Confirmamos qué podemos hacer en ese estado y le enviamos un presupuesto."
+        "en": "Send the basics: state, court and what the claim is about. We confirm what we can do in that state and send a quote.",
+        "ru": "Пришлите основное: штат, суд и суть требования. Мы подтвердим, что можем сделать в этом штате, и пришлём смету.",
+        "es": "Envíenos lo básico: estado, tribunal y de qué trata el reclamo. Confirmamos qué podemos hacer en ese estado y le enviamos un presupuesto."
+      },
+      "keywords": {
+        "en": [
+          "small claims",
+          "unpaid invoice",
+          "customer owes",
+          "sue a company"
+        ],
+        "ru": [
+          "small claims",
+          "неоплаченный счёт",
+          "клиент не платит",
+          "долг компании",
+          "иск"
+        ],
+        "es": [
+          "small claims",
+          "factura impaga",
+          "cliente no paga",
+          "demanda"
+        ]
       }
     },
     "b2b_small_claims_support": {
-      "family": "b2b", "group": "business", "lane": "business", "queue": "B2B_SMALL_CLAIMS",
-      "page": "/small-claims-documentation.html", "action": "b2b", "image": "/assets/img/curated/quick-executive-briefs.jpg",
-      "price": {"mode": "from_quote_required", "display": "from", "amount_cents": 39900, "confidence": "medium"},
-      "subtypes": ["unpaid_invoice", "commercial_contract", "existing_case_admin", "judgment_followup_scope", "other_business_claim"],
-      "fields": ["company", "b2b_state", "county_court", "entity_type_b2b", "claim_amount", "claim_category", "party_role", "has_existing_case", "authorized_rep"],
+      "family": "b2b",
+      "group": "business",
+      "lane": "business",
+      "queue": "B2B_SMALL_CLAIMS",
+      "page": "/small-claims-documentation.html",
+      "action": "b2b",
+      "image": "/assets/img/curated/quick-executive-briefs.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 39900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "unpaid_invoice",
+        "commercial_contract",
+        "existing_case_admin",
+        "judgment_followup_scope",
+        "other_business_claim"
+      ],
+      "fields": [
+        "company",
+        "b2b_state",
+        "county_court",
+        "entity_type_b2b",
+        "claim_amount",
+        "claim_category",
+        "party_role",
+        "has_existing_case",
+        "authorized_rep"
+      ],
       "notices": [],
-      "name": {"en": "Small-claims preparation & case support", "ru": "Подготовка и сопровождение small claims", "es": "Preparación y seguimiento de small claims"},
+      "name": {
+        "en": "Small-claims preparation & case support",
+        "ru": "Подготовка и сопровождение small claims",
+        "es": "Preparación y seguimiento de small claims"
+      },
       "short": {
         "en": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.",
         "ru": "Пакет документов плюс координация подачи там, где это разрешено, отслеживание дела и отчёты о статусе в течение 30 дней.",
         "es": "El paquete del caso más coordinación de la presentación donde se permita, seguimiento del expediente y avisos durante 30 días."
       },
-      "unit": {"en": "one case, one defendant, first 30 days", "ru": "одно дело, один ответчик, первые 30 дней", "es": "un caso, un demandado, primeros 30 días"},
+      "unit": {
+        "en": "one case, one defendant, first 30 days",
+        "ru": "одно дело, один ответчик, первые 30 дней",
+        "es": "un caso, un demandado, primeros 30 días"
+      },
       "included": {
-        "en": ["Everything in the case packet", "Filing coordination where permitted", "Docket follow-up and milestone updates", "30-day service window"],
-        "ru": ["Всё из пакета документов", "Координация подачи там, где это разрешено", "Отслеживание дела и отчёты по этапам", "Срок сопровождения 30 дней"],
-        "es": ["Todo lo del paquete del caso", "Coordinación de la presentación donde se permita", "Seguimiento y avisos por etapas", "Servicio durante 30 días"]
+        "en": [
+          "Everything in the case packet",
+          "Filing coordination where permitted",
+          "Docket follow-up and milestone updates",
+          "30-day service window"
+        ],
+        "ru": [
+          "Всё из пакета документов",
+          "Координация подачи там, где это разрешено",
+          "Отслеживание дела и отчёты по этапам",
+          "Срок сопровождения 30 дней"
+        ],
+        "es": [
+          "Todo lo del paquete del caso",
+          "Coordinación de la presentación donde se permita",
+          "Seguimiento y avisos por etapas",
+          "Servicio durante 30 días"
+        ]
       },
       "extra": {
-        "en": ["Court fees and service of process", "Representation, appeals, enforcement — not provided", "Continuation after 30 days by separate agreement"],
-        "ru": ["Судебные сборы и вручение документов", "Представительство, апелляции, исполнение — не оказываются", "Продление после 30 дней — по отдельному соглашению"],
-        "es": ["Tasas judiciales y notificación", "Representación, apelaciones, ejecución: no se ofrecen", "Continuación tras 30 días por acuerdo aparte"]
+        "en": [
+          "Court fees and service of process",
+          "Representation, appeals, enforcement — not provided",
+          "Continuation after 30 days by separate agreement"
+        ],
+        "ru": [
+          "Судебные сборы и вручение документов",
+          "Представительство, апелляции, исполнение — не оказываются",
+          "Продление после 30 дней — по отдельному соглашению"
+        ],
+        "es": [
+          "Tasas judiciales y notificación",
+          "Representación, apelaciones, ejecución: no se ofrecen",
+          "Continuación tras 30 días por acuerdo aparte"
+        ]
       },
       "next": {
-        "en": "Start with the case check. We confirm the permitted scope for your state and court before a quote.",
-        "ru": "Начните с проверки дела. Разрешённый объём для вашего штата и суда подтвердим до сметы.",
-        "es": "Empiece con la revisión del caso. Confirmamos el alcance permitido para su estado y tribunal antes del presupuesto."
+        "en": "Start by sending the case details. Before quoting, we confirm what we're permitted to do in your state and court.",
+        "ru": "Начните с данных по делу. До сметы подтвердим, что нам разрешено делать в вашем штате и суде.",
+        "es": "Empiece enviando los datos del caso. Antes del presupuesto confirmamos qué se nos permite hacer en su estado y tribunal."
+      },
+      "keywords": {
+        "en": [
+          "case support"
+        ],
+        "ru": [
+          "сопровождение дела"
+        ],
+        "es": [
+          "seguimiento del caso"
+        ]
       }
     },
     "existing_client_recovery": {
-      "family": "b2b_optional", "group": "business", "lane": "business", "queue": "EXISTING_CLIENT_RECOVERY",
-      "page": "/net-recovery.html", "action": "existing_client", "image": "/assets/img/curated/quick-recovery-workflow.jpg",
-      "price": {"mode": "existing_client_quote_only", "display": "quote", "amount_cents": null, "confidence": "not_applicable"},
-      "subtypes": ["other_business_claim"],
-      "fields": ["company", "existing_client_reference"],
+      "family": "b2b_optional",
+      "group": "business",
+      "lane": "business",
+      "queue": "EXISTING_CLIENT_RECOVERY",
+      "page": "/net-recovery.html",
+      "action": "existing_client",
+      "image": "/assets/img/curated/quick-recovery-workflow.jpg",
+      "price": {
+        "mode": "existing_client_quote_only",
+        "display": "quote",
+        "amount_cents": null,
+        "confidence": "not_applicable"
+      },
+      "subtypes": [
+        "other_business_claim"
+      ],
+      "fields": [
+        "company",
+        "existing_client_reference"
+      ],
       "notices": [],
-      "name": {"en": "Recovery support for existing clients", "ru": "Взыскание для действующих клиентов", "es": "Apoyo de recuperación para clientes actuales"},
+      "name": {
+        "en": "Recovery support for existing clients",
+        "ru": "Возврат задолженности для действующих клиентов",
+        "es": "Apoyo de recuperación para clientes actuales"
+      },
       "short": {
         "en": "An additional option for current business clients, quoted individually.",
-        "ru": "Дополнительная опция для действующих корпоративных клиентов, с индивидуальной сметой.",
+        "ru": "Дополнительная опция для действующих бизнес-клиентов, по индивидуальной смете.",
         "es": "Una opción adicional para clientes empresariales actuales, con presupuesto individual."
       },
-      "unit": {"en": "individual quote", "ru": "индивидуальная смета", "es": "presupuesto individual"},
+      "unit": {
+        "en": "individual quote",
+        "ru": "индивидуальная смета",
+        "es": "presupuesto individual"
+      },
       "included": {
-        "en": ["Review of your current matter", "Individual written quote"],
-        "ru": ["Разбор текущего дела", "Индивидуальная письменная смета"],
-        "es": ["Revisión de su asunto actual", "Presupuesto individual por escrito"]
+        "en": [
+          "Review of your current matter",
+          "Individual written quote"
+        ],
+        "ru": [
+          "Разбор текущего дела",
+          "Индивидуальная письменная смета"
+        ],
+        "es": [
+          "Revisión de su asunto actual",
+          "Presupuesto individual por escrito"
+        ]
       },
       "extra": {
-        "en": ["Available to existing business clients only"],
-        "ru": ["Только для действующих корпоративных клиентов"],
-        "es": ["Solo para clientes empresariales actuales"]
+        "en": [
+          "Available to existing business clients only"
+        ],
+        "ru": [
+          "Только для действующих бизнес-клиентов"
+        ],
+        "es": [
+          "Solo para clientes empresariales actuales"
+        ]
       },
       "next": {
         "en": "Send your client reference; your manager replies with options.",
         "ru": "Укажите номер клиента — ваш менеджер ответит с вариантами.",
-        "es": "Indique su referencia de cliente; su gestor le responde con opciones."
+        "es": "Indique su referencia de cliente; la persona a cargo de su cuenta le responde con opciones."
+      },
+      "keywords": {
+        "en": [
+          "recovery"
+        ],
+        "ru": [
+          "взыскание"
+        ],
+        "es": [
+          "recuperación"
+        ]
       }
+    },
+    "attorney_referral": {
+      "family": "inquiry",
+      "group": "court",
+      "lane": "private",
+      "queue": "ATTORNEY_REFERRAL",
+      "page": "/civil-case-referral.html",
+      "action": "scope",
+      "image": "/assets/img/curated/quick-executive-briefs.jpg",
+      "price": {
+        "mode": "scope_request_no_charge",
+        "display": "free_scope",
+        "amount_cents": null,
+        "confidence": "not_applicable"
+      },
+      "requires_referral_consent": true,
+      "subtypes": [
+        "contract_dispute",
+        "money_owed",
+        "landlord_tenant",
+        "consumer_problem",
+        "property_damage",
+        "injury",
+        "employment_wages",
+        "other_civil"
+      ],
+      "fields": [
+        "jurisdiction_state",
+        "party_role_civil",
+        "deadline",
+        "desired_outcome"
+      ],
+      "notices": [],
+      "name": {
+        "en": "Civil dispute: summary to an independent attorney",
+        "ru": "Гражданский спор: передать описание адвокату",
+        "es": "Disputa civil: resumen a un abogado independiente"
+      },
+      "short": {
+        "en": "A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you.",
+        "ru": "Спор о деньгах, договоре, жилье или ущербе? С вашего согласия передадим краткое описание независимому адвокату — он сам решит, связаться ли с вами.",
+        "es": "¿Una disputa por dinero, un contrato, vivienda o daños? Con su consentimiento enviamos un resumen a un abogado independiente, que decide si le contacta."
+      },
+      "unit": {
+        "en": "no charge to you",
+        "ru": "для вас бесплатно",
+        "es": "sin costo para usted"
+      },
+      "included": {
+        "en": [
+          "We turn your description into a short summary",
+          "With your written consent, we send it to an independent licensed attorney",
+          "You hear back from the attorney directly if they can help"
+        ],
+        "ru": [
+          "Сведём ваш рассказ в короткое описание",
+          "С вашего письменного согласия направим её независимому лицензированному адвокату",
+          "Если адвокат сможет помочь, он свяжется с вами напрямую"
+        ],
+        "es": [
+          "Resumimos su relato en pocas líneas",
+          "Con su consentimiento por escrito, lo enviamos a un abogado independiente con licencia",
+          "Si el abogado puede ayudarle, se comunica con usted directamente"
+        ]
+      },
+      "extra": {
+        "en": [
+          "VitaCoreX is not a law firm and does not give legal advice",
+          "The attorney decides whether to take the case and agrees any fees with you directly"
+        ],
+        "ru": [
+          "VitaCoreX не является юридической фирмой и не даёт юридических консультаций",
+          "Адвокат сам решает, браться ли за дело, и договаривается об оплате с вами напрямую"
+        ],
+        "es": [
+          "VitaCoreX no es un bufete y no brinda asesoría legal",
+          "El abogado decide si toma el caso y acuerda sus honorarios directamente con usted"
+        ]
+      },
+      "next": {
+        "en": "Describe the dispute and confirm your consent. We aim to pass the summary on within one business day; the attorney contacts you if they can help.",
+        "ru": "Опишите спор и подтвердите согласие. Описание стараемся передать в течение рабочего дня; адвокат свяжется с вами, если сможет помочь.",
+        "es": "Describa la disputa y confirme su consentimiento. Procuramos enviar el resumen en un día hábil; el abogado le contacta si puede ayudarle."
+      },
+      "keywords": {
+        "en": [
+          "lawyer",
+          "attorney",
+          "civil case",
+          "lawsuit",
+          "sue",
+          "dispute",
+          "landlord",
+          "deposit",
+          "money owed",
+          "contract dispute",
+          "injury"
+        ],
+        "ru": [
+          "адвокат",
+          "юрист",
+          "гражданское дело",
+          "иск",
+          "подать в суд",
+          "спор",
+          "арендодатель",
+          "депозит",
+          "долг",
+          "спор по договору",
+          "ущерб"
+        ],
+        "es": [
+          "abogado",
+          "caso civil",
+          "demanda",
+          "demandar",
+          "disputa",
+          "casero",
+          "depósito",
+          "deuda",
+          "contrato",
+          "lesión"
+        ]
+      }
+    },
+    "name_change_adult_fl": {
+      "family": "name_change",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/name-change.html",
+      "action": "order",
+      "image": "/assets/img/curated/hero-document-control.jpg",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed_plus_fees",
+        "amount_cents": 19900,
+        "confidence": "medium",
+        "fees_label": "court"
+      },
+      "subtypes": [
+        "adult_name_change",
+        "restore_former_name"
+      ],
+      "fields": [
+        "florida_county",
+        "born_in_florida",
+        "deadline"
+      ],
+      "notices": [
+        "nonlawyer_fl"
+      ],
+      "name": {
+        "en": "Court name change (Florida, adult)",
+        "ru": "Смена имени через суд (Флорида, взрослый)",
+        "es": "Cambio de nombre por la corte (Florida, adulto)"
+      },
+      "short": {
+        "en": "Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.",
+        "ru": "Пакет документов для суда Флориды по вашим ответам — с инструкцией по подаче в вашем округе и списком дел после решения суда.",
+        "es": "Su paquete para la corte de Florida preparado con sus respuestas, con instrucciones de presentación del condado y una lista para después del fallo."
+      },
+      "unit": {
+        "en": "service fee; court fees go to the clerk",
+        "ru": "плата за услугу; судебные сборы — канцелярии суда",
+        "es": "tarifa del servicio; las tasas judiciales van a la secretaría"
+      },
+      "included": {
+        "en": [
+          "Florida Supreme Court approved forms typed from your answers (petition and final judgment)",
+          "Written filing instructions for your county, including fingerprints",
+          "Checklist of agencies to update after the judgment",
+          "Questionnaire and disclosure in English, Russian or Spanish"
+        ],
+        "ru": [
+          "Утверждённые Верховным судом Флориды формы, заполненные по вашим ответам (петиция и итоговое решение)",
+          "Письменная инструкция по подаче в вашем округе, включая отпечатки пальцев",
+          "Список ведомств, где нужно обновить имя после решения суда",
+          "Анкета и раскрытие информации на русском, английском или испанском"
+        ],
+        "es": [
+          "Formularios aprobados por la Corte Suprema de Florida llenados con sus respuestas (petición y fallo final)",
+          "Instrucciones por escrito para presentar en su condado, incluidas las huellas",
+          "Lista de entidades donde actualizar su nombre después del fallo",
+          "Cuestionario y aviso en español, inglés o ruso"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Court filing fee (about $400–$415 in Tampa-area counties)",
+          "Background check and fingerprinting (about $50–$65)",
+          "Certified copies of the judgment",
+          "Legal advice or court representation — not provided"
+        ],
+        "ru": [
+          "Судебный сбор (около $400–415 в округах района Тампы)",
+          "Проверка биографии и отпечатки пальцев (около $50–65)",
+          "Заверенные копии решения суда",
+          "Юридические консультации и представительство в суде — не оказываются"
+        ],
+        "es": [
+          "Tasa de presentación (unos $400–$415 en los condados del área de Tampa)",
+          "Verificación de antecedentes y huellas (unos $50–$65)",
+          "Copias certificadas del fallo",
+          "Asesoría legal o representación en la corte: no se ofrecen"
+        ]
+      },
+      "next": {
+        "en": "Answer a short questionnaire, sign the nonlawyer disclosure and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.",
+        "ru": "Заполните короткую анкету, подпишите раскрытие о том, что мы не адвокаты, и оплатите услугу. Мы подготовим пакет и инструкцию — вы подаёте его в канцелярию суда своего округа.",
+        "es": "Complete un cuestionario breve, firme el aviso de que no somos abogados y pague el servicio. Preparamos el paquete y las instrucciones; usted lo presenta ante la secretaría de su condado."
+      },
+      "keywords": {
+        "en": [
+          "name change",
+          "change my name",
+          "change last name",
+          "petition for change of name",
+          "restore maiden name"
+        ],
+        "ru": [
+          "смена имени",
+          "смена фамилии",
+          "сменить фамилию",
+          "поменять фамилию",
+          "вернуть девичью фамилию",
+          "смена фамилии через суд"
+        ],
+        "es": [
+          "cambio de nombre",
+          "cambiar mi apellido",
+          "cambiar apellido",
+          "recuperar apellido de soltera"
+        ]
+      },
+      "review_gates": [
+        "nonlawyer_disclosure_12_900a_workflow",
+        "upl_review_of_copy_and_questionnaire"
+      ],
+      "third_party_fees": {
+        "checked": "2026-10-14",
+        "note": "Published clerk fees; Pinellas and 'other county' are estimates (RESEARCH_NAMECHANGE_FEEWAIVER_REFERRALS.md A2, R8).",
+        "counties": [
+          {
+            "id": "hillsborough",
+            "name": "Hillsborough",
+            "filing_cents": 41400,
+            "verified": true
+          },
+          {
+            "id": "pinellas",
+            "name": "Pinellas",
+            "filing_cents": 40000,
+            "verified": false
+          },
+          {
+            "id": "orange",
+            "name": "Orange",
+            "filing_cents": 41250,
+            "verified": true
+          },
+          {
+            "id": "sarasota",
+            "name": "Sarasota",
+            "filing_cents": 41250,
+            "verified": true
+          },
+          {
+            "id": "miami_dade",
+            "name": "Miami-Dade",
+            "filing_cents": 40100,
+            "verified": true
+          },
+          {
+            "id": "other",
+            "name": null,
+            "filing_min_cents": 40000,
+            "filing_max_cents": 41500,
+            "verified": false
+          }
+        ],
+        "background_check_cents": 4050,
+        "fingerprint_service_min_cents": 1000,
+        "fingerprint_service_max_cents": 2500,
+        "certified_copy_cents": 400,
+        "default_copies": 3
+      }
+    },
+    "name_change_family_fl": {
+      "family": "name_change",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/name-change.html",
+      "action": "quote",
+      "image": "/assets/img/curated/hero-document-control.jpg",
+      "price": {
+        "mode": "from_quote_required",
+        "display": "from",
+        "amount_cents": 24900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "minor_name_change",
+        "family_name_change"
+      ],
+      "fields": [
+        "florida_county",
+        "deadline"
+      ],
+      "notices": [
+        "nonlawyer_fl"
+      ],
+      "name": {
+        "en": "Court name change for a child or family (Florida)",
+        "ru": "Смена имени ребёнку или семье через суд (Флорида)",
+        "es": "Cambio de nombre por la corte para un menor o familia (Florida)"
+      },
+      "short": {
+        "en": "Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review.",
+        "ru": "Пакеты документов для смены имени ребёнку или всей семье по вашим ответам; цену подтвердим после короткой проверки.",
+        "es": "Paquetes de petición para un menor o toda la familia, preparados con sus respuestas; cotizamos tras una breve revisión."
+      },
+      "unit": {
+        "en": "starting price per petition",
+        "ru": "стартовая цена за одну петицию",
+        "es": "precio inicial por petición"
+      },
+      "included": {
+        "en": [
+          "Approved forms for minors or families typed from your answers",
+          "Filing instructions for your county"
+        ],
+        "ru": [
+          "Утверждённые формы для ребёнка или семьи, заполненные по вашим ответам",
+          "Инструкция по подаче в вашем округе"
+        ],
+        "es": [
+          "Formularios aprobados para menores o familias llenados con sus respuestas",
+          "Instrucciones de presentación para su condado"
+        ]
+      },
+      "extra": {
+        "en": [
+          "Court fees, background checks and certified copies",
+          "Consent or notice to the other parent where the law requires it"
+        ],
+        "ru": [
+          "Судебные сборы, проверки и заверенные копии",
+          "Согласие или уведомление второго родителя, если этого требует закон"
+        ],
+        "es": [
+          "Tasas judiciales, verificaciones y copias certificadas",
+          "Consentimiento o aviso al otro progenitor cuando la ley lo exija"
+        ]
+      },
+      "next": {
+        "en": "Tell us who is changing their name and in which county. We confirm the scope and price before any work.",
+        "ru": "Укажите, кто меняет имя и в каком округе. Объём и цену подтвердим до начала работы.",
+        "es": "Indique quién cambia de nombre y en qué condado. Confirmamos alcance y precio antes de empezar."
+      },
+      "keywords": {
+        "en": [
+          "child name change",
+          "minor name change",
+          "family name change"
+        ],
+        "ru": [
+          "смена фамилии ребёнку",
+          "сменить фамилию ребенку",
+          "смена фамилии семье"
+        ],
+        "es": [
+          "cambio de nombre de menor",
+          "cambio de apellido del niño"
+        ]
+      }
+    },
+    "fee_waiver_application": {
+      "family": "fee_waiver",
+      "group": "court",
+      "lane": "private",
+      "queue": "DOCUMENTS_LEGAL_TOPIC",
+      "page": "/fee-waiver.html",
+      "action": "order",
+      "image": "/assets/img/curated/leak-payment-plan.jpg",
+      "price": {
+        "mode": "fixed_after_eligibility",
+        "display": "fixed",
+        "amount_cents": 4900,
+        "confidence": "medium"
+      },
+      "subtypes": [
+        "fl_court_indigent",
+        "uscis_i912",
+        "federal_court_ifp",
+        "other_state_waiver"
+      ],
+      "fields": [
+        "jurisdiction_state",
+        "waiver_form",
+        "deadline"
+      ],
+      "notices": [
+        "immigration"
+      ],
+      "name": {
+        "en": "Fee waiver application",
+        "ru": "Заявление об освобождении от пошлины",
+        "es": "Solicitud de exención de tarifas"
+      },
+      "short": {
+        "en": "Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides.",
+        "ru": "Заявление об освобождении от судебной пошлины или сбора USCIS, заполненное по вашим письменным ответам, — одна цена за заявление. Решение принимает суд или USCIS.",
+        "es": "Formularios de exención de tarifas de la corte o de USCIS llenados con sus respuestas por escrito; un precio fijo por solicitud. Decide la corte o USCIS."
+      },
+      "unit": {
+        "en": "per application",
+        "ru": "за одно заявление",
+        "es": "por solicitud"
+      },
+      "included": {
+        "en": [
+          "The fee-waiver form typed from your written answers",
+          "A list of the supporting documents the form asks for",
+          "Preparer section completed as the form requires"
+        ],
+        "ru": [
+          "Форма заявления, заполненная по вашим письменным ответам",
+          "Список подтверждающих документов, которые требует форма",
+          "Раздел о помощнике в заполнении — так, как требует форма"
+        ],
+        "es": [
+          "El formulario de exención llenado con sus respuestas por escrito",
+          "La lista de documentos de respaldo que pide el formulario",
+          "La sección del preparador completada como lo exige el formulario"
+        ]
+      },
+      "extra": {
+        "en": [
+          "We do not advise whether you qualify or which basis to claim",
+          "Translations of supporting documents",
+          "The underlying court or USCIS application"
+        ],
+        "ru": [
+          "Мы не оцениваем, положено ли вам освобождение и на каком основании",
+          "Переводы подтверждающих документов",
+          "Основное заявление в суд или USCIS"
+        ],
+        "es": [
+          "No asesoramos si usted califica ni qué causal invocar",
+          "Traducción de documentos de respaldo",
+          "La solicitud principal ante la corte o USCIS"
+        ]
+      },
+      "next": {
+        "en": "Tell us which court or USCIS form the waiver is for and pay the fixed fee. We send you a questionnaire to answer in writing and return the typed form for your signature.",
+        "ru": "Укажите, для какого суда или формы USCIS нужно освобождение, и оплатите фиксированную цену. Мы пришлём анкету для письменных ответов и вернём заполненную форму на подпись.",
+        "es": "Indique para qué corte o formulario de USCIS es la exención y pague la tarifa fija. Le enviamos un cuestionario para responder por escrito y le devolvemos el formulario listo para firmar."
+      },
+      "keywords": {
+        "en": [
+          "fee waiver",
+          "i-912",
+          "indigent",
+          "can't afford filing fee",
+          "civil indigent status",
+          "in forma pauperis"
+        ],
+        "ru": [
+          "освобождение от пошлины",
+          "fee waiver",
+          "i-912",
+          "не могу оплатить пошлину",
+          "малоимущий",
+          "без пошлины"
+        ],
+        "es": [
+          "exención de tarifas",
+          "fee waiver",
+          "i-912",
+          "indigencia",
+          "no puedo pagar la tarifa"
+        ]
+      },
+      "review_gates": [
+        "immigration_counsel_signoff_nominal_fee_i912",
+        "upl_review_typing_only"
+      ]
     }
   }
 }

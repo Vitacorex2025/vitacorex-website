@@ -255,6 +255,9 @@ def validate_request(payload, source_channel: str) -> dict:
             errors["consent.referral"] = "invalid_type"
         else:
             clean_consent["referral"] = ref
+        # Attorney-referral requests are only accepted with the client's explicit consent to share them.
+        if service and service.get("requires_referral_consent") and clean_consent["referral"] is not True:
+            errors["consent.referral"] = "consent_required"
 
     if errors:
         raise RequestRejected(422, {"error": "validation", "fields": errors})

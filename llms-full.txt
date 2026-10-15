@@ -35,7 +35,7 @@ How prices work:
 - Price: $25 per 250 source words (one standard page)
 - Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.
 - Included: Complete translation of the document; Signed translator certificate of accuracy; Digital delivery (PDF); Check of language pair and legibility before you pay
-- Not included / extra: Rush delivery; Rare language pairs and complex layout; Notarized translator affidavit (separate notary); Printed copies and postage
+- Not included / extra: Rush delivery; Rare language pairs and complex layout; Notarized translator affidavit (a separate notarial act); Printed copies and postage
 - Next step: Send your language pair and approximate size. We confirm the word count, price and date, then you pay and upload through a private link.
 - Page: https://vitacorexllc.com/translations.html
 
@@ -48,75 +48,109 @@ How prices work:
 - Page: https://vitacorexllc.com/translations.html
 
 #### Online notarization
-- Price: $25 per notarial act
-- Remote online notarization by a Florida Notary Public — by video, from anywhere you have a camera and a valid photo ID.
+- Price: $25 — per notarial act
+- Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.
 - Included: One online notarial act on your document; Identity verification on the online platform; Electronic notarized document; Session recording kept as required by Florida law
 - Not included / extra: Each additional signature or act; Witnesses, if your document needs them; Printed copy and mailing
-- Next step: Answer three quick questions, pay $25 and choose a time. We confirm the appointment by email once the calendar accepts it.
+- Next step: Answer three quick questions, pay for the notarial act and pick a time. Your appointment is confirmed once the calendar email arrives.
 - Page: https://vitacorexllc.com/online-notary.html
 
 #### Apostille assistance
-- Price: from $119 — final price after review (service fee for the first document)
-- We find the right authority for your document and destination country, prepare the submission and track it.
+- Price: From $119 — final price after review (service fee for the first document)
+- We find the office that apostilles your document for the country you need, prepare the request and track it.
 - Included: Check of document origin, type and destination; Route to the correct state or federal authority; Preparation of the request and cover letter; Tracking and status updates
 - Not included / extra: Government apostille fees; Shipping and courier; Certified copies, translation, embassy legalization
 - Next step: Tell us where the document was issued and where it will be used. You get an itemized quote — service fee, government fee and shipping — before paying.
 - Page: https://vitacorexllc.com/apostille.html
 
-### Taxes & personal paperwork
+### Taxes
 
 #### Individual tax return
-- Price: from $149 — final price after review (simple federal return, one tax year)
-- Federal individual return (Form 1040) prepared by our accounting team after a short scoping call.
-- Included: Scoping of your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
+- Price: From $149 — final price after review (simple federal return, one tax year)
+- Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.
+- Included: A short talk about your tax year and income types; Preparation of a straightforward W-2 federal return; Review of the return with you before filing; Secure document exchange — never by email
 - Not included / extra: State return; Self-employment, rental or foreign income; Amended or prior-year returns
-- Next step: Tell us the tax year and type of return. We confirm scope and price, then send a secure link for documents. Do not send SSNs or tax forms through the website form.
+- Next step: Tell us the tax year and type of return. We confirm what's included and the price, then send a secure link for your documents. Please don't send SSNs or tax forms through the website form.
 - Page: https://vitacorexllc.com/tax-preparation.html
 
 #### Self-employed tax return
-- Price: from $249 — final price after review (federal return with one simple Schedule C)
+- Price: From $249 — final price after review (federal return with one simple Schedule C)
 - Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.
 - Included: Readiness check of your income and expense records; Federal return with one Schedule C; Review with you before filing
 - Not included / extra: Bookkeeping cleanup; Several businesses, multi-state or foreign forms; State return
-- Next step: Tell us the tax year and how you earn. We confirm the starting price after a short review of your records.
+- Next step: Tell us the tax year and how you earn your income. After a quick look at your records, we confirm the price.
 - Page: https://vitacorexllc.com/tax-preparation.html
 
 #### State return add-on
-- Price: from $49 — final price after review (one supported state, with a federal return)
+- Price: From $49 — final price after review (one supported state, with a federal return)
 - One state return prepared together with your federal return.
 - Included: One resident state return; Prepared together with your federal return
 - Not included / extra: Part-year, non-resident or several states
 - Next step: Added to your federal tax request; the preparer confirms the price.
 - Page: https://vitacorexllc.com/tax-preparation.html
 
-#### Contracts & document support
-- Price: from $99 — final price after review (starting price for a limited document task)
-- Preparing and organizing agreements, letters and forms you have chosen — with a clear deliverable agreed before work starts.
-- Included: Scoping of your document task; Preparation or organization of the agreed document; One round of edits
-- Not included / extra: Larger or multi-document tasks; Legal advice or representation — only through an independent licensed attorney, with your consent
-- Next step: Describe the document you need. We confirm what we can prepare, the deliverable and the price before you pay.
-- Page: https://vitacorexllc.com/contract-review-service.html
+### Court, immigration & contracts
+
+#### Court name change (Florida, adult)
+- Price: $199 + court fees — service fee; court fees go to the clerk
+- Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.
+- Included: Florida Supreme Court approved forms typed from your answers (petition and final judgment); Written filing instructions for your county, including fingerprints; Checklist of agencies to update after the judgment; Questionnaire and disclosure in English, Russian or Spanish
+- Not included / extra: Court filing fee (about $400–$415 in Tampa-area counties); Background check and fingerprinting (about $50–$65); Certified copies of the judgment; Legal advice or court representation — not provided
+- Next step: Answer a short questionnaire, sign the nonlawyer disclosure and pay the service fee. We prepare the packet and the filing instructions; you file it with your county clerk.
+- Page: https://vitacorexllc.com/name-change.html
+
+#### Court name change for a child or family (Florida)
+- Price: From $249 — final price after review (starting price per petition)
+- Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review.
+- Included: Approved forms for minors or families typed from your answers; Filing instructions for your county
+- Not included / extra: Court fees, background checks and certified copies; Consent or notice to the other parent where the law requires it
+- Next step: Tell us who is changing their name and in which county. We confirm the scope and price before any work.
+- Page: https://vitacorexllc.com/name-change.html
+
+#### Fee waiver application
+- Price: $49 — per application
+- Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides.
+- Included: The fee-waiver form typed from your written answers; A list of the supporting documents the form asks for; Preparer section completed as the form requires
+- Not included / extra: We do not advise whether you qualify or which basis to claim; Translations of supporting documents; The underlying court or USCIS application
+- Next step: Tell us which court or USCIS form the waiver is for and pay the fixed fee. We send you a questionnaire to answer in writing and return the typed form for your signature.
+- Page: https://vitacorexllc.com/fee-waiver.html
 
 #### Immigration forms & documents
-- Price: from $149 — final price after review (one simple form you have selected)
-- Clerical preparation of a USCIS form you or your adviser have chosen, plus organizing supporting documents.
+- Price: From $149 — final price after review (one simple form you have selected)
+- Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents.
 - Included: Typing the form from your answers; Completeness check against the form instructions; Organized document checklist and packet
 - Not included / extra: USCIS filing fees; Translations of supporting documents; Choosing a form, eligibility advice or representation — not provided
 - Next step: Tell us which form you are filing and your deadline. We confirm the scope and price before any work.
 - Page: https://vitacorexllc.com/immigration-packet-review.html
 
 #### Naturalization document support (N-400)
-- Price: from $249 — final price after review (defined N-400 support scope)
+- Price: From $249 — final price after review (defined N-400 support scope)
 - Administrative help with Form N-400: typing, completeness check and an organized document packet.
 - Included: Form N-400 typed from your answers; Completeness check and document checklist; Organized packet ready for you to file
 - Not included / extra: USCIS filing fee; Eligibility analysis, interview preparation or representation — not provided
 - Next step: Send a short request. We confirm the scope and price; the decision to apply remains yours.
 - Page: https://vitacorexllc.com/n-400-naturalization.html
 
+#### Contracts & document support
+- Price: From $99 — final price after review (starting price for a limited document task)
+- Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts.
+- Included: Agreeing on the task and the result; Preparation or organization of the agreed document; One round of edits
+- Not included / extra: Larger or multi-document tasks; Legal advice or representation — only through an independent licensed attorney, with your consent
+- Next step: Describe the document you need. Before you pay, we confirm what we can prepare, what you will receive and the price.
+- Page: https://vitacorexllc.com/contract-review-service.html
+
+#### Civil dispute: summary to an independent attorney
+- Price: No charge — no charge to you
+- A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you.
+- Included: We turn your description into a short summary; With your written consent, we send it to an independent licensed attorney; You hear back from the attorney directly if they can help
+- Not included / extra: VitaCoreX is not a law firm and does not give legal advice; The attorney decides whether to take the case and agrees any fees with you directly
+- Next step: Describe the dispute and confirm your consent. We aim to pass the summary on within one business day; the attorney contacts you if they can help.
+- Page: https://vitacorexllc.com/civil-case-referral.html
+
 #### Ask about your situation
-- Price: no charge to send a request
+- Price: No charge — no charge to send a request
 - Not sure which service fits? Describe the task — we tell you what we can do and what it costs.
-- Included: We sort your request by topic and urgency; We suggest a matching service and price; If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent
+- Included: We read your request and check how urgent it is; We suggest a matching service and price; If you need a lawyer, we can pass a short summary to an independent attorney — only with your consent
 - Not included / extra: This is not a free legal consultation; Paid work starts only after you accept a quote
 - Next step: We reply with the suitable service, price or next step.
 - Page: https://vitacorexllc.com/request.html?service=legal_request
@@ -124,7 +158,7 @@ How prices work:
 ### Starting a business
 
 #### Company formation
-- Price: $99 service fee + state filing fee
+- Price: $99 + state fee — service fee + state filing fee
 - We prepare and submit the formation filing for the state and entity type you have chosen.
 - Included: Name availability check; Articles prepared and submitted; Filing confirmation and organized records; One clerical correction if the state requests it
 - Not included / extra: State filing fee (paid at cost); Registered agent, annual reports, licenses; Tax elections or legal advice
@@ -132,7 +166,7 @@ How prices work:
 - Page: https://vitacorexllc.com/llc-formation-florida.html
 
 #### Company formation + EIN
-- Price: $199 service fee + state filing fee
+- Price: $199 + state fee — service fee + state filing fee
 - Everything in Company formation, plus help applying for your EIN and an organized starter file.
 - Included: Everything in Company formation; EIN application assistance (the IRS does not charge for an EIN); Organized formation records
 - Not included / extra: State filing fee (paid at cost); Registered agent, renewals, bank account opening
@@ -140,8 +174,8 @@ How prices work:
 - Page: https://vitacorexllc.com/llc-formation-florida.html
 
 #### Business plan
-- Price: from $499 — final price after review (defined basic plan)
-- A clear plan built from your questionnaire: business model, market summary and a simple financial outline.
+- Price: From $499 — final price after review (defined basic plan)
+- A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.
 - Included: Questionnaire and one working call; Business model and market summary with sources; Assumption-based financial outline; Editable file and one revision
 - Not included / extra: Investor, SBA or visa-specific plans; Paid market data and complex financial models
 - Next step: Tell us what the plan is for and your deadline. We confirm scope and price in writing.

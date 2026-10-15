@@ -2,10 +2,10 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "VitaCoreX LLC — Service Catalog",
-  "description": "Services and starting prices of VitaCoreX LLC (Tampa, FL). Private clients: translations, online notarization, apostille assistance, individual tax returns, contracts and document support, immigration forms (clerical), N-400 document support, company formation and business plans. Companies: small-claims document preparation and case support. All prices are USD service fees; government, filing and court fees are separate. VitaCoreX LLC is not a law firm.",
+  "description": "Services and starting prices of VitaCoreX LLC (Tampa, FL). Private clients: translations, online notarization, apostille assistance, individual tax returns, Florida court name-change packets, fee-waiver applications, contracts and document support, immigration forms (clerical), N-400 document support, company formation and business plans. Companies: small-claims document preparation and case support. All prices are USD service fees; government, filing and court fees are separate. VitaCoreX LLC is not a law firm.",
   "url": "https://vitacorexllc.com/services.html",
   "dateModified": "2026-10-14",
-  "numberOfItems": 17,
+  "numberOfItems": 21,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -15,11 +15,11 @@
         "@id": "https://vitacorexllc.com/#service-translation-certified",
         "name": "Certified translation",
         "alternateName": [
-          "Перевод с удостоверением переводчика",
+          "Сертифицированный перевод",
           "Traducción certificada"
         ],
         "description": "Birth certificates, diplomas, court and bank papers — complete translation with a signed translator certificate.",
-        "serviceType": "Translation",
+        "serviceType": "Certified translation",
         "category": "Documents & translations",
         "url": "https://vitacorexllc.com/translations.html",
         "provider": {
@@ -39,14 +39,8 @@
           "url": "https://vitacorexllc.com/translations.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "25",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "25",
-            "priceCurrency": "USD",
-            "unitText": "per 250 source words (one standard page)"
-          },
-          "description": "$25 per 250 source words (one standard page)"
+          "description": "$25 per 250 source words (one standard page)",
+          "price": "25.00"
         }
       }
     },
@@ -62,7 +56,7 @@
           "Traducción general"
         ],
         "description": "Letters, websites, business and personal texts that do not need a certificate.",
-        "serviceType": "Translation",
+        "serviceType": "General translation",
         "category": "Documents & translations",
         "url": "https://vitacorexllc.com/translations.html",
         "provider": {
@@ -82,14 +76,8 @@
           "url": "https://vitacorexllc.com/translations.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "0.10",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "0.10",
-            "priceCurrency": "USD",
-            "unitText": "per source word, $25 minimum order"
-          },
-          "description": "$0.10 per source word, $25 minimum order"
+          "description": "$0.10 per source word, $25 minimum order",
+          "price": "0.10"
         }
       }
     },
@@ -104,8 +92,8 @@
           "Заверение документов онлайн",
           "Notarización en línea"
         ],
-        "description": "Remote online notarization by a Florida Notary Public — by video, from anywhere you have a camera and a valid photo ID.",
-        "serviceType": "Remote online notarization",
+        "description": "Notarization over live video with a Florida Notary Public. You need a camera and a valid photo ID; if you are outside the U.S., we check first whether it is possible.",
+        "serviceType": "Online notarization",
         "category": "Documents & translations",
         "url": "https://vitacorexllc.com/online-notary.html",
         "provider": {
@@ -125,14 +113,8 @@
           "url": "https://vitacorexllc.com/online-notary.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "25",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "25",
-            "priceCurrency": "USD",
-            "unitText": "per notarial act"
-          },
-          "description": "$25 per notarial act"
+          "description": "$25 — per notarial act",
+          "price": "25.00"
         }
       }
     },
@@ -147,7 +129,7 @@
           "Помощь с апостилем",
           "Gestión de apostilla"
         ],
-        "description": "We find the right authority for your document and destination country, prepare the submission and track it.",
+        "description": "We find the office that apostilles your document for the country you need, prepare the request and track it.",
         "serviceType": "Apostille assistance",
         "category": "Documents & translations",
         "url": "https://vitacorexllc.com/apostille.html",
@@ -168,12 +150,12 @@
           "url": "https://vitacorexllc.com/apostille.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $119 — final price after review (service fee for the first document)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "119",
             "priceCurrency": "USD"
-          },
-          "description": "from $119 — final price after review (service fee for the first document)"
+          }
         }
       }
     },
@@ -185,12 +167,12 @@
         "@id": "https://vitacorexllc.com/#service-tax-1040-simple",
         "name": "Individual tax return",
         "alternateName": [
-          "Налоговая декларация физлица",
+          "Личная налоговая декларация",
           "Declaración de impuestos individual"
         ],
-        "description": "Federal individual return (Form 1040) prepared by our accounting team after a short scoping call.",
-        "serviceType": "Tax return preparation",
-        "category": "Taxes & personal paperwork",
+        "description": "Federal individual return (Form 1040), prepared by our accounting team after a short call about your situation.",
+        "serviceType": "Individual tax return",
+        "category": "Taxes",
         "url": "https://vitacorexllc.com/tax-preparation.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -209,12 +191,12 @@
           "url": "https://vitacorexllc.com/tax-preparation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $149 — final price after review (simple federal return, one tax year)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "149",
             "priceCurrency": "USD"
-          },
-          "description": "from $149 — final price after review (simple federal return, one tax year)"
+          }
         }
       }
     },
@@ -230,8 +212,8 @@
           "Declaración para trabajadores independientes"
         ],
         "description": "Federal return with one simple Schedule C for freelancers, contractors and sole proprietors.",
-        "serviceType": "Tax return preparation",
-        "category": "Taxes & personal paperwork",
+        "serviceType": "Self-employed tax return",
+        "category": "Taxes",
         "url": "https://vitacorexllc.com/tax-preparation.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -250,12 +232,12 @@
           "url": "https://vitacorexllc.com/tax-preparation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $249 — final price after review (federal return with one simple Schedule C)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "249",
             "priceCurrency": "USD"
-          },
-          "description": "from $249 — final price after review (federal return with one simple Schedule C)"
+          }
         }
       }
     },
@@ -271,8 +253,8 @@
           "Declaración estatal adicional"
         ],
         "description": "One state return prepared together with your federal return.",
-        "serviceType": "Tax return preparation",
-        "category": "Taxes & personal paperwork",
+        "serviceType": "State return add-on",
+        "category": "Taxes",
         "url": "https://vitacorexllc.com/tax-preparation.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -291,12 +273,12 @@
           "url": "https://vitacorexllc.com/tax-preparation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $49 — final price after review (one supported state, with a federal return)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "49",
             "priceCurrency": "USD"
-          },
-          "description": "from $49 — final price after review (one supported state, with a federal return)"
+          }
         }
       }
     },
@@ -305,16 +287,94 @@
       "position": 8,
       "item": {
         "@type": "Service",
-        "@id": "https://vitacorexllc.com/#service-contracts-documents",
-        "name": "Contracts & document support",
+        "@id": "https://vitacorexllc.com/#service-name-change-adult-fl",
+        "name": "Court name change (Florida, adult)",
         "alternateName": [
-          "Договоры и подготовка документов",
-          "Contratos y preparación de documentos"
+          "Смена имени через суд (Флорида, взрослый)",
+          "Cambio de nombre por la corte (Florida, adulto)"
         ],
-        "description": "Preparing and organizing agreements, letters and forms you have chosen — with a clear deliverable agreed before work starts.",
-        "serviceType": "Document preparation",
-        "category": "Taxes & personal paperwork",
-        "url": "https://vitacorexllc.com/contract-review-service.html",
+        "description": "Your Florida petition packet prepared from your answers, with county filing instructions and an after-court checklist.",
+        "serviceType": "Court name change (Florida, adult)",
+        "category": "Court, immigration & contracts",
+        "url": "https://vitacorexllc.com/name-change.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Florida"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/name-change.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "$199 + court fees — service fee; court fees go to the clerk",
+          "price": "199.00"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-name-change-family-fl",
+        "name": "Court name change for a child or family (Florida)",
+        "alternateName": [
+          "Смена имени ребёнку или семье через суд (Флорида)",
+          "Cambio de nombre por la corte para un menor o familia (Florida)"
+        ],
+        "description": "Petition packets for a minor child or a whole family, prepared from your answers; quoted after a short review.",
+        "serviceType": "Court name change for a child or family (Florida)",
+        "category": "Court, immigration & contracts",
+        "url": "https://vitacorexllc.com/name-change.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Florida"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/name-change.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $249 — final price after review (starting price per petition)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "249",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-fee-waiver-application",
+        "name": "Fee waiver application",
+        "alternateName": [
+          "Заявление об освобождении от пошлины",
+          "Solicitud de exención de tarifas"
+        ],
+        "description": "Court or USCIS fee waiver forms typed from your written answers — one fixed price per application. The court or USCIS decides.",
+        "serviceType": "Fee waiver application",
+        "category": "Court, immigration & contracts",
+        "url": "https://vitacorexllc.com/fee-waiver.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
         },
@@ -329,21 +389,17 @@
         ],
         "offers": {
           "@type": "Offer",
-          "url": "https://vitacorexllc.com/contract-review-service.html",
+          "url": "https://vitacorexllc.com/fee-waiver.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "99",
-            "priceCurrency": "USD"
-          },
-          "description": "from $99 — final price after review (starting price for a limited document task)"
+          "description": "$49 — per application",
+          "price": "49.00"
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 11,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-immigration-simple",
@@ -352,9 +408,9 @@
           "Иммиграционные формы и документы",
           "Formularios y documentos migratorios"
         ],
-        "description": "Clerical preparation of a USCIS form you or your adviser have chosen, plus organizing supporting documents.",
-        "serviceType": "Immigration form preparation (clerical)",
-        "category": "Taxes & personal paperwork",
+        "description": "Clerical preparation of a USCIS form that you or your attorney chose, plus organizing your supporting documents.",
+        "serviceType": "Immigration forms & documents",
+        "category": "Court, immigration & contracts",
         "url": "https://vitacorexllc.com/immigration-packet-review.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -373,18 +429,18 @@
           "url": "https://vitacorexllc.com/immigration-packet-review.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $149 — final price after review (one simple form you have selected)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "149",
             "priceCurrency": "USD"
-          },
-          "description": "from $149 — final price after review (one simple form you have selected)"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 12,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-immigration-naturalization",
@@ -394,8 +450,8 @@
           "Documentación para naturalización (N-400)"
         ],
         "description": "Administrative help with Form N-400: typing, completeness check and an organized document packet.",
-        "serviceType": "Immigration form preparation (clerical)",
-        "category": "Taxes & personal paperwork",
+        "serviceType": "Naturalization document support (N-400)",
+        "category": "Court, immigration & contracts",
         "url": "https://vitacorexllc.com/n-400-naturalization.html",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -414,18 +470,96 @@
           "url": "https://vitacorexllc.com/n-400-naturalization.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $249 — final price after review (defined N-400 support scope)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "249",
             "priceCurrency": "USD"
-          },
-          "description": "from $249 — final price after review (defined N-400 support scope)"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 13,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-contracts-documents",
+        "name": "Contracts & document support",
+        "alternateName": [
+          "Договоры и подготовка документов",
+          "Contratos y preparación de documentos"
+        ],
+        "description": "Agreements, letters and forms you've chosen, prepared or put in order. We agree on the result before work starts.",
+        "serviceType": "Contracts & document support",
+        "category": "Court, immigration & contracts",
+        "url": "https://vitacorexllc.com/contract-review-service.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/contract-review-service.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "From $99 — final price after review (starting price for a limited document task)",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "99",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Service",
+        "@id": "https://vitacorexllc.com/#service-attorney-referral",
+        "name": "Civil dispute: summary to an independent attorney",
+        "alternateName": [
+          "Гражданский спор: передать описание адвокату",
+          "Disputa civil: resumen a un abogado independiente"
+        ],
+        "description": "A dispute over money, a contract, housing or damage? With your consent we pass a short summary to an independent attorney who decides whether to contact you.",
+        "serviceType": "Civil dispute: summary to an independent attorney",
+        "category": "Court, immigration & contracts",
+        "url": "https://vitacorexllc.com/civil-case-referral.html",
+        "provider": {
+          "@id": "https://vitacorexllc.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "availableLanguage": [
+          "English",
+          "Russian",
+          "Spanish"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://vitacorexllc.com/civil-case-referral.html",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "No charge — no charge to you",
+          "price": "0"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-legal-request",
@@ -435,8 +569,8 @@
           "Cuéntenos su situación"
         ],
         "description": "Not sure which service fits? Describe the task — we tell you what we can do and what it costs.",
-        "serviceType": "Service request",
-        "category": "Taxes & personal paperwork",
+        "serviceType": "Ask about your situation",
+        "category": "Court, immigration & contracts",
         "url": "https://vitacorexllc.com/request.html?service=legal_request",
         "provider": {
           "@id": "https://vitacorexllc.com/#organization"
@@ -455,14 +589,14 @@
           "url": "https://vitacorexllc.com/request.html?service=legal_request",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "0",
-          "description": "no charge to send a request; this is not a free legal consultation"
+          "description": "No charge — no charge to send a request",
+          "price": "0"
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 16,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-basic",
@@ -492,20 +626,14 @@
           "url": "https://vitacorexllc.com/llc-formation-florida.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "99",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "99",
-            "priceCurrency": "USD",
-            "unitText": "service fee + state filing fee"
-          },
-          "description": "$99 service fee + state filing fee"
+          "description": "$99 + state fee — service fee + state filing fee",
+          "price": "99.00"
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 17,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-company-plus",
@@ -515,7 +643,7 @@
           "Empresa + asistencia con EIN"
         ],
         "description": "Everything in Company formation, plus help applying for your EIN and an organized starter file.",
-        "serviceType": "Company formation",
+        "serviceType": "Company formation + EIN",
         "category": "Starting a business",
         "url": "https://vitacorexllc.com/llc-formation-florida.html",
         "provider": {
@@ -535,20 +663,14 @@
           "url": "https://vitacorexllc.com/llc-formation-florida.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "price": "199",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "199",
-            "priceCurrency": "USD",
-            "unitText": "service fee + state filing fee"
-          },
-          "description": "$199 service fee + state filing fee"
+          "description": "$199 + state fee — service fee + state filing fee",
+          "price": "199.00"
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 18,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-business-plan-basic",
@@ -557,8 +679,8 @@
           "Бизнес-план",
           "Plan de negocio"
         ],
-        "description": "A clear plan built from your questionnaire: business model, market summary and a simple financial outline.",
-        "serviceType": "Business plan writing",
+        "description": "A plan built from your questionnaire: business model, market summary with sources and a simple financial outline.",
+        "serviceType": "Business plan",
         "category": "Starting a business",
         "url": "https://vitacorexllc.com/business-plans.html",
         "provider": {
@@ -578,18 +700,18 @@
           "url": "https://vitacorexllc.com/business-plans.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $499 — final price after review (defined basic plan)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "499",
             "priceCurrency": "USD"
-          },
-          "description": "from $499 — final price after review (defined basic plan)"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 19,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-packet",
@@ -598,8 +720,8 @@
           "Пакет документов small claims",
           "Paquete de documentos de small claims"
         ],
-        "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
-        "serviceType": "Small claims documentation",
+        "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted.",
+        "serviceType": "Small-claims case packet",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/small-claims-documentation.html",
         "provider": {
@@ -619,18 +741,18 @@
           "url": "https://vitacorexllc.com/small-claims-documentation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $199 — final price after review (one eligible case, one defendant)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "199",
             "priceCurrency": "USD"
-          },
-          "description": "from $199 — final price after review (one eligible case, one defendant)"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 20,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-b2b-small-claims-support",
@@ -639,8 +761,8 @@
           "Подготовка и сопровождение small claims",
           "Preparación y seguimiento de small claims"
         ],
-        "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
-        "serviceType": "Small claims documentation",
+        "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days.",
+        "serviceType": "Small-claims preparation & case support",
         "category": "For companies: small claims",
         "url": "https://vitacorexllc.com/small-claims-documentation.html",
         "provider": {
@@ -660,24 +782,24 @@
           "url": "https://vitacorexllc.com/small-claims-documentation.html",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "description": "From $399 — final price after review (one case, one defendant, first 30 days)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "399",
             "priceCurrency": "USD"
-          },
-          "description": "from $399 — final price after review (one case, one defendant, first 30 days)"
+          }
         }
       }
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 21,
       "item": {
         "@type": "Service",
         "@id": "https://vitacorexllc.com/#service-existing-client-recovery",
         "name": "Recovery support for existing clients",
         "alternateName": [
-          "Взыскание для действующих клиентов",
+          "Возврат задолженности для действующих клиентов",
           "Apoyo de recuperación para clientes actuales"
         ],
         "description": "An additional option for current business clients, quoted individually.",
@@ -699,8 +821,9 @@
         "offers": {
           "@type": "Offer",
           "url": "https://vitacorexllc.com/net-recovery.html",
+          "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "individual quote; available to existing business clients only"
+          "description": "Individual quote — individual quote"
         }
       }
     }
