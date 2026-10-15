@@ -9,7 +9,7 @@
   if (reduce || saveData) { a.removeAttribute('autoplay'); a.pause(); a.removeAttribute('src'); a.load(); return; }
   /* Lighter clips only (tampa-4/5/6 are 34–93 MB); tampa-1/2/3 re-encoded to 720p H.264 (1.6–3.5 MB). Phones loop one clip, no rotation. */
   if (window.matchMedia('(max-width: 45em)').matches) { a.loop = true; var pm = a.play(); if (pm && pm.catch) pm.catch(function () {}); b.remove(); return; }
-  var clips = ['/assets/video/hero-01-downtown.mp4', '/assets/video/hero-02-gulf-coast.mp4', '/assets/video/hero-03-pier.mp4'];  /* graded segments, media-curation 2026-10-15 */
+  var clips = ['/assets/video/hero-01-downtown.mp4', '/assets/video/hero-02-gulf-coast.mp4', '/assets/video/hero-03-pier.mp4', '/assets/video/hero-04-twilight.mp4'];  /* graded segments, media-curation 2026-10-15 */
   var vids = [a, b], visible = 0, next = 1, timer = null, onScreen = true, paused = false;
   var pauseBtn = document.getElementById('vxHeroPause');
   var ICON = { pause: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>', play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg>' };
