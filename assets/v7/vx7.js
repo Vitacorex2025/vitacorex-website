@@ -89,7 +89,7 @@
     var media = hero.querySelector('.vx6-hero__media'); if (!media) return;
     if (!veil) { veil = d.createElement('div'); veil.className = 'vx7-veil'; media.appendChild(veil); }
     if (!lines) { lines = d.createElementNS('http://www.w3.org/2000/svg', 'svg'); lines.setAttribute('class', 'vx7-lines'); lines.setAttribute('aria-hidden', 'true'); lines.setAttribute('focusable', 'false'); media.appendChild(lines); }
-    var big = window.innerWidth >= 1280;
+    var big = window.innerWidth >= 1100;   /* measured: from 1100 px the slope keeps ≥ 88 px from every text line (EN/RU/ES) */
     veil.classList.toggle('is-full', !big);
     if (!big) { veil.style.clipPath = ''; lines.innerHTML = ''; return; }
     var w = windowGeom(g), u = [w.D[0] - w.A[0], w.D[1] - w.A[1]], len = Math.hypot(u[0], u[1]); u = [u[0] / len, u[1] / len];
@@ -150,7 +150,7 @@
       h.querySelectorAll('em .vx7-w').forEach(function (w, k) { anim(w, [{ transform: from[k] || from[1] }, { transform: 'none' }], { duration: 560, delay: 820 + k * 60, easing: E_SET }); });
       anim(h.querySelector('.vx7-stop'), [{ opacity: 0 }, { opacity: 1 }], { duration: 120, delay: 1240, easing: 'linear' });
     }
-    if (veil && lines && window.innerWidth >= 1280) {
+    if (veil && lines && window.innerWidth >= 1100) {
       var w = windowGeom(g);
       anim(veil, [{ clipPath: poly(g, w.A, w.A, w.D, w.D) }, { clipPath: poly(g, w.A, w.B, w.C, w.D) }], { duration: 900, delay: 1100, easing: E_OUT });
       var ps = lines.querySelectorAll('path');

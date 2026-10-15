@@ -655,7 +655,7 @@ html:lang(es) .vx6-hero__h1 { --vx6-k: .9; line-height: 1.02; }
 /* focus on the hero link and the price bar: the brand ring, not the browser default */
 .vx6-hero__b2b:focus-visible, .vx6-ticker a:focus-visible { outline: 2px solid var(--vx-accent-soft); outline-offset: 2px; }
 /* the slanted window only where the 17:22 slope clears the text (from 1280); below, the same veil covers the whole frame */
-@media (max-width: 79.99em) {
+@media (max-width: 68.74em) {
   .vx6-hero__window { display: none; }
   .vx6-hero__shade { box-shadow: inset 0 0 0 100vmax rgb(7 27 35 / .38); }
 }

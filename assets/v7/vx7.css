@@ -47,7 +47,7 @@ html.vx7-intro .vx7-guides { opacity: 1; }
 .vx7-lines .h { stroke: rgb(255 255 255 / .3); stroke-width: 1; }
 /* below 1280 the v6 rule already darkens the whole frame (§27): no second veil, no window */
 .vx7-veil.is-full { display: none; }
-@media (max-width: 79.99em) { .vx7-veil, .vx7-lines { display: none; } }
+@media (max-width: 68.74em) { .vx7-veil, .vx7-lines { display: none; } }
 
 /* 4. (removed 2026-10-15: the ruler ticks on the price bar read as a stray grid under the video; the bar keeps its single hairline) */
 
