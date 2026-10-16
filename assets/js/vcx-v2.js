@@ -253,10 +253,11 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 
     qsa('.vx-nav__menu').forEach(function (menu) {
-      var btn = qs('.vx-nav__trigger', menu), timer;
-      var open = function (v) { menu.setAttribute('data-open', v ? 'true' : 'false'); btn.setAttribute('aria-expanded', v ? 'true' : 'false'); };
-      btn.addEventListener('click', function (e) { e.stopPropagation(); var v = menu.getAttribute('data-open') !== 'true'; closeAll(menu); open(v); });
-      menu.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover)').matches) { clearTimeout(timer); closeAll(menu); open(true); } });
+      var btn = qs('.vx-nav__trigger', menu), timer, byHover = false;
+      var open = function (v) { menu.setAttribute('data-open', v ? 'true' : 'false'); btn.setAttribute('aria-expanded', v ? 'true' : 'false'); if (!v) byHover = false; };
+      /* the pointer opens the menu on hover, so the first click on "Services" keeps it open instead of toggling it shut */
+      btn.addEventListener('click', function (e) { e.stopPropagation(); var v = byHover || menu.getAttribute('data-open') !== 'true'; byHover = false; closeAll(menu); open(v); });
+      menu.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover)').matches) { clearTimeout(timer); closeAll(menu); open(true); byHover = true; } });
       menu.addEventListener('mouseleave', function () { if (window.matchMedia('(hover: hover)').matches) { timer = setTimeout(function () { open(false); }, 400); } });
       menu.addEventListener('keydown', function (e) { if (e.key === 'Escape') { open(false); btn.focus(); } });
       /* close on Tab-away only: iOS Safari does not focus tapped buttons, so a tap on a menu item fires focusout with

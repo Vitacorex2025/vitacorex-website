@@ -791,10 +791,14 @@ body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawe
 /* 33. Phones never scroll sideways (owner 2026-10-15: on iPhone the page drifted when dragged and could be zoomed out).
    Safari lets the selected text of a <select> spill out of the control — a long option such as
    «Пакет документов на подачу small claims — от $199» made the page 462 px wide on a 390 px screen.
-   The control now clips its own text, and the page itself never grows wider than the screen
-   (clip, not hidden: no new scroll container, so the sticky header keeps working). */
-html, body { max-width: 100%; overflow-x: clip; }
-@supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+   The control now clips its own text, and the page itself never grows wider than the screen.
+   The guard sits on body only: with html left visible, body's overflow passes to the window, so the window
+   clips sideways, the sticky header keeps sticking to the window and body.vx-drawer-open still locks the page
+   behind the menu. (Clip on html as well made body its own scroller: opened after scrolling, the menu pushed
+   the header and burger off screen and the page behind kept scrolling — Android tester, 2026-10-15.) */
+html { max-width: 100%; }
+body { max-width: 100%; overflow-x: clip; }
+@supports not (overflow: clip) { body { overflow-x: hidden; } }
 /* Safari spills the chosen text of a <select> outside the control; paint containment keeps it inside the box
    (clipping the control's own overflow or max-width does not help in WebKit — verified by the iPhone tester) */
 select { max-width: 100%; contain: paint; }
@@ -811,3 +815,18 @@ select { max-width: 100%; contain: paint; }
    so taps on it went through to the menu link underneath (even a tel: link) */
 body.vx-drawer-open .vx-consent { visibility: hidden; }
 body.vx-drawer-open .vx7-focus { display: none; }
+
+/* 34. Phone and form fixes from the 2026-10-15 testers' reports */
+/* hero buttons wrap instead of losing their end on narrow phones («Не нашли свой документ? Напишите нам» at 320–360 px) */
+@media (max-width: 45em) {
+  .vx-hero__ctas .vx-btn { min-width: 0; max-width: 100%; white-space: normal; text-align: center; padding-block: 12px; }
+}
+@media (max-width: 40em) {
+  .vcx-image-hero__cta { max-width: 100%; white-space: normal; text-align: center; }
+}
+/* checkboxes and radios in a form field keep their own 22 px box: the 48 px field height and the red inset shadow
+   are for text fields (the consent box turned into a red 22×48 bar on an empty submit and sat 13 px low in Safari) */
+:where(body.vx) .vx-field input:is([type="checkbox"], [type="radio"]) { min-height: 0; box-shadow: none; }
+:where(body.vx) .vx-field input:is([type="checkbox"], [type="radio"])[aria-invalid="true"],
+:where(body.vx) .vx-field[data-error] input:is([type="checkbox"], [type="radio"]),
+:where(body.vx) .vx-field.is-error input:is([type="checkbox"], [type="radio"]) { box-shadow: none; outline: 2px solid var(--vx-danger); outline-offset: 2px; }
