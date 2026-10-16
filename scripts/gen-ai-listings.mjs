@@ -56,15 +56,15 @@ const bizGroups = catalog.groups.filter((g) => g.lane === 'business');
 const BIZ_NOTES = {
   en: ['Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.',
     'On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.',
-    'Retainer clients get a free receivables analysis and a free 30-day recovery pilot. Flat prices, never a percentage of what you recover.',
+    'Small-claims retainer clients get the first month of Financial Recovery free. After the pilot, the full rollout costs 12% of the increase in net recovery (18% on invoices more than a year overdue).',
     'Court filing fees and service of process are paid at cost.'],
   ru: ['Каждое дело начинается с проверки (штат, суд, суть требования); объём работы для вашего штата и суда подтверждаем до оплаты.',
     'На ретейнере мы ведём документы, судебный календарь и заседание за вашу компанию по доверенности — там, где это допускает суд.',
-    'Клиенты на ретейнере получают бесплатный анализ дебиторской задолженности и бесплатный 30-дневный пилот по возврату. Фиксированные цены, никогда не процент от возвращённого.',
+    'Для клиентов на ретейнере small claims первый месяц Financial Recovery бесплатно. После пилота полное внедрение стоит 12% с прироста чистого возврата (18% по счетам с просрочкой больше года).',
     'Судебные сборы и вручение документов — по фактической стоимости.'],
   es: ['Cada caso empieza con una revisión (estado, tribunal, datos del reclamo); confirmamos el alcance para su estado y tribunal antes de que pague.',
     'Con el retainer por caso llevamos los documentos, el calendario judicial y la audiencia por su empresa con un poder, donde el tribunal lo permite.',
-    'Los clientes con retainer reciben gratis un análisis de cuentas por cobrar y un piloto de recuperación de 30 días. Precios fijos, nunca un porcentaje de lo recuperado.',
+    'Los clientes con el retainer de small claims tienen gratis el primer mes de Financial Recovery. Después del piloto, la implementación completa cuesta el 12% del aumento de la recuperación neta (18% en facturas con más de un año de atraso).',
     'Las tasas judiciales y la notificación se pagan al costo.'],
 };
 const bullets = (l) => BIZ_NOTES[l].map((x) => `- ${x}`).join('\n') + '\n\n';

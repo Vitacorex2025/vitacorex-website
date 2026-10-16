@@ -36,6 +36,7 @@ from ..services.chat_attachments import (
     build_attachment_summary,
     classify_attachment,
     list_session_attachments,
+    safe_session_dir,
     type_label,
 )
 from ..services.contact_extractor import maybe_forward_contact
@@ -310,7 +311,9 @@ async def upload_chat_file(
     )
 
     file_id = str(uuid.uuid4())
-    session_dir = os.path.join(_CHAT_UPLOADS_DIR, session_id)
+    session_dir = safe_session_dir(session_id)
+    if session_dir is None:
+        raise HTTPException(status_code=400, detail="invalid_session_id")
     os.makedirs(session_dir, exist_ok=True)
 
     dest = os.path.join(session_dir, f"{file_id}_{sanitized}")

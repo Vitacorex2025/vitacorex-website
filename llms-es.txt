@@ -10,7 +10,7 @@
 - Los precios son tarifas de servicio en dólares estadounidenses. «Desde» indica un precio inicial; el precio final se confirma por escrito antes de cualquier pago.
 - Las tasas gubernamentales, estatales y judiciales, así como el envío, se cobran aparte y se detallan en el presupuesto.
 - Idiomas de atención: inglés, ruso y español. Traducciones en otros pares de idiomas: a solicitud (según disponibilidad).
-- VitaCoreX no elige formularios migratorios, no da estrategia legal ni fiscal y no representa a clientes ante tribunales. Si necesita un abogado, podemos enviar un breve resumen a un abogado independiente con licencia, solo con su consentimiento.
+- VitaCoreX no elige formularios migratorios, no da estrategia legal ni fiscal. A las empresas con el retainer de small claims las representamos en la audiencia mediante un poder, donde el tribunal lo permite. Si necesita un abogado, podemos enviar un breve resumen a un abogado independiente con licencia, solo con su consentimiento.
 
 ## Servicios y precios
 
@@ -298,7 +298,7 @@
 
 - Cada caso empieza con una revisión (estado, tribunal, datos del reclamo); confirmamos el alcance para su estado y tribunal antes de que pague.
 - Con el retainer por caso llevamos los documentos, el calendario judicial y la audiencia por su empresa con un poder, donde el tribunal lo permite.
-- Los clientes con retainer reciben gratis un análisis de cuentas por cobrar y un piloto de recuperación de 30 días. Precios fijos, nunca un porcentaje de lo recuperado.
+- Los clientes con el retainer de small claims tienen gratis el primer mes de Financial Recovery. Después del piloto, la implementación completa cuesta el 12% del aumento de la recuperación neta (18% en facturas con más de un año de atraso).
 - Las tasas judiciales y la notificación se pagan al costo.
 
 ## Aviso sobre servicios migratorios (texto oficial en inglés)
@@ -326,7 +326,7 @@ P: ¿Ayudan con formularios migratorios?
 R: Sí, en la parte administrativa: llenado de un formulario de USCIS elegido por usted o su asesor, revisión de que esté completo y paquete de documentos (desde $149), y apoyo documental con el N-400 (desde $249). No se ofrece elegir el formulario, asesorar sobre elegibilidad ni representar. Las tasas de USCIS se cobran aparte.
 
 P: ¿Puedo describir mi situación antes de elegir un servicio?
-R: Sí. Enviar la solicitud «Cuéntenos su situación» no tiene costo. No es una consulta legal gratuita: le respondemos con el servicio adecuado y su precio.
+R: Sí. Enviar la solicitud «Cuéntenos su situación» no tiene costo: le respondemos con el servicio adecuado y su precio.
 
 P: ¿Atienden en español?
 R: Sí. Atendemos en español, inglés y ruso.

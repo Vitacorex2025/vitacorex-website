@@ -134,7 +134,7 @@ function footerHTML() {
 </div>
 <div class="vx-ftr__grid">
 <nav aria-labelledby="vx-f-svc"><h2 id="vx-f-svc" data-t="footer.h.services">${esc(en['footer.h.services'])}</h2><ul>${fsvc}<li><a class="vx-ftr__all" href="/services.html" data-t="nav.all_services">${esc(en['nav.all_services'])}</a></li></ul></nav>
-<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul>${li('/small-claims-documentation.html', 'footer.small_claims')}${li('/small-claims-documentation.html#check', 'footer.check_case')}${li('/financial-recovery.html', 'fr.nav')}${li('/net-recovery.html', 'footer.existing')}</ul></nav>
+<nav aria-labelledby="vx-f-biz"><h2 id="vx-f-biz" data-t="footer.h.business">${esc(en['footer.h.business'])}</h2><ul>${li('/small-claims-documentation.html', 'footer.small_claims')}${li('/small-claims-documentation.html#check', 'footer.check_case')}${li('/financial-recovery.html', 'fr.nav')}</ul></nav>
 <nav aria-labelledby="vx-f-co"><h2 id="vx-f-co" data-t="footer.h.company">${esc(en['footer.h.company'])}</h2><ul>${li('/about.html', 'nav.about')}${li('/pricing.html', 'nav.prices')}${li('/contact.html', 'nav.contact')}${li('/careers.html', 'footer.careers')}</ul></nav>
 <nav aria-labelledby="vx-f-legal"><h2 id="vx-f-legal" data-t="footer.h.legal">${esc(en['footer.h.legal'])}</h2><ul>${li('/privacy-policy.html', 'footer.privacy')}${li('/terms-of-use.html', 'footer.terms')}${li('/cookie-policy.html', 'footer.cookies')}</ul></nav>
 </div>

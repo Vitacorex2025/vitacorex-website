@@ -13,27 +13,18 @@ const ROOT = path.resolve(__dirname, '..');
 // 2026-10 rebuild: recovery/corporate legacy pages are noindex (existing clients only) and
 // several legacy directories became meta-refresh stubs (see worklogs/ROUTE_MAP.csv).
 const EXPECTED_B2B = [
-  'small-claims-documentation.html',
-  'sample-deliverable.html','partners.html','security-and-compliance.html'
+  'small-claims-documentation.html'
 ];
 const EXPECTED_B2C = [
   'contract-review-service.html','llc-formation-florida.html',
-  'immigration-packet-review.html','immigration-services-tampa.html','n-400-naturalization.html'
+  'immigration-packet-review.html','n-400-naturalization.html'
 ];
 const EXPECTED_SHARED = [
-  'about.html','contact.html','careers.html','insights.html',
-  'privacy-policy.html','terms-of-use.html','cookie-policy.html',
-  'secure-coordination.html','sub-processors-and-dpa.html'
+  'about.html','contact.html','careers.html',
+  'privacy-policy.html','terms-of-use.html','cookie-policy.html'
 ];
 // P03 Step 3.2 — Samples cluster under /samples/<slug>.html (ADR-008).
-const EXPECTED_SAMPLES = [
-  'samples/ar-leakage-map.html',
-  'samples/counsel-ready-packet.html',
-  'samples/diagnostic-report.html',
-  'samples/contract-risk-memo.html',
-  'samples/immigration-evidence-index.html',
-  'samples/small-claims-chronology.html'
-];
+const EXPECTED_SAMPLES = [];   // samples are noindex since 2026-10-15
 // Must NOT appear in sitemap.
 // business-plans.html was a redirect stub — promoted to a full standalone page on 2026-04-20,
 // so it was removed from this list at that time (now has its own sitemap entry).

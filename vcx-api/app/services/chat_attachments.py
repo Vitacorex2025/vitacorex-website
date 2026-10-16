@@ -43,6 +43,18 @@ _TYPE_LABELS: dict[str, str] = {
 
 # ── Public API ────────────────────────────────────────────────────────
 
+
+_SESSION_ID = re.compile(r"^[A-Za-z0-9_-]{1,80}$")
+
+
+def safe_session_dir(session_id: str) -> str | None:
+    """The chat session folder, or None when the id is not a plain token (no separators, dots or absolute paths)."""
+    if not isinstance(session_id, str) or not _SESSION_ID.match(session_id):
+        return None
+    base = os.path.realpath(_CHAT_UPLOADS_DIR)
+    path = os.path.realpath(os.path.join(base, session_id))
+    return path if os.path.dirname(path) == base else None
+
 def classify_attachment(
     filename: str,
     content_type: str | None = None,
@@ -81,8 +93,8 @@ def list_session_attachments(session_id: str) -> list[dict]:
     Returns a list of dicts with: file_id, filename, category, size, type_label.
     Files are read from the uploads/chat/{session_id}/ directory.
     """
-    session_dir = os.path.join(_CHAT_UPLOADS_DIR, session_id)
-    if not os.path.isdir(session_dir):
+    session_dir = safe_session_dir(session_id)
+    if session_dir is None or not os.path.isdir(session_dir):
         return []
 
     attachments = []

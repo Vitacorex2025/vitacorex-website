@@ -19,7 +19,7 @@
         "width": 512,
         "height": 512
       },
-      "description": "Documents, translations, online notarization, apostille assistance, individual tax returns, company formation and business plans for private clients, plus small-claims document preparation for companies. Tampa, FL. Not a law firm.",
+      "description": "Documents, translations, online notarization, apostille assistance, individual tax returns, company formation and business plans for private clients, plus small-claims document preparation for companies. Tampa, FL.",
       "telephone": "+18887948292",
       "email": "info@vitacorexllc.com",
       "address": {
@@ -676,7 +676,7 @@
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "price": "0",
-        "description": "no charge to send a request; this is not a free legal consultation"
+        "description": "no charge to send a request"
       }
     },
     {

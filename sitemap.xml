@@ -125,12 +125,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://vitacorexllc.com/insights.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <!-- ============================================================ -->
   <!-- For Private Clients — primary lane -->
@@ -469,12 +463,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vitacorexllc.com/immigration-services-tampa.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://vitacorexllc.com/n-400-naturalization.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://vitacorexllc.com/n-400-naturalization.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://vitacorexllc.com/ru/n-400-naturalization.html"/>
@@ -695,25 +683,7 @@
   </url>
   <!-- B2B · Industries -->
   <!-- B2B · Proof & case studies -->
-  <url>
-    <loc>https://vitacorexllc.com/sample-deliverable.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
   <!-- B2B · Pricing & procurement -->
-  <url>
-    <loc>https://vitacorexllc.com/security-and-compliance.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/partners.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
 
   <!-- ============================================================ -->
   <!-- Sample deliverables (ADR-008) — 0 pages under /samples/ -->
@@ -813,18 +783,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://vitacorexllc.com/secure-coordination.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/sub-processors-and-dpa.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
   <!-- Shared — Utility -->
 
@@ -893,42 +851,6 @@
   </url>
 
   <!-- Executive PDFs -->
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/lead-magnet-healthcare.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/healthcare-cfo-brief.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/dental-institutional-deck.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/precollection-executive-review.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/precollection-healthcare-selling-deck.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://vitacorexllc.com/assets/pdf/VitaCoreX_Institutional_Proof.pdf</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
 
   <!-- Misc -->
   <url>

@@ -4,7 +4,7 @@
     {
       "@type": "AskAction",
       "name": "Request a quote from VitaCoreX",
-      "description": "Describe your task — translation, online notarization, apostille, tax return, company formation, business plan, document or immigration form task — and receive the matching service and price. Sending a request is free; it is not a free legal consultation.",
+      "description": "Describe your task — translation, online notarization, apostille, tax return, company formation, business plan, document or immigration form task — and receive the matching service and price. Sending a request is free.",
       "target": {
         "@type": "EntryPoint",
         "urlTemplate": "https://vitacorexllc.com/request.html",

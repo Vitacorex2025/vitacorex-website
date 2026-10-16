@@ -20,7 +20,7 @@
       "name": "Is VitaCoreX a law firm?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. VitaCoreX LLC is not a law firm and does not provide legal advice or court representation. If you need a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with your consent."
+        "text": "No. VitaCoreX LLC is a document and case-management company. Companies on the small-claims retainer are represented at the hearing under a power of attorney where the court allows it. If you need a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with your consent."
       }
     },
     {
@@ -84,7 +84,7 @@
       "name": "Can I ask about my situation before choosing a service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Sending a request is free of charge. It is not a free legal consultation: VitaCoreX replies with a matching service and price, and paid work starts only after you accept a quote."
+        "text": "Yes. Sending a request is free of charge. VitaCoreX replies with a matching service and price, and paid work starts only after you accept a quote."
       }
     },
     {

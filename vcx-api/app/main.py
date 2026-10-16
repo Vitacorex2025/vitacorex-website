@@ -17,10 +17,21 @@ from .routers import ai_analyze, calendar, chat, contracts, intakes, matters, po
 from .routers import v2_owner, v2_public, v2_voice
 from .services import v2_outbox
 
+def _flag(name: str) -> bool:
+    return os.getenv(name, "").strip().lower() in ("1", "true", "yes")
+
+
+# The legacy routers (old intake, portal, chat, uploads, contracts, calendar, recovery, AI) are not used by the
+# rebuilt site or the phone assistant. They are mounted only when VCX_LEGACY_API is set, so the live API exposes the
+# v2 surface alone (audit 2026-10-16: contact overwrite + magic link, chat upload path, public endpoint list).
+LEGACY_API = _flag("VCX_LEGACY_API")
+API_DOCS = _flag("VCX_API_DOCS")
+
 app = FastAPI(
     title="VCX Intake OS",
     version="1.1.0",
-    docs_url="/api/docs",
+    docs_url="/api/docs" if API_DOCS else None,
+    openapi_url="/openapi.json" if API_DOCS else None,
     redoc_url=None,
 )
 
@@ -63,16 +74,9 @@ def healthz():
     return {"ok": True, "service": "VCX Intake OS", "version": "1.1.0"}
 
 # Mount routers
-app.include_router(intakes.router)
-app.include_router(uploads.router)
-app.include_router(matters.router)
-app.include_router(review.router)
-app.include_router(chat.router)
-app.include_router(contracts.router)
-app.include_router(recovery.router)
-app.include_router(portal.router)
-app.include_router(ai_analyze.router)
-app.include_router(calendar.router)
+if LEGACY_API:
+    for _legacy in (intakes, uploads, matters, review, chat, contracts, recovery, portal, ai_analyze, calendar):
+        app.include_router(_legacy.router)
 # v2 (catalog-driven intake, quotes, payments, owner desk, voice tools)
 app.include_router(v2_public.router)
 app.include_router(v2_voice.router)

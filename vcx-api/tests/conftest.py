@@ -26,6 +26,7 @@ WHSEC = "whsec_test_placeholder_0123456789"
 
 BASE_ENV = {
     "VCX_ENV": "preview",
+    "VCX_LEGACY_API": "true",   # legacy routers stay testable; production leaves them off
     "VCX_DB_PATH": str(_BOOT / "boot.db"),
     "VCX_MAIL_SINK_DIR": str(_BOOT / "sink"),
     "VCX_RATE_LIMIT_ENABLED": "false",

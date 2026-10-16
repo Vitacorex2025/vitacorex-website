@@ -830,3 +830,8 @@ body.vx-drawer-open .vx7-focus { display: none; }
 :where(body.vx) .vx-field input:is([type="checkbox"], [type="radio"])[aria-invalid="true"],
 :where(body.vx) .vx-field[data-error] input:is([type="checkbox"], [type="radio"]),
 :where(body.vx) .vx-field.is-error input:is([type="checkbox"], [type="radio"]) { box-shadow: none; outline: 2px solid var(--vx-danger); outline-offset: 2px; }
+
+/* 35. No numbering anywhere (owner rule, D17/D54; audit 2026-10-16 found digits 1-4 on the step cards of
+   financial recovery, small claims, apostille and careers): the step marker is the V glyph alone */
+.vx-chain__n { font-size: 0; }
+.vx-chain__n::before { content: none; }

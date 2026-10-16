@@ -3,7 +3,7 @@
   "updated": "2026-10-14",
   "organization": "VitaCoreX LLC",
   "url": "https://vitacorexllc.com",
-  "description": "Documents, translations, online notarization, apostille assistance, individual tax returns, company formation and business plans for private clients, plus small-claims document preparation for companies. Tampa, FL. English, Russian, Spanish. Not a law firm.",
+  "description": "Documents, translations, online notarization, apostille assistance, individual tax returns, company formation and business plans for private clients, plus small-claims document preparation for companies. Tampa, FL. English, Russian, Spanish.",
   "primary_topics": [
     "certified translation", "document translation", "online notarization",
     "apostille assistance", "individual tax return", "self-employed tax return",
@@ -23,7 +23,7 @@
     {"name": "Contracts & document support", "price": "from $99 — limited document task", "url": "https://vitacorexllc.com/contract-review-service.html"},
     {"name": "Immigration forms & documents", "price": "from $149 — one simple USCIS form you or your adviser have chosen; USCIS fees separate", "url": "https://vitacorexllc.com/immigration-packet-review.html"},
     {"name": "Naturalization document support (N-400)", "price": "from $249 — defined N-400 support scope", "url": "https://vitacorexllc.com/n-400-naturalization.html"},
-    {"name": "Ask about your situation", "price": "no charge to send a request (not a free legal consultation)", "url": "https://vitacorexllc.com/request.html?service=legal_request"},
+    {"name": "Ask about your situation", "price": "no charge to send a request", "url": "https://vitacorexllc.com/request.html?service=legal_request"},
     {"name": "Company formation", "price": "$99 + state filing fee", "url": "https://vitacorexllc.com/llc-formation-florida.html"},
     {"name": "Company formation + EIN", "price": "$199 + state filing fee", "url": "https://vitacorexllc.com/llc-formation-florida.html"},
     {"name": "Business plan", "price": "from $499 — defined basic plan", "url": "https://vitacorexllc.com/business-plans.html"},
@@ -64,5 +64,5 @@
     "wikidata_claims": "https://vitacorexllc.com/.well-known/wikidata-claims.json"
   },
   "not_a_law_firm": true,
-  "disclaimer": "VitaCoreX LLC is not a law firm and does not provide legal advice or court representation."
+  "disclaimer": "VitaCoreX does not choose immigration forms or give legal strategy. Court representation is part of the small-claims retainer for companies, under a power of attorney where the court allows it; when a matter needs a lawyer, a short summary goes to an independent licensed attorney with the client's consent."
 }

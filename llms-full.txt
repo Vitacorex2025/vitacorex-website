@@ -14,7 +14,7 @@ Location: Tampa, FL, United States
 Founder: Steven Miller
 Service languages: English, Russian, Spanish
 
-VitaCoreX LLC helps private clients with documents, translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork. A separate lane serves companies with small-claims document preparation and case support. Existing business clients can ask for recovery support, quoted individually.
+VitaCoreX LLC helps private clients with documents, translations, online notarization, apostilles, individual tax returns, company formation, business plans, contracts and document tasks, and clerical immigration paperwork. A separate lane serves companies: small-claims cases per case (filing packet, a month of case support, or a retainer with court representation under a power of attorney where the court allows it) and Financial Recovery for overdue business invoices.
 
 It does not choose immigration forms or give eligibility advice. If a client needs a lawyer, VitaCoreX can pass a short summary to an independent licensed attorney only with the client's consent.
 
@@ -313,7 +313,7 @@ How prices work:
 
 - Each case starts with a case check (state, court, claim basics); we confirm the scope for your state and court before you pay.
 - On the per-case retainer we handle the documents, the court calendar and the hearing for your company under a power of attorney, where the court allows it.
-- Retainer clients get a free receivables analysis and a free 30-day recovery pilot. Flat prices, never a percentage of what you recover.
+- Small-claims retainer clients get the first month of Financial Recovery free. After the pilot, the full rollout costs 12% of the increase in net recovery (18% on invoices more than a year overdue).
 - Court filing fees and service of process are paid at cost.
 
 ## Immigration notice
@@ -334,7 +334,7 @@ I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW AND MAY NOT GIVE LEGAL ADVICE OR A
 ================================================================================
 
 Q: What is VitaCoreX LLC?
-A: A Tampa, Florida document and case-management company: court paperwork and Florida name changes, small-claims cases for companies by the hour under a power of attorney, company formation and annual filings, individual tax returns; plus certified translations, apostilles and online notarization.
+A: A Tampa, Florida document and case-management company: court paperwork and Florida name changes, small-claims cases for companies per case (court representation on the retainer under a power of attorney where the court allows it), company formation and annual filings, individual tax returns; plus certified translations, apostilles and online notarization.
 
 Q: How much does online notarization cost?
 A: $25 per notarial act. Additional signatures or acts, witnesses, and a printed copy with mailing are extra.
@@ -355,10 +355,10 @@ Q: Does VitaCoreX help with immigration forms?
 A: Yes, clerically: typing a USCIS form you or your adviser have chosen, a completeness check and an organized document packet (from $149), and N-400 document support (from $249). Choosing a form, eligibility advice and representation are not provided. USCIS fees are separate.
 
 Q: Can I ask a question before choosing a service?
-A: Yes. Sending a request through "Ask about your situation" is free of charge. It is not a free legal consultation; VitaCoreX replies with a matching service and price.
+A: Yes. Sending a request through "Ask about your situation" is free of charge; VitaCoreX replies with a matching service and price.
 
 Q: Does VitaCoreX handle small claims for companies?
-A: Yes. Case management by the hour ($65/h) under the company’s power of attorney, a case packet from $199, case support for the first 30 days from $399, or the monthly back office from $449 with a free receivables analysis every month. Court fees are paid at cost; we confirm your state and court before you pay.
+A: Yes, per case: a filing packet from $199, one month of case support from $399, or a retainer with court representation under a power of attorney where the court allows it from $749 per case; court hours are $65 per hour with a 2-hour minimum paid upfront. Court fees are paid at cost; we confirm your state and court before you pay.
 
 Q: What languages does VitaCoreX work in?
 A: English, Russian and Spanish. Translations for other language pairs are quoted on request, subject to availability.

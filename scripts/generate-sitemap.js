@@ -31,7 +31,6 @@ const SHARED_CORE = [
   ['about.html',    'weekly', '0.8', TODAY],
   ['contact.html',  'weekly', '0.8', TODAY],
   ['careers.html',  'weekly', '0.8', TODAY],
-  ['insights.html', 'weekly', '0.8', TODAY],
   ['faq.html',      'weekly', '0.8', TODAY]
 ];
 
@@ -53,7 +52,6 @@ const PRIVATE_PERSONAL = [
   ['civil-case-referral.html',      'monthly', '0.6', TODAY],
   ['contract-review-service.html',  'weekly', '0.8', TODAY],
   ['immigration-packet-review.html','weekly', '0.8', TODAY],
-  ['immigration-services-tampa.html','weekly','0.8', TODAY],
   ['i-130-petition.html',           'weekly', '0.8', TODAY],
   ['i-485-adjustment.html',         'weekly', '0.8', TODAY],
   ['n-400-naturalization.html',     'weekly', '0.8', TODAY],
@@ -101,13 +99,10 @@ const B2B_PROOF = [
   ['case-study-fleet-logistics.html',     'weekly', '0.7', TODAY],
   ['case-study-healthcare-network.html',  'weekly', '0.7', TODAY],
   ['case-study-subscription-saas.html',   'weekly', '0.7', TODAY],
-  ['vitacorex-vs-traditional-agency.html','weekly', '0.7', TODAY],
-  ['sample-deliverable.html',             'weekly', '0.7', TODAY]
+  ['vitacorex-vs-traditional-agency.html','weekly', '0.7', TODAY]
 ];
 const B2B_PRICING = [
-  ['pricing-and-engagement-tiers.html', 'weekly', '0.9', TODAY],
-  ['security-and-compliance.html',      'weekly', '0.7', TODAY],
-  ['partners.html',                     'weekly', '0.6', TODAY]
+  ['pricing-and-engagement-tiers.html', 'weekly', '0.9', TODAY]
 ];
 
 // Sample deliverables (ADR-008), under /samples/<slug>.html
@@ -118,9 +113,7 @@ const SAMPLES_SHARED = [];
 const SHARED_LEGAL = [
   ['privacy-policy.html',         'monthly', '0.5', TODAY],
   ['terms-of-use.html',           'monthly', '0.5', TODAY],
-  ['cookie-policy.html',          'monthly', '0.5', TODAY],
-  ['secure-coordination.html',    'monthly', '0.5', TODAY],
-  ['sub-processors-and-dpa.html', 'monthly', '0.5', TODAY]
+  ['cookie-policy.html',          'monthly', '0.5', TODAY]
 ];
 const SHARED_UTILITY = [
   ['thank-you.html', 'monthly', '0.3', TODAY]
@@ -155,12 +148,6 @@ const NON_HTML = {
     ['llms-es.txt',   'weekly', '0.5', TODAY]
   ],
   pdfs: [
-    ['assets/pdf/lead-magnet-healthcare.pdf',                'monthly', '0.6', PREV],
-    ['assets/pdf/healthcare-cfo-brief.pdf',                  'monthly', '0.6', PREV],
-    ['assets/pdf/dental-institutional-deck.pdf',             'monthly', '0.6', PREV],
-    ['assets/pdf/precollection-executive-review.pdf',        'monthly', '0.6', PREV],
-    ['assets/pdf/precollection-healthcare-selling-deck.pdf', 'monthly', '0.6', PREV],
-    ['assets/pdf/VitaCoreX_Institutional_Proof.pdf',         'monthly', '0.6', PREV]
   ],
   misc: [
     ['humans.txt',       'monthly', '0.2', TODAY],
