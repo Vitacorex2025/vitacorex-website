@@ -10,7 +10,7 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = '2d5daf1395';
+  var VERSION = '6b097a75f6';
   /* pages that have /ru/ and /es/ copies (written by scripts/vx-shell.mjs) */
   var LOCAL_PAGES = ' about.html apostille.html business-filings.html business-plans.html careers.html civil-case-referral.html contact.html contract-review-service.html cookie-policy.html fee-waiver.html financial-recovery.html founder-services.html immigration-packet-review.html index.html llc-formation-florida.html n-400-naturalization.html name-change.html online-notary.html pricing.html privacy-policy.html services.html small-claims-documentation.html tax-preparation.html terms-of-use.html translations.html ';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };

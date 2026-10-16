@@ -866,3 +866,29 @@ body.vx-drawer-open .vx7-focus { display: none; }
    financial recovery, small claims, apostille and careers): the step marker is the V glyph alone */
 .vx-chain__n { font-size: 0; }
 .vx-chain__n::before { content: none; }
+
+/* 37. Website chat (owner 2026-10-16): our launcher; the Vapi widget loads on demand and never shows its own launcher */
+.vx-chat-btn { position: fixed; right: 20px; bottom: 20px; z-index: 95; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px;
+  border: 1px solid rgba(43, 179, 192, .65); border-radius: 8px; background: #0A2530; color: #fff; font: 600 15px/1 var(--vx-sans); letter-spacing: .01em;
+  box-shadow: 0 10px 24px rgba(4, 20, 28, .28); cursor: pointer; }
+.vx-chat-btn:hover { background: #0F3442; }
+.vx-chat-btn:focus-visible { outline: 3px solid rgba(43, 179, 192, .6); outline-offset: 2px; }
+.vx-chat-btn svg { width: 18px; height: 18px; flex: none; }
+.vx-chat-btn[hidden], .vx-chat-btn[aria-busy="true"] svg { display: none; }
+.vx-chat-btn[aria-busy="true"]::before { content: ""; width: 14px; height: 14px; border: 2px solid rgba(255, 255, 255, .35); border-top-color: #fff; border-radius: 50%; animation: vx-chat-spin .8s linear infinite; }
+@keyframes vx-chat-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .vx-chat-btn[aria-busy="true"]::before { animation: none; } }
+vapi-widget.vx-chat--closed { display: none; }
+vapi-widget .vapi-widget-wrapper [style*="cursor: pointer"]:hover { transform: none; }
+/* the menu sheet and, on phones, the cookie slip own the bottom of the screen */
+body.vx-drawer-open .vx-chat-btn, body.vx-drawer-open vapi-widget { display: none; }
+@media (max-width: 47.5em) {
+  .vx-chat-btn { right: 12px; bottom: 12px; }
+  body:has(.vx-consent:not(.vx-consent--tuck)) .vx-chat-btn { display: none; }
+}
+/* phones: the open chat spans the screen width (the widget's own panel is 24rem wide and stood 18 px off the left edge) */
+@media (max-width: 30em) {
+  vapi-widget .vapi-widget-wrapper > div { left: 8px !important; right: 8px !important; bottom: 8px !important; }
+  vapi-widget .vapi-widget-wrapper > div > div { width: 100% !important; max-height: calc(100dvh - 16px); }
+}
+

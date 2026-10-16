@@ -364,6 +364,8 @@ const V7_INTRO = "<!-- vx7:intro --><script>try{if(!(window.matchMedia&&matchMed
 function addV7(html) {
   if (!html.includes('/assets/v7/vx7.css')) html = html.replace(/(<link rel="stylesheet" href="\/assets\/css\/vcx-v5\.css[^>]*>)/, '$1\n<link rel="stylesheet" href="/assets/v7/vx7.css?v=1">');
   if (!html.includes('/assets/v7/vx7.js')) html = html.replace(/(<script src="\/assets\/js\/vcx-v2\.js[^>]*><\/script>)/, '$1\n<script src="/assets/v7/vx7.js?v=1" defer></script>');
+  // website chat launcher (owner 2026-10-16); the Vapi widget itself loads only when a visitor opens the chat
+  if (!html.includes('/assets/js/vcx-chat.js')) html = html.replace(/(<script src="\/assets\/js\/vcx-v2\.js[^>]*><\/script>)/, '$1\n<script src="/assets/js/vcx-chat.js?v=1" defer></script>');
   html = html.replace(/<!-- vx7:intro -->[\s\S]*?<!-- \/vx7:intro -->\n?/, '');
   if (html.includes('class="vx6-hero"')) html = html.replace('</head>', V7_INTRO + '\n</head>');
   html = html.replace(/<body([^>]*)>/, (m, attrs) => {
