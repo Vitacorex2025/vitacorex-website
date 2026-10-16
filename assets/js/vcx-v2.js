@@ -259,7 +259,9 @@
       menu.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover)').matches) { clearTimeout(timer); closeAll(menu); open(true); } });
       menu.addEventListener('mouseleave', function () { if (window.matchMedia('(hover: hover)').matches) { timer = setTimeout(function () { open(false); }, 400); } });
       menu.addEventListener('keydown', function (e) { if (e.key === 'Escape') { open(false); btn.focus(); } });
-      menu.addEventListener('focusout', function (e) { if (!menu.contains(e.relatedTarget)) open(false); });
+      /* close on Tab-away only: iOS Safari does not focus tapped buttons, so a tap on a menu item fires focusout with
+         no relatedTarget before its click; outside taps are closed by the document click handler below */
+      menu.addEventListener('focusout', function (e) { if (e.relatedTarget && !menu.contains(e.relatedTarget)) open(false); });
     });
 
     qsa('.vx-lang').forEach(function (box) {
@@ -273,13 +275,17 @@
         else if (e.key === 'ArrowDown' && i > -1) { e.preventDefault(); items[(i + 1) % items.length].focus(); }
         else if (e.key === 'ArrowUp' && i > -1) { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
       });
-      box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) open(false); });
+      box.addEventListener('focusout', function (e) { if (e.relatedTarget && !box.contains(e.relatedTarget)) open(false); });
     });
 
     /* WCAG 1.4.13: content shown on hover must be dismissible with Escape without moving pointer or focus */
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape' || !qs('.vx-nav__menu[data-open="true"], .vx-lang[data-open="true"]')) return;
       closeAll();
+    });
+    /* iOS Safari sends no click for taps on non-interactive content, so outside taps close menus on pointerdown */
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest || !e.target.closest('.vx-nav__menu, .vx-lang')) closeAll();
     });
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-vx-lang]');
