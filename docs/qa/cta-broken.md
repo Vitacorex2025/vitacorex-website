@@ -1,6 +1,6 @@
 ---
 title: CTA Broken List — VitaCoreX Site
-generated: 2026-10-16T02:12:05Z
+generated: 2026-10-16T14:06:34Z
 generator: scripts/verify-cta-targets.js (P17 Step 17.2)
 governs: Phases/P17 Broken Buttons and CTA Audit.md
 input: docs/qa/cta-inventory.md
@@ -14,11 +14,11 @@ idempotent: "internal checks byte-stable; external HEAD results may vary with up
 
 ## Summary
 
-- **Inventory rows parsed**: 14461
-- **Rows actively validated**: 13174
-- **Rows skipped (action-script / no target / self-ref)**: 1287
+- **Inventory rows parsed**: 14392
+- **Rows actively validated**: 13128
+- **Rows skipped (action-script / no target / self-ref)**: 1264
 - **Strict-broken rows (gate-enforced; triage required)**: 7
-- **External unique URLs HEAD-checked**: 8
+- **External unique URLs HEAD-checked**: 7
 
 _Opaque rows (HTTP 401/403/429/999 -- IP/UA-dependent) are logged to stdout only; their count intentionally does not appear here because it varies between local dev and CI runner IPs (Instagram 429, formsubmit.co 403, LinkedIn 999). Run with VCX_EMIT_OPAQUE=1 to dump to gitignored docs/qa/cta-opaque.md._
 
