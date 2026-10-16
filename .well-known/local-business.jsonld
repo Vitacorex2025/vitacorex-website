@@ -77,7 +77,9 @@
       {"@type": "Offer", "description": "from $99", "itemOffered": {"@type": "Service", "name": "Contracts & document support", "url": "https://vitacorexllc.com/contract-review-service.html"}},
       {"@type": "Offer", "description": "from $149; USCIS fees separate", "itemOffered": {"@type": "Service", "name": "Immigration forms & documents (clerical)", "url": "https://vitacorexllc.com/immigration-packet-review.html"}},
       {"@type": "Offer", "description": "from $249; USCIS fee separate", "itemOffered": {"@type": "Service", "name": "Naturalization document support (N-400)", "url": "https://vitacorexllc.com/n-400-naturalization.html"}},
-      {"@type": "Offer", "description": "from $199; court fees separate; not offered in New York", "itemOffered": {"@type": "Service", "name": "Small-claims case packet for companies", "url": "https://vitacorexllc.com/small-claims-documentation.html"}}
+      {"@type": "Offer", "description": "from $199; court fees separate", "itemOffered": {"@type": "Service", "name": "Small-claims filing packet for companies", "url": "https://vitacorexllc.com/small-claims-documentation.html"}},
+      {"@type": "Offer", "description": "from $749 per case; court representation under a power of attorney where the court allows it", "itemOffered": {"@type": "Service", "name": "Small-claims retainer for companies", "url": "https://vitacorexllc.com/small-claims-documentation.html#retainer"}},
+      {"@type": "Offer", "description": "analysis $390; month 1 $790; then 12% of the increase in net recovery", "itemOffered": {"@type": "Service", "name": "Financial Recovery for overdue business invoices", "url": "https://vitacorexllc.com/financial-recovery.html"}}
     ]
   }
 }

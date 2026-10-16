@@ -797,12 +797,12 @@
     {
       "@type": "Service",
       "@id": "https://vitacorexllc.com/#service-b2b-small-claims-packet",
-      "name": "Small-claims case packet",
+      "name": "Small-claims filing packet",
       "alternateName": [
         "Пакет документов small claims",
         "Paquete de documentos de small claims"
       ],
-      "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
+      "description": "An organized case file for one claim against one defendant: chronology, amounts, exhibits and prepared forms where permitted. New York: availability is confirmed case by case. Court fees are separate; the state and court are confirmed before payment. Court representation is part of the retainer.",
       "serviceType": "Small claims documentation",
       "category": "For companies: small claims",
       "url": "https://vitacorexllc.com/small-claims-documentation.html",
@@ -834,12 +834,12 @@
     {
       "@type": "Service",
       "@id": "https://vitacorexllc.com/#service-b2b-small-claims-support",
-      "name": "Small-claims preparation & case support",
+      "name": "Small-claims case support (one month)",
       "alternateName": [
         "Подготовка и сопровождение small claims",
         "Preparación y seguimiento de small claims"
       ],
-      "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for 30 days. New York is not offered for this product (company policy). Court fees are separate; no court appearance or representation.",
+      "description": "The case packet plus filing coordination where permitted, docket follow-up and status updates for one month. New York: availability is confirmed case by case. Court fees are separate; the state and court are confirmed before payment. Court representation is part of the retainer; court hours are $65 per hour with a 2-hour minimum paid upfront.",
       "serviceType": "Small claims documentation",
       "category": "For companies: small claims",
       "url": "https://vitacorexllc.com/small-claims-documentation.html",
@@ -865,21 +865,21 @@
           "minPrice": "399",
           "priceCurrency": "USD"
         },
-        "description": "from $399 — final price after review (one case, one defendant, first 30 days)"
+        "description": "from $399 — final price after review (one case, one defendant, one month)"
       }
     },
     {
       "@type": "Service",
       "@id": "https://vitacorexllc.com/#service-existing-client-recovery",
-      "name": "Recovery support for existing clients",
+      "name": "Financial Recovery",
       "alternateName": [
-        "Взыскание для действующих клиентов",
-        "Apoyo de recuperación para clientes actuales"
+        "Возврат просроченных счетов до суда (Financial Recovery)",
+        "Recuperación de facturas vencidas antes de la corte (Financial Recovery)"
       ],
-      "description": "An additional option for current business clients, quoted individually.",
-      "serviceType": "Recovery support for existing clients",
+      "description": "Pre-court recovery of overdue business-to-business invoices: VitaCoreX builds the method, scripts and document workflow and trains the client's own team, which contacts debtors. Receivables analysis $390; first month (setup and pilot) $790, free for current small-claims retainer clients; then the full rollout for 12% of the increase in net recovery (18% on invoices more than a year overdue).",
+      "serviceType": "Accounts receivable recovery consulting",
       "category": "For companies: small claims",
-      "url": "https://vitacorexllc.com/net-recovery.html",
+      "url": "https://vitacorexllc.com/financial-recovery.html",
       "provider": {
         "@id": "https://vitacorexllc.com/#organization"
       },
@@ -894,9 +894,9 @@
       ],
       "offers": {
         "@type": "Offer",
-        "url": "https://vitacorexllc.com/net-recovery.html",
+        "url": "https://vitacorexllc.com/financial-recovery.html",
         "availability": "https://schema.org/InStock",
-        "description": "individual quote; available to existing business clients only"
+        "description": "analysis $390; first month $790; then 12% of the increase in net recovery"
       }
     }
   ]

@@ -27,9 +27,13 @@
     {"name": "Company formation", "price": "$99 + state filing fee", "url": "https://vitacorexllc.com/llc-formation-florida.html"},
     {"name": "Company formation + EIN", "price": "$199 + state filing fee", "url": "https://vitacorexllc.com/llc-formation-florida.html"},
     {"name": "Business plan", "price": "from $499 — defined basic plan", "url": "https://vitacorexllc.com/business-plans.html"},
-    {"name": "Small-claims case packet (companies)", "price": "from $199 — one eligible case, one defendant; court fees separate; not offered in New York", "url": "https://vitacorexllc.com/small-claims-documentation.html"},
-    {"name": "Small-claims preparation & case support (companies)", "price": "from $399 — one case, one defendant, first 30 days; court fees separate; no representation; not offered in New York", "url": "https://vitacorexllc.com/small-claims-documentation.html"},
-    {"name": "Recovery support for existing clients", "price": "individual quote; existing business clients only", "url": "https://vitacorexllc.com/net-recovery.html"}
+    {"name": "Small-claims filing packet (companies)", "price": "from $199 — one eligible case, one defendant; court fees separate", "url": "https://vitacorexllc.com/small-claims-documentation.html"},
+    {"name": "Small-claims case support, one month (companies)", "price": "from $399 — one case, one defendant; court fees separate", "url": "https://vitacorexllc.com/small-claims-documentation.html"},
+    {"name": "Small-claims retainer with court representation (companies)", "price": "from $749 per case — under a power of attorney where the court allows it; court fees separate", "url": "https://vitacorexllc.com/small-claims-documentation.html#retainer"},
+    {"name": "Court hours for your company (add-on)", "price": "$65 per hour, 2-hour minimum paid upfront", "url": "https://vitacorexllc.com/small-claims-documentation.html#court-hours"},
+    {"name": "Receivables analysis (Financial Recovery)", "price": "$390", "url": "https://vitacorexllc.com/financial-recovery.html"},
+    {"name": "Financial Recovery, month 1: setup and pilot", "price": "$790; free for current small-claims retainer clients", "url": "https://vitacorexllc.com/financial-recovery.html"},
+    {"name": "Financial Recovery: full rollout after the pilot", "price": "12% of the increase in net recovery (18% on invoices more than a year overdue); debtor search ordered and paid by the client", "url": "https://vitacorexllc.com/financial-recovery.html#rollout"}
   ],
   "pricing_notes": "All prices are USD service fees. 'from' is a starting price; the final price is confirmed in a written quote before payment. Government, state, USCIS, apostille and court fees, shipping and courier are separate.",
   "languages": ["English", "Russian", "Spanish"],
