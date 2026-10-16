@@ -18,3 +18,4 @@ const live = await fetch(body.keyLocation).then((r) => r.ok && r.text()).catch((
 if (!live || live.trim() !== KEY) { console.error('Key file is not live on the production host; refusing to submit.'); process.exit(2); }
 const res = await fetch('https://api.indexnow.org/indexnow', { method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify(body) });
 console.log('IndexNow', res.status, res.statusText, `(${urls.length} URLs)`);
+if (res.status !== 200 && res.status !== 202) process.exit(1); // 200/202 = accepted; anything else fails the CI step
