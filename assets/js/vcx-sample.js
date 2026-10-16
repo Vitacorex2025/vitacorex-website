@@ -73,9 +73,11 @@
     nav.appendChild(back);
     nav.appendChild(brand);
 
-    // Insert as the very first child of body — topnav must precede banner
-    var body = document.body;
-    if (body.firstChild) body.insertBefore(nav, body.firstChild);
+    // Insert as the very first child of body — topnav must precede banner;
+    // under the site header when the page carries one (vx-shell), so the site header stays on top
+    var body = document.body, hdr = document.querySelector('body > .vx-hdr');
+    if (hdr) body.insertBefore(nav, hdr.nextSibling);
+    else if (body.firstChild) body.insertBefore(nav, body.firstChild);
     else body.appendChild(nav);
   }
 

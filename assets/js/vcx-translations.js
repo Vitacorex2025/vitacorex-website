@@ -1219,6 +1219,7 @@ en: {
 
   /* ── Partners page ──────────────────────────────────────────── */
   prt_hero_eyebrow:   'Partner programme',
+  dh_eyebrow:         'Confidentiality & data handling',
   prt_hero_title:     'Partner programme \u2014 documentation infrastructure, referred to your clients.',
   prt_hero_lede:      'VitaCoreX works with licensed attorneys, CPAs, collection agencies, and operational consultancies in a referral and coordination capacity. Clean handoffs, counsel-ready packets, UPL-safe scope. Your clients get documentation infrastructure that your practice doesn\u2019t have to build.',
   prt_cta_primary:    'Start a partner conversation',
@@ -3834,6 +3835,10 @@ ru: {
 
   /* ── partners.html (generic partner programme) ───────────── */
   prt_hero_eyebrow:   'Партнёрская программа',
+  prt_types_eyebrow:  'Три формата партнёрства',
+  prt_how_eyebrow:    'Как это работает',
+  prt_noncomm_eyebrow:'Формулировки без обязательств',
+  dh_eyebrow:         'Конфиденциальность и обработка данных',
   prt_hero_title:     'Партнёрство с VitaCoreX \u2014 передача документации, workflow и рутинных запросов в защищённом периметре.',
   prt_hero_lead:      'Адвокатские фирмы, бухгалтерские практики, коллекторские агентства и консалтинговые бутики направляют к нам административную часть вопросов возврата выручки и контроля документооборота \u2014 без комиссионных, без fee-split и без смешения ролей. Ваша фирма сохраняет клиентские отношения. VitaCoreX закрывает документационный workflow.',
   prt_hero_side_h3:   'Граница на первом месте',
@@ -6464,6 +6469,10 @@ es: {
 
   /* ── partners.html (generic partner programme) ───────────── */
   prt_hero_eyebrow:   'Programa de socios',
+  prt_types_eyebrow:  'Tres perfiles de socio',
+  prt_how_eyebrow:    'Cómo funciona',
+  prt_noncomm_eyebrow:'Lenguaje sin compromisos',
+  dh_eyebrow:         'Confidencialidad y manejo de datos',
   prt_hero_title:     'Asociarse con VitaCoreX \u2014 traspaso de documentación, workflow y consultas rutinarias con perímetro protegido.',
   prt_hero_lead:      'Despachos de abogados, estudios contables, agencias de cobranza y consultoras boutique nos derivan la parte administrativa de casos de recuperación de ingresos y control documental \u2014 sin comisiones, sin fee-split, sin mezcla de roles. Su firma mantiene la relación con el cliente. VitaCoreX cierra el workflow documental.',
   prt_hero_side_h3:   'La frontera primero',

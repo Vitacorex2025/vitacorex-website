@@ -1,3 +1,0 @@
-PUBLIC RESOURCE NOTICE
-
-If a downloadable PDF must remain confidential, enforce access control or deploy-level header controls such as X-Robots-Tag before publishing it.

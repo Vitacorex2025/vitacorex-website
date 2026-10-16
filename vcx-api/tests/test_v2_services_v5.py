@@ -76,6 +76,9 @@ def test_hourly_small_claims_is_business_lane_with_poa_question_and_no_checkout(
 def test_court_hours_first_two_hours_paid_upfront(client, env, catalog):
     price = catalog["services"]["b2b_small_claims_hourly"]["price"]
     assert price["amount_cents"] == 6500 and price["minimum_units"] == 2 and price["prepay_units"] == 2
+    # owner 2026-10-16: a hearing moved by the court keeps the prepaid hours
+    inc = catalog["services"]["b2b_small_claims_hourly"]["included"]
+    assert "carry over to the new date" in inc["en"][-1] and "переходят на новую дату" in inc["ru"][-1].replace("\xa0", " ")
     req = create(client, "b2b_small_claims_hourly", locale="ru",
                  details={"company": "Test Co LLC", "b2b_state": "FL", "active_cases": 1, "poa_ready": "template"})
     rid, tok = req["request_id"], req["access_token"]

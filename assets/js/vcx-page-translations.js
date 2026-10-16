@@ -18,6 +18,11 @@ var T = {};
 // lookup canonicalises to em-dash (—), so the translation silently misses.
 function add(en, ru, es){ T[normText(en)] = {ru: ru, es: es}; }
 
+// ─── LEGACY EN-ONLY PAGES: eyebrows ───
+add('U.S.-wide · Tampa, FL office',
+    'По всем США · офис в Тампе, Флорида',
+    'En todo EE. UU. · oficina en Tampa, FL');
+
 // ─── ABOUT PAGE ──────────────────────────────────────────────
 add('About VitaCoreX',
     'О VitaCoreX',

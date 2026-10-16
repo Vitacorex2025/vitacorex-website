@@ -282,9 +282,9 @@ How prices work:
 #### Court hour for your company (add-on)
 - Price: $65 per hour, 2-hour minimum paid upfront, then 15-minute steps
 - For packet and monthly-support clients: time at the hearing or mediation for your company, under its power of attorney.
-- Included: Preparation on the day of the hearing; Attendance at the hearing or mediation; A short written report afterwards
+- Included: Preparation on the day of the hearing; Attendance at the hearing or mediation; A short written report afterwards; If the court moves the hearing, the paid hours carry over to the new date
 - Not included / extra: Time beyond the paid hours: 15-minute steps, billed after the hearing; Travel outside the county: quoted; Your state and court confirmed before work starts
-- Next step: Send your cases. We send the power of attorney for the company to sign and confirm the court and the hours in writing. Then you pay the first 2 hours upfront by card.
+- Next step: Send your cases. We send the power of attorney for the company to sign and confirm the court and the hours in writing. Then you pay the first 2 hours upfront by card; if the court moves the hearing, they carry over to the new date.
 - Page: https://vitacorexllc.com/small-claims-documentation.html#court-hours
 
 #### Receivables analysis

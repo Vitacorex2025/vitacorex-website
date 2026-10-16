@@ -13,7 +13,7 @@ idempotent: true
 
 ## Summary
 
-- **Total interactive elements**: 14181
+- **Total interactive elements**: 14461
 - **Files audited**: 162
 - **Unclassified rows (must be 0)**: 0
 
@@ -21,59 +21,59 @@ idempotent: true
 
 | Category | Count |
 |----------|-------|
-| primary-nav | 7983 |
-| footer | 2535 |
-| in-body | 1138 |
-| form-submit | 59 |
-| external | 263 |
-| mailto | 137 |
-| tel | 406 |
-| anchor | 446 |
-| action-script | 1214 |
+| primary-nav | 8085 |
+| footer | 2673 |
+| in-body | 1136 |
+| form-submit | 79 |
+| external | 266 |
+| mailto | 138 |
+| tel | 408 |
+| anchor | 447 |
+| action-script | 1229 |
 
 ### By audience
 
 | Audience | Count |
 |----------|-------|
-| b2b | 2253 |
-| b2c | 584 |
-| shared | 1054 |
-| none | 10290 |
+| b2b | 2273 |
+| b2c | 693 |
+| shared | 1118 |
+| none | 10377 |
 
 ### By file (top 30 by CTA count)
 
 | File | CTAs |
 |------|------|
-| `es/services.html` | 175 |
-| `ru/services.html` | 175 |
-| `services.html` | 175 |
-| `es/pricing.html` | 167 |
-| `pricing.html` | 167 |
-| `ru/pricing.html` | 167 |
-| `es/privacy-policy.html` | 149 |
-| `privacy-policy.html` | 149 |
-| `ru/privacy-policy.html` | 149 |
-| `es/terms-of-use.html` | 145 |
-| `ru/terms-of-use.html` | 145 |
-| `terms-of-use.html` | 145 |
-| `es/index.html` | 140 |
-| `index.html` | 140 |
-| `ru/index.html` | 140 |
-| `es/founder-services.html` | 121 |
-| `founder-services.html` | 121 |
-| `ru/founder-services.html` | 121 |
-| `business-filings.html` | 119 |
-| `es/business-filings.html` | 119 |
-| `ru/business-filings.html` | 119 |
-| `es/small-claims-documentation.html` | 115 |
-| `ru/small-claims-documentation.html` | 115 |
-| `small-claims-documentation.html` | 115 |
-| `es/financial-recovery.html` | 114 |
-| `financial-recovery.html` | 114 |
-| `revenue-recovery-workflow.html` | 114 |
-| `ru/financial-recovery.html` | 114 |
-| `solutions.html` | 113 |
-| `cookie-policy.html` | 112 |
+| `es/services.html` | 176 |
+| `ru/services.html` | 176 |
+| `services.html` | 176 |
+| `es/pricing.html` | 168 |
+| `pricing.html` | 168 |
+| `ru/pricing.html` | 168 |
+| `es/privacy-policy.html` | 150 |
+| `privacy-policy.html` | 150 |
+| `ru/privacy-policy.html` | 150 |
+| `es/terms-of-use.html` | 146 |
+| `ru/terms-of-use.html` | 146 |
+| `terms-of-use.html` | 146 |
+| `es/index.html` | 141 |
+| `index.html` | 141 |
+| `ru/index.html` | 141 |
+| `es/founder-services.html` | 122 |
+| `founder-services.html` | 122 |
+| `ru/founder-services.html` | 122 |
+| `business-filings.html` | 120 |
+| `es/business-filings.html` | 120 |
+| `ru/business-filings.html` | 120 |
+| `es/small-claims-documentation.html` | 116 |
+| `ru/small-claims-documentation.html` | 116 |
+| `small-claims-documentation.html` | 116 |
+| `es/financial-recovery.html` | 115 |
+| `financial-recovery.html` | 115 |
+| `revenue-recovery-workflow.html` | 115 |
+| `ru/financial-recovery.html` | 115 |
+| `solutions.html` | 114 |
+| `cookie-policy.html` | 113 |
 
 ## Full inventory
 
@@ -175,6 +175,7 @@ idempotent: true
 | `404.html` | 80 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `404.html` | 80 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `404.html` | 80 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `404.html` | 80 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `404.html` | 81 | a | About | `/about.html` | footer | none | — |
 | `404.html` | 81 | a | Prices | `/pricing.html` | footer | none | — |
 | `404.html` | 81 | a | Contact | `/contact.html` | footer | none | — |
@@ -279,6 +280,7 @@ idempotent: true
 | `about.html` | 138 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `about.html` | 138 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `about.html` | 138 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `about.html` | 138 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `about.html` | 139 | a | About | `/about.html` | footer | none | — |
 | `about.html` | 139 | a | Prices | `/pricing.html` | footer | none | — |
 | `about.html` | 139 | a | Contact | `/contact.html` | footer | none | — |
@@ -386,6 +388,7 @@ idempotent: true
 | `apostille.html` | 129 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `apostille.html` | 129 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `apostille.html` | 129 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `apostille.html` | 129 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `apostille.html` | 130 | a | About | `/about.html` | footer | none | — |
 | `apostille.html` | 130 | a | Prices | `/pricing.html` | footer | none | — |
 | `apostille.html` | 130 | a | Contact | `/contact.html` | footer | none | — |
@@ -398,7 +401,35 @@ idempotent: true
 | `app.html` | 34 | a | Skip to content | `#main-content` | anchor | shared | — |
 | `app.html` | 41 | a | Open secure sign-in | `/app/sign-in/` | in-body | shared | — |
 | `app.html` | 42 | a | Return to public review | `/contact.html` | in-body | shared | — |
-| `app/contract-intelligence/index.html` | 13 | a | Continue to contracts and documents | `/contract-review-service.html` | in-body | none | — |
+| `app/contract-intelligence/index.html` | 210 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `/index.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 230 | a | Home | `/index.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 231 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 232 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 233 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 234 | a | Executive Briefs & Proof | `/insights.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 235 | a | Private Client Services | `/additional-services.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 236 | a | Careers | `/careers.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 237 | a | Private Consultation | `/contact.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 240 | button | EN | `(handler)` | form-submit | shared | delegated:data-lang=en |
+| `app/contract-intelligence/index.html` | 241 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
+| `app/contract-intelligence/index.html` | 242 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
+| `app/contract-intelligence/index.html` | 248 | a | VitaCoreX | `/index.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 252 | button | Menu | `(handler)` | action-script | shared | aria-wired:controls |
+| `app/contract-intelligence/index.html` | 257 | a | Home | `/index.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 258 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 259 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 260 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 261 | a | Executive Briefs & Proof | `/insights.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 262 | a | Private Client Services | `/additional-services.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 263 | a | Careers | `/careers.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 264 | a | Private Consultation | `/contact.html` | primary-nav | shared | — |
+| `app/contract-intelligence/index.html` | 267 | button | EN | `(handler)` | form-submit | shared | delegated:data-lang=en |
+| `app/contract-intelligence/index.html` | 268 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
+| `app/contract-intelligence/index.html` | 269 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
+| `app/contract-intelligence/index.html` | 355 | button | Analyze contract | `vcxScanContract()` | action-script | shared | — |
+| `app/contract-intelligence/index.html` | 371 | form | form:vcxAdvisorForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
+| `app/contract-intelligence/index.html` | 386 | button | Submit for Advisor Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
+| `app/contract-intelligence/index.html` | 389 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
 | `app/deadline-calendar/index.html` | 42 | a | VitaCoreX LLCRevenue recovery, documentation control, and c… | `/index.html` | primary-nav | shared | — |
 | `app/deadline-calendar/index.html` | 52 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `app/deadline-calendar/index.html` | 52 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
@@ -445,7 +476,37 @@ idempotent: true
 | `app/dealer-contract-check/index.html` | 91 | a | Ver los servicios actuales para particulares | `/services.html` | in-body | none | — |
 | `app/dealer-contract-check/index.html` | 92 | a | Contáctenos | `/contact.html` | in-body | none | — |
 | `app/dealer-contract-check/index.html` | 93 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `app/immigration-forms/index.html` | 13 | a | Continue to immigration forms and documents | `/immigration-packet-review.html` | in-body | none | — |
+| `app/immigration-forms/index.html` | 199 | a | VitaCoreX LLCRevenue recovery, documentation control, and c… | `/index.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 210 | a | Home | `/index.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 211 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 212 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 213 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 214 | a | Executive Briefs & Proof | `/insights.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 215 | a | Private Client Services | `/additional-services.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 216 | a | Careers | `/careers.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 217 | a | Private Consultation | `/contact.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 219 | button | EN | `(handler)` | form-submit | shared | delegated:data-lang=en |
+| `app/immigration-forms/index.html` | 219 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
+| `app/immigration-forms/index.html` | 219 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
+| `app/immigration-forms/index.html` | 224 | a | VitaCoreX | `/index.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 225 | button | ☰Menu | `(handler)` | action-script | shared | aria-wired:controls |
+| `app/immigration-forms/index.html` | 228 | a | Home | `/index.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 229 | a | Corporate Legal File Control | `/corporate-legal-file-control.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 230 | a | Revenue Recovery Infrastructure | `/revenue-recovery-workflow.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 231 | a | Structured Case Intake | `/structured-case-intake.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 232 | a | Executive Briefs & Proof | `/insights.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 233 | a | Private Client Services | `/additional-services.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 234 | a | Careers | `/careers.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 235 | a | Private Consultation | `/contact.html` | primary-nav | shared | — |
+| `app/immigration-forms/index.html` | 237 | button | EN | `(handler)` | form-submit | shared | delegated:data-lang=en |
+| `app/immigration-forms/index.html` | 237 | button | RU | `(handler)` | form-submit | shared | delegated:data-lang=ru |
+| `app/immigration-forms/index.html` | 237 | button | ES | `(handler)` | form-submit | shared | delegated:data-lang=es |
+| `app/immigration-forms/index.html` | 271 | button | 📷 Take photo | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 272 | button | 📋 Choose file | `document.getElementById('vcxFormFile').click()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 281 | button | Analyze packet | `vcxAnalyzeForm()` | action-script | shared | — |
+| `app/immigration-forms/index.html` | 294 | form | form:vcxPacketForm | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | POST |
+| `app/immigration-forms/index.html` | 309 | button | Submit for Packet Review | `https://formsubmit.co/stevenmiller@vitacorexllc.com` | form-submit | shared | form-method:POST |
+| `app/immigration-forms/index.html` | 312 | a | stevenmiller@vitacorexllc.com | `mailto:stevenmiller@vitacorexllc.com` | mailto | shared | — |
 | `app/legal-assistant/index.html` | 30 | a | VitaCoreX LLC Revenue recovery, documentation control, and… | `/index.html` | primary-nav | shared | — |
 | `app/legal-assistant/index.html` | 52 | button | EN | `(handler)` | action-script | shared | delegated:data-lang=en |
 | `app/legal-assistant/index.html` | 52 | button | RU | `(handler)` | action-script | shared | delegated:data-lang=ru |
@@ -995,6 +1056,7 @@ idempotent: true
 | `auto-deal-review.html` | 77 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `auto-deal-review.html` | 77 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `auto-deal-review.html` | 77 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `auto-deal-review.html` | 77 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `auto-deal-review.html` | 78 | a | About | `/about.html` | footer | none | — |
 | `auto-deal-review.html` | 78 | a | Prices | `/pricing.html` | footer | none | — |
 | `auto-deal-review.html` | 78 | a | Contact | `/contact.html` | footer | none | — |
@@ -1115,6 +1177,7 @@ idempotent: true
 | `business-filings.html` | 127 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `business-filings.html` | 127 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `business-filings.html` | 127 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `business-filings.html` | 127 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `business-filings.html` | 128 | a | About | `/about.html` | footer | none | — |
 | `business-filings.html` | 128 | a | Prices | `/pricing.html` | footer | none | — |
 | `business-filings.html` | 128 | a | Contact | `/contact.html` | footer | none | — |
@@ -1217,6 +1280,7 @@ idempotent: true
 | `business-plans.html` | 107 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `business-plans.html` | 107 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `business-plans.html` | 107 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `business-plans.html` | 107 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `business-plans.html` | 108 | a | About | `/about.html` | footer | none | — |
 | `business-plans.html` | 108 | a | Prices | `/pricing.html` | footer | none | — |
 | `business-plans.html` | 108 | a | Contact | `/contact.html` | footer | none | — |
@@ -1328,6 +1392,7 @@ idempotent: true
 | `careers.html` | 119 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `careers.html` | 119 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `careers.html` | 119 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `careers.html` | 119 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `careers.html` | 120 | a | About | `/about.html` | footer | none | — |
 | `careers.html` | 120 | a | Prices | `/pricing.html` | footer | none | — |
 | `careers.html` | 120 | a | Contact | `/contact.html` | footer | none | — |
@@ -1428,6 +1493,7 @@ idempotent: true
 | `case-study-fleet-logistics.html` | 306 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `case-study-fleet-logistics.html` | 306 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `case-study-fleet-logistics.html` | 306 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `case-study-fleet-logistics.html` | 306 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `case-study-fleet-logistics.html` | 307 | a | About | `/about.html` | footer | b2b | — |
 | `case-study-fleet-logistics.html` | 307 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `case-study-fleet-logistics.html` | 307 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -1530,6 +1596,7 @@ idempotent: true
 | `case-study-healthcare-network.html` | 559 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 559 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 559 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `case-study-healthcare-network.html` | 559 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 560 | a | About | `/about.html` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 560 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `case-study-healthcare-network.html` | 560 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -1630,6 +1697,7 @@ idempotent: true
 | `case-study-subscription-saas.html` | 302 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 302 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 302 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `case-study-subscription-saas.html` | 302 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 303 | a | About | `/about.html` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 303 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `case-study-subscription-saas.html` | 303 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -1732,6 +1800,7 @@ idempotent: true
 | `civil-case-referral.html` | 129 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `civil-case-referral.html` | 129 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `civil-case-referral.html` | 129 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `civil-case-referral.html` | 129 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `civil-case-referral.html` | 130 | a | About | `/about.html` | footer | none | — |
 | `civil-case-referral.html` | 130 | a | Prices | `/pricing.html` | footer | none | — |
 | `civil-case-referral.html` | 130 | a | Contact | `/contact.html` | footer | none | — |
@@ -1838,6 +1907,7 @@ idempotent: true
 | `contact.html` | 100 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `contact.html` | 100 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `contact.html` | 100 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `contact.html` | 100 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `contact.html` | 101 | a | About | `/about.html` | footer | none | — |
 | `contact.html` | 101 | a | Prices | `/pricing.html` | footer | none | — |
 | `contact.html` | 101 | a | Contact | `/contact.html` | footer | none | — |
@@ -1941,6 +2011,7 @@ idempotent: true
 | `contract-review-service.html` | 107 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `contract-review-service.html` | 107 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `contract-review-service.html` | 107 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `contract-review-service.html` | 107 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `contract-review-service.html` | 108 | a | About | `/about.html` | footer | none | — |
 | `contract-review-service.html` | 108 | a | Prices | `/pricing.html` | footer | none | — |
 | `contract-review-service.html` | 108 | a | Contact | `/contact.html` | footer | none | — |
@@ -2054,6 +2125,7 @@ idempotent: true
 | `cookie-policy.html` | 126 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `cookie-policy.html` | 126 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `cookie-policy.html` | 126 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `cookie-policy.html` | 126 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `cookie-policy.html` | 127 | a | About | `/about.html` | footer | none | — |
 | `cookie-policy.html` | 127 | a | Prices | `/pricing.html` | footer | none | — |
 | `cookie-policy.html` | 127 | a | Contact | `/contact.html` | footer | none | — |
@@ -2141,7 +2213,7 @@ idempotent: true
 | `corporate-legal-file-control.html` | 59 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
 | `corporate-legal-file-control.html` | 73 | a | Request a confidential review | `structured-case-intake.html` | in-body | b2b | — |
 | `corporate-legal-file-control.html` | 74 | a | View executive briefs | `insights.html` | in-body | b2b | — |
-| `corporate-legal-file-control.html` | 78 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `corporate-legal-file-control.html` | 78 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `corporate-legal-file-control.html` | 78 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `corporate-legal-file-control.html` | 246 | a | Request a confidential review → | `structured-case-intake.html` | in-body | b2b | — |
 | `corporate-legal-file-control.html` | 668 | button | Estimate cost exposure | `(handler)` | action-script | b2b | no-handler |
@@ -2166,6 +2238,7 @@ idempotent: true
 | `corporate-legal-file-control.html` | 733 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `corporate-legal-file-control.html` | 733 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `corporate-legal-file-control.html` | 733 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `corporate-legal-file-control.html` | 733 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `corporate-legal-file-control.html` | 734 | a | About | `/about.html` | footer | b2b | — |
 | `corporate-legal-file-control.html` | 734 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `corporate-legal-file-control.html` | 734 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -2268,6 +2341,7 @@ idempotent: true
 | `data-handling.html` | 174 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | shared | — |
 | `data-handling.html` | 174 | a | Send case details | `/small-claims-documentation.html#check` | footer | shared | — |
 | `data-handling.html` | 174 | a | Financial Recovery | `/financial-recovery.html` | footer | shared | — |
+| `data-handling.html` | 174 | a | Existing-client recovery | `/net-recovery.html` | footer | shared | — |
 | `data-handling.html` | 175 | a | About | `/about.html` | footer | shared | — |
 | `data-handling.html` | 175 | a | Prices | `/pricing.html` | footer | shared | — |
 | `data-handling.html` | 175 | a | Contact | `/contact.html` | footer | shared | — |
@@ -2353,7 +2427,7 @@ idempotent: true
 | `diagnostic-review.html` | 103 | a | Contact | `/contact.html` | primary-nav | b2c | — |
 | `diagnostic-review.html` | 104 | a | Choose a service | `/services.html` | primary-nav | b2c | — |
 | `diagnostic-review.html` | 104 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
-| `diagnostic-review.html` | 119 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2c | — |
+| `diagnostic-review.html` | 119 | a | see recovery options | `/net-recovery.html` | in-body | b2c | — |
 | `diagnostic-review.html` | 119 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2c | — |
 | `diagnostic-review.html` | 123 | a | Home | `index.html` | primary-nav | b2c | — |
 | `diagnostic-review.html` | 124 | a | Solutions | `solutions.html` | primary-nav | b2c | — |
@@ -2378,6 +2452,7 @@ idempotent: true
 | `diagnostic-review.html` | 274 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2c | — |
 | `diagnostic-review.html` | 274 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2c | — |
 | `diagnostic-review.html` | 274 | a | Financial Recovery | `/financial-recovery.html` | footer | b2c | — |
+| `diagnostic-review.html` | 274 | a | Existing-client recovery | `/net-recovery.html` | footer | b2c | — |
 | `diagnostic-review.html` | 275 | a | About | `/about.html` | footer | b2c | — |
 | `diagnostic-review.html` | 275 | a | Prices | `/pricing.html` | footer | b2c | — |
 | `diagnostic-review.html` | 275 | a | Contact | `/contact.html` | footer | b2c | — |
@@ -2483,6 +2558,7 @@ idempotent: true
 | `es/about.html` | 138 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/about.html` | 138 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/about.html` | 138 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/about.html` | 138 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/about.html` | 139 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/about.html` | 139 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/about.html` | 139 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -2589,6 +2665,7 @@ idempotent: true
 | `es/apostille.html` | 129 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/apostille.html` | 129 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/apostille.html` | 129 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/apostille.html` | 129 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/apostille.html` | 130 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/apostille.html` | 130 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/apostille.html` | 130 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -2708,6 +2785,7 @@ idempotent: true
 | `es/business-filings.html` | 127 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/business-filings.html` | 127 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/business-filings.html` | 127 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/business-filings.html` | 127 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/business-filings.html` | 128 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/business-filings.html` | 128 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/business-filings.html` | 128 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -2810,6 +2888,7 @@ idempotent: true
 | `es/business-plans.html` | 107 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/business-plans.html` | 107 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/business-plans.html` | 107 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/business-plans.html` | 107 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/business-plans.html` | 108 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/business-plans.html` | 108 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/business-plans.html` | 108 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -2921,6 +3000,7 @@ idempotent: true
 | `es/careers.html` | 119 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/careers.html` | 119 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/careers.html` | 119 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/careers.html` | 119 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/careers.html` | 120 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/careers.html` | 120 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/careers.html` | 120 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3023,6 +3103,7 @@ idempotent: true
 | `es/civil-case-referral.html` | 129 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/civil-case-referral.html` | 129 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/civil-case-referral.html` | 129 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/civil-case-referral.html` | 129 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/civil-case-referral.html` | 130 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/civil-case-referral.html` | 130 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/civil-case-referral.html` | 130 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3129,6 +3210,7 @@ idempotent: true
 | `es/contact.html` | 100 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/contact.html` | 100 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/contact.html` | 100 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/contact.html` | 100 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/contact.html` | 101 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/contact.html` | 101 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/contact.html` | 101 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3232,6 +3314,7 @@ idempotent: true
 | `es/contract-review-service.html` | 107 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/contract-review-service.html` | 107 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/contract-review-service.html` | 107 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/contract-review-service.html` | 107 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/contract-review-service.html` | 108 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/contract-review-service.html` | 108 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/contract-review-service.html` | 108 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3344,6 +3427,7 @@ idempotent: true
 | `es/cookie-policy.html` | 126 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/cookie-policy.html` | 126 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/cookie-policy.html` | 126 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/cookie-policy.html` | 126 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/cookie-policy.html` | 127 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/cookie-policy.html` | 127 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/cookie-policy.html` | 127 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3446,6 +3530,7 @@ idempotent: true
 | `es/fee-waiver.html` | 135 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/fee-waiver.html` | 135 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/fee-waiver.html` | 135 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/fee-waiver.html` | 135 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/fee-waiver.html` | 136 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/fee-waiver.html` | 136 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/fee-waiver.html` | 136 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3560,6 +3645,7 @@ idempotent: true
 | `es/financial-recovery.html` | 137 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/financial-recovery.html` | 137 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/financial-recovery.html` | 137 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/financial-recovery.html` | 137 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/financial-recovery.html` | 138 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/financial-recovery.html` | 138 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/financial-recovery.html` | 138 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3681,6 +3767,7 @@ idempotent: true
 | `es/founder-services.html` | 80 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/founder-services.html` | 80 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/founder-services.html` | 80 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/founder-services.html` | 80 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/founder-services.html` | 81 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/founder-services.html` | 81 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/founder-services.html` | 81 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3788,6 +3875,7 @@ idempotent: true
 | `es/immigration-packet-review.html` | 119 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 119 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/immigration-packet-review.html` | 119 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/immigration-packet-review.html` | 119 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 120 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 120 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 120 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -3797,146 +3885,147 @@ idempotent: true
 | `es/immigration-packet-review.html` | 121 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 128 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `es/immigration-packet-review.html` | 128 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `es/index.html` | 37 | a | Saltar al contenido | `#main-content` | anchor | none | — |
-| `es/index.html` | 40 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
-| `es/index.html` | 42 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 43 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Todos los precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Describir mi situación | `/request.html?service=legal_request` | primary-nav | none | — |
-| `es/index.html` | 44 | a | Para empresas | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 45 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 46 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
-| `es/index.html` | 47 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
-| `es/index.html` | 50 | button | Elegir idiomaEspañol | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `es/index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `es/index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `es/index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 53 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 54 | button | Menú | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `es/index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `es/index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `es/index.html` | 59 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
-| `es/index.html` | 61 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 84 | a | Elegir un servicio | `/es/services.html` | in-body | none | — |
-| `es/index.html` | 85 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
-| `es/index.html` | 87 | a | Para empresas: small claims | `/es/small-claims-documentation.html` | in-body | none | — |
-| `es/index.html` | 89 | a | Cambio de nombre por la corte$199 + tasas judiciales | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Small claims para empresasDesde $199 | `/es/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Abrir una empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Declarar impuestosDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 90 | button | Pausar efectos | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `es/index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `es/index.html` | 105 | a | Ver todos los precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 111 | a | Cambio de nombre por la corte (Florida, adulto)$199tarifa d… | `/es/name-change.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Solicitud de exención de tarifas$49por solicitud | `/es/fee-waiver.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Formularios y documentos migratoriosDesde $149un formulario… | `/es/immigration-packet-review.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Los 9 servicios | `/es/services.html#court` | in-body | none | — |
-| `es/index.html` | 112 | a | Pedir | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `es/index.html` | 116 | a | Paquete para presentar un small claimsDesde $199un caso ele… | `/es/small-claims-documentation.html#packages` | in-body | none | — |
-| `es/index.html` | 116 | a | Un mes de seguimiento del casoDesde $399un caso, 30 días | `/es/small-claims-documentation.html#packages` | in-body | none | — |
-| `es/index.html` | 116 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | in-body | none | — |
-| `es/index.html` | 116 | a | Financial Recovery | `/es/financial-recovery.html` | in-body | none | — |
-| `es/index.html` | 117 | a | Enviar un caso | `/es/small-claims-documentation.html#check` | in-body | none | — |
-| `es/index.html` | 121 | a | Creación de empresa$99tarifa de servicio + tasa estatal | `/es/llc-formation-florida.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Informe anual en Florida$79una entidad, un año + tasa estat… | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Registro de nombre comercial (DBA), Florida$69un registro +… | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Los 10 servicios | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 122 | a | Pedir | `/request.html?service=company_basic` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración de impuestos individualDesde $149declaración fe… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración para trabajadores independientesDesde $249decla… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración estatal adicionalDesde $49un estado admitido, j… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 127 | a | Pedir presupuesto | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `es/index.html` | 131 | a | Traducción certificada$25por cada 250 palabras del original… | `/es/translations.html` | in-body | none | — |
-| `es/index.html` | 131 | a | Traducción general$0.10por palabra del original, pedido mín… | `/es/translations.html#general` | in-body | none | — |
-| `es/index.html` | 132 | a | Pedir presupuesto | `/request.html?service=translation_certified` | in-body | none | — |
-| `es/index.html` | 136 | a | Gestión de apostillaDesde $119tarifa de servicio por el pri… | `/es/apostille.html` | in-body | none | — |
-| `es/index.html` | 136 | a | Obtención de documentos oficialesDesde $59por documento + t… | `/es/apostille.html#retrieval` | in-body | none | — |
-| `es/index.html` | 137 | a | Pedir presupuesto | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `es/index.html` | 141 | a | Notarización en línea$25por acto notarial | `/es/online-notary.html` | in-body | none | — |
-| `es/index.html` | 142 | a | Reservar y pagar | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `es/index.html` | 153 | a | Sobre VitaCoreX | `/es/about.html` | in-body | none | — |
-| `es/index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 194 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
-| `es/index.html` | 205 | a | VitaCoreXConsulting | `/es/` | footer | none | — |
-| `es/index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `es/index.html` | 209 | a | Cambio de nombre por la corte (Florida, adulto) | `/es/name-change.html` | footer | none | — |
-| `es/index.html` | 209 | a | Solicitud de exención de tarifas | `/es/fee-waiver.html` | footer | none | — |
-| `es/index.html` | 209 | a | Formularios y documentos migratorios | `/es/immigration-packet-review.html` | footer | none | — |
-| `es/index.html` | 209 | a | Creación de empresa | `/es/llc-formation-florida.html` | footer | none | — |
-| `es/index.html` | 209 | a | Declaración de impuestos individual | `/es/tax-preparation.html` | footer | none | — |
-| `es/index.html` | 209 | a | Traducción certificada | `/es/translations.html` | footer | none | — |
-| `es/index.html` | 209 | a | Notarización en línea | `/es/online-notary.html` | footer | none | — |
-| `es/index.html` | 209 | a | Gestión de apostilla | `/es/apostille.html` | footer | none | — |
-| `es/index.html` | 209 | a | Todos los servicios | `/es/services.html` | footer | none | — |
-| `es/index.html` | 210 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
-| `es/index.html` | 210 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
-| `es/index.html` | 210 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
-| `es/index.html` | 211 | a | Nosotros | `/es/about.html` | footer | none | — |
-| `es/index.html` | 211 | a | Precios | `/es/pricing.html` | footer | none | — |
-| `es/index.html` | 211 | a | Contacto | `/es/contact.html` | footer | none | — |
-| `es/index.html` | 211 | a | Empleo | `/es/careers.html` | footer | none | — |
-| `es/index.html` | 212 | a | Política de privacidad | `/es/privacy-policy.html` | footer | none | — |
-| `es/index.html` | 212 | a | Términos de uso | `/es/terms-of-use.html` | footer | none | — |
-| `es/index.html` | 212 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
-| `es/index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `es/index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `es/index.html` | 36 | a | Saltar al contenido | `#main-content` | anchor | none | — |
+| `es/index.html` | 39 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
+| `es/index.html` | 41 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 42 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Todos los precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Describir mi situación | `/request.html?service=legal_request` | primary-nav | none | — |
+| `es/index.html` | 43 | a | Para empresas | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 44 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 45 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
+| `es/index.html` | 46 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
+| `es/index.html` | 49 | button | Elegir idiomaEspañol | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `es/index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `es/index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `es/index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 52 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 53 | button | Menú | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `es/index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `es/index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `es/index.html` | 58 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
+| `es/index.html` | 60 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 83 | a | Elegir un servicio | `/es/services.html` | in-body | none | — |
+| `es/index.html` | 84 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
+| `es/index.html` | 86 | a | Para empresas: small claims | `/es/small-claims-documentation.html` | in-body | none | — |
+| `es/index.html` | 88 | a | Cambio de nombre por la corte$199 + tasas judiciales | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Small claims para empresasDesde $199 | `/es/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Abrir una empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Declarar impuestosDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 89 | button | Pausar efectos | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `es/index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `es/index.html` | 104 | a | Ver todos los precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 110 | a | Cambio de nombre por la corte (Florida, adulto)$199tarifa d… | `/es/name-change.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Solicitud de exención de tarifas$49por solicitud | `/es/fee-waiver.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Formularios y documentos migratoriosDesde $149un formulario… | `/es/immigration-packet-review.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Los 9 servicios | `/es/services.html#court` | in-body | none | — |
+| `es/index.html` | 111 | a | Pedir | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `es/index.html` | 115 | a | Paquete para presentar un small claimsDesde $199un caso ele… | `/es/small-claims-documentation.html#packages` | in-body | none | — |
+| `es/index.html` | 115 | a | Un mes de seguimiento del casoDesde $399un caso, 30 días | `/es/small-claims-documentation.html#packages` | in-body | none | — |
+| `es/index.html` | 115 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | in-body | none | — |
+| `es/index.html` | 115 | a | Financial Recovery | `/es/financial-recovery.html` | in-body | none | — |
+| `es/index.html` | 116 | a | Enviar un caso | `/es/small-claims-documentation.html#check` | in-body | none | — |
+| `es/index.html` | 120 | a | Creación de empresa$99tarifa de servicio + tasa estatal | `/es/llc-formation-florida.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Informe anual en Florida$79una entidad, un año + tasa estat… | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Registro de nombre comercial (DBA), Florida$69un registro +… | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Los 10 servicios | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 121 | a | Pedir | `/request.html?service=company_basic` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración de impuestos individualDesde $149declaración fe… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración para trabajadores independientesDesde $249decla… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración estatal adicionalDesde $49un estado admitido, j… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 126 | a | Pedir presupuesto | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `es/index.html` | 130 | a | Traducción certificada$25por cada 250 palabras del original… | `/es/translations.html` | in-body | none | — |
+| `es/index.html` | 130 | a | Traducción general$0.10por palabra del original, pedido mín… | `/es/translations.html#general` | in-body | none | — |
+| `es/index.html` | 131 | a | Pedir presupuesto | `/request.html?service=translation_certified` | in-body | none | — |
+| `es/index.html` | 135 | a | Gestión de apostillaDesde $119tarifa de servicio por el pri… | `/es/apostille.html` | in-body | none | — |
+| `es/index.html` | 135 | a | Obtención de documentos oficialesDesde $59por documento + t… | `/es/apostille.html#retrieval` | in-body | none | — |
+| `es/index.html` | 136 | a | Pedir presupuesto | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `es/index.html` | 140 | a | Notarización en línea$25por acto notarial | `/es/online-notary.html` | in-body | none | — |
+| `es/index.html` | 141 | a | Reservar y pagar | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `es/index.html` | 152 | a | Sobre VitaCoreX | `/es/about.html` | in-body | none | — |
+| `es/index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 193 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
+| `es/index.html` | 204 | a | VitaCoreXConsulting | `/es/` | footer | none | — |
+| `es/index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `es/index.html` | 208 | a | Cambio de nombre por la corte (Florida, adulto) | `/es/name-change.html` | footer | none | — |
+| `es/index.html` | 208 | a | Solicitud de exención de tarifas | `/es/fee-waiver.html` | footer | none | — |
+| `es/index.html` | 208 | a | Formularios y documentos migratorios | `/es/immigration-packet-review.html` | footer | none | — |
+| `es/index.html` | 208 | a | Creación de empresa | `/es/llc-formation-florida.html` | footer | none | — |
+| `es/index.html` | 208 | a | Declaración de impuestos individual | `/es/tax-preparation.html` | footer | none | — |
+| `es/index.html` | 208 | a | Traducción certificada | `/es/translations.html` | footer | none | — |
+| `es/index.html` | 208 | a | Notarización en línea | `/es/online-notary.html` | footer | none | — |
+| `es/index.html` | 208 | a | Gestión de apostilla | `/es/apostille.html` | footer | none | — |
+| `es/index.html` | 208 | a | Todos los servicios | `/es/services.html` | footer | none | — |
+| `es/index.html` | 209 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
+| `es/index.html` | 209 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
+| `es/index.html` | 209 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/index.html` | 209 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
+| `es/index.html` | 210 | a | Nosotros | `/es/about.html` | footer | none | — |
+| `es/index.html` | 210 | a | Precios | `/es/pricing.html` | footer | none | — |
+| `es/index.html` | 210 | a | Contacto | `/es/contact.html` | footer | none | — |
+| `es/index.html` | 210 | a | Empleo | `/es/careers.html` | footer | none | — |
+| `es/index.html` | 211 | a | Política de privacidad | `/es/privacy-policy.html` | footer | none | — |
+| `es/index.html` | 211 | a | Términos de uso | `/es/terms-of-use.html` | footer | none | — |
+| `es/index.html` | 211 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
+| `es/index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `es/index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `es/llc-formation-florida.html` | 27 | a | Saltar al contenido | `#main-content` | anchor | none | — |
 | `es/llc-formation-florida.html` | 30 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
 | `es/llc-formation-florida.html` | 32 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
@@ -4035,6 +4124,7 @@ idempotent: true
 | `es/llc-formation-florida.html` | 112 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/llc-formation-florida.html` | 112 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/llc-formation-florida.html` | 112 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/llc-formation-florida.html` | 112 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/llc-formation-florida.html` | 113 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/llc-formation-florida.html` | 113 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/llc-formation-florida.html` | 113 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4138,6 +4228,7 @@ idempotent: true
 | `es/n-400-naturalization.html` | 114 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/n-400-naturalization.html` | 114 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/n-400-naturalization.html` | 114 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/n-400-naturalization.html` | 114 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/n-400-naturalization.html` | 115 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/n-400-naturalization.html` | 115 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/n-400-naturalization.html` | 115 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4246,6 +4337,7 @@ idempotent: true
 | `es/name-change.html` | 200 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/name-change.html` | 200 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/name-change.html` | 200 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/name-change.html` | 200 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/name-change.html` | 201 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/name-change.html` | 201 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/name-change.html` | 201 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4349,6 +4441,7 @@ idempotent: true
 | `es/online-notary.html` | 157 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/online-notary.html` | 157 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/online-notary.html` | 157 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/online-notary.html` | 157 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/online-notary.html` | 158 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/online-notary.html` | 158 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/online-notary.html` | 158 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4516,6 +4609,7 @@ idempotent: true
 | `es/pricing.html` | 92 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/pricing.html` | 92 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/pricing.html` | 92 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/pricing.html` | 92 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/pricing.html` | 93 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/pricing.html` | 93 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/pricing.html` | 93 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4665,6 +4759,7 @@ idempotent: true
 | `es/privacy-policy.html` | 218 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/privacy-policy.html` | 218 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/privacy-policy.html` | 218 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/privacy-policy.html` | 218 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/privacy-policy.html` | 219 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/privacy-policy.html` | 219 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/privacy-policy.html` | 219 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4840,6 +4935,7 @@ idempotent: true
 | `es/services.html` | 126 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/services.html` | 126 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/services.html` | 126 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/services.html` | 126 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/services.html` | 127 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/services.html` | 127 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/services.html` | 127 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -4939,7 +5035,7 @@ idempotent: true
 | `es/small-claims-documentation.html` | 138 | a | Todos los servicios | `/es/services.html` | in-body | none | — |
 | `es/small-claims-documentation.html` | 159 | a | información de privacidad | `/es/privacy-policy.html` | in-body | none | new-tab |
 | `es/small-claims-documentation.html` | 165 | button | Enviar solicitud | `(self)` | form-submit | none | form-method:GET |
-| `es/small-claims-documentation.html` | 196 | a | ¿Facturas vencidas antes de la corte? Vea Financial Recover… | `/es/financial-recovery.html` | in-body | none | — |
+| `es/small-claims-documentation.html` | 196 | a | ¿Ya es cliente empresarial? Pregunte por el apoyo adicional… | `/net-recovery.html` | in-body | none | — |
 | `es/small-claims-documentation.html` | 205 | a | VitaCoreXConsulting | `/es/` | footer | none | — |
 | `es/small-claims-documentation.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
 | `es/small-claims-documentation.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
@@ -4955,6 +5051,7 @@ idempotent: true
 | `es/small-claims-documentation.html` | 210 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/small-claims-documentation.html` | 210 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/small-claims-documentation.html` | 210 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/small-claims-documentation.html` | 210 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/small-claims-documentation.html` | 211 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/small-claims-documentation.html` | 211 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/small-claims-documentation.html` | 211 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -5064,6 +5161,7 @@ idempotent: true
 | `es/tax-preparation.html` | 135 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/tax-preparation.html` | 135 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/tax-preparation.html` | 135 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/tax-preparation.html` | 135 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/tax-preparation.html` | 136 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/tax-preparation.html` | 136 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/tax-preparation.html` | 136 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -5209,6 +5307,7 @@ idempotent: true
 | `es/terms-of-use.html` | 205 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/terms-of-use.html` | 205 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/terms-of-use.html` | 205 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/terms-of-use.html` | 205 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/terms-of-use.html` | 206 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/terms-of-use.html` | 206 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/terms-of-use.html` | 206 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -5317,6 +5416,7 @@ idempotent: true
 | `es/translations.html` | 156 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
 | `es/translations.html` | 156 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
 | `es/translations.html` | 156 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/translations.html` | 156 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
 | `es/translations.html` | 157 | a | Nosotros | `/es/about.html` | footer | none | — |
 | `es/translations.html` | 157 | a | Precios | `/es/pricing.html` | footer | none | — |
 | `es/translations.html` | 157 | a | Contacto | `/es/contact.html` | footer | none | — |
@@ -5422,6 +5522,7 @@ idempotent: true
 | `fee-waiver.html` | 135 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `fee-waiver.html` | 135 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `fee-waiver.html` | 135 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `fee-waiver.html` | 135 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `fee-waiver.html` | 136 | a | About | `/about.html` | footer | none | — |
 | `fee-waiver.html` | 136 | a | Prices | `/pricing.html` | footer | none | — |
 | `fee-waiver.html` | 136 | a | Contact | `/contact.html` | footer | none | — |
@@ -5536,6 +5637,7 @@ idempotent: true
 | `financial-recovery.html` | 137 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `financial-recovery.html` | 137 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `financial-recovery.html` | 137 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `financial-recovery.html` | 137 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `financial-recovery.html` | 138 | a | About | `/about.html` | footer | none | — |
 | `financial-recovery.html` | 138 | a | Prices | `/pricing.html` | footer | none | — |
 | `financial-recovery.html` | 138 | a | Contact | `/contact.html` | footer | none | — |
@@ -5644,6 +5746,7 @@ idempotent: true
 | `florida-small-claims-help.html` | 355 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2c | — |
 | `florida-small-claims-help.html` | 355 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2c | — |
 | `florida-small-claims-help.html` | 355 | a | Financial Recovery | `/financial-recovery.html` | footer | b2c | — |
+| `florida-small-claims-help.html` | 355 | a | Existing-client recovery | `/net-recovery.html` | footer | b2c | — |
 | `florida-small-claims-help.html` | 356 | a | About | `/about.html` | footer | b2c | — |
 | `florida-small-claims-help.html` | 356 | a | Prices | `/pricing.html` | footer | b2c | — |
 | `florida-small-claims-help.html` | 356 | a | Contact | `/contact.html` | footer | b2c | — |
@@ -5765,6 +5868,7 @@ idempotent: true
 | `founder-services.html` | 80 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `founder-services.html` | 80 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `founder-services.html` | 80 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `founder-services.html` | 80 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `founder-services.html` | 81 | a | About | `/about.html` | footer | none | — |
 | `founder-services.html` | 81 | a | Prices | `/pricing.html` | footer | none | — |
 | `founder-services.html` | 81 | a | Contact | `/contact.html` | footer | none | — |
@@ -5875,6 +5979,7 @@ idempotent: true
 | `immigration-packet-review.html` | 119 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `immigration-packet-review.html` | 119 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `immigration-packet-review.html` | 119 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `immigration-packet-review.html` | 119 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `immigration-packet-review.html` | 120 | a | About | `/about.html` | footer | none | — |
 | `immigration-packet-review.html` | 120 | a | Prices | `/pricing.html` | footer | none | — |
 | `immigration-packet-review.html` | 120 | a | Contact | `/contact.html` | footer | none | — |
@@ -5884,147 +5989,252 @@ idempotent: true
 | `immigration-packet-review.html` | 121 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
 | `immigration-packet-review.html` | 128 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `immigration-packet-review.html` | 128 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `immigration-services-tampa.html` | 13 | a | Continue to immigration forms and documents | `/immigration-packet-review.html` | in-body | none | — |
-| `index.html` | 37 | a | Skip to content | `#main-content` | anchor | none | — |
-| `index.html` | 40 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
-| `index.html` | 42 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 43 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `index.html` | 43 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `index.html` | 43 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `index.html` | 43 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `index.html` | 43 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 43 | a | All services | `/services.html` | primary-nav | none | — |
-| `index.html` | 43 | a | All prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
-| `index.html` | 44 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 45 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 46 | a | About | `/about.html` | primary-nav | none | — |
-| `index.html` | 47 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `index.html` | 50 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 53 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `index.html` | 54 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `index.html` | 59 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `index.html` | 59 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `index.html` | 59 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `index.html` | 59 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `index.html` | 59 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 60 | a | All services | `/services.html` | primary-nav | none | — |
-| `index.html` | 60 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 60 | a | About | `/about.html` | primary-nav | none | — |
-| `index.html` | 60 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `index.html` | 61 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 84 | a | Choose a service | `/services.html` | in-body | none | — |
-| `index.html` | 85 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
-| `index.html` | 87 | a | For businesses: small claims | `/small-claims-documentation.html` | in-body | none | — |
-| `index.html` | 89 | a | Court name change$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 89 | a | Small claims for companiesFrom $199 | `/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `index.html` | 89 | a | Start a company$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 89 | a | File a tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 90 | button | Pause effects | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `index.html` | 105 | a | See all prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 111 | a | Court name change (Florida, adult)$199service fee; court fe… | `/name-change.html` | in-body | none | — |
-| `index.html` | 111 | a | Fee waiver application$49per application | `/fee-waiver.html` | in-body | none | — |
-| `index.html` | 111 | a | Immigration forms & documentsFrom $149one simple form you h… | `/immigration-packet-review.html` | in-body | none | — |
-| `index.html` | 111 | a | All 9 services | `/services.html#court` | in-body | none | — |
-| `index.html` | 112 | a | Order | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `index.html` | 116 | a | Small-claims filing packetFrom $199one eligible case, one d… | `/small-claims-documentation.html#packages` | in-body | none | — |
-| `index.html` | 116 | a | One month of case supportFrom $399one case, 30 days | `/small-claims-documentation.html#packages` | in-body | none | — |
-| `index.html` | 116 | a | Retainer: full case with court representationFrom $749per c… | `/small-claims-documentation.html#retainer` | in-body | none | — |
-| `index.html` | 116 | a | Financial Recovery | `/financial-recovery.html` | in-body | none | — |
-| `index.html` | 117 | a | Send a case | `/small-claims-documentation.html#check` | in-body | none | — |
-| `index.html` | 121 | a | Company formation$99service fee + state filing fee | `/llc-formation-florida.html` | in-body | none | — |
-| `index.html` | 121 | a | Florida annual report filing$79one entity, one year + state… | `/business-filings.html` | in-body | none | — |
-| `index.html` | 121 | a | Fictitious name (DBA) registration, Florida$69one registrat… | `/business-filings.html` | in-body | none | — |
-| `index.html` | 121 | a | All 10 services | `/business-filings.html` | in-body | none | — |
-| `index.html` | 122 | a | Order | `/request.html?service=company_basic` | in-body | none | — |
-| `index.html` | 126 | a | Individual tax returnFrom $149simple federal return, one ta… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 126 | a | Self-employed tax returnFrom $249federal return with one si… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 126 | a | State return add-onFrom $49one supported state, with a fede… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 127 | a | Get a quote | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `index.html` | 131 | a | Certified translation$25per 250 source words (one standard… | `/translations.html` | in-body | none | — |
-| `index.html` | 131 | a | General translation$0.10per source word, $25 minimum order | `/translations.html#general` | in-body | none | — |
-| `index.html` | 132 | a | Get a quote | `/request.html?service=translation_certified` | in-body | none | — |
-| `index.html` | 136 | a | Apostille assistanceFrom $119service fee for the first docu… | `/apostille.html` | in-body | none | — |
-| `index.html` | 136 | a | Official record retrievalFrom $59per record + agency fee | `/apostille.html#retrieval` | in-body | none | — |
-| `index.html` | 137 | a | Get a quote | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `index.html` | 141 | a | Online notarization$25per notarial act | `/online-notary.html` | in-body | none | — |
-| `index.html` | 142 | a | Book & pay | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `index.html` | 153 | a | About VitaCoreX | `/about.html` | in-body | none | — |
-| `index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 194 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
-| `index.html` | 205 | a | VitaCoreXConsulting | `/` | footer | none | — |
-| `index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `index.html` | 209 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
-| `index.html` | 209 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
-| `index.html` | 209 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
-| `index.html` | 209 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
-| `index.html` | 209 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
-| `index.html` | 209 | a | Certified translation | `/translations.html` | footer | none | — |
-| `index.html` | 209 | a | Online notarization | `/online-notary.html` | footer | none | — |
-| `index.html` | 209 | a | Apostille assistance | `/apostille.html` | footer | none | — |
-| `index.html` | 209 | a | All services | `/services.html` | footer | none | — |
-| `index.html` | 210 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
-| `index.html` | 210 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
-| `index.html` | 210 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
-| `index.html` | 211 | a | About | `/about.html` | footer | none | — |
-| `index.html` | 211 | a | Prices | `/pricing.html` | footer | none | — |
-| `index.html` | 211 | a | Contact | `/contact.html` | footer | none | — |
-| `index.html` | 211 | a | Careers | `/careers.html` | footer | none | — |
-| `index.html` | 212 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
-| `index.html` | 212 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
-| `index.html` | 212 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
-| `index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `immigration-services-tampa.html` | 70 | a | Skip to content | `#main-content` | anchor | b2c | — |
+| `immigration-services-tampa.html` | 73 | a | VitaCoreXConsulting | `/` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 75 | button | Services | `(handler)` | action-script | b2c | aria-wired:controls |
+| `immigration-services-tampa.html` | 76 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Certified translation$25 per page | `/translations.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | General translation$0.10 per word | `/translations.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Online notarization$25 | `/online-notary.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | All services | `/services.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | All prices | `/pricing.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 76 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 77 | a | For companies | `/small-claims-documentation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 78 | a | Prices | `/pricing.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 79 | a | About | `/about.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 80 | a | Contact | `/contact.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 83 | button | Choose languageEnglish | `(handler)` | action-script | b2c | aria-wired:controls |
+| `immigration-services-tampa.html` | 84 | button | English | `(handler)` | action-script | b2c | delegated:data-vx-lang=en |
+| `immigration-services-tampa.html` | 84 | button | Русский | `(handler)` | action-script | b2c | delegated:data-vx-lang=ru |
+| `immigration-services-tampa.html` | 84 | button | Español | `(handler)` | action-script | b2c | delegated:data-vx-lang=es |
+| `immigration-services-tampa.html` | 85 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `immigration-services-tampa.html` | 86 | a | Choose a service | `/services.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 87 | button | Menu | `(handler)` | action-script | b2c | aria-wired:controls |
+| `immigration-services-tampa.html` | 91 | button | English | `(handler)` | action-script | b2c | delegated:data-vx-lang=en |
+| `immigration-services-tampa.html` | 91 | button | Русский | `(handler)` | action-script | b2c | delegated:data-vx-lang=ru |
+| `immigration-services-tampa.html` | 91 | button | Español | `(handler)` | action-script | b2c | delegated:data-vx-lang=es |
+| `immigration-services-tampa.html` | 92 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Certified translation$25 per page | `/translations.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | General translation$0.10 per word | `/translations.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Online notarization$25 | `/online-notary.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 92 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 93 | a | All services | `/services.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 93 | a | Prices | `/pricing.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 93 | a | About | `/about.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 93 | a | Contact | `/contact.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 94 | a | Choose a service | `/services.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 94 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `immigration-services-tampa.html` | 112 | a | Home | `index.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 113 | a | Additional Services | `additional-services.html` | primary-nav | b2c | — |
+| `immigration-services-tampa.html` | 200 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `immigration-services-tampa.html` | 201 | a | Book a Consultation | `https://calendly.com/vitacorex2025/30min` | external | b2c | new-tab |
+| `immigration-services-tampa.html` | 211 | a | VitaCoreXConsulting | `/` | footer | b2c | — |
+| `immigration-services-tampa.html` | 212 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2c | — |
+| `immigration-services-tampa.html` | 212 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Court name change (Florida, adult) | `/name-change.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Fee waiver application | `/fee-waiver.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Company formation | `/llc-formation-florida.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Individual tax return | `/tax-preparation.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Certified translation | `/translations.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Online notarization | `/online-notary.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | Apostille assistance | `/apostille.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 215 | a | All services | `/services.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 216 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 216 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2c | — |
+| `immigration-services-tampa.html` | 216 | a | Financial Recovery | `/financial-recovery.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 216 | a | Existing-client recovery | `/net-recovery.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 217 | a | About | `/about.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 217 | a | Prices | `/pricing.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 217 | a | Contact | `/contact.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 217 | a | Careers | `/careers.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 218 | a | Privacy Policy | `/privacy-policy.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 218 | a | Terms of Use | `/terms-of-use.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 218 | a | Cookie Policy | `/cookie-policy.html` | footer | b2c | — |
+| `immigration-services-tampa.html` | 225 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
+| `immigration-services-tampa.html` | 225 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
+| `index.html` | 36 | a | Skip to content | `#main-content` | anchor | none | — |
+| `index.html` | 39 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
+| `index.html` | 41 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 42 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `index.html` | 42 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `index.html` | 42 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `index.html` | 42 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `index.html` | 42 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 42 | a | All services | `/services.html` | primary-nav | none | — |
+| `index.html` | 42 | a | All prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
+| `index.html` | 43 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 44 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 45 | a | About | `/about.html` | primary-nav | none | — |
+| `index.html` | 46 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `index.html` | 49 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 52 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `index.html` | 53 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `index.html` | 58 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `index.html` | 58 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `index.html` | 58 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `index.html` | 58 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `index.html` | 58 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 59 | a | All services | `/services.html` | primary-nav | none | — |
+| `index.html` | 59 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 59 | a | About | `/about.html` | primary-nav | none | — |
+| `index.html` | 59 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `index.html` | 60 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 83 | a | Choose a service | `/services.html` | in-body | none | — |
+| `index.html` | 84 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
+| `index.html` | 86 | a | For businesses: small claims | `/small-claims-documentation.html` | in-body | none | — |
+| `index.html` | 88 | a | Court name change$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 88 | a | Small claims for companiesFrom $199 | `/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `index.html` | 88 | a | Start a company$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 88 | a | File a tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 89 | button | Pause effects | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `index.html` | 104 | a | See all prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 110 | a | Court name change (Florida, adult)$199service fee; court fe… | `/name-change.html` | in-body | none | — |
+| `index.html` | 110 | a | Fee waiver application$49per application | `/fee-waiver.html` | in-body | none | — |
+| `index.html` | 110 | a | Immigration forms & documentsFrom $149one simple form you h… | `/immigration-packet-review.html` | in-body | none | — |
+| `index.html` | 110 | a | All 9 services | `/services.html#court` | in-body | none | — |
+| `index.html` | 111 | a | Order | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `index.html` | 115 | a | Small-claims filing packetFrom $199one eligible case, one d… | `/small-claims-documentation.html#packages` | in-body | none | — |
+| `index.html` | 115 | a | One month of case supportFrom $399one case, 30 days | `/small-claims-documentation.html#packages` | in-body | none | — |
+| `index.html` | 115 | a | Retainer: full case with court representationFrom $749per c… | `/small-claims-documentation.html#retainer` | in-body | none | — |
+| `index.html` | 115 | a | Financial Recovery | `/financial-recovery.html` | in-body | none | — |
+| `index.html` | 116 | a | Send a case | `/small-claims-documentation.html#check` | in-body | none | — |
+| `index.html` | 120 | a | Company formation$99service fee + state filing fee | `/llc-formation-florida.html` | in-body | none | — |
+| `index.html` | 120 | a | Florida annual report filing$79one entity, one year + state… | `/business-filings.html` | in-body | none | — |
+| `index.html` | 120 | a | Fictitious name (DBA) registration, Florida$69one registrat… | `/business-filings.html` | in-body | none | — |
+| `index.html` | 120 | a | All 10 services | `/business-filings.html` | in-body | none | — |
+| `index.html` | 121 | a | Order | `/request.html?service=company_basic` | in-body | none | — |
+| `index.html` | 125 | a | Individual tax returnFrom $149simple federal return, one ta… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 125 | a | Self-employed tax returnFrom $249federal return with one si… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 125 | a | State return add-onFrom $49one supported state, with a fede… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 126 | a | Get a quote | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `index.html` | 130 | a | Certified translation$25per 250 source words (one standard… | `/translations.html` | in-body | none | — |
+| `index.html` | 130 | a | General translation$0.10per source word, $25 minimum order | `/translations.html#general` | in-body | none | — |
+| `index.html` | 131 | a | Get a quote | `/request.html?service=translation_certified` | in-body | none | — |
+| `index.html` | 135 | a | Apostille assistanceFrom $119service fee for the first docu… | `/apostille.html` | in-body | none | — |
+| `index.html` | 135 | a | Official record retrievalFrom $59per record + agency fee | `/apostille.html#retrieval` | in-body | none | — |
+| `index.html` | 136 | a | Get a quote | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `index.html` | 140 | a | Online notarization$25per notarial act | `/online-notary.html` | in-body | none | — |
+| `index.html` | 141 | a | Book & pay | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `index.html` | 152 | a | About VitaCoreX | `/about.html` | in-body | none | — |
+| `index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 193 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
+| `index.html` | 204 | a | VitaCoreXConsulting | `/` | footer | none | — |
+| `index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `index.html` | 208 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
+| `index.html` | 208 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
+| `index.html` | 208 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
+| `index.html` | 208 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
+| `index.html` | 208 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
+| `index.html` | 208 | a | Certified translation | `/translations.html` | footer | none | — |
+| `index.html` | 208 | a | Online notarization | `/online-notary.html` | footer | none | — |
+| `index.html` | 208 | a | Apostille assistance | `/apostille.html` | footer | none | — |
+| `index.html` | 208 | a | All services | `/services.html` | footer | none | — |
+| `index.html` | 209 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
+| `index.html` | 209 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
+| `index.html` | 209 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `index.html` | 209 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
+| `index.html` | 210 | a | About | `/about.html` | footer | none | — |
+| `index.html` | 210 | a | Prices | `/pricing.html` | footer | none | — |
+| `index.html` | 210 | a | Contact | `/contact.html` | footer | none | — |
+| `index.html` | 210 | a | Careers | `/careers.html` | footer | none | — |
+| `index.html` | 211 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
+| `index.html` | 211 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
+| `index.html` | 211 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
+| `index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `industries.html` | 67 | a | Skip to content | `#main-content` | anchor | b2b | — |
 | `industries.html` | 70 | a | VitaCoreXConsulting | `/` | primary-nav | b2b | — |
 | `industries.html` | 72 | button | Services | `(handler)` | action-script | b2b | aria-wired:controls |
@@ -6101,7 +6311,7 @@ idempotent: true
 | `industries.html` | 90 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `industries.html` | 91 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `industries.html` | 91 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `industries.html` | 108 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `industries.html` | 108 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `industries.html` | 108 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `industries.html` | 117 | a | Healthcare & dental Patient-balance environments with docum… | `industry-healthcare-dental.html` | in-body | b2b | — |
 | `industries.html` | 122 | a | Subscription & recurring payments Recurring billing operato… | `industry-subscription-recurring.html` | in-body | b2b | — |
@@ -6122,6 +6332,7 @@ idempotent: true
 | `industries.html` | 165 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `industries.html` | 165 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `industries.html` | 165 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `industries.html` | 165 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `industries.html` | 166 | a | About | `/about.html` | footer | b2b | — |
 | `industries.html` | 166 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `industries.html` | 166 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -6207,7 +6418,7 @@ idempotent: true
 | `industry-contract-services.html` | 86 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `industry-contract-services.html` | 87 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `industry-contract-services.html` | 87 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `industry-contract-services.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `industry-contract-services.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `industry-contract-services.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `industry-contract-services.html` | 136 | a | redacted sample deliverable | `sample-deliverable.html` | in-body | b2b | — |
 | `industry-contract-services.html` | 155 | a | Start a structured intake | `structured-case-intake.html?source=industry-contract` | in-body | b2b | — |
@@ -6227,6 +6438,7 @@ idempotent: true
 | `industry-contract-services.html` | 171 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `industry-contract-services.html` | 171 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `industry-contract-services.html` | 171 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `industry-contract-services.html` | 171 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `industry-contract-services.html` | 172 | a | About | `/about.html` | footer | b2b | — |
 | `industry-contract-services.html` | 172 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `industry-contract-services.html` | 172 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -6312,7 +6524,7 @@ idempotent: true
 | `industry-fleet-logistics.html` | 86 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `industry-fleet-logistics.html` | 87 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `industry-fleet-logistics.html` | 87 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `industry-fleet-logistics.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `industry-fleet-logistics.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `industry-fleet-logistics.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `industry-fleet-logistics.html` | 136 | a | redacted sample deliverable | `sample-deliverable.html` | in-body | b2b | — |
 | `industry-fleet-logistics.html` | 155 | a | Request confidential review | `structured-case-intake.html?source=industry-fleet` | in-body | b2b | — |
@@ -6332,6 +6544,7 @@ idempotent: true
 | `industry-fleet-logistics.html` | 171 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `industry-fleet-logistics.html` | 171 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `industry-fleet-logistics.html` | 171 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `industry-fleet-logistics.html` | 171 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `industry-fleet-logistics.html` | 172 | a | About | `/about.html` | footer | b2b | — |
 | `industry-fleet-logistics.html` | 172 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `industry-fleet-logistics.html` | 172 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -6417,7 +6630,7 @@ idempotent: true
 | `industry-healthcare-dental.html` | 86 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `industry-healthcare-dental.html` | 87 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `industry-healthcare-dental.html` | 87 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `industry-healthcare-dental.html` | 106 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `industry-healthcare-dental.html` | 106 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `industry-healthcare-dental.html` | 106 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `industry-healthcare-dental.html` | 132 | a | redacted sample deliverable | `sample-deliverable.html` | in-body | b2b | — |
 | `industry-healthcare-dental.html` | 143 | a | multi-site case study | `case-study-healthcare-network.html` | in-body | b2b | — |
@@ -6438,6 +6651,7 @@ idempotent: true
 | `industry-healthcare-dental.html` | 167 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `industry-healthcare-dental.html` | 167 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `industry-healthcare-dental.html` | 167 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `industry-healthcare-dental.html` | 167 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `industry-healthcare-dental.html` | 168 | a | About | `/about.html` | footer | b2b | — |
 | `industry-healthcare-dental.html` | 168 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `industry-healthcare-dental.html` | 168 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -6523,7 +6737,7 @@ idempotent: true
 | `industry-subscription-recurring.html` | 86 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `industry-subscription-recurring.html` | 87 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `industry-subscription-recurring.html` | 87 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `industry-subscription-recurring.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `industry-subscription-recurring.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `industry-subscription-recurring.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `industry-subscription-recurring.html` | 136 | a | redacted sample deliverable | `sample-deliverable.html` | in-body | b2b | — |
 | `industry-subscription-recurring.html` | 155 | a | Request confidential review | `structured-case-intake.html?source=industry-subscription` | in-body | b2b | — |
@@ -6543,6 +6757,7 @@ idempotent: true
 | `industry-subscription-recurring.html` | 171 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `industry-subscription-recurring.html` | 171 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `industry-subscription-recurring.html` | 171 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `industry-subscription-recurring.html` | 171 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `industry-subscription-recurring.html` | 172 | a | About | `/about.html` | footer | b2b | — |
 | `industry-subscription-recurring.html` | 172 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `industry-subscription-recurring.html` | 172 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -6652,6 +6867,7 @@ idempotent: true
 | `insights.html` | 231 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | shared | — |
 | `insights.html` | 231 | a | Send case details | `/small-claims-documentation.html#check` | footer | shared | — |
 | `insights.html` | 231 | a | Financial Recovery | `/financial-recovery.html` | footer | shared | — |
+| `insights.html` | 231 | a | Existing-client recovery | `/net-recovery.html` | footer | shared | — |
 | `insights.html` | 232 | a | About | `/about.html` | footer | shared | — |
 | `insights.html` | 232 | a | Prices | `/pricing.html` | footer | shared | — |
 | `insights.html` | 232 | a | Contact | `/contact.html` | footer | shared | — |
@@ -6820,6 +7036,7 @@ idempotent: true
 | `llc-formation-florida.html` | 112 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `llc-formation-florida.html` | 112 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `llc-formation-florida.html` | 112 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `llc-formation-florida.html` | 112 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `llc-formation-florida.html` | 113 | a | About | `/about.html` | footer | none | — |
 | `llc-formation-florida.html` | 113 | a | Prices | `/pricing.html` | footer | none | — |
 | `llc-formation-florida.html` | 113 | a | Contact | `/contact.html` | footer | none | — |
@@ -6925,6 +7142,7 @@ idempotent: true
 | `location-analysis.html` | 235 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2c | — |
 | `location-analysis.html` | 235 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2c | — |
 | `location-analysis.html` | 235 | a | Financial Recovery | `/financial-recovery.html` | footer | b2c | — |
+| `location-analysis.html` | 235 | a | Existing-client recovery | `/net-recovery.html` | footer | b2c | — |
 | `location-analysis.html` | 236 | a | About | `/about.html` | footer | b2c | — |
 | `location-analysis.html` | 236 | a | Prices | `/pricing.html` | footer | b2c | — |
 | `location-analysis.html` | 236 | a | Contact | `/contact.html` | footer | b2c | — |
@@ -7028,6 +7246,7 @@ idempotent: true
 | `n-400-naturalization.html` | 114 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `n-400-naturalization.html` | 114 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `n-400-naturalization.html` | 114 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `n-400-naturalization.html` | 114 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `n-400-naturalization.html` | 115 | a | About | `/about.html` | footer | none | — |
 | `n-400-naturalization.html` | 115 | a | Prices | `/pricing.html` | footer | none | — |
 | `n-400-naturalization.html` | 115 | a | Contact | `/contact.html` | footer | none | — |
@@ -7136,6 +7355,7 @@ idempotent: true
 | `name-change.html` | 200 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `name-change.html` | 200 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `name-change.html` | 200 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `name-change.html` | 200 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `name-change.html` | 201 | a | About | `/about.html` | footer | none | — |
 | `name-change.html` | 201 | a | Prices | `/pricing.html` | footer | none | — |
 | `name-change.html` | 201 | a | Contact | `/contact.html` | footer | none | — |
@@ -7239,6 +7459,7 @@ idempotent: true
 | `online-notary-corp-thanks.html` | 84 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `online-notary-corp-thanks.html` | 84 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `online-notary-corp-thanks.html` | 84 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `online-notary-corp-thanks.html` | 84 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `online-notary-corp-thanks.html` | 85 | a | About | `/about.html` | footer | none | — |
 | `online-notary-corp-thanks.html` | 85 | a | Prices | `/pricing.html` | footer | none | — |
 | `online-notary-corp-thanks.html` | 85 | a | Contact | `/contact.html` | footer | none | — |
@@ -7341,6 +7562,7 @@ idempotent: true
 | `online-notary-thanks.html` | 84 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `online-notary-thanks.html` | 84 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `online-notary-thanks.html` | 84 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `online-notary-thanks.html` | 84 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `online-notary-thanks.html` | 85 | a | About | `/about.html` | footer | none | — |
 | `online-notary-thanks.html` | 85 | a | Prices | `/pricing.html` | footer | none | — |
 | `online-notary-thanks.html` | 85 | a | Contact | `/contact.html` | footer | none | — |
@@ -7444,6 +7666,7 @@ idempotent: true
 | `online-notary.html` | 157 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `online-notary.html` | 157 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `online-notary.html` | 157 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `online-notary.html` | 157 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `online-notary.html` | 158 | a | About | `/about.html` | footer | none | — |
 | `online-notary.html` | 158 | a | Prices | `/pricing.html` | footer | none | — |
 | `online-notary.html` | 158 | a | Contact | `/contact.html` | footer | none | — |
@@ -7544,6 +7767,7 @@ idempotent: true
 | `order-status.html` | 77 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `order-status.html` | 77 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `order-status.html` | 77 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `order-status.html` | 77 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `order-status.html` | 78 | a | About | `/about.html` | footer | none | — |
 | `order-status.html` | 78 | a | Prices | `/pricing.html` | footer | none | — |
 | `order-status.html` | 78 | a | Contact | `/contact.html` | footer | none | — |
@@ -7648,6 +7872,7 @@ idempotent: true
 | `partners.html` | 279 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `partners.html` | 279 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `partners.html` | 279 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `partners.html` | 279 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `partners.html` | 280 | a | About | `/about.html` | footer | b2b | — |
 | `partners.html` | 280 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `partners.html` | 280 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -7734,7 +7959,7 @@ idempotent: true
 | `pre-collection-pilot.html` | 277 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `pre-collection-pilot.html` | 277 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
 | `pre-collection-pilot.html` | 297 | a | See qualification criteria | `#qualify` | anchor | b2b | — |
-| `pre-collection-pilot.html` | 301 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `pre-collection-pilot.html` | 301 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `pre-collection-pilot.html` | 301 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `pre-collection-pilot.html` | 323 | a | See Diagnostic details &rarr; | `diagnostic-review.html` | in-body | b2b | — |
 | `pre-collection-pilot.html` | 334 | a | See Paid Workflow tier &rarr; | `solutions.html#engagement-tiers` | in-body | b2b | — |
@@ -7755,6 +7980,7 @@ idempotent: true
 | `pre-collection-pilot.html` | 534 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `pre-collection-pilot.html` | 534 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `pre-collection-pilot.html` | 534 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `pre-collection-pilot.html` | 534 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `pre-collection-pilot.html` | 535 | a | About | `/about.html` | footer | b2b | — |
 | `pre-collection-pilot.html` | 535 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `pre-collection-pilot.html` | 535 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -7923,6 +8149,7 @@ idempotent: true
 | `pricing.html` | 92 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `pricing.html` | 92 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `pricing.html` | 92 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `pricing.html` | 92 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `pricing.html` | 93 | a | About | `/about.html` | footer | none | — |
 | `pricing.html` | 93 | a | Prices | `/pricing.html` | footer | none | — |
 | `pricing.html` | 93 | a | Contact | `/contact.html` | footer | none | — |
@@ -8072,6 +8299,7 @@ idempotent: true
 | `privacy-policy.html` | 218 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `privacy-policy.html` | 218 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `privacy-policy.html` | 218 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `privacy-policy.html` | 218 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `privacy-policy.html` | 219 | a | About | `/about.html` | footer | none | — |
 | `privacy-policy.html` | 219 | a | Prices | `/pricing.html` | footer | none | — |
 | `privacy-policy.html` | 219 | a | Contact | `/contact.html` | footer | none | — |
@@ -8175,6 +8403,7 @@ idempotent: true
 | `private-intake-auto.html` | 77 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `private-intake-auto.html` | 77 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `private-intake-auto.html` | 77 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `private-intake-auto.html` | 77 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `private-intake-auto.html` | 78 | a | About | `/about.html` | footer | none | — |
 | `private-intake-auto.html` | 78 | a | Prices | `/pricing.html` | footer | none | — |
 | `private-intake-auto.html` | 78 | a | Contact | `/contact.html` | footer | none | — |
@@ -8283,6 +8512,7 @@ idempotent: true
 | `private-thank-you.html` | 76 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `private-thank-you.html` | 76 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `private-thank-you.html` | 76 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `private-thank-you.html` | 76 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `private-thank-you.html` | 77 | a | About | `/about.html` | footer | none | — |
 | `private-thank-you.html` | 77 | a | Prices | `/pricing.html` | footer | none | — |
 | `private-thank-you.html` | 77 | a | Contact | `/contact.html` | footer | none | — |
@@ -8383,6 +8613,7 @@ idempotent: true
 | `quote.html` | 72 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `quote.html` | 72 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `quote.html` | 72 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `quote.html` | 72 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `quote.html` | 73 | a | About | `/about.html` | footer | none | — |
 | `quote.html` | 73 | a | Prices | `/pricing.html` | footer | none | — |
 | `quote.html` | 73 | a | Contact | `/contact.html` | footer | none | — |
@@ -8486,6 +8717,7 @@ idempotent: true
 | `request.html` | 136 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `request.html` | 136 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `request.html` | 136 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `request.html` | 136 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `request.html` | 137 | a | About | `/about.html` | footer | none | — |
 | `request.html` | 137 | a | Prices | `/pricing.html` | footer | none | — |
 | `request.html` | 137 | a | Contact | `/contact.html` | footer | none | — |
@@ -8572,7 +8804,7 @@ idempotent: true
 | `revenue-recovery-florida.html` | 140 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `revenue-recovery-florida.html` | 140 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
 | `revenue-recovery-florida.html` | 160 | a | See retainer programmes | `#retainers` | anchor | b2b | — |
-| `revenue-recovery-florida.html` | 164 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `revenue-recovery-florida.html` | 164 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `revenue-recovery-florida.html` | 164 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `revenue-recovery-florida.html` | 219 | a | See full pricing & engagement tiers &rarr; | `pricing-and-engagement-tiers.html` | in-body | b2b | — |
 | `revenue-recovery-florida.html` | 326 | a | VitaCoreXConsulting | `/` | footer | b2b | — |
@@ -8590,6 +8822,7 @@ idempotent: true
 | `revenue-recovery-florida.html` | 331 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `revenue-recovery-florida.html` | 331 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `revenue-recovery-florida.html` | 331 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `revenue-recovery-florida.html` | 331 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `revenue-recovery-florida.html` | 332 | a | About | `/about.html` | footer | b2b | — |
 | `revenue-recovery-florida.html` | 332 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `revenue-recovery-florida.html` | 332 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -8675,7 +8908,7 @@ idempotent: true
 | `revenue-recovery-miami.html` | 94 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `revenue-recovery-miami.html` | 95 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `revenue-recovery-miami.html` | 95 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `revenue-recovery-miami.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `revenue-recovery-miami.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `revenue-recovery-miami.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `revenue-recovery-miami.html` | 114 | a | Home | `index.html` | primary-nav | b2b | — |
 | `revenue-recovery-miami.html` | 115 | a | Solutions | `solutions.html` | primary-nav | b2b | — |
@@ -8696,6 +8929,7 @@ idempotent: true
 | `revenue-recovery-miami.html` | 187 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `revenue-recovery-miami.html` | 187 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `revenue-recovery-miami.html` | 187 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `revenue-recovery-miami.html` | 187 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `revenue-recovery-miami.html` | 188 | a | About | `/about.html` | footer | b2b | — |
 | `revenue-recovery-miami.html` | 188 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `revenue-recovery-miami.html` | 188 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -8781,7 +9015,7 @@ idempotent: true
 | `revenue-recovery-orlando.html` | 94 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `revenue-recovery-orlando.html` | 95 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `revenue-recovery-orlando.html` | 95 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `revenue-recovery-orlando.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `revenue-recovery-orlando.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `revenue-recovery-orlando.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `revenue-recovery-orlando.html` | 114 | a | Home | `index.html` | primary-nav | b2b | — |
 | `revenue-recovery-orlando.html` | 115 | a | Solutions | `solutions.html` | primary-nav | b2b | — |
@@ -8802,6 +9036,7 @@ idempotent: true
 | `revenue-recovery-orlando.html` | 187 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `revenue-recovery-orlando.html` | 187 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `revenue-recovery-orlando.html` | 187 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `revenue-recovery-orlando.html` | 187 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `revenue-recovery-orlando.html` | 188 | a | About | `/about.html` | footer | b2b | — |
 | `revenue-recovery-orlando.html` | 188 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `revenue-recovery-orlando.html` | 188 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -8887,7 +9122,7 @@ idempotent: true
 | `revenue-recovery-tampa.html` | 94 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `revenue-recovery-tampa.html` | 95 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `revenue-recovery-tampa.html` | 95 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `revenue-recovery-tampa.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `revenue-recovery-tampa.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `revenue-recovery-tampa.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `revenue-recovery-tampa.html` | 114 | a | Home | `index.html` | primary-nav | b2b | — |
 | `revenue-recovery-tampa.html` | 115 | a | Solutions | `solutions.html` | primary-nav | b2b | — |
@@ -8908,6 +9143,7 @@ idempotent: true
 | `revenue-recovery-tampa.html` | 187 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `revenue-recovery-tampa.html` | 187 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `revenue-recovery-tampa.html` | 187 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `revenue-recovery-tampa.html` | 187 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `revenue-recovery-tampa.html` | 188 | a | About | `/about.html` | footer | b2b | — |
 | `revenue-recovery-tampa.html` | 188 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `revenue-recovery-tampa.html` | 188 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -8995,7 +9231,7 @@ idempotent: true
 | `revenue-recovery-workflow.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
 | `revenue-recovery-workflow.html` | 74 | a | See pilot measurement plan | `#measurement-plan` | anchor | b2b | — |
 | `revenue-recovery-workflow.html` | 75 | a | Request a confidential review | `structured-case-intake.html` | in-body | b2b | — |
-| `revenue-recovery-workflow.html` | 79 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `revenue-recovery-workflow.html` | 79 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `revenue-recovery-workflow.html` | 79 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `revenue-recovery-workflow.html` | 251 | a | Start pilot | `/app/vcx-recovery-pilot/` | in-body | b2b | — |
 | `revenue-recovery-workflow.html` | 257 | a | Open intake | `/app/vcx-intake/` | in-body | b2b | — |
@@ -9022,6 +9258,7 @@ idempotent: true
 | `revenue-recovery-workflow.html` | 290 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `revenue-recovery-workflow.html` | 290 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `revenue-recovery-workflow.html` | 290 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `revenue-recovery-workflow.html` | 290 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `revenue-recovery-workflow.html` | 291 | a | About | `/about.html` | footer | b2b | — |
 | `revenue-recovery-workflow.html` | 291 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `revenue-recovery-workflow.html` | 291 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -9126,6 +9363,7 @@ idempotent: true
 | `ru/about.html` | 138 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/about.html` | 138 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/about.html` | 138 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/about.html` | 138 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/about.html` | 139 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/about.html` | 139 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/about.html` | 139 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9232,6 +9470,7 @@ idempotent: true
 | `ru/apostille.html` | 129 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/apostille.html` | 129 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/apostille.html` | 129 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/apostille.html` | 129 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/apostille.html` | 130 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/apostille.html` | 130 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/apostille.html` | 130 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9351,6 +9590,7 @@ idempotent: true
 | `ru/business-filings.html` | 127 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/business-filings.html` | 127 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/business-filings.html` | 127 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/business-filings.html` | 127 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/business-filings.html` | 128 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/business-filings.html` | 128 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/business-filings.html` | 128 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9453,6 +9693,7 @@ idempotent: true
 | `ru/business-plans.html` | 107 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/business-plans.html` | 107 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/business-plans.html` | 107 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/business-plans.html` | 107 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/business-plans.html` | 108 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/business-plans.html` | 108 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/business-plans.html` | 108 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9564,6 +9805,7 @@ idempotent: true
 | `ru/careers.html` | 119 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/careers.html` | 119 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/careers.html` | 119 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/careers.html` | 119 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/careers.html` | 120 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/careers.html` | 120 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/careers.html` | 120 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9666,6 +9908,7 @@ idempotent: true
 | `ru/civil-case-referral.html` | 129 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/civil-case-referral.html` | 129 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/civil-case-referral.html` | 129 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/civil-case-referral.html` | 129 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/civil-case-referral.html` | 130 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/civil-case-referral.html` | 130 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/civil-case-referral.html` | 130 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9772,6 +10015,7 @@ idempotent: true
 | `ru/contact.html` | 100 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/contact.html` | 100 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/contact.html` | 100 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/contact.html` | 100 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/contact.html` | 101 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/contact.html` | 101 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/contact.html` | 101 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9875,6 +10119,7 @@ idempotent: true
 | `ru/contract-review-service.html` | 107 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/contract-review-service.html` | 107 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/contract-review-service.html` | 107 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/contract-review-service.html` | 107 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/contract-review-service.html` | 108 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/contract-review-service.html` | 108 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/contract-review-service.html` | 108 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -9987,6 +10232,7 @@ idempotent: true
 | `ru/cookie-policy.html` | 126 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/cookie-policy.html` | 126 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/cookie-policy.html` | 126 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/cookie-policy.html` | 126 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/cookie-policy.html` | 127 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/cookie-policy.html` | 127 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/cookie-policy.html` | 127 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10089,6 +10335,7 @@ idempotent: true
 | `ru/fee-waiver.html` | 135 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/fee-waiver.html` | 135 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/fee-waiver.html` | 135 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/fee-waiver.html` | 135 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/fee-waiver.html` | 136 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/fee-waiver.html` | 136 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/fee-waiver.html` | 136 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10203,6 +10450,7 @@ idempotent: true
 | `ru/financial-recovery.html` | 137 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/financial-recovery.html` | 137 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/financial-recovery.html` | 137 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/financial-recovery.html` | 137 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/financial-recovery.html` | 138 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/financial-recovery.html` | 138 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/financial-recovery.html` | 138 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10324,6 +10572,7 @@ idempotent: true
 | `ru/founder-services.html` | 80 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/founder-services.html` | 80 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/founder-services.html` | 80 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/founder-services.html` | 80 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/founder-services.html` | 81 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/founder-services.html` | 81 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/founder-services.html` | 81 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10431,6 +10680,7 @@ idempotent: true
 | `ru/immigration-packet-review.html` | 119 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 119 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/immigration-packet-review.html` | 119 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/immigration-packet-review.html` | 119 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 120 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 120 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 120 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10440,146 +10690,147 @@ idempotent: true
 | `ru/immigration-packet-review.html` | 121 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 128 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `ru/immigration-packet-review.html` | 128 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `ru/index.html` | 37 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
-| `ru/index.html` | 40 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
-| `ru/index.html` | 42 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 43 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Описать ситуацию | `/request.html?service=legal_request` | primary-nav | none | — |
-| `ru/index.html` | 44 | a | Для компаний | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 45 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 46 | a | О нас | `/ru/about.html` | primary-nav | none | — |
-| `ru/index.html` | 47 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
-| `ru/index.html` | 50 | button | Выбрать языкРусский | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `ru/index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `ru/index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `ru/index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 53 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 54 | button | Меню | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `ru/index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `ru/index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `ru/index.html` | 59 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | О нас | `/ru/about.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
-| `ru/index.html` | 61 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 84 | a | Выбрать услугу | `/ru/services.html` | in-body | none | — |
-| `ru/index.html` | 85 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
-| `ru/index.html` | 87 | a | Для компаний: small claims | `/ru/small-claims-documentation.html` | in-body | none | — |
-| `ru/index.html` | 89 | a | Смена имени через суд$199 + судебные сборы | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Small claims для компанийот $199 | `/ru/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Открыть компанию$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Подать декларациюот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 90 | button | Остановить эффекты | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `ru/index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `ru/index.html` | 105 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 111 | a | Смена имени через суд (Флорида, взрослый)$199плата за услуг… | `/ru/name-change.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Заявление об освобождении от пошлины$49за одно заявление | `/ru/fee-waiver.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Иммиграционные формы и документыот $149одна простая форма,… | `/ru/immigration-packet-review.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Все услуги: 9 | `/ru/services.html#court` | in-body | none | — |
-| `ru/index.html` | 112 | a | Заказать | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `ru/index.html` | 116 | a | Пакет документов на подачу small claimsот $199одно подходящ… | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
-| `ru/index.html` | 116 | a | Сопровождение дела на месяцот $399одно дело, 30 дней | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
-| `ru/index.html` | 116 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | in-body | none | — |
-| `ru/index.html` | 116 | a | Financial Recovery | `/ru/financial-recovery.html` | in-body | none | — |
-| `ru/index.html` | 117 | a | Отправить дело | `/ru/small-claims-documentation.html#check` | in-body | none | — |
-| `ru/index.html` | 121 | a | Открытие компании$99плата за услугу + госпошлина штата | `/ru/llc-formation-florida.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Ежегодный отчёт компании во Флориде$79одна компания, один г… | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Регистрация торгового наименования (DBA), Флорида$69одна ре… | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Все услуги: 10 | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 122 | a | Заказать | `/request.html?service=company_basic` | in-body | none | — |
-| `ru/index.html` | 126 | a | Личная налоговая декларацияот $149простая федеральная декла… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 126 | a | Декларация для самозанятыхот $249федеральная декларация с о… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 126 | a | Декларация штата — дополнениеот $49один штат, вместе с феде… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 127 | a | Узнать цену | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `ru/index.html` | 131 | a | Сертифицированный перевод$25за 250 слов оригинала (одна ста… | `/ru/translations.html` | in-body | none | — |
-| `ru/index.html` | 131 | a | Обычный перевод$0.10за слово оригинала, минимальный заказ $… | `/ru/translations.html#general` | in-body | none | — |
-| `ru/index.html` | 132 | a | Узнать цену | `/request.html?service=translation_certified` | in-body | none | — |
-| `ru/index.html` | 136 | a | Помощь с апостилемот $119плата за услугу по первому докумен… | `/ru/apostille.html` | in-body | none | — |
-| `ru/index.html` | 136 | a | Получение официальных документовот $59за один документ + сб… | `/ru/apostille.html#retrieval` | in-body | none | — |
-| `ru/index.html` | 137 | a | Узнать цену | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `ru/index.html` | 141 | a | Заверение документов онлайн$25за одно нотариальное действие | `/ru/online-notary.html` | in-body | none | — |
-| `ru/index.html` | 142 | a | Записаться онлайн | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `ru/index.html` | 153 | a | О VitaCoreX | `/ru/about.html` | in-body | none | — |
-| `ru/index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 194 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
-| `ru/index.html` | 205 | a | VitaCoreXConsulting | `/ru/` | footer | none | — |
-| `ru/index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `ru/index.html` | 209 | a | Смена имени через суд (Флорида, взрослый) | `/ru/name-change.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Заявление об освобождении от пошлины | `/ru/fee-waiver.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Иммиграционные формы и документы | `/ru/immigration-packet-review.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Открытие компании | `/ru/llc-formation-florida.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Личная налоговая декларация | `/ru/tax-preparation.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Сертифицированный перевод | `/ru/translations.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Заверение документов онлайн | `/ru/online-notary.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Помощь с апостилем | `/ru/apostille.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Все услуги | `/ru/services.html` | footer | none | — |
-| `ru/index.html` | 210 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
-| `ru/index.html` | 210 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
-| `ru/index.html` | 210 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
-| `ru/index.html` | 211 | a | О нас | `/ru/about.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Цены | `/ru/pricing.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Контакты | `/ru/contact.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Вакансии | `/ru/careers.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Политика конфиденциальности | `/ru/privacy-policy.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Условия использования | `/ru/terms-of-use.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
-| `ru/index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `ru/index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `ru/index.html` | 36 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
+| `ru/index.html` | 39 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
+| `ru/index.html` | 41 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 42 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Описать ситуацию | `/request.html?service=legal_request` | primary-nav | none | — |
+| `ru/index.html` | 43 | a | Для компаний | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 44 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 45 | a | О нас | `/ru/about.html` | primary-nav | none | — |
+| `ru/index.html` | 46 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
+| `ru/index.html` | 49 | button | Выбрать языкРусский | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `ru/index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `ru/index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `ru/index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 52 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 53 | button | Меню | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `ru/index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `ru/index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `ru/index.html` | 58 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | О нас | `/ru/about.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
+| `ru/index.html` | 60 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 83 | a | Выбрать услугу | `/ru/services.html` | in-body | none | — |
+| `ru/index.html` | 84 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
+| `ru/index.html` | 86 | a | Для компаний: small claims | `/ru/small-claims-documentation.html` | in-body | none | — |
+| `ru/index.html` | 88 | a | Смена имени через суд$199 + судебные сборы | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Small claims для компанийот $199 | `/ru/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Открыть компанию$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Подать декларациюот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 89 | button | Остановить эффекты | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `ru/index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `ru/index.html` | 104 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 110 | a | Смена имени через суд (Флорида, взрослый)$199плата за услуг… | `/ru/name-change.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Заявление об освобождении от пошлины$49за одно заявление | `/ru/fee-waiver.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Иммиграционные формы и документыот $149одна простая форма,… | `/ru/immigration-packet-review.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Все услуги: 9 | `/ru/services.html#court` | in-body | none | — |
+| `ru/index.html` | 111 | a | Заказать | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `ru/index.html` | 115 | a | Пакет документов на подачу small claimsот $199одно подходящ… | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
+| `ru/index.html` | 115 | a | Сопровождение дела на месяцот $399одно дело, 30 дней | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
+| `ru/index.html` | 115 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | in-body | none | — |
+| `ru/index.html` | 115 | a | Financial Recovery | `/ru/financial-recovery.html` | in-body | none | — |
+| `ru/index.html` | 116 | a | Отправить дело | `/ru/small-claims-documentation.html#check` | in-body | none | — |
+| `ru/index.html` | 120 | a | Открытие компании$99плата за услугу + госпошлина штата | `/ru/llc-formation-florida.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Ежегодный отчёт компании во Флориде$79одна компания, один г… | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Регистрация торгового наименования (DBA), Флорида$69одна ре… | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Все услуги: 10 | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 121 | a | Заказать | `/request.html?service=company_basic` | in-body | none | — |
+| `ru/index.html` | 125 | a | Личная налоговая декларацияот $149простая федеральная декла… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 125 | a | Декларация для самозанятыхот $249федеральная декларация с о… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 125 | a | Декларация штата — дополнениеот $49один штат, вместе с феде… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 126 | a | Узнать цену | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `ru/index.html` | 130 | a | Сертифицированный перевод$25за 250 слов оригинала (одна ста… | `/ru/translations.html` | in-body | none | — |
+| `ru/index.html` | 130 | a | Обычный перевод$0.10за слово оригинала, минимальный заказ $… | `/ru/translations.html#general` | in-body | none | — |
+| `ru/index.html` | 131 | a | Узнать цену | `/request.html?service=translation_certified` | in-body | none | — |
+| `ru/index.html` | 135 | a | Помощь с апостилемот $119плата за услугу по первому докумен… | `/ru/apostille.html` | in-body | none | — |
+| `ru/index.html` | 135 | a | Получение официальных документовот $59за один документ + сб… | `/ru/apostille.html#retrieval` | in-body | none | — |
+| `ru/index.html` | 136 | a | Узнать цену | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `ru/index.html` | 140 | a | Заверение документов онлайн$25за одно нотариальное действие | `/ru/online-notary.html` | in-body | none | — |
+| `ru/index.html` | 141 | a | Записаться онлайн | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `ru/index.html` | 152 | a | О VitaCoreX | `/ru/about.html` | in-body | none | — |
+| `ru/index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 193 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
+| `ru/index.html` | 204 | a | VitaCoreXConsulting | `/ru/` | footer | none | — |
+| `ru/index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `ru/index.html` | 208 | a | Смена имени через суд (Флорида, взрослый) | `/ru/name-change.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Заявление об освобождении от пошлины | `/ru/fee-waiver.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Иммиграционные формы и документы | `/ru/immigration-packet-review.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Открытие компании | `/ru/llc-formation-florida.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Личная налоговая декларация | `/ru/tax-preparation.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Сертифицированный перевод | `/ru/translations.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Заверение документов онлайн | `/ru/online-notary.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Помощь с апостилем | `/ru/apostille.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Все услуги | `/ru/services.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
+| `ru/index.html` | 209 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
+| `ru/index.html` | 210 | a | О нас | `/ru/about.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Цены | `/ru/pricing.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Контакты | `/ru/contact.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Вакансии | `/ru/careers.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Политика конфиденциальности | `/ru/privacy-policy.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Условия использования | `/ru/terms-of-use.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
+| `ru/index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `ru/index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `ru/llc-formation-florida.html` | 27 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
 | `ru/llc-formation-florida.html` | 30 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
 | `ru/llc-formation-florida.html` | 32 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
@@ -10678,6 +10929,7 @@ idempotent: true
 | `ru/llc-formation-florida.html` | 112 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/llc-formation-florida.html` | 112 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/llc-formation-florida.html` | 112 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/llc-formation-florida.html` | 112 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/llc-formation-florida.html` | 113 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/llc-formation-florida.html` | 113 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/llc-formation-florida.html` | 113 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10781,6 +11033,7 @@ idempotent: true
 | `ru/n-400-naturalization.html` | 114 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/n-400-naturalization.html` | 114 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/n-400-naturalization.html` | 114 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/n-400-naturalization.html` | 114 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/n-400-naturalization.html` | 115 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/n-400-naturalization.html` | 115 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/n-400-naturalization.html` | 115 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10889,6 +11142,7 @@ idempotent: true
 | `ru/name-change.html` | 200 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/name-change.html` | 200 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/name-change.html` | 200 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/name-change.html` | 200 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/name-change.html` | 201 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/name-change.html` | 201 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/name-change.html` | 201 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -10992,6 +11246,7 @@ idempotent: true
 | `ru/online-notary.html` | 157 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/online-notary.html` | 157 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/online-notary.html` | 157 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/online-notary.html` | 157 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/online-notary.html` | 158 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/online-notary.html` | 158 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/online-notary.html` | 158 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11159,6 +11414,7 @@ idempotent: true
 | `ru/pricing.html` | 92 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/pricing.html` | 92 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/pricing.html` | 92 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/pricing.html` | 92 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/pricing.html` | 93 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/pricing.html` | 93 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/pricing.html` | 93 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11308,6 +11564,7 @@ idempotent: true
 | `ru/privacy-policy.html` | 218 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/privacy-policy.html` | 218 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/privacy-policy.html` | 218 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/privacy-policy.html` | 218 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/privacy-policy.html` | 219 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/privacy-policy.html` | 219 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/privacy-policy.html` | 219 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11483,6 +11740,7 @@ idempotent: true
 | `ru/services.html` | 126 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/services.html` | 126 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/services.html` | 126 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/services.html` | 126 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/services.html` | 127 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/services.html` | 127 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/services.html` | 127 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11582,7 +11840,7 @@ idempotent: true
 | `ru/small-claims-documentation.html` | 138 | a | Все услуги | `/ru/services.html` | in-body | none | — |
 | `ru/small-claims-documentation.html` | 159 | a | информацией о конфиденциальности | `/ru/privacy-policy.html` | in-body | none | new-tab |
 | `ru/small-claims-documentation.html` | 165 | button | Отправить заявку | `(self)` | form-submit | none | form-method:GET |
-| `ru/small-claims-documentation.html` | 196 | a | Просроченные счета до суда? Смотрите Financial Recovery → | `/ru/financial-recovery.html` | in-body | none | — |
+| `ru/small-claims-documentation.html` | 196 | a | Ваша компания уже работает с нами? Спросите о помощи с возв… | `/net-recovery.html` | in-body | none | — |
 | `ru/small-claims-documentation.html` | 205 | a | VitaCoreXConsulting | `/ru/` | footer | none | — |
 | `ru/small-claims-documentation.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
 | `ru/small-claims-documentation.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
@@ -11598,6 +11856,7 @@ idempotent: true
 | `ru/small-claims-documentation.html` | 210 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/small-claims-documentation.html` | 210 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/small-claims-documentation.html` | 210 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/small-claims-documentation.html` | 210 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/small-claims-documentation.html` | 211 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/small-claims-documentation.html` | 211 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/small-claims-documentation.html` | 211 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11707,6 +11966,7 @@ idempotent: true
 | `ru/tax-preparation.html` | 135 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/tax-preparation.html` | 135 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/tax-preparation.html` | 135 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/tax-preparation.html` | 135 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/tax-preparation.html` | 136 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/tax-preparation.html` | 136 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/tax-preparation.html` | 136 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11852,6 +12112,7 @@ idempotent: true
 | `ru/terms-of-use.html` | 205 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/terms-of-use.html` | 205 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/terms-of-use.html` | 205 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/terms-of-use.html` | 205 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/terms-of-use.html` | 206 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/terms-of-use.html` | 206 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/terms-of-use.html` | 206 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -11960,6 +12221,7 @@ idempotent: true
 | `ru/translations.html` | 156 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
 | `ru/translations.html` | 156 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
 | `ru/translations.html` | 156 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/translations.html` | 156 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
 | `ru/translations.html` | 157 | a | О нас | `/ru/about.html` | footer | none | — |
 | `ru/translations.html` | 157 | a | Цены | `/ru/pricing.html` | footer | none | — |
 | `ru/translations.html` | 157 | a | Контакты | `/ru/contact.html` | footer | none | — |
@@ -12068,6 +12330,7 @@ idempotent: true
 | `sample-deliverable.html` | 382 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `sample-deliverable.html` | 382 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `sample-deliverable.html` | 382 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `sample-deliverable.html` | 382 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `sample-deliverable.html` | 383 | a | About | `/about.html` | footer | b2b | — |
 | `sample-deliverable.html` | 383 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `sample-deliverable.html` | 383 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -12555,6 +12818,7 @@ idempotent: true
 | `secure-coordination.html` | 886 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | shared | — |
 | `secure-coordination.html` | 886 | a | Send case details | `/small-claims-documentation.html#check` | footer | shared | — |
 | `secure-coordination.html` | 886 | a | Financial Recovery | `/financial-recovery.html` | footer | shared | — |
+| `secure-coordination.html` | 886 | a | Existing-client recovery | `/net-recovery.html` | footer | shared | — |
 | `secure-coordination.html` | 887 | a | About | `/about.html` | footer | shared | — |
 | `secure-coordination.html` | 887 | a | Prices | `/pricing.html` | footer | shared | — |
 | `secure-coordination.html` | 887 | a | Contact | `/contact.html` | footer | shared | — |
@@ -12657,6 +12921,7 @@ idempotent: true
 | `security-and-compliance.html` | 607 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `security-and-compliance.html` | 607 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `security-and-compliance.html` | 607 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `security-and-compliance.html` | 607 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `security-and-compliance.html` | 608 | a | About | `/about.html` | footer | b2b | — |
 | `security-and-compliance.html` | 608 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `security-and-compliance.html` | 608 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -12832,6 +13097,7 @@ idempotent: true
 | `services.html` | 126 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `services.html` | 126 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `services.html` | 126 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `services.html` | 126 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `services.html` | 127 | a | About | `/about.html` | footer | none | — |
 | `services.html` | 127 | a | Prices | `/pricing.html` | footer | none | — |
 | `services.html` | 127 | a | Contact | `/contact.html` | footer | none | — |
@@ -12931,7 +13197,7 @@ idempotent: true
 | `small-claims-documentation.html` | 138 | a | All services | `/services.html` | in-body | none | — |
 | `small-claims-documentation.html` | 159 | a | privacy information | `/privacy-policy.html` | in-body | none | new-tab |
 | `small-claims-documentation.html` | 165 | button | Send request | `(self)` | form-submit | none | form-method:GET |
-| `small-claims-documentation.html` | 196 | a | Overdue invoices before court? See Financial Recovery → | `/financial-recovery.html` | in-body | none | — |
+| `small-claims-documentation.html` | 196 | a | Already a business client? Ask about additional recovery su… | `/net-recovery.html` | in-body | none | — |
 | `small-claims-documentation.html` | 205 | a | VitaCoreXConsulting | `/` | footer | none | — |
 | `small-claims-documentation.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
 | `small-claims-documentation.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
@@ -12947,6 +13213,7 @@ idempotent: true
 | `small-claims-documentation.html` | 210 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `small-claims-documentation.html` | 210 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `small-claims-documentation.html` | 210 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `small-claims-documentation.html` | 210 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `small-claims-documentation.html` | 211 | a | About | `/about.html` | footer | none | — |
 | `small-claims-documentation.html` | 211 | a | Prices | `/pricing.html` | footer | none | — |
 | `small-claims-documentation.html` | 211 | a | Contact | `/contact.html` | footer | none | — |
@@ -13032,7 +13299,7 @@ idempotent: true
 | `solutions.html` | 92 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `solutions.html` | 93 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `solutions.html` | 93 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `solutions.html` | 110 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `solutions.html` | 110 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `solutions.html` | 110 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `solutions.html` | 114 | a | Revenue Recovery Infrastructure Pre-agency workflow design… | `revenue-recovery-workflow.html` | in-body | b2b | — |
 | `solutions.html` | 123 | a | Corporate Legal File Control Chronology cleanup, packet sta… | `corporate-legal-file-control.html` | in-body | b2b | — |
@@ -13060,6 +13327,7 @@ idempotent: true
 | `solutions.html` | 236 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `solutions.html` | 236 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `solutions.html` | 236 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `solutions.html` | 236 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `solutions.html` | 237 | a | About | `/about.html` | footer | b2b | — |
 | `solutions.html` | 237 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `solutions.html` | 237 | a | Contact | `/contact.html` | footer | b2b | — |
@@ -13167,6 +13435,7 @@ idempotent: true
 | `sub-processors-and-dpa.html` | 307 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | shared | — |
 | `sub-processors-and-dpa.html` | 307 | a | Send case details | `/small-claims-documentation.html#check` | footer | shared | — |
 | `sub-processors-and-dpa.html` | 307 | a | Financial Recovery | `/financial-recovery.html` | footer | shared | — |
+| `sub-processors-and-dpa.html` | 307 | a | Existing-client recovery | `/net-recovery.html` | footer | shared | — |
 | `sub-processors-and-dpa.html` | 308 | a | About | `/about.html` | footer | shared | — |
 | `sub-processors-and-dpa.html` | 308 | a | Prices | `/pricing.html` | footer | shared | — |
 | `sub-processors-and-dpa.html` | 308 | a | Contact | `/contact.html` | footer | shared | — |
@@ -13276,6 +13545,7 @@ idempotent: true
 | `tax-preparation.html` | 135 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `tax-preparation.html` | 135 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `tax-preparation.html` | 135 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `tax-preparation.html` | 135 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `tax-preparation.html` | 136 | a | About | `/about.html` | footer | none | — |
 | `tax-preparation.html` | 136 | a | Prices | `/pricing.html` | footer | none | — |
 | `tax-preparation.html` | 136 | a | Contact | `/contact.html` | footer | none | — |
@@ -13421,6 +13691,7 @@ idempotent: true
 | `terms-of-use.html` | 205 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `terms-of-use.html` | 205 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `terms-of-use.html` | 205 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `terms-of-use.html` | 205 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `terms-of-use.html` | 206 | a | About | `/about.html` | footer | none | — |
 | `terms-of-use.html` | 206 | a | Prices | `/pricing.html` | footer | none | — |
 | `terms-of-use.html` | 206 | a | Contact | `/contact.html` | footer | none | — |
@@ -13526,6 +13797,7 @@ idempotent: true
 | `thank-you.html` | 77 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `thank-you.html` | 77 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `thank-you.html` | 77 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `thank-you.html` | 77 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `thank-you.html` | 78 | a | About | `/about.html` | footer | none | — |
 | `thank-you.html` | 78 | a | Prices | `/pricing.html` | footer | none | — |
 | `thank-you.html` | 78 | a | Contact | `/contact.html` | footer | none | — |
@@ -13628,6 +13900,7 @@ idempotent: true
 | `translations-notarize-thanks.html` | 81 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `translations-notarize-thanks.html` | 81 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `translations-notarize-thanks.html` | 81 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `translations-notarize-thanks.html` | 81 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `translations-notarize-thanks.html` | 82 | a | About | `/about.html` | footer | none | — |
 | `translations-notarize-thanks.html` | 82 | a | Prices | `/pricing.html` | footer | none | — |
 | `translations-notarize-thanks.html` | 82 | a | Contact | `/contact.html` | footer | none | — |
@@ -13637,108 +13910,110 @@ idempotent: true
 | `translations-notarize-thanks.html` | 83 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
 | `translations-notarize-thanks.html` | 90 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `translations-notarize-thanks.html` | 90 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `translations-notarize-upload.html` | 24 | a | Skip to content | `#main-content` | anchor | none | — |
-| `translations-notarize-upload.html` | 27 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 29 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-notarize-upload.html` | 30 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | All services | `/services.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | All prices | `/pricing.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 30 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 31 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 32 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 33 | a | About | `/about.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 34 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 37 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-notarize-upload.html` | 38 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `translations-notarize-upload.html` | 38 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `translations-notarize-upload.html` | 38 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `translations-notarize-upload.html` | 39 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-notarize-upload.html` | 40 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 41 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-notarize-upload.html` | 45 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `translations-notarize-upload.html` | 45 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `translations-notarize-upload.html` | 45 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `translations-notarize-upload.html` | 46 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 46 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 47 | a | All services | `/services.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 47 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 47 | a | About | `/about.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 47 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 48 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `translations-notarize-upload.html` | 48 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-notarize-upload.html` | 58 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-notarize-upload.html` | 58 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `translations-notarize-upload.html` | 75 | a | VitaCoreXConsulting | `/` | footer | none | — |
-| `translations-notarize-upload.html` | 76 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-notarize-upload.html` | 76 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `translations-notarize-upload.html` | 79 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Certified translation | `/translations.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Online notarization | `/online-notary.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | Apostille assistance | `/apostille.html` | footer | none | — |
-| `translations-notarize-upload.html` | 79 | a | All services | `/services.html` | footer | none | — |
-| `translations-notarize-upload.html` | 80 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
-| `translations-notarize-upload.html` | 80 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
-| `translations-notarize-upload.html` | 80 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
-| `translations-notarize-upload.html` | 81 | a | About | `/about.html` | footer | none | — |
-| `translations-notarize-upload.html` | 81 | a | Prices | `/pricing.html` | footer | none | — |
-| `translations-notarize-upload.html` | 81 | a | Contact | `/contact.html` | footer | none | — |
-| `translations-notarize-upload.html` | 81 | a | Careers | `/careers.html` | footer | none | — |
-| `translations-notarize-upload.html` | 82 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
-| `translations-notarize-upload.html` | 82 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
-| `translations-notarize-upload.html` | 82 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
-| `translations-notarize-upload.html` | 89 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `translations-notarize-upload.html` | 89 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `translations-notarize-upload.html` | 23 | a | Skip to content | `#main-content` | anchor | none | — |
+| `translations-notarize-upload.html` | 26 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 28 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-notarize-upload.html` | 29 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | All services | `/services.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | All prices | `/pricing.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 29 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 30 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 31 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 32 | a | About | `/about.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 33 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 36 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-notarize-upload.html` | 37 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `translations-notarize-upload.html` | 37 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `translations-notarize-upload.html` | 37 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `translations-notarize-upload.html` | 38 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-notarize-upload.html` | 39 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 40 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-notarize-upload.html` | 44 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `translations-notarize-upload.html` | 44 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `translations-notarize-upload.html` | 44 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `translations-notarize-upload.html` | 45 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 45 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 46 | a | All services | `/services.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 46 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 46 | a | About | `/about.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 46 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 47 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `translations-notarize-upload.html` | 47 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-notarize-upload.html` | 58 | a | Back to translations | `/translations.html` | in-body | none | — |
+| `translations-notarize-upload.html` | 65 | form | form:uploadForm | `https://formsubmit.co/vitacorex2025@gmail.com` | form-submit | none | POST |
+| `translations-notarize-upload.html` | 111 | button | Submit for notarization | `https://formsubmit.co/vitacorex2025@gmail.com` | form-submit | none | form-method:POST |
+| `translations-notarize-upload.html` | 123 | a | VitaCoreXConsulting | `/` | footer | none | — |
+| `translations-notarize-upload.html` | 124 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-notarize-upload.html` | 124 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `translations-notarize-upload.html` | 127 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Certified translation | `/translations.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Online notarization | `/online-notary.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | Apostille assistance | `/apostille.html` | footer | none | — |
+| `translations-notarize-upload.html` | 127 | a | All services | `/services.html` | footer | none | — |
+| `translations-notarize-upload.html` | 128 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
+| `translations-notarize-upload.html` | 128 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
+| `translations-notarize-upload.html` | 128 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `translations-notarize-upload.html` | 128 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
+| `translations-notarize-upload.html` | 129 | a | About | `/about.html` | footer | none | — |
+| `translations-notarize-upload.html` | 129 | a | Prices | `/pricing.html` | footer | none | — |
+| `translations-notarize-upload.html` | 129 | a | Contact | `/contact.html` | footer | none | — |
+| `translations-notarize-upload.html` | 129 | a | Careers | `/careers.html` | footer | none | — |
+| `translations-notarize-upload.html` | 130 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
+| `translations-notarize-upload.html` | 130 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
+| `translations-notarize-upload.html` | 130 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
+| `translations-notarize-upload.html` | 137 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `translations-notarize-upload.html` | 137 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `translations-thanks.html` | 21 | a | Skip to content | `#main-content` | anchor | none | — |
 | `translations-thanks.html` | 24 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
 | `translations-thanks.html` | 26 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
@@ -13832,6 +14107,7 @@ idempotent: true
 | `translations-thanks.html` | 81 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `translations-thanks.html` | 81 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `translations-thanks.html` | 81 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `translations-thanks.html` | 81 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `translations-thanks.html` | 82 | a | About | `/about.html` | footer | none | — |
 | `translations-thanks.html` | 82 | a | Prices | `/pricing.html` | footer | none | — |
 | `translations-thanks.html` | 82 | a | Contact | `/contact.html` | footer | none | — |
@@ -13841,108 +14117,109 @@ idempotent: true
 | `translations-thanks.html` | 83 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
 | `translations-thanks.html` | 90 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `translations-thanks.html` | 90 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `translations-upload.html` | 24 | a | Skip to content | `#main-content` | anchor | none | — |
-| `translations-upload.html` | 27 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
-| `translations-upload.html` | 29 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-upload.html` | 30 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | All services | `/services.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | All prices | `/pricing.html` | primary-nav | none | — |
-| `translations-upload.html` | 30 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
-| `translations-upload.html` | 31 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-upload.html` | 32 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `translations-upload.html` | 33 | a | About | `/about.html` | primary-nav | none | — |
-| `translations-upload.html` | 34 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `translations-upload.html` | 37 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-upload.html` | 38 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `translations-upload.html` | 38 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `translations-upload.html` | 38 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `translations-upload.html` | 39 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-upload.html` | 40 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `translations-upload.html` | 41 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
-| `translations-upload.html` | 45 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `translations-upload.html` | 45 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `translations-upload.html` | 45 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `translations-upload.html` | 46 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `translations-upload.html` | 46 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `translations-upload.html` | 47 | a | All services | `/services.html` | primary-nav | none | — |
-| `translations-upload.html` | 47 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `translations-upload.html` | 47 | a | About | `/about.html` | primary-nav | none | — |
-| `translations-upload.html` | 47 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `translations-upload.html` | 48 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `translations-upload.html` | 48 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-upload.html` | 58 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-upload.html` | 58 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `translations-upload.html` | 75 | a | VitaCoreXConsulting | `/` | footer | none | — |
-| `translations-upload.html` | 76 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `translations-upload.html` | 76 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `translations-upload.html` | 79 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Certified translation | `/translations.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Online notarization | `/online-notary.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | Apostille assistance | `/apostille.html` | footer | none | — |
-| `translations-upload.html` | 79 | a | All services | `/services.html` | footer | none | — |
-| `translations-upload.html` | 80 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
-| `translations-upload.html` | 80 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
-| `translations-upload.html` | 80 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
-| `translations-upload.html` | 81 | a | About | `/about.html` | footer | none | — |
-| `translations-upload.html` | 81 | a | Prices | `/pricing.html` | footer | none | — |
-| `translations-upload.html` | 81 | a | Contact | `/contact.html` | footer | none | — |
-| `translations-upload.html` | 81 | a | Careers | `/careers.html` | footer | none | — |
-| `translations-upload.html` | 82 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
-| `translations-upload.html` | 82 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
-| `translations-upload.html` | 82 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
-| `translations-upload.html` | 89 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `translations-upload.html` | 89 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `translations-upload.html` | 23 | a | Skip to content | `#main-content` | anchor | none | — |
+| `translations-upload.html` | 26 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
+| `translations-upload.html` | 28 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-upload.html` | 29 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | All services | `/services.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | All prices | `/pricing.html` | primary-nav | none | — |
+| `translations-upload.html` | 29 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
+| `translations-upload.html` | 30 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-upload.html` | 31 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `translations-upload.html` | 32 | a | About | `/about.html` | primary-nav | none | — |
+| `translations-upload.html` | 33 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `translations-upload.html` | 36 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-upload.html` | 37 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `translations-upload.html` | 37 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `translations-upload.html` | 37 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `translations-upload.html` | 38 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-upload.html` | 39 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `translations-upload.html` | 40 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
+| `translations-upload.html` | 44 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `translations-upload.html` | 44 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `translations-upload.html` | 44 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `translations-upload.html` | 45 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `translations-upload.html` | 45 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `translations-upload.html` | 46 | a | All services | `/services.html` | primary-nav | none | — |
+| `translations-upload.html` | 46 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `translations-upload.html` | 46 | a | About | `/about.html` | primary-nav | none | — |
+| `translations-upload.html` | 46 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `translations-upload.html` | 47 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `translations-upload.html` | 47 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-upload.html` | 64 | form | form:uploadForm | `https://formsubmit.co/vitacorex2025@gmail.com` | form-submit | none | POST |
+| `translations-upload.html` | 113 | button | Send documents | `https://formsubmit.co/vitacorex2025@gmail.com` | form-submit | none | form-method:POST |
+| `translations-upload.html` | 125 | a | VitaCoreXConsulting | `/` | footer | none | — |
+| `translations-upload.html` | 126 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `translations-upload.html` | 126 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `translations-upload.html` | 129 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Certified translation | `/translations.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Online notarization | `/online-notary.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | Apostille assistance | `/apostille.html` | footer | none | — |
+| `translations-upload.html` | 129 | a | All services | `/services.html` | footer | none | — |
+| `translations-upload.html` | 130 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
+| `translations-upload.html` | 130 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
+| `translations-upload.html` | 130 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `translations-upload.html` | 130 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
+| `translations-upload.html` | 131 | a | About | `/about.html` | footer | none | — |
+| `translations-upload.html` | 131 | a | Prices | `/pricing.html` | footer | none | — |
+| `translations-upload.html` | 131 | a | Contact | `/contact.html` | footer | none | — |
+| `translations-upload.html` | 131 | a | Careers | `/careers.html` | footer | none | — |
+| `translations-upload.html` | 132 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
+| `translations-upload.html` | 132 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
+| `translations-upload.html` | 132 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
+| `translations-upload.html` | 139 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `translations-upload.html` | 139 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `translations.html` | 28 | a | Skip to content | `#main-content` | anchor | none | — |
 | `translations.html` | 31 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
 | `translations.html` | 33 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
@@ -14042,6 +14319,7 @@ idempotent: true
 | `translations.html` | 156 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
 | `translations.html` | 156 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
 | `translations.html` | 156 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `translations.html` | 156 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
 | `translations.html` | 157 | a | About | `/about.html` | footer | none | — |
 | `translations.html` | 157 | a | Prices | `/pricing.html` | footer | none | — |
 | `translations.html` | 157 | a | Contact | `/contact.html` | footer | none | — |
@@ -14147,6 +14425,7 @@ idempotent: true
 | `turnkey-business-opening.html` | 235 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2c | — |
 | `turnkey-business-opening.html` | 235 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2c | — |
 | `turnkey-business-opening.html` | 235 | a | Financial Recovery | `/financial-recovery.html` | footer | b2c | — |
+| `turnkey-business-opening.html` | 235 | a | Existing-client recovery | `/net-recovery.html` | footer | b2c | — |
 | `turnkey-business-opening.html` | 236 | a | About | `/about.html` | footer | b2c | — |
 | `turnkey-business-opening.html` | 236 | a | Prices | `/pricing.html` | footer | b2c | — |
 | `turnkey-business-opening.html` | 236 | a | Contact | `/contact.html` | footer | b2c | — |
@@ -14232,7 +14511,7 @@ idempotent: true
 | `vitacorex-vs-traditional-agency.html` | 111 | a | Contact | `/contact.html` | primary-nav | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 112 | a | Choose a service | `/services.html` | primary-nav | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 112 | a | (888) 794-8292 | `tel:+18887948292` | tel | b2b | — |
-| `vitacorex-vs-traditional-agency.html` | 127 | a | Financial Recovery | `/financial-recovery.html` | in-body | b2b | — |
+| `vitacorex-vs-traditional-agency.html` | 127 | a | see recovery options | `/net-recovery.html` | in-body | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 127 | a | Small claims for businesses | `/small-claims-documentation.html` | in-body | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 218 | a | Request confidential review | `contact.html` | in-body | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 219 | a | See engagement tiers | `solutions.html#engagement-tiers` | in-body | b2b | — |
@@ -14251,6 +14530,7 @@ idempotent: true
 | `vitacorex-vs-traditional-agency.html` | 234 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 234 | a | Send case details | `/small-claims-documentation.html#check` | footer | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 234 | a | Financial Recovery | `/financial-recovery.html` | footer | b2b | — |
+| `vitacorex-vs-traditional-agency.html` | 234 | a | Existing-client recovery | `/net-recovery.html` | footer | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 235 | a | About | `/about.html` | footer | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 235 | a | Prices | `/pricing.html` | footer | b2b | — |
 | `vitacorex-vs-traditional-agency.html` | 235 | a | Contact | `/contact.html` | footer | b2b | — |

@@ -405,6 +405,9 @@ function bust(html) {
 /* ---------- run ---------- */
 const SKIP = new Set(['google4ac6122041612c23.html', 'yandex_7c27f4f2ed32ff4d.html', 'curated-preview.html', 'app.html', 'index.html.bak-4cells']);
 const pages = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !SKIP.has(f));
+/* noindex sample deliverables still linked from sample-deliverable.html: same header, footer and runtime as the other old pages */
+/* (auto-deal-cost-breakdown.html is a standalone "no longer offered" notice with its own layout and stays as it is) */
+pages.push(...fs.readdirSync(path.join(ROOT, 'samples')).filter((f) => f.endsWith('.html') && f !== 'auto-deal-cost-breakdown.html').map((f) => `samples/${f}`));
 const HEADER = headerHTML();
 const FOOTER = footerHTML();
 
@@ -416,6 +419,12 @@ const isNoindex = (h) => /<meta name="robots" content="[^"]*noindex/i.test(h);
 const isV2Page = (h) => /<body[^>]*\bclass="[^"]*\bvx\b/.test(h) && !/data-vx-legacy="1"/.test(h);
 /* Pages that get /ru/ and /es/ copies: rebuilt (v2), indexable, not stubs. */
 const LOCALIZED = new Set(pages.filter((f) => { const h = fs.readFileSync(path.join(ROOT, f), 'utf8'); return !isStub(h) && isV2Page(h) && !isNoindex(h); }));
+/* the same list in vcx-v2.js, so links written at runtime (strings, catalog rows) stay in the reader's language */
+{
+  const jp = path.join(ROOT, 'assets/js/vcx-v2.js'); const js = fs.readFileSync(jp, 'utf8');
+  const next = js.replace(/var LOCAL_PAGES = '[^']*';/, `var LOCAL_PAGES = ' ${[...LOCALIZED].sort().join(' ')} ';`);
+  if (next !== js && !process.argv.includes('--check')) fs.writeFileSync(jp, next);
+}
 const urlPath = (f, lc) => (lc === 'en' ? '' : `/${lc}`) + (f === 'index.html' ? '/' : `/${f}`);
 function hreflangBlock(f) {
   const links = ['en', ...LOCALES].map((lc) => `<link rel="alternate" hreflang="${lc}" href="${SITE}${urlPath(f, lc)}">`).join('');
@@ -550,7 +559,7 @@ for (const f of pages) {
   if (next == null) {
     let r = removeElement(html, /<footer class="vcx-footer-modern"/, 'footer'); let at = r.at; html = r.html;
     if (at === -1) { r = removeElement(html, /<footer class="vcx-footer"/, 'footer'); at = r.at; html = r.html; }
-    if (at === -1) { r = removeElement(html, /<footer\b/, 'footer'); at = r.at; html = r.html; }
+    if (at === -1) { r = removeElement(html, /<footer\b(?![^>]*vcx-sample-disclaimer)/, 'footer'); at = r.at; html = r.html; } // a sample's own disclaimer is content
     if (at === -1) { report.noFooter.push(f); at = html.lastIndexOf('</body>'); }
     html = html.slice(0, at) + '\n' + FOOTER + '\n' + html.slice(at);
   } else html = next;
@@ -558,6 +567,8 @@ for (const f of pages) {
   if (isV2) html = addTrait(html, f);
   if (isV2 && !isStub(html)) html = addV7(html);
   html = bust(html);
+  /* pinch zoom must work (WCAG 1.4.4): old pages carried maximum-scale=1, user-scalable=no */
+  html = html.replace(/(<meta[^>]*\bcontent="[^"]*?)\s*,\s*maximum-scale=1(?:\.0)?\s*,\s*user-scalable=no([^"]*")/g, '$1$2');
   if (API_ARG) html = html.replace(/<meta name="vcx-api" content="[^"]*">/g, `<meta name="vcx-api" content="${API_ARG.replace(/\/$/, '')}">`);
   if (!isV2 && !/data-vx-legacy=/.test(html)) html = html.replace(/<body\b/, '<body data-vx-legacy="1"');
   if (!/id="main-content"/.test(html)) html = html.replace(/<main\b/, '<main id="main-content"');

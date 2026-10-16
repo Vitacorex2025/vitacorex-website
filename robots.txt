@@ -1,171 +1,39 @@
 # VitaCoreX LLC — Crawl Policy
-# Last updated: 2026-10-14
+# Last updated: 2026-10-16
 #
-# /app/ (signed-in tools) is disallowed for every crawler group below.
-# A crawler that matches a named group ignores the "*" group, so each
-# named group repeats "Disallow: /app/" and "Disallow: /assets/pdf/" (old B2B PDFs).
+# One group for every crawler. Search engines and AI assistants are welcome to read the public site:
+# Googlebot, Googlebot-Image, Google-Extended, Bingbot, MicrosoftPreview, DuckDuckBot, YandexBot, Applebot,
+# BraveBot, KagiBot, YouBot, AmazonBot, OAI-SearchBot, GPTBot, ChatGPT-User, ClaudeBot, Claude-Web, anthropic-ai,
+# PerplexityBot, PhindBot, cohere-ai, CCBot, FacebookBot, facebookexternalhit, meta-externalagent.
+# (Until 2026-10-16 each of them had its own group with the same rules; a single "*" group is equivalent.)
+#
+# Not for search: signed-in tools (/app/), retired PDFs (/assets/pdf/), and the files of the public repository
+# that are not pages — backend source, build scripts, tests, internal notes and old reports.
+# CSS and JS stay crawlable so search engines can render the pages.
 
-# Default: allow all crawlers
-# CSS / JS must be crawlable so Googlebot can render the page and score
-# Core Web Vitals correctly. Blocking these silently degrades rankings.
 User-agent: *
 Allow: /
-Allow: /assets/
 Disallow: /app/
 Disallow: /assets/pdf/
-
-# Google Search
-User-agent: Googlebot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Google Images
-User-agent: Googlebot-Image
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Bing / Microsoft Copilot
-User-agent: Bingbot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: bingbot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: MicrosoftPreview
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# OpenAI Search — allow so VitaCoreX appears in ChatGPT Search answers
-User-agent: OAI-SearchBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# OpenAI training crawler — allow for maximum LLM visibility
-User-agent: GPTBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# ChatGPT user-initiated fetches
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Google AI (Gemini grounding) — allow for AI Overview visibility
-User-agent: Google-Extended
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Anthropic Claude
-User-agent: anthropic-ai
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: ClaudeBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: Claude-Web
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Perplexity AI
-User-agent: PerplexityBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Meta AI
-User-agent: FacebookBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: FacebookExternalHit
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: facebookexternalhit
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-User-agent: meta-externalagent
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Apple (Siri / Spotlight)
-User-agent: Applebot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Yandex
-User-agent: YandexBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Brave Search
-User-agent: BraveBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Cohere AI
-User-agent: cohere-ai
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Common Crawl
-User-agent: CCBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# You.com
-User-agent: YouBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Amazon (Alexa / Silk Browser / Fire TV)
-User-agent: AmazonBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# DuckDuckGo
-User-agent: DuckDuckBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Phind AI
-User-agent: PhindBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
-
-# Kagi Search
-User-agent: KagiBot
-Allow: /
-Disallow: /app/
-Disallow: /assets/pdf/
+Disallow: /vcx-api/
+Disallow: /docs/
+Disallow: /scripts/
+Disallow: /tests/
+Disallow: /openmind-cli/
+Disallow: /.claude
+Disallow: /.github/
+Disallow: /_
+Disallow: /*.md$
+Disallow: /*.py$
+Disallow: /ANALYTICS_INSTALL_GUIDE.txt
+Disallow: /CHANGE
+Disallow: /DEPLOYMENT_AND_QA
+Disallow: /PDF_EMAIL
+Disallow: /QA_
+Disallow: /README
+Disallow: /REPAIR_NOTES
+Disallow: /REWRITE_REPORT
+Disallow: /V212_
+Disallow: /VITACOREX_V34
 
 Sitemap: https://vitacorexllc.com/sitemap.xml
-
-# LLM Context Files (for AI crawlers)
-# English: https://vitacorexllc.com/llms.txt
-# English (full): https://vitacorexllc.com/llms-full.txt
-# Russian: https://vitacorexllc.com/llms-ru.txt
-# Spanish: https://vitacorexllc.com/llms-es.txt

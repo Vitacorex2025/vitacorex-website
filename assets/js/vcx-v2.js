@@ -10,7 +10,9 @@
   var NATIVE = { en: 'English', ru: 'Русский', es: 'Español' };
   var STORE_KEY = 'vcx_lang';
   var PROD_HOSTS = ['vitacorexllc.com', 'www.vitacorexllc.com'];
-  var VERSION = 'fab92eedd0';
+  var VERSION = '2d5daf1395';
+  /* pages that have /ru/ and /es/ copies (written by scripts/vx-shell.mjs) */
+  var LOCAL_PAGES = ' about.html apostille.html business-filings.html business-plans.html careers.html civil-case-referral.html contact.html contract-review-service.html cookie-policy.html fee-waiver.html financial-recovery.html founder-services.html immigration-packet-review.html index.html llc-formation-florida.html n-400-naturalization.html name-change.html online-notary.html pricing.html privacy-policy.html services.html small-claims-documentation.html tax-preparation.html terms-of-use.html translations.html ';
   var state = { lang: 'en', dict: {}, en: {}, catalog: null, ready: false, applying: false };
   var cache = {};
 
@@ -37,6 +39,24 @@
       var path = new URL(alt.getAttribute('href'), location.href).pathname;
       if (path !== location.pathname) history.replaceState(history.state, '', path + location.search.replace(/([?&])lang=[a-z]{2}(&|$)/, '$1').replace(/[?&]$/, '') + location.hash);
     } catch (e) { /* old browsers: keep the URL */ }
+  }
+
+  /* Internal links stay in the reader's language: "/x.html#y" → "/ru/x.html#y" when x has a Russian copy (and back for English),
+     so no page opens in English first and then switches. Other links are returned unchanged. */
+  function langHref(href, lang) {
+    var m = /^\/(?:(?:ru|es)\/)?([a-z0-9-]+\.html)?([?#].*)?$/.exec(href || '');
+    if (!m || LOCAL_PAGES.indexOf(' ' + (m[1] || 'index.html') + ' ') === -1) return href;
+    lang = lang || state.lang;
+    return (lang === 'en' ? '/' : '/' + lang + '/') + (m[1] || '') + (m[2] || '');
+  }
+  function localizeLinks(root) {
+    var atRoot = /^\/(?:(?:ru|es)\/)?[^\/]*$/.test(location.pathname); /* old pages also write "contact.html" without the slash */
+    qsa('a[href]', root).forEach(function (a) {
+      var h = a.getAttribute('href'), n = h;
+      if (h.charAt(0) === '/') n = langHref(h);
+      else if (atRoot && /^(?:\.\/)?[a-z0-9-]+\.html(?:[?#].*)?$/.test(h)) { var abs = '/' + h.replace(/^\.\//, ''); n = langHref(abs); if (n === abs) n = h; }
+      if (n !== h) a.setAttribute('href', n);
+    });
   }
 
   function fetchJSON(url) {
@@ -212,6 +232,7 @@
       applyStrings(); applyCatalog(); syncLangUI(); syncLangURL(lang);
       state.applying = false;
       document.dispatchEvent(new CustomEvent('vx:lang', { detail: { lang: lang } }));
+      localizeLinks(); /* after the listeners above re-rendered their blocks */
       /* Legacy pages: let the old engine translate its own body content too. */
       if (!opts.fromLegacy && typeof window.vcxSetLang === 'function' && !window.__vxLegacyBusy && document.body.getAttribute('data-vx-legacy') === '1') {
         window.__vxLegacyBusy = true;
@@ -273,6 +294,14 @@
       box.addEventListener('keydown', function (e) {
         var i = items.indexOf(document.activeElement);
         if (e.key === 'Escape') { open(false); btn.focus(); }
+        /* Tab closes the list and moves on from its button by hand: Safari jumped to the page start and left the list open */
+        else if (e.key === 'Tab' && i > -1) {
+          e.preventDefault(); open(false);
+          if (e.shiftKey) { btn.focus(); return; }
+          var all = qsa('a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])')
+            .filter(function (x) { return x.getClientRects().length && !x.closest('[inert]') && getComputedStyle(x).visibility !== 'hidden'; });
+          var nx = all[all.indexOf(btn) + 1]; (nx || btn).focus();
+        }
         else if (e.key === 'ArrowDown' && i > -1) { e.preventDefault(); items[(i + 1) % items.length].focus(); }
         else if (e.key === 'ArrowUp' && i > -1) { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
       });
@@ -297,15 +326,18 @@
     var mbtn = qs('.vx-menu-btn'), drawer = qs('.vx-drawer');
     if (mbtn && drawer) {
       /* the sheet is a modal dialog: the page behind is inert, Tab cycles burger + sheet, Escape closes from anywhere */
-      var behind = function () { return qsa('body > main, body > footer, .vx-ftr, body > .vx-notice, .vx-consent'); };
+      /* every top-level block except the header that holds the burger and the sheet (legacy pages have no <main>) */
+      var behind = function () { return qsa('body > *').filter(function (el) { return !el.contains(mbtn) && !el.contains(drawer) && !/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(el.tagName); }); };
       var trap = function (e) {
         if (drawer.getAttribute('data-open') !== 'true') return;
         if (e.key === 'Escape') { e.preventDefault(); setD(false); mbtn.focus(); return; }
         if (e.key !== 'Tab') return;
+        /* every Tab is moved by hand: Safari skips links on Tab, so its own step from the last button left the sheet for the page */
         var f = [mbtn].concat(qsa('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])', drawer).filter(function (x) { return x.offsetParent !== null; }));
         var i = f.indexOf(document.activeElement);
-        if (e.shiftKey && (i <= 0)) { e.preventDefault(); f[f.length - 1].focus(); }
-        else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+        e.preventDefault();
+        if (i === -1) f[e.shiftKey ? f.length - 1 : 0].focus();
+        else f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
       };
       var setD = function (v) {
         /* the sheet starts exactly under the header row (a preview ribbon or banner above the header must not push the row under the sheet) */
@@ -321,7 +353,8 @@
       };
       mbtn.addEventListener('click', function () { setD(drawer.getAttribute('data-open') !== 'true'); });
       drawer.addEventListener('click', function (e) { if (e.target.closest('a')) setD(false); });
-      window.addEventListener('resize', function () { if (window.innerWidth > 1180 && drawer.getAttribute('data-open') === 'true') setD(false); });
+      /* close only once the full navigation fits again (long ES/RU labels keep the compact header up to ~1205 px) */
+      window.addEventListener('resize', function () { if (!hdr.classList.contains('vx-hdr--compact') && drawer.getAttribute('data-open') === 'true') setD(false); });
     }
 
     var path = location.pathname.replace(/\/index\.html$/, '/');
@@ -356,8 +389,7 @@
     }
   }
   function initConsent() {
-    if (document.querySelector('.cookie-banner')) return; /* legacy page owns its banner */
-    if (document.body.getAttribute('data-vx-legacy') === '1') return;
+    if (document.querySelector('.cookie-banner')) return; /* an old page without the guard in site.js owns its banner */
     var saved = safeGet('vcx_cookie_consent');
     if (saved) { applyConsent(saved); return; }
     var bar = document.createElement('section');
@@ -366,25 +398,47 @@
     bar.innerHTML = '<p class="vx-consent__title" data-t="consent.title">' + esc(t('consent.title')) + '</p><p class="vx-consent__full" data-t-html="consent.text">' + t('consent.text') + '</p><p class="vx-consent__short" data-t-html="consent.short">' + t('consent.short') + '</p><div class="vx-consent__actions">' +
       '<button type="button" class="vx-btn vx-btn--ghost" data-c="essential" data-t="consent.essential">' + esc(t('consent.essential')) + '</button>' +
       '<button type="button" class="vx-btn vx-btn--ghost" data-c="analytics" data-t="consent.accept">' + esc(t('consent.accept')) + '</button></div>';
-    var reserve = function () { document.body.style.paddingBottom = (bar.offsetHeight + 32) + 'px'; };
-    /* phones: the slip docks after the first scroll, so it never covers the hero's primary button on the first screen */
-    var show = function () { if (bar.isConnected) return; document.body.appendChild(bar); reserve(); };
-    /* any viewport: wait for the first scroll if the slip would cover the hero's primary button or price chips */
-    var covers = function () {
-      var h = window.innerHeight, w = Math.min(window.innerWidth, 536), top = h - 280;
-      return qsa('.vx5-hero .vx5-btn, .vx5-hero .vx5-chip, .vx6-hero .vx-btn, .vx6-hero__b2b, .vx6-ticker a, .vx-phero .vx-btn, .vx-hero3 .vx-btn').some(function (b) {
-        var r = b.getBoundingClientRect(); return r.width && r.bottom > top && r.top < h && r.left < w;
-      });
+    /* the reserved room sits inside the footer, so the page ends on the dark footer instead of a white strip */
+    var spacer = document.createElement('div'); spacer.className = 'vx-consent-space'; spacer.setAttribute('aria-hidden', 'true');
+    (qs('.vx-ftr') || document.body).appendChild(spacer);
+    var reserve = function () {
+      spacer.style.height = (bar.offsetHeight + 32) + 'px';
+      if (spacer.nextElementSibling) spacer.parentNode.appendChild(spacer); /* stays last when later scripts add to the footer */
     };
+    /* The slip never sits over the page's H1, lead or first-screen buttons: it tucks away while one of them is under it
+       (first screen, zoomed windows, scrolling back up) and comes back once they are clear. Phones also wait for the first scroll. */
+    var KEY = 'main h1, .vx-phero__lead, .vx6-hero__lead, .vx-lhero__sub, main .vx-lead, main .vx-btn, .vx5-btn, .vx5-chip, .vx6-hero__b2b, .vx6-ticker a, ' +
+      '.vcx-image-hero__title, .vcx-image-hero__lead, .vcx-image-hero__cta'; /* the last three: legacy EN-only pages */
     var phone = window.matchMedia && window.matchMedia('(max-width: 47.99em)').matches;
-    /* on the v6 home hero the slip waits until the price bar has scrolled clear of it (about 250 px at 1440x900) */
-    var hv = qs('.vx6-hero'), need = hv ? Math.max(120, hv.offsetHeight - window.innerHeight + 320) : 120;
-    if ((phone || covers()) && (window.scrollY || 0) < need) {
-      var onScroll = function () { if ((window.scrollY || 0) >= need) { window.removeEventListener('scroll', onScroll); show(); } };
-      window.addEventListener('scroll', onScroll, { passive: true });
-    } else show();
-    window.addEventListener('resize', reserve);
-    qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () { var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); window.removeEventListener('resize', reserve); document.body.style.paddingBottom = ''; applyConsent(c); }); });
+    var keys = [], tucked = null, scrolled = !phone, raf = 0;
+    var collect = function () {
+      /* "first screen" = the viewport or the whole hero, whichever reaches lower */
+      var y = window.scrollY || 0, hero = qs('.vx6-hero, .vx5-hero, .vx-phero, .vx-lhero, .vx-hero3, .vcx-image-hero, main h1');
+      var fold = Math.max(window.innerHeight, hero ? hero.getBoundingClientRect().bottom + y : 0);
+      keys = qsa(KEY).filter(function (el) { var r = el.getBoundingClientRect(); return r.width && r.top + y < fold; });
+    };
+    var check = function () {
+      raf = 0; if (!bar.isConnected) return;
+      if (spacer.nextElementSibling) spacer.parentNode.appendChild(spacer);
+      if (keys.some(function (el) { return !el.isConnected; })) collect(); /* blocks re-rendered after load (services index) */
+      if (!scrolled && (window.scrollY || 0) >= 120) scrolled = true;
+      /* the slip's resting box (computed, so the rise animation's offset does not count), plus an 8 px margin */
+      var cs = getComputedStyle(bar), bottom = window.innerHeight - (parseFloat(cs.bottom) || 0), top = bottom - bar.offsetHeight - 8;
+      var left = (parseFloat(cs.left) || 0) - 8, right = left + bar.offsetWidth + 16;
+      var hit = !scrolled || keys.some(function (el) { var r = el.getBoundingClientRect(); return r.width && r.bottom > top && r.top < bottom && r.right > left && r.left < right; });
+      if (hit && bar.contains(document.activeElement)) hit = false; /* never hide the slip from under keyboard focus */
+      if (hit !== tucked) { tucked = hit; bar.classList.toggle('vx-consent--tuck', hit); }
+    };
+    var queue = function () { if (!raf) raf = requestAnimationFrame(check); };
+    var refresh = function () { reserve(); collect(); check(); };
+    bar.classList.add('vx-consent--tuck'); document.body.appendChild(bar); refresh();
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', refresh); window.addEventListener('load', refresh); document.addEventListener('vx:lang', refresh);
+    qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () {
+      var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); spacer.remove();
+      window.removeEventListener('scroll', queue); window.removeEventListener('resize', refresh); window.removeEventListener('load', refresh); document.removeEventListener('vx:lang', refresh);
+      applyConsent(c);
+    }); });
   }
 
   function initPreviewRibbon() {
@@ -428,7 +482,7 @@
 
   /* ---------------- public API ---------------- */
   window.VX = {
-    t: t, money: money, priceInfo: priceInfo, priceHTML: priceHTML, svc: svc, loc: loc, esc: esc,
+    t: t, money: money, priceInfo: priceInfo, priceHTML: priceHTML, svc: svc, loc: loc, esc: esc, href: function (h) { return langHref(h); },
     lang: function () { return state.lang; }, setLang: setLang, isProd: isProd,
     catalog: function () { return state.catalog; },
     apiBase: function () {
@@ -441,7 +495,7 @@
       }
       return base;
     },
-    ready: null, apply: function (root) { applyStrings(root); applyCatalog(root); }
+    ready: null, apply: function (root) { applyStrings(root); applyCatalog(root); localizeLinks(root); }
   };
 
   /* Legacy engine fires vcx:lang-change; keep v2 strings in sync without loops. */
@@ -457,6 +511,7 @@
       state.ready = true;
       document.documentElement.classList.add('vx-ready');
       document.dispatchEvent(new CustomEvent('vx:ready', { detail: { lang: state.lang } }));
+      localizeLinks();
       if (lang !== 'en' && typeof window.vcxSetLang === 'function' && document.body.getAttribute('data-vx-legacy') === '1') { try { window.vcxSetLang(lang); } catch (e) { /* ignore */ } }
     })
     .catch(function (e) { if (window.console) console.error('[vx] init failed', e); initHeader(); });

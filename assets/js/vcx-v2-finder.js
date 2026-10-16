@@ -39,7 +39,7 @@
         });
         return total;
       }
-      function hrefFor(id) { var s = VX.svc(id); if (!s) return '/services.html'; if (s.action === 'b2b') return '/small-claims-documentation.html#check'; return s.page && s.page.indexOf('/request.html') !== 0 ? s.page : '/request.html?service=' + encodeURIComponent(id); }
+      function hrefFor(id) { var s = VX.svc(id); if (!s) return VX.href('/services.html'); if (s.action === 'b2b') return VX.href('/small-claims-documentation.html#check'); return s.page && s.page.indexOf('/request.html') !== 0 ? VX.href(s.page) : '/request.html?service=' + encodeURIComponent(id); }
       function render(q) {
         if (!index) buildIndex();
         var nq = norm(q);

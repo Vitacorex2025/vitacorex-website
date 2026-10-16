@@ -534,6 +534,8 @@ initClientMode();
 
 function buildCookieBanner(){
   if(document.querySelector('.cookie-banner')) return;
+  /* pages with the v2 runtime show its two-button slip (same storage key); the old three-button banner stays off */
+  if(document.querySelector('script[src*="/assets/js/vcx-v2.js"]')) return;
   const saved=localStorage.getItem('vcx_cookie_consent');
   if(saved) return applyConsent(saved);
   const banner=document.createElement('section');

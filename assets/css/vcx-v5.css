@@ -258,6 +258,18 @@ body.vx::after { background: rgb(7 27 35 / .5); -webkit-backdrop-filter: none; b
   .vx-consent .vx-btn { min-height: 48px; padding: 4px 10px; font-size: 14px; line-height: 18px; white-space: normal; text-align: center; }
 }
 @media (max-width: 21.24em) { .vx-consent__actions { grid-template-columns: 1fr; } }
+/* short windows (125–150 % zoom, small laptops): the compact text, so the slip takes a fifth of the height, not two fifths */
+@media (min-width: 48em) and (max-height: 44em) {
+  .vx-consent { padding: 16px 20px; }
+  .vx-consent__title, .vx-consent__full { display: none; }
+  .vx-consent__short { display: block !important; }
+  .vx-consent__short b { color: #fff; font-weight: 600; }
+  .vx-consent__actions { margin-top: 12px; }
+  .vx-consent .vx-btn { min-height: 44px; }
+}
+/* tucked away while the page's H1, lead or first-screen buttons are under it (vcx-v2.js); returning replays the rise */
+.vx-consent--tuck { visibility: hidden; animation: none; }
+.vx-consent-space { display: block; }
 
 /* 9. FOOTER (AD §9.8): abyss floor, hinge line with an L notch, one ghost "in order." */
 .vx-bandrule, .vx-ruler, .vx-ftr__gl { display: none !important; }
@@ -831,7 +843,26 @@ body.vx-drawer-open .vx7-focus { display: none; }
 :where(body.vx) .vx-field[data-error] input:is([type="checkbox"], [type="radio"]),
 :where(body.vx) .vx-field.is-error input:is([type="checkbox"], [type="radio"]) { box-shadow: none; outline: 2px solid var(--vx-danger); outline-offset: 2px; }
 
-/* 35. No numbering anywhere (owner rule, D17/D54; audit 2026-10-16 found digits 1-4 on the step cards of
+/* 35. Leftovers from the 2026-10-15 Android and desktop reports */
+/* pinch zoom works on the old EN-only pages too: styles.css set touch-action: pan-y on html and body */
+:root, :root body { touch-action: auto; }
+/* service cards of one row share their price line: name, text, price and buttons sit on common row lines (RU/ES texts differ in length) */
+@supports (grid-template-rows: subgrid) {
+  .vx-cards > .vx-scard:has(> h3 + p + .vx-price + .vx-scard__actions) { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .vx-cards > .vx-scard:has(> h3 + p + .vx-price + .vx-scard__actions) > .vx-scard__actions { align-self: end; }
+}
+/* a price that wraps in the price table keeps its indent after the mark (hanging indent: the mark is 11 px + 9 px) */
+@media (min-width: 47.51em) {
+  .vx-ptable td.vx-ptable__price { padding-left: 36px; text-indent: -20px; }
+}
+/* 44 px tap targets: short footer link words get the full width; the phone in the footer title block gets a 44 px tall hit area
+   without moving the text (it reaches into its own cell's padding only); phone and e-mail in the about/contact facts grow to 44 px */
+.vx-ftr__grid a { min-width: 44px; }
+.vx7-title dd a { display: inline-flex; align-items: center; min-height: 44px; margin-block: -12px; }
+.vx-facts { align-items: center; }
+.vx-facts dd a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* 36. No numbering anywhere (owner rule, D17/D54; audit 2026-10-16 found digits 1-4 on the step cards of
    financial recovery, small claims, apostille and careers): the step marker is the V glyph alone */
 .vx-chain__n { font-size: 0; }
 .vx-chain__n::before { content: none; }

@@ -3217,17 +3217,20 @@
         "en": [
           "Preparation on the day of the hearing",
           "Attendance at the hearing or mediation",
-          "A short written report afterwards"
+          "A short written report afterwards",
+          "If the court moves the hearing, the paid hours carry over to the new date"
         ],
         "ru": [
           "Подготовка в день заседания",
           "Участие в заседании или медиации",
-          "Короткий письменный отчёт после"
+          "Короткий письменный отчёт после",
+          "Если суд перенесёт заседание, оплаченные часы переходят на новую дату"
         ],
         "es": [
           "Preparación el día de la audiencia",
           "Asistencia a la audiencia o mediación",
-          "Un breve informe por escrito después"
+          "Un breve informe por escrito después",
+          "Si la corte cambia la fecha de la audiencia, las horas pagadas pasan a la nueva fecha"
         ]
       },
       "extra": {
@@ -3248,9 +3251,9 @@
         ]
       },
       "next": {
-        "en": "Send your cases. We send the power of attorney for the company to sign and confirm the court and the hours in writing. Then you pay the first 2 hours upfront by card.",
-        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим суд и часы. Затем вы оплачиваете первые 2 часа вперёд картой.",
-        "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito el tribunal y las horas. Después paga por adelantado las primeras 2 horas con tarjeta."
+        "en": "Send your cases. We send the power of attorney for the company to sign and confirm the court and the hours in writing. Then you pay the first 2 hours upfront by card; if the court moves the hearing, they carry over to the new date.",
+        "ru": "Пришлите дела. Мы отправим доверенность на подпись компании и письменно подтвердим суд и часы. Затем вы оплачиваете первые 2 часа вперёд картой; если суд перенесёт заседание, они переходят на новую дату.",
+        "es": "Envíe sus casos. Le enviamos el poder para que lo firme la empresa y confirmamos por escrito el tribunal y las horas. Después paga por adelantado las primeras 2 horas con tarjeta; si la corte cambia la fecha de la audiencia, pasan a la nueva fecha."
       },
       "keywords": {
         "en": [

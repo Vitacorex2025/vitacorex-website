@@ -290,11 +290,19 @@
       var r = cur.getBoundingClientRect(), o = 6;
       f.style.left = px(r.left - o); f.style.top = px(r.top - o); f.style.width = px(r.width + 2 * o); f.style.height = px(r.height + 2 * o);
     }
+    /* visually hidden radios/checkboxes (segmented choices, toggles) frame the box the reader sees, not a stray 1 px square */
+    function proxy(el) {
+      if (el.tagName !== 'INPUT' || !/^(radio|checkbox)$/.test(el.type)) return el;
+      var r = el.getBoundingClientRect(); if (r.width >= 8 && r.height >= 8 && getComputedStyle(el).opacity !== '0') return el;
+      var n = el.nextElementSibling, nr = n && n.getBoundingClientRect();
+      if (nr && nr.width && nr.height) return n;
+      return el.closest('label') || el;
+    }
     d.addEventListener('focusin', function (e) {
       var el = e.target, vis;
       try { vis = el.matches(':focus-visible'); } catch (x) { vis = true; }
       if (!vis || el === body) { cur = null; f.classList.remove('is-on'); return; }
-      cur = el; f.classList.toggle('is-dark', !!el.closest(DARK)); place(); f.classList.add('is-on');
+      cur = proxy(el); f.classList.toggle('is-dark', !!el.closest(DARK)); place(); f.classList.add('is-on');
     });
     d.addEventListener('focusout', function () { cur = null; f.classList.remove('is-on'); });
     window.addEventListener('scroll', function () { if (cur) place(); }, { passive: true });

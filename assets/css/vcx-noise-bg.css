@@ -61,6 +61,9 @@ body.vcx-bg-noise > aside {
 
 /* ...except the old cookie banner, which is a <section> too: it must stay pinned to the screen, inside it.
    (as position:relative it sat after the footer and, with left:10px, made phones 10-16 px wider) */
+/* the v2 cookie slip is a body-level <section> as well: fixed, above the page sections */
+body.vcx-bg-noise > section.vx-consent { position: fixed; z-index: 120; }
+
 body.vcx-bg-noise > section.cookie-banner {
   position: fixed;
   z-index: 120;

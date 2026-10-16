@@ -5,6 +5,12 @@
   function ready(fn) { if (window.VX && window.VX.ready) window.VX.ready.then(fn); else document.addEventListener('vx:ready', fn); }
   var $ = function (id) { return document.getElementById(id); };
   function E(s) { return window.VX.esc(s); }
+  /* "send again": business small-claims cases go back to the case form, not to the private request page */
+  function retryHref(id) {
+    var s = id && VX.svc(id);
+    if ((s && s.action === 'b2b') || /^b2b_/.test(id || '')) return VX.href('/small-claims-documentation.html#check');
+    return '/request.html?service=' + encodeURIComponent(id || 'legal_request');
+  }
 
   /* ---------- translation estimate ---------- */
   function initEstimate() {
@@ -87,7 +93,7 @@
       var qOpen = qd && qd.status !== 'EXPIRED' && !(qd.expires_at && Date.parse(qd.expires_at) < Date.now());
       if (payable && qOpen && qd.status === 'SENT') h += '<div class="vx-pay"><a class="vx-btn vx-btn--accent vx-btn--lg" href="/quote.html?q=' + encodeURIComponent(qd.quote_id) + '&t=' + encodeURIComponent(tok) + '">' + E(t('st.view_quote')) + '</a></div>';
       else if (payable && ((qOpen && qd.status === 'ACCEPTED') || (fixed && !qd))) h += '<div class="vx-pay"><button class="vx-btn vx-btn--accent vx-btn--lg" id="st-pay" type="button">' + E(t('status.pay_btn')) + '</button><p class="vx-hint">' + E(t('status.pay_hint')) + '</p></div>';
-      else if (ps !== 'PAID' && (cancelled || ps === 'FAILED' || ps === 'EXPIRED')) h += '<div class="vx-pay"><a class="vx-btn vx-btn--line" href="/request.html?service=' + encodeURIComponent(d.service_id) + '">' + E(t('st.retry')) + '</a></div>';
+      else if (ps !== 'PAID' && (cancelled || ps === 'FAILED' || ps === 'EXPIRED')) h += '<div class="vx-pay"><a class="vx-btn vx-btn--line" href="' + E(retryHref(d.service_id)) + '">' + E(t('st.retry')) + '</a></div>';
       h += '</div>';
       box.innerHTML = h;
       var pb = $('st-pay');

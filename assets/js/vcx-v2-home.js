@@ -15,7 +15,7 @@
   var ICON = { pause: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>', play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg>' };
   function setPaused(v) {
     paused = v; if (!pauseBtn) return;
-    pauseBtn.setAttribute('aria-pressed', v ? 'true' : 'false');
+    pauseBtn.removeAttribute('aria-pressed'); /* the label carries the state (Pause/Play) */
     pauseBtn.setAttribute('aria-label', window.VX ? VX.t(v ? 'h3.play' : 'h3.pause') : (v ? 'Play background video' : 'Pause background video'));
     pauseBtn.innerHTML = v ? ICON.play : ICON.pause;
     vids.forEach(function (x) { if (v) x.pause(); });

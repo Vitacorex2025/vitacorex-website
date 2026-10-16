@@ -47,7 +47,8 @@
   function syncPause() {
     qsa('[data-vx5-fx]').forEach(function (b) {
       b.hidden = mqReduce.matches && !S.force;
-      b.setAttribute('aria-pressed', S.userPaused ? 'true' : 'false');
+      /* the label says what a press does (Pause/Play), so the button carries no aria-pressed: a toggle state plus a changing label reads twice */
+      b.removeAttribute('aria-pressed');
       var lbl = S.userPaused ? t('v5.fx.play', 'Play effects') : t('v5.fx.pause', 'Pause effects');
       b.setAttribute('aria-label', lbl); b.title = lbl;
       var s = b.querySelector('[data-vx5-fx-label]'); if (s) s.textContent = lbl;

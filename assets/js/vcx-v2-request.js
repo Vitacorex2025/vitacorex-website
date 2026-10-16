@@ -386,9 +386,15 @@
   }
 
   function init() {
+    var q = new URLSearchParams(location.search).get('service') || form.getAttribute('data-service');
+    /* business cases have their own form: a b2b id here (old links, "send again" on the status page) goes there instead of
+       falling back to a general request */
+    var qs0 = q && VX.svc(q);
+    if (MODE === 'private' && q && (/^b2b_/.test(q) || (qs0 && qs0.action === 'b2b'))) {
+      location.replace(VX.href('/small-claims-documentation.html') + (qs0 ? '?service=' + encodeURIComponent(q) : '') + '#check'); return;
+    }
     var ids = eligibleServices();
     populateServiceSelect();
-    var q = new URLSearchParams(location.search).get('service') || form.getAttribute('data-service');
     var draft = {}; try { draft = JSON.parse(ss(DRAFT_KEY) || '{}'); } catch (e) { /* ignore */ }
     var start = (q && ids.indexOf(q) !== -1) ? q : (draft.service && ids.indexOf(draft.service) !== -1 ? draft.service : (MODE === 'b2b' ? 'b2b_small_claims_packet' : 'legal_request'));
     $('f-service').value = start;

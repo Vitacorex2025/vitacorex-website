@@ -1,10 +1,5 @@
 
-/* ── Global pinch-zoom prevention (iOS Safari) ────────────────── */
-document.addEventListener('touchmove', function(e) {
-  if (e.touches && e.touches.length > 1) e.preventDefault();
-}, { passive: false });
-document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
-document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+/* pinch zoom stays available (WCAG 1.4.4): the old iOS gesture blockers were removed 2026-10-15 */
 
 (function(){
   const shell = {

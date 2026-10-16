@@ -9,7 +9,8 @@
   function rowHTML(id) {
     var s = VX.svc(id); if (!s) return '';
     var pi = VX.priceInfo(id), page = s.page && s.page.indexOf('/request.html') !== 0 ? s.page : null;
-    var href = s.action === 'b2b' ? '/small-claims-documentation.html#check' : '/request.html?service=' + encodeURIComponent(id);
+    var href = s.action === 'b2b' ? VX.href('/small-claims-documentation.html#check') : '/request.html?service=' + encodeURIComponent(id);
+    if (page) page = VX.href(page); /* RU/ES rows open the page in the same language (no English flash) */
     var list = function (k) { return ((s[k] && (s[k][VX.lang()] || s[k].en)) || []).map(function (x) { return '<li>' + VX.esc(x) + '</li>'; }).join(''); };
     var name = page ? '<a href="' + VX.esc(page) + '">' + VX.esc(VX.loc(s.name)) + '</a>' : VX.esc(VX.loc(s.name));
     return '<article class="vx-irow" data-service="' + VX.esc(id) + '" data-pay="' + (s.action === 'order' || s.action === 'book_pay' ? '1' : '0') + '">' +
