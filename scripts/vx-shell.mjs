@@ -43,7 +43,7 @@ function priceInfo(id) {
     case 'fixed_plus_fees': return { ...o, amount: money(a), short: fmt(p.fees_label ? `price.plus_fees_${p.fees_label}` : 'price.plus_fees', { amount: money(a) }), tag: T('price.tag.fixed_fees'), cls: 'vx-tag--fixed' };
     case 'from': { const v = fmt('price.from', { amount: money(a) }); return { ...o, amount: v, short: v, tag: T('price.tag.after_review'), cls: 'vx-tag--quote' }; }
     case 'per_unit': return { ...o, amount: money(a), short: fmt('price.per_page_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
-    case 'per_hour': return { ...o, amount: money(a), short: fmt('price.per_hour_short', { amount: money(a) }),
+    case 'per_hour': return { ...o, amount: money(a), short: p.minimum_units > 1 ? fmt('price.per_hour_min_short', { amount: money(a), units: p.minimum_units }) : fmt('price.per_hour_short', { amount: money(a) }),
       ...(p.prepay_units ? { tag: fmt('price.tag.prepay', { amount: money(a * p.prepay_units) }), cls: 'vx-tag--fixed' } : { tag: T('price.tag.after_review'), cls: 'vx-tag--quote' }) };
     case 'per_word': return { ...o, amount: money(a), short: fmt('price.per_word_short', { amount: money(a) }), tag: T('price.tag.after_review'), cls: 'vx-tag--quote' };
     case 'free_scope': return { ...o, amount: T('price.no_charge'), short: T('price.no_charge'), tag: T('price.tag.free'), cls: 'vx-tag--free' };

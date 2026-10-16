@@ -1435,3 +1435,5 @@ summary:focus-visible{
 }
 
 .cookie-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+/* phones: the old cookie banner never covers the screen or the menu button */
+@media (max-width:760px){.cookie-banner{max-height:min(55vh,420px);overflow-y:auto}}

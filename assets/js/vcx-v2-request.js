@@ -282,7 +282,7 @@
       items.push('<li><a href="#' + (target ? target.id : 'vx-req-form') + '">' + VX.esc((label || '').replace(/\s+/g, ' ').trim().replace(/[.:]+$/, '')) + (/[?¿!]$/.test((label || '').trim()) ? ' — ' : ': ') + VX.esc(msg) + '</a></li>');
     });
     box.innerHTML = '<h2>' + VX.esc(T('err.summary_title', { count: keys.length })) + '</h2><ul>' + items.join('') + '</ul>';
-    box.hidden = false; box.focus();
+    box.hidden = false; box.focus({ preventScroll: true }); box.scrollIntoView({ block: 'start' });
   }
   function qsaAll(sel) { return Array.prototype.slice.call(form.querySelectorAll(sel)); }
   function relabelErrors() { /* language change: re-render messages from stored codes */
@@ -329,7 +329,7 @@
   function generic(key) {
     var box = $('vx-req-errors');
     box.innerHTML = '<h2>' + VX.esc(T('err.not_sent_title')) + '</h2><p>' + VX.esc(T(key)) + '</p><p><a href="tel:+18887948292">(888) 794-8292</a> · <a href="mailto:info@vitacorexllc.com">info@vitacorexllc.com</a></p>';
-    box.hidden = false; box.focus();
+    box.hidden = false; box.focus({ preventScroll: true }); box.scrollIntoView({ block: 'start' });
   }
 
   function success(r) {

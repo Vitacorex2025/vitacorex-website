@@ -787,3 +787,27 @@ body:has(.vx-nav__menu[data-open="true"]) .vx-preview-ribbon, body:has(.vx-drawe
 @media (min-width: 47.51em) {
   .vx-ptable td.vx-ptable__go .vx-btn { width: 100%; justify-content: center; }
 }
+
+/* 33. Phones never scroll sideways (owner 2026-10-15: on iPhone the page drifted when dragged and could be zoomed out).
+   Safari lets the selected text of a <select> spill out of the control — a long option such as
+   «Пакет документов на подачу small claims — от $199» made the page 462 px wide on a 390 px screen.
+   The control now clips its own text, and the page itself never grows wider than the screen
+   (clip, not hidden: no new scroll container, so the sticky header keeps working). */
+html, body { max-width: 100%; overflow-x: clip; }
+@supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+/* Safari spills the chosen text of a <select> outside the control; paint containment keeps it inside the box
+   (clipping the control's own overflow or max-width does not help in WebKit — verified by the iPhone tester) */
+select { max-width: 100%; contain: paint; }
+.vx-field, .vx-est__field { min-width: 0; }
+.vx-ftr__ghost { max-width: 100%; overflow: hidden; }
+/* fields smaller than 16 px make iPhone zoom in on tap */
+.vx-field input[type="url"] { width: 100%; min-height: 48px; padding: 10px 12px; border: 1.5px solid #8FA7AE; border-radius: 8px; background: #fff; color: var(--vx-ink); font: 400 1rem/1.4 var(--vx-sans); }
+.vx-field input[type="url"]:focus { outline: 3px solid rgba(43, 179, 192, .45); outline-offset: 1px; border-color: var(--vx-link); }
+.vx-est__field select { font-size: 1rem; }
+/* jumps to an error, a field or the receipt land below the sticky header, label included */
+.vx-form [id], #vx-receipt, [role="alert"] { scroll-margin-top: calc(var(--vx-hdr-h) + 16px); }
+.vx-field :is(input, select, textarea) { scroll-margin-top: calc(var(--vx-hdr-h) + 52px); }
+/* with the menu sheet open the cookie slip and the floating focus frame step aside: the slip was inert,
+   so taps on it went through to the menu link underneath (even a tel: link) */
+body.vx-drawer-open .vx-consent { visibility: hidden; }
+body.vx-drawer-open .vx7-focus { display: none; }

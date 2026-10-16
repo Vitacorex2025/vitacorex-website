@@ -141,7 +141,7 @@ def create_checkout(body: dict, api_base_url: str) -> dict:
             (request_id,)).fetchall()]
     # (transaction closed before any provider network call)
 
-    success_url = v2_messages.status_link(request_id, req["access_token"])
+    success_url = v2_messages.status_link(request_id, req["access_token"], req.get("locale"))
     cancel_url = success_url + "&c=1"
     cat_version = v2_catalog.catalog_version()
     metadata = {"request_id": request_id, "order_id": order_id, "service_id": req["service_id"],

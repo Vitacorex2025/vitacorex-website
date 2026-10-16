@@ -79,9 +79,35 @@
         (d.amount_cents ? '<dt>' + E(t('st.amount')) + '</dt><dd>' + E(VX.money(d.amount_cents)) + '</dd>' : '') +
         '<dt>' + E(t('status.payment_label')) + '</dt><dd>' + E(t('st.pay.' + ps) || ps) + '</dd></dl>';
       if (ps === 'PAID' && s.action === 'book_pay') h += '<div class="vx-pay"><p>' + E(t('st.book_text')) + '</p><a class="vx-btn vx-btn--accent vx-btn--lg" href="https://calendly.com/vitacorex2025/30min" target="_blank" rel="noopener">' + E(t('st.book_btn')) + '</a><p class="vx-hint">' + E(t('st.book_hint')) + '</p></div>';
-      if (ps !== 'PAID' && (cancelled || ps === 'FAILED' || ps === 'EXPIRED')) h += '<div class="vx-pay"><a class="vx-btn vx-btn--line" href="/request.html?service=' + encodeURIComponent(d.service_id) + '">' + E(t('st.retry')) + '</a></div>';
+      /* pay from here: a fixed-price order not paid yet, a cancelled or expired checkout, or an accepted quote;
+         a sent quote opens the quote page (its acceptance step); finished or closed requests get no button */
+      var qd = d.quote || null, closed = /^(ORDER_CREATED|DECLINED|WITHDRAWN|CLOSED|COMPLETED|REFERRED_WITH_CONSENT)$/.test(d.status || '');
+      var payable = ps !== 'PAID' && ps !== 'PROCESSING' && !closed;
+      var fixed = d.next_action === 'checkout' || d.next_action === 'book_checkout';
+      var qOpen = qd && qd.status !== 'EXPIRED' && !(qd.expires_at && Date.parse(qd.expires_at) < Date.now());
+      if (payable && qOpen && qd.status === 'SENT') h += '<div class="vx-pay"><a class="vx-btn vx-btn--accent vx-btn--lg" href="/quote.html?q=' + encodeURIComponent(qd.quote_id) + '&t=' + encodeURIComponent(tok) + '">' + E(t('st.view_quote')) + '</a></div>';
+      else if (payable && ((qOpen && qd.status === 'ACCEPTED') || (fixed && !qd))) h += '<div class="vx-pay"><button class="vx-btn vx-btn--accent vx-btn--lg" id="st-pay" type="button">' + E(t('status.pay_btn')) + '</button><p class="vx-hint">' + E(t('status.pay_hint')) + '</p></div>';
+      else if (ps !== 'PAID' && (cancelled || ps === 'FAILED' || ps === 'EXPIRED')) h += '<div class="vx-pay"><a class="vx-btn vx-btn--line" href="/request.html?service=' + encodeURIComponent(d.service_id) + '">' + E(t('st.retry')) + '</a></div>';
       h += '</div>';
       box.innerHTML = h;
+      var pb = $('st-pay');
+      if (pb) pb.addEventListener('click', function () { payNow(d, pb); });
+    }
+    function payNow(d, pb) {
+      pb.disabled = true;
+      var key = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random();
+      var body = { request_id: d.request_id, access_token: tok, idempotency_key: key };
+      if (d.quote && d.quote.status === 'ACCEPTED') body.quote_id = d.quote.quote_id;
+      fetch(VX.apiBase() + '/api/v2/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().then(function (j) { return { s: r.status, b: j }; }); })
+        .then(function (x) { if (x.s < 300 && /^https?:\/\//.test(x.b.checkout_url || '')) location.href = x.b.checkout_url; else throw x; })
+        .catch(function (x) {
+          pb.disabled = false;
+          var code = x && x.b && x.b.error, p = document.createElement('p');
+          p.className = 'vx-field__err'; p.setAttribute('role', 'alert');
+          p.textContent = VX.t(code === 'already_paid' ? 'st.pay.PAID' : (code === 'quote_expired' ? 'err.quote_expired' : (code === 'payments_not_configured' ? 'err.unavailable' : 'err.network')));
+          pb.parentNode.appendChild(p);
+        });
     }
     document.addEventListener('vx:lang', function () { if (last) render(last); });
     poll();

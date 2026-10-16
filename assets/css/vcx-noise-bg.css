@@ -59,6 +59,15 @@ body.vcx-bg-noise > aside {
   z-index: 2;
 }
 
+/* ...except the old cookie banner, which is a <section> too: it must stay pinned to the screen, inside it.
+   (as position:relative it sat after the footer and, with left:10px, made phones 10-16 px wider) */
+body.vcx-bg-noise > section.cookie-banner {
+  position: fixed;
+  z-index: 120;
+  max-height: min(60vh, 480px);
+  overflow-y: auto;
+}
+
 /* Explicit safeguard — if anything global still tries to flatten a floating tab,  */
 /* re-assert fixed positioning with !important so the badge survives.              */
 body.vcx-bg-noise > .vcx-exclusive-badge,

@@ -52,12 +52,17 @@ def ny_date(iso_value: str) -> str:
     return (dt.astimezone(_NY) if _NY else dt).strftime("%Y-%m-%d")
 
 
-def status_link(request_id: str, token: str) -> str:
-    return f"{site_base()}/order-status.html?r={urlquote(request_id)}&t={urlquote(token)}"
+def _lang_param(locale: str | None) -> str:
+    """Status and quote pages are one URL for all languages: name the customer's language (EN is the default)."""
+    return f"&lang={locale}" if locale in ("ru", "es") else ""
 
 
-def quote_link(quote_id: str, token: str) -> str:
-    return f"{site_base()}/quote.html?q={urlquote(quote_id)}&t={urlquote(token)}"
+def status_link(request_id: str, token: str, locale: str | None = None) -> str:
+    return f"{site_base()}/order-status.html?r={urlquote(request_id)}&t={urlquote(token)}{_lang_param(locale)}"
+
+
+def quote_link(quote_id: str, token: str, locale: str | None = None) -> str:
+    return f"{site_base()}/quote.html?q={urlquote(quote_id)}&t={urlquote(token)}{_lang_param(locale)}"
 
 
 def desk_link(request_id: str) -> str:
@@ -298,7 +303,7 @@ def customer_request_received(req: dict) -> tuple[str, str, str]:
         f"{t['service']}: {service_name(req['service_id'], lc)}",
         f"{t['status']}: {t['status_received']}", "",
         t["next"], nxt, "",
-        t["status_here"], status_link(req["request_id"], req["access_token"]), "",
+        t["status_here"], status_link(req["request_id"], req["access_token"], req.get("locale")), "",
         t["no_sensitive"], "",
         t["not_you"],
     ]
@@ -318,7 +323,7 @@ def customer_quote_sent(req: dict, quote: dict) -> tuple[str, str, str]:
         f"{t['external']}: {quote.get('external_costs_text') or t['external_none']}",
         f"{t['valid_until']}: {ny_date(quote['expires_at'])} {t['ny']}",
         f"{t['revision']}: {quote['revision']}", "",
-        t["quote_here"], quote_link(quote["quote_id"], req["access_token"]), "",
+        t["quote_here"], quote_link(quote["quote_id"], req["access_token"], req.get("locale")), "",
         t["quote_nocharge"], "",
         t["no_sensitive"],
     ]
@@ -335,7 +340,7 @@ def customer_paid(req: dict, order_id: str, amount_cents: int) -> tuple[str, str
         f"{t['ref']}: {req['request_id']}",
         f"{t['order']}: {order_id}", "",
         t["paid_next"], "",
-        t["status_here"], status_link(req["request_id"], req["access_token"]), "",
+        t["status_here"], status_link(req["request_id"], req["access_token"], req.get("locale")), "",
         t["no_sensitive"],
     ]
     text = _customer_wrap(lc, lines)

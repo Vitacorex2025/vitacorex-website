@@ -109,3 +109,7 @@ html:lang(ru) .vx-legal__doc :is(p, li) { line-height: 1.68; }
   .vx-legal__sec { break-inside: avoid-page; padding: 12pt 0; }
   .vx-legal__doc a[href^="/"]::after, .vx-legal__doc a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #333; }
 }
+
+/* 5. No numbering (owner rule 2026-10-15: never 01 / 02 / 03 on sections or contents) */
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li a { grid-template-columns: minmax(0, 1fr); }
+.vx-legal :is(.vx-legal__toc, .vx-legal__mtoc) li a::before, .vx-legal__sec h2::before { content: none; display: none; }

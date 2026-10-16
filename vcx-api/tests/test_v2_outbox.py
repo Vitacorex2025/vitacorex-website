@@ -95,3 +95,15 @@ def test_recovery_after_transient_failure(client, env):
     v2_outbox.process_due(now_override=FAR_FUTURE)
     row = db_rows(env, "SELECT * FROM v2_outbox")[0]
     assert row["status"] == "ACCEPTED" and row["attempts"] == 2 and row["last_error"] is None
+
+
+def test_customer_links_carry_the_language(client, env):
+    """Status and quote pages are one URL for every language: RU/ES links name it, EN links stay clean."""
+    from app.services import v2_messages
+    assert v2_messages.status_link("VX-REQ-1", "tok", "ru").endswith("&lang=ru")
+    assert v2_messages.quote_link("VX-QUO-1", "tok", "es").endswith("&lang=es")
+    assert "lang=" not in v2_messages.status_link("VX-REQ-1", "tok", "en")
+    req = create(client, "tax_1040_simple", locale="ru", subtype="mixed_income",
+                 details={"tax_year": "2025", "tax_state": "FL"}, summary="TEST: links")
+    body = db_rows(env, "SELECT body_text FROM v2_outbox WHERE kind='customer.request_received'")[0]["body_text"]
+    assert f"order-status.html?r={req['request_id']}" in body and "&lang=ru" in body

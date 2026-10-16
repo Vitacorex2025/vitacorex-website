@@ -111,18 +111,9 @@ const B2B_PRICING = [
 ];
 
 // Sample deliverables (ADR-008), under /samples/<slug>.html
-const SAMPLES_B2B = [
-  ['samples/ar-leakage-map.html',       'monthly', '0.6', PREV],  // gated
-  ['samples/counsel-ready-packet.html', 'monthly', '0.6', PREV],  // gated
-  ['samples/diagnostic-report.html',    'monthly', '0.6', PREV]   // ungated
-];
-const SAMPLES_B2C = [
-  ['samples/contract-risk-memo.html',         'monthly', '0.6', PREV],
-  ['samples/immigration-evidence-index.html', 'monthly', '0.6', PREV]
-];
-const SAMPLES_SHARED = [
-  ['samples/small-claims-chronology.html', 'monthly', '0.6', PREV]
-];
+const SAMPLES_B2B = [];  // old B2B samples: noindex since 2026-10-15
+const SAMPLES_B2C = [];
+const SAMPLES_SHARED = [];
 
 const SHARED_LEGAL = [
   ['privacy-policy.html',         'monthly', '0.5', PREV],
