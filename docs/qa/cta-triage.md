@@ -162,3 +162,12 @@ This triage cycle is sealed. If P12 or P13 add new pages or restructure existing
 ```
 
 The existing Groups A-D retain their dispositions (all closed per this Retrospective); only genuinely-new rows need new triage entries. Not a P17 re-open — this is the normal CTA regression cycle documented in `docs/qa/README.md` §Updating the baseline.
+
+## 2026-10-15 — rebaseline after the private-first rebuild
+
+The inventory and broken list were regenerated for the rebuilt site (162 files). Seven strict-broken rows remain, all invalid-by-design:
+
+- `app/*` (6 rows): signed-in tools that are disallowed in robots.txt and not linked from the public site; their buttons are wired at runtime.
+- `corporate-legal-file-control.html` "Estimate cost exposure" (1 row): legacy page kept for old links; the button is wired by the page script.
+
+The home "Pause effects" button (EN/RU/ES) was a false positive: `data-vx5-fx` had no value, so the audit did not see the delegation. It now reads `data-vx5-fx="toggle"`; `assets/vx5/vx5-motion.js` matches on the attribute itself.
