@@ -3885,147 +3885,147 @@ idempotent: true
 | `es/immigration-packet-review.html` | 121 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
 | `es/immigration-packet-review.html` | 128 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `es/immigration-packet-review.html` | 128 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `es/index.html` | 37 | a | Saltar al contenido | `#main-content` | anchor | none | — |
-| `es/index.html` | 40 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
-| `es/index.html` | 42 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 43 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Todos los precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 43 | a | Describir mi situación | `/request.html?service=legal_request` | primary-nav | none | — |
-| `es/index.html` | 44 | a | Para empresas | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 45 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 46 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
-| `es/index.html` | 47 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
-| `es/index.html` | 50 | button | Elegir idiomaEspañol | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `es/index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `es/index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `es/index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 53 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 54 | button | Menú | `(handler)` | action-script | none | aria-wired:controls |
-| `es/index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `es/index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `es/index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `es/index.html` | 59 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 59 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
-| `es/index.html` | 60 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
-| `es/index.html` | 61 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
-| `es/index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 84 | a | Elegir un servicio | `/es/services.html` | in-body | none | — |
-| `es/index.html` | 85 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
-| `es/index.html` | 87 | a | Para empresas: small claims | `/es/small-claims-documentation.html` | in-body | none | — |
-| `es/index.html` | 89 | a | Cambio de nombre por la corte$199 + tasas judiciales | `/es/name-change.html` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Small claims para empresasDesde $199 | `/es/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Abrir una empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
-| `es/index.html` | 89 | a | Declarar impuestosDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
-| `es/index.html` | 90 | button | Pausar efectos | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `es/index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `es/index.html` | 105 | a | Ver todos los precios | `/es/pricing.html` | primary-nav | none | — |
-| `es/index.html` | 111 | a | Cambio de nombre por la corte (Florida, adulto)$199tarifa d… | `/es/name-change.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Solicitud de exención de tarifas$49por solicitud | `/es/fee-waiver.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Formularios y documentos migratoriosDesde $149un formulario… | `/es/immigration-packet-review.html` | in-body | none | — |
-| `es/index.html` | 111 | a | Los 9 servicios | `/es/services.html#court` | in-body | none | — |
-| `es/index.html` | 112 | a | Pedir | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `es/index.html` | 116 | a | Paquete para presentar un small claimsDesde $199un caso ele… | `/es/small-claims-documentation.html#packages` | in-body | none | — |
-| `es/index.html` | 116 | a | Un mes de seguimiento del casoDesde $399un caso, 30 días | `/es/small-claims-documentation.html#packages` | in-body | none | — |
-| `es/index.html` | 116 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | in-body | none | — |
-| `es/index.html` | 116 | a | Financial Recovery | `/es/financial-recovery.html` | in-body | none | — |
-| `es/index.html` | 117 | a | Enviar un caso | `/es/small-claims-documentation.html#check` | in-body | none | — |
-| `es/index.html` | 121 | a | Creación de empresa$99tarifa de servicio + tasa estatal | `/es/llc-formation-florida.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Informe anual en Florida$79una entidad, un año + tasa estat… | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Registro de nombre comercial (DBA), Florida$69un registro +… | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 121 | a | Los 10 servicios | `/es/business-filings.html` | in-body | none | — |
-| `es/index.html` | 122 | a | Pedir | `/request.html?service=company_basic` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración de impuestos individualDesde $149declaración fe… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración para trabajadores independientesDesde $249decla… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 126 | a | Declaración estatal adicionalDesde $49un estado admitido, j… | `/es/tax-preparation.html` | in-body | none | — |
-| `es/index.html` | 127 | a | Pedir presupuesto | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `es/index.html` | 131 | a | Traducción certificada$25por cada 250 palabras del original… | `/es/translations.html` | in-body | none | — |
-| `es/index.html` | 131 | a | Traducción general$0.10por palabra del original, pedido mín… | `/es/translations.html#general` | in-body | none | — |
-| `es/index.html` | 132 | a | Pedir presupuesto | `/request.html?service=translation_certified` | in-body | none | — |
-| `es/index.html` | 136 | a | Gestión de apostillaDesde $119tarifa de servicio por el pri… | `/es/apostille.html` | in-body | none | — |
-| `es/index.html` | 136 | a | Obtención de documentos oficialesDesde $59por documento + t… | `/es/apostille.html#retrieval` | in-body | none | — |
-| `es/index.html` | 137 | a | Pedir presupuesto | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `es/index.html` | 141 | a | Notarización en línea$25por acto notarial | `/es/online-notary.html` | in-body | none | — |
-| `es/index.html` | 142 | a | Reservar y pagar | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `es/index.html` | 153 | a | Sobre VitaCoreX | `/es/about.html` | in-body | none | — |
-| `es/index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 194 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
-| `es/index.html` | 205 | a | VitaCoreXConsulting | `/es/` | footer | none | — |
-| `es/index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `es/index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `es/index.html` | 209 | a | Cambio de nombre por la corte (Florida, adulto) | `/es/name-change.html` | footer | none | — |
-| `es/index.html` | 209 | a | Solicitud de exención de tarifas | `/es/fee-waiver.html` | footer | none | — |
-| `es/index.html` | 209 | a | Formularios y documentos migratorios | `/es/immigration-packet-review.html` | footer | none | — |
-| `es/index.html` | 209 | a | Creación de empresa | `/es/llc-formation-florida.html` | footer | none | — |
-| `es/index.html` | 209 | a | Declaración de impuestos individual | `/es/tax-preparation.html` | footer | none | — |
-| `es/index.html` | 209 | a | Traducción certificada | `/es/translations.html` | footer | none | — |
-| `es/index.html` | 209 | a | Notarización en línea | `/es/online-notary.html` | footer | none | — |
-| `es/index.html` | 209 | a | Gestión de apostilla | `/es/apostille.html` | footer | none | — |
-| `es/index.html` | 209 | a | Todos los servicios | `/es/services.html` | footer | none | — |
-| `es/index.html` | 210 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
-| `es/index.html` | 210 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
-| `es/index.html` | 210 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
-| `es/index.html` | 210 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
-| `es/index.html` | 211 | a | Nosotros | `/es/about.html` | footer | none | — |
-| `es/index.html` | 211 | a | Precios | `/es/pricing.html` | footer | none | — |
-| `es/index.html` | 211 | a | Contacto | `/es/contact.html` | footer | none | — |
-| `es/index.html` | 211 | a | Empleo | `/es/careers.html` | footer | none | — |
-| `es/index.html` | 212 | a | Política de privacidad | `/es/privacy-policy.html` | footer | none | — |
-| `es/index.html` | 212 | a | Términos de uso | `/es/terms-of-use.html` | footer | none | — |
-| `es/index.html` | 212 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
-| `es/index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `es/index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `es/index.html` | 36 | a | Saltar al contenido | `#main-content` | anchor | none | — |
+| `es/index.html` | 39 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
+| `es/index.html` | 41 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 42 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Todos los precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 42 | a | Describir mi situación | `/request.html?service=legal_request` | primary-nav | none | — |
+| `es/index.html` | 43 | a | Para empresas | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 44 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 45 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
+| `es/index.html` | 46 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
+| `es/index.html` | 49 | button | Elegir idiomaEspañol | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `es/index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `es/index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `es/index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 52 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 53 | button | Menú | `(handler)` | action-script | none | aria-wired:controls |
+| `es/index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `es/index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `es/index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `es/index.html` | 58 | a | Cambio de nombre por la corte (Florida, adulto)$199 + tasas… | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Solicitud de exención de tarifas$49 | `/es/fee-waiver.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Formularios y documentos migratoriosDesde $149 | `/es/immigration-packet-review.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Documentación para naturalización (N‑400)Desde $249 | `/es/n-400-naturalization.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Contratos y preparación de documentosDesde $99 | `/es/contract-review-service.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Disputa civil: resumen a un abogado independienteSin costo | `/es/civil-case-referral.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Paquete para presentar un small claimsDesde $199 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Un mes de seguimiento del casoDesde $399 | `/es/small-claims-documentation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Hora en la corte para su empresa (adicional)$65 por hora, m… | `/es/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Análisis de cuentas por cobrar$390 | `/es/financial-recovery.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Financial Recovery: implementación completa tras el piloto1… | `/es/financial-recovery.html#rollout` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Creación de empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Empresa + asistencia con EIN$199 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Informe anual en Florida$79 + tasa estatal | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Registro de nombre comercial (DBA), Florida$69 + tasa estat… | `/es/business-filings.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Plan de negocioDesde $499 | `/es/business-plans.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración de impuestos individualDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración para trabajadores independientesDesde $249 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Declaración estatal adicionalDesde $49 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Traducción certificada$25 por página | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Traducción general$0.10 por palabra | `/es/translations.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Notarización en línea$25 | `/es/online-notary.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Gestión de apostillaDesde $119 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 58 | a | Obtención de documentos oficialesDesde $59 | `/es/apostille.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Todos los servicios | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Nosotros | `/es/about.html` | primary-nav | none | — |
+| `es/index.html` | 59 | a | Contacto | `/es/contact.html` | primary-nav | none | — |
+| `es/index.html` | 60 | a | Elegir un servicio | `/es/services.html` | primary-nav | none | — |
+| `es/index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 83 | a | Elegir un servicio | `/es/services.html` | in-body | none | — |
+| `es/index.html` | 84 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
+| `es/index.html` | 86 | a | Para empresas: small claims | `/es/small-claims-documentation.html` | in-body | none | — |
+| `es/index.html` | 88 | a | Cambio de nombre por la corte$199 + tasas judiciales | `/es/name-change.html` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Small claims para empresasDesde $199 | `/es/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Abrir una empresa$99 + tasa estatal | `/es/llc-formation-florida.html` | primary-nav | none | — |
+| `es/index.html` | 88 | a | Declarar impuestosDesde $149 | `/es/tax-preparation.html` | primary-nav | none | — |
+| `es/index.html` | 89 | button | Pausar efectos | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `es/index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `es/index.html` | 104 | a | Ver todos los precios | `/es/pricing.html` | primary-nav | none | — |
+| `es/index.html` | 110 | a | Cambio de nombre por la corte (Florida, adulto)$199tarifa d… | `/es/name-change.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Solicitud de exención de tarifas$49por solicitud | `/es/fee-waiver.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Formularios y documentos migratoriosDesde $149un formulario… | `/es/immigration-packet-review.html` | in-body | none | — |
+| `es/index.html` | 110 | a | Los 9 servicios | `/es/services.html#court` | in-body | none | — |
+| `es/index.html` | 111 | a | Pedir | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `es/index.html` | 115 | a | Paquete para presentar un small claimsDesde $199un caso ele… | `/es/small-claims-documentation.html#packages` | in-body | none | — |
+| `es/index.html` | 115 | a | Un mes de seguimiento del casoDesde $399un caso, 30 días | `/es/small-claims-documentation.html#packages` | in-body | none | — |
+| `es/index.html` | 115 | a | Retainer: caso completo con representación en la corteDesde… | `/es/small-claims-documentation.html#retainer` | in-body | none | — |
+| `es/index.html` | 115 | a | Financial Recovery | `/es/financial-recovery.html` | in-body | none | — |
+| `es/index.html` | 116 | a | Enviar un caso | `/es/small-claims-documentation.html#check` | in-body | none | — |
+| `es/index.html` | 120 | a | Creación de empresa$99tarifa de servicio + tasa estatal | `/es/llc-formation-florida.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Informe anual en Florida$79una entidad, un año + tasa estat… | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Registro de nombre comercial (DBA), Florida$69un registro +… | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 120 | a | Los 10 servicios | `/es/business-filings.html` | in-body | none | — |
+| `es/index.html` | 121 | a | Pedir | `/request.html?service=company_basic` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración de impuestos individualDesde $149declaración fe… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración para trabajadores independientesDesde $249decla… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 125 | a | Declaración estatal adicionalDesde $49un estado admitido, j… | `/es/tax-preparation.html` | in-body | none | — |
+| `es/index.html` | 126 | a | Pedir presupuesto | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `es/index.html` | 130 | a | Traducción certificada$25por cada 250 palabras del original… | `/es/translations.html` | in-body | none | — |
+| `es/index.html` | 130 | a | Traducción general$0.10por palabra del original, pedido mín… | `/es/translations.html#general` | in-body | none | — |
+| `es/index.html` | 131 | a | Pedir presupuesto | `/request.html?service=translation_certified` | in-body | none | — |
+| `es/index.html` | 135 | a | Gestión de apostillaDesde $119tarifa de servicio por el pri… | `/es/apostille.html` | in-body | none | — |
+| `es/index.html` | 135 | a | Obtención de documentos oficialesDesde $59por documento + t… | `/es/apostille.html#retrieval` | in-body | none | — |
+| `es/index.html` | 136 | a | Pedir presupuesto | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `es/index.html` | 140 | a | Notarización en línea$25por acto notarial | `/es/online-notary.html` | in-body | none | — |
+| `es/index.html` | 141 | a | Reservar y pagar | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `es/index.html` | 152 | a | Sobre VitaCoreX | `/es/about.html` | in-body | none | — |
+| `es/index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 193 | a | Describir mi situación | `/request.html?service=legal_request` | in-body | none | — |
+| `es/index.html` | 204 | a | VitaCoreXConsulting | `/es/` | footer | none | — |
+| `es/index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `es/index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `es/index.html` | 208 | a | Cambio de nombre por la corte (Florida, adulto) | `/es/name-change.html` | footer | none | — |
+| `es/index.html` | 208 | a | Solicitud de exención de tarifas | `/es/fee-waiver.html` | footer | none | — |
+| `es/index.html` | 208 | a | Formularios y documentos migratorios | `/es/immigration-packet-review.html` | footer | none | — |
+| `es/index.html` | 208 | a | Creación de empresa | `/es/llc-formation-florida.html` | footer | none | — |
+| `es/index.html` | 208 | a | Declaración de impuestos individual | `/es/tax-preparation.html` | footer | none | — |
+| `es/index.html` | 208 | a | Traducción certificada | `/es/translations.html` | footer | none | — |
+| `es/index.html` | 208 | a | Notarización en línea | `/es/online-notary.html` | footer | none | — |
+| `es/index.html` | 208 | a | Gestión de apostilla | `/es/apostille.html` | footer | none | — |
+| `es/index.html` | 208 | a | Todos los servicios | `/es/services.html` | footer | none | — |
+| `es/index.html` | 209 | a | Small claims para empresas | `/es/small-claims-documentation.html` | footer | none | — |
+| `es/index.html` | 209 | a | Enviar datos del caso | `/es/small-claims-documentation.html#check` | footer | none | — |
+| `es/index.html` | 209 | a | Financial Recovery | `/es/financial-recovery.html` | footer | none | — |
+| `es/index.html` | 209 | a | Recuperación para clientes actuales | `/net-recovery.html` | footer | none | — |
+| `es/index.html` | 210 | a | Nosotros | `/es/about.html` | footer | none | — |
+| `es/index.html` | 210 | a | Precios | `/es/pricing.html` | footer | none | — |
+| `es/index.html` | 210 | a | Contacto | `/es/contact.html` | footer | none | — |
+| `es/index.html` | 210 | a | Empleo | `/es/careers.html` | footer | none | — |
+| `es/index.html` | 211 | a | Política de privacidad | `/es/privacy-policy.html` | footer | none | — |
+| `es/index.html` | 211 | a | Términos de uso | `/es/terms-of-use.html` | footer | none | — |
+| `es/index.html` | 211 | a | Política de cookies | `/es/cookie-policy.html` | footer | none | — |
+| `es/index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `es/index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `es/llc-formation-florida.html` | 27 | a | Saltar al contenido | `#main-content` | anchor | none | — |
 | `es/llc-formation-florida.html` | 30 | a | VitaCoreXConsulting | `/es/` | primary-nav | none | — |
 | `es/llc-formation-florida.html` | 32 | button | Servicios | `(handler)` | action-script | none | aria-wired:controls |
@@ -6094,147 +6094,147 @@ idempotent: true
 | `immigration-services-tampa.html` | 218 | a | Cookie Policy | `/cookie-policy.html` | footer | b2c | — |
 | `immigration-services-tampa.html` | 225 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | b2c | new-tab |
 | `immigration-services-tampa.html` | 225 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | b2c | new-tab |
-| `index.html` | 37 | a | Skip to content | `#main-content` | anchor | none | — |
-| `index.html` | 40 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
-| `index.html` | 42 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 43 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `index.html` | 43 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `index.html` | 43 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `index.html` | 43 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `index.html` | 43 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 43 | a | All services | `/services.html` | primary-nav | none | — |
-| `index.html` | 43 | a | All prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 43 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
-| `index.html` | 44 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 45 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 46 | a | About | `/about.html` | primary-nav | none | — |
-| `index.html` | 47 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `index.html` | 50 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 53 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `index.html` | 54 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
-| `index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `index.html` | 59 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `index.html` | 59 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `index.html` | 59 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
-| `index.html` | 59 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
-| `index.html` | 59 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 59 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
-| `index.html` | 60 | a | All services | `/services.html` | primary-nav | none | — |
-| `index.html` | 60 | a | Prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 60 | a | About | `/about.html` | primary-nav | none | — |
-| `index.html` | 60 | a | Contact | `/contact.html` | primary-nav | none | — |
-| `index.html` | 61 | a | Choose a service | `/services.html` | primary-nav | none | — |
-| `index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 84 | a | Choose a service | `/services.html` | in-body | none | — |
-| `index.html` | 85 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
-| `index.html` | 87 | a | For businesses: small claims | `/small-claims-documentation.html` | in-body | none | — |
-| `index.html` | 89 | a | Court name change$199 + court fees | `/name-change.html` | primary-nav | none | — |
-| `index.html` | 89 | a | Small claims for companiesFrom $199 | `/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `index.html` | 89 | a | Start a company$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
-| `index.html` | 89 | a | File a tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
-| `index.html` | 90 | button | Pause effects | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `index.html` | 105 | a | See all prices | `/pricing.html` | primary-nav | none | — |
-| `index.html` | 111 | a | Court name change (Florida, adult)$199service fee; court fe… | `/name-change.html` | in-body | none | — |
-| `index.html` | 111 | a | Fee waiver application$49per application | `/fee-waiver.html` | in-body | none | — |
-| `index.html` | 111 | a | Immigration forms & documentsFrom $149one simple form you h… | `/immigration-packet-review.html` | in-body | none | — |
-| `index.html` | 111 | a | All 9 services | `/services.html#court` | in-body | none | — |
-| `index.html` | 112 | a | Order | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `index.html` | 116 | a | Small-claims filing packetFrom $199one eligible case, one d… | `/small-claims-documentation.html#packages` | in-body | none | — |
-| `index.html` | 116 | a | One month of case supportFrom $399one case, 30 days | `/small-claims-documentation.html#packages` | in-body | none | — |
-| `index.html` | 116 | a | Retainer: full case with court representationFrom $749per c… | `/small-claims-documentation.html#retainer` | in-body | none | — |
-| `index.html` | 116 | a | Financial Recovery | `/financial-recovery.html` | in-body | none | — |
-| `index.html` | 117 | a | Send a case | `/small-claims-documentation.html#check` | in-body | none | — |
-| `index.html` | 121 | a | Company formation$99service fee + state filing fee | `/llc-formation-florida.html` | in-body | none | — |
-| `index.html` | 121 | a | Florida annual report filing$79one entity, one year + state… | `/business-filings.html` | in-body | none | — |
-| `index.html` | 121 | a | Fictitious name (DBA) registration, Florida$69one registrat… | `/business-filings.html` | in-body | none | — |
-| `index.html` | 121 | a | All 10 services | `/business-filings.html` | in-body | none | — |
-| `index.html` | 122 | a | Order | `/request.html?service=company_basic` | in-body | none | — |
-| `index.html` | 126 | a | Individual tax returnFrom $149simple federal return, one ta… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 126 | a | Self-employed tax returnFrom $249federal return with one si… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 126 | a | State return add-onFrom $49one supported state, with a fede… | `/tax-preparation.html` | in-body | none | — |
-| `index.html` | 127 | a | Get a quote | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `index.html` | 131 | a | Certified translation$25per 250 source words (one standard… | `/translations.html` | in-body | none | — |
-| `index.html` | 131 | a | General translation$0.10per source word, $25 minimum order | `/translations.html#general` | in-body | none | — |
-| `index.html` | 132 | a | Get a quote | `/request.html?service=translation_certified` | in-body | none | — |
-| `index.html` | 136 | a | Apostille assistanceFrom $119service fee for the first docu… | `/apostille.html` | in-body | none | — |
-| `index.html` | 136 | a | Official record retrievalFrom $59per record + agency fee | `/apostille.html#retrieval` | in-body | none | — |
-| `index.html` | 137 | a | Get a quote | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `index.html` | 141 | a | Online notarization$25per notarial act | `/online-notary.html` | in-body | none | — |
-| `index.html` | 142 | a | Book & pay | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `index.html` | 153 | a | About VitaCoreX | `/about.html` | in-body | none | — |
-| `index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 194 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
-| `index.html` | 205 | a | VitaCoreXConsulting | `/` | footer | none | — |
-| `index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `index.html` | 209 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
-| `index.html` | 209 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
-| `index.html` | 209 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
-| `index.html` | 209 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
-| `index.html` | 209 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
-| `index.html` | 209 | a | Certified translation | `/translations.html` | footer | none | — |
-| `index.html` | 209 | a | Online notarization | `/online-notary.html` | footer | none | — |
-| `index.html` | 209 | a | Apostille assistance | `/apostille.html` | footer | none | — |
-| `index.html` | 209 | a | All services | `/services.html` | footer | none | — |
-| `index.html` | 210 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
-| `index.html` | 210 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
-| `index.html` | 210 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
-| `index.html` | 210 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
-| `index.html` | 211 | a | About | `/about.html` | footer | none | — |
-| `index.html` | 211 | a | Prices | `/pricing.html` | footer | none | — |
-| `index.html` | 211 | a | Contact | `/contact.html` | footer | none | — |
-| `index.html` | 211 | a | Careers | `/careers.html` | footer | none | — |
-| `index.html` | 212 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
-| `index.html` | 212 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
-| `index.html` | 212 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
-| `index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `index.html` | 36 | a | Skip to content | `#main-content` | anchor | none | — |
+| `index.html` | 39 | a | VitaCoreXConsulting | `/` | primary-nav | none | — |
+| `index.html` | 41 | button | Services | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 42 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `index.html` | 42 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `index.html` | 42 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `index.html` | 42 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `index.html` | 42 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 42 | a | All services | `/services.html` | primary-nav | none | — |
+| `index.html` | 42 | a | All prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 42 | a | Describe your situation | `/request.html?service=legal_request` | primary-nav | none | — |
+| `index.html` | 43 | a | For companies | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 44 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 45 | a | About | `/about.html` | primary-nav | none | — |
+| `index.html` | 46 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `index.html` | 49 | button | Choose languageEnglish | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 52 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `index.html` | 53 | button | Menu | `(handler)` | action-script | none | aria-wired:controls |
+| `index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `index.html` | 58 | a | Court name change (Florida, adult)$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Fee waiver application$49 | `/fee-waiver.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Immigration forms & documentsFrom $149 | `/immigration-packet-review.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Naturalization document support (N‑400)From $249 | `/n-400-naturalization.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Contracts & document supportFrom $99 | `/contract-review-service.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Civil dispute: summary to an independent attorneyNo charge | `/civil-case-referral.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Small-claims filing packetFrom $199 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | One month of case supportFrom $399 | `/small-claims-documentation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Retainer: full case with court representationFrom $749 | `/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `index.html` | 58 | a | Court hour for your company (add-on)$65/hour, 2-hour minimum | `/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `index.html` | 58 | a | Receivables analysis$390 | `/financial-recovery.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Financial Recovery: full rollout after the pilot12% | `/financial-recovery.html#rollout` | primary-nav | none | — |
+| `index.html` | 58 | a | Company formation$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Company formation + EIN$199 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Florida annual report filing$79 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Fictitious name (DBA) registration, Florida$69 + state fee | `/business-filings.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Business planFrom $499 | `/business-plans.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Individual tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Self-employed tax returnFrom $249 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | State return add-onFrom $49 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Certified translation$25 per page | `/translations.html` | primary-nav | none | — |
+| `index.html` | 58 | a | General translation$0.10 per word | `/translations.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Online notarization$25 | `/online-notary.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Apostille assistanceFrom $119 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 58 | a | Official record retrievalFrom $59 | `/apostille.html` | primary-nav | none | — |
+| `index.html` | 59 | a | All services | `/services.html` | primary-nav | none | — |
+| `index.html` | 59 | a | Prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 59 | a | About | `/about.html` | primary-nav | none | — |
+| `index.html` | 59 | a | Contact | `/contact.html` | primary-nav | none | — |
+| `index.html` | 60 | a | Choose a service | `/services.html` | primary-nav | none | — |
+| `index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 83 | a | Choose a service | `/services.html` | in-body | none | — |
+| `index.html` | 84 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
+| `index.html` | 86 | a | For businesses: small claims | `/small-claims-documentation.html` | in-body | none | — |
+| `index.html` | 88 | a | Court name change$199 + court fees | `/name-change.html` | primary-nav | none | — |
+| `index.html` | 88 | a | Small claims for companiesFrom $199 | `/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `index.html` | 88 | a | Start a company$99 + state fee | `/llc-formation-florida.html` | primary-nav | none | — |
+| `index.html` | 88 | a | File a tax returnFrom $149 | `/tax-preparation.html` | primary-nav | none | — |
+| `index.html` | 89 | button | Pause effects | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `index.html` | 104 | a | See all prices | `/pricing.html` | primary-nav | none | — |
+| `index.html` | 110 | a | Court name change (Florida, adult)$199service fee; court fe… | `/name-change.html` | in-body | none | — |
+| `index.html` | 110 | a | Fee waiver application$49per application | `/fee-waiver.html` | in-body | none | — |
+| `index.html` | 110 | a | Immigration forms & documentsFrom $149one simple form you h… | `/immigration-packet-review.html` | in-body | none | — |
+| `index.html` | 110 | a | All 9 services | `/services.html#court` | in-body | none | — |
+| `index.html` | 111 | a | Order | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `index.html` | 115 | a | Small-claims filing packetFrom $199one eligible case, one d… | `/small-claims-documentation.html#packages` | in-body | none | — |
+| `index.html` | 115 | a | One month of case supportFrom $399one case, 30 days | `/small-claims-documentation.html#packages` | in-body | none | — |
+| `index.html` | 115 | a | Retainer: full case with court representationFrom $749per c… | `/small-claims-documentation.html#retainer` | in-body | none | — |
+| `index.html` | 115 | a | Financial Recovery | `/financial-recovery.html` | in-body | none | — |
+| `index.html` | 116 | a | Send a case | `/small-claims-documentation.html#check` | in-body | none | — |
+| `index.html` | 120 | a | Company formation$99service fee + state filing fee | `/llc-formation-florida.html` | in-body | none | — |
+| `index.html` | 120 | a | Florida annual report filing$79one entity, one year + state… | `/business-filings.html` | in-body | none | — |
+| `index.html` | 120 | a | Fictitious name (DBA) registration, Florida$69one registrat… | `/business-filings.html` | in-body | none | — |
+| `index.html` | 120 | a | All 10 services | `/business-filings.html` | in-body | none | — |
+| `index.html` | 121 | a | Order | `/request.html?service=company_basic` | in-body | none | — |
+| `index.html` | 125 | a | Individual tax returnFrom $149simple federal return, one ta… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 125 | a | Self-employed tax returnFrom $249federal return with one si… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 125 | a | State return add-onFrom $49one supported state, with a fede… | `/tax-preparation.html` | in-body | none | — |
+| `index.html` | 126 | a | Get a quote | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `index.html` | 130 | a | Certified translation$25per 250 source words (one standard… | `/translations.html` | in-body | none | — |
+| `index.html` | 130 | a | General translation$0.10per source word, $25 minimum order | `/translations.html#general` | in-body | none | — |
+| `index.html` | 131 | a | Get a quote | `/request.html?service=translation_certified` | in-body | none | — |
+| `index.html` | 135 | a | Apostille assistanceFrom $119service fee for the first docu… | `/apostille.html` | in-body | none | — |
+| `index.html` | 135 | a | Official record retrievalFrom $59per record + agency fee | `/apostille.html#retrieval` | in-body | none | — |
+| `index.html` | 136 | a | Get a quote | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `index.html` | 140 | a | Online notarization$25per notarial act | `/online-notary.html` | in-body | none | — |
+| `index.html` | 141 | a | Book & pay | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `index.html` | 152 | a | About VitaCoreX | `/about.html` | in-body | none | — |
+| `index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 193 | a | Describe your situation | `/request.html?service=legal_request` | in-body | none | — |
+| `index.html` | 204 | a | VitaCoreXConsulting | `/` | footer | none | — |
+| `index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `index.html` | 208 | a | Court name change (Florida, adult) | `/name-change.html` | footer | none | — |
+| `index.html` | 208 | a | Fee waiver application | `/fee-waiver.html` | footer | none | — |
+| `index.html` | 208 | a | Immigration forms & documents | `/immigration-packet-review.html` | footer | none | — |
+| `index.html` | 208 | a | Company formation | `/llc-formation-florida.html` | footer | none | — |
+| `index.html` | 208 | a | Individual tax return | `/tax-preparation.html` | footer | none | — |
+| `index.html` | 208 | a | Certified translation | `/translations.html` | footer | none | — |
+| `index.html` | 208 | a | Online notarization | `/online-notary.html` | footer | none | — |
+| `index.html` | 208 | a | Apostille assistance | `/apostille.html` | footer | none | — |
+| `index.html` | 208 | a | All services | `/services.html` | footer | none | — |
+| `index.html` | 209 | a | Small claims for businesses | `/small-claims-documentation.html` | footer | none | — |
+| `index.html` | 209 | a | Send case details | `/small-claims-documentation.html#check` | footer | none | — |
+| `index.html` | 209 | a | Financial Recovery | `/financial-recovery.html` | footer | none | — |
+| `index.html` | 209 | a | Existing-client recovery | `/net-recovery.html` | footer | none | — |
+| `index.html` | 210 | a | About | `/about.html` | footer | none | — |
+| `index.html` | 210 | a | Prices | `/pricing.html` | footer | none | — |
+| `index.html` | 210 | a | Contact | `/contact.html` | footer | none | — |
+| `index.html` | 210 | a | Careers | `/careers.html` | footer | none | — |
+| `index.html` | 211 | a | Privacy Policy | `/privacy-policy.html` | footer | none | — |
+| `index.html` | 211 | a | Terms of Use | `/terms-of-use.html` | footer | none | — |
+| `index.html` | 211 | a | Cookie Policy | `/cookie-policy.html` | footer | none | — |
+| `index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `industries.html` | 67 | a | Skip to content | `#main-content` | anchor | b2b | — |
 | `industries.html` | 70 | a | VitaCoreXConsulting | `/` | primary-nav | b2b | — |
 | `industries.html` | 72 | button | Services | `(handler)` | action-script | b2b | aria-wired:controls |
@@ -10690,147 +10690,147 @@ idempotent: true
 | `ru/immigration-packet-review.html` | 121 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
 | `ru/immigration-packet-review.html` | 128 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
 | `ru/immigration-packet-review.html` | 128 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
-| `ru/index.html` | 37 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
-| `ru/index.html` | 40 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
-| `ru/index.html` | 42 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 43 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 43 | a | Описать ситуацию | `/request.html?service=legal_request` | primary-nav | none | — |
-| `ru/index.html` | 44 | a | Для компаний | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 45 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 46 | a | О нас | `/ru/about.html` | primary-nav | none | — |
-| `ru/index.html` | 47 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
-| `ru/index.html` | 50 | button | Выбрать языкРусский | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 51 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `ru/index.html` | 51 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `ru/index.html` | 51 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `ru/index.html` | 52 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 53 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 54 | button | Меню | `(handler)` | action-script | none | aria-wired:controls |
-| `ru/index.html` | 58 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
-| `ru/index.html` | 58 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
-| `ru/index.html` | 58 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
-| `ru/index.html` | 59 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 59 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | О нас | `/ru/about.html` | primary-nav | none | — |
-| `ru/index.html` | 60 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
-| `ru/index.html` | 61 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
-| `ru/index.html` | 61 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 84 | a | Выбрать услугу | `/ru/services.html` | in-body | none | — |
-| `ru/index.html` | 85 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
-| `ru/index.html` | 87 | a | Для компаний: small claims | `/ru/small-claims-documentation.html` | in-body | none | — |
-| `ru/index.html` | 89 | a | Смена имени через суд$199 + судебные сборы | `/ru/name-change.html` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Small claims для компанийот $199 | `/ru/small-claims-documentation.html#packages` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Открыть компанию$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
-| `ru/index.html` | 89 | a | Подать декларациюот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
-| `ru/index.html` | 90 | button | Остановить эффекты | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
-| `ru/index.html` | 98 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
-| `ru/index.html` | 105 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
-| `ru/index.html` | 111 | a | Смена имени через суд (Флорида, взрослый)$199плата за услуг… | `/ru/name-change.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Заявление об освобождении от пошлины$49за одно заявление | `/ru/fee-waiver.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Иммиграционные формы и документыот $149одна простая форма,… | `/ru/immigration-packet-review.html` | in-body | none | — |
-| `ru/index.html` | 111 | a | Все услуги: 9 | `/ru/services.html#court` | in-body | none | — |
-| `ru/index.html` | 112 | a | Заказать | `/request.html?service=name_change_adult_fl` | in-body | none | — |
-| `ru/index.html` | 116 | a | Пакет документов на подачу small claimsот $199одно подходящ… | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
-| `ru/index.html` | 116 | a | Сопровождение дела на месяцот $399одно дело, 30 дней | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
-| `ru/index.html` | 116 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | in-body | none | — |
-| `ru/index.html` | 116 | a | Financial Recovery | `/ru/financial-recovery.html` | in-body | none | — |
-| `ru/index.html` | 117 | a | Отправить дело | `/ru/small-claims-documentation.html#check` | in-body | none | — |
-| `ru/index.html` | 121 | a | Открытие компании$99плата за услугу + госпошлина штата | `/ru/llc-formation-florida.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Ежегодный отчёт компании во Флориде$79одна компания, один г… | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Регистрация торгового наименования (DBA), Флорида$69одна ре… | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 121 | a | Все услуги: 10 | `/ru/business-filings.html` | in-body | none | — |
-| `ru/index.html` | 122 | a | Заказать | `/request.html?service=company_basic` | in-body | none | — |
-| `ru/index.html` | 126 | a | Личная налоговая декларацияот $149простая федеральная декла… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 126 | a | Декларация для самозанятыхот $249федеральная декларация с о… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 126 | a | Декларация штата — дополнениеот $49один штат, вместе с феде… | `/ru/tax-preparation.html` | in-body | none | — |
-| `ru/index.html` | 127 | a | Узнать цену | `/request.html?service=tax_1040_simple` | in-body | none | — |
-| `ru/index.html` | 131 | a | Сертифицированный перевод$25за 250 слов оригинала (одна ста… | `/ru/translations.html` | in-body | none | — |
-| `ru/index.html` | 131 | a | Обычный перевод$0.10за слово оригинала, минимальный заказ $… | `/ru/translations.html#general` | in-body | none | — |
-| `ru/index.html` | 132 | a | Узнать цену | `/request.html?service=translation_certified` | in-body | none | — |
-| `ru/index.html` | 136 | a | Помощь с апостилемот $119плата за услугу по первому докумен… | `/ru/apostille.html` | in-body | none | — |
-| `ru/index.html` | 136 | a | Получение официальных документовот $59за один документ + сб… | `/ru/apostille.html#retrieval` | in-body | none | — |
-| `ru/index.html` | 137 | a | Узнать цену | `/request.html?service=apostille_coordination` | in-body | none | — |
-| `ru/index.html` | 141 | a | Заверение документов онлайн$25за одно нотариальное действие | `/ru/online-notary.html` | in-body | none | — |
-| `ru/index.html` | 142 | a | Записаться онлайн | `/request.html?service=notary_ron_single` | in-body | none | — |
-| `ru/index.html` | 153 | a | О VitaCoreX | `/ru/about.html` | in-body | none | — |
-| `ru/index.html` | 177 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 194 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
-| `ru/index.html` | 205 | a | VitaCoreXConsulting | `/ru/` | footer | none | — |
-| `ru/index.html` | 206 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
-| `ru/index.html` | 206 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
-| `ru/index.html` | 209 | a | Смена имени через суд (Флорида, взрослый) | `/ru/name-change.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Заявление об освобождении от пошлины | `/ru/fee-waiver.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Иммиграционные формы и документы | `/ru/immigration-packet-review.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Открытие компании | `/ru/llc-formation-florida.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Личная налоговая декларация | `/ru/tax-preparation.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Сертифицированный перевод | `/ru/translations.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Заверение документов онлайн | `/ru/online-notary.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Помощь с апостилем | `/ru/apostille.html` | footer | none | — |
-| `ru/index.html` | 209 | a | Все услуги | `/ru/services.html` | footer | none | — |
-| `ru/index.html` | 210 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
-| `ru/index.html` | 210 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
-| `ru/index.html` | 210 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
-| `ru/index.html` | 210 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
-| `ru/index.html` | 211 | a | О нас | `/ru/about.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Цены | `/ru/pricing.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Контакты | `/ru/contact.html` | footer | none | — |
-| `ru/index.html` | 211 | a | Вакансии | `/ru/careers.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Политика конфиденциальности | `/ru/privacy-policy.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Условия использования | `/ru/terms-of-use.html` | footer | none | — |
-| `ru/index.html` | 212 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
-| `ru/index.html` | 219 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
-| `ru/index.html` | 219 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
+| `ru/index.html` | 36 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
+| `ru/index.html` | 39 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
+| `ru/index.html` | 41 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 42 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 42 | a | Описать ситуацию | `/request.html?service=legal_request` | primary-nav | none | — |
+| `ru/index.html` | 43 | a | Для компаний | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 44 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 45 | a | О нас | `/ru/about.html` | primary-nav | none | — |
+| `ru/index.html` | 46 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
+| `ru/index.html` | 49 | button | Выбрать языкРусский | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 50 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `ru/index.html` | 50 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `ru/index.html` | 50 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `ru/index.html` | 51 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 52 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 53 | button | Меню | `(handler)` | action-script | none | aria-wired:controls |
+| `ru/index.html` | 57 | button | English | `(handler)` | action-script | none | delegated:data-vx-lang=en |
+| `ru/index.html` | 57 | button | Русский | `(handler)` | action-script | none | delegated:data-vx-lang=ru |
+| `ru/index.html` | 57 | button | Español | `(handler)` | action-script | none | delegated:data-vx-lang=es |
+| `ru/index.html` | 58 | a | Смена имени через суд (Флорида, взрослый)$199 + судебные сб… | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Заявление об освобождении от пошлины$49 | `/ru/fee-waiver.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Иммиграционные формы и документыот $149 | `/ru/immigration-packet-review.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Документы для натурализации (N‑400)от $249 | `/ru/n-400-naturalization.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Договоры и подготовка документовот $99 | `/ru/contract-review-service.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Гражданский спор: передать описание адвокатуБесплатно | `/ru/civil-case-referral.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Пакет документов на подачу small claimsот $199 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Сопровождение дела на месяцот $399 | `/ru/small-claims-documentation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Час в суде за компанию (дополнительно)$65 в час, минимум 2… | `/ru/small-claims-documentation.html#court-hours` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Анализ дебиторской задолженности$390 | `/ru/financial-recovery.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Financial Recovery: полное внедрение методики после пилота1… | `/ru/financial-recovery.html#rollout` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Открытие компании$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Компания + помощь с EIN$199 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Ежегодный отчёт компании во Флориде$79 + сбор штата | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Регистрация торгового наименования (DBA), Флорида$69 + сбор… | `/ru/business-filings.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Бизнес-планот $499 | `/ru/business-plans.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Личная налоговая декларацияот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Декларация для самозанятыхот $249 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Декларация штата — дополнениеот $49 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Сертифицированный перевод$25 за страницу | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Обычный перевод$0.10 за слово | `/ru/translations.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Заверение документов онлайн$25 | `/ru/online-notary.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Помощь с апостилемот $119 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 58 | a | Получение официальных документовот $59 | `/ru/apostille.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Все услуги | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | О нас | `/ru/about.html` | primary-nav | none | — |
+| `ru/index.html` | 59 | a | Контакты | `/ru/contact.html` | primary-nav | none | — |
+| `ru/index.html` | 60 | a | Выбрать услугу | `/ru/services.html` | primary-nav | none | — |
+| `ru/index.html` | 60 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 83 | a | Выбрать услугу | `/ru/services.html` | in-body | none | — |
+| `ru/index.html` | 84 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
+| `ru/index.html` | 86 | a | Для компаний: small claims | `/ru/small-claims-documentation.html` | in-body | none | — |
+| `ru/index.html` | 88 | a | Смена имени через суд$199 + судебные сборы | `/ru/name-change.html` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Small claims для компанийот $199 | `/ru/small-claims-documentation.html#packages` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Открыть компанию$99 + сбор штата | `/ru/llc-formation-florida.html` | primary-nav | none | — |
+| `ru/index.html` | 88 | a | Подать декларациюот $149 | `/ru/tax-preparation.html` | primary-nav | none | — |
+| `ru/index.html` | 89 | button | Остановить эффекты | `(handler)` | action-script | none | delegated:data-vx5-fx=toggle |
+| `ru/index.html` | 97 | form | form:(unnamed) | `(self)` | form-submit | none | self-post, GET |
+| `ru/index.html` | 104 | a | Все цены | `/ru/pricing.html` | primary-nav | none | — |
+| `ru/index.html` | 110 | a | Смена имени через суд (Флорида, взрослый)$199плата за услуг… | `/ru/name-change.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Заявление об освобождении от пошлины$49за одно заявление | `/ru/fee-waiver.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Иммиграционные формы и документыот $149одна простая форма,… | `/ru/immigration-packet-review.html` | in-body | none | — |
+| `ru/index.html` | 110 | a | Все услуги: 9 | `/ru/services.html#court` | in-body | none | — |
+| `ru/index.html` | 111 | a | Заказать | `/request.html?service=name_change_adult_fl` | in-body | none | — |
+| `ru/index.html` | 115 | a | Пакет документов на подачу small claimsот $199одно подходящ… | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
+| `ru/index.html` | 115 | a | Сопровождение дела на месяцот $399одно дело, 30 дней | `/ru/small-claims-documentation.html#packages` | in-body | none | — |
+| `ru/index.html` | 115 | a | Ретейнер: полное ведение дела с представительством в судеот… | `/ru/small-claims-documentation.html#retainer` | in-body | none | — |
+| `ru/index.html` | 115 | a | Financial Recovery | `/ru/financial-recovery.html` | in-body | none | — |
+| `ru/index.html` | 116 | a | Отправить дело | `/ru/small-claims-documentation.html#check` | in-body | none | — |
+| `ru/index.html` | 120 | a | Открытие компании$99плата за услугу + госпошлина штата | `/ru/llc-formation-florida.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Ежегодный отчёт компании во Флориде$79одна компания, один г… | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Регистрация торгового наименования (DBA), Флорида$69одна ре… | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 120 | a | Все услуги: 10 | `/ru/business-filings.html` | in-body | none | — |
+| `ru/index.html` | 121 | a | Заказать | `/request.html?service=company_basic` | in-body | none | — |
+| `ru/index.html` | 125 | a | Личная налоговая декларацияот $149простая федеральная декла… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 125 | a | Декларация для самозанятыхот $249федеральная декларация с о… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 125 | a | Декларация штата — дополнениеот $49один штат, вместе с феде… | `/ru/tax-preparation.html` | in-body | none | — |
+| `ru/index.html` | 126 | a | Узнать цену | `/request.html?service=tax_1040_simple` | in-body | none | — |
+| `ru/index.html` | 130 | a | Сертифицированный перевод$25за 250 слов оригинала (одна ста… | `/ru/translations.html` | in-body | none | — |
+| `ru/index.html` | 130 | a | Обычный перевод$0.10за слово оригинала, минимальный заказ $… | `/ru/translations.html#general` | in-body | none | — |
+| `ru/index.html` | 131 | a | Узнать цену | `/request.html?service=translation_certified` | in-body | none | — |
+| `ru/index.html` | 135 | a | Помощь с апостилемот $119плата за услугу по первому докумен… | `/ru/apostille.html` | in-body | none | — |
+| `ru/index.html` | 135 | a | Получение официальных документовот $59за один документ + сб… | `/ru/apostille.html#retrieval` | in-body | none | — |
+| `ru/index.html` | 136 | a | Узнать цену | `/request.html?service=apostille_coordination` | in-body | none | — |
+| `ru/index.html` | 140 | a | Заверение документов онлайн$25за одно нотариальное действие | `/ru/online-notary.html` | in-body | none | — |
+| `ru/index.html` | 141 | a | Записаться онлайн | `/request.html?service=notary_ron_single` | in-body | none | — |
+| `ru/index.html` | 152 | a | О VitaCoreX | `/ru/about.html` | in-body | none | — |
+| `ru/index.html` | 176 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 193 | a | Описать ситуацию | `/request.html?service=legal_request` | in-body | none | — |
+| `ru/index.html` | 204 | a | VitaCoreXConsulting | `/ru/` | footer | none | — |
+| `ru/index.html` | 205 | a | (888) 794-8292 | `tel:+18887948292` | tel | none | — |
+| `ru/index.html` | 205 | a | info@vitacorexllc.com | `mailto:info@vitacorexllc.com` | mailto | none | — |
+| `ru/index.html` | 208 | a | Смена имени через суд (Флорида, взрослый) | `/ru/name-change.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Заявление об освобождении от пошлины | `/ru/fee-waiver.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Иммиграционные формы и документы | `/ru/immigration-packet-review.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Открытие компании | `/ru/llc-formation-florida.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Личная налоговая декларация | `/ru/tax-preparation.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Сертифицированный перевод | `/ru/translations.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Заверение документов онлайн | `/ru/online-notary.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Помощь с апостилем | `/ru/apostille.html` | footer | none | — |
+| `ru/index.html` | 208 | a | Все услуги | `/ru/services.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Small claims для компаний | `/ru/small-claims-documentation.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Отправить данные по делу | `/ru/small-claims-documentation.html#check` | footer | none | — |
+| `ru/index.html` | 209 | a | Financial Recovery | `/ru/financial-recovery.html` | footer | none | — |
+| `ru/index.html` | 209 | a | Возврат задолженности для действующих клиентов | `/net-recovery.html` | footer | none | — |
+| `ru/index.html` | 210 | a | О нас | `/ru/about.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Цены | `/ru/pricing.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Контакты | `/ru/contact.html` | footer | none | — |
+| `ru/index.html` | 210 | a | Вакансии | `/ru/careers.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Политика конфиденциальности | `/ru/privacy-policy.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Условия использования | `/ru/terms-of-use.html` | footer | none | — |
+| `ru/index.html` | 211 | a | Политика cookie | `/ru/cookie-policy.html` | footer | none | — |
+| `ru/index.html` | 218 | a | Instagram | `https://www.instagram.com/vitacorex_llc/` | external | none | new-tab |
+| `ru/index.html` | 218 | a | Facebook | `https://www.facebook.com/profile.php?id=61554844507884` | external | none | new-tab |
 | `ru/llc-formation-florida.html` | 27 | a | Перейти к содержанию | `#main-content` | anchor | none | — |
 | `ru/llc-formation-florida.html` | 30 | a | VitaCoreXConsulting | `/ru/` | primary-nav | none | — |
 | `ru/llc-formation-florida.html` | 32 | button | Услуги | `(handler)` | action-script | none | aria-wired:controls |
