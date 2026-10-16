@@ -119,3 +119,26 @@ def test_cors_allows_configured_origin_only(client):
     bad = client.options("/api/v2/requests", headers={"Origin": "http://evil.example",
                                                       "Access-Control-Request-Method": "POST"})
     assert bad.headers.get("access-control-allow-origin") is None
+
+
+def test_rate_limit_is_per_visitor_behind_render_proxy(client, monkeypatch):
+    """Render's proxy appends the visitor's address as the last X-Forwarded-For entry; request.client.host is the
+    proxy itself. The shared limiter must key on that last entry so one visitor cannot exhaust everyone's limit."""
+    from app.rate_limit import limiter
+
+    monkeypatch.setattr(limiter, "enabled", True)
+    limiter.reset()
+    try:
+        def post(xff=None):
+            headers = {"X-Forwarded-For": xff} if xff else {}
+            return client.post("/api/v2/requests", json={}, headers=headers).status_code
+
+        # 10/minute on the request form; entries the client sends before the proxy's own do not change its key.
+        statuses = [post(f"10.0.0.{i}, 203.0.113.7") for i in range(10)]
+        assert 429 not in statuses
+        assert post("203.0.113.7") == 429
+        assert post("198.51.100.9") != 429
+        assert post("203.0.113.7, 198.51.100.9") != 429
+        assert post() != 429  # no header: falls back to the socket address, a key of its own
+    finally:
+        limiter.reset()

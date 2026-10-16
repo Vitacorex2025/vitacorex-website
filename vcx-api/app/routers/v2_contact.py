@@ -7,8 +7,7 @@ POST /api/v2/contact/call  — Vapi server URL; only "end-of-call-report" is use
                              If VCX_VAPI_SERVER_SECRET is set, the X-Vapi-Secret header must match it.
 POST /api/v2/stats/hit     — the site's visitor counter for the owner's daily report (services/v2_stats.py).
 
-Rate limits key on the visitor's address as Render's proxy reports it (the last X-Forwarded-For entry, which the
-proxy appends itself); uvicorn alone would see only the proxy, so every visitor would share one limit.
+Rate limits key on the visitor's address as Render's proxy reports it (rate_limit.client_ip, shared by every route).
 """
 
 import hmac
@@ -17,7 +16,7 @@ import json
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 
-from ..rate_limit import limiter
+from ..rate_limit import client_ip, limiter
 from ..services import v2_contact_notify, v2_stats
 from ..services.v2_config import env
 from ..services.v2_contact_notify import NotifyRejected
@@ -27,11 +26,6 @@ stats_router = APIRouter(prefix="/api/v2/stats", tags=["v2-stats"])
 
 CHAT_MAX_BYTES = 128 * 1024
 CALL_MAX_BYTES = 2 * 1024 * 1024  # Vapi reports carry the whole call artifact
-
-
-def client_ip(request: Request) -> str:
-    xff = request.headers.get("x-forwarded-for", "")
-    return xff.split(",")[-1].strip() if xff.strip() else (request.client.host if request.client else "unknown")
 
 
 def _json(status: int, body: dict) -> JSONResponse:
@@ -49,7 +43,7 @@ async def _read(request: Request, limit: int):
 
 
 @router.post("/chat")
-@limiter.limit("12/minute", key_func=client_ip)
+@limiter.limit("12/minute")
 async def chat_transcript(request: Request):
     try:
         return _json(202, v2_contact_notify.notify_chat(await _read(request, CHAT_MAX_BYTES)))
@@ -70,7 +64,7 @@ async def call_report(request: Request):
 
 
 @stats_router.post("/hit")
-@limiter.limit("120/minute", key_func=client_ip)
+@limiter.limit("120/minute")
 async def stats_hit(request: Request):
     try:
         payload = await _read(request, 4 * 1024)
