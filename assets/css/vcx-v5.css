@@ -883,7 +883,9 @@ vapi-widget .vapi-widget-wrapper [style*="cursor: pointer"]:hover { transform: n
 /* the menu sheet and, on phones, the cookie slip own the bottom of the screen */
 body.vx-drawer-open .vx-chat-btn, body.vx-drawer-open vapi-widget { display: none; }
 @media (max-width: 47.5em) {
-  .vx-chat-btn { right: 12px; bottom: 12px; }
+  /* phones: a compact 48 px square that covers as little text as possible; the label stays for screen readers */
+  .vx-chat-btn { right: 12px; bottom: 12px; width: 48px; padding: 0; justify-content: center; }
+  .vx-chat-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body:has(.vx-consent:not(.vx-consent--tuck)) .vx-chat-btn { display: none; }
 }
 /* phones: the open chat spans the screen width (the widget's own panel is 24rem wide and stood 18 px off the left edge) */
