@@ -1,7 +1,9 @@
 /* Website chat (owner 2026-10-16: «Чат Vapi давай сделаем на сайте»; then «найди форму и дизайн, чтобы как будто с ней беседуешь»).
    Our own chat window with the assistant's photo, talking to Vapi's chat endpoint (the same one the Vapi widget uses).
    The public key is a client key by design and is restricted in the Vapi dashboard to https://vitacorexllc.com and to the
-   "VitaCoreX Website Chat" assistant only (no transient assistants), so it cannot run anything else on our account. */
+   "VitaCoreX Website Chat" assistant only (no transient assistants), so it cannot run anything else on our account.
+   Every conversation is also posted to our API (/api/v2/contact/chat), which emails it to the owner (owner 2026-10-16:
+   «при каждом контакте с клиентом мне имейл»): after a pause, when the chat is closed and when the visitor leaves. */
 (function () {
   'use strict';
   var KEY = '7206ee91-0958-4b62-a525-24d6faaa43b6';
@@ -9,6 +11,8 @@
   var API = 'https://api.vapi.ai/chat/web';
   var AVATAR = '/assets/img/chat/assistant-160.webp', AVATAR_JPG = '/assets/img/chat/assistant-160.jpg';
   var STORE = 'vx-chat-v1';
+  var NOTIFY_AFTER = 90000;   /* ms of quiet after the assistant's reply before the transcript is mailed */
+  var NOTIFY_BYTES = 60000;   /* fetch keepalive allows 64 KB; older messages are left out above this */
   var T = {
     en: { btn: 'Chat', open: 'Open chat with the VitaCoreX assistant', title: 'VitaCoreX assistant', sub: 'Virtual assistant · online',
           hello: "Hi! I'm the VitaCoreX virtual assistant. Tell me what you need, and I'll point you to the right service and its price.",
@@ -23,12 +27,33 @@
           note: 'Por favor, no envíe documentos ni números de Seguro Social o de tarjeta por el chat.', ph: 'Escriba un mensaje…', send: 'Enviar', close: 'Cerrar el chat',
           typing: 'escribiendo…', fail: 'Lo siento, ahora no puedo responder. Llame al (888) 794-8292 o escriba a info@vitacorexllc.com.', restart: 'Nuevo chat' }
   };
-  var d = document, ui = null, busy = false, btn = null;
+  var d = document, ui = null, busy = false, btn = null, timer = null;
   var state = load();
   function lang() { var l = (d.documentElement.lang || 'en').slice(0, 2); return T[l] ? l : 'en'; }
   function t(k) { return T[lang()][k]; }
-  function load() { try { return JSON.parse(sessionStorage.getItem(STORE)) || { sessionId: null, msgs: [] }; } catch (e) { return { sessionId: null, msgs: [] }; } }
+  function load() { try { return JSON.parse(sessionStorage.getItem(STORE)) || { sessionId: null, msgs: [], sent: 0 }; } catch (e) { return { sessionId: null, msgs: [], sent: 0 }; } }
   function save() { try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* private mode: the chat still works on this page */ } }
+  function apiBase() { try { return (window.VX && window.VX.apiBase && window.VX.apiBase()) || ''; } catch (e) { return ''; } }
+  /* the transcript goes to our API as text/plain JSON: no CORS preflight, and keepalive lets it finish while the page closes */
+  function notify() {
+    clearTimeout(timer); timer = null;
+    var base = apiBase(), n = state.msgs.length;
+    if (!base || !state.sessionId || !n || (state.sent || 0) >= n) return;
+    var msgs = state.msgs.slice(-60), body;
+    for (;;) {
+      body = JSON.stringify({ session_id: state.sessionId, locale: lang(), page: location.pathname, messages: msgs });
+      if (msgs.length <= 1 || new Blob([body]).size <= NOTIFY_BYTES) break;
+      msgs = msgs.slice(1);
+    }
+    if (!msgs.some(function (m) { return m.r === 'me'; })) return;
+    /* marked as mailed only once the API has it; the server ignores a repeat of the same transcript, so a send cut off
+       by the page closing is simply repeated on the next page */
+    try {
+      fetch(base + '/api/v2/contact/chat', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: body })
+        .then(function (r) { if (r.ok) { state.sent = Math.max(state.sent || 0, n); save(); } }).catch(function () {});
+    } catch (e) { /* best effort: Vapi keeps the log as well */ }
+  }
+  function later() { clearTimeout(timer); timer = setTimeout(notify, NOTIFY_AFTER); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   /* assistant text -> safe HTML: escaped first, then only our own links and phone become clickable */
   function rich(s) {
@@ -75,7 +100,7 @@
     ui.panel = p; ui.list = p.querySelector('.vx-chat__list'); ui.form = p.querySelector('form'); ui.input = p.querySelector('textarea'); ui.send = p.querySelector('.vx-chat__send');
     texts();
     p.querySelector('.vx-chat__x').addEventListener('click', close);
-    p.querySelector('.vx-chat__new').addEventListener('click', function () { state = { sessionId: null, msgs: [] }; save(); render(); ui.input.focus(); });
+    p.querySelector('.vx-chat__new').addEventListener('click', function () { notify(); state = { sessionId: null, msgs: [], sent: 0 }; save(); render(); ui.input.focus(); });
     p.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     ui.input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } });
     ui.input.addEventListener('input', grow);
@@ -87,10 +112,11 @@
     ui.panel.hidden = false; btn.hidden = true; d.body.classList.add('vx-chat-open');
     ui.list.scrollTop = ui.list.scrollHeight; ui.input.focus();
   }
-  function close() { if (!ui) return; ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); btn.focus(); }
+  function close() { if (!ui) return; ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); btn.focus(); notify(); }
   function submit() {
     var text = ui.input.value.trim();
     if (!text || busy) return;
+    clearTimeout(timer); timer = null;
     ui.input.value = ''; grow();
     state.msgs.push({ r: 'me', t: text }); save(); bubble('me', text);
     ask(text);
@@ -107,7 +133,7 @@
     var finish = function (ok) {
       busy = false; ui.send.disabled = false;
       if (!ok || !out.trim()) { msg.className = 'vx-chat__msg'; msg.innerHTML = rich(t('fail')); return; }
-      state.msgs.push({ r: 'bot', t: out }); save();
+      state.msgs.push({ r: 'bot', t: out }); save(); later();
     };
     fetch(API, { method: 'POST', headers: { 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json', 'Accept': 'text/event-stream' }, body: JSON.stringify(body) })
       .then(function (res) {
@@ -141,6 +167,10 @@
     label(); d.addEventListener('vx:lang', label);
     btn.addEventListener('click', open);
     d.body.appendChild(btn);
+    /* leaving the page (or hiding the tab) mails what has not been mailed yet; a conversation left from an earlier page is picked up here too */
+    d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'hidden') notify(); });
+    window.addEventListener('pagehide', notify);
+    if (state.msgs.length > (state.sent || 0)) later();
   }
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', init); else init();
 })();

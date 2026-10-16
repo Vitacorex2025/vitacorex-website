@@ -424,3 +424,18 @@ CREATE TABLE IF NOT EXISTS v2_exceptions (
     created_at  TEXT NOT NULL,
     resolved_at TEXT
 );
+
+-- Visitor counter for the owner's daily report (owner 2026-10-16). No cookies and no raw IP: vid is a hash of
+-- IP + user agent + a salt that changes every day, so a visitor can be counted within one day but never followed.
+CREATE TABLE IF NOT EXISTS v2_visits (
+    pv          TEXT PRIMARY KEY,                    -- random id of one page view (made by the page, not stored there)
+    day_salt    TEXT NOT NULL,                       -- YYYY-MM-DD (UTC) the vid hash belongs to
+    vid         TEXT NOT NULL,
+    path        TEXT NOT NULL,
+    ref         TEXT,                                -- referring site (domain only)
+    lang        TEXT,
+    device      TEXT,                                -- mobile|desktop
+    seconds     INTEGER NOT NULL DEFAULT 0,          -- visible time on the page
+    created_at  TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_v2_visits_created ON v2_visits(created_at);

@@ -14,7 +14,7 @@ load_dotenv()
 from .db import init_db
 from .rate_limit import limiter
 from .routers import ai_analyze, calendar, chat, contracts, intakes, matters, portal, recovery, review, uploads
-from .routers import v2_owner, v2_public, v2_voice
+from .routers import v2_contact, v2_owner, v2_public, v2_voice
 from .services import v2_outbox
 
 def _flag(name: str) -> bool:
@@ -81,3 +81,5 @@ if LEGACY_API:
 app.include_router(v2_public.router)
 app.include_router(v2_voice.router)
 app.include_router(v2_owner.router)
+app.include_router(v2_contact.router)
+app.include_router(v2_contact.stats_router)

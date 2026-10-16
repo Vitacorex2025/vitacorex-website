@@ -192,6 +192,9 @@ def _loop():
     while not _stop.is_set():
         try:
             recover_stale()
+            from . import v2_stats  # the owner's daily report rides on this loop (17:00 Eastern, once a day)
+            if v2_stats.maybe_send():
+                logger.info("daily report queued")
             process_due()
         except Exception:  # pragma: no cover - keep the worker alive
             logger.exception("outbox worker iteration failed")
