@@ -22,17 +22,17 @@ const BASE = 'https://vitacorexllc.com';
 
 // lastmod values
 const PREV = '2026-04-28';   // date of the previous published sitemap
-const TODAY = '2026-10-15';  // pages / files created or changed in this rebuild
+const TODAY = '2026-10-15';  // pages / files created or changed in this rebuild (every page was rebuilt 2026-10-14/15)
 const MAY26 = '2026-05-26';  // translations / online-notary last commit
 
 // ---------- Classification ----------
 // Each entry: [path, changefreq, priority, lastmod]
 const SHARED_CORE = [
-  ['about.html',    'weekly', '0.8', PREV],
-  ['contact.html',  'weekly', '0.8', PREV],
-  ['careers.html',  'weekly', '0.8', PREV],
-  ['insights.html', 'weekly', '0.8', PREV],
-  ['faq.html',      'weekly', '0.8', PREV]
+  ['about.html',    'weekly', '0.8', TODAY],
+  ['contact.html',  'weekly', '0.8', TODAY],
+  ['careers.html',  'weekly', '0.8', TODAY],
+  ['insights.html', 'weekly', '0.8', TODAY],
+  ['faq.html',      'weekly', '0.8', TODAY]
 ];
 
 // Private clients (primary lane)
@@ -42,8 +42,8 @@ const PRIVATE_HUB = [
   ['request.html',  'weekly', '0.8', TODAY]
 ];
 const PRIVATE_DOCUMENTS = [
-  ['translations.html',  'weekly', '0.8', MAY26],
-  ['online-notary.html', 'weekly', '0.8', MAY26],
+  ['translations.html',  'weekly', '0.8', TODAY],
+  ['online-notary.html', 'weekly', '0.8', TODAY],
   ['apostille.html',     'weekly', '0.8', TODAY]
 ];
 const PRIVATE_PERSONAL = [
@@ -51,63 +51,63 @@ const PRIVATE_PERSONAL = [
   ['name-change.html',              'monthly', '0.7', TODAY],
   ['fee-waiver.html',               'monthly', '0.7', TODAY],
   ['civil-case-referral.html',      'monthly', '0.6', TODAY],
-  ['contract-review-service.html',  'weekly', '0.8', PREV],
-  ['immigration-packet-review.html','weekly', '0.8', PREV],
-  ['immigration-services-tampa.html','weekly','0.8', PREV],
-  ['i-130-petition.html',           'weekly', '0.8', PREV],
-  ['i-485-adjustment.html',         'weekly', '0.8', PREV],
-  ['n-400-naturalization.html',     'weekly', '0.8', PREV],
-  ['florida-small-claims-help.html','weekly', '0.8', PREV]
+  ['contract-review-service.html',  'weekly', '0.8', TODAY],
+  ['immigration-packet-review.html','weekly', '0.8', TODAY],
+  ['immigration-services-tampa.html','weekly','0.8', TODAY],
+  ['i-130-petition.html',           'weekly', '0.8', TODAY],
+  ['i-485-adjustment.html',         'weekly', '0.8', TODAY],
+  ['n-400-naturalization.html',     'weekly', '0.8', TODAY],
+  ['florida-small-claims-help.html','weekly', '0.8', TODAY]
 ];
 const PRIVATE_FOUNDERS = [
   ['financial-recovery.html',       'monthly', '0.7', TODAY],
   ['business-filings.html',         'monthly', '0.7', TODAY],
-  ['llc-formation-florida.html',    'weekly', '0.8', PREV],
+  ['llc-formation-florida.html',    'weekly', '0.8', TODAY],
   ['founder-services.html',         'monthly', '0.7', TODAY],
-  ['business-plans.html',           'weekly', '0.8', PREV],
-  ['location-analysis.html',        'weekly', '0.8', PREV],
-  ['turnkey-business-opening.html', 'weekly', '0.8', PREV]
+  ['business-plans.html',           'weekly', '0.8', TODAY],
+  ['location-analysis.html',        'weekly', '0.8', TODAY],
+  ['turnkey-business-opening.html', 'weekly', '0.8', TODAY]
 ];
 const PRIVATE_OTHER = [
-  ['additional-services.html', 'weekly', '0.9', PREV],
-  ['diagnostic-review.html',   'weekly', '0.7', PREV]
+  ['additional-services.html', 'weekly', '0.9', TODAY],
+  ['diagnostic-review.html',   'weekly', '0.7', TODAY]
 ];
 
 // Companies (B2B lane)
 const B2B_HUB = [
-  ['solutions.html', 'weekly', '0.9', PREV]
+  ['solutions.html', 'weekly', '0.9', TODAY]
 ];
 const B2B_RECOVERY = [
-  ['revenue-recovery-workflow.html', 'weekly', '0.8', PREV],
-  ['revenue-recovery-florida.html',  'weekly', '0.8', PREV],
-  ['revenue-recovery-miami.html',    'weekly', '0.8', PREV],
-  ['revenue-recovery-orlando.html',  'weekly', '0.8', PREV],
-  ['revenue-recovery-tampa.html',    'weekly', '0.8', PREV]
+  ['revenue-recovery-workflow.html', 'weekly', '0.8', TODAY],
+  ['revenue-recovery-florida.html',  'weekly', '0.8', TODAY],
+  ['revenue-recovery-miami.html',    'weekly', '0.8', TODAY],
+  ['revenue-recovery-orlando.html',  'weekly', '0.8', TODAY],
+  ['revenue-recovery-tampa.html',    'weekly', '0.8', TODAY]
 ];
 const B2B_CORE = [
-  ['corporate-legal-file-control.html', 'weekly', '0.8', PREV],
-  ['pre-collection-pilot.html',         'weekly', '0.8', PREV],
-  ['small-claims-documentation.html',   'weekly', '0.8', PREV],
-  ['structured-case-intake.html',       'weekly', '0.8', PREV]
+  ['corporate-legal-file-control.html', 'weekly', '0.8', TODAY],
+  ['pre-collection-pilot.html',         'weekly', '0.8', TODAY],
+  ['small-claims-documentation.html',   'weekly', '0.8', TODAY],
+  ['structured-case-intake.html',       'weekly', '0.8', TODAY]
 ];
 const B2B_INDUSTRIES = [
-  ['industries.html',                    'weekly', '0.7', PREV],
-  ['industry-contract-services.html',    'weekly', '0.7', PREV],
-  ['industry-fleet-logistics.html',      'weekly', '0.7', PREV],
-  ['industry-healthcare-dental.html',    'weekly', '0.7', PREV],
-  ['industry-subscription-recurring.html','weekly','0.7', PREV]
+  ['industries.html',                    'weekly', '0.7', TODAY],
+  ['industry-contract-services.html',    'weekly', '0.7', TODAY],
+  ['industry-fleet-logistics.html',      'weekly', '0.7', TODAY],
+  ['industry-healthcare-dental.html',    'weekly', '0.7', TODAY],
+  ['industry-subscription-recurring.html','weekly','0.7', TODAY]
 ];
 const B2B_PROOF = [
-  ['case-study-fleet-logistics.html',     'weekly', '0.7', PREV],
-  ['case-study-healthcare-network.html',  'weekly', '0.7', PREV],
-  ['case-study-subscription-saas.html',   'weekly', '0.7', PREV],
-  ['vitacorex-vs-traditional-agency.html','weekly', '0.7', PREV],
-  ['sample-deliverable.html',             'weekly', '0.7', PREV]
+  ['case-study-fleet-logistics.html',     'weekly', '0.7', TODAY],
+  ['case-study-healthcare-network.html',  'weekly', '0.7', TODAY],
+  ['case-study-subscription-saas.html',   'weekly', '0.7', TODAY],
+  ['vitacorex-vs-traditional-agency.html','weekly', '0.7', TODAY],
+  ['sample-deliverable.html',             'weekly', '0.7', TODAY]
 ];
 const B2B_PRICING = [
-  ['pricing-and-engagement-tiers.html', 'weekly', '0.9', PREV],
-  ['security-and-compliance.html',      'weekly', '0.7', PREV],
-  ['partners.html',                     'weekly', '0.6', PREV]
+  ['pricing-and-engagement-tiers.html', 'weekly', '0.9', TODAY],
+  ['security-and-compliance.html',      'weekly', '0.7', TODAY],
+  ['partners.html',                     'weekly', '0.6', TODAY]
 ];
 
 // Sample deliverables (ADR-008), under /samples/<slug>.html
@@ -116,14 +116,14 @@ const SAMPLES_B2C = [];
 const SAMPLES_SHARED = [];
 
 const SHARED_LEGAL = [
-  ['privacy-policy.html',         'monthly', '0.5', PREV],
-  ['terms-of-use.html',           'monthly', '0.5', PREV],
-  ['cookie-policy.html',          'monthly', '0.5', PREV],
-  ['secure-coordination.html',    'monthly', '0.5', PREV],
-  ['sub-processors-and-dpa.html', 'monthly', '0.5', PREV]
+  ['privacy-policy.html',         'monthly', '0.5', TODAY],
+  ['terms-of-use.html',           'monthly', '0.5', TODAY],
+  ['cookie-policy.html',          'monthly', '0.5', TODAY],
+  ['secure-coordination.html',    'monthly', '0.5', TODAY],
+  ['sub-processors-and-dpa.html', 'monthly', '0.5', TODAY]
 ];
 const SHARED_UTILITY = [
-  ['thank-you.html', 'monthly', '0.3', PREV]
+  ['thank-you.html', 'monthly', '0.3', TODAY]
 ];
 
 // Pages intentionally DROPPED (redirect stubs, verification, 404, auth,
@@ -212,7 +212,7 @@ function group(title, list) { comment(title); list.forEach(urlEntry); }
 // ---------- Home ----------
 out.push('');
 comment('Home');
-urlEntry(['', 'weekly', '1.0', PREV]);
+urlEntry(['', 'weekly', '1.0', TODAY]);
 
 // ---------- Shared core ----------
 out.push('');
