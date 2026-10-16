@@ -55,6 +55,8 @@ html.vx7-intro .vx7-guides { opacity: 1; }
 .vx7-align { position: absolute; top: 0; width: 1px; background: rgb(43 179 192 / .55); transform-origin: top; opacity: 0; pointer-events: none; z-index: 3; transition: opacity .16s ease; }
 .vx7-align.is-hint { opacity: 1; }
 @media (max-width: 63.99em) { .vx7-align { display: none; } }
+/* vertical guides are off (owner 2026-10-16: they distracted on hover); vx7.js no longer draws them */
+.vx7-align { display: none !important; }
 
 /* 6. Focus registration marks (one floating frame, so buttons keep their own ::before / ::after) and brand selection colours */
 .vx7-focus { position: fixed; z-index: 2147483000; pointer-events: none; opacity: 0; --c: #0F6E79; --l: 8px; --t: 1.5px;

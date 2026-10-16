@@ -186,7 +186,11 @@
   /* edges() returns [[x, side], …]: side −1 = the guide sits 6 px left of the edge, +1 = 6 px right, so it never touches a glyph;
      span() returns the first and last element the guides run between (rows, not headings), or a list of such pairs —
      one segment per table or group, so a guide never runs through the captions and headings between them */
+  /* turned off 2026-10-16 (owner: «мне не нравятся эти вертикальные полосы при наведении мышкой. лучше убрать»):
+     no vertical guide is drawn anywhere; the code stays so the decision can be reversed in one line */
+  var ALIGN_GUIDES = false;
   function alignSet(host, groups, edges, span) {
+    if (!ALIGN_GUIDES) return;
     if (!host || !groups.length || window.innerWidth < 1024) return;
     if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
     var hr = host.getBoundingClientRect(), sp = span ? span() : [groups[0], groups[groups.length - 1]];
