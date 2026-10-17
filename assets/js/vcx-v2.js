@@ -259,6 +259,9 @@
     });
   }
   function initHeader() {
+    /* iPhone Safari ignores maximum-scale and touch-action for a two-finger pinch: its gesture events are cancelled so
+       the page keeps scale 1 like an app (owner 2026-10-17); accessibility zoom in the phone settings still works */
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (t) { document.addEventListener(t, function (e) { e.preventDefault(); }, { passive: false }); });
     var hdr = qs('.vx-hdr'); if (!hdr) return;
     var onScroll = function () { hdr.classList.toggle('is-stuck', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();

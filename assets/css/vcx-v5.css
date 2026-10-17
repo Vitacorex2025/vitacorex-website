@@ -844,8 +844,10 @@ body.vx-drawer-open .vx7-focus { display: none; }
 :where(body.vx) .vx-field.is-error input:is([type="checkbox"], [type="radio"]) { box-shadow: none; outline: 2px solid var(--vx-danger); outline-offset: 2px; }
 
 /* 35. Leftovers from the 2026-10-15 Android and desktop reports */
-/* pinch zoom works on the old EN-only pages too: styles.css set touch-action: pan-y on html and body */
-:root, :root body { touch-action: auto; }
+/* The page keeps its scale on phones (owner 2026-10-17: «можно приближать и отдалять, и оно так и остаётся» — app-like,
+   no pinch or double-tap zoom; texts and fields are 16 px+). It still pans both ways (the old styles.css allowed pan-y only).
+   Phone accessibility zoom (iOS Zoom, Android magnification / force zoom) is untouched. */
+:root, :root body { touch-action: pan-x pan-y; }
 /* service cards of one row share their price line: name, text, price and buttons sit on common row lines (RU/ES texts differ in length) */
 @supports (grid-template-rows: subgrid) {
   .vx-cards > .vx-scard:has(> h3 + p + .vx-price + .vx-scard__actions) { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
@@ -919,8 +921,8 @@ body.vx-drawer-open .vx-chat-btn, body.vx-drawer-open .vx-chat { display: none; 
 /* Mobile mechanics (owner 2026-10-17: the page moved behind the open chat, zoom felt unstable):
    - while the phone chat is open nothing behind it moves: no scroll, no rubber-band, no chained drag;
    - inside the open sheet only the message list (and a long message field) scroll, vertically; no pinch inside it;
-   - the launcher steps aside while the page is pinch-zoomed and comes back at normal scale;
-   - taps never trigger double-tap zoom; pinch zoom on the page itself stays available. */
+   - the launcher steps aside if the page is ever zoomed (system zoom) and comes back at normal scale;
+   - taps never trigger double-tap zoom (the page itself keeps scale 1, see section 35). */
 html.vx-chat-lock, html.vx-chat-lock body { overflow: hidden; overscroll-behavior: none; }
 .vx-chat { overscroll-behavior: contain; }
 .vx-chat-btn--zoomed, .vx-chat-btn--wait { opacity: 0; visibility: hidden; pointer-events: none; }
