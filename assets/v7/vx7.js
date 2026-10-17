@@ -7,6 +7,8 @@
 (function () {
   'use strict';
   var d = document, root = d.documentElement, body = d.body;
+  /* viewport width tests through media queries: they follow the layout width, not the area a pinch zoom shows */
+  function mw(px) { return !!(window.matchMedia && window.matchMedia('(min-width: ' + px + 'px)').matches); }
   if (!body || !body.classList.contains('vx7')) return;
   var hero = d.querySelector('.vx6-hero');
   var lab = body.classList.contains('vx7-lab');
@@ -101,7 +103,7 @@
     var media = hero.querySelector('.vx6-hero__media'); if (!media) return;
     if (!veil) { veil = d.createElement('div'); veil.className = 'vx7-veil'; media.appendChild(veil); }
     if (!lines) { lines = d.createElementNS('http://www.w3.org/2000/svg', 'svg'); lines.setAttribute('class', 'vx7-lines'); lines.setAttribute('aria-hidden', 'true'); lines.setAttribute('focusable', 'false'); media.appendChild(lines); }
-    var big = window.innerWidth >= 1100;   /* measured: from 1100 px the slope keeps ≥ 88 px from every text line (EN/RU/ES) */
+    var big = mw(1100);   /* measured: from 1100 px the slope keeps ≥ 88 px from every text line (EN/RU/ES) */
     veil.classList.toggle('is-full', !big);
     if (!big) { veil.style.clipPath = ''; lines.innerHTML = ''; return; }
     var w = windowGeom(g), u = [w.D[0] - w.A[0], w.D[1] - w.A[1]], len = Math.hypot(u[0], u[1]); u = [u[0] / len, u[1] / len];
@@ -147,7 +149,7 @@
     if (force) root.classList.add('vx7-intro');
     if (!root.classList.contains('vx7-intro')) return;
     root.classList.add('vx7-run');
-    var h = s.h, g = s.g, phone = window.innerWidth < 768, rise = phone ? 520 : 640, step = phone ? 70 : 90;
+    var h = s.h, g = s.g, phone = !mw(768), rise = phone ? 520 : 640, step = phone ? 70 : 90;
 
     hero.querySelectorAll('.vx7-guides i').forEach(function (i, k) { anim(i, [{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: phone ? 400 : 560, delay: k * 20, easing: E_DRAW }); });
     anim(hero.querySelector('.vx7-guides'), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 1500, easing: 'ease' });
@@ -164,7 +166,7 @@
       h.querySelectorAll('em .vx7-w').forEach(function (w, k) { anim(w, [{ transform: from[k] || from[1] }, { transform: 'none' }], { duration: 560, delay: 820 + k * 60, easing: E_SET }); });
       anim(h.querySelector('.vx7-stop'), [{ opacity: 0 }, { opacity: 1 }], { duration: 120, delay: 1240, easing: 'linear' });
     }
-    if (veil && lines && window.innerWidth >= 1100) {
+    if (veil && lines && mw(1100)) {
       var w = windowGeom(g);
       anim(veil, [{ clipPath: poly(g, w.A, w.A, w.D, w.D) }, { clipPath: poly(g, w.A, w.B, w.C, w.D) }], { duration: 900, delay: 1100, easing: E_OUT });
       var ps = lines.querySelectorAll('path');
@@ -191,7 +193,7 @@
   var ALIGN_GUIDES = false;
   function alignSet(host, groups, edges, span) {
     if (!ALIGN_GUIDES) return;
-    if (!host || !groups.length || window.innerWidth < 1024) return;
+    if (!host || !groups.length || !mw(1024)) return;
     if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
     var hr = host.getBoundingClientRect(), sp = span ? span() : [groups[0], groups[groups.length - 1]];
     var segs = (Array.isArray(sp[0]) ? sp : [sp]).filter(function (sg) { return sg && sg[0] && sg[1]; });
@@ -342,7 +344,10 @@
   /* language switch rewrites the H1, the credential line and the price lists: rebuild without animation */
   d.addEventListener('vx:lang', function () { setTimeout(relayout, 0); });
   d.addEventListener('vx:ready', function () { setTimeout(function () { var h = hero && hero.querySelector('.vx6-hero__h1'); if (h && !h.querySelector('.vx7-ln')) relayout(); }, 0); });
-  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(relayout, 140); });
+  /* iPhone Safari fires resize during a two-finger zoom (innerWidth then reports the zoomed area): rebuild only when the
+     layout width really changes (rotation, window resize, text zoom), never while the visitor pinches */
+  var rz, lw = d.documentElement.clientWidth;
+  window.addEventListener('resize', function () { var w = d.documentElement.clientWidth; if (w === lw) return; lw = w; clearTimeout(rz); rz = setTimeout(relayout, 140); });
   /* lists rendered and filtered by script (services index) change height: re-measure the guides */
   if ('MutationObserver' in window) {
     var mt, mo = new MutationObserver(function (recs) {

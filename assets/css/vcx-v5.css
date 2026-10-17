@@ -915,10 +915,17 @@ body.vx-drawer-open .vx7-focus { display: none; }
 .vx-chat__send svg { width: 20px; height: 20px; }
 /* the menu sheet and, on phones, the cookie slip own the bottom of the screen */
 body.vx-drawer-open .vx-chat-btn, body.vx-drawer-open .vx-chat { display: none; }
+.vx-chat:focus { outline: none; } /* the sheet itself takes focus on touch screens (no keyboard on open) */
 @media (max-width: 47.5em) {
   /* phones: the launcher is her photo alone (52 px); the label stays for screen readers */
   .vx-chat-btn { right: 12px; bottom: 12px; padding: 4px; gap: 0; }
   .vx-chat-btn__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body:has(.vx-consent:not(.vx-consent--tuck)) .vx-chat-btn { display: none; }
-  .vx-chat { left: 8px; right: 8px; bottom: 8px; width: auto; height: calc(100dvh - 16px); max-height: 640px; }
+  /* phones: the chat is a full-screen sheet; while the keyboard is open the script sizes it to the visible area
+     (--vx-chat-top / --vx-chat-h from visualViewport), so the header and the input never slide out of view */
+  .vx-chat { top: var(--vx-chat-top, 0px); left: 0; right: 0; bottom: auto; width: 100%; height: 100vh; height: var(--vx-chat-h, 100dvh);
+    max-height: none; border: 0; border-radius: 0; box-shadow: none; }
+  .vx-chat__head { padding-top: calc(14px + env(safe-area-inset-top, 0px)); padding-left: calc(16px + env(safe-area-inset-left, 0px)); padding-right: calc(12px + env(safe-area-inset-right, 0px)); }
+  .vx-chat__form { padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: calc(10px + env(safe-area-inset-left, 0px)); padding-right: calc(10px + env(safe-area-inset-right, 0px)); }
+  .vx-chat__msg { max-width: 86%; }
 }

@@ -27,7 +27,9 @@
           note: 'Por favor, no envíe documentos ni números de Seguro Social o de tarjeta por el chat.', ph: 'Escriba un mensaje…', send: 'Enviar', close: 'Cerrar el chat',
           typing: 'escribiendo…', fail: 'Lo siento, ahora no puedo responder. Llame al (888) 794-8292 o escriba a info@vitacorexllc.com.', restart: 'Nuevo chat' }
   };
-  var d = document, ui = null, busy = false, btn = null, timer = null;
+  var d = document, ui = null, busy = false, btn = null, timer = null, lockY = 0, vvRaf = 0;
+  var PHONE = window.matchMedia ? window.matchMedia('(max-width: 47.5em)') : { matches: false };
+  var TOUCH = window.matchMedia ? window.matchMedia('(hover: none) and (pointer: coarse)') : { matches: false };
   var state = load();
   function lang() { var l = (d.documentElement.lang || 'en').slice(0, 2); return T[l] ? l : 'en'; }
   function t(k) { return T[lang()][k]; }
@@ -85,10 +87,28 @@
     ui.panel.querySelector('label').textContent = t('ph');
     ui.input.placeholder = t('ph'); ui.send.setAttribute('aria-label', t('send'));
   }
+  /* phones: a full-screen sheet sized to the visible area, so an open keyboard never pushes the header or the input out
+     of view; skipped while the visitor has pinch-zoomed (the page keeps its own zoom) */
+  function fitPhone() {
+    vvRaf = 0;
+    if (!ui || ui.panel.hidden) return;
+    var vv = window.visualViewport, st = ui.panel.style;
+    if (!PHONE.matches || !vv || vv.scale > 1.01) { st.removeProperty('--vx-chat-h'); st.removeProperty('--vx-chat-top'); return; }
+    st.setProperty('--vx-chat-h', Math.round(vv.height) + 'px');
+    st.setProperty('--vx-chat-top', Math.round(vv.offsetTop) + 'px');
+    ui.list.scrollTop = ui.list.scrollHeight;
+  }
+  function queueFit() { if (!vvRaf) vvRaf = requestAnimationFrame(fitPhone); }
+  /* the page behind a phone sheet must not scroll (iPhone ignores overflow: hidden on body alone) */
+  function lock(on) {
+    var b = d.body.style;
+    if (on) { if (!PHONE.matches || b.position === 'fixed') return; lockY = window.scrollY || 0; b.position = 'fixed'; b.top = -lockY + 'px'; b.left = '0'; b.right = '0'; b.width = '100%'; }
+    else if (b.position === 'fixed') { b.position = ''; b.top = ''; b.left = ''; b.right = ''; b.width = ''; window.scrollTo(0, lockY); }
+  }
   function grow() { ui.input.style.height = 'auto'; ui.input.style.height = Math.min(ui.input.scrollHeight, 120) + 'px'; }
   function build() {
     ui = {};
-    var p = d.createElement('section'); p.className = 'vx-chat'; p.hidden = true; p.setAttribute('role', 'dialog');
+    var p = d.createElement('section'); p.className = 'vx-chat'; p.hidden = true; p.setAttribute('role', 'dialog'); p.tabIndex = -1;
     p.innerHTML = '<header class="vx-chat__head">' + avatar('vx-chat__face') +
       '<div class="vx-chat__who"><p class="vx-chat__name"></p><p class="vx-chat__sub"></p></div>' +
       '<button type="button" class="vx-chat__new"></button>' +
@@ -109,10 +129,12 @@
   }
   function open() {
     if (!ui) build();
-    ui.panel.hidden = false; btn.hidden = true; d.body.classList.add('vx-chat-open');
-    ui.list.scrollTop = ui.list.scrollHeight; ui.input.focus();
+    ui.panel.hidden = false; btn.hidden = true; d.body.classList.add('vx-chat-open'); lock(true); fitPhone();
+    ui.list.scrollTop = ui.list.scrollHeight;
+    /* touch screens: no keyboard popping up the moment the chat opens; the visitor taps the field when ready */
+    if (TOUCH.matches) ui.panel.focus({ preventScroll: true }); else ui.input.focus();
   }
-  function close() { if (!ui) return; ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); btn.focus(); notify(); }
+  function close() { if (!ui) return; ui.input.blur(); ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); lock(false); btn.focus({ preventScroll: true }); notify(); }
   function submit() {
     var text = ui.input.value.trim();
     if (!text || busy) return;
@@ -170,6 +192,8 @@
     /* leaving the page (or hiding the tab) mails what has not been mailed yet; a conversation left from an earlier page is picked up here too */
     d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'hidden') notify(); });
     window.addEventListener('pagehide', notify);
+    if (window.visualViewport) { window.visualViewport.addEventListener('resize', queueFit); window.visualViewport.addEventListener('scroll', queueFit); }
+    if (PHONE.addEventListener) PHONE.addEventListener('change', function () { if (ui && !ui.panel.hidden) { lock(false); lock(true); fitPhone(); } });
     if (state.msgs.length > (state.sent || 0)) later();
   }
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', init); else init();

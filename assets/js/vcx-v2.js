@@ -270,7 +270,9 @@
       hdr.classList.remove('vx-hdr--compact');
       if (row.scrollWidth > row.clientWidth + 1 || (qs('.vx-nav', hdr) && qs('.vx-nav', hdr).scrollWidth > qs('.vx-nav', hdr).clientWidth + 1)) hdr.classList.add('vx-hdr--compact');
     };
-    fit(); window.addEventListener('resize', fit); document.addEventListener('vx:lang', fit);
+    /* iPhone Safari fires resize during a two-finger zoom; re-fit only when the layout width changes */
+    var fitW = document.documentElement.clientWidth;
+    fit(); window.addEventListener('resize', function () { var w = document.documentElement.clientWidth; if (w !== fitW) { fitW = w; fit(); } }); document.addEventListener('vx:lang', fit);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 
     qsa('.vx-nav__menu').forEach(function (menu) {
@@ -419,6 +421,7 @@
     };
     var check = function () {
       raf = 0; if (!bar.isConnected) return;
+      if (window.visualViewport && window.visualViewport.scale > 1.01) return; /* pinch-zoomed: keep the slip as it is */
       if (spacer.nextElementSibling) spacer.parentNode.appendChild(spacer);
       if (keys.some(function (el) { return !el.isConnected; })) collect(); /* blocks re-rendered after load (services index) */
       if (!scrolled && (window.scrollY || 0) >= 120) scrolled = true;
@@ -433,7 +436,9 @@
     var refresh = function () { reserve(); collect(); check(); };
     bar.classList.add('vx-consent--tuck'); document.body.appendChild(bar); refresh();
     window.addEventListener('scroll', queue, { passive: true });
-    window.addEventListener('resize', refresh); window.addEventListener('load', refresh); document.addEventListener('vx:lang', refresh);
+    var slipW = document.documentElement.clientWidth;
+    window.addEventListener('resize', function () { var w = document.documentElement.clientWidth; if (w !== slipW) { slipW = w; refresh(); } else queue(); });
+    window.addEventListener('load', refresh); document.addEventListener('vx:lang', refresh);
     qsa('[data-c]', bar).forEach(function (b) { b.addEventListener('click', function () {
       var c = b.getAttribute('data-c'); safeSet('vcx_cookie_consent', c); bar.remove(); spacer.remove();
       window.removeEventListener('scroll', queue); window.removeEventListener('resize', refresh); window.removeEventListener('load', refresh); document.removeEventListener('vx:lang', refresh);
