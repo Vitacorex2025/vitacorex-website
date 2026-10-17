@@ -28,7 +28,8 @@
           typing: 'escribiendo…', fail: 'Lo siento, ahora no puedo responder. Llame al (888) 794-8292 o escriba a info@vitacorexllc.com.', restart: 'Nuevo chat' }
   };
   var d = document, ui = null, busy = false, btn = null, timer = null, lockY = 0, vvRaf = 0;
-  var PHONE = window.matchMedia ? window.matchMedia('(max-width: 47.5em)') : { matches: false };
+  /* phones in portrait and on their side (same query as the sheet in vcx-v5.css) */
+  var PHONE = window.matchMedia ? window.matchMedia('(max-width: 47.5em), (pointer: coarse) and (max-height: 32em)') : { matches: false };
   var TOUCH = window.matchMedia ? window.matchMedia('(hover: none) and (pointer: coarse)') : { matches: false };
   var state = load();
   function lang() { var l = (d.documentElement.lang || 'en').slice(0, 2); return T[l] ? l : 'en'; }
@@ -102,9 +103,27 @@
   /* the page behind a phone sheet must not scroll (iPhone ignores overflow: hidden on body alone) */
   function lock(on) {
     var b = d.body.style;
-    if (on) { if (!PHONE.matches || b.position === 'fixed') return; lockY = window.scrollY || 0; b.position = 'fixed'; b.top = -lockY + 'px'; b.left = '0'; b.right = '0'; b.width = '100%'; }
-    else if (b.position === 'fixed') { b.position = ''; b.top = ''; b.left = ''; b.right = ''; b.width = ''; window.scrollTo(0, lockY); }
+    if (on) { if (!PHONE.matches || b.position === 'fixed') return; lockY = window.scrollY || 0; d.documentElement.classList.add('vx-chat-lock'); b.position = 'fixed'; b.top = -lockY + 'px'; b.left = '0'; b.right = '0'; b.width = '100%'; }
+    else if (b.position === 'fixed') { d.documentElement.classList.remove('vx-chat-lock'); b.position = ''; b.top = ''; b.left = ''; b.right = ''; b.width = ''; window.scrollTo(0, lockY); }
   }
+  /* phones: a drag may move only the message list (or a long message field) and never chains on to the page; two fingers
+     inside the sheet do nothing (iPhone ignores touch-action for pinch on some versions, hence the gesture events) */
+  var lastY = 0;
+  function guardTouch(p) {
+    p.addEventListener('touchstart', function (e) { if (e.touches.length === 1) lastY = e.touches[0].clientY; }, { passive: true });
+    p.addEventListener('touchmove', function (e) {
+      if (!PHONE.matches) return;
+      if (e.touches.length > 1) { if (e.cancelable) e.preventDefault(); return; }
+      var y = e.touches[0].clientY, dy = y - lastY; lastY = y;
+      var sc = e.target.closest ? e.target.closest('.vx-chat__list, .vx-chat__in') : null;
+      var stop = !sc || sc.scrollHeight <= sc.clientHeight + 1 ||
+        (dy > 0 && sc.scrollTop <= 0) || (dy < 0 && sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1);
+      if (stop && e.cancelable) e.preventDefault();
+    }, { passive: false });
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (t) { p.addEventListener(t, function (e) { if (PHONE.matches) e.preventDefault(); }); });
+  }
+  /* phones: the system Back button closes the chat instead of leaving the page */
+  var inHistory = false;
   function grow() { ui.input.style.height = 'auto'; ui.input.style.height = Math.min(ui.input.scrollHeight, 120) + 'px'; }
   function build() {
     ui = {};
@@ -116,12 +135,27 @@
       '<div class="vx-chat__list" aria-live="polite"></div>' +
       '<form class="vx-chat__form"><label class="vx-sr" for="vx-chat-in"></label><textarea id="vx-chat-in" class="vx-chat__in" rows="1" maxlength="1200" autocomplete="off"></textarea>' +
       '<button type="submit" class="vx-chat__send"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 10l14-6-5 13-2.5-5.5z" fill="currentColor"/></svg></button></form>';
-    d.body.appendChild(p);
+    d.body.appendChild(p); guardTouch(p);
     ui.panel = p; ui.list = p.querySelector('.vx-chat__list'); ui.form = p.querySelector('form'); ui.input = p.querySelector('textarea'); ui.send = p.querySelector('.vx-chat__send');
     texts();
-    p.querySelector('.vx-chat__x').addEventListener('click', close);
+    p.querySelector('.vx-chat__x').addEventListener('click', function () { close(); });
     p.querySelector('.vx-chat__new').addEventListener('click', function () { notify(); state = { sessionId: null, msgs: [], sent: 0 }; save(); render(); ui.input.focus(); });
     p.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    /* Back closes the open chat; Forward onto the chat's entry opens it again (no dead history steps) */
+    window.addEventListener('popstate', function () {
+      var chatEntry = !!(history.state && history.state.vxChat);
+      if (ui && !ui.panel.hidden && !chatEntry) { inHistory = false; close(true); }
+      else if (chatEntry && (!ui || ui.panel.hidden) && PHONE.matches) { inHistory = true; open(); }
+    });
+    /* a link in an answer: close the chat (and its history entry) first, then go, so Back from the next page lands
+       on this page at its place instead of on a stale chat entry */
+    ui.list.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || !inHistory || a.protocol === 'tel:' || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      var href = a.href, went = false, go = function () { if (!went) { went = true; location.href = href; } };
+      window.addEventListener('popstate', go, { once: true }); close(); setTimeout(go, 400);
+    });
     ui.input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } });
     ui.input.addEventListener('input', grow);
     ui.form.addEventListener('submit', function (e) { e.preventDefault(); submit(); });
@@ -129,12 +163,18 @@
   }
   function open() {
     if (!ui) build();
+    /* history entry first: the browser stores the page's scroll position with it, before the lock moves the page */
+    if (PHONE.matches && window.history && history.pushState && !inHistory) { try { history.pushState({ vxChat: 1 }, ''); inHistory = true; } catch (e) { /* sandboxed frames */ } }
     ui.panel.hidden = false; btn.hidden = true; d.body.classList.add('vx-chat-open'); lock(true); fitPhone();
     ui.list.scrollTop = ui.list.scrollHeight;
     /* touch screens: no keyboard popping up the moment the chat opens; the visitor taps the field when ready */
     if (TOUCH.matches) ui.panel.focus({ preventScroll: true }); else ui.input.focus();
   }
-  function close() { if (!ui) return; ui.input.blur(); ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); lock(false); btn.focus({ preventScroll: true }); notify(); }
+  function close(fromBack) {
+    if (!ui || ui.panel.hidden) return;
+    ui.input.blur(); ui.panel.hidden = true; btn.hidden = false; d.body.classList.remove('vx-chat-open'); lock(false); btn.focus({ preventScroll: true }); notify();
+    if (inHistory) { inHistory = false; if (fromBack !== true && history.state && history.state.vxChat) history.back(); }
+  }
   function submit() {
     var text = ui.input.value.trim();
     if (!text || busy) return;
@@ -183,16 +223,29 @@
   }
   function init() {
     if (btn) return;
+    /* after a reload with the chat open the page starts closed: its history entry becomes an ordinary one */
+    if (history.state && history.state.vxChat && history.replaceState) { try { history.replaceState(null, ''); } catch (e) { /* ignore */ } }
     btn = d.createElement('button'); btn.type = 'button'; btn.className = 'vx-chat-btn';
     btn.innerHTML = avatar('vx-chat-btn__ava') + '<span class="vx-chat-btn__label"></span>';
     var label = function () { btn.querySelector('.vx-chat-btn__label').textContent = t('btn'); btn.setAttribute('aria-label', t('open')); texts(); };
     label(); d.addEventListener('vx:lang', label);
     btn.addEventListener('click', open);
     d.body.appendChild(btn);
+    /* phones: the launcher waits for the first scroll, so it never sits on the first-screen buttons (a returning
+       visitor with an open conversation sees it at once) — mobile audit 2026-10-17 */
+    if (PHONE.matches && !state.msgs.length && (window.scrollY || 0) < 80) {
+      btn.classList.add('vx-chat-btn--wait');
+      var reveal = function () { if ((window.scrollY || 0) >= 80) { btn.classList.remove('vx-chat-btn--wait'); window.removeEventListener('scroll', reveal); } };
+      window.addEventListener('scroll', reveal, { passive: true });
+    }
     /* leaving the page (or hiding the tab) mails what has not been mailed yet; a conversation left from an earlier page is picked up here too */
     d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'hidden') notify(); });
     window.addEventListener('pagehide', notify);
-    if (window.visualViewport) { window.visualViewport.addEventListener('resize', queueFit); window.visualViewport.addEventListener('scroll', queueFit); }
+    if (window.visualViewport) {
+      var zoomed = function () { btn.classList.toggle('vx-chat-btn--zoomed', window.visualViewport.scale > 1.05); };
+      window.visualViewport.addEventListener('resize', function () { queueFit(); zoomed(); });
+      window.visualViewport.addEventListener('scroll', queueFit);
+    }
     if (PHONE.addEventListener) PHONE.addEventListener('change', function () { if (ui && !ui.panel.hidden) { lock(false); lock(true); fitPhone(); } });
     if (state.msgs.length > (state.sent || 0)) later();
   }

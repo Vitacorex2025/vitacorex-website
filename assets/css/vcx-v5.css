@@ -916,16 +916,44 @@ body.vx-drawer-open .vx7-focus { display: none; }
 /* the menu sheet and, on phones, the cookie slip own the bottom of the screen */
 body.vx-drawer-open .vx-chat-btn, body.vx-drawer-open .vx-chat { display: none; }
 .vx-chat:focus { outline: none; } /* the sheet itself takes focus on touch screens (no keyboard on open) */
+/* Mobile mechanics (owner 2026-10-17: the page moved behind the open chat, zoom felt unstable):
+   - while the phone chat is open nothing behind it moves: no scroll, no rubber-band, no chained drag;
+   - inside the open sheet only the message list (and a long message field) scroll, vertically; no pinch inside it;
+   - the launcher steps aside while the page is pinch-zoomed and comes back at normal scale;
+   - taps never trigger double-tap zoom; pinch zoom on the page itself stays available. */
+html.vx-chat-lock, html.vx-chat-lock body { overflow: hidden; overscroll-behavior: none; }
+.vx-chat { overscroll-behavior: contain; }
+.vx-chat-btn--zoomed, .vx-chat-btn--wait { opacity: 0; visibility: hidden; pointer-events: none; }
+.vx-chat-btn { transition: opacity .2s ease, visibility .2s; }
+@media (prefers-reduced-motion: reduce) { .vx-chat-btn { transition: none; } }
+.vx-chat__new, .vx-chat__x { min-height: 44px; }
+.vx-chat__x { width: 44px; }
+/* the chosen service and price under the service select (the closed select clips long names on narrow phones) */
+.vx-svc-pick { margin: 8px 0 0; font-size: 15px; line-height: 1.4; font-weight: 600; overflow-wrap: anywhere; }
+@media (min-width: 48em) { .vx-svc-pick { display: none; } }
+/* 44 px tap height for stand-alone text links (tables, service titles, profile links) without moving the layout */
+/* position: relative lifts the padded box above the next line (the price note or summary) so all 44 px take the tap */
+:is(.vx-ptable th a, .vx-ptable td a:not(.vx-btn), .vx-irow__main h3 a) { position: relative; padding-block: 12px; margin-block: -12px; }
+.vx-person p a { position: relative; display: inline-block; padding-block: 12px; margin-block: -12px; }
+.vx-check { min-height: 44px; }
+/* iPhone home indicator: the last footer links stay clear of it */
+.vx-ftr { padding-bottom: env(safe-area-inset-bottom, 0px); }
+a, button, input, select, textarea, label, summary, [role="button"] { touch-action: manipulation; }
 @media (max-width: 47.5em) {
   /* phones: the launcher is her photo alone (52 px); the label stays for screen readers */
   .vx-chat-btn { right: 12px; bottom: 12px; padding: 4px; gap: 0; }
   .vx-chat-btn__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body:has(.vx-consent:not(.vx-consent--tuck)) .vx-chat-btn { display: none; }
-  /* phones: the chat is a full-screen sheet; while the keyboard is open the script sizes it to the visible area
-     (--vx-chat-top / --vx-chat-h from visualViewport), so the header and the input never slide out of view */
+}
+/* phones, portrait and landscape (a phone on its side is wider than 47.5em but at most 32em tall): the chat is a
+   full-screen sheet; while the keyboard is open the script sizes it to the visible area (--vx-chat-top / --vx-chat-h
+   from visualViewport), so the header and the input never slide out of view. Keep this query equal to PHONE in vcx-chat.js. */
+@media (max-width: 47.5em), (pointer: coarse) and (max-height: 32em) {
   .vx-chat { top: var(--vx-chat-top, 0px); left: 0; right: 0; bottom: auto; width: 100%; height: 100vh; height: var(--vx-chat-h, 100dvh);
     max-height: none; border: 0; border-radius: 0; box-shadow: none; }
   .vx-chat__head { padding-top: calc(14px + env(safe-area-inset-top, 0px)); padding-left: calc(16px + env(safe-area-inset-left, 0px)); padding-right: calc(12px + env(safe-area-inset-right, 0px)); }
   .vx-chat__form { padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: calc(10px + env(safe-area-inset-left, 0px)); padding-right: calc(10px + env(safe-area-inset-right, 0px)); }
   .vx-chat__msg { max-width: 86%; }
+  .vx-chat, .vx-chat * { touch-action: none; }
+  .vx-chat .vx-chat__list, .vx-chat .vx-chat__list *, .vx-chat .vx-chat__in { touch-action: pan-y; }
 }

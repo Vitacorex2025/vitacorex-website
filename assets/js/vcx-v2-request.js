@@ -143,9 +143,16 @@
     return wrap;
   }
 
+  /* the closed <select> clips long names on narrow phones (iPhone SE showed «Certified translation — $2»), so the chosen
+     service and its price are always spelled out under it (mobile audit 2026-10-17) */
+  function updatePick() {
+    var fs = $('f-service'), pick = $('vx-svc-pick'); if (!fs || !current || !VX.svc(current)) return;
+    if (!pick) { pick = el('p', { id: 'vx-svc-pick', 'class': 'vx-svc-pick', 'aria-hidden': 'true' }); fs.parentNode.insertBefore(pick, fs.nextSibling); }
+    pick.textContent = VX.loc(VX.svc(current).name) + ' — ' + VX.priceInfo(current).short;
+  }
   function renderService(id, keepValues) {
     var s = VX.svc(id); if (!s) return;
-    current = id;
+    current = id; updatePick();
     var saved = keepValues ? collectDetails() : readDraftDetails(id);
     /* subtypes */
     var subWrap = $('vx-subtype-wrap'), sub = $('f-subtype'); sub.innerHTML = '';
@@ -402,7 +409,7 @@
     $('f-service').addEventListener('change', function () { saveDraft(); renderService(this.value, false); });
     form.addEventListener('change', function (e) { if (e.target.name === 'b2b_state') nyCheck(); saveDraft(); });
     form.addEventListener('submit', submit);
-    document.addEventListener('vx:lang', function () { populateServiceSelect(); $('f-service').value = current; renderSummary(); updateSubmitLabel(); VX.apply(form); relabelErrors(); var res = $('vx-req-result'); if (!res.hidden) VX.apply(res); });
+    document.addEventListener('vx:lang', function () { populateServiceSelect(); $('f-service').value = current; updatePick(); renderSummary(); updateSubmitLabel(); VX.apply(form); relabelErrors(); var res = $('vx-req-result'); if (!res.hidden) VX.apply(res); });
   }
   if (window.VX && window.VX.ready) window.VX.ready.then(init); else document.addEventListener('vx:ready', init);
 })();
