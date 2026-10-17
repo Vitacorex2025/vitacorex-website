@@ -470,7 +470,7 @@
           "url": "https://vitacorexllc.com/small-claims-documentation.html#retainer",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "description": "From $749 — final price after review (per case, until judgment)",
+          "description": "From $749 — final price after review (one-time payment per case, until judgment)",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "749",

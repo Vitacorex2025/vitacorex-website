@@ -3529,9 +3529,9 @@
         "es": "Llevamos todo el caso de su empresa: documentos, presentación, notificación, plazos, negociación y la audiencia, con un poder. Incluye el bono de recuperación."
       },
       "unit": {
-        "en": "per case, until judgment",
-        "ru": "за дело, до решения суда",
-        "es": "por caso, hasta la sentencia"
+        "en": "one-time payment per case, until judgment",
+        "ru": "разовая оплата за дело, до решения суда",
+        "es": "pago único por caso, hasta la sentencia"
       },
       "included": {
         "en": [
